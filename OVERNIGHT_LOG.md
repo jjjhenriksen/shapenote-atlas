@@ -295,3 +295,51 @@
 - Validation performed: A fresh browser tab preserved the exact visual text and dimensions, exposed the complete breakdown in the accessibility snapshot, and reported no console warnings/errors. Production build and diff checks passed.
 - Commit: Cycle 37 commit in Git history — Make coverage details accessible.
 - Remaining opportunities/blockers: The shared source-comparison and shape-review UI changes remain unstaged and protected; the source-faithful worker remains active with fail-closed comparison artifacts.
+
+## Cycle 38 — Reconcile the autonomous Sacred Harp 2025 batch
+
+- Problem identified: The next source batch had usable OMR derivatives and rendered witnesses, but direct comparison still found edition, measure, watermark, lyric, rhythm, or shape uncertainty; the generated next-action text also incorrectly suggested a human handoff despite the autonomous fail-closed policy.
+- Change made: Reconciled and retained autonomous blocked records for 130 The Old Graveyard, 184 And Jesus Crucified, 188 Ephesus, and 231 Seiler alongside the existing 115 Holbrook and 116 Hooper audits. Updated the deterministic batch generator and the affected audit records so every blocked outcome explicitly requires clean authorized structured source evidence, never manual review. Rebuilt the source-comparison ledger and review queue without promoting any derivative.
+- Validation performed: Six autonomous blocked MXLs contain four named parts and derived four-shape noteheads; source hashes and candidate checksums validate. `validate_data.py`, `validate_transposition.py`, `validate_playback.py`, `validate_shape_review_drafts.py`, `validate_transcription_images.py`, `npm run build`, `git diff --check`, and an explicit ledger/queue integrity audit all passed. The ledger reports 40 comparison records, 0 errors, and 0 safe promotions; the review queue reports 40 source comparisons and 0 safe promotions.
+- Commit: Autonomous source-batch reconciliation and fail-closed wording (recorded in Git history).
+- Remaining opportunities/blockers: No 2025 record was safe to promote from these independent OMR witnesses. Continue with the next clearest disjoint source candidate, preserving the zero-promotion gate and the separate uncommitted source-comparison UI work.
+
+## Cycle 39 — Extend autonomous source comparison coverage
+
+- Problem identified: Three additional retained 2025 pages had close title/text-family and structural OMR witnesses, but similarity alone could not establish exact edition, note, rhythm, lyric, or four-shape fidelity.
+- Change made: Added 213b Trembling Spirit, 263 Every Grace, and 367 Nassau to the deterministic autonomous batch. Each retains the untouched source hash, corrected visible metadata, four-part MusicXML derivative, derived shape hypotheses, rendered QA, and precise autonomous blocking evidence; none entered the authoritative corpus.
+- Validation performed: The rebuilt ledger reports 43 comparison records, 11 autonomous blocks, 0 errors, and 0 safe promotions. The review queue was rebuilt with 43 source comparisons and 0 safe promotions. Data, transposition, playback, shape-review, transcription-image, production-build, diff, and batch-integrity checks all passed.
+- Commit: Extend autonomous source comparison coverage (recorded in Git history).
+- Remaining opportunities/blockers: The 90-record 2025 source scope still has no newly promoted record from this batch. Continue with the next strongest disjoint candidate and preserve the zero-promotion gate.
+
+## Cycle 40 — Apply event-scoped blocking to the next source batch
+
+- Problem identified: The previous autonomous generator’s default blocking label bundled lyric and shape uncertainty together, which could overstate blockers under the revised delivery policy.
+- Change made: Evaluated 255 Mechanicville and 256 Northampton against their retained source scans and candidate witnesses. Kept both fail-closed because their candidate/source measure structures diverge and watermark overlap leaves specific note intersections unresolved, while removing absent lyrics as an independent blocker. Corrected their provenance paths and checksums to reference the authoritative retained source copies, updated the generator’s future blocked-action label to unresolved source events, and rebuilt the ledger/queue.
+- Validation performed: Ledger rebuild completed with 47 comparison records, 15 autonomous blocks, 0 errors, and 0 safe promotions. The review queue and candidate reconciliation rebuilt successfully; data, transposition, playback, shape-review, transcription-image, production-build, and diff checks passed. Both corrected drafts retain four parts and source-linked MusicXML evidence; neither was promoted because unresolved events remain.
+- Commit: Apply event-scoped blocking to the next source batch (recorded in Git history).
+- Remaining opportunities/blockers: The revised gate is ready for the next strongest candidate. Continue attempting visible-note correction and promote only an artifact with complete direct event support; otherwise record only the unresolved events and proceed.
+
+## Cycle 41 — Preserve usable visible notation while blocking unresolved events
+
+- Problem identified: The next retained source page, 571 Hamrick, had a four-part source-scan OMR with matching 13-measure structure, but its event groupings were not complete enough to establish every note and rhythm directly from the scan; the watermark also crossed only particular source intersections.
+- Change made: Corrected the visible B-flat-major key, 3/4 meter, four-part labels, and derived four-shape noteheads in a provenance-bearing MusicXML derivative. Kept the record autonomous-blocked for the listed non-full measures and watermark-obscured intersections, without treating omitted lyrics as a completion requirement or blocking unaffected events by association.
+- Validation performed: Per-record source and candidate hashes, four-part/13-measure structure, 115 pitched events, and 115 derived shape tags were checked. Ledger and queue rebuilds passed with 47 source comparisons, 0 ledger errors, and 0 safe promotions. Data, transposition, playback, shape-review, transcription-image, production-build, and diff checks all passed.
+- Commit: Preserve usable visible notation while blocking unresolved events (recorded in Git history).
+- Remaining opportunities/blockers: No new record is safe to promote until every event in its proposed authoritative artifact has direct source support. Continue with the next strongest candidate and keep partial/block evidence event-specific.
+
+## Cycle 42 — Reconcile the next source-derived delivery batch
+
+- Problem identified: The next disjoint retained pages, Hurricane Creek (459), Morel (463), and Warsaw (254), had matching four-part source structures and usable source-scan OMR, but their duration audits still left specific event groups unsupported. Related public witnesses could not establish exact 2025 edition identity or repair those events.
+- Change made: Preserved source-derived four-part MusicXML drafts for all three pages, corrected the source-visible key/mode and meter, added derived four-shape noteheads, and recorded provenance. Tightened the blocking evidence to exact failing measure sets: 459 by part, 463 by part, and Warsaw P1-P4 measures 1-17. No unsupported pitch, rhythm, lyric, or watermark-obscured event was guessed or promoted; omitted lyrics remain optional where notation is usable.
+- Validation performed: The source-comparison ledger rebuilt with 51 records, 19 autonomous blocks, 0 errors, and 0 safe promotions. The review queue rebuilt with 51 source comparisons and 0 safe promotions; candidate reconciliation remained fail-closed at 94 blocked candidates. `validate_data.py`, `validate_transposition.py`, `validate_playback.py`, `validate_shape_review_drafts.py`, `validate_transcription_images.py`, `npm run build`, and `git diff --check` all passed. The three new drafts contain four parts, source-linked metadata, and 127, 192, and 97 pitched events respectively, each with matching derived shape tags.
+- Commit: Reconcile the next source-derived delivery batch (this cycle).
+- Remaining opportunities/blockers: Zero-promotion remains correct. Continue to the next strongest disjoint source page and attempt complete visible-event correction; if any event remains unsupported, preserve the usable partial draft and record only its precise blockers.
+
+## Cycle 43 — Deliver a shape-complete exact 2025 source score
+
+- Problem identified: Devotion (50t) had an exact 2025 MusicXML source already retained in the score manifest and matching the immutable scan, but only 82 of its 156 pitched events carried explicit four-shape notehead tags. The old scan OMR was incomplete and did not provide a safer replacement.
+- Change made: Preserved the exact source archive and created a deterministic provenance-bearing derivative that adds the C-major four-shape encoding to all 156 source pitches without changing pitch, rhythm, part structure, repeats, or endings. Lyrics remain omitted because the notation is usable and no event alignment is fabricated. The derivative is recorded as autonomously verified; `safeToPromote` remains false because the authoritative 2025 source is already present and comparison records do not self-authorize corpus promotion.
+- Validation performed: Direct visual inspection of the retained scan and MuseScore-rendered exact source confirmed the DEVOTION L.M. header, C major, 4/4, four parts, note/rhythm layout, repeats, and endings. The derivative archive passed integrity checks with 4 parts, 17 measures per part, 156 pitched events, and 156 allowed shape tags. The ledger rebuilt with 52 records, 19 autonomous blocks, 1 autonomously verified source score, 0 errors, and 0 safe promotions. Queue/reconciliation, data, transposition, playback, shape-review, transcription-image, production-build, and diff checks all passed.
+- Commit: Deliver a shape-complete exact 2025 source score (this cycle).
+- Remaining opportunities/blockers: One genuinely source-faithful structured record is now delivered outside the promotion gate. Continue auditing the next retained 2025 pages for another exact structured source; retain zero promotion for OMR-only or unresolved candidates.
