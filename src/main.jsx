@@ -290,7 +290,7 @@ function SourceNotation({ song, bookId }) {
   const [imageFailed, setImageFailed] = useState(false);
   useEffect(() => setImageFailed(false), [song?.id, imageUrl]);
   if (!pdfUrl && !imageUrl && !pageUrl) return null;
-  if (imageUrl && !imageFailed) return <div className="source-notation" data-image-url={imageUrl}><div className="source-notation-head"><span className="section-label">Source scan</span><span>Page image · not transposable</span></div><img src={imageUrl} alt={`${song.songNo} ${song.title} source notation`} referrerPolicy="no-referrer" onError={() => setImageFailed(true)} /><a href={pageUrl || imageUrl} target="_blank" rel="noreferrer noopener">Open the authoritative source page <Icon name="external" size={16} /></a></div>;
+  if (imageUrl && !imageFailed) return <div className="source-notation" data-image-url={imageUrl}><div className="source-notation-head"><span className="section-label">Source scan</span><span>Page image · not transposable</span></div><img src={imageUrl} alt={`${song.songNo} ${song.title} source notation`} loading="lazy" referrerPolicy="no-referrer" onError={() => setImageFailed(true)} /><a href={pageUrl || imageUrl} target="_blank" rel="noreferrer noopener">Open the authoritative source page <Icon name="external" size={16} /></a></div>;
   if (pdfUrl) return <div className="source-notation"><div className="source-notation-head"><span className="section-label">Source notation</span><span>PDF scan · not transposable</span></div><iframe title={`${song.songNo} ${song.title} source notation`} src={pdfUrl} loading="lazy" /><a href={pdfUrl} target="_blank" rel="noreferrer noopener">Open the source PDF <Icon name="external" size={16} /></a></div>;
   return <div className="source-notation source-notation-link" data-image-url={imageUrl}><div><span className="section-label">Source notation</span><h3>Notation is available on the authoritative source page</h3><p>This book publishes the page scan and recordings there; this atlas does not redraw it or invent a transposable score.</p></div><a href={pageUrl} target="_blank" rel="noreferrer noopener">Open source page <Icon name="external" size={16} /></a></div>;
 }
@@ -497,17 +497,21 @@ function App() {
   }, [corpusAttempt]);
 
   useEffect(() => {
+    let cancelled = false;
     setHumanReviewQueueError(false);
     fetch("/human-review-queue.json")
       .then((response) => {
         if (!response.ok) throw new Error(`Review queue request failed: ${response.status}`);
         return response.json();
       })
-      .then(setHumanReviewQueue)
+      .then((data) => { if (!cancelled) setHumanReviewQueue(data); })
       .catch(() => {
-        setHumanReviewQueue(null);
-        setHumanReviewQueueError(true);
+        if (!cancelled) {
+          setHumanReviewQueue(null);
+          setHumanReviewQueueError(true);
+        }
       });
+    return () => { cancelled = true; };
   }, [humanReviewQueueAttempt]);
 
   useEffect(() => {
@@ -800,7 +804,7 @@ function App() {
     <header className="atlas-header">
       <div className="brand-lockup"><div className="brand-mark" aria-hidden="true">◇</div><h1>Shape-Note Atlas</h1></div>
       <nav className="primary-nav" aria-label="Primary navigation">
-        {[{ label: "Library", icon: "book" }, { label: "Practice", icon: "practice" }, { label: "Sources", icon: "source" }].map((item) => <button key={item.label} className={`nav-item ${activeSection === item.label ? "active" : ""}`} aria-pressed={activeSection === item.label} onClick={() => setActiveSection(item.label)}><Icon name={item.icon} /><span>{item.label}</span></button>)}
+        {[{ label: "Library", icon: "book" }, { label: "Practice", icon: "practice" }, { label: "Sources", icon: "source" }].map((item) => <button key={item.label} className={`nav-item ${activeSection === item.label ? "active" : ""}`} aria-current={activeSection === item.label ? "page" : undefined} aria-pressed={activeSection === item.label} onClick={() => setActiveSection(item.label)}><Icon name={item.icon} /><span>{item.label}</span></button>)}
       </nav>
       <div className="header-controls">
         <label className="book-select-wrap header-book-picker" htmlFor="book-select"><span className="sr-only">Tune book</span><Icon name="book" size={18} /><select id="book-select" aria-label="Tune book" value={bookId} onChange={(event) => handleBookChange(event.target.value)}>{BOOK_ORDER.filter((id) => corpus.books[id]).map((id) => <option key={id} value={id}>{corpus.books[id].label}</option>)}</select><span className="select-chevron">⌄</span></label>
@@ -811,7 +815,7 @@ function App() {
 
     <main className="workspace">
       <section className="results-column" aria-label="Tune search results">
-        <div className="results-head"><div className="search-box"><Icon name="search" size={20} /><input data-testid="tune-search" type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search tunes, pages, or first lines" aria-label="Search tune, page, first line, or source metadata" />{query && <button className="clear-search" onClick={() => setQuery("")} aria-label="Clear search">×</button>}</div><div className="results-kicker">{activeSection}</div><div className="results-summary" aria-live="polite" aria-atomic="true">{resultSummary}</div></div>
+        <div className="results-head"><div className="search-box"><Icon name="search" size={20} /><input data-testid="tune-search" type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search tunes, pages, first lines, or sources" aria-label="Search tune, page, first line, or source metadata" />{query && <button className="clear-search" onClick={() => setQuery("")} aria-label="Clear search">×</button>}</div><div className="results-kicker">{activeSection}</div><div className="results-summary" aria-live="polite" aria-atomic="true">{resultSummary}</div></div>
         <div className="results-list">
         {results.length ? results.map((song) => { const sourceStatus = sourceRowStatus(song, bookId); const rowStatus = activeSection === "Sources" ? <span className="tiny-status source-status"><Icon name={sourceStatus.icon} size={13} />{sourceStatus.label}</span> : getBookScore(song, bookId) ? <span className="tiny-status"><Icon name="check" size={13} />score</span> : getBookReferenceScore(song, bookId) ? <span className="tiny-status"><Icon name="check" size={13} />reference</span> : getBookDraftScore(song, bookId) ? <span className="tiny-status draft-status">draft</span> : <span className="tiny-status muted"><Icon name="info" size={13} />metadata</span>; return <button key={song.id} className={`result-row ${song.id === selectedSong?.id ? "selected" : ""}`} aria-pressed={song.id === selectedSong?.id} onClick={() => setSelectedId(song.id)}><div className="result-copy"><span className="result-number">{song.songNo}</span><strong>{song.title}</strong><span>{song.rawFirstLine || song.textKey}</span></div><div className="result-status">{rowStatus}<Icon name="chevron" size={17} /></div></button>; }) : <div className="empty-results"><Icon name="search" size={23} /><h3>No matching records</h3><p>{activeSection === "Sources" ? "This edition has no source follow-up records." : "Try a tune title, page number, or first line."}</p></div>}
         </div>

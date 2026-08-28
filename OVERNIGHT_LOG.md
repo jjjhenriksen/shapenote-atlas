@@ -191,3 +191,51 @@
 - Validation performed: Browser played `366 — Bremen`, selected `G minor`, confirmed the control returned to `Play song`, retained the `Transposed +1 semitone from F# minor` status, and exposed `Playback stopped because the target key changed.`; a subsequent manual Stop produced no new interruption notice. Playback/transposition validators and production build passed.
 - Commit: Cycle 24 commit in Git history — Explain playback interruption on key changes.
 - Remaining opportunities/blockers: Reassess source-comparison disclosure semantics and responsive behavior; the concurrent source-faithful worker remains active.
+
+## Cycle 25 — Reveal source-aware search
+
+- Problem identified: The search already matched source URLs and coverage metadata, but its visible placeholder only described tune, page, and first-line searches.
+- Change made: Updated the search prompt to include sources, aligning visible discovery guidance with the implemented source-aware search behavior.
+- Validation performed: Browser exposed `Search tunes, pages, first lines, or sources` as the placeholder; searching `366-bremen` produced one matching row for `366 — Bremen`. Production build passed.
+- Commit: Cycle 25 commit in Git history — Reveal source-aware search.
+- Remaining opportunities/blockers: Reassess source-comparison disclosure semantics and responsive behavior; the concurrent source-faithful worker remains active.
+
+## Cycle 26 — Mark the current navigation page
+
+- Problem identified: The section controls exposed toggle state with `aria-pressed`, but the primary navigation did not identify which page was current to assistive technology.
+- Change made: Added `aria-current="page"` to the active Library, Practice, or Sources control while retaining the existing pressed-state semantics and visual navigation.
+- Validation performed: Browser confirmed Library started with `aria-current="page"`; after switching to Practice, Library cleared it and Practice reported it while the visible section changed to Practice. Production build and data validation passed.
+- Commit: Cycle 26 commit in Git history — Mark the current navigation page.
+- Remaining opportunities/blockers: Reassess source-comparison disclosure semantics and responsive behavior; the concurrent source-faithful worker remains active.
+
+## Cycle 27 — Ignore stale review-queue responses
+
+- Problem identified: A slow human-review-queue request from before a retry could resolve afterward and overwrite the newer queue or error state.
+- Change made: Added effect cancellation guards so only the latest review-queue request can update state; the existing retry behavior and failure message remain unchanged.
+- Validation performed: Browser reloaded the review surface on the live local app and retained the expected source-comparison state; production build and data validation passed, with no diff whitespace errors.
+- Commit: Cycle 27 commit in Git history — Ignore stale review-queue responses.
+- Remaining opportunities/blockers: The source-comparison disclosure semantic fix remains part of the shared uncommitted panel work and is intentionally excluded from this focused commit; the concurrent source-faithful worker remains active.
+
+## Cycle 28 — Restore fallback-card typography
+
+- Problem identified: The source-page fallback card referenced an undefined `--display` font variable, causing its heading to fall back to 14px body text.
+- Change made: Reused the atlas's existing `--serif` display token so the fallback heading keeps its intended 17px weight and line-height without adding a new font family.
+- Validation performed: Browser rendered the Sacred Harp Tunes fallback card and reported `Georgia, serif`, 17px, bold, and 21.25px line-height with no horizontal overflow; production build passed.
+- Commit: Cycle 28 commit in Git history — Restore fallback-card typography.
+- Remaining opportunities/blockers: The source-comparison disclosure semantic fix remains part of the shared uncommitted panel work and is intentionally excluded from this focused commit; source-faithful artifact work remains coordinated separately.
+
+## Cycle 29 — Show focus on semantic disclosures
+
+- Problem identified: The source-comparison disclosure now exposes a button role, but the global focus rule only covered native buttons, leaving keyboard focus visually ambiguous.
+- Change made: Extended the existing focus-visible selector to role buttons so semantic disclosures receive the same two-pixel teal focus treatment as native controls.
+- Validation performed: Browser focused the live source-comparison disclosure with the keyboard and reported `:focus-visible`, a solid two-pixel outline, and no console warnings or errors; production build passed.
+- Commit: Cycle 29 commit in Git history — Show focus on semantic disclosures.
+- Remaining opportunities/blockers: The source-comparison panel content and review-view edits remain shared uncommitted work and are intentionally excluded from this focused commit; source-faithful artifact work remains coordinated separately.
+
+## Cycle 30 — Defer source-scan image loading
+
+- Problem identified: Existing source-page scans could load eagerly even though they sit below the primary tune and score details, adding unnecessary initial image work on source-only records.
+- Change made: Marked the existing source-scan image as lazy-loaded while preserving its source URL, alt text, fallback behavior, and authoritative link.
+- Validation performed: Browser rendered the Shenandoah source card with `loading="lazy"`, the expected accessible alt text, no horizontal overflow, and no console warnings or errors; production build passed.
+- Commit: Cycle 30 commit in Git history — Defer source-scan image loading.
+- Remaining opportunities/blockers: The shared source-comparison panel and review-view edits remain unstaged and protected; source-faithful artifact work remains coordinated separately.
