@@ -239,3 +239,59 @@
 - Validation performed: Browser rendered the Shenandoah source card with `loading="lazy"`, the expected accessible alt text, no horizontal overflow, and no console warnings or errors; production build passed.
 - Commit: Cycle 30 commit in Git history — Defer source-scan image loading.
 - Remaining opportunities/blockers: The shared source-comparison panel and review-view edits remain unstaged and protected; source-faithful artifact work remains coordinated separately.
+
+## Cycle 31 — Use current-page semantics for atlas navigation
+
+- Problem identified: The Library, Practice, and Sources controls are page navigation, but they also exposed `aria-pressed`, which describes a toggle control rather than the current page.
+- Change made: Kept the existing `aria-current="page"` indication and removed the conflicting pressed-state attribute from the primary navigation controls.
+- Validation performed: Browser confirmed that Library initially exposes `aria-current="page"`, Sources receives it after navigation, no primary navigation control exposes `aria-pressed`, and browser console warnings/errors remained empty. Production build and diff checks passed.
+- Commit: `1026aea` — Use current-page semantics for atlas navigation.
+- Remaining opportunities/blockers: The shared source-comparison panel and review-view edits remain unstaged and protected; the source-faithful worker remains active with comparison artifacts still fail-closed.
+
+## Cycle 32 — Restore mobile reading width
+
+- Problem identified: Later app-shell rules overrode the earlier mobile gutters, leaving the results column at 13px and the detail column at 34px horizontal padding on a 390px viewport.
+- Change made: Added a final mobile breakpoint override that restores the intended 20px/11px results spacing and 25px/16px/24px detail spacing, without changing desktop layout.
+- Validation performed: Browser measured the corrected mobile paddings at 390px with no horizontal overflow or console warnings/errors; a fresh 1280px tab retained the existing desktop paddings. Production build and diff checks passed.
+- Commit: Cycle 32 commit in Git history — Restore mobile reading width.
+- Remaining opportunities/blockers: The shared source-comparison and shape-review UI changes remain unstaged and protected; the source-faithful worker remains active with fail-closed comparison artifacts.
+
+## Cycle 33 — Name the theme action clearly
+
+- Problem identified: The theme button displayed the next mode (`Light` or `Dark`) while `aria-pressed` described a different current-state meaning, creating an ambiguous announcement for assistive technology.
+- Change made: Removed the conflicting pressed-state attribute and gave the button an explicit action label, `Switch to light mode` or `Switch to dark mode`, while retaining the concise visible label.
+- Validation performed: Browser confirmed the dark-to-light and light-to-dark transitions, matching accessible action labels, no pressed-state attribute, and no console warnings/errors. Production build and diff checks passed.
+- Commit: Cycle 33 commit in Git history — Name the theme action clearly.
+- Remaining opportunities/blockers: The shared source-comparison and shape-review UI changes remain unstaged and protected; the source-faithful worker remains active with fail-closed comparison artifacts.
+
+## Cycle 34 — Expose the shape legend as a named group
+
+- Problem identified: The shape legend carried an `aria-label` on a generic `div`, so its “Four-shape solfege reference” label was not reliably exposed to assistive technology.
+- Change made: Added `role="group"` to the existing labeled legend container without changing its content or visual layout.
+- Validation performed: Browser found the legend as a named group, confirmed its text and rendered width were unchanged, and reported no console warnings/errors. Production build and diff checks passed.
+- Commit: Cycle 34 commit in Git history — Expose the shape legend as a named group.
+- Remaining opportunities/blockers: The shared source-comparison and shape-review UI changes remain unstaged and protected; the source-faithful worker remains active with fail-closed comparison artifacts.
+
+## Cycle 35 — Announce selected tunes
+
+- Problem identified: Choosing a result updated the detail column visually, but there was no polite live status naming the newly selected tune for keyboard and screen-reader users.
+- Change made: Added a visually hidden atomic status that announces `Selected tune: …` whenever the current tune changes.
+- Validation performed: Browser confirmed the persisted tune is announced on load and the announcement updates when selecting another result; the status remains visually hidden, the detail view remains synchronized, and browser console warnings/errors stayed empty. Production build and diff checks passed.
+- Commit: Cycle 35 commit in Git history — Announce selected tunes.
+- Remaining opportunities/blockers: The shared source-comparison and shape-review UI changes remain unstaged and protected; the source-faithful worker remains active with fail-closed comparison artifacts.
+
+## Cycle 36 — Add a keyboard skip link
+
+- Problem identified: The atlas presents a long result list before the selected-tune details, but keyboard users had no direct way to bypass that list.
+- Change made: Added a focus-visible “Skip to selected tune details” link and a focusable `selected-tune-details` target for the detail surface.
+- Validation performed: Browser confirmed the link is the first keyboard focus target, becomes visible with the existing two-pixel focus outline, and moves focus to the selected-tune section when activated; layout remained within the viewport and browser console warnings/errors stayed empty. Production build and diff checks passed.
+- Commit: Cycle 36 commit in Git history — Add a keyboard skip link.
+- Remaining opportunities/blockers: The shared source-comparison and shape-review UI changes remain unstaged and protected; the source-faithful worker remains active with fail-closed comparison artifacts.
+
+## Cycle 37 — Make coverage details accessible
+
+- Problem identified: The header exposed only the compact transposable/tune count to the page, while the useful exact-score, reference-witness, review-draft, and key-unknown breakdown depended on a hover-only `title` tooltip.
+- Change made: Kept the compact visual summary unchanged and added a visually hidden accessible reading-order version of the full coverage breakdown.
+- Validation performed: A fresh browser tab preserved the exact visual text and dimensions, exposed the complete breakdown in the accessibility snapshot, and reported no console warnings/errors. Production build and diff checks passed.
+- Commit: Cycle 37 commit in Git history — Make coverage details accessible.
+- Remaining opportunities/blockers: The shared source-comparison and shape-review UI changes remain unstaged and protected; the source-faithful worker remains active with fail-closed comparison artifacts.

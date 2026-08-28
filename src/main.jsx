@@ -228,7 +228,7 @@ function formatCount(value) {
 }
 
 function ShapeLegend() {
-  return <div className="shape-legend" aria-label="Four-shape solfege reference">
+  return <div className="shape-legend" role="group" aria-label="Four-shape solfege reference">
     <span><i className="shape shape-fa" />fa</span>
     <span><i className="shape shape-sol" />sol</span>
     <span><i className="shape shape-la" />la</span>
@@ -525,6 +525,7 @@ function App() {
   const book = corpus?.books?.[bookId];
   const bookCoverage = corpus?.coverage?.byBook?.[bookId] || { records: 0, localScoreRecords: 0 };
   const transposableCount = bookCoverage.transposableRecords || 0;
+  const coverageSummary = `${formatCount(bookCoverage.transposableLocalScoreRecords || 0)} exact scores, ${formatCount(bookCoverage.transposableReferenceRecords || 0)} reference witnesses, and ${formatCount(bookCoverage.transposableDraftRecords || 0)} review drafts are transposable; ${formatCount(bookCoverage.keyUnknownStructuredRecords || 0)} structured records remain key-unknown`;
 
   useEffect(() => {
     if (!book) return;
@@ -801,15 +802,16 @@ function App() {
     : `${formatCount(results.length)} shown · ${formatCount(bookSongs.length)} tunes`;
 
   return <div className="app-shell">
+    <a className="skip-link" href="#selected-tune-details">Skip to selected tune details</a>
     <header className="atlas-header">
       <div className="brand-lockup"><div className="brand-mark" aria-hidden="true">◇</div><h1>Shape-Note Atlas</h1></div>
       <nav className="primary-nav" aria-label="Primary navigation">
-        {[{ label: "Library", icon: "book" }, { label: "Practice", icon: "practice" }, { label: "Sources", icon: "source" }].map((item) => <button key={item.label} className={`nav-item ${activeSection === item.label ? "active" : ""}`} aria-current={activeSection === item.label ? "page" : undefined} aria-pressed={activeSection === item.label} onClick={() => setActiveSection(item.label)}><Icon name={item.icon} /><span>{item.label}</span></button>)}
+        {[{ label: "Library", icon: "book" }, { label: "Practice", icon: "practice" }, { label: "Sources", icon: "source" }].map((item) => <button key={item.label} className={`nav-item ${activeSection === item.label ? "active" : ""}`} aria-current={activeSection === item.label ? "page" : undefined} onClick={() => setActiveSection(item.label)}><Icon name={item.icon} /><span>{item.label}</span></button>)}
       </nav>
       <div className="header-controls">
         <label className="book-select-wrap header-book-picker" htmlFor="book-select"><span className="sr-only">Tune book</span><Icon name="book" size={18} /><select id="book-select" aria-label="Tune book" value={bookId} onChange={(event) => handleBookChange(event.target.value)}>{BOOK_ORDER.filter((id) => corpus.books[id]).map((id) => <option key={id} value={id}>{corpus.books[id].label}</option>)}</select><span className="select-chevron">⌄</span></label>
-        <span className="coverage-summary" title={`${formatCount(bookCoverage.transposableLocalScoreRecords || 0)} exact scores, ${formatCount(bookCoverage.transposableReferenceRecords || 0)} reference witnesses, and ${formatCount(bookCoverage.transposableDraftRecords || 0)} review drafts are transposable; ${formatCount(bookCoverage.keyUnknownStructuredRecords || 0)} structured records remain key-unknown`}>{formatCount(transposableCount)} transposable · {formatCount(bookCoverage.records)} tunes</span>
-        <button className="theme-toggle" type="button" onClick={toggleTheme} aria-pressed={mode === "dark"}>{mode === "dark" ? "Light" : "Dark"}</button>
+        <span className="coverage-summary" title={coverageSummary}><span aria-hidden="true">{formatCount(transposableCount)} transposable · {formatCount(bookCoverage.records)} tunes</span><span className="sr-only">{coverageSummary}</span></span>
+        <button className="theme-toggle" type="button" onClick={toggleTheme} aria-label={`Switch to ${mode === "dark" ? "light" : "dark"} mode`}>{mode === "dark" ? "Light" : "Dark"}</button>
       </div>
     </header>
 
@@ -821,8 +823,9 @@ function App() {
         </div>
       </section>
 
-      <section className="detail-column" aria-label="Selected tune details">
+      <section className="detail-column" id="selected-tune-details" aria-label="Selected tune details" tabIndex="-1">
         {selectedSong ? <>
+          <div className="sr-only" role="status" aria-live="polite" aria-atomic="true">Selected tune: {selectedSong.songNo} — {selectedSong.title}</div>
           <div className="detail-header"><div><div className="detail-overline">{book.label} · page {selectedSong.songNo}</div><h2>{selectedSong.songNo} — {selectedSong.title}</h2></div><button className="icon-button" aria-label="Show source preservation note" onClick={() => showToast("Source links and score data are preserved locally.")}><Icon name="info" size={20} /></button></div>
           <div className="detail-tags">{selectedScore ? <span className={`tag ${canTranspose ? referenceScoreActive ? "reference-tag" : draftScoreActive ? "draft-tag" : "available" : "unavailable"}`}><Icon name={canTranspose ? "check" : "info"} size={14} />{scoreBadgeLabel}</span> : selectedCoverage?.status === "transcription-blocked" ? <span className="tag unavailable"><Icon name="info" size={14} />Transcription blocked</span> : sourcePdfUrl(selectedSong) || sourcePageUrl(selectedSong, bookId) ? <span className="tag available"><Icon name="check" size={14} />Source scan</span> : selectedCoverage?.status === "source-reference" ? <span className="tag available"><Icon name="check" size={14} />Source reference</span> : <span className="tag unavailable"><Icon name="info" size={14} />Metadata only</span>}{(selectedScore || sourceKeyValue || draftScoreActive) && <span className="tag key-tag">{sourceKeyValue ? sourceKeyLabel : "Key unavailable"}</span>}{bookId === "sh2025" && selectedMetadata?.editionStatus === "added-in-2025" && <span className="tag edition-new-tag">New in 2025</span>}{editionReconciliation && <span className="tag edition-tag">{editionReconciliation.status === "change-flagged" ? "1991 / 2025 text differs" : "Shared by 1991 / 2025"}</span>}</div>
           <div className="first-line"><span className="section-label">First line</span><p>{selectedSong.rawFirstLine || "No first line recorded in the local source."}</p></div>

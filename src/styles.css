@@ -329,3 +329,11 @@ body[data-native-shell="true"] .atlas-header { padding-left: 82px; }
   .atlas-header .nav-item { padding-inline: 5px; }
   .atlas-header .nav-item span { font-size: 12px; }
 }
+
+@media (max-width: 800px) {
+  .results-column { padding: 20px 11px 18px; }
+  .detail-column { padding: 25px 16px 24px; }
+}
+
+.skip-link { position: fixed; top: 8px; left: 8px; z-index: 100; transform: translateY(-160%); border: 1px solid var(--teal); background: var(--pine-raised); color: var(--ink); padding: 9px 12px; font-weight: 700; text-decoration: none; }
+.skip-link:focus { transform: translateY(0); }
