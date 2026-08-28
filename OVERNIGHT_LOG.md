@@ -143,3 +143,51 @@
 - Validation performed: A controlled local proxy returned 503 for the first corpus request; the browser showed the alert and retry control, then recovered to the atlas after clicking it. The normal local path showed the atlas with no alert or console warnings/errors.
 - Commit: Cycle 18 commit in Git history — Retry the corpus load in place.
 - Remaining opportunities/blockers: Reassess source-comparison disclosure semantics, playback feedback, and responsive behavior; the concurrent source-faithful worker remains active.
+
+## Cycle 19 — Name the source-preservation action accurately
+
+- Problem identified: The detail-header info control was announced as `Tune details`, although activating it only showed a source-preservation toast.
+- Change made: Renamed the control's accessible label to `Show source preservation note` so its name matches the action and resulting feedback.
+- Validation performed: Browser confirmed the new accessible button name, confirmed the old name was absent, and observed the source-preservation status toast after activation; page identity remained correct and browser console warnings/errors stayed empty.
+- Commit: Cycle 19 commit in Git history — Name the source-preservation action accurately.
+- Remaining opportunities/blockers: Reassess source-comparison disclosure semantics, playback feedback, and responsive behavior; the concurrent source-faithful worker remains active.
+
+## Cycle 20 — Keep the latest toast visible
+
+- Problem identified: Every toast scheduled an independent dismissal timer, allowing an earlier notification to clear a newer notification before the newer message had been visible for its full duration.
+- Change made: Track one toast timer and cancel it before scheduling the latest notification's dismissal.
+- Validation performed: Browser activated the source-preservation action twice with a 1.5-second gap; the latest toast remained visible after the first timer would have expired and disappeared only after the replacement timer elapsed. Page identity remained correct and browser console warnings/errors stayed empty.
+- Commit: Cycle 20 commit in Git history — Keep the latest toast visible.
+- Remaining opportunities/blockers: Reassess source-comparison disclosure semantics, playback feedback, and responsive behavior; the concurrent source-faithful worker remains active.
+
+## Cycle 21 — Announce the initial loading state
+
+- Problem identified: The initial `Loading the local atlas…` screen had no live-region semantics, so assistive technology could not reliably announce that the corpus was still loading.
+- Change made: Marked the loading screen as a polite status region while leaving the error screen's alert semantics and retry path unchanged.
+- Validation performed: A controlled local proxy delayed the corpus response; the browser exposed `Loading the local atlas…` as one status region while the request was pending, then replaced it with the atlas once loaded. Browser console warnings/errors remained empty.
+- Commit: Cycle 21 commit in Git history — Announce the initial loading state.
+- Remaining opportunities/blockers: Reassess source-comparison disclosure semantics, playback feedback, and responsive behavior; the concurrent source-faithful worker remains active.
+
+## Cycle 22 — Keep playback aligned with key changes
+
+- Problem identified: Changing the target key while playback was active updated the rendered notation but left already-scheduled audio playing at the previous transposition.
+- Change made: Stop active playback when the target key is selected, nudged, or the entered source key changes, so audio never claims to match a different visible key.
+- Validation performed: Browser started playback for `366 — Bremen`, selected `G minor`, and confirmed the control returned from `Stop` to `Play song` while the note reported `Transposed +1 semitone from F# minor`; browser console warnings/errors remained empty.
+- Commit: Cycle 22 commit in Git history — Keep playback aligned with key changes.
+- Remaining opportunities/blockers: Reassess source-comparison disclosure semantics, playback feedback, and responsive behavior; the concurrent source-faithful worker remains active.
+
+## Cycle 23 — Announce lazy score loading
+
+- Problem identified: The disabled `Loading…` playback control showed that a structured score was pending, but assistive technology had no live status for the lazy score request.
+- Change made: Added a visually hidden polite status while a real structured score reference is loading, leaving the existing retry alert and loaded-state messaging unchanged.
+- Validation performed: Browser opened the persisted `366 — Bremen` draft and observed `Loading the structured score…` in a status region while the score was pending; after loading, the status disappeared and `Play song` became available.
+- Commit: Cycle 23 commit in Git history — Announce lazy score loading.
+- Remaining opportunities/blockers: Reassess source-comparison disclosure semantics and responsive behavior; the concurrent source-faithful worker remains active.
+
+## Cycle 24 — Explain playback interruption on key changes
+
+- Problem identified: Playback correctly stopped when a tune or key changed, but the reason was silent for assistive-technology users and unclear when focus moved to the new control state.
+- Change made: Added a polite live status for interruption reasons on tune, source-key, and target-key changes; ordinary manual Stop and natural playback completion remain quiet, and starting playback clears the notice.
+- Validation performed: Browser played `366 — Bremen`, selected `G minor`, confirmed the control returned to `Play song`, retained the `Transposed +1 semitone from F# minor` status, and exposed `Playback stopped because the target key changed.`; a subsequent manual Stop produced no new interruption notice. Playback/transposition validators and production build passed.
+- Commit: Cycle 24 commit in Git history — Explain playback interruption on key changes.
+- Remaining opportunities/blockers: Reassess source-comparison disclosure semantics and responsive behavior; the concurrent source-faithful worker remains active.

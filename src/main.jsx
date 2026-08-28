@@ -466,6 +466,7 @@ function App() {
   const [targetKey, setTargetKey] = useState("");
   const [activeParts, setActiveParts] = useState([]);
   const [playing, setPlaying] = useState(false);
+  const [playbackNotice, setPlaybackNotice] = useState("");
   const [toast, setToast] = useState("");
   const [fullScore, setFullScore] = useState(null);
   const [scoreLoadAttempt, setScoreLoadAttempt] = useState(0);
@@ -480,6 +481,7 @@ function App() {
     }
   });
   const audioRef = useRef({ context: null, master: null, nodes: [], stopTimer: null });
+  const toastTimerRef = useRef(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -647,14 +649,15 @@ function App() {
     if (!selectedSong) return;
     setTargetKey("");
     setActiveParts(activeScorePreview?.parts?.map((part) => part.name) || []);
-    stopAudio();
+    stopAudio("Playback stopped because the selected tune changed.");
   }, [selectedId, bookId, scoreRef]);
 
-  if (!corpus) return <div className="loading-screen">Loading the local atlas…</div>;
+  if (!corpus) return <div className="loading-screen" role="status" aria-live="polite">Loading the local atlas…</div>;
   if (corpus.error) return <div className="loading-screen" role="alert"><Icon name="info" size={22} /><p>The local corpus bundle could not be loaded. Serve the project through its static host and try again.</p><button className="text-button" type="button" onClick={() => setCorpusAttempt((attempt) => attempt + 1)}>Retry loading</button></div>;
 
-  function stopAudio() {
+  function stopAudio(notice = "") {
     const audio = audioRef.current;
+    const wasPlaying = audio.nodes.length > 0 || Boolean(audio.master) || Boolean(audio.stopTimer);
     if (audio.stopTimer) {
       window.clearTimeout(audio.stopTimer);
       audio.stopTimer = null;
@@ -666,10 +669,12 @@ function App() {
       audio.master = null;
     }
     setPlaying(false);
+    if (notice && wasPlaying) setPlaybackNotice(notice);
   }
 
   async function playAvailableParts() {
     if (!scoreLoaded || !selectedScore || !activeParts.length) return;
+    setPlaybackNotice("");
     stopAudio();
     const AudioContextClass = window.AudioContext || window.webkitAudioContext;
     if (!AudioContextClass) {
@@ -758,6 +763,7 @@ function App() {
 
   function setEnteredSourceKey(value) {
     if (!sourceKeyOverrideId) return;
+    stopAudio("Playback stopped because the source key changed.");
     setSourceKeyOverrides((current) => {
       const next = { ...current };
       if (value) next[sourceKeyOverrideId] = value;
@@ -771,12 +777,17 @@ function App() {
     if (!sourceKeyValue) return;
     const current = targetKey ? rootFromKey(targetKey) : rootFromKey(sourceKeyValue);
     const nextPitch = (current + direction + 12) % 12;
+    stopAudio("Playback stopped because the target key changed.");
     setTargetKey(KEY_NAMES[nextPitch]);
   }
 
   function showToast(message) {
+    if (toastTimerRef.current) window.clearTimeout(toastTimerRef.current);
     setToast(message);
-    window.setTimeout(() => setToast(""), 2600);
+    toastTimerRef.current = window.setTimeout(() => {
+      setToast("");
+      toastTimerRef.current = null;
+    }, 2600);
   }
 
   const bookSongs = getBookSongs(corpus, bookId);
@@ -808,7 +819,7 @@ function App() {
 
       <section className="detail-column" aria-label="Selected tune details">
         {selectedSong ? <>
-          <div className="detail-header"><div><div className="detail-overline">{book.label} · page {selectedSong.songNo}</div><h2>{selectedSong.songNo} — {selectedSong.title}</h2></div><button className="icon-button" aria-label="Tune details" onClick={() => showToast("Source links and score data are preserved locally.")}><Icon name="info" size={20} /></button></div>
+          <div className="detail-header"><div><div className="detail-overline">{book.label} · page {selectedSong.songNo}</div><h2>{selectedSong.songNo} — {selectedSong.title}</h2></div><button className="icon-button" aria-label="Show source preservation note" onClick={() => showToast("Source links and score data are preserved locally.")}><Icon name="info" size={20} /></button></div>
           <div className="detail-tags">{selectedScore ? <span className={`tag ${canTranspose ? referenceScoreActive ? "reference-tag" : draftScoreActive ? "draft-tag" : "available" : "unavailable"}`}><Icon name={canTranspose ? "check" : "info"} size={14} />{scoreBadgeLabel}</span> : selectedCoverage?.status === "transcription-blocked" ? <span className="tag unavailable"><Icon name="info" size={14} />Transcription blocked</span> : sourcePdfUrl(selectedSong) || sourcePageUrl(selectedSong, bookId) ? <span className="tag available"><Icon name="check" size={14} />Source scan</span> : selectedCoverage?.status === "source-reference" ? <span className="tag available"><Icon name="check" size={14} />Source reference</span> : <span className="tag unavailable"><Icon name="info" size={14} />Metadata only</span>}{(selectedScore || sourceKeyValue || draftScoreActive) && <span className="tag key-tag">{sourceKeyValue ? sourceKeyLabel : "Key unavailable"}</span>}{bookId === "sh2025" && selectedMetadata?.editionStatus === "added-in-2025" && <span className="tag edition-new-tag">New in 2025</span>}{editionReconciliation && <span className="tag edition-tag">{editionReconciliation.status === "change-flagged" ? "1991 / 2025 text differs" : "Shared by 1991 / 2025"}</span>}</div>
           <div className="first-line"><span className="section-label">First line</span><p>{selectedSong.rawFirstLine || "No first line recorded in the local source."}</p></div>
           {humanReviewQueueError && selectedCoverage && selectedCoverage.status !== "structured-score" && <div className="source-coverage-note"><Icon name="info" size={18} /><span role="status"><strong>Review status unavailable.</strong> The local human-review queue could not be loaded. Source coverage and score data are unchanged; reload when the local server is available.</span><button className="text-button" type="button" onClick={() => setHumanReviewQueueAttempt((attempt) => attempt + 1)}>Retry</button></div>}
@@ -820,7 +831,8 @@ function App() {
             <div className="part-toggles" role="group" aria-label="Available parts">{selectedScore.parts.map((part) => <button key={part.name} className={`part-toggle ${activeParts.includes(part.name) ? "selected" : ""}`} aria-pressed={activeParts.includes(part.name)} onClick={() => togglePart(part.name)}><span className="part-clef">{part.name === "Bass" || part.name === "Tenor" ? "𝄢" : "𝄞"}</span><span>{part.name}</span><span className="part-check"><Icon name="check" size={13} /></span></button>)}</div>
             <ScorePreview score={selectedScore} transpose={signedTranspose} complete={scoreLoaded} sourceKey={shapeSourceKey} targetKey={targetKey} shapeSourceUrl={shapeSourcePdfUrl(activeScorePreview)} keyEvidence={resolvedKey.evidence} />
             {(!sourceKeyValue || resolvedKey.evidence?.status === "entered") && <div className="source-key-picker"><div><span className="section-label">{sourceKeyValue ? "Entered source key" : "Source key required"}</span><p>{sourceKeyValue ? "Change this if the key printed in the source differs." : "Choose the key printed in this source to unlock pitch-accurate transposition."}</p></div><label className="key-select-wrap"><span className="sr-only">Source key</span><select aria-label="Source key" value={enteredSourceKey} onChange={(event) => setEnteredSourceKey(event.target.value)}><option value="">Choose source key…</option>{["major", "minor"].flatMap((mode) => KEY_NAMES.map((key) => <option key={`${key}:${mode}`} value={`${key}:${mode}`}>{key} {mode}</option>))}</select><span className="select-chevron">⌄</span></label></div>}
-            <div className="transport-row"><div className="playback-controls"><button className="primary-button" onClick={playing ? () => stopAudio() : scoreLoadError ? () => setScoreLoadAttempt((attempt) => attempt + 1) : playAvailableParts} disabled={scoreLoadError ? false : !scoreLoaded || !activeParts.length}>{playing ? <Icon name="stop" size={14} /> : <Icon name="play" size={15} />}{playing ? "Stop" : scoreLoadError ? "Retry loading" : scoreLoaded ? "Play song" : "Loading…"}</button></div><div className="transpose-controls"><button className="secondary-button" title="Transpose down one semitone" aria-label="Transpose down one semitone" onClick={() => nudgeTranspose(-1)} disabled={!canTranspose}><Icon name="arrowDown" size={16} />Down</button><label className="key-select-wrap"><span className="sr-only">Target key</span><select aria-label="Target key" value={targetKey} onChange={(event) => setTargetKey(event.target.value)} disabled={!canTranspose}><option value="">{sourceKeyName}</option>{KEY_NAMES.filter((key) => key !== sourceKeyName.split(" ")[0]).map((key) => <option key={key} value={key}>{key} {sourceMode}</option>)}</select><span className="select-chevron">⌄</span></label><button className="secondary-button" title="Transpose up one semitone" aria-label="Transpose up one semitone" onClick={() => nudgeTranspose(1)} disabled={!canTranspose}><Icon name="arrowUp" size={16} />Up</button></div></div>
+            <div className="transport-row"><div className="playback-controls"><button className="primary-button" onClick={playing ? () => stopAudio() : scoreLoadError ? () => setScoreLoadAttempt((attempt) => attempt + 1) : playAvailableParts} disabled={scoreLoadError ? false : !scoreLoaded || !activeParts.length}>{playing ? <Icon name="stop" size={14} /> : <Icon name="play" size={15} />}{playing ? "Stop" : scoreLoadError ? "Retry loading" : scoreLoaded ? "Play song" : "Loading…"}</button></div><div className="transpose-controls"><button className="secondary-button" title="Transpose down one semitone" aria-label="Transpose down one semitone" onClick={() => nudgeTranspose(-1)} disabled={!canTranspose}><Icon name="arrowDown" size={16} />Down</button><label className="key-select-wrap"><span className="sr-only">Target key</span><select aria-label="Target key" value={targetKey} onChange={(event) => { stopAudio("Playback stopped because the target key changed."); setTargetKey(event.target.value); }} disabled={!canTranspose}><option value="">{sourceKeyName}</option>{KEY_NAMES.filter((key) => key !== sourceKeyName.split(" ")[0]).map((key) => <option key={key} value={key}>{key} {sourceMode}</option>)}</select><span className="select-chevron">⌄</span></label><button className="secondary-button" title="Transpose up one semitone" aria-label="Transpose up one semitone" onClick={() => nudgeTranspose(1)} disabled={!canTranspose}><Icon name="arrowUp" size={16} />Up</button></div></div>
+            {scoreRef && !scoreLoaded && !scoreLoadError && <div className="sr-only" role="status" aria-live="polite">Loading the structured score…</div>}
             {scoreLoadError && <div className="score-load-error" role="alert"><Icon name="info" size={16} /><span>The full score could not be loaded. Check the local server, then retry.</span></div>}
             {signedTranspose !== 0 && <div className="transposition-note" role="status" aria-live="polite" aria-atomic="true"><span>Transposed {signedTranspose > 0 ? "+" : "−"}{Math.abs(signedTranspose)} semitone{Math.abs(signedTranspose) === 1 ? "" : "s"} from {sourceKeyName}</span></div>}
             <div className="structured-score-status"><Icon name={draftScoreActive || !canTranspose ? "info" : "check"} size={16} /><span>{draftScoreActive ? "Draft loaded for review playback and transposition; source comparison is still required." : "Structured source loaded for playback."} {sourceKeyValue ? `${sourceKeyLabel}.` : "Choose the source key above to enable transposition."}</span></div>
@@ -832,6 +844,7 @@ function App() {
       </section>
     </main>
     {toast && <div className="toast" role="status"><Icon name="check" size={16} />{toast}</div>}
+    <div className="sr-only" role="status" aria-live="polite" aria-atomic="true">{playbackNotice}</div>
   </div>;
 }
 
