@@ -103,3 +103,43 @@
 - Validation performed: With a controlled 503 queue response, Sacred Harp 1991 Library/New Britain showed no review warning, while Sacred Harp 2025 Sources/Windlesham still showed the warning and `Retry`; both selected records remained usable and browser console warnings/errors stayed empty. Production build passed.
 - Commit: Cycle 13 commit in Git history — Scope review warnings to recorded coverage.
 - Remaining opportunities/blockers: Reassess source-comparison interaction, playback feedback, and responsive behavior; the concurrent source-faithful worker remains active.
+
+## Cycle 14 — Reset source-scan fallback across editions
+
+- Problem identified: Source-scan image failures were reset when the tune changed, but not when the same tune switched to an edition with a different image URL; a prior failure could therefore hide the new edition's source image.
+- Change made: Reset the source-scan fallback state when either the selected tune or its edition-specific image URL changes.
+- Validation performed: Browser switched the selected `26 — Samaria` tune between Sacred Harp 1991 and Sacred Harp 2025 at the mobile breakpoint with no console warnings/errors; the production build passed.
+- Commit: Cycle 14 commit in Git history — Reset source-scan fallback across editions.
+- Remaining opportunities/blockers: Reassess source-comparison interaction, playback feedback, and responsive behavior; the concurrent source-faithful worker remains active.
+
+## Cycle 15 — Announce transposition changes
+
+- Problem identified: Choosing a target key updated the rendered score and visible transposition note, but the change was not explicitly announced to assistive technology.
+- Change made: Marked the dynamic transposition note as an atomic polite status so target-key changes are announced without changing the visual presentation.
+- Validation performed: Browser selected `G minor` for `366 — Bremen` and confirmed `Transposed +1 semitone from F# minor` exposed `role="status"`, `aria-live="polite"`, and `aria-atomic="true"`; browser console warnings/errors remained empty. Production build and data/transposition/playback validators passed.
+- Commit: Cycle 15 commit in Git history — Announce transposition changes.
+- Remaining opportunities/blockers: Reassess source-comparison interaction, playback feedback, and responsive behavior; the concurrent source-faithful worker remains active.
+
+## Cycle 16 — Distinguish recording-source links
+
+- Problem identified: Records with multiple recording-source pages exposed identical `Open recording source` link names, making the destinations ambiguous to screen-reader users.
+- Change made: Added the source hostname to each recording link's accessible name while preserving the existing visible link text and layout.
+- Validation performed: Browser inspection of `366 — Bremen` exposed distinct labels for `sacredharp.com` and `archive.org`; page identity remained correct, the rendered view was unchanged, and browser console warnings/errors stayed empty. Production build passed.
+- Commit: Cycle 16 commit in Git history — Distinguish recording-source links.
+- Remaining opportunities/blockers: Reassess source-comparison disclosure semantics, playback feedback, and responsive behavior; the concurrent source-faithful worker remains active.
+
+## Cycle 17 — Distinguish source-record links
+
+- Problem identified: Records with several authoritative source URLs exposed identical `Open source record` link names, including multiple links from the same host.
+- Change made: Added the full source destination path to each source-record link's accessible name while preserving the existing visible text and layout.
+- Validation performed: Browser inspection of `366 — Bremen` exposed four unique source-record labels for the edition index, source page, page image, and page route; page identity remained correct and browser console warnings/errors stayed empty. Production build passed.
+- Commit: Cycle 17 commit in Git history — Distinguish source-record links.
+- Remaining opportunities/blockers: Reassess source-comparison disclosure semantics, playback feedback, and responsive behavior; the concurrent source-faithful worker remains active.
+
+## Cycle 18 — Retry the corpus load in place
+
+- Problem identified: A failed initial `corpus.json` request left the atlas on an error screen that required a full page reload, unlike the recoverable score and review-queue states.
+- Change made: Added a cancellable corpus-fetch attempt state and an accessible `Retry loading` action that re-fetches the corpus without reloading the page.
+- Validation performed: A controlled local proxy returned 503 for the first corpus request; the browser showed the alert and retry control, then recovered to the atlas after clicking it. The normal local path showed the atlas with no alert or console warnings/errors.
+- Commit: Cycle 18 commit in Git history — Retry the corpus load in place.
+- Remaining opportunities/blockers: Reassess source-comparison disclosure semantics, playback feedback, and responsive behavior; the concurrent source-faithful worker remains active.

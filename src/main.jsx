@@ -240,6 +240,24 @@ function sourcePdfUrl(song) {
   return (song?.urls || []).find((url) => /\.pdf(?:$|[?#])/i.test(url)) || "";
 }
 
+function sourceHostLabel(url) {
+  try {
+    return new URL(url).hostname.replace(/^www\./, "");
+  } catch {
+    return "linked page";
+  }
+}
+
+function sourceDestinationLabel(url) {
+  try {
+    const parsed = new URL(url);
+    const path = `${parsed.pathname}${parsed.search}` || "/";
+    return `${parsed.hostname.replace(/^www\./, "")}${path}`;
+  } catch {
+    return sourceHostLabel(url);
+  }
+}
+
 function shenandoahImageUrl(song) {
   if (!song?.songNo || !song?.title) return "";
   const match = String(song.songNo).match(/^(\d+)([tb])?$/i);
@@ -270,7 +288,7 @@ function SourceNotation({ song, bookId }) {
     ? song?.metadataByBook?.[bookId]?.sourceUrl || (song?.urls || []).find((url) => /sacredharpbremen\.org\//.test(url) || /fasola\.org\/indexes\/2025/.test(url)) || ""
     : "");
   const [imageFailed, setImageFailed] = useState(false);
-  useEffect(() => setImageFailed(false), [song?.id]);
+  useEffect(() => setImageFailed(false), [song?.id, imageUrl]);
   if (!pdfUrl && !imageUrl && !pageUrl) return null;
   if (imageUrl && !imageFailed) return <div className="source-notation" data-image-url={imageUrl}><div className="source-notation-head"><span className="section-label">Source scan</span><span>Page image · not transposable</span></div><img src={imageUrl} alt={`${song.songNo} ${song.title} source notation`} referrerPolicy="no-referrer" onError={() => setImageFailed(true)} /><a href={pageUrl || imageUrl} target="_blank" rel="noreferrer noopener">Open the authoritative source page <Icon name="external" size={16} /></a></div>;
   if (pdfUrl) return <div className="source-notation"><div className="source-notation-head"><span className="section-label">Source notation</span><span>PDF scan · not transposable</span></div><iframe title={`${song.songNo} ${song.title} source notation`} src={pdfUrl} loading="lazy" /><a href={pdfUrl} target="_blank" rel="noreferrer noopener">Open the source PDF <Icon name="external" size={16} /></a></div>;
@@ -288,7 +306,7 @@ function SourceRecording({ song, coverage }) {
     <div className="source-notation-head"><span className="section-label">Reference audio</span><span>{debutRecording ? "Source witness · does not drive rendering" : "Four parts · does not drive rendering"}</span></div>
     <audio controls preload="none" src={fullTrack.url} aria-label={`${song.songNo} ${song.title} source recording`} />
     {debutRecording && <p className="source-recording-note">Recorded at the official 2025 debut singing. This is source audio only; it does not create or validate transposable notation.</p>}
-    <div className="source-recording-links">{linkedTracks.map((track) => <a key={track.url} href={track.url} target="_blank" rel="noreferrer noopener">{track.title.replace(/^\d+\s*[-–]\s*/, "")} <Icon name="external" size={13} /></a>)}{sourcePages.filter((url) => /^https:\/\//.test(url)).map((url) => <a key={url} href={url} target="_blank" rel="noreferrer noopener">Open recording source <Icon name="external" size={13} /></a>)}</div>
+    <div className="source-recording-links">{linkedTracks.map((track) => <a key={track.url} href={track.url} target="_blank" rel="noreferrer noopener">{track.title.replace(/^\d+\s*[-–]\s*/, "")} <Icon name="external" size={13} /></a>)}{sourcePages.filter((url) => /^https:\/\//.test(url)).map((url) => <a key={url} href={url} target="_blank" rel="noreferrer noopener" aria-label={`Open recording source at ${sourceHostLabel(url)}`}>Open recording source <Icon name="external" size={13} /></a>)}</div>
   </div>;
 }
 
@@ -413,6 +431,7 @@ function ScorePreview({ score, transpose, complete, sourceKey, targetKey, shapeS
 
 function App() {
   const [corpus, setCorpus] = useState(null);
+  const [corpusAttempt, setCorpusAttempt] = useState(0);
   const [humanReviewQueue, setHumanReviewQueue] = useState(null);
   const [humanReviewQueueError, setHumanReviewQueueError] = useState(false);
   const [humanReviewQueueAttempt, setHumanReviewQueueAttempt] = useState(0);
@@ -463,14 +482,17 @@ function App() {
   const audioRef = useRef({ context: null, master: null, nodes: [], stopTimer: null });
 
   useEffect(() => {
+    let cancelled = false;
+    setCorpus(null);
     fetch("/corpus.json")
       .then((response) => {
         if (!response.ok) throw new Error(`Corpus request failed: ${response.status}`);
         return response.json();
       })
-      .then(setCorpus)
-      .catch(() => setCorpus({ error: true }));
-  }, []);
+      .then((data) => { if (!cancelled) setCorpus(data); })
+      .catch(() => { if (!cancelled) setCorpus({ error: true }); });
+    return () => { cancelled = true; };
+  }, [corpusAttempt]);
 
   useEffect(() => {
     setHumanReviewQueueError(false);
@@ -629,7 +651,7 @@ function App() {
   }, [selectedId, bookId, scoreRef]);
 
   if (!corpus) return <div className="loading-screen">Loading the local atlas…</div>;
-  if (corpus.error) return <div className="loading-screen"><Icon name="info" size={22} /><p>The local corpus bundle could not be loaded. Serve the project through its static host and try again.</p></div>;
+  if (corpus.error) return <div className="loading-screen" role="alert"><Icon name="info" size={22} /><p>The local corpus bundle could not be loaded. Serve the project through its static host and try again.</p><button className="text-button" type="button" onClick={() => setCorpusAttempt((attempt) => attempt + 1)}>Retry loading</button></div>;
 
   function stopAudio() {
     const audio = audioRef.current;
@@ -800,11 +822,11 @@ function App() {
             {(!sourceKeyValue || resolvedKey.evidence?.status === "entered") && <div className="source-key-picker"><div><span className="section-label">{sourceKeyValue ? "Entered source key" : "Source key required"}</span><p>{sourceKeyValue ? "Change this if the key printed in the source differs." : "Choose the key printed in this source to unlock pitch-accurate transposition."}</p></div><label className="key-select-wrap"><span className="sr-only">Source key</span><select aria-label="Source key" value={enteredSourceKey} onChange={(event) => setEnteredSourceKey(event.target.value)}><option value="">Choose source key…</option>{["major", "minor"].flatMap((mode) => KEY_NAMES.map((key) => <option key={`${key}:${mode}`} value={`${key}:${mode}`}>{key} {mode}</option>))}</select><span className="select-chevron">⌄</span></label></div>}
             <div className="transport-row"><div className="playback-controls"><button className="primary-button" onClick={playing ? () => stopAudio() : scoreLoadError ? () => setScoreLoadAttempt((attempt) => attempt + 1) : playAvailableParts} disabled={scoreLoadError ? false : !scoreLoaded || !activeParts.length}>{playing ? <Icon name="stop" size={14} /> : <Icon name="play" size={15} />}{playing ? "Stop" : scoreLoadError ? "Retry loading" : scoreLoaded ? "Play song" : "Loading…"}</button></div><div className="transpose-controls"><button className="secondary-button" title="Transpose down one semitone" aria-label="Transpose down one semitone" onClick={() => nudgeTranspose(-1)} disabled={!canTranspose}><Icon name="arrowDown" size={16} />Down</button><label className="key-select-wrap"><span className="sr-only">Target key</span><select aria-label="Target key" value={targetKey} onChange={(event) => setTargetKey(event.target.value)} disabled={!canTranspose}><option value="">{sourceKeyName}</option>{KEY_NAMES.filter((key) => key !== sourceKeyName.split(" ")[0]).map((key) => <option key={key} value={key}>{key} {sourceMode}</option>)}</select><span className="select-chevron">⌄</span></label><button className="secondary-button" title="Transpose up one semitone" aria-label="Transpose up one semitone" onClick={() => nudgeTranspose(1)} disabled={!canTranspose}><Icon name="arrowUp" size={16} />Up</button></div></div>
             {scoreLoadError && <div className="score-load-error" role="alert"><Icon name="info" size={16} /><span>The full score could not be loaded. Check the local server, then retry.</span></div>}
-            {signedTranspose !== 0 && <div className="transposition-note"><span>Transposed {signedTranspose > 0 ? "+" : "−"}{Math.abs(signedTranspose)} semitone{Math.abs(signedTranspose) === 1 ? "" : "s"} from {sourceKeyName}</span></div>}
+            {signedTranspose !== 0 && <div className="transposition-note" role="status" aria-live="polite" aria-atomic="true"><span>Transposed {signedTranspose > 0 ? "+" : "−"}{Math.abs(signedTranspose)} semitone{Math.abs(signedTranspose) === 1 ? "" : "s"} from {sourceKeyName}</span></div>}
             <div className="structured-score-status"><Icon name={draftScoreActive || !canTranspose ? "info" : "check"} size={16} /><span>{draftScoreActive ? "Draft loaded for review playback and transposition; source comparison is still required." : "Structured source loaded for playback."} {sourceKeyValue ? `${sourceKeyLabel}.` : "Choose the source key above to enable transposition."}</span></div>
             {draftScoreActive && <SourceRecording song={selectedSong} coverage={selectedCoverage} />}
           </> : <><div className="missing-score"><Icon name="info" size={23} /><div><h3>No transposable score file for this record</h3><p>The atlas preserves the exact source link or scan instead of synthesizing notation where structured score data is absent.</p>{selectedCoverage && <p className="edition-note"><strong>{coverageLabel(selectedCoverage)}.</strong> {coverageNextStep(selectedCoverage)}</p>}{selectedCoverage?.editionStatus === "added-in-2025" && <p className="edition-note"><strong>New in 2025.</strong> This page is on the publisher's additions list and has no verified 2025 MusicXML yet. <a href={selectedCoverage.editionEvidenceUrl} target="_blank" rel="noreferrer noopener">View the source list <Icon name="external" size={13} /></a></p>}{reviewDraft && <p className="edition-note"><strong>Draft ready for human review.</strong> {reviewDraft.draftSummary.parts} parts, {Object.values(reviewDraft.draftSummary.measuresByPart)[0] || "unknown"} measures per part. It is not playable or transposable until the source comparison is complete. <a href="/human-review-queue.json" target="_blank" rel="noreferrer noopener">Open review queue <Icon name="external" size={13} /></a></p>}{alternateEdition && <p className="edition-note">A verified {alternateEdition === "sh1991" ? "1991" : "2025"}-edition score is available for this shared tune, but it is not being mislabeled as a {bookId === "sh2025" ? "2025" : "1991"} score.</p>}{alternateEdition && <button className="text-button" onClick={() => { setBookId(alternateEdition); setSelectedId(selectedSong.id); }}>Open the verified {alternateEdition === "sh1991" ? "1991" : "2025"} score</button>}</div></div><SourceNotation song={selectedSong} bookId={bookId} /><SourceRecording song={selectedSong} coverage={selectedCoverage} /></>}
-          <div className="source-strip"><div><span className="section-label">Source</span><span>{selectedMetadata?.sourceUrl ? `${book.label}, page ${selectedSong.songNo}` : "Local corpus record"}</span></div><div className="source-actions">{sourceUrls.map((url) => <a key={url} href={url} target="_blank" rel="noreferrer noopener">Open source record <Icon name="external" size={16} /></a>)}{activeScorePreview && shapeSourcePdfUrl(activeScorePreview) && <a href={shapeSourcePdfUrl(activeScorePreview)} target="_blank" rel="noreferrer noopener">Open shape-source PDF <Icon name="external" size={16} /></a>}</div></div>
+          <div className="source-strip"><div><span className="section-label">Source</span><span>{selectedMetadata?.sourceUrl ? `${book.label}, page ${selectedSong.songNo}` : "Local corpus record"}</span></div><div className="source-actions">{sourceUrls.map((url) => <a key={url} href={url} target="_blank" rel="noreferrer noopener" aria-label={`Open source record at ${sourceDestinationLabel(url)}`}>Open source record <Icon name="external" size={16} /></a>)}{activeScorePreview && shapeSourcePdfUrl(activeScorePreview) && <a href={shapeSourcePdfUrl(activeScorePreview)} target="_blank" rel="noreferrer noopener">Open shape-source PDF <Icon name="external" size={16} /></a>}</div></div>
           <div className="detail-footer"><ShapeLegend /></div>
         </> : <div className="missing-score"><Icon name="info" size={23} /><div><h3>Select a tune to begin</h3><p>Search the local atlas by page, title, or first line.</p></div></div>}
       </section>
