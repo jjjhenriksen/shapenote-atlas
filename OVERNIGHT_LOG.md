@@ -54,4 +54,52 @@
 - Change made: Keep the source-key selector visible while the resolved key is user-entered, with copy that makes the correction path explicit; source-verified keys still use the authoritative metadata path.
 - Validation performed: Browser confirmed a persisted `G major` choice remained editable, changing it to `A major` kept transposition enabled, and clearing it restored `Source key required` with target-key selection disabled; page identity remained correct and browser console warnings/errors remained empty. Production build passed after the change.
 - Commit: Cycle 7 commit in Git history — Keep manually entered source keys editable.
-- Remaining opportunities/blockers: No required improvements remain after final whole-app validation; no blocker.
+- Remaining opportunities/blockers: Continue the restarted audit; existing uncommitted source-candidate comparison work is preserved and is not part of this cycle.
+
+## Cycle 8 — Normalize selector accessible names
+
+- Problem identified: The tune-book, source-key, and target-key native selectors inherited decorative chevron text in their accessible names, making exact screen-reader targeting unreliable.
+- Change made: Added explicit accessible labels to all three selectors while preserving their existing visible labels, values, and behavior.
+- Validation performed: Browser DOM checks found exactly one `Tune book`, `Source key`, and `Target key` combobox by exact accessible name; selecting `G major` enabled the target-key control and reported `Entered source key: G major`, while clearing it restored `Source key required` and disabled the target selector. `npm run validate-playback` and `npm run build` passed.
+- Commit: Cycle 8 accessibility commit in Git history — Normalize selector accessible names.
+- Remaining opportunities/blockers: Reassess the source-comparison path, tune persistence, playback feedback, and responsive behavior in additional cycles; no blocker currently.
+
+## Cycle 9 — Restore the selected tune on reload
+
+- Problem identified: Reloading the atlas restored the chosen edition and source-key overrides but discarded the tune being studied, returning the detail pane to the default record.
+- Change made: Persist the selected tune ID per edition and restore it on startup, while validating the saved book and falling back to the default tune when storage is absent, malformed, or stale.
+- Validation performed: Browser selected 2025 tune `26 Samaria`, confirmed its result button was pressed, reloaded the app, and confirmed `26 — Samaria` remained selected; browser console warnings/errors were empty. Production build passed after the change.
+- Commit: Cycle 9 commit in Git history — Restore the selected tune on reload.
+- Remaining opportunities/blockers: Reassess source-comparison messaging, review-queue failure feedback, playback feedback, and responsive behavior; no blocker currently.
+
+## Cycle 10 — Surface review-queue failures
+
+- Problem identified: A failed `human-review-queue.json` request was silently treated as an empty queue, which could make source-review status look complete when the review metadata was actually unavailable.
+- Change made: Track review-queue load failure separately and show a scoped status message for non-structured source records while leaving corpus, coverage, and score data usable.
+- Validation performed: A controlled local 503 for the review queue produced the accessible `Review status unavailable.` status while `80 shown · 576 source records` and the selected tune remained intact; the normal local app showed no status banner and no browser console warnings/errors. Production build passed after the change.
+- Commit: Cycle 10 commit in Git history — Surface review-queue failures.
+- Remaining opportunities/blockers: Reassess source-comparison interaction, playback feedback, and responsive behavior; no blocker currently.
+
+## Cycle 11 — Keep the selected tune visible in capped lists
+
+- Problem identified: Unfiltered sections display at most 80 rows; clearing a search for a tune beyond that window caused the selection-sync effect to replace the selected detail with the first visible tune.
+- Change made: Keep the current selected tune as the final row when it falls outside the 80-row unfiltered window, preserving the cap and the existing filtered-search synchronization behavior.
+- Validation performed: Browser reproduced the reset with 2025 source record `81b Windlesham` before the change; afterward, clearing the search kept `81b — Windlesham` selected, visible, and `aria-pressed="true"` in both Library and Sources (`80 shown`); browser console warnings/errors remained empty.
+- Commit: Cycle 11 commit in Git history — Keep the selected tune visible in capped lists.
+- Remaining opportunities/blockers: Reassess source-comparison interaction, playback feedback, and responsive behavior; the concurrent source-comparison task remains active.
+
+## Cycle 12 — Retry review-queue loading in place
+
+- Problem identified: When review metadata failed to load, the status message required a full page reload even though the rest of the atlas remained usable.
+- Change made: Added a focused `Retry` action that re-fetches only the human-review queue and clears the unavailable status after a successful response.
+- Validation performed: A controlled local proxy returned 503 on the first queue request; the browser showed the accessible unavailable status and `Retry` button while preserving `81b — Windlesham`. Clicking `Retry` succeeded on the next request, removed the warning, and restored the review-queue link; browser console warnings/errors remained empty. Production build passed.
+- Commit: Cycle 12 commit in Git history — Retry review-queue loading in place.
+- Remaining opportunities/blockers: Reassess source-comparison interaction, playback feedback, and responsive behavior; the concurrent source-faithful worker remains active.
+
+## Cycle 13 — Scope review warnings to recorded coverage
+
+- Problem identified: The review-queue failure banner used an undefined-coverage check that could classify ordinary records from another edition as source-review records.
+- Change made: Require an actual coverage record before showing the unavailable review-status banner; structured records remain unaffected while non-structured source records retain the warning and retry action.
+- Validation performed: With a controlled 503 queue response, Sacred Harp 1991 Library/New Britain showed no review warning, while Sacred Harp 2025 Sources/Windlesham still showed the warning and `Retry`; both selected records remained usable and browser console warnings/errors stayed empty. Production build passed.
+- Commit: Cycle 13 commit in Git history — Scope review warnings to recorded coverage.
+- Remaining opportunities/blockers: Reassess source-comparison interaction, playback feedback, and responsive behavior; the concurrent source-faithful worker remains active.

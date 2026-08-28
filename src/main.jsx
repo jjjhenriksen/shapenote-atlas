@@ -414,6 +414,8 @@ function ScorePreview({ score, transpose, complete, sourceKey, targetKey, shapeS
 function App() {
   const [corpus, setCorpus] = useState(null);
   const [humanReviewQueue, setHumanReviewQueue] = useState(null);
+  const [humanReviewQueueError, setHumanReviewQueueError] = useState(false);
+  const [humanReviewQueueAttempt, setHumanReviewQueueAttempt] = useState(0);
   const [bookId, setBookId] = useState(() => {
     try {
       const saved = window.localStorage.getItem("sh-corpus-dashboard-book");
@@ -430,7 +432,17 @@ function App() {
     }
   });
   const [query, setQuery] = useState("");
-  const [selectedId, setSelectedId] = useState("sh 45t — New Britain");
+  const [selectedId, setSelectedId] = useState(() => {
+    try {
+      const savedBook = window.localStorage.getItem("sh-corpus-dashboard-book");
+      const savedSelections = JSON.parse(window.localStorage.getItem("sh-corpus-dashboard-selected-tunes") || "{}");
+      return BOOK_ORDER.includes(savedBook) && savedSelections && typeof savedSelections === "object" && typeof savedSelections[savedBook] === "string"
+        ? savedSelections[savedBook]
+        : "sh 45t — New Britain";
+    } catch {
+      return "sh 45t — New Britain";
+    }
+  });
   const [activeSection, setActiveSection] = useState("Library");
   const [targetKey, setTargetKey] = useState("");
   const [activeParts, setActiveParts] = useState([]);
@@ -461,14 +473,18 @@ function App() {
   }, []);
 
   useEffect(() => {
+    setHumanReviewQueueError(false);
     fetch("/human-review-queue.json")
       .then((response) => {
         if (!response.ok) throw new Error(`Review queue request failed: ${response.status}`);
         return response.json();
       })
       .then(setHumanReviewQueue)
-      .catch(() => setHumanReviewQueue(null));
-  }, []);
+      .catch(() => {
+        setHumanReviewQueue(null);
+        setHumanReviewQueueError(true);
+      });
+  }, [humanReviewQueueAttempt]);
 
   useEffect(() => {
     try {
@@ -518,6 +534,18 @@ function App() {
     }
   }, [book, bookId, mode]);
   const selectedSong = corpus?.songs ? corpus.songs.find((song) => song.id === selectedId && song.books.includes(bookId)) || getBookSongs(corpus, bookId)[0] : undefined;
+
+  useEffect(() => {
+    if (!selectedSong) return;
+    try {
+      const saved = JSON.parse(window.localStorage.getItem("sh-corpus-dashboard-selected-tunes") || "{}");
+      const selections = saved && typeof saved === "object" ? saved : {};
+      window.localStorage.setItem("sh-corpus-dashboard-selected-tunes", JSON.stringify({ ...selections, [bookId]: selectedSong.id }));
+    } catch {
+      // The current selection remains available when storage is unavailable.
+    }
+  }, [bookId, selectedSong?.id]);
+
   const selectedScorePreview = getBookScore(selectedSong, bookId);
   const selectedReferenceScore = getBookReferenceScore(selectedSong, bookId);
   const selectedDraftScore = getBookDraftScore(selectedSong, bookId);
@@ -562,9 +590,15 @@ function App() {
       if (activeSection === "Sources") return isSourceRecord(song, bookId);
       return true;
     });
-    if (!normalizedQuery) return songs.slice(0, 80);
+    if (!normalizedQuery) {
+      const visibleSongs = songs.slice(0, 80);
+      const selectedVisibleSong = songs.find((song) => song.id === selectedId);
+      return selectedVisibleSong && !visibleSongs.some((song) => song.id === selectedVisibleSong.id)
+        ? [...visibleSongs.slice(0, 79), selectedVisibleSong]
+        : visibleSongs;
+    }
     return songs.filter((song) => { const metadata = getBookMetadata(song, bookId) || {}; const coverage = song.sourceCoverageByBook?.[bookId] || {}; const sourceTerms = [metadata.sourceUrl, ...(metadata.sourceUrls || []), ...(coverage.sourceUrls || []), coverage.editionEvidenceUrl, coverage.sourceImageUrl]; return normalize([song.songNo, song.title, song.rawFirstLine, song.textKey, metadata.composer, metadata.lyricist, coverage.status, coverage.nextAction, ...sourceTerms].join(" ")).includes(normalizedQuery); }).slice(0, 80);
-  }, [corpus, bookId, query, activeSection]);
+  }, [corpus, bookId, query, activeSection, selectedId]);
 
   useEffect(() => {
     if (results.length && selectedSong && !results.some((song) => song.id === selectedSong.id)) {
@@ -736,7 +770,7 @@ function App() {
         {[{ label: "Library", icon: "book" }, { label: "Practice", icon: "practice" }, { label: "Sources", icon: "source" }].map((item) => <button key={item.label} className={`nav-item ${activeSection === item.label ? "active" : ""}`} aria-pressed={activeSection === item.label} onClick={() => setActiveSection(item.label)}><Icon name={item.icon} /><span>{item.label}</span></button>)}
       </nav>
       <div className="header-controls">
-        <label className="book-select-wrap header-book-picker" htmlFor="book-select"><span className="sr-only">Tune book</span><Icon name="book" size={18} /><select id="book-select" value={bookId} onChange={(event) => handleBookChange(event.target.value)}>{BOOK_ORDER.filter((id) => corpus.books[id]).map((id) => <option key={id} value={id}>{corpus.books[id].label}</option>)}</select><span className="select-chevron">⌄</span></label>
+        <label className="book-select-wrap header-book-picker" htmlFor="book-select"><span className="sr-only">Tune book</span><Icon name="book" size={18} /><select id="book-select" aria-label="Tune book" value={bookId} onChange={(event) => handleBookChange(event.target.value)}>{BOOK_ORDER.filter((id) => corpus.books[id]).map((id) => <option key={id} value={id}>{corpus.books[id].label}</option>)}</select><span className="select-chevron">⌄</span></label>
         <span className="coverage-summary" title={`${formatCount(bookCoverage.transposableLocalScoreRecords || 0)} exact scores, ${formatCount(bookCoverage.transposableReferenceRecords || 0)} reference witnesses, and ${formatCount(bookCoverage.transposableDraftRecords || 0)} review drafts are transposable; ${formatCount(bookCoverage.keyUnknownStructuredRecords || 0)} structured records remain key-unknown`}>{formatCount(transposableCount)} transposable · {formatCount(bookCoverage.records)} tunes</span>
         <button className="theme-toggle" type="button" onClick={toggleTheme} aria-pressed={mode === "dark"}>{mode === "dark" ? "Light" : "Dark"}</button>
       </div>
@@ -755,6 +789,7 @@ function App() {
           <div className="detail-header"><div><div className="detail-overline">{book.label} · page {selectedSong.songNo}</div><h2>{selectedSong.songNo} — {selectedSong.title}</h2></div><button className="icon-button" aria-label="Tune details" onClick={() => showToast("Source links and score data are preserved locally.")}><Icon name="info" size={20} /></button></div>
           <div className="detail-tags">{selectedScore ? <span className={`tag ${canTranspose ? referenceScoreActive ? "reference-tag" : draftScoreActive ? "draft-tag" : "available" : "unavailable"}`}><Icon name={canTranspose ? "check" : "info"} size={14} />{scoreBadgeLabel}</span> : selectedCoverage?.status === "transcription-blocked" ? <span className="tag unavailable"><Icon name="info" size={14} />Transcription blocked</span> : sourcePdfUrl(selectedSong) || sourcePageUrl(selectedSong, bookId) ? <span className="tag available"><Icon name="check" size={14} />Source scan</span> : selectedCoverage?.status === "source-reference" ? <span className="tag available"><Icon name="check" size={14} />Source reference</span> : <span className="tag unavailable"><Icon name="info" size={14} />Metadata only</span>}{(selectedScore || sourceKeyValue || draftScoreActive) && <span className="tag key-tag">{sourceKeyValue ? sourceKeyLabel : "Key unavailable"}</span>}{bookId === "sh2025" && selectedMetadata?.editionStatus === "added-in-2025" && <span className="tag edition-new-tag">New in 2025</span>}{editionReconciliation && <span className="tag edition-tag">{editionReconciliation.status === "change-flagged" ? "1991 / 2025 text differs" : "Shared by 1991 / 2025"}</span>}</div>
           <div className="first-line"><span className="section-label">First line</span><p>{selectedSong.rawFirstLine || "No first line recorded in the local source."}</p></div>
+          {humanReviewQueueError && selectedCoverage && selectedCoverage.status !== "structured-score" && <div className="source-coverage-note"><Icon name="info" size={18} /><span role="status"><strong>Review status unavailable.</strong> The local human-review queue could not be loaded. Source coverage and score data are unchanged; reload when the local server is available.</span><button className="text-button" type="button" onClick={() => setHumanReviewQueueAttempt((attempt) => attempt + 1)}>Retry</button></div>}
           {selectedScore ? <>
             {referenceScoreActive && <div className="reference-score-note"><Icon name="info" size={18} /><span>This is a transposable reference witness from {referenceSourceLabel}. It is shown for practice, but it is not being presented as the {book.label} engraving.</span></div>}
             {draftScoreActive && <div className="draft-score-note"><Icon name="info" size={18} /><span>This is an unverified OMR transcription draft. It is playable and transposable for review, but it is not the {book.label} engraving and does not count as verified coverage. <a href="/human-review-queue.json" target="_blank" rel="noreferrer noopener">Open review queue <Icon name="external" size={13} /></a></span></div>}
@@ -762,8 +797,8 @@ function App() {
             <div className="parts-heading"><span className="section-label">Available parts</span><span className="parts-count">{activeParts.length} of {selectedScore.parts.length} selected</span></div>
             <div className="part-toggles" role="group" aria-label="Available parts">{selectedScore.parts.map((part) => <button key={part.name} className={`part-toggle ${activeParts.includes(part.name) ? "selected" : ""}`} aria-pressed={activeParts.includes(part.name)} onClick={() => togglePart(part.name)}><span className="part-clef">{part.name === "Bass" || part.name === "Tenor" ? "𝄢" : "𝄞"}</span><span>{part.name}</span><span className="part-check"><Icon name="check" size={13} /></span></button>)}</div>
             <ScorePreview score={selectedScore} transpose={signedTranspose} complete={scoreLoaded} sourceKey={shapeSourceKey} targetKey={targetKey} shapeSourceUrl={shapeSourcePdfUrl(activeScorePreview)} keyEvidence={resolvedKey.evidence} />
-            {(!sourceKeyValue || resolvedKey.evidence?.status === "entered") && <div className="source-key-picker"><div><span className="section-label">{sourceKeyValue ? "Entered source key" : "Source key required"}</span><p>{sourceKeyValue ? "Change this if the key printed in the source differs." : "Choose the key printed in this source to unlock pitch-accurate transposition."}</p></div><label className="key-select-wrap"><span className="sr-only">Source key</span><select value={enteredSourceKey} onChange={(event) => setEnteredSourceKey(event.target.value)}><option value="">Choose source key…</option>{["major", "minor"].flatMap((mode) => KEY_NAMES.map((key) => <option key={`${key}:${mode}`} value={`${key}:${mode}`}>{key} {mode}</option>))}</select><span className="select-chevron">⌄</span></label></div>}
-            <div className="transport-row"><div className="playback-controls"><button className="primary-button" onClick={playing ? () => stopAudio() : scoreLoadError ? () => setScoreLoadAttempt((attempt) => attempt + 1) : playAvailableParts} disabled={scoreLoadError ? false : !scoreLoaded || !activeParts.length}>{playing ? <Icon name="stop" size={14} /> : <Icon name="play" size={15} />}{playing ? "Stop" : scoreLoadError ? "Retry loading" : scoreLoaded ? "Play song" : "Loading…"}</button></div><div className="transpose-controls"><button className="secondary-button" title="Transpose down one semitone" aria-label="Transpose down one semitone" onClick={() => nudgeTranspose(-1)} disabled={!canTranspose}><Icon name="arrowDown" size={16} />Down</button><label className="key-select-wrap"><span className="sr-only">Target key</span><select value={targetKey} onChange={(event) => setTargetKey(event.target.value)} disabled={!canTranspose}><option value="">{sourceKeyName}</option>{KEY_NAMES.filter((key) => key !== sourceKeyName.split(" ")[0]).map((key) => <option key={key} value={key}>{key} {sourceMode}</option>)}</select><span className="select-chevron">⌄</span></label><button className="secondary-button" title="Transpose up one semitone" aria-label="Transpose up one semitone" onClick={() => nudgeTranspose(1)} disabled={!canTranspose}><Icon name="arrowUp" size={16} />Up</button></div></div>
+            {(!sourceKeyValue || resolvedKey.evidence?.status === "entered") && <div className="source-key-picker"><div><span className="section-label">{sourceKeyValue ? "Entered source key" : "Source key required"}</span><p>{sourceKeyValue ? "Change this if the key printed in the source differs." : "Choose the key printed in this source to unlock pitch-accurate transposition."}</p></div><label className="key-select-wrap"><span className="sr-only">Source key</span><select aria-label="Source key" value={enteredSourceKey} onChange={(event) => setEnteredSourceKey(event.target.value)}><option value="">Choose source key…</option>{["major", "minor"].flatMap((mode) => KEY_NAMES.map((key) => <option key={`${key}:${mode}`} value={`${key}:${mode}`}>{key} {mode}</option>))}</select><span className="select-chevron">⌄</span></label></div>}
+            <div className="transport-row"><div className="playback-controls"><button className="primary-button" onClick={playing ? () => stopAudio() : scoreLoadError ? () => setScoreLoadAttempt((attempt) => attempt + 1) : playAvailableParts} disabled={scoreLoadError ? false : !scoreLoaded || !activeParts.length}>{playing ? <Icon name="stop" size={14} /> : <Icon name="play" size={15} />}{playing ? "Stop" : scoreLoadError ? "Retry loading" : scoreLoaded ? "Play song" : "Loading…"}</button></div><div className="transpose-controls"><button className="secondary-button" title="Transpose down one semitone" aria-label="Transpose down one semitone" onClick={() => nudgeTranspose(-1)} disabled={!canTranspose}><Icon name="arrowDown" size={16} />Down</button><label className="key-select-wrap"><span className="sr-only">Target key</span><select aria-label="Target key" value={targetKey} onChange={(event) => setTargetKey(event.target.value)} disabled={!canTranspose}><option value="">{sourceKeyName}</option>{KEY_NAMES.filter((key) => key !== sourceKeyName.split(" ")[0]).map((key) => <option key={key} value={key}>{key} {sourceMode}</option>)}</select><span className="select-chevron">⌄</span></label><button className="secondary-button" title="Transpose up one semitone" aria-label="Transpose up one semitone" onClick={() => nudgeTranspose(1)} disabled={!canTranspose}><Icon name="arrowUp" size={16} />Up</button></div></div>
             {scoreLoadError && <div className="score-load-error" role="alert"><Icon name="info" size={16} /><span>The full score could not be loaded. Check the local server, then retry.</span></div>}
             {signedTranspose !== 0 && <div className="transposition-note"><span>Transposed {signedTranspose > 0 ? "+" : "−"}{Math.abs(signedTranspose)} semitone{Math.abs(signedTranspose) === 1 ? "" : "s"} from {sourceKeyName}</span></div>}
             <div className="structured-score-status"><Icon name={draftScoreActive || !canTranspose ? "info" : "check"} size={16} /><span>{draftScoreActive ? "Draft loaded for review playback and transposition; source comparison is still required." : "Structured source loaded for playback."} {sourceKeyValue ? `${sourceKeyLabel}.` : "Choose the source key above to enable transposition."}</span></div>
