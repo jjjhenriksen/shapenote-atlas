@@ -343,3 +343,83 @@
 - Validation performed: Direct visual inspection of the retained scan and MuseScore-rendered exact source confirmed the DEVOTION L.M. header, C major, 4/4, four parts, note/rhythm layout, repeats, and endings. The derivative archive passed integrity checks with 4 parts, 17 measures per part, 156 pitched events, and 156 allowed shape tags. The ledger rebuilt with 52 records, 19 autonomous blocks, 1 autonomously verified source score, 0 errors, and 0 safe promotions. Queue/reconciliation, data, transposition, playback, shape-review, transcription-image, production-build, and diff checks all passed.
 - Commit: Deliver a shape-complete exact 2025 source score (this cycle).
 - Remaining opportunities/blockers: One genuinely source-faithful structured record is now delivered outside the promotion gate. Continue auditing the next retained 2025 pages for another exact structured source; retain zero promotion for OMR-only or unresolved candidates.
+
+## Cycle 44 — Block incomplete Humility OMR with event-level evidence
+
+- Problem identified: Humility (347b) was a short remaining source page with a retained four-part OMR, but the draft contained only 10/19/17/7 note events and blank measures where the immutable scan visibly contains music. Its duration grouping also failed across named measures.
+- Change made: Created a provenance-bearing four-part MusicXML derivative with the source-visible B-flat-major key, 3/2 meter, and derived four-shape tags for all 52 detected pitched events. Kept the derivative outside the authoritative corpus and recorded precise missing measures (P1 m4,m6; P2 m1,m5,m6; P3 m4; P4 m0,m1,m5,m6), duration-failing groups, and only the watermark-intersected source regions as blockers. No missing music, lyrics, or obscured events were guessed.
+- Validation performed: The derivative archive passed integrity checks with 4 parts, 8 measures per part, 52 pitched events, and 52 allowed shape tags. The source-comparison ledger rebuilt with 53 records, 20 autonomous blocks, 1 autonomously verified source score, 0 errors, and 0 safe promotions. Queue/reconciliation, data, transposition, playback, transcription-image, production-build, and diff checks all passed.
+- Commit: Block incomplete Humility OMR with event-level evidence (this cycle).
+- Remaining opportunities/blockers: The remaining 2025 queue is predominantly OMR-only with no direct structured witness. Continue one disjoint page at a time, promoting only an exact source-supported score and otherwise preserving precise autonomous blocks.
+
+## Cycle 45 — Block collapsed Thy Strength OMR with event-level evidence
+
+- Problem identified: Thy Strength (469) had a legible eight-measure source page and retained OMR, but the OMR left P1 m1, P2 m1,m3,m6, and P4 m1,m3,m6 blank and collapsed visible material into oversized clusters, especially P1/P2/P3 m5.
+- Change made: Created a provenance-bearing four-part MusicXML derivative with source D-major key, 3/2 meter, and derived four-shape tags for all 96 detected pitched events. Recorded the blank measures, duration-failing groups, collapsed clusters, and only the watermark-intersected regions as blockers. No missing source music, lyrics, or obscured event was guessed or promoted.
+- Validation performed: The derivative archive passed integrity checks with 4 parts, 8 measures per part, 96 pitched events, and 96 allowed shape tags. The source-comparison ledger rebuilt with 54 records, 21 autonomous blocks, 1 autonomously verified source score, 0 errors, and 0 safe promotions. Queue/reconciliation, data, transposition, playback, transcription-image, production-build, and diff checks all passed.
+- Commit: Block collapsed Thy Strength OMR with event-level evidence (this cycle).
+- Remaining opportunities/blockers: No additional exact structured 2025 source is currently retained beyond Devotion; continue auditing the clearest remaining scan/OMR page while keeping all unresolved events outside the authoritative corpus.
+
+## Cycle 47 — Block incomplete Troubles Over OMR with event-level evidence
+
+- Problem identified: Troubles Over (80t) had a clear 13-measure G-minor 2/4 source scan, but the retained OMR left P1 m2, P2 m3, P3 m2,m3,m8,m10,m12,m13, and P4 m2,m8 blank and produced broad duration failures and oversized clusters.
+- Change made: Created a provenance-bearing four-part derivative with source G-minor key, 2/4 meter, and derived four-shape tags for all 81 detected pitched events. Recorded the exact blank measures, duration-failing part ranges, clusters, and only watermark-intersected regions as blockers. No missing source music or lyrics was fabricated and nothing was promoted.
+- Validation performed: The derivative archive passed integrity checks with 4 parts, 13 measures per part, 81 pitched events, and 81 allowed shape tags. The source-comparison ledger rebuilt with 56 records, 23 autonomous blocks, 1 autonomously verified source score, 0 errors, and 0 safe promotions. Queue/reconciliation, data, transposition, playback, transcription-image, production-build, and diff checks all passed.
+- Commit: Block incomplete Troubles Over OMR with event-level evidence (this cycle).
+- Remaining opportunities/blockers: The queue remains fail-closed at 120 review-now records; exact structured-source coverage is limited to the verified Devotion record. Continue autonomous scan/OMR comparison on the clearest remaining page.
+
+## Cycle 48 — Block Iowa OMR key and duration mismatches
+
+- Problem identified: Iowa (295) was a short, four-part candidate with six measures per part and no blank measures, but its retained OMR detected G major while the scan prints E minor and failed the 6/4 duration audit across every part.
+- Change made: Created a provenance-bearing derivative with source E-minor key, 6/4 meter, and derived four-shape tags for all 129 detected pitched events. Preserved the exact OMR event stream and recorded the all-part duration failures plus only the watermark-intersected middle-system events as blockers; no rhythm, pitch, or lyric was invented.
+- Validation performed: The derivative archive passed integrity checks with 4 parts, 6 measures per part, 129 pitched events, and 129 allowed shape tags. The source-comparison ledger rebuilt with 57 records, 24 autonomous blocks, 1 autonomously verified source score, 0 errors, and 0 safe promotions. Queue/reconciliation, data, transposition, playback, transcription-image, production-build, and diff checks all passed.
+- Commit: Block Iowa OMR key and duration mismatches (this cycle).
+- Remaining opportunities/blockers: The 120-record review queue remains fail-closed; Devotion is the only exact structured source verified in this run. Continue with the next strongest legible scan/OMR candidate.
+
+## Cycle 46 — Block mismatched Lloyd OMR with event-level evidence
+
+- Problem identified: Lloyd (503) had a legible eight-measure source page, but its retained OMR used 3/4 instead of the source-visible 3/2, left P2 m1 and P4 m1 blank, and collapsed visible material into oversized P2 m3-5 groups.
+- Change made: Created a provenance-bearing four-part derivative with source F-major key, 3/2 meter, and derived four-shape tags for all 54 detected pitched events. Recorded the exact blank measure, pervasive duration failures, collapsed clusters, and only the watermark-intersected regions as blockers. No missing source music or lyrics was fabricated and nothing was promoted.
+- Validation performed: The derivative archive passed integrity checks with 4 parts, 8 measures per part, 54 pitched events, and 54 allowed shape tags. The source-comparison ledger rebuilt with 55 records, 22 autonomous blocks, 1 autonomously verified source score, 0 errors, and 0 safe promotions. Queue/reconciliation, data, transposition, playback, transcription-image, production-build, and diff checks all passed.
+- Commit: Block mismatched Lloyd OMR with event-level evidence (this cycle).
+- Remaining opportunities/blockers: The remaining queue is now 120 review-now records, mostly OMR-only pages without exact structured witnesses. Continue selecting short, legible scans and keep every unresolved event outside the authoritative corpus.
+
+## Cycle 49 — Preserve Parwich evidence and repair comparison integrity
+
+- Problem identified: Parwich (484b) was the next legible four-part candidate, but its retained OMR rhythm/event grouping could not establish every source event even though the scan visibly has eight 4/4 measures per part. The existing exact-source Converse (55) comparison also lacked the generic image/input witness fields required by the ledger validator.
+- Change made: Created a provenance-bearing Parwich derivative with the source-visible A-minor key, 4/4 meter, four-part structure, and derived four-shape tags for all 156 retained pitched events. Recorded only the named duration-unsupported measure groups and watermark-intersected regions as blockers; omitted lyrics without treating them as an independent blocker. Repaired the Converse comparison generator to expose its immutable rendered source and exact structured source through the ledger’s standard witness fields.
+- Validation performed: Parwich retains 4 parts, 8 measures per part, 156 pitched events, and 156 shape tags with `safeToPromote=false`. The rebuilt ledger now reports 59 records, 25 autonomous blocks, 2 autonomously verified source scores, 0 errors, and 0 safe promotions. No corpus record was promoted.
+- Commit: Preserve Parwich evidence and repair comparison integrity (this cycle).
+- Remaining opportunities/blockers: Continue with the next strongest disjoint scan/OMR candidate. Promote only a complete artifact whose every event is directly source-supported; otherwise retain a precise partial/block record and keep the fail-closed gate.
+
+## Cycle 50 — Block Grantville’s conflicting OMR event stream
+
+- Problem identified: Grantville (423t) had a legible four-part C.M. source scan and ten OMR measures per part, but P1 m6 was blank, 26 named part/measure duration totals were unsupported, all four m7 groups were collapsed, and the OMR key metadata conflicted with the source-visible F-sharp minor.
+- Change made: Created a provenance-bearing derivative with source F-sharp-minor key/mode, 4/4 meter, four-part structure, and derived four-shape tags for all 166 retained pitched events. Recorded the exact duration failures, blank measure, collapsed groups, conflicting OMR key fields, and only watermark-intersected middle-system events as blockers. Lyrics remain omitted without fabrication and no event was promoted.
+- Validation performed: The derivative retains 4 parts, 10 measures per part, 166 pitched events, and 166 allowed shape tags. The source-comparison ledger rebuilt with 60 records, 26 autonomous blocks, 2 autonomously verified source scores, 0 errors, and 0 safe promotions; candidate reconciliation remained 94 blocked candidates. MuseScore rendered the derivative’s non-empty pages successfully, and the focused archive/shape/provenance and diff checks passed.
+- Commit: Block Grantville’s conflicting OMR event stream (this cycle).
+- Remaining opportunities/blockers: Continue to the next strongest disjoint scan/OMR candidate, seeking a fully source-supported event stream rather than treating structural resemblance as completion.
+
+## Cycle 51 — Block Stanton’s incomplete 6/4 event grouping
+
+- Problem identified: Stanton (243) had a clear E-minor 6/4 source scan with four parts and six measures per part, and the OMR matched that coarse structure without blank measures. It nevertheless failed duration totals in the named part/measure groups, omitted the source time signature, and recorded G-major-style key metadata without a mode.
+- Change made: Created a provenance-bearing derivative with source E-minor key/mode, 6/4 meter, four-part structure, and derived four-shape tags for all 133 retained pitched events. Recorded exact duration failures, the conflicting key/time metadata, and only watermark-intersected middle-system events as blockers. D.C. source markings remain preserved; lyrics remain optional and omitted without fabrication.
+- Validation performed: The derivative retains 4 parts, 6 measures per part, 133 pitched events, and 133 allowed shape tags. The source-comparison ledger rebuilt with 61 records, 27 autonomous blocks, 2 autonomously verified source scores, 0 errors, and 0 safe promotions; candidate reconciliation remained 94 blocked candidates. MuseScore rendered the derivative successfully, and focused archive/provenance and diff checks passed.
+- Commit: Block Stanton’s incomplete 6/4 event grouping (this cycle).
+- Remaining opportunities/blockers: Continue with the next strongest disjoint scan/OMR candidate and promote only a fully source-supported event stream.
+
+## Cycle 52 — Block Pastures Green’s unsupported duration groups
+
+- Problem identified: Pastures Green (499t) had a clear F-sharp-minor C.M. source scan and retained OMR with four parts and ten measures per part, but duration totals failed in 22 exact part/measure groups. The OMR also recorded incomplete/conflicting key metadata against the source-visible F-sharp minor.
+- Change made: Created a provenance-bearing derivative with source F-sharp-minor key/mode, 3/4 meter, four-part structure, and derived four-shape tags for all 104 retained pitched events. Recorded the exact duration failures, key-field conflict, and only watermark-intersected middle-system events as blockers. Lyrics remain optional and omitted without fabrication.
+- Validation performed: The derivative retains 4 parts, 10 measures per part, 104 pitched events, and 104 allowed shape tags. The source-comparison ledger rebuilt with 62 records, 28 autonomous blocks, 2 autonomously verified source scores, 0 errors, and 0 safe promotions; candidate reconciliation remained 94 blocked candidates. MuseScore rendered the derivative successfully, and focused archive/provenance and diff checks passed.
+- Commit: Block Pastures Green’s unsupported duration groups (this cycle).
+- Remaining opportunities/blockers: Continue autonomous comparison on the next strongest disjoint source page; the gate remains fail-closed until every promoted event is source-supported.
+
+## Cycle 53 — Reconcile and retain Endless Praise exact source delivery
+
+- Problem identified: A concurrent worker produced an exact 2025 Endless Praise (415) structured-source derivative while the OMR comparison passes were running. It needed reconciliation against the immutable PDF/source manifest before being counted, and it must not be confused with an OMR-derived promotion.
+- Change made: Preserved the worker’s exact-source derivative and generator. Its source PDF, rendered scan, manifest-listed MusicXML, part/measure structure, event stream, four-shape encoding, provenance, and fail-closed disposition were reconciled without duplicating or relabeling another artifact.
+- Validation performed: Direct source/derivative comparison found identical 209-event streams across 4 parts and 17 measures per part; all 209 pitched events carry allowed four-shape tags. The ledger rebuilt with 64 records, 29 autonomous blocks, 3 autonomously verified source scores, 0 errors, and 0 safe promotions. Data and playback validators passed; no corpus record was promoted.
+- Commit: Reconcile and retain Endless Praise exact source delivery (this cycle).
+- Remaining opportunities/blockers: Continue autonomous comparison on disjoint retained source pages. Keep exact-source deliveries available with provenance, while retaining zero corpus promotion unless explicitly authorized by the repository’s authoritative promotion path.
