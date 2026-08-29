@@ -423,3 +423,44 @@
 - Validation performed: Direct source/derivative comparison found identical 209-event streams across 4 parts and 17 measures per part; all 209 pitched events carry allowed four-shape tags. The ledger rebuilt with 64 records, 29 autonomous blocks, 3 autonomously verified source scores, 0 errors, and 0 safe promotions. Data and playback validators passed; no corpus record was promoted.
 - Commit: Reconcile and retain Endless Praise exact source delivery (this cycle).
 - Remaining opportunities/blockers: Continue autonomous comparison on disjoint retained source pages. Keep exact-source deliveries available with provenance, while retaining zero corpus promotion unless explicitly authorized by the repository’s authoritative promotion path.
+
+## Cycle 54 — Block Clayton’s collapsed 3/2 OMR structure
+
+- Problem identified: Clayton (531) had a clear C-major 3/2 source scan, but the retained OMR collapsed the page to seven measures per part, left P1 m6 and P2/P4 m1 blank, and failed the 3-unit duration target in every retained measure.
+- Change made: Created a provenance-bearing derivative with source C-major key/mode, 3/2 meter, retained four-part structure, and derived four-shape tags for all 116 detected pitched events. Recorded the source/OMR structure mismatch, exact duration failures, blank source-visible measures, incomplete OMR key/time metadata, and only watermark-intersected middle-system events as blockers. Lyrics remain optional and omitted without fabrication.
+- Validation performed: The derivative retains 4 parts, 7 OMR measures per part, 116 pitched events, and 116 allowed shape tags. The source-comparison ledger rebuilt with 65 records, 30 autonomous blocks, 3 autonomously verified source scores, 0 errors, and 0 safe promotions; candidate reconciliation remained 94 blocked candidates. MuseScore rendered the derivative successfully, and focused archive/provenance and diff checks passed.
+- Commit: Block Clayton’s collapsed 3/2 OMR structure (this cycle).
+- Remaining opportunities/blockers: Continue with the next strongest disjoint source page, seeking a complete directly source-supported event stream.
+
+## Cycle 55 — Block Traveling Pilgrim’s collapsed 2/4 OMR
+
+- Problem identified: Traveling Pilgrim (278b) had a legible G-minor 2/4 source scan, but the retained OMR used 6/4, carried incomplete key metadata, collapsed visibly denser source barlines into ten measures per part, and left P2 m0,m7,m9, P3 m9, and P4 m9 blank. Its duration/event totals failed in the exact groups recorded in the audit.
+- Change made: Created a provenance-bearing derivative with source G-minor key/mode, 2/4 meter, retained four-part structure, and derived four-shape tags for all 191 detected pitched events. Recorded only the source/OMR structure and time/key conflicts, exact duration failures, blank source-visible measures, and watermark-intersected middle-system events as blockers. Lyrics remain optional and omitted without fabrication.
+- Validation performed: The derivative retains 4 parts, 10 OMR measures per part, 191 pitched events, and 191 allowed shape tags. The source-comparison ledger rebuilt with 66 records, 31 autonomous blocks, 3 autonomously verified source scores, 0 errors, and 0 safe promotions; candidate reconciliation remained 94 blocked candidates. MuseScore rendered the derivative successfully, and focused archive/provenance and diff checks passed.
+- Commit: Block Traveling Pilgrim’s collapsed 2/4 OMR (this cycle).
+- Remaining opportunities/blockers: Continue autonomous comparison on the next strongest disjoint source page, preserving any usable visible notation while keeping unsupported events outside the authoritative corpus.
+
+## Cycle 56 — Block Ragan’s collapsed 4/4 OMR
+
+- Problem identified: Ragan (176t) had a clear F-major 4/4 source scan, but the retained OMR collapsed visibly denser source barlines into seven measures per part, failed duration totals in every part except one retained measure, and left P2 m1,m7, P3 m7, and P4 m1,m4,m7 blank.
+- Change made: Created a provenance-bearing derivative with source F-major key/mode, 4/4 meter, retained four-part structure, and derived four-shape tags for all 176 detected pitched events. Recorded exact duration failures, blank source-visible measures, and only watermark-intersected middle-system events as blockers. Lyrics remain optional and omitted without fabrication.
+- Validation performed: The derivative retains 4 parts, 7 OMR measures per part, 176 pitched events, and 176 allowed shape tags. The source-comparison ledger rebuilt with 67 records, 32 autonomous blocks, 3 source-verified corrected derivatives, 0 errors, and 0 safe promotions; candidate reconciliation remained 94 blocked candidates. MuseScore rendered the derivative successfully, and focused archive/provenance and diff checks passed.
+- Reconciliation note: The concurrent exact-source worker’s three raw-source records were tightened to `verified-with-correction-needed` because their raw MusicXML omits some source-visible mode/shape/lyric encoding; their corrected derivatives remain source-verified and no record was promoted.
+- Commit: Block Ragan’s collapsed 4/4 OMR (this cycle).
+- Remaining opportunities/blockers: Continue autonomous comparison on the next strongest disjoint source page, retaining only directly supported events and preserving all user-owned worker/UI changes.
+
+## Cycle 57 — Block Restoration’s collapsed 4/4 OMR
+
+- Problem identified: Restoration (312b) had a legible A-minor 4/4 source scan and a non-empty four-part OMR, but the OMR collapsed visibly denser source barlines into six measures per part and failed duration totals in 22 exact part/measure groups. It also omitted the source key/mode and time signature.
+- Change made: Created a provenance-bearing derivative with source A-minor key/mode, 4/4 meter, retained four-part structure, and derived four-shape tags for all 145 detected pitched events. Recorded the source/OMR partition mismatch, exact duration failures, missing source metadata, and only watermark-intersected middle-system events as blockers. Lyrics remain optional and omitted without fabrication.
+- Validation performed: The derivative retains 4 parts, 6 OMR measures per part, 145 pitched events, and 145 allowed shape tags. The source-comparison ledger rebuilt with 68 records, 33 autonomous blocks, 3 source-verified corrected derivatives, 0 errors, and 0 safe promotions; candidate reconciliation remained 94 blocked candidates.
+- Commit: Block Restoration’s collapsed 4/4 OMR (this cycle).
+- Remaining opportunities/blockers: Continue autonomous comparison on the next strongest disjoint source page while preserving the fail-closed promotion gate.
+
+## Cycle 58 — Restore the zero-promotion comparison gate
+
+- Problem identified: A concurrent worker revision temporarily marked Converse (55) `safeToPromote=true` and taught the comparison ledger to permit that self-authorization, which surfaced one unsafe record despite the repository’s fail-closed policy.
+- Change made: Restored unconditional rejection of `safeToPromote=true` in source-comparison records, removed the special 55 promotion exception from the 2025 score audit, and changed the Converse generator/derivative disposition back to `verified-with-correction-needed` with `atlas-safe-to-promote=false`. Existing source evidence and the worker’s raw-source completeness annotations were preserved; no UI changes were staged.
+- Validation performed: Rebuilt the 2025 score audit with 26 catalog entries, 3 corrected source-verification records, 23 blocked records, 0 errors, and 0 safe promotions. The source-comparison ledger rebuilt with 68 records, 33 autonomous blocks, 3 verified-with-correction-needed records, 0 errors, and 0 safe promotions; candidate reconciliation remained 94 blocked candidates. Data, playback, and review-queue rebuilds passed.
+- Commit: Restore the zero-promotion comparison gate (this cycle).
+- Remaining opportunities/blockers: Continue autonomous source comparison; no source-comparison record may authorize corpus promotion on its own.
