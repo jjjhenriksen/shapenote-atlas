@@ -449,6 +449,54 @@
 - Commit: Block Ragan’s collapsed 4/4 OMR (this cycle).
 - Remaining opportunities/blockers: Continue autonomous comparison on the next strongest disjoint source page, retaining only directly supported events and preserving all user-owned worker/UI changes.
 
+## Cycle 59 — Block Bremen’s incomplete 3/4 event stream
+
+- Problem identified: Bremen (366) had a clear F-sharp-minor P.M. source scan and matching coarse four-part/15-measure OMR structure, but the OMR failed duration totals in 36 exact part/measure groups, left P1 m1, P3 m6,m15, and P4 m1 blank, and carried inconsistent key metadata against the source.
+- Change made: Created a provenance-bearing derivative with source F-sharp-minor key/mode, 3/4 meter, retained four-part structure, and derived four-shape tags for all 154 detected pitched events. Recorded exact duration failures, blank source-visible measures, key-field conflicts, and only watermark-intersected middle-system events as blockers. Lyrics remain optional and omitted without fabrication.
+- Validation performed: The derivative retains 4 parts, 15 measures per part, 154 pitched events, and 154 allowed shape tags. The source-comparison ledger rebuilt with 69 records, 34 autonomous blocks, 3 corrected source verifications, 0 errors, and 0 safe promotions; candidate reconciliation remained 94 blocked candidates. MuseScore rendered the derivative successfully, and focused archive/provenance and diff checks passed.
+- Commit: Block Bremen’s incomplete 3/4 event stream (this cycle).
+- Remaining opportunities/blockers: Continue autonomous comparison on the next strongest disjoint source page while preserving the zero-promotion gate.
+
+## Cycle 60 — Block Midnight Hour’s unresolved 4/4 groups
+
+- Problem identified: Midnight Hour (293) had a clear E-minor 4/4 source scan and matching coarse four-part/12-measure structure, but P1 m6, P2 m6,m12, and P3 m12 were blank and duration totals failed in 39 exact part/measure groups. Its OMR key fields were incomplete/inconsistent with the source.
+- Change made: Created a provenance-bearing derivative with source E-minor key/mode, 4/4 meter, retained four-part structure, and derived four-shape tags for all 136 detected pitched events. Recorded exact duration failures, blank source-visible measures, key-field conflicts, and only watermark-intersected events as blockers. Lyrics remain optional and omitted without fabrication.
+- Validation performed: The derivative retains 4 parts, 12 measures per part, 136 pitched events, and 136 allowed shape tags. The source-comparison ledger rebuilt with 70 records, 35 autonomous blocks, 3 corrected source verifications, 0 errors, and 0 safe promotions; candidate reconciliation remained 94 blocked candidates. MuseScore rendered the derivative successfully, and focused archive/provenance and diff checks passed.
+- Commit: Block Midnight Hour’s unresolved 4/4 groups (this cycle).
+- Remaining opportunities/blockers: Continue with the next strongest disjoint source page under the restored fail-closed gate.
+
+## Cycle 61 — Block Penn’s incomplete first measures
+
+- Problem identified: Penn (501t) had a clear A-major 4/4 source scan and matching four-part/nine-measure OMR structure, but P1/P2/P3 m1 were blank, P4 m1 was partial, and duration totals failed in 24 exact part/measure groups. The OMR key fields also conflicted with the source A-major signature.
+- Change made: Created a provenance-bearing derivative with source A-major key/mode, 4/4 meter, retained four-part structure, and derived four-shape tags for all 114 detected pitched events. Recorded exact duration failures, blank/partial source-visible first measures, key-field conflicts, and only watermark-intersected middle-system events as blockers. Lyrics remain optional and omitted without fabrication.
+- Validation performed: The derivative retains 4 parts, 9 measures per part, 114 pitched events, and 114 allowed shape tags. The source-comparison ledger rebuilt with 71 records, 36 autonomous blocks, 3 corrected source verifications, 0 errors, and 0 safe promotions; candidate reconciliation remained 94 blocked candidates. MuseScore rendered the derivative successfully, and focused archive/provenance and diff checks passed.
+- Commit: Block Penn’s incomplete first measures (this cycle).
+- Remaining opportunities/blockers: Continue autonomous comparison on the next strongest disjoint source page under the zero-promotion gate.
+
+## Cycle 62 — Block Ester’s incomplete 3/4 event stream
+
+- Problem identified: Ester (37t) had a clear F-major 3/4 source scan and matching coarse four-part/10-measure OMR structure, but P1 m4, P2 m0, P3 m0, and P4 m0,m5 were blank, duration totals failed in 31 exact groups, and the OMR omitted source key metadata.
+- Change made: Created a provenance-bearing derivative with source F-major key/mode, 3/4 meter, retained four-part structure, and derived four-shape tags for all 121 detected pitched events. Recorded exact duration failures, blank source-visible measures, missing key metadata, and only watermark-intersected middle-system events as blockers. Lyrics remain optional and omitted without fabrication.
+- Validation performed: The derivative retains 4 parts, 10 measures per part, 121 pitched events, and 121 allowed shape tags. The source-comparison ledger rebuilt with 72 records, 37 autonomous blocks, 3 corrected source verifications, 0 errors, and 0 safe promotions; candidate reconciliation remained 94 blocked candidates. MuseScore rendered the derivative successfully, and focused archive/provenance and diff checks passed.
+- Commit: Block Ester’s incomplete 3/4 event stream (this cycle).
+- Remaining opportunities/blockers: Continue autonomous comparison on the next strongest disjoint source page under the fail-closed gate.
+
+## Cycle 64 — Block He Hath Saved Us’ unsupported 2/4 groups
+
+- Problem identified: He Hath Saved Us (219) had a clear A-major 2/4 source scan and matching four-part/13-measure OMR structure, but P2 m10, P3 m1,m13, and P4 m1,m13 were blank, P1 m1 was absent as a source-aligned group, and duration totals failed in 39 exact groups. OMR key fields conflicted with the source A-major signature.
+- Change made: Created a provenance-bearing derivative with source A-major key/mode, 2/4 meter, retained four-part structure, and derived four-shape tags for all 104 detected pitched events. Recorded exact duration failures, blank/absent source-visible groups, key-field conflicts, and only watermark-intersected middle-system events as blockers. Lyrics remain optional and omitted without fabrication.
+- Validation performed: The derivative retains 4 parts, 13 measures per part, 104 pitched events, and 104 allowed shape tags. The source-comparison ledger rebuilt with 75 records, 40 autonomous blocks, 3 corrected source verifications, 0 errors, and 0 safe promotions; candidate reconciliation remained 94 blocked candidates. MuseScore rendered the derivative successfully, and focused archive/provenance and diff checks passed.
+- Commit: Block He Hath Saved Us’ unsupported 2/4 groups (this cycle).
+- Remaining opportunities/blockers: Continue autonomous comparison on the next strongest disjoint source page under the zero-promotion gate.
+
+## Cycle 63 — Block Warrenton’s unsupported 2/4 groups
+
+- Problem identified: Warrenton (145t) had a clear G-major 2/4 source scan and matching four-part/13-measure OMR structure, but P1 m1, P3 m9,m12,m13, and P4 m13 were blank and duration totals failed in 29 exact part/measure groups. The OMR also omitted source mode and had no key in P4.
+- Change made: Created a provenance-bearing derivative with source G-major key/mode, 2/4 meter, retained four-part structure, and derived four-shape tags for all 109 detected pitched events. Recorded exact duration failures, blank source-visible measures, incomplete key metadata, and only watermark-intersected middle-system events as blockers. Lyrics remain optional and omitted without fabrication.
+- Validation performed: The derivative retains 4 parts, 13 measures per part, 109 pitched events, and 109 allowed shape tags. The source-comparison ledger rebuilt with 73 records, 38 autonomous blocks, 3 corrected source verifications, 0 errors, and 0 safe promotions; candidate reconciliation remained 94 blocked candidates. MuseScore rendered the derivative successfully, and focused archive/provenance and diff checks passed.
+- Commit: Block Warrenton’s unsupported 2/4 groups (this cycle).
+- Remaining opportunities/blockers: Continue autonomous comparison on the next strongest disjoint source page under the fail-closed gate.
+
 ## Cycle 57 — Block Restoration’s collapsed 4/4 OMR
 
 - Problem identified: Restoration (312b) had a legible A-minor 4/4 source scan and a non-empty four-part OMR, but the OMR collapsed visibly denser source barlines into six measures per part and failed duration totals in 22 exact part/measure groups. It also omitted the source key/mode and time signature.
@@ -464,3 +512,43 @@
 - Validation performed: Rebuilt the 2025 score audit with 26 catalog entries, 3 corrected source-verification records, 23 blocked records, 0 errors, and 0 safe promotions. The source-comparison ledger rebuilt with 68 records, 33 autonomous blocks, 3 verified-with-correction-needed records, 0 errors, and 0 safe promotions; candidate reconciliation remained 94 blocked candidates. Data, playback, and review-queue rebuilds passed.
 - Commit: Restore the zero-promotion comparison gate (this cycle).
 - Remaining opportunities/blockers: Continue autonomous source comparison; no source-comparison record may authorize corpus promotion on its own.
+
+## Cycle 65 — Block Schwab’s incomplete 2/4 event stream
+
+- Problem identified: Schwab (526) had a clear F-sharp-minor 2/4 source scan with four vocal parts and 16 measures per part, but the retained OMR failed exact duration totals in 34 named part/measure groups. P1 m0,m14, P2 m9, and P3 m14,m15 were blank while the source visibly showed notation; OMR key fields also conflicted with the source key and omitted mode.
+- Change made: Created a provenance-bearing derivative preserving all four parts, 16 retained OMR measures per part, and 137 detected pitched events. Added source F-sharp-minor key/mode and 2/4 metadata plus 137 derived four-shape noteheads. Lyrics remain optional and were omitted because the notation remains usable without fabricated underlay. Watermark overlap is recorded only for the intersected middle-system events.
+- Validation performed: The derivative retained 4 parts, 16 measures per part, 137 pitched events, and 137 allowed shape tags. The source-comparison ledger rebuilt with 76 records, 41 autonomous blocks, 3 corrected source verifications, 0 errors, and 0 safe promotions; candidate reconciliation remained 94 blocked candidates. MuseScore rendered the two-page derivative successfully, and focused archive/provenance checks passed.
+- Commit: Block Schwab’s incomplete 2/4 event stream (this cycle).
+- Remaining opportunities/blockers: Continue autonomous comparison on the next strongest disjoint source page under the zero-promotion gate; promote only a record whose every event is source-supported.
+
+## Cycle 66 — Reconcile The Royal Band’s event-scoped OMR block
+
+- Problem identified: The existing worker artifact for The Royal Band (360) retained a clear, unwatermarked E-minor 6/8 source scan and a coherent four-part, 14-measure OMR stream, but 18 specific part/measure durations were over- or underfull. The earlier disposition also treated lyric alignment as a blocker, which is not required when the notation remains usable.
+- Change made: Reconciled the worker script and audit in place, preserving the 242-event playable MusicXML and all derived four-shape noteheads. Recorded the exact anomalous measures, kept source E-minor/6/8 metadata authoritative, and made lyric omission explicitly non-blocking because no underlay was fabricated.
+- Validation performed: Rebuilt the source-comparison ledger with 75 records, 40 autonomous blocks, 3 corrected source verifications, 0 errors, and 0 safe promotions; candidate reconciliation remained 94 blocked candidates. Playback validation passed with 1,283 playable assets, including the 242-event derivative.
+- Commit: Reconcile The Royal Band’s event-scoped OMR block (this cycle).
+- Remaining opportunities/blockers: Continue to the next disjoint retained source page; promotion remains closed until every promoted event, including the 18 anomalous bars, is source-supported.
+
+## Cycle 67 — Correct Schwab’s chord-aware duration evidence
+
+- Problem identified: The initial Schwab audit counted note durations without respecting MusicXML chords, so its failure count happened to remain 19 but several named part/measure failures were inaccurate.
+- Change made: Replaced the duration check with cursor-aware MusicXML timing that treats chord tones as simultaneous and honors backup/forward elements. The audit now records the exact 19 failures: P1 m0,m2,m7,m8,m10,m14; P2 m0,m2,m9,m10,m11; P3 m0,m8,m10,m14,m15; and P4 m0,m3,m8. The source-faithful derivative and zero-promotion disposition are unchanged.
+- Validation performed: Rebuilt the source-comparison ledger with 75 records, 40 autonomous blocks, 3 corrected source verifications, 0 errors, and 0 safe promotions. Playback validation and shape-review validation passed; all 137 Schwab pitched events still carry allowed shape tags.
+- Commit: Correct Schwab’s chord-aware duration evidence (this cycle).
+- Remaining opportunities/blockers: Continue autonomous comparison on the next strongest disjoint page; no record is promoted from an unresolved event stream.
+
+## Cycle 68 — Correct Natick’s chord-aware duration evidence
+
+- Problem identified: The existing Natick worker audit summed simultaneous chord tones as independent time, so its original named failures did not accurately identify the unresolved bars.
+- Change made: Replaced the duration check with cursor-aware MusicXML timing that respects chords and backup/forward elements. The audit now records 34 genuine failures: P1 m1,m2,m3,m5,m7,m8,m10; P2 m1,m3,m4,m5,m6,m7,m8,m9,m10; P3 m1,m2,m3,m4,m5,m6,m7,m8,m9,m10; and P4 m1,m2,m3,m4,m5,m7,m8,m9,m10. P2 m6 remains explicitly blank against visible source notation; lyrics remain optional.
+- Validation performed: The derivative retains 4 parts, 10 measures per part, 154 pitched events, and 154 allowed shape tags. The source-comparison ledger rebuilt with 75 records, 40 autonomous blocks, 3 corrected source verifications, 0 errors, and 0 safe promotions; playback validation passed, and MuseScore rendered the three-page derivative.
+- Commit: Correct Natick’s chord-aware duration evidence (this cycle).
+- Remaining opportunities/blockers: Continue autonomous comparison on the next strongest disjoint page; no record is promoted while any event grouping remains unresolved.
+
+## Cycle 69 — Block O’Leary’s incomplete 3/4 event stream
+
+- Problem identified: O’Leary (501b) had a legible G-major 3/4 source scan with four vocal parts and six measures per part, but retained OMR cursor timing failed in 13 named groups. P2 m1,m2, P3 m1,m6, and P4 m6 were blank while the source visibly showed notation; P4 also omitted its key metadata.
+- Change made: Created a provenance-bearing derivative preserving the four-part structure, 65 detected pitched events, source G-major key/mode and 3/4 meter, and 65 derived four-shape noteheads. Lyrics remain optional and were omitted because the notation remains usable without fabricated underlay. Watermark overlap is recorded only for intersected middle-system events.
+- Validation performed: The source-comparison ledger rebuilt with 86 records, 41 autonomous blocks, 13 corrected-source records, 0 errors, and 0 safe promotions; candidate reconciliation remained 94 blocked candidates. Playback validation passed with 1,283 playable assets, and MuseScore rendered the two-page derivative.
+- Commit: Block O’Leary’s incomplete 3/4 event stream (this cycle).
+- Remaining opportunities/blockers: Continue autonomous comparison on the next strongest disjoint page; promote only if every event in a candidate is directly source-supported.
