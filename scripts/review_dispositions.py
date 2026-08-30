@@ -33,10 +33,14 @@ def _result(
     role: str,
     reason: str = "",
     autonomous_decision: str = "",
+    notation_status: str = "unavailable",
+    playback_status: str = "unavailable",
+    transposition_status: str = "unavailable",
+    semantic_limitations: list[str] | None = None,
 ) -> dict[str, Any]:
     if state not in ALLOWED_STATES:
         raise ValueError(f"unsupported review disposition: {state}")
-    return {
+    result = {
         "state": state,
         "role": role,
         "humanReviewRequired": human_review_required,
@@ -44,6 +48,58 @@ def _result(
         "safeToPromote": safe_to_promote,
         "reason": reason,
         "autonomousDecision": autonomous_decision,
+    }
+    if notation_status != "unavailable" or playback_status != "unavailable" or transposition_status != "unavailable" or semantic_limitations is not None:
+        result.update(
+            {
+                "notationStatus": notation_status,
+                "playbackStatus": playback_status,
+                "transpositionStatus": transposition_status,
+                "semanticLimitations": list(semantic_limitations or []),
+            }
+        )
+    return result
+
+
+def _source_aligned_notation(record: dict[str, Any]) -> bool:
+    """Require explicit event and topology evidence before calling notation usable."""
+    evidence = record.get("comparisonEvidence") or {}
+    draft = record.get("correctedDraft") or {}
+    summary = draft.get("summary") or {}
+    parts = int(summary.get("parts", 0) or 0)
+    measures = summary.get("measuresByPart") or {}
+    pitched = int(summary.get("pitchedEvents", 0) or 0)
+    shapes = int(summary.get("shapeNoteheadsAdded", 0) or 0)
+    event_proof = evidence.get("eventStreamEqual") is True or (
+        evidence.get("eventStreamEqual") is None
+        and "event audit" in str(evidence.get("method", "")).lower()
+        and "note/rhythm placement" in str(evidence.get("visualAgreement", "")).lower()
+    )
+    return bool(
+        evidence.get("sourceScanInspected") is True
+        and event_proof
+        and draft.get("path")
+        and parts > 0
+        and len(measures) == parts
+        and pitched > 0
+        and shapes == pitched
+    )
+
+
+def _correction_semantics(record: dict[str, Any]) -> dict[str, Any]:
+    """Separate usable notation from semantic fields that remain unencoded."""
+    if not _source_aligned_notation(record):
+        return {
+            "notation_status": "unavailable",
+            "playback_status": "unavailable",
+            "transposition_status": "unavailable",
+            "semantic_limitations": [],
+        }
+    return {
+        "notation_status": "source-aligned-playable",
+        "playback_status": "source-order",
+        "transposition_status": "available",
+        "semantic_limitations": ["lyrics-not-encoded"],
     }
 
 
@@ -78,6 +134,7 @@ def comparison_disposition(record: dict[str, Any] | None) -> dict[str, Any]:
             autonomous_decision=decision or "rejected",
         )
     if decision == "verified-with-correction-needed" or status == "verified-with-correction-needed":
+        semantics = _correction_semantics(row)
         return _result(
             "review-only",
             human_review_required=False,
@@ -85,6 +142,7 @@ def comparison_disposition(record: dict[str, Any] | None) -> dict[str, Any]:
             role="source-comparison-correction",
             reason=reason or "A correction-needed derivative remains review-only.",
             autonomous_decision=decision or "verified-with-correction-needed",
+            **semantics,
         )
     if decision in {"external-source-blocked", "source-external-blocked"} or status in {"external-source-blocked", "source-external-blocked"}:
         return _result(
@@ -127,6 +185,13 @@ def aggregate_comparison_disposition(records: list[dict[str, Any]]) -> dict[str,
     """Choose one canonical state while retaining every duplicate evidence row."""
     if not records:
         return comparison_disposition(None)
+    source_aligned = [
+        comparison_disposition(record)
+        for record in records
+        if comparison_disposition(record).get("notationStatus") == "source-aligned-playable"
+    ]
+    if source_aligned:
+        return source_aligned[0]
     rank = {
         "verified": 0,
         "rejected": 1,

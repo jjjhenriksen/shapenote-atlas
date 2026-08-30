@@ -34,6 +34,21 @@ Own only the 13 ledger records and their direct audit/correction artifacts. Do n
 - Independent event-signature comparison passed for all 13; corrected derivatives preserve candidate part/measure/pitched-event structure and carry complete allowed four-shape noteheads.
 - Full evidence and checksums: `work/agent-02-corrections/correction-dispositions.json`. The agent-02 audit and focused tests pass; data, playback, transposition, key/mode, and shared-edition validators pass. Semantic-fidelity validation remains blocked by unrelated pre-existing checksum drift for `ch7/543 — Chase High Road`.
 
+## Disposition-policy audit — 2026-08-30
+
+The 13 correction-needed records are not wholly unusable: retained
+comparison evidence establishes source-aligned notes/rhythms, parts, measure
+topology, source key/mode, and corrected four-shape notation for linear
+playback and transposition. Their remaining limitation is semantic: the
+structured witnesses contain no direct lyric-to-note anchors. The disposition
+policy now exposes `notationStatus: source-aligned-playable`,
+`playbackStatus: source-order`, and `transpositionStatus: available` while
+retaining `semanticLimitations: ["lyrics-not-encoded"]` and
+`safeToPromote: false`. This keeps usable notation visible without fabricating
+lyrics or authorizing corpus promotion. Regression coverage is in
+`tests/test_review_dispositions.py` and
+`tests/test_agent_02_corrections_audit.py`.
+
 ## Autonomous correction recheck — 2026-08-30
 
 `sh2025/41` Evening Hymn, `sh2025/50t` Devotion, and `sh2025/55` Converse

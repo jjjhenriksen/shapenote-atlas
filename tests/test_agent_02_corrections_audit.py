@@ -2,7 +2,10 @@ from __future__ import annotations
 
 import unittest
 import importlib.util
+import json
 from pathlib import Path
+
+from scripts.review_dispositions import comparison_disposition
 
 SCRIPT_PATH = Path(__file__).resolve().parents[1] / "scripts/agent-02_corrections_audit.py"
 SPEC = importlib.util.spec_from_file_location("agent_02_corrections_audit", SCRIPT_PATH)
@@ -43,6 +46,30 @@ class Agent02CorrectionsAuditTests(unittest.TestCase):
             self.assertEqual(record["lyricEvidence"]["correctedLyricElements"], 0)
             self.assertFalse(record["lyricEvidence"]["directSyllableAlignmentEstablished"])
             self.assertFalse(record["lyricEvidence"]["lyricsFabricated"])
+
+    def test_13_correction_records_expose_usable_notation_separately(self) -> None:
+        ledger = json.loads(
+            (ROOT / "public/source-comparison-ledger.json").read_text(encoding="utf-8")
+        )
+        rows = [
+            row
+            for row in ledger["records"]
+            if row.get("comparisonStatus") == "verified-with-correction-needed"
+            and row.get("autonomousDecision") == "blocked"
+        ]
+        self.assertEqual(len(rows), 13)
+        for row in rows:
+            disposition = comparison_disposition(row)
+            self.assertEqual(disposition["state"], "review-only", row["queueId"])
+            self.assertEqual(
+                disposition["notationStatus"], "source-aligned-playable", row["queueId"]
+            )
+            self.assertEqual(disposition["playbackStatus"], "source-order", row["queueId"])
+            self.assertEqual(
+                disposition["transpositionStatus"], "available", row["queueId"]
+            )
+            self.assertEqual(disposition["semanticLimitations"], ["lyrics-not-encoded"])
+            self.assertFalse(disposition["safeToPromote"])
 
 
 if __name__ == "__main__":

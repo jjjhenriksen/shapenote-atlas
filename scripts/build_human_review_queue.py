@@ -226,6 +226,19 @@ def review_item(
     source_comparison = source_comparison_records[0] if source_comparison_records else None
     disposition, disposition_comparison = autonomous_disposition(source_comparison_records)
     canonical_disposition = comparison_disposition(disposition_comparison)
+    capability_fields = {}
+    if canonical_disposition.get("notationStatus") == "source-aligned-playable":
+        capability_fields = {
+            "notationStatus": canonical_disposition["notationStatus"],
+            "playbackStatus": canonical_disposition["playbackStatus"],
+            "transpositionStatus": canonical_disposition["transpositionStatus"],
+            "semanticLimitations": canonical_disposition["semanticLimitations"],
+        }
+    presentation_status = (
+        "review-only"
+        if canonical_disposition.get("notationStatus") == "source-aligned-playable"
+        else disposition
+    )
     shape_review = shape_reviews.get(f"sh2025/{song_number}")
     source_shape_review = source_shape_reviews.get(f"sh2025/{song_number}")
     return {
@@ -234,9 +247,10 @@ def review_item(
         "edition": "Sacred Harp 2025",
         "songNo": song_number,
         "title": song.get("titlesByBook", {}).get("sh2025", song.get("title", song_number)),
-        "status": disposition,
-        "autonomousDisposition": disposition,
+        "status": presentation_status,
+        "autonomousDisposition": disposition_comparison.get("autonomousDecision") or disposition,
         "disposition": canonical_disposition,
+        **capability_fields,
         "humanReviewRequired": canonical_disposition["humanReviewRequired"],
         "reviewAvailable": canonical_disposition["reviewAvailable"],
         "reviewPurpose": "optional-source-evidence-review",
@@ -360,8 +374,8 @@ def main() -> int:
         queue_id
         for queue_id, items in source_comparisons.items()
         if any(
-            item.get("autonomousDecision") == "verified-with-correction-needed"
-            and item.get("humanReviewRequired") is False
+            item.get("comparisonStatus") == "verified-with-correction-needed"
+            and item.get("safeToPromote") is False
             for item in items
         )
     }
@@ -476,9 +490,10 @@ def main() -> int:
         song = songs.get(song_number, {})
         coverage = song.get("sourceCoverageByBook", {}).get("sh2025", {})
         comparison = next(
-            (item for item in source_comparisons.get(queue_id, []) if item.get("autonomousDecision") == "verified-with-correction-needed"),
+            (item for item in source_comparisons.get(queue_id, []) if item.get("comparisonStatus") == "verified-with-correction-needed"),
             {},
         )
+        canonical = comparison_disposition(comparison)
         correction_needed.append(
             {
                 "queueId": queue_id,
@@ -487,7 +502,11 @@ def main() -> int:
                 "title": song.get("titlesByBook", {}).get("sh2025", song.get("title", song_number)),
                 "status": "review-only",
                 "canonicalRecordId": queue_id,
-                "disposition": comparison_disposition(comparison),
+                "disposition": canonical,
+                "notationStatus": canonical["notationStatus"],
+                "playbackStatus": canonical["playbackStatus"],
+                "transpositionStatus": canonical["transpositionStatus"],
+                "semanticLimitations": canonical["semanticLimitations"],
                 "safeToPromote": False,
                 "humanReviewRequired": False,
                 "reviewAvailable": True,
