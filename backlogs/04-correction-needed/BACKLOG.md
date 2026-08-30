@@ -25,3 +25,11 @@
 ## Ownership
 
 Own only the 13 ledger records and their direct audit/correction artifacts. Do not rewrite global key policy or the UI.
+
+## Agent-02 bounded outcome — 2026-08-30
+
+- The current ledger was independently enumerated and contains exactly the 13 expected records: `41`, `50t`, `55`, `118`, `169`, `415`, `525`, `537`, `544`, `545`, `557`, `563`, and `575`.
+- All 13 are autonomously blocked with `safeToPromote=false`; none was rejected because each has an exact manifest SH25 structured witness and a source-preserving correction derivative.
+- The source scans visibly print lyrics and four-shape notation. The raw and corrected MusicXML each contain zero lyric elements, and no direct note-to-syllable alignment was established without inference. No lyrics, notes, repeats, endings, or shapes were fabricated.
+- Independent event-signature comparison passed for all 13; corrected derivatives preserve candidate part/measure/pitched-event structure and carry complete allowed four-shape noteheads.
+- Full evidence and checksums: `work/agent-02-corrections/correction-dispositions.json`. The agent-02 audit and focused tests pass; data, playback, transposition, key/mode, and shared-edition validators pass. Semantic-fidelity validation remains blocked by unrelated pre-existing checksum drift for `ch7/543 — Chase High Road`.
