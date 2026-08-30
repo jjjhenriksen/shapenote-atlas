@@ -89,3 +89,38 @@ The same recheck produced source-derived, review-only derivatives for
 `sh2025/366` Bremen and `sh2025/484b` Parwich. Bremen has 24 duration
 failures; Parwich has 25. Their source metadata and derived four-shape tags
 are retained as evidence only, not promoted notation.
+
+## Autonomous blocker-clearing batch — 2026-08-30 (agent-01)
+
+The bounded batch for `sh2025/244` Plevna, `sh2025/257` Manatawny, and
+`sh2025/265` Gwehelog was inspected against the immutable retained source
+images and current OMR/correction witnesses. All three remain explicitly
+`autonomously-blocked`; none produced or promoted usable MusicXML.
+
+- `sh2025/244` Plevna — canonical image
+  `work/source-images/2025/244-plevna-faef20b4bf.jpg` (SHA-256
+  `f77b255e9a8f7652b588ff5535619c29791474e9935c6df1eaec0360f1e60d20`). The
+  review derivative retains 4 parts and 18 measures per part, but has 232
+  pitched events, 6 rests, 5 empty measures, 58 failed 4/4 duration groups,
+  no lyrics, incomplete repeat/ending semantics, and no direct per-note shape
+  proof. Its derivative source image has a different hash from the canonical
+  retained image; no exact-edition structured candidate is authorized.
+- `sh2025/257` Manatawny — canonical image
+  `work/source-images/2025/257-manatawny-ba4cb969f4.jpg` (SHA-256
+  `7b005c542898414b3bd45372e06589c2b42d2b3849e8dc93e6bb8139891d6057`). The
+  source is a 21-measure 12+9 layout, while the review derivative has 19
+  measures per part, 217 pitched events, 2 rests, 9 empty measures, 60 failed
+  duration groups, no aligned lyrics, unresolved first/second-ending
+  semantics, and a non-identical derivative source image.
+- `sh2025/265` Gwehelog — canonical image
+  `work/source-images/2025/265-gwehelog-fd0a910e8f.jpg` (SHA-256
+  `f11f3d7c16a3e192a6a8fdfb016027013abc528ab4bec4c5e578994b08e43b6d`). The
+  4-part, 11-measure outline has 78 pitched events, 3 rests, 7 empty
+  measures, 44 failed 3/4 duration groups, no aligned lyrics, and no
+  note-by-note shape proof; central watermark intersections and a
+  non-identical derivative source image prevent exact verification.
+
+Per-record evidence is preserved in `work/agent-01-notation/`; the bounded
+receipt is `backlogs/01-transcribe-2025/agent-01-2026-08-30-244-257-265-receipt.json`.
+Protected records `sh2025/115` and `sh2025/116`, public ledgers, and UI files
+were not touched.

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "batchId": "agent-01-2026-08-30-sh2025-244-257-265",
+  "records": ["sh2025/244", "sh2025/257", "sh2025/265"],
+  "onlyRecordsProcessed": true,
+  "dispositionSummary": {
+    "records": 3,
+    "autonomouslyBlocked": 3,
+    "rejected": 0,
+    "musicXmlProduced": 0,
+    "safeToPromote": 0
+  },
+  "protectedRecords": ["sh2025/115", "sh2025/116"],
+  "protectedRecordsTouched": false,
+  "sharedPublicLedgersModified": false,
+  "uiFilesModified": false,
+  "authorizedStructuredCandidates": 0,
+  "canonicalSourceImages": {
+    "sh2025/244": {
+      "path": "work/source-images/2025/244-plevna-faef20b4bf.jpg",
+      "sha256": "f77b255e9a8f7652b588ff5535619c29791474e9935c6df1eaec0360f1e60d20"
+    },
+    "sh2025/257": {
+      "path": "work/source-images/2025/257-manatawny-ba4cb969f4.jpg",
+      "sha256": "7b005c542898414b3bd45372e06589c2b42d2b3849e8dc93e6bb8139891d6057"
+    },
+    "sh2025/265": {
+      "path": "work/source-images/2025/265-gwehelog-fd0a910e8f.jpg",
+      "sha256": "f11f3d7c16a3e192a6a8fdfb016027013abc528ab4bec4c5e578994b08e43b6d"
+    }
+  },
+  "recordManifests": [
+    "work/agent-01-notation/sh2025-244-plevna-blocker-batch.json",
+    "work/agent-01-notation/sh2025-257-manatawny-blocker-batch.json",
+    "work/agent-01-notation/sh2025-265-gwehelog-blocker-batch.json"
+  ],
+  "evidenceSummary": {
+    "sh2025/244": "The 4-part review derivative retains 18 measures, 232 pitches, 6 rests, 5 empty measures, 58 4/4 duration failures, no lyrics, and incomplete repeat/ending semantics; the canonical retained image and derivative source image have different hashes.",
+    "sh2025/257": "The source has 21 measures in a 12+9 layout, while the 4-part review derivative has 19 measures per part, 217 pitches, 2 rests, 9 empty measures, 60 duration failures, no lyrics, and unresolved first/second-ending semantics; source-image hashes differ.",
+    "sh2025/265": "The 4-part review derivative has 11 measures, 78 pitches, 3 rests, 7 empty measures, 44 3/4 duration failures, and no lyrics; watermark-intersected notation and a non-identical derivative image prevent note/shape proof."
+  },
+  "policyDecision": "All three remain autonomously-blocked because direct evidence does not support every encoded note, duration, rest, lyric, repeat/ending, and shape. Existing corrected MXLs remain review-only witnesses and were not promoted."
+}
