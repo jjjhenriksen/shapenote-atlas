@@ -43,3 +43,28 @@ The 13 exact SH25 MusicXML candidates remain separately recorded as `verified-wi
 ## Bounded cross-book delivery batch — 2026-08-29
 
 Claimed and completed `sh2025/263` Every Grace and `sh2025/367` Nassau. Both have retained immutable source pages and clean public candidate witnesses, but neither has an exact source-supported structured score: `263` has divergent/incomplete event grouping plus missing lyrics/repeat semantics, and `367` has unresolved source-OMR durations, a 1803/1804 witness discrepancy, and watermark-obscured intersections. Both are explicitly `external-source-blocked` with `safeToPromote=false`; no authoritative corpus count changed. Receipt: `work/source-transcriptions/2025/batches/2026-08-29-cross-book-263-367-disposition.json`.
+
+## Bounded all-book exact-notation extension — 2026-08-30 (agent-01)
+
+The exact-notation backlog now has a fail-closed cross-book inventory derived
+from the current edition-specific coverage, transcription queue, and
+structured-score manifest. It covers every queued source-reference record in
+all 11 books, not only Sacred Harp 2025:
+
+- 3,035 non-structured records are covered: 3,029 `source-reference` records
+  and 6 existing `transcription-blocked` records.
+- 3,033 are explicitly `autonomously-blocked` because the current manifests
+  do not contain an exact structured witness or note-level comparison for
+  every encoded note. Two records, `sh2025/115` and `sh2025/116`, are marked
+  `protected-active-first-batch` and were not touched.
+- No MusicXML was produced, promoted, or treated as exact. Source URLs and
+  source-image references remain evidence leads only.
+- Every record ID, source URL/host, manifest-evidence flags, and precise reason
+  is retained in `work/agent-01-notation/all-book-notation-backlog.json`, with
+  a human-readable summary in
+  `work/agent-01-notation/all-book-notation-backlog.md`.
+
+The report is intentionally outside `public/` and does not rewrite shared
+ledgers. A record can leave this backlog only after an authorized exact-edition
+source is retained and compared note-for-note, including rhythm, rests,
+ties, repeats/endings, lyrics, and shape identity.
