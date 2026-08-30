@@ -59,3 +59,17 @@ None has a lyric-bearing structured witness, so none was promoted; each is
 classified as `autonomously-blocked` specifically for missing direct
 note-to-syllable alignment, not for an unresolved note-stream mismatch.
 The bounded reports and receipt are under `work/agent-02-corrections/`.
+
+## Canonical generated refresh — 2026-08-30
+
+The stale checked-in generated state was rebuilt from the current
+`review_dispositions.py` policy. The source-comparison ledger remains at 180
+records with zero promotions and zero errors; its disposition counts changed
+from `external-source-blocked: 156, rejected: 11, review-only: 13` to
+`external-source-blocked: 154, autonomously-blocked: 2, rejected: 11,
+review-only: 13`. The human-review queue now exposes all 13 correction-needed
+records (previously 0) and reports 179 retained source-comparison rows
+(previously 166). Each correction row carries source-aligned playable notation,
+source-order playback, available transposition, and
+`semanticLimitations: ["lyrics-not-encoded"]`, with `safeToPromote: false`.
+The raw comparison rows remain blocked and immutable evidence is retained.

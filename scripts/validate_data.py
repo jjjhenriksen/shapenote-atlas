@@ -448,10 +448,12 @@ def main() -> int:
         if item.get("canonicalRecordId") != item.get("queueId") or item.get("status") != "review-only" or item.get("safeToPromote") is not False or item.get("humanReviewRequired") is not False:
             raise SystemExit(f"correction-needed record is incorrectly routed: {item.get('queueId', '')}")
         comparison = item.get("sourceComparison", {})
-        if comparison.get("autonomousDecision") != "verified-with-correction-needed" or comparison.get("safeToPromote") is not False:
+        if comparison.get("comparisonStatus") != "verified-with-correction-needed" or comparison.get("autonomousDecision") != "blocked" or comparison.get("safeToPromote") is not False:
             raise SystemExit(f"correction-needed record is missing fail-closed comparison: {item.get('queueId', '')}")
         if item.get("disposition", {}).get("state") != "review-only":
             raise SystemExit(f"correction-needed disposition is not canonical: {item.get('queueId', '')}")
+        if item.get("notationStatus") != "source-aligned-playable" or item.get("playbackStatus") != "source-order" or item.get("transpositionStatus") != "available" or item.get("semanticLimitations") != ["lyrics-not-encoded"]:
+            raise SystemExit(f"correction-needed capability fields are stale: {item.get('queueId', '')}")
     for item in review_now:
         if item.get("status") not in ALLOWED_STATES or item.get("safeToPromote") is not False:
             raise SystemExit("OMR audit item is not fail-closed")

@@ -71,6 +71,28 @@ class Agent02CorrectionsAuditTests(unittest.TestCase):
             self.assertEqual(disposition["semanticLimitations"], ["lyrics-not-encoded"])
             self.assertFalse(disposition["safeToPromote"])
 
+    def test_canonical_queue_keeps_all_13_source_aligned_capabilities(self) -> None:
+        queue = json.loads(
+            (ROOT / "public/human-review-queue.json").read_text(encoding="utf-8")
+        )
+        expected = {
+            "sh2025/41", "sh2025/50t", "sh2025/55", "sh2025/118", "sh2025/169",
+            "sh2025/415", "sh2025/525", "sh2025/537", "sh2025/544", "sh2025/545",
+            "sh2025/557", "sh2025/563", "sh2025/575",
+        }
+        rows = queue["correctionNeeded"]
+        self.assertEqual({row["queueId"] for row in rows}, expected)
+        self.assertEqual(queue["summary"]["correctionNeeded"], len(rows))
+        for row in rows:
+            self.assertEqual(row["status"], "review-only")
+            self.assertEqual(row["sourceComparison"]["comparisonStatus"], "verified-with-correction-needed")
+            self.assertEqual(row["sourceComparison"]["autonomousDecision"], "blocked")
+            self.assertEqual(row["notationStatus"], "source-aligned-playable", row["queueId"])
+            self.assertEqual(row["playbackStatus"], "source-order", row["queueId"])
+            self.assertEqual(row["transpositionStatus"], "available", row["queueId"])
+            self.assertEqual(row["semanticLimitations"], ["lyrics-not-encoded"])
+            self.assertFalse(row["safeToPromote"])
+
 
 if __name__ == "__main__":
     unittest.main()

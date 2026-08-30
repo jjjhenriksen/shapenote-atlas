@@ -52,7 +52,7 @@ class Agent10ReproducibleValidationTests(unittest.TestCase):
         self.assertEqual(review["summary"]["optionalReviewItems"], 122)
         self.assertEqual(review["summary"]["humanReviewRequired"], 0)
         self.assertEqual(review["summary"]["sourceShapeReviewDrafts"], 90)
-        self.assertEqual(review["summary"]["sourceComparisons"], 166)
+        self.assertEqual(review["summary"]["sourceComparisons"], 179)
         self.assertEqual(review["summary"]["sourceComparisonsSafeToPromote"], 0)
         self.assertEqual(comparison["summary"]["records"], 180)
         self.assertEqual(comparison["summary"]["errors"], 0)
