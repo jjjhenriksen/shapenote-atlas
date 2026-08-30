@@ -1,0 +1,69 @@
+{
+  "kind": "agent-06-sh2025-blocker-clearing-receipt",
+  "batch": "2026-08-30-sh2025-433-437",
+  "scope": {
+    "queueIds": ["sh2025/433", "sh2025/437"],
+    "exactRecordCount": 2,
+    "sharedPublicLedgersTouched": [],
+    "uiFilesTouched": [],
+    "otherRecordIdsTouched": [],
+    "editionsCollapsed": false,
+    "commitRequested": true
+  },
+  "records": [
+    {
+      "queueId": "sh2025/433",
+      "title": "Springdale",
+      "disposition": "external-source-blocked",
+      "safeToPromote": false,
+      "reportPath": "work/source-transcriptions/2025/433-source-shape-autonomous-blocked-comparison.json",
+      "reportSha256": "74864d9cdc7577a89a38c57cf6f2d5eeb9f5a30fdebaf0acd46f60306aab8679",
+      "sourceImagePath": "work/source-images/2025/433-springdale-b32df5123d.jpg",
+      "sourceImageSha256": "dddc45880bdb30e45c42f0ccc17043ee608a8b1de93e2ae9e6cd53b9b1f8df06",
+      "sourceObservation": "Springdale L.M., F minor, 4/4, Isaac Watts 1719, Cory Winters 2019; lyrics, repeat/first-second endings, and four parts visible; watermark intersects central systems.",
+      "editionEvidence": {
+        "sh1991": {"record": "433 McKay", "textKey": "o the transporting rapturous scene", "meter": "C.M. Double", "timeSignature": "4/4", "measuresPerPart": 20, "scoreSha256": "398c6cf1e126346291fee100df7b49940af53d325ba04e3d00a7180ec74f8816"},
+        "sh2025": {"record": "433 Springdale", "textKey": "my spirit looks to god alone", "meter": "L.M.", "timeSignature": "4/4", "rawMeasuresPerPart": 16, "normalizedMeasuresPerPart": 16},
+        "equivalenceProven": false,
+        "reason": "Same number only; title, text family, meter scope, credits, and score topology differ. The 1991 score is not used to populate 2025 notation."
+      },
+      "blocker": "Raw Audiveris reports 18 measures while retained/normalized OMR exports 16 per part; normalized OMR has 41 duration failures in 64 measures and 13 empty raw measures. OMR has no lyrics or repeat/ending semantics; derived shapes are not per-note verified. No authorized exact-2025 or independent same-title structured witness is available."
+    },
+    {
+      "queueId": "sh2025/437",
+      "title": "Enoch",
+      "disposition": "external-source-blocked",
+      "safeToPromote": false,
+      "reportPath": "work/source-transcriptions/2025/437-source-shape-autonomous-blocked-comparison.json",
+      "reportSha256": "17b0fb119946766c64a48c312eabf5e1bbeafda76ff9039969f3e042b73193c6",
+      "sourceImagePath": "work/source-images/2025/437-enoch-3675e65cd4.jpg",
+      "sourceImageSha256": "dfcc6ca7559c16089967be85448ab9e2e86202b4467846facfcf19cb426ec174",
+      "sourceObservation": "Enoch S.M., F major, 3/4, Isaac Watts 1719, Keillor Mose 2019; three verses, lyrics, four parts, and terminal double bar visible; watermark intersects middle systems.",
+      "editionEvidence": {
+        "sh1991": {"record": "437 Sidney", "textKey": "my shepherd will supply my need", "meter": "C.M. Double", "timeSignature": "6/8", "measuresPerPart": 11, "scoreSha256": "915b301115a7d2fe5379260047235d62b536785c400145a575da2b47bd1e1969"},
+        "sh2025": {"record": "437 Enoch", "textKey": "when overwhelmed with grief", "meter": "S.M.", "timeSignature": "3/4", "rawMeasuresPerPart": 10, "normalizedMeasuresPerPart": 11},
+        "equivalenceProven": false,
+        "reason": "Same number only; title, text family, meter, and edition setting differ. The 1991 score is not used to populate 2025 notation."
+      },
+      "blocker": "Raw Audiveris reports 10 measures while normalized OMR exports 11 per part; normalized OMR has 28 duration failures in 44 measures and 7 empty exported measures. OMR has no lyrics or repeat/ending semantics; derived shapes are not per-note verified. No authorized exact-2025 or independent same-title structured witness is available."
+    }
+  ],
+  "artifacts": {
+    "scripts": [
+      "scripts/reconcile_433_springdale_source_audit.py",
+      "scripts/reconcile_437_enoch_source_audit.py"
+    ],
+    "test": "tests/test_agent_06_433_437_blocker_clearing.py",
+    "backlog": "backlogs/08-edition-reconciliation/BACKLOG.md",
+    "reviewOnlyMusicXml": [
+      {"path": "work/omr/source-shape-review-drafts/2025/433-source-shape-review.mxl", "sha256": "afddea5c80d595074e9308992b2ffefd516168cd6e2878b3c0844737d414bed2"},
+      {"path": "work/omr/autonomous-transcriptions/2025/437-enoch-source-correction.mxl", "sha256": "255dd5264af60c52b4a2f95ff26539bd3438bef33afe0e20baeda1cb5a419fb5"}
+    ]
+  },
+  "validation": {
+    "targetScripts": "PASS: both scripts regenerated their target reports as external-source-blocked and retained source hashes",
+    "targetRegression": "PASS: python3 -m unittest tests/test_agent_06_433_437_blocker_clearing.py (5 tests)",
+    "publicLedgers": "NOT RUN: intentionally out of scope and unmodified",
+    "commit": "PASS: conventional commit limited to this batch"
+  }
+}

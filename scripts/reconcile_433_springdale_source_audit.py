@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Reconcile the existing Springdale source-shape draft into an autonomous block.
+"""Reconcile the existing Springdale source-shape draft into an external block.
 
 This does not alter the immutable scan, the retained source OMR, or musical
 events. It only records the bounded source/OMR evidence already inspected and
@@ -22,6 +22,7 @@ RETAINED_IMAGE = ROOT / "work/source-images/2025/433-springdale-b32df5123d.jpg"
 RAW_OMR = ROOT / "work/omr/433-springdale/source.mxl"
 WORKING_OMR = ROOT / "work/omr/cleaned-normalized-v2-433-springdale-b32df5123d/work__source-images__2025__433-springdale-b32df5123d.mxl"
 DRAFT = ROOT / "work/omr/source-shape-review-drafts/2025/433-source-shape-review.mxl"
+SH1991_SCORE = ROOT / "work/shapenote-musicxml/c01dd6415cad10dbab8963fd.mxl"
 AUDIT = ROOT / "work/source-transcriptions/2025/433-source-shape-autonomous-blocked-comparison.json"
 
 
@@ -126,25 +127,28 @@ def main() -> int:
     raw = score_stats(RAW_OMR)
     working = score_stats(WORKING_OMR)
     draft = score_stats(DRAFT)
+    sh1991 = score_stats(SH1991_SCORE)
     image_hash = sha256(SOURCE_IMAGE)
     retained_hash = sha256(RETAINED_IMAGE)
     raw_hash = sha256(RAW_OMR)
     working_hash = sha256(WORKING_OMR)
     draft_hash = sha256(DRAFT)
+    sh1991_hash = sha256(SH1991_SCORE)
     assert SOURCE_IMAGE.read_bytes() == RETAINED_IMAGE.read_bytes()
     blocking = [
         "The immutable page visibly identifies SPRINGDALE. L.M., F minor, 4/4, Isaac Watts (1719), Cory Winters (2019), four vocal parts, lyrics, first/second endings, and a terminal double bar; a diagonal DO NOT COPY watermark intersects the central systems.",
         "Audiveris reports 18 raw measures (10 in the first system and 8 in the second), while the retained source MXL and normalized-v2 working MXL export 16 measures per part. The normalized-v2 draft contains 152 pitched events across 4 parts and 41 of 64 exported measures fail the 4/4 duration target at divisions=2; 13 measures are empty in the raw export. This does not establish the complete source event stream or topology.",
         "The retained OMR and review derivative contain no lyrics or repeat/ending elements. The 152 four-shape noteheads in the derivative are derived from OMR pitch steps plus the observed F-minor key, not independently verified against each printed notehead. The raw OMR also omits an explicit time signature and mode.",
-        "No authorized exact-edition structured witness was available. Alternate-edition records for song number 433 are distinct and were not used to fill notes, durations, lyrics, repeats, or shapes.",
+        "The 1991 same-number record is McKay, with a different text family, C.M. Double meter, and 20 measures per part; it is not an equivalent Springdale witness and was not used to fill 2025 notes, durations, lyrics, repeats, or shapes.",
+        "No authorized exact-2025 or independent same-title structured witness was available. Related text-family records are not musical identity evidence and were not used to fill source events.",
     ]
     audit = {
         "queueId": "sh2025/433",
         "edition": "Sacred Harp, 2025 Edition",
         "songNo": "433",
         "title": "Springdale",
-        "comparisonStatus": "autonomously-blocked",
-        "autonomousDecision": "blocked",
+        "comparisonStatus": "external-source-blocked",
+        "autonomousDecision": "external-source-blocked",
         "safeToPromote": False,
         "humanReviewRequired": False,
         "sourceAuthority": {
@@ -191,6 +195,33 @@ def main() -> int:
             "status": "review-only-omr-input",
             "summary": working,
         },
+        "editionReconciliation": {
+            "relationId": "sh-edition:433",
+            "relationType": "same-number-replacement-not-equivalence",
+            "equivalenceProven": False,
+            "safeToUse1991As2025": False,
+            "sh1991": {
+                "title": "McKay",
+                "textKey": "o the transporting rapturous scene",
+                "meter": "Common Meter Double (8,6,8,6,8,6,8,6)",
+                "timeSignature": "4/4",
+                "keySignature": "unknown",
+                "scorePath": str(SH1991_SCORE.relative_to(ROOT)),
+                "scoreSha256": sh1991_hash,
+                "summary": sh1991,
+            },
+            "sh2025": {
+                "title": "Springdale",
+                "textKey": "my spirit looks to god alone",
+                "meter": "Long Meter (8,8,8,8)",
+                "timeSignature": "4/4",
+                "keySignature": "F minor",
+                "sourceImageSha256": image_hash,
+                "summary": {"parts": 4, "rawMeasuresByPart": raw["measuresByPart"], "normalizedMeasuresByPart": working["measuresByPart"]},
+            },
+            "relatedTextFamilyRecords": ["sh 26 Samaria", "sh 107 Russia", "sh 484b Parwich"],
+            "sameSongWitness": {"authorizedExact2025": False, "independentSameTitleStructuredWitness": False},
+        },
         "candidateWitness": {
             "available": False,
             "candidateRole": "No authorized exact-edition structured witness was available; alternate editions were not used.",
@@ -219,14 +250,14 @@ def main() -> int:
             "blockingFindings": blocking,
         },
         "blockingFindings": blocking,
-        "blockingReason": "Autonomous promotion is blocked by the 18-versus-16 measure topology discrepancy, 41 duration failures in 64 normalized-v2 exported measures at divisions=2, 13 empty raw-OMR measures, absent lyrics and source-confirmed per-note shapes, incomplete repeat/ending semantics, watermark-intersected notation, and no authorized exact-edition structured witness. The existing shape-bearing derivative remains review-only.",
+        "blockingReason": "External-source and structural verification is blocked by the 18-versus-16 measure topology discrepancy, 41 duration failures in 64 normalized-v2 exported measures at divisions=2, 13 empty raw-OMR measures, absent lyrics and source-confirmed per-note shapes, incomplete repeat/ending semantics, watermark-intersected notation, the non-equivalent 1991 McKay record, and no authorized exact-2025 structured witness. The existing shape-bearing derivative remains review-only.",
         "autonomousDisposition": "OMR-derived evidence is retained for audit, but no exact source-faithful transposable score is admitted.",
-        "nextAction": "autonomous-promotion-blocked-by-incomplete-source-event-witness-and-unresolved-topology; retain-review-derivative-only",
-        "policy": "Immutable 2025 source images remain authoritative. OMR and derived shape tags are evidence only and cannot authorize promotion without direct event-level, rhythm, lyric, repeat, mode, meter, and shape proof.",
+        "nextAction": "external-source-blocked-by-incomplete-source-event-witness-and-unresolved-topology; retain-review-derivative-only",
+        "policy": "Immutable 2025 source images remain authoritative. OMR and derived shape tags are evidence only and cannot authorize promotion without direct event-level, rhythm, lyric, repeat, mode, meter, and shape proof; the 1991 same-number record remains a separate replacement witness.",
         "generatedAt": datetime.now(timezone.utc).isoformat(),
     }
     AUDIT.write_text(json.dumps(audit, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps({"queueId": audit["queueId"], "status": audit["comparisonStatus"], "sourceImageSha256": image_hash, "rawOmrSha256": raw_hash, "workingOmrSha256": working_hash, "draftSha256": draft_hash, "raw": raw, "working": working, "draft": draft}, ensure_ascii=False, sort_keys=True))
+    print(json.dumps({"queueId": audit["queueId"], "status": audit["comparisonStatus"], "sourceImageSha256": image_hash, "rawOmrSha256": raw_hash, "workingOmrSha256": working_hash, "draftSha256": draft_hash, "sh1991ScoreSha256": sh1991_hash, "raw": raw, "working": working, "draft": draft, "sh1991": sh1991}, ensure_ascii=False, sort_keys=True))
     return 0
 
 

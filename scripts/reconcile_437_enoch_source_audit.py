@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Reconcile Enoch's retained shape draft into an autonomous block."""
+"""Reconcile Enoch's retained shape draft into an external block."""
 
 from __future__ import annotations
 
@@ -20,6 +20,7 @@ RAW_OMR = ROOT / "work/omr/437-enoch/source.mxl"
 WORKING_OMR = ROOT / "work/omr/cleaned-normalized-v2-437-enoch-3675e65cd4/work__source-images__2025__437-enoch-3675e65cd4.mxl"
 PRIOR_DRAFT = ROOT / "work/omr/source-shape-review-drafts/2025/437-source-shape-review.mxl"
 OUTPUT = ROOT / "work/omr/autonomous-transcriptions/2025/437-enoch-source-correction.mxl"
+SH1991_SCORE = ROOT / "work/shapenote-musicxml/7dcad6792fe36873c1875603.mxl"
 AUDIT = ROOT / "work/source-transcriptions/2025/437-source-shape-autonomous-blocked-comparison.json"
 
 
@@ -117,13 +118,13 @@ def update_xml(xml_bytes: bytes) -> bytes:
         root.insert(0, identification)
     fields = {
         "atlas-review-queue-id": "sh2025/437",
-        "atlas-review-status": "autonomously-blocked-source-derived-draft",
+        "atlas-review-status": "external-source-blocked-source-derived-draft",
         "atlas-safe-to-promote": "false",
         "atlas-source-key": "F major",
         "atlas-source-mode": "major",
         "atlas-source-time-signature": "3/4",
         "atlas-shape-encoding": "derived from retained OMR pitch steps and observed source key; not per-note visual verification",
-        "atlas-provenance-policy": "autonomous block; immutable 2025 source remains authoritative; no OMR promotion",
+        "atlas-provenance-policy": "external-source block; immutable 2025 source remains authoritative; no OMR promotion",
         "atlas-source-image-sha256": sha256(SOURCE_IMAGE),
         "atlas-source-omr-sha256": sha256(WORKING_OMR),
     }
@@ -146,19 +147,22 @@ def main() -> int:
     raw = retime_summary(score_stats(RAW_OMR))
     working = retime_summary(score_stats(WORKING_OMR))
     draft = retime_summary(score_stats(OUTPUT))
+    sh1991 = score_stats(SH1991_SCORE)
     image_hash = sha256(SOURCE_IMAGE)
     raw_hash = sha256(RAW_OMR)
     working_hash = sha256(WORKING_OMR)
     draft_hash = sha256(OUTPUT)
+    sh1991_hash = sha256(SH1991_SCORE)
     blocking = [
         "The immutable page visibly identifies ENOCH. S.M., F major, 3/4, Isaac Watts (1719), Keillor Mose (2019), four vocal parts, three printed verses, lyrics, and a terminal double bar; a diagonal DO NOT COPY watermark intersects the middle systems.",
         "Audiveris reports 10 raw measures in one system, while normalized-v2 exports 11 measures per part. The normalized-v2 working score contains 80 pitched events across four parts and 28 of 44 exported measures fail the 3/4 duration target at divisions=2; 7 exported measures are empty. The source event stream and measure topology are therefore not proven complete.",
         "The retained OMR and corrected derivative contain no lyrics or repeat/ending elements. The 80 four-shape noteheads are derived from OMR pitch steps plus the observed F-major key, not independently verified against every printed notehead. The raw OMR omits explicit mode and time signature.",
-        "No authorized exact-edition structured witness was available. Alternate-edition records were not used to fill notes, durations, lyrics, repeats, or shapes.",
+        "The 1991 same-number record is Sidney, with a different text family, C.M. Double 6/8 meter, and a distinct edition score; it is not an equivalent Enoch witness and was not used to fill 2025 notes, durations, lyrics, repeats, or shapes.",
+        "No authorized exact-2025 or independent same-title structured witness was available. The 2025 debut audio is identity evidence only and was not used to infer notation.",
     ]
     audit = {
         "queueId": "sh2025/437", "edition": "Sacred Harp, 2025 Edition", "songNo": "437", "title": "Enoch",
-        "comparisonStatus": "autonomously-blocked", "autonomousDecision": "blocked", "safeToPromote": False, "humanReviewRequired": False,
+        "comparisonStatus": "external-source-blocked", "autonomousDecision": "external-source-blocked", "safeToPromote": False, "humanReviewRequired": False,
         "sourceAuthority": {
             "sourcePageUrl": "https://fasola.org/indexes/2025/?p=437", "sourceImageUrl": "https://sacredharpbremen.org/wp-content/uploads/songs/400-499/437-Enoch/437.jpg",
             "sourceImagePath": str(RETAINED_IMAGE.relative_to(ROOT)), "sourceImageSha256": image_hash, "immutable": True,
@@ -167,18 +171,44 @@ def main() -> int:
         "retainedSourceImageDuplicate": {"path": str(RETAINED_IMAGE.relative_to(ROOT)), "sha256": image_hash, "immutable": True, "byteEqualToRequestedSource": True},
         "inputOmr": {"path": str(RAW_OMR.relative_to(ROOT)), "sha256": raw_hash, "status": "retained-source-scan-omr", "summary": raw},
         "sourceScanOmr": {"path": str(WORKING_OMR.relative_to(ROOT)), "sha256": working_hash, "selectedWorkingLayer": "normalized-v2", "status": "review-only-omr-input", "summary": working},
+        "editionReconciliation": {
+            "relationId": "sh-edition:437",
+            "relationType": "same-number-replacement-not-equivalence",
+            "equivalenceProven": False,
+            "safeToUse1991As2025": False,
+            "sh1991": {
+                "title": "Sidney",
+                "textKey": "my shepherd will supply my need",
+                "meter": "Common Meter Double (8,6,8,6,8,6,8,6)",
+                "timeSignature": "6/8",
+                "keySignature": "F major",
+                "scorePath": str(SH1991_SCORE.relative_to(ROOT)),
+                "scoreSha256": sh1991_hash,
+                "summary": sh1991,
+            },
+            "sh2025": {
+                "title": "Enoch",
+                "textKey": "when overwhelmed with grief",
+                "meter": "Short Meter (6,6,8,6)",
+                "timeSignature": "3/4",
+                "keySignature": "F major",
+                "sourceImageSha256": image_hash,
+                "summary": {"parts": 4, "rawMeasuresByPart": raw["measuresByPart"], "normalizedMeasuresByPart": working["measuresByPart"]},
+            },
+            "sameSongWitness": {"authorizedExact2025": False, "independentSameTitleStructuredWitness": False},
+        },
         "candidateWitness": {"available": False, "candidateRole": "No authorized exact-edition structured witness was available; alternate editions were not used."},
-        "correctedDraft": {"path": str(OUTPUT.relative_to(ROOT)), "sha256": draft_hash, "summary": draft, "eventStreamPreservedFromPriorReviewDraft": True, "status": "review-only-not-source-verified", "corrections": ["source-observed F-major mode", "source-observed 3/4 meter", "explicit autonomous-block metadata", "preserved derived four-shape tags without claiming per-note verification", "lyrics and uncertain topology intentionally omitted"]},
+        "correctedDraft": {"path": str(OUTPUT.relative_to(ROOT)), "sha256": draft_hash, "summary": draft, "eventStreamPreservedFromPriorReviewDraft": True, "status": "review-only-not-source-verified", "corrections": ["source-observed F-major mode", "source-observed 3/4 meter", "explicit external-source-block metadata", "preserved derived four-shape tags without claiming per-note verification", "lyrics and uncertain topology intentionally omitted"]},
         "comparisonEvidence": {"sourceScanInspected": True, "sourceScanPath": str(SOURCE_IMAGE.relative_to(ROOT)), "sourceScanSha256": image_hash, "rawOmrSha256": raw_hash, "workingOmrSha256": working_hash, "method": "full-resolution visual inspection of immutable scan plus structural/event/duration audit of raw and normalized-v2 OMR; no alternate witness used", "blockingFindings": blocking},
         "blockingFindings": blocking,
-        "blockingReason": "Autonomous promotion is blocked by the 10-versus-11 measure topology discrepancy, 28 duration failures in 44 normalized-v2 exported measures at divisions=2, 7 empty exported measures, absent lyrics and source-confirmed per-note shapes, incomplete ending semantics, watermark-intersected notation, and lack of an authorized exact-edition structured witness. The corrected derivative remains review-only.",
+        "blockingReason": "External-source and structural verification is blocked by the 10-versus-11 measure topology discrepancy, 28 duration failures in 44 normalized-v2 exported measures at divisions=2, 7 empty exported measures, absent lyrics and source-confirmed per-note shapes, incomplete ending semantics, watermark-intersected notation, the non-equivalent 1991 Sidney record, and lack of an authorized exact-2025 structured witness. The corrected derivative remains review-only.",
         "autonomousDisposition": "OMR-derived evidence is retained for audit, but no exact source-faithful transposable score is admitted.",
-        "nextAction": "autonomous-promotion-blocked-by-incomplete-source-event-witness-and-unresolved-topology; retain-review-derivative-only",
-        "policy": "Immutable 2025 source images remain authoritative. OMR and derived shape tags are evidence only and cannot authorize promotion without direct event-level, rhythm, lyric, repeat, mode, meter, and shape proof.",
+        "nextAction": "external-source-blocked-by-incomplete-source-event-witness-and-unresolved-topology; retain-review-derivative-only",
+        "policy": "Immutable 2025 source images remain authoritative. OMR and derived shape tags are evidence only and cannot authorize promotion without direct event-level, rhythm, lyric, repeat, mode, meter, and shape proof; the 1991 same-number record remains a separate replacement witness.",
         "generatedAt": datetime.now(timezone.utc).isoformat(),
     }
     AUDIT.write_text(json.dumps(audit, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps({"queueId": audit["queueId"], "status": audit["comparisonStatus"], "imageSha256": image_hash, "rawOmrSha256": raw_hash, "workingOmrSha256": working_hash, "draftSha256": draft_hash, "raw": raw, "working": working, "draft": draft}, ensure_ascii=False, sort_keys=True))
+    print(json.dumps({"queueId": audit["queueId"], "status": audit["comparisonStatus"], "imageSha256": image_hash, "rawOmrSha256": raw_hash, "workingOmrSha256": working_hash, "draftSha256": draft_hash, "sh1991ScoreSha256": sh1991_hash, "raw": raw, "working": working, "draft": draft, "sh1991": sh1991}, ensure_ascii=False, sort_keys=True))
     return 0
 
 

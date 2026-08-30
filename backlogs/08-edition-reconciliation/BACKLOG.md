@@ -61,3 +61,14 @@ with different credits and layout. Mechanicville remains
 per part versus the retained E-minor 2025 page. Neither alternate can support
 exact transposition or promotion. Receipt:
 `work/agent-06-editions/agent-06-sh2025-254-255-receipt.json`.
+
+## Autonomous blocker-clearing batch — sh2025/433 and sh2025/437 — 2026-08-30
+
+- [x] Reconcile only `sh2025/433` Springdale and `sh2025/437` Enoch against the retained 2025 source images, raw/normalized OMR, source-shape drafts, and available score metadata.
+- [x] Preserve same-number 1991 replacements as distinct evidence: 1991 `433` is McKay (C.M. Double, 20 measures per part) while 2025 `433` is Springdale (L.M., F minor, 18 raw / 16 normalized exported measures); 1991 `437` is Sidney (6/8, 11 measures per part) while 2025 `437` is Enoch (S.M., F major, 3/4, 10 raw / 11 normalized exported measures).
+- [x] Confirm no authorized exact-2025 or independent same-title structured witness clears either record. No 1991 score was used to fill 2025 notes, rhythms, rests, ties, lyrics, repeats/endings, or shapes.
+- [x] Keep the corrected shape-bearing MusicXML derivatives review-only because the retained OMR has unresolved topology/duration failures, absent event-aligned lyrics and repeat/ending semantics, and watermark-intersected notation.
+- [x] Record precise external-source/structural blockers in `work/source-transcriptions/2025/433-source-shape-autonomous-blocked-comparison.json` and `work/source-transcriptions/2025/437-source-shape-autonomous-blocked-comparison.json`.
+- [x] Add regression coverage in `tests/test_agent_06_433_437_blocker_clearing.py` and bounded receipt in `work/agent-06-editions/agent-06-sh2025-433-437-receipt.json`.
+
+Both records remain `external-source-blocked` and `safeToPromote: false`; obtain a clean authorized 2025 scan or publisher-delivered structured source before any source-faithful transposable score is admitted.

@@ -1,0 +1,707 @@
+{
+  "queueId": "sh2025/437",
+  "edition": "Sacred Harp, 2025 Edition",
+  "songNo": "437",
+  "title": "Enoch",
+  "comparisonStatus": "external-source-blocked",
+  "autonomousDecision": "external-source-blocked",
+  "safeToPromote": false,
+  "humanReviewRequired": false,
+  "sourceAuthority": {
+    "sourcePageUrl": "https://fasola.org/indexes/2025/?p=437",
+    "sourceImageUrl": "https://sacredharpbremen.org/wp-content/uploads/songs/400-499/437-Enoch/437.jpg",
+    "sourceImagePath": "work/source-images/2025/437-enoch-3675e65cd4.jpg",
+    "sourceImageSha256": "dfcc6ca7559c16089967be85448ab9e2e86202b4467846facfcf19cb426ec174",
+    "immutable": true,
+    "directObservations": {
+      "header": "ENOCH. S.M.",
+      "composer": "Isaac Watts, 1719",
+      "arranger": "Keillor Mose, 2019",
+      "key": "F major",
+      "mode": "major",
+      "timeSignature": "3/4",
+      "meter": "Short Meter (6,6,8,6)",
+      "parts": 4,
+      "sourceRawMeasuresFromAudiveris": 10,
+      "exportedMeasuresByPart": {
+        "P1": 11,
+        "P2": 11,
+        "P3": 11,
+        "P4": 11
+      },
+      "sourceLyricsVisible": true,
+      "numberedVersesVisible": true,
+      "terminalDoubleBarVisible": true,
+      "watermarkIntersectsNotation": true
+    }
+  },
+  "retainedSourceImageDuplicate": {
+    "path": "work/source-images/2025/437-enoch-3675e65cd4.jpg",
+    "sha256": "dfcc6ca7559c16089967be85448ab9e2e86202b4467846facfcf19cb426ec174",
+    "immutable": true,
+    "byteEqualToRequestedSource": true
+  },
+  "inputOmr": {
+    "path": "work/omr/437-enoch/source.mxl",
+    "sha256": "0e917996cb170d0ccca2d826f172ca4b47edba45f66fb8a2b668520f4eb2e0b8",
+    "status": "retained-source-scan-omr",
+    "summary": {
+      "parts": 4,
+      "measuresByPart": {
+        "P1": 10,
+        "P2": 10,
+        "P3": 10,
+        "P4": 10
+      },
+      "eventsByPart": {
+        "P1": 21,
+        "P2": 29,
+        "P3": 19,
+        "P4": 14
+      },
+      "pitchedEventsByPart": {
+        "P1": 21,
+        "P2": 29,
+        "P3": 18,
+        "P4": 14
+      },
+      "restEventsByPart": {
+        "P1": 0,
+        "P2": 0,
+        "P3": 1,
+        "P4": 0
+      },
+      "emptyMeasuresByPart": {
+        "P1": 0,
+        "P2": 4,
+        "P3": 1,
+        "P4": 2
+      },
+      "pitchedEvents": 82,
+      "restEvents": 1,
+      "emptyMeasures": 7,
+      "divisionsByPart": {
+        "P1": 1,
+        "P2": 1,
+        "P3": 1,
+        "P4": 1
+      },
+      "durationEndByPart": {
+        "P1": [
+          1,
+          2,
+          4,
+          3,
+          1,
+          3,
+          6,
+          2,
+          3,
+          3
+        ],
+        "P2": [
+          0,
+          0,
+          2,
+          8,
+          1,
+          15,
+          3,
+          0,
+          3,
+          0
+        ],
+        "P3": [
+          2,
+          1,
+          2,
+          4,
+          2,
+          4,
+          2,
+          3,
+          3,
+          0
+        ],
+        "P4": [
+          0,
+          3,
+          3,
+          3,
+          1,
+          3,
+          2,
+          3,
+          3,
+          0
+        ]
+      },
+      "durationFailureCount": 26,
+      "shapeNoteheadsAdded": 0,
+      "lyricsRetained": 0,
+      "barlines": 4,
+      "repeatEndingElements": 0,
+      "durationFailuresAgainst3_4": {
+        "P1": [
+          "m1=1",
+          "m2=2",
+          "m3=4",
+          "m5=1",
+          "m7=6",
+          "m8=2"
+        ],
+        "P2": [
+          "m1=0",
+          "m2=0",
+          "m3=2",
+          "m4=8",
+          "m5=1",
+          "m6=15",
+          "m8=0",
+          "m10=0"
+        ],
+        "P3": [
+          "m1=2",
+          "m2=1",
+          "m3=2",
+          "m4=4",
+          "m5=2",
+          "m6=4",
+          "m7=2",
+          "m10=0"
+        ],
+        "P4": [
+          "m1=0",
+          "m5=1",
+          "m7=2",
+          "m10=0"
+        ]
+      }
+    }
+  },
+  "sourceScanOmr": {
+    "path": "work/omr/cleaned-normalized-v2-437-enoch-3675e65cd4/work__source-images__2025__437-enoch-3675e65cd4.mxl",
+    "sha256": "12c65e7db9408d33386e4116fb00bc15ebc55bd7e9dd5ffdae0261f0fe1b9ac7",
+    "selectedWorkingLayer": "normalized-v2",
+    "status": "review-only-omr-input",
+    "summary": {
+      "parts": 4,
+      "measuresByPart": {
+        "P1": 11,
+        "P2": 11,
+        "P3": 11,
+        "P4": 11
+      },
+      "eventsByPart": {
+        "P1": 23,
+        "P2": 22,
+        "P3": 21,
+        "P4": 14
+      },
+      "pitchedEventsByPart": {
+        "P1": 23,
+        "P2": 22,
+        "P3": 21,
+        "P4": 14
+      },
+      "restEventsByPart": {
+        "P1": 0,
+        "P2": 0,
+        "P3": 0,
+        "P4": 0
+      },
+      "emptyMeasuresByPart": {
+        "P1": 0,
+        "P2": 2,
+        "P3": 2,
+        "P4": 3
+      },
+      "pitchedEvents": 80,
+      "restEvents": 0,
+      "emptyMeasures": 7,
+      "divisionsByPart": {
+        "P1": 2,
+        "P2": 2,
+        "P3": 2,
+        "P4": 2
+      },
+      "durationEndByPart": {
+        "P1": [
+          2,
+          4,
+          8,
+          6,
+          6,
+          6,
+          8,
+          9,
+          4,
+          6,
+          6
+        ],
+        "P2": [
+          0,
+          2,
+          4,
+          16,
+          6,
+          10,
+          10,
+          2,
+          4,
+          6,
+          0
+        ],
+        "P3": [
+          0,
+          2,
+          4,
+          12,
+          8,
+          10,
+          6,
+          4,
+          6,
+          6,
+          0
+        ],
+        "P4": [
+          0,
+          6,
+          6,
+          6,
+          2,
+          0,
+          6,
+          4,
+          6,
+          6,
+          0
+        ]
+      },
+      "durationFailureCount": 28,
+      "shapeNoteheadsAdded": 0,
+      "lyricsRetained": 0,
+      "barlines": 4,
+      "repeatEndingElements": 0,
+      "durationFailuresAgainst3_4": {
+        "P1": [
+          "m1=2",
+          "m2=4",
+          "m3=8",
+          "m7=8",
+          "m8=9",
+          "m9=4"
+        ],
+        "P2": [
+          "m1=0",
+          "m2=2",
+          "m3=4",
+          "m4=16",
+          "m6=10",
+          "m7=10",
+          "m8=2",
+          "m9=4",
+          "m11=0"
+        ],
+        "P3": [
+          "m1=0",
+          "m2=2",
+          "m3=4",
+          "m4=12",
+          "m5=8",
+          "m6=10",
+          "m8=4",
+          "m11=0"
+        ],
+        "P4": [
+          "m1=0",
+          "m5=2",
+          "m6=0",
+          "m8=4",
+          "m11=0"
+        ]
+      }
+    }
+  },
+  "editionReconciliation": {
+    "relationId": "sh-edition:437",
+    "relationType": "same-number-replacement-not-equivalence",
+    "equivalenceProven": false,
+    "safeToUse1991As2025": false,
+    "sh1991": {
+      "title": "Sidney",
+      "textKey": "my shepherd will supply my need",
+      "meter": "Common Meter Double (8,6,8,6,8,6,8,6)",
+      "timeSignature": "6/8",
+      "keySignature": "F major",
+      "scorePath": "work/shapenote-musicxml/7dcad6792fe36873c1875603.mxl",
+      "scoreSha256": "915b301115a7d2fe5379260047235d62b536785c400145a575da2b47bd1e1969",
+      "summary": {
+        "parts": 4,
+        "measuresByPart": {
+          "P1": 11,
+          "P2": 11,
+          "P3": 11,
+          "P4": 11
+        },
+        "eventsByPart": {
+          "P1": 31,
+          "P2": 31,
+          "P3": 39,
+          "P4": 31
+        },
+        "pitchedEventsByPart": {
+          "P1": 29,
+          "P2": 29,
+          "P3": 37,
+          "P4": 29
+        },
+        "restEventsByPart": {
+          "P1": 2,
+          "P2": 2,
+          "P3": 2,
+          "P4": 2
+        },
+        "emptyMeasuresByPart": {
+          "P1": 0,
+          "P2": 0,
+          "P3": 0,
+          "P4": 0
+        },
+        "pitchedEvents": 124,
+        "restEvents": 8,
+        "emptyMeasures": 0,
+        "divisionsByPart": {
+          "P1": 6720,
+          "P2": 6720,
+          "P3": 6720,
+          "P4": 6720
+        },
+        "durationEndByPart": {
+          "P1": [
+            20160,
+            20160,
+            20160,
+            20160,
+            10080,
+            20160,
+            20160,
+            20160,
+            20160,
+            20160,
+            10080
+          ],
+          "P2": [
+            20160,
+            20160,
+            20160,
+            20160,
+            10080,
+            20160,
+            20160,
+            20160,
+            20160,
+            20160,
+            10080
+          ],
+          "P3": [
+            20160,
+            20160,
+            20160,
+            20160,
+            10080,
+            20160,
+            20160,
+            20160,
+            20160,
+            20160,
+            10080
+          ],
+          "P4": [
+            20160,
+            20160,
+            20160,
+            20160,
+            10080,
+            20160,
+            20160,
+            20160,
+            20160,
+            20160,
+            10080
+          ]
+        },
+        "durationFailuresAgainst4_4": {
+          "P1": [
+            "m1=20160",
+            "m2=20160",
+            "m3=20160",
+            "m4=20160",
+            "m5=10080",
+            "m6=20160",
+            "m7=20160",
+            "m8=20160",
+            "m9=20160",
+            "m10=20160",
+            "m11=10080"
+          ],
+          "P2": [
+            "m1=20160",
+            "m2=20160",
+            "m3=20160",
+            "m4=20160",
+            "m5=10080",
+            "m6=20160",
+            "m7=20160",
+            "m8=20160",
+            "m9=20160",
+            "m10=20160",
+            "m11=10080"
+          ],
+          "P3": [
+            "m1=20160",
+            "m2=20160",
+            "m3=20160",
+            "m4=20160",
+            "m5=10080",
+            "m6=20160",
+            "m7=20160",
+            "m8=20160",
+            "m9=20160",
+            "m10=20160",
+            "m11=10080"
+          ],
+          "P4": [
+            "m1=20160",
+            "m2=20160",
+            "m3=20160",
+            "m4=20160",
+            "m5=10080",
+            "m6=20160",
+            "m7=20160",
+            "m8=20160",
+            "m9=20160",
+            "m10=20160",
+            "m11=10080"
+          ]
+        },
+        "durationFailureCount": 44,
+        "shapeNoteheadsAdded": 0,
+        "lyricsRetained": 0,
+        "barlines": 20,
+        "repeatEndingElements": 20
+      }
+    },
+    "sh2025": {
+      "title": "Enoch",
+      "textKey": "when overwhelmed with grief",
+      "meter": "Short Meter (6,6,8,6)",
+      "timeSignature": "3/4",
+      "keySignature": "F major",
+      "sourceImageSha256": "dfcc6ca7559c16089967be85448ab9e2e86202b4467846facfcf19cb426ec174",
+      "summary": {
+        "parts": 4,
+        "rawMeasuresByPart": {
+          "P1": 10,
+          "P2": 10,
+          "P3": 10,
+          "P4": 10
+        },
+        "normalizedMeasuresByPart": {
+          "P1": 11,
+          "P2": 11,
+          "P3": 11,
+          "P4": 11
+        }
+      }
+    },
+    "sameSongWitness": {
+      "authorizedExact2025": false,
+      "independentSameTitleStructuredWitness": false
+    }
+  },
+  "candidateWitness": {
+    "available": false,
+    "candidateRole": "No authorized exact-edition structured witness was available; alternate editions were not used."
+  },
+  "correctedDraft": {
+    "path": "work/omr/autonomous-transcriptions/2025/437-enoch-source-correction.mxl",
+    "sha256": "255dd5264af60c52b4a2f95ff26539bd3438bef33afe0e20baeda1cb5a419fb5",
+    "summary": {
+      "parts": 4,
+      "measuresByPart": {
+        "P1": 11,
+        "P2": 11,
+        "P3": 11,
+        "P4": 11
+      },
+      "eventsByPart": {
+        "P1": 23,
+        "P2": 22,
+        "P3": 21,
+        "P4": 14
+      },
+      "pitchedEventsByPart": {
+        "P1": 23,
+        "P2": 22,
+        "P3": 21,
+        "P4": 14
+      },
+      "restEventsByPart": {
+        "P1": 0,
+        "P2": 0,
+        "P3": 0,
+        "P4": 0
+      },
+      "emptyMeasuresByPart": {
+        "P1": 0,
+        "P2": 2,
+        "P3": 2,
+        "P4": 3
+      },
+      "pitchedEvents": 80,
+      "restEvents": 0,
+      "emptyMeasures": 7,
+      "divisionsByPart": {
+        "P1": 2,
+        "P2": 2,
+        "P3": 2,
+        "P4": 2
+      },
+      "durationEndByPart": {
+        "P1": [
+          2,
+          4,
+          8,
+          6,
+          6,
+          6,
+          8,
+          9,
+          4,
+          6,
+          6
+        ],
+        "P2": [
+          0,
+          2,
+          4,
+          16,
+          6,
+          10,
+          10,
+          2,
+          4,
+          6,
+          0
+        ],
+        "P3": [
+          0,
+          2,
+          4,
+          12,
+          8,
+          10,
+          6,
+          4,
+          6,
+          6,
+          0
+        ],
+        "P4": [
+          0,
+          6,
+          6,
+          6,
+          2,
+          0,
+          6,
+          4,
+          6,
+          6,
+          0
+        ]
+      },
+      "durationFailureCount": 28,
+      "shapeNoteheadsAdded": 80,
+      "lyricsRetained": 0,
+      "barlines": 4,
+      "repeatEndingElements": 0,
+      "durationFailuresAgainst3_4": {
+        "P1": [
+          "m1=2",
+          "m2=4",
+          "m3=8",
+          "m7=8",
+          "m8=9",
+          "m9=4"
+        ],
+        "P2": [
+          "m1=0",
+          "m2=2",
+          "m3=4",
+          "m4=16",
+          "m6=10",
+          "m7=10",
+          "m8=2",
+          "m9=4",
+          "m11=0"
+        ],
+        "P3": [
+          "m1=0",
+          "m2=2",
+          "m3=4",
+          "m4=12",
+          "m5=8",
+          "m6=10",
+          "m8=4",
+          "m11=0"
+        ],
+        "P4": [
+          "m1=0",
+          "m5=2",
+          "m6=0",
+          "m8=4",
+          "m11=0"
+        ]
+      }
+    },
+    "eventStreamPreservedFromPriorReviewDraft": true,
+    "status": "review-only-not-source-verified",
+    "corrections": [
+      "source-observed F-major mode",
+      "source-observed 3/4 meter",
+      "explicit external-source-block metadata",
+      "preserved derived four-shape tags without claiming per-note verification",
+      "lyrics and uncertain topology intentionally omitted"
+    ]
+  },
+  "comparisonEvidence": {
+    "sourceScanInspected": true,
+    "sourceScanPath": "work/omr/437-enoch/source.jpg",
+    "sourceScanSha256": "dfcc6ca7559c16089967be85448ab9e2e86202b4467846facfcf19cb426ec174",
+    "rawOmrSha256": "0e917996cb170d0ccca2d826f172ca4b47edba45f66fb8a2b668520f4eb2e0b8",
+    "workingOmrSha256": "12c65e7db9408d33386e4116fb00bc15ebc55bd7e9dd5ffdae0261f0fe1b9ac7",
+    "method": "full-resolution visual inspection of immutable scan plus structural/event/duration audit of raw and normalized-v2 OMR; no alternate witness used",
+    "blockingFindings": [
+      "The immutable page visibly identifies ENOCH. S.M., F major, 3/4, Isaac Watts (1719), Keillor Mose (2019), four vocal parts, three printed verses, lyrics, and a terminal double bar; a diagonal DO NOT COPY watermark intersects the middle systems.",
+      "Audiveris reports 10 raw measures in one system, while normalized-v2 exports 11 measures per part. The normalized-v2 working score contains 80 pitched events across four parts and 28 of 44 exported measures fail the 3/4 duration target at divisions=2; 7 exported measures are empty. The source event stream and measure topology are therefore not proven complete.",
+      "The retained OMR and corrected derivative contain no lyrics or repeat/ending elements. The 80 four-shape noteheads are derived from OMR pitch steps plus the observed F-major key, not independently verified against every printed notehead. The raw OMR omits explicit mode and time signature.",
+      "The 1991 same-number record is Sidney, with a different text family, C.M. Double 6/8 meter, and a distinct edition score; it is not an equivalent Enoch witness and was not used to fill 2025 notes, durations, lyrics, repeats, or shapes.",
+      "No authorized exact-2025 or independent same-title structured witness was available. The 2025 debut audio is identity evidence only and was not used to infer notation."
+    ]
+  },
+  "blockingFindings": [
+    "The immutable page visibly identifies ENOCH. S.M., F major, 3/4, Isaac Watts (1719), Keillor Mose (2019), four vocal parts, three printed verses, lyrics, and a terminal double bar; a diagonal DO NOT COPY watermark intersects the middle systems.",
+    "Audiveris reports 10 raw measures in one system, while normalized-v2 exports 11 measures per part. The normalized-v2 working score contains 80 pitched events across four parts and 28 of 44 exported measures fail the 3/4 duration target at divisions=2; 7 exported measures are empty. The source event stream and measure topology are therefore not proven complete.",
+    "The retained OMR and corrected derivative contain no lyrics or repeat/ending elements. The 80 four-shape noteheads are derived from OMR pitch steps plus the observed F-major key, not independently verified against every printed notehead. The raw OMR omits explicit mode and time signature.",
+    "The 1991 same-number record is Sidney, with a different text family, C.M. Double 6/8 meter, and a distinct edition score; it is not an equivalent Enoch witness and was not used to fill 2025 notes, durations, lyrics, repeats, or shapes.",
+    "No authorized exact-2025 or independent same-title structured witness was available. The 2025 debut audio is identity evidence only and was not used to infer notation."
+  ],
+  "blockingReason": "External-source and structural verification is blocked by the 10-versus-11 measure topology discrepancy, 28 duration failures in 44 normalized-v2 exported measures at divisions=2, 7 empty exported measures, absent lyrics and source-confirmed per-note shapes, incomplete ending semantics, watermark-intersected notation, the non-equivalent 1991 Sidney record, and lack of an authorized exact-2025 structured witness. The corrected derivative remains review-only.",
+  "autonomousDisposition": "OMR-derived evidence is retained for audit, but no exact source-faithful transposable score is admitted.",
+  "nextAction": "external-source-blocked-by-incomplete-source-event-witness-and-unresolved-topology; retain-review-derivative-only",
+  "policy": "Immutable 2025 source images remain authoritative. OMR and derived shape tags are evidence only and cannot authorize promotion without direct event-level, rhythm, lyric, repeat, mode, meter, and shape proof; the 1991 same-number record remains a separate replacement witness.",
+  "generatedAt": "2026-08-30T23:32:06.097463+00:00"
+}
