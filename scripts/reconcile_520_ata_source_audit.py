@@ -14,8 +14,9 @@ from reconcile_437_enoch_source_audit import retime_summary, score_stats
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE_IMAGE = ROOT / "work/omr/520-ata/source.jpg"
-RETAINED_IMAGE = ROOT / "work/source-images/2025/520-ata-c73df4fd27.jpg"
+SOURCE_IMAGE = ROOT / "work/source-images/2025/520-ata-c73df4fd27.jpg"
+OMR_IMAGE = ROOT / "work/omr/520-ata/source.jpg"
+RETAINED_IMAGE = SOURCE_IMAGE
 RAW_OMR = ROOT / "work/omr/520-ata/source.mxl"
 OUTPUT = ROOT / "work/omr/autonomous-transcriptions/2025/520-ata-source-correction.mxl"
 AUDIT = ROOT / "work/source-transcriptions/2025/520-source-shape-autonomous-blocked-comparison.json"
@@ -70,6 +71,19 @@ def put_field(identification: ET.Element, name: str, value: str) -> None:
         miscellaneous.remove(duplicate)
 
 
+def set_terminal_double_bar(part: ET.Element) -> None:
+    measures = children(part, "measure")
+    if not measures:
+        return
+    final = measures[-1]
+    bars = [item for item in children(final, "barline") if item.attrib.get("location") == "right"]
+    barline = bars[0] if bars else ET.SubElement(final, "barline", {"location": "right"})
+    style = first(barline, "bar-style")
+    if style is None:
+        style = ET.SubElement(barline, "bar-style")
+    style.text = "light-heavy"
+
+
 def update_xml(xml_bytes: bytes, source_hash: str, raw_hash: str) -> bytes:
     root = ET.fromstring(xml_bytes)
     for part in children(root, "part"):
@@ -91,6 +105,12 @@ def update_xml(xml_bytes: bytes, source_hash: str, raw_hash: str) -> bytes:
             clock = ET.SubElement(attributes, "time")
         replace_child(clock, "beats", "4")
         replace_child(clock, "beat-type", "4", {"beats"})
+        set_terminal_double_bar(part)
+    work = first(root, "work")
+    if work is None:
+        work = ET.Element("work")
+        root.insert(0, work)
+    replace_child(work, "work-title", "Ata")
     identification = first(root, "identification")
     if identification is None:
         identification = ET.Element("identification")
@@ -98,7 +118,9 @@ def update_xml(xml_bytes: bytes, source_hash: str, raw_hash: str) -> bytes:
     fields = {
         "atlas-review-queue-id": "sh2025/520",
         "atlas-review-status": "autonomously-blocked-source-derived-draft",
+        "atlas-transcription-status": "autonomously-blocked",
         "atlas-safe-to-promote": "false",
+        "atlas-source-image": str(SOURCE_IMAGE.relative_to(ROOT)),
         "atlas-source-key": "B-flat major",
         "atlas-source-mode": "major",
         "atlas-source-time-signature": "4/4",
@@ -107,6 +129,7 @@ def update_xml(xml_bytes: bytes, source_hash: str, raw_hash: str) -> bytes:
         "atlas-repeat-ending-encoding": "not encoded; no source repeat/ending marking observed",
         "atlas-provenance-policy": "autonomous block; immutable 2025 source remains authoritative; no OMR promotion",
         "atlas-source-image-sha256": source_hash,
+        "atlas-omr-image-sha256": sha256(OMR_IMAGE),
         "atlas-source-omr-sha256": raw_hash,
     }
     for name, value in fields.items():
@@ -128,6 +151,7 @@ def main() -> int:
         if not path.is_file():
             raise FileNotFoundError(path)
     source_hash = sha256(SOURCE_IMAGE)
+    omr_image_hash = sha256(OMR_IMAGE)
     retained_hash = sha256(RETAINED_IMAGE)
     raw_hash = sha256(RAW_OMR)
     write_output(source_hash, raw_hash)
@@ -137,7 +161,7 @@ def main() -> int:
     blocking = [
         "The immutable page visibly identifies ATA. L.M., B-flat major, 4/4, Isaac Watts (1709), Jacob E. Stebly (2017), four vocal parts, and three numbered source-visible stanzas. No repeat or numbered ending marking is visible; the page ends with terminal barlines, and a diagonal DO NOT COPY watermark intersects the middle systems.",
         "Audiveris reports 13 raw measures in one system, while the retained MXL exports 11 measures per part. The retained score contains 110 pitched events, 6 empty exported measures, and 34 of 44 exported part-measures fail the 4/4 duration target at divisions=1. The source event stream, durations, and measure topology are therefore not proven complete.",
-        "The retained OMR and corrected derivative contain no lyrics, repeat/ending elements, or per-note four-shape encoding. The B-flat-major key and 4/4 meter are source observations only; adding those attributes does not prove the underlying OMR events or printed shapes. No unsupported event, lyric, repeat, or watermark-obscured material was fabricated.",
+        "The corrected derivative deliberately contains no lyrics, repeat/ending elements, or per-note four-shape encoding. The B-flat-major key, 4/4 meter, and terminal double bars are source observations only; adding them does not prove the underlying OMR events or printed shapes. No unsupported event, lyric, repeat, or watermark-obscured material was fabricated.",
         "No authorized exact-edition structured Ata witness was available. Alternate-edition records were not used to fill notes, durations, lyrics, repeats, or shapes.",
     ]
     audit = {
@@ -152,14 +176,14 @@ def main() -> int:
                 "sourceLyricsVisible": True, "sourceStanzaCount": 3, "repeatBarsVisible": False, "numberedEndingsVisible": False, "terminalDoubleBarVisible": True, "watermarkIntersectsNotation": True,
             },
         },
-        "retainedSourceImageDuplicate": {"path": str(RETAINED_IMAGE.relative_to(ROOT)), "sha256": retained_hash, "immutable": True, "byteEqualToRequestedSource": SOURCE_IMAGE.read_bytes() == RETAINED_IMAGE.read_bytes(), "geometryMatchesRequestedSource": True},
+        "retainedSourceImageDuplicate": {"path": str(RETAINED_IMAGE.relative_to(ROOT)), "sha256": retained_hash, "immutable": True, "byteEqualToOmrImage": SOURCE_IMAGE.read_bytes() == OMR_IMAGE.read_bytes(), "geometryMatchesRequestedSource": True},
         "inputOmr": {"path": str(RAW_OMR.relative_to(ROOT)), "sha256": raw_hash, "status": "retained-source-scan-omr", "summary": raw},
         "sourceScanOmr": {"path": str(RAW_OMR.relative_to(ROOT)), "sha256": raw_hash, "selectedWorkingLayer": "raw-source-scan-omr", "status": "review-only-omr-input", "summary": raw},
         "candidateWitness": {"available": False, "candidateRole": "No authorized exact-edition structured Ata witness was available; alternate editions were not used."},
-        "correctedDraft": {"path": str(OUTPUT.relative_to(ROOT)), "sha256": draft_hash, "summary": draft, "eventStreamPreservedFromRetainedOmr": True, "status": "review-only-not-source-verified", "corrections": ["source-observed B-flat-major key", "source-observed 4/4 meter", "explicit autonomous-block metadata", "lyrics/repeats/shapes intentionally not fabricated"]},
-        "comparisonEvidence": {"sourceScanInspected": True, "sourceScanPath": str(SOURCE_IMAGE.relative_to(ROOT)), "sourceScanSha256": source_hash, "retainedImagePath": str(RETAINED_IMAGE.relative_to(ROOT)), "retainedImageSha256": retained_hash, "rawOmrSha256": raw_hash, "method": "full-resolution visual inspection of immutable scan plus structural/event/duration audit of retained source-scan OMR; alternate editions not used", "blockingFindings": blocking},
+        "correctedDraft": {"path": str(OUTPUT.relative_to(ROOT)), "sha256": draft_hash, "summary": draft, "eventStreamPreservedFromRetainedOmr": True, "status": "review-only-not-source-verified", "corrections": ["source-observed B-flat-major key", "source-observed 4/4 meter", "source title added", "source-visible terminal double bars added as light-heavy", "lyrics/repeats/shapes intentionally not fabricated"]},
+        "comparisonEvidence": {"sourceScanInspected": True, "sourceScanPath": str(SOURCE_IMAGE.relative_to(ROOT)), "sourceScanSha256": source_hash, "retainedImagePath": str(RETAINED_IMAGE.relative_to(ROOT)), "retainedImageSha256": retained_hash, "omrImagePath": str(OMR_IMAGE.relative_to(ROOT)), "omrImageSha256": omr_image_hash, "rawOmrSha256": raw_hash, "method": "full-resolution visual inspection of immutable retained scan plus structural/event/duration audit of retained source-scan OMR; alternate editions not used", "blockingFindings": blocking},
         "blockingFindings": blocking,
-        "blockingReason": "Autonomous promotion is blocked by the 13-versus-11 measure topology discrepancy, 34-of-44 retained-OMR 4/4 duration failures, 6 empty exported measures, absent lyrics/repeat semantics/per-note shape encoding, watermark-intersected notation, and lack of an authorized exact-edition structured witness. The corrected derivative remains review-only.",
+        "blockingReason": "Autonomous promotion is blocked by the 13-versus-11 measure topology discrepancy, 34-of-44 retained-OMR 4/4 duration failures, 6 empty exported measures, absent event-aligned lyrics/repeat semantics/per-note shape proof, watermark-intersected notation, and lack of an authorized exact-edition structured witness. The corrected derivative remains review-only.",
         "autonomousDisposition": "OMR-derived evidence is retained for audit, but no exact source-faithful transposable score is admitted.",
         "nextAction": "autonomous-promotion-blocked-by-incomplete-source-event-witness-and-unencoded-source-semantics; retain-review-derivative-only",
         "policy": "Immutable 2025 source images remain authoritative. OMR and metadata corrections cannot authorize promotion without direct event-level, rhythm, lyric, repeat, mode, meter, and shape proof.",

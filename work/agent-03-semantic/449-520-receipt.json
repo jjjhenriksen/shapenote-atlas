@@ -1,0 +1,53 @@
+{
+  "kind": "agent-03-449-520-source-correction-receipt",
+  "generatedAt": "2026-08-30T23:32:39.246758+00:00",
+  "scope": [
+    "sh2025/449",
+    "sh2025/520"
+  ],
+  "records": [
+    {
+      "queueId": "sh2025/449",
+      "status": "autonomously-blocked",
+      "safeToPromote": false,
+      "sourceImagePath": "work/source-images/2025/449-lovely-social-band-b2e12bf325.jpg",
+      "sourceImageSha256": "d0f3c8dc5c0a4b5117826947986e2ffe4a4dcf0160a53a4c24ffb9004da83e97",
+      "inputOmrPath": "work/omr/449-lovely-social-band/source.mxl",
+      "inputOmrSha256": "10ebe1da760fac2c5c2afcd53d3763ecc30fd4c6c394fe015ed48e59b091f580",
+      "draftPath": "work/omr/autonomous-transcriptions/2025/449-lovely-social-band-source-correction.mxl",
+      "draftSha256": "c97a6b4ae0fa7a2cc083d891344c81ce7989f3152f83c8582c98ba0241444ef2",
+      "blockingReason": "Autonomous promotion is blocked by the 62-of-64 normalized-v2 6/8 duration failures, absent event-aligned lyrics and per-note shape proof, unresolved mapping of visible sectional repeat bars to OMR measures, watermark-intersected notation, and lack of an authorized exact-edition structured witness. The corrected derivative remains review-only.",
+      "draftFileSha256Verified": true,
+      "auditFileSha256": "dc8e213ac9e98065fcef8a4fce1d77da2a7002da7469077f13369f07c578a91c"
+    },
+    {
+      "queueId": "sh2025/520",
+      "status": "autonomously-blocked",
+      "safeToPromote": false,
+      "sourceImagePath": "work/source-images/2025/520-ata-c73df4fd27.jpg",
+      "sourceImageSha256": "93c38b32ccd7bc26fbcec6f570243f00703a0f1b125b66f49864966e4e83c504",
+      "inputOmrPath": "work/omr/520-ata/source.mxl",
+      "inputOmrSha256": "c137ef17c66be9167e794211d49043ffde5b099e8c00890d2631a19b0fe1f557",
+      "draftPath": "work/omr/autonomous-transcriptions/2025/520-ata-source-correction.mxl",
+      "draftSha256": "289c641196593ce6e5c874f8a19604021e9e5bae91b23fb74c11cefb22feb430",
+      "blockingReason": "Autonomous promotion is blocked by the 13-versus-11 measure topology discrepancy, 34-of-44 retained-OMR 4/4 duration failures, 6 empty exported measures, absent event-aligned lyrics/repeat semantics/per-note shape proof, watermark-intersected notation, and lack of an authorized exact-edition structured witness. The corrected derivative remains review-only.",
+      "draftFileSha256Verified": true,
+      "auditFileSha256": "0761aa0b8ba07b9ce5288eba9b98134cd2a756b7e3e5a43f6b89ce40ca51f7a4"
+    }
+  ],
+  "allRecordsBlocked": true,
+  "sharedLedgersRewritten": false,
+  "otherRecordsTouched": false,
+  "uiTouched": false,
+  "committed": false,
+  "pushed": false,
+  "validation": {
+    "focusedSourceCorrectionTests": "passed",
+    "semanticParserTests": "passed",
+    "playbackValidation": "passed",
+    "transpositionValidation": "passed",
+    "gitDiffCheck": "passed",
+    "aggregateDataValidation": "blocked-by-unrelated-sh2025/118-noncanonical-disposition"
+  },
+  "policy": "Immutable retained source images remain authoritative; OMR derivatives are review-only and no alternate witness fills unsupported notation."
+}
