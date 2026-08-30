@@ -1,0 +1,3482 @@
+{
+  "generatedAt": "2026-08-30T03:28:12.539768+00:00",
+  "kind": "sacred-harp-2025-reference-key-reconciliation",
+  "version": 2,
+  "authority": {
+    "scope": "Existing Sacred Harp 2025 referenceScoreByBook witnesses with pitch-bearing assets and unknown keyEvidence",
+    "sourceOfTruth": "This dedicated companion records reference-only key evidence without rewriting canonical 2025 scoreByBook metadata.",
+    "policy": "Direct source observations may be retained, but alternate witnesses never become exact 2025 notation without edition-matched structural proof.",
+    "editionSeparation": "Reference witness provenance remains distinct from the canonical Sacred Harp 2025 score corpus."
+  },
+  "inputs": [
+    {
+      "path": "public/corpus.json",
+      "sha256": "9aa7bc3c7c3245142cd329bff4b321b583dfe407c261b694748d8efa30f6f246"
+    }
+  ],
+  "directAudit": {
+    "referenceRecords": 61,
+    "exactLinkedMusicXmlWitnesses": {
+      "urlCount": 61,
+      "http200ValidMusicXmlCount": 61,
+      "keyElementCount": 0
+    },
+    "directSourceScanObservations": 3,
+    "indexPageAudit": {
+      "scheduledPages": 61,
+      "confirmedNoExplicitKeyOrMode": 52,
+      "temporarilyUnavailableDuringAudit": 12,
+      "note": "MXL absence and scan evidence determine per-record outcomes; unavailable index pages are not treated as positive evidence."
+    }
+  },
+  "summary": {
+    "targetRecords": 61,
+    "directSourceKeyObservations": 3,
+    "referenceWitnessKeysApplied": 0,
+    "sourceKeyVerifiedReferenceOnly": 3,
+    "autonomouslyBlocked": 0,
+    "externalSourceBlocked": 58,
+    "safeToPromote": 0,
+    "humanReviewRequired": 0,
+    "corpusRecordsChanged": 0,
+    "recordsStillWithoutAutonomousDisposition": 0
+  },
+  "records": [
+    {
+      "queueId": "sh2025/28t",
+      "songNo": "28t",
+      "title": "Aylesbury",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/39d3f51c14c3f3b4d9550562.json",
+      "referenceScoreAssetSha256": "f82d3b689fcd7f72843766dc31a74f37b1eb7333b8241f837ad4eaf9ceb82458",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "28t"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=28t",
+        "https://fasola.org/indexes/1991/?p=28t",
+        "https://shapenote.net/musicxml/28td.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 105
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/28td.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=28t",
+          "https://fasola.org/indexes/1991/?p=28t",
+          "https://shapenote.net/musicxml/28td.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/29t",
+      "songNo": "29t",
+      "title": "Fairfield",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/77afee6bc3b2d7e93f7b39f5.json",
+      "referenceScoreAssetSha256": "e72bcf9de293c47c3130cf090b5060d563b06af7acf2e30eaea4ae925ac9a361",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "29t"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=29t",
+        "https://fasola.org/indexes/1991/?p=29t",
+        "https://shapenote.net/musicxml/29td.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 184
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/29td.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=29t",
+          "https://fasola.org/indexes/1991/?p=29t",
+          "https://shapenote.net/musicxml/29td.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/30b",
+      "songNo": "30b",
+      "title": "Prospect",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/c751d8573bde1da2307556fb.json",
+      "referenceScoreAssetSha256": "f7ac3421024f84ed593801dffedb2f8168e60b48e17fc85b9f9ccb546c00d9f5",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "30b"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=30b",
+        "https://fasola.org/indexes/1991/?p=30b",
+        "https://shapenote.net/musicxml/30b.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 170
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/30b.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=30b",
+          "https://fasola.org/indexes/1991/?p=30b",
+          "https://shapenote.net/musicxml/30b.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/30t",
+      "songNo": "30t",
+      "title": "Love Divine",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/45c35ffa0cd962db549b00a9.json",
+      "referenceScoreAssetSha256": "3ec6a773da5017f7767149b5d03e6c83409f8242b237902068b31c3d82b35769",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "30t"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=30t",
+        "https://fasola.org/indexes/1991/?p=30t",
+        "https://shapenote.net/musicxml/30t.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 132
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/30t.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=30t",
+          "https://fasola.org/indexes/1991/?p=30t",
+          "https://shapenote.net/musicxml/30t.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/31t",
+      "songNo": "31t",
+      "title": "Ninety-Third Psalm",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/dd8c38fe89bee92be6a5e68e.json",
+      "referenceScoreAssetSha256": "b1c55004b0e06c3134121cc6d409810525d337c22a4f88703db2ce8abbf480de",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "31t"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=31t",
+        "https://fasola.org/indexes/1991/?p=31t",
+        "https://shapenote.net/musicxml/31t.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 127
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/31t.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=31t",
+          "https://fasola.org/indexes/1991/?p=31t",
+          "https://shapenote.net/musicxml/31t.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/36t",
+      "songNo": "36t",
+      "title": "America",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/480cad881dee19f56dd5dca8.json",
+      "referenceScoreAssetSha256": "649bd0c8dc138fde1ff2351a5aeb91d4ad3082496cff8551c84e59c8e9df14a5",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "36t"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=36t",
+        "https://fasola.org/indexes/1991/?p=36t",
+        "https://shapenote.net/musicxml/36td.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 132
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/36td.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=36t",
+          "https://fasola.org/indexes/1991/?p=36t",
+          "https://shapenote.net/musicxml/36td.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/44",
+      "songNo": "44",
+      "title": "The Converted Thief",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/02230b03e30d720c6aee410d.json",
+      "referenceScoreAssetSha256": "fc8c920549a9e93c729f4b7ec315073391b7245d1ef3df0ad624d362b0b3caa2",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "44"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=44",
+        "https://fasola.org/indexes/1991/?p=44",
+        "https://shapenote.net/musicxml/44.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 229
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/44.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=44",
+          "https://fasola.org/indexes/1991/?p=44",
+          "https://shapenote.net/musicxml/44.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/45t",
+      "songNo": "45t",
+      "title": "New Britain",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/c165d6455704c7c4595ab7c5.json",
+      "referenceScoreAssetSha256": "3f002286871fa443d5e9ea936828afc008b66ced6e5f37dcf8284a92cbf35115",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "45t"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=45t",
+        "https://fasola.org/indexes/1991/?p=45t",
+        "https://shapenote.net/musicxml/45t.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 128
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/45t.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=45t",
+          "https://fasola.org/indexes/1991/?p=45t",
+          "https://shapenote.net/musicxml/45t.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/47b",
+      "songNo": "47b",
+      "title": "Idumea",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/41215cab36bf3b02ee91afa7.json",
+      "referenceScoreAssetSha256": "50cc83ee138838053d175682189025f144adcb8ad4a33a7f7521cce79fc3ae40",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "47b"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=47b",
+        "https://fasola.org/indexes/1991/?p=47b",
+        "https://shapenote.net/musicxml/47bd.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 137
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/47bd.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=47b",
+          "https://fasola.org/indexes/1991/?p=47b",
+          "https://shapenote.net/musicxml/47bd.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/48t",
+      "songNo": "48t",
+      "title": "Devotion",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/342da589bb60c5a38f61798c.json",
+      "referenceScoreAssetSha256": "784e9b208eab9ac58745f4d1ba27041eff009494f9770d23ccd63037e9b35c0c",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "48t"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=48t",
+        "https://fasola.org/indexes/1991/?p=48t",
+        "https://shapenote.net/musicxml/48t.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 135
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/48t.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=48t",
+          "https://fasola.org/indexes/1991/?p=48t",
+          "https://shapenote.net/musicxml/48t.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/53",
+      "songNo": "53",
+      "title": "Jerusalem",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/4a4235f4c6d8b302f983637f.json",
+      "referenceScoreAssetSha256": "814a10c0a40753b28d029372f1f2b417a9281d3a242f701d35ec64f9cc4f92e6",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "53"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=53",
+        "https://fasola.org/indexes/1991/?p=53",
+        "https://shapenote.net/musicxml/53d.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 229
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/53d.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=53",
+          "https://fasola.org/indexes/1991/?p=53",
+          "https://shapenote.net/musicxml/53d.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/56t",
+      "songNo": "56t",
+      "title": "Columbiana",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/e34c8b045a7c48883e197290.json",
+      "referenceScoreAssetSha256": "aa6b3246398cc87feca48b411eff28c684b02e81937c2cabfe23fccd8991c124",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "56t"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=56t",
+        "https://fasola.org/indexes/1991/?p=56t",
+        "https://shapenote.net/musicxml/56t.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 121
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/56t.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=56t",
+          "https://fasola.org/indexes/1991/?p=56t",
+          "https://shapenote.net/musicxml/56t.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/59",
+      "songNo": "59",
+      "title": "Holy Manna",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/3e406bfd34af19427e38f3ba.json",
+      "referenceScoreAssetSha256": "3223fc4a42a647031a381d17398ff5673e31c2e038d2dc7c6ce0fac2929b7edb",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "59"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=59",
+        "https://fasola.org/indexes/1991/?p=59",
+        "https://shapenote.net/musicxml/59.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 219
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/59.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=59",
+          "https://fasola.org/indexes/1991/?p=59",
+          "https://shapenote.net/musicxml/59.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/71",
+      "songNo": "71",
+      "title": "Leander",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/67bb3a9423232bd6ca7ae5bd.json",
+      "referenceScoreAssetSha256": "92d959f6cd88e36ec73bf64311b306c66c42ee51a629096c9c9d72fd7e66edbf",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "71"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=71",
+        "https://fasola.org/indexes/1991/?p=71",
+        "https://shapenote.net/musicxml/71d.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 252
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/71d.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=71",
+          "https://fasola.org/indexes/1991/?p=71",
+          "https://shapenote.net/musicxml/71d.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/74b",
+      "songNo": "74b",
+      "title": "King of Peace",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/2d4342f73474009c094020aa.json",
+      "referenceScoreAssetSha256": "a956a5ef3a8fe783321dff309a364ee87250d4ee21e62a6e8456ce2b6db3e3b1",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "74b"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=74b",
+        "https://fasola.org/indexes/1991/?p=74b",
+        "https://shapenote.net/musicxml/74b.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 117
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/74b.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=74b",
+          "https://fasola.org/indexes/1991/?p=74b",
+          "https://shapenote.net/musicxml/74b.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/76b",
+      "songNo": "76b",
+      "title": "Desire for Piety",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/18a590c3d20437c6324fe496.json",
+      "referenceScoreAssetSha256": "14038a2462543d3e157ef3f969e5d1bfc1959239f6e4c9e7f840c0e0ab841991",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "76b"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=76b",
+        "https://fasola.org/indexes/1991/?p=76b",
+        "https://shapenote.net/musicxml/76b.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 143
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/76b.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=76b",
+          "https://fasola.org/indexes/1991/?p=76b",
+          "https://shapenote.net/musicxml/76b.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/77b",
+      "songNo": "77b",
+      "title": "Holcombe",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/82198df97129ecfbfa973a3b.json",
+      "referenceScoreAssetSha256": "84fd1a522fe0f8005c403b3fa9daaf44c9e3faa8eb3b13546a7e6154c9f972b6",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "77b"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=77b",
+        "https://fasola.org/indexes/1991/?p=77b",
+        "https://shapenote.net/musicxml/77b.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 109
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/77b.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=77b",
+          "https://fasola.org/indexes/1991/?p=77b",
+          "https://shapenote.net/musicxml/77b.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/77t",
+      "songNo": "77t",
+      "title": "The Child of Grace",
+      "outcome": "source-key-verified-reference-only",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "A minor",
+      "mode": "minor",
+      "referenceScoreRef": "/scores/53e9e809f1c943a43f7add47.json",
+      "referenceScoreAssetSha256": "47bb74802732c11663e566c9edd5464ec0aaa85b3f8d73b9f8786d42ca06d6ec",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "77t"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=77t",
+        "https://fasola.org/indexes/1991/?p=77t",
+        "https://shapenote.net/musicxml/77t.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 182
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/77t.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": {
+          "keySignature": "A minor",
+          "mode": "minor",
+          "url": "https://sacredharpbremen.org/wp-content/uploads/songs/001-099/077t-The-Child-of-Grace/77t.jpg",
+          "sha256": "f884e0d491cbda5a8595e2531de17850c690ef74d3edd391cad69602bedde063",
+          "observation": "The page header visibly prints A Minor."
+        }
+      },
+      "blocker": "The linked SH2025 scan directly observes A minor, but this structured reference is provenance-labeled as an alternate/other-edition witness. The key observation is retained separately; no edition-matched notation identity was proven, so it is not applied to referenceScoreByBook and cannot promote the witness as exact 2025 notation.",
+      "externalSourceEvidence": null
+    },
+    {
+      "queueId": "sh2025/83t",
+      "songNo": "83t",
+      "title": "Vale of Sorrow",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/d5d171d1bd78eb34c5a612eb.json",
+      "referenceScoreAssetSha256": "ab06ce79471d92247127b66def1d90fd7d99ad987309164e15cd0ee64c006479",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "83t"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=83t",
+        "https://fasola.org/indexes/1991/?p=83t",
+        "https://shapenote.net/musicxml/83td.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 161
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/83td.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=83t",
+          "https://fasola.org/indexes/1991/?p=83t",
+          "https://shapenote.net/musicxml/83td.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/107",
+      "songNo": "107",
+      "title": "Russia",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/f709bdeb4b5870829db7af8d.json",
+      "referenceScoreAssetSha256": "935fb0fab732e54d525d89ca3e8e48cb887b98d118d79fbcff087181a24cd990",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "107"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=107",
+        "https://fasola.org/indexes/1991/?p=107",
+        "https://shapenote.net/musicxml/107d.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 158
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/107d.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=107",
+          "https://fasola.org/indexes/1991/?p=107",
+          "https://shapenote.net/musicxml/107d.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/108b",
+      "songNo": "108b",
+      "title": "The Traveler",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/112fe40afdde9dead58ad8ff.json",
+      "referenceScoreAssetSha256": "ba920add1a6278ef338d872277795f80761a82cfb97ab7065ce152eba87fc00b",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "108b"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=108b",
+        "https://fasola.org/indexes/1991/?p=108b",
+        "https://shapenote.net/musicxml/108bd.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 139
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/108bd.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=108b",
+          "https://fasola.org/indexes/1991/?p=108b",
+          "https://shapenote.net/musicxml/108bd.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/108t",
+      "songNo": "108t",
+      "title": "Weeping Sinners",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/3c38972f7cda9a3e154735f6.json",
+      "referenceScoreAssetSha256": "24c5b3c4d6cd1a2f85c1e0c2963be2c36b8720d4ff84ea131cebfbf6a704a9da",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "108t"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=108t",
+        "https://fasola.org/indexes/1991/?p=108t",
+        "https://shapenote.net/musicxml/108t.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 108
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/108t.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=108t",
+          "https://fasola.org/indexes/1991/?p=108t",
+          "https://shapenote.net/musicxml/108t.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/129",
+      "songNo": "129",
+      "title": "Heavenly Armor",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/55af15b972e403a1c5641816.json",
+      "referenceScoreAssetSha256": "63fd974bf6e643c28a98ba7647d38a42d7cfaf96da7d55d489b41b5b9d5e0301",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "129"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=129",
+        "https://fasola.org/indexes/1991/?p=129",
+        "https://shapenote.net/musicxml/129.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 191
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/129.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=129",
+          "https://fasola.org/indexes/1991/?p=129",
+          "https://shapenote.net/musicxml/129.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/147b",
+      "songNo": "147b",
+      "title": "Laban",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/a1ee9feb821762ba24e82300.json",
+      "referenceScoreAssetSha256": "1d3c1a212072588bf15a28206561ee7195fe0357de7870617124feaf61c587c5",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "147b"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=147b",
+        "https://fasola.org/indexes/1991/?p=147b",
+        "https://shapenote.net/musicxml/147b.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 104
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/147b.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=147b",
+          "https://fasola.org/indexes/1991/?p=147b",
+          "https://shapenote.net/musicxml/147b.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/147t",
+      "songNo": "147t",
+      "title": "Boylston",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/87674485b5aaddbe162aef6d.json",
+      "referenceScoreAssetSha256": "b1a8dacf9911b428da4e7f5fca380a265f02cd05519b09d87a9141f67ce46c25",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "147t"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=147t",
+        "https://fasola.org/indexes/1991/?p=147t",
+        "https://shapenote.net/musicxml/147t.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 102
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/147t.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=147t",
+          "https://fasola.org/indexes/1991/?p=147t",
+          "https://shapenote.net/musicxml/147t.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/148",
+      "songNo": "148",
+      "title": "Jefferson",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/4e8e61c8a2f9070bd80358d4.json",
+      "referenceScoreAssetSha256": "9f91bdb4927a62fca183e97ca7fec6b38d784debd51f1a384f78dc65470b4433",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "148"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=148",
+        "https://fasola.org/indexes/1991/?p=148",
+        "https://shapenote.net/musicxml/148d.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 213
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/148d.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=148",
+          "https://fasola.org/indexes/1991/?p=148",
+          "https://shapenote.net/musicxml/148d.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/165",
+      "songNo": "165",
+      "title": "Family Bible",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/bd8aabd231cbc0b5077de681.json",
+      "referenceScoreAssetSha256": "a93ed0c99d5a91dbde6c6a463ed87ab47e743bee1726044909e96a1a6180c977",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "165"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=165",
+        "https://fasola.org/indexes/1991/?p=165",
+        "https://shapenote.net/musicxml/165d.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 398
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/165d.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=165",
+          "https://fasola.org/indexes/1991/?p=165",
+          "https://shapenote.net/musicxml/165d.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/166",
+      "songNo": "166",
+      "title": "Still Better",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/81d44496335509a283bb1022.json",
+      "referenceScoreAssetSha256": "9420125082b2571425087cd41e9cf5b5bc5dce2b0d483b0f9b27dffa3c5702cf",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "166"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=166",
+        "https://fasola.org/indexes/1991/?p=166",
+        "https://shapenote.net/musicxml/166.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 136
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/166.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=166",
+          "https://fasola.org/indexes/1991/?p=166",
+          "https://shapenote.net/musicxml/166.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/179",
+      "songNo": "179",
+      "title": "The Christian Warfare",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/101fb058366da4631601abdb.json",
+      "referenceScoreAssetSha256": "7ad116bd5d58831c3de6acda14cf8c5a19fc7b00abc906e9ae19e82c89c67cfb",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "179"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=179",
+        "https://fasola.org/indexes/1991/?p=179",
+        "https://shapenote.net/musicxml/179.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 276
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/179.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=179",
+          "https://fasola.org/indexes/1991/?p=179",
+          "https://shapenote.net/musicxml/179.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/182",
+      "songNo": "182",
+      "title": "Newburgh",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/d76bb2fce77a4e00907775ec.json",
+      "referenceScoreAssetSha256": "0e6ea896cc43545765dd12f365dc1f3e4c16c10215c9bf1ae1804134d97c300d",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "182"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=182",
+        "https://fasola.org/indexes/1991/?p=182",
+        "https://shapenote.net/musicxml/182.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 251
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/182.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=182",
+          "https://fasola.org/indexes/1991/?p=182",
+          "https://shapenote.net/musicxml/182.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/189",
+      "songNo": "189",
+      "title": "Montgomery",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/10c974df087e02bb15ea3ef3.json",
+      "referenceScoreAssetSha256": "5b31aad2f97c2c31e0e9ff39f0683891760004a7708f3f49aed2b68fcc3d9fd3",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "189"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=189",
+        "https://fasola.org/indexes/1991/?p=189",
+        "https://shapenote.net/musicxml/189.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 367
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/189.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=189",
+          "https://fasola.org/indexes/1991/?p=189",
+          "https://shapenote.net/musicxml/189.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/220",
+      "songNo": "220",
+      "title": "Mount Zion",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/fa19e847f54afae312004801.json",
+      "referenceScoreAssetSha256": "6c57b7b3dcebf78e24e28449d6e80cfe1b9d3ffc42cb99a6cb2758c3a6cbbb38",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "220"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=220"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 443
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/220.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=220"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/228",
+      "songNo": "228",
+      "title": "Marlborough",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/0e55711bb94e05127a67f48e.json",
+      "referenceScoreAssetSha256": "7a35e3fe4e5fbc76f9909b948a20b0a58494bdc41ab5e600c86400861d5993d3",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "228"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=228",
+        "https://fasola.org/indexes/1991/?p=228",
+        "https://shapenote.net/musicxml/228.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 230
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/228.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=228",
+          "https://fasola.org/indexes/1991/?p=228",
+          "https://shapenote.net/musicxml/228.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/234",
+      "songNo": "234",
+      "title": "Reverential Anthem",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/b4faa54dea3329dad7e3335d.json",
+      "referenceScoreAssetSha256": "7f0c15b53f5e6c72f8d03b5bdd816716b001a63509f83bc5a5bc961ec655362f",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "234"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=234",
+        "https://fasola.org/indexes/1991/?p=234",
+        "https://shapenote.net/musicxml/234.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 300
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/234.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=234",
+          "https://fasola.org/indexes/1991/?p=234",
+          "https://shapenote.net/musicxml/234.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/235",
+      "songNo": "235",
+      "title": "Long Sought Home",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/96e7b594fe9220d6640df5ed.json",
+      "referenceScoreAssetSha256": "84f05ab920e8dd9c80858d5248e75b83cc80971eaedce8f942301ceba83ce4cf",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "235"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=235",
+        "https://fasola.org/indexes/1991/?p=235",
+        "https://shapenote.net/musicxml/235.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 121
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/235.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=235",
+          "https://fasola.org/indexes/1991/?p=235",
+          "https://shapenote.net/musicxml/235.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/245",
+      "songNo": "245",
+      "title": "Claremont",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/6e2a0b32798df2c8160c1e68.json",
+      "referenceScoreAssetSha256": "1ee5164eb544bcfa1c7664d5eea20eb41dca2152da7028ca587bd13ad4ed1090",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "245"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=245",
+        "https://fasola.org/indexes/1991/?p=245",
+        "https://shapenote.net/musicxml/245d.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 1149
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/245d.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=245",
+          "https://fasola.org/indexes/1991/?p=245",
+          "https://shapenote.net/musicxml/245d.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/260",
+      "songNo": "260",
+      "title": "Farewell Anthem",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/65129dd37cb40764bc288f95.json",
+      "referenceScoreAssetSha256": "1b95abe11c4926aa3d605dcaae3fd32a896d631ba1defd35a7c32b9131ef50f9",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "260"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=260",
+        "https://fasola.org/indexes/1991/?p=260",
+        "https://shapenote.net/musicxml/260d.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 800
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/260d.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=260",
+          "https://fasola.org/indexes/1991/?p=260",
+          "https://shapenote.net/musicxml/260d.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/268",
+      "songNo": "268",
+      "title": "Davids Lamentation",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/cf71871656c800da7527106f.json",
+      "referenceScoreAssetSha256": "966682dcb5d0c03955a8c5857e09e8c546bec324ba5ab81e24c838fadcc7e7ec",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "268"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=268",
+        "https://fasola.org/indexes/1991/?p=268",
+        "https://shapenote.net/musicxml/268d.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 224
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/268d.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=268",
+          "https://fasola.org/indexes/1991/?p=268",
+          "https://shapenote.net/musicxml/268d.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/271t",
+      "songNo": "271t",
+      "title": "Arkansas",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/c66f7faba9be1720250f90ee.json",
+      "referenceScoreAssetSha256": "75be465e42863b4256d33c0aa953d666164e997b1fd88495ee0b3cd4cfc2959f",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "271t"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=271t",
+        "https://fasola.org/indexes/1991/?p=271t",
+        "https://shapenote.net/musicxml/271td.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 125
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/271td.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=271t",
+          "https://fasola.org/indexes/1991/?p=271t",
+          "https://shapenote.net/musicxml/271td.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/272",
+      "songNo": "272",
+      "title": "Exhortation",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/c3ff3749663e0cb6f9b2042f.json",
+      "referenceScoreAssetSha256": "c636dbd1f0d961a07278f553c3f926afa520d69e86938f7093a13712da6d5db6",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "272"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=272"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 220
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/272d.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=272"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/275t",
+      "songNo": "275t",
+      "title": "Loving-Kindness",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/19e3edd63f0bda385a670dad.json",
+      "referenceScoreAssetSha256": "ea0b65fb8f8ee008bd10ff1047413aeabd334a1013ea8fdc20d2aa57b0495c13",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "275t"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=275t",
+        "https://fasola.org/indexes/1991/?p=275t",
+        "https://shapenote.net/musicxml/275td.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 178
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/275td.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=275t",
+          "https://fasola.org/indexes/1991/?p=275t",
+          "https://shapenote.net/musicxml/275td.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/276",
+      "songNo": "276",
+      "title": "Bridgewater",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/c499a9585be7fb79894fe21a.json",
+      "referenceScoreAssetSha256": "f55476d476265df0ea01196cab1144f72599d8a1fb65d70bcd26caa9507b6a20",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "276"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=276",
+        "https://fasola.org/indexes/1991/?p=276",
+        "https://shapenote.net/musicxml/276.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 167
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/276.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=276",
+          "https://fasola.org/indexes/1991/?p=276",
+          "https://shapenote.net/musicxml/276.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/297",
+      "songNo": "297",
+      "title": "Conversion",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/0da18b1d58dfcc17e35ba3b1.json",
+      "referenceScoreAssetSha256": "d366f92f0b9214fe48d090e8d86bc54de81af1f7c4bfaf7a5f2faf74b269939f",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "297"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=297",
+        "https://fasola.org/indexes/1991/?p=297",
+        "https://shapenote.net/musicxml/297.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 156
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/297.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=297",
+          "https://fasola.org/indexes/1991/?p=297",
+          "https://shapenote.net/musicxml/297.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/300",
+      "songNo": "300",
+      "title": "Calvary",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/4db74213039df72f6247cc04.json",
+      "referenceScoreAssetSha256": "3979fbe2197c0cb08e6f6aa6d1f7981b7006544b3ce6dd634c7d39b468d91cc4",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "300"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=300",
+        "https://fasola.org/indexes/1991/?p=300",
+        "https://shapenote.net/musicxml/300d.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 215
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/300d.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=300",
+          "https://fasola.org/indexes/1991/?p=300",
+          "https://shapenote.net/musicxml/300d.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/311",
+      "songNo": "311",
+      "title": "Silver Street",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/2cd36bdbb9f0917116b40aff.json",
+      "referenceScoreAssetSha256": "dd34307213e82f71dc4c3acc07e32afe0367fa75a0648ce9668e5c760c603b7c",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "311"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=311",
+        "https://fasola.org/indexes/1991/?p=311",
+        "https://shapenote.net/musicxml/311.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 230
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/311.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=311",
+          "https://fasola.org/indexes/1991/?p=311",
+          "https://shapenote.net/musicxml/311.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/313b",
+      "songNo": "313b",
+      "title": "Cobb",
+      "outcome": "source-key-verified-reference-only",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "A minor",
+      "mode": "minor",
+      "referenceScoreRef": "/scores/02e2d0ee5aed457704eaaaac.json",
+      "referenceScoreAssetSha256": "14a826f48f7a39a098f9e416ddfdcd62e6a22b5f66588fa02ef140a8639bc3c0",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · other edition/source"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=313b",
+        "https://fasola.org/indexes/1991/?p=313b",
+        "https://shapenote.net/musicxml/313bd.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 116
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/313bd.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": {
+          "keySignature": "A minor",
+          "mode": "minor",
+          "url": "https://sacredharpbremen.org/wp-content/uploads/songs/300-399/313b-Cobb/313b-Cobb.jpg",
+          "sha256": "dae49ed2f3b60a64452b4f7650e524e910433066f2650670375f73181fa913b3",
+          "observation": "The page header visibly prints A Minor."
+        }
+      },
+      "blocker": "The linked SH2025 scan directly observes A minor, but this structured reference is provenance-labeled as an alternate/other-edition witness. The key observation is retained separately; no edition-matched notation identity was proven, so it is not applied to referenceScoreByBook and cannot promote the witness as exact 2025 notation.",
+      "externalSourceEvidence": null
+    },
+    {
+      "queueId": "sh2025/313t",
+      "songNo": "313t",
+      "title": "Concord",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/9defb3cc83b445a6b584914d.json",
+      "referenceScoreAssetSha256": "3f2b7706ef74728866c22ff22916defdb1adcbb2764f521d704e39c9e3d197b8",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "313t"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=313t",
+        "https://fasola.org/indexes/1991/?p=313t",
+        "https://shapenote.net/musicxml/313t.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 146
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/313t.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=313t",
+          "https://fasola.org/indexes/1991/?p=313t",
+          "https://shapenote.net/musicxml/313t.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/315",
+      "songNo": "315",
+      "title": "Immensity",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/9c5a7e8a92dcdce667c3d5f2.json",
+      "referenceScoreAssetSha256": "9d9b740032c38470c2c26f001c01bafdfbdd35e442880b3f5108f2476d748309",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "315"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=315",
+        "https://fasola.org/indexes/1991/?p=315",
+        "https://shapenote.net/musicxml/315d.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 203
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/315d.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=315",
+          "https://fasola.org/indexes/1991/?p=315",
+          "https://shapenote.net/musicxml/315d.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/324",
+      "songNo": "324",
+      "title": "North Port",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/9173ea2522425db8306576b1.json",
+      "referenceScoreAssetSha256": "b3f4d55123e98256383f11fdcfd7624d54b5113dc61472d64bab24e61917d3df",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "324"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=324",
+        "https://fasola.org/indexes/1991/?p=324",
+        "https://shapenote.net/musicxml/324.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 233
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/324.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=324",
+          "https://fasola.org/indexes/1991/?p=324",
+          "https://shapenote.net/musicxml/324.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/351",
+      "songNo": "351",
+      "title": "Pittsford",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/333ba9428b49b0ed06c1e1fc.json",
+      "referenceScoreAssetSha256": "1b86c220b532e282ba496c3b231242255342f73db3c0d94723ac8ba4129a7f9f",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "351"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=351",
+        "https://fasola.org/indexes/1991/?p=351",
+        "https://shapenote.net/musicxml/351.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 199
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/351.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=351",
+          "https://fasola.org/indexes/1991/?p=351",
+          "https://shapenote.net/musicxml/351.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/370",
+      "songNo": "370",
+      "title": "Monroe",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/e4af8d63d2a97de6ed4c5267.json",
+      "referenceScoreAssetSha256": "12e6b61d7366eb2dcf86685f2477fa54bb8b27290c79e09bd49401dc2dfd52b0",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "370"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=370",
+        "https://fasola.org/indexes/1991/?p=370",
+        "https://shapenote.net/musicxml/370.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 195
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/370.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=370",
+          "https://fasola.org/indexes/1991/?p=370",
+          "https://shapenote.net/musicxml/370.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/376",
+      "songNo": "376",
+      "title": "Help Me to Sing",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/479978c10d64a5257bc21b05.json",
+      "referenceScoreAssetSha256": "7c46ccc0a79c18d9d3fd9dfb985d93f4ca01b511db29ba56d8f757ee004f13ba",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "376"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=376",
+        "https://fasola.org/indexes/1991/?p=376",
+        "https://shapenote.net/musicxml/376.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 269
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/376.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=376",
+          "https://fasola.org/indexes/1991/?p=376",
+          "https://shapenote.net/musicxml/376.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/385b",
+      "songNo": "385b",
+      "title": "Can I Leave You",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/6ab883a771b2c62bfa75c924.json",
+      "referenceScoreAssetSha256": "1572f9ae2b8e52b62b12f81bf215a4ff6fa8a1a8040000116cf5641ced6efa57",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "385b"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=385b",
+        "https://fasola.org/indexes/1991/?p=385b",
+        "https://shapenote.net/musicxml/385bd.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 108
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/385bd.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=385b",
+          "https://fasola.org/indexes/1991/?p=385b",
+          "https://shapenote.net/musicxml/385bd.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/399b",
+      "songNo": "399b",
+      "title": "Happy Christian",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/e3fe65466853a620b4a5d94a.json",
+      "referenceScoreAssetSha256": "f649001b35ae526bee398241887e00db094d9790ef30b37a3ba6b7dbadbde458",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "399b"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=399b",
+        "https://fasola.org/indexes/1991/?p=399b",
+        "https://shapenote.net/musicxml/399bd.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 165
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/399bd.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=399b",
+          "https://fasola.org/indexes/1991/?p=399b",
+          "https://shapenote.net/musicxml/399bd.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/445",
+      "songNo": "445",
+      "title": "Passing Away",
+      "outcome": "source-key-verified-reference-only",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "C major",
+      "mode": "major",
+      "referenceScoreRef": "/scores/17b6cc2f520acfee83b8dad1.json",
+      "referenceScoreAssetSha256": "adab5ab0a145ae20c86e6f2e401431d02fa35f5be4c248deaa4fbc3cb01a7c5e",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · other edition/source"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=445",
+        "https://fasola.org/indexes/1991/?p=445",
+        "https://shapenote.net/musicxml/445.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 166
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/445.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": {
+          "keySignature": "C major",
+          "mode": "major",
+          "url": "https://sacredharpbremen.org/wp-content/uploads/songs/400-499/445-Passing-Away/445.jpg",
+          "sha256": "41c25d252f871a5e91ff8e31b536a35dd657d831dc131060bee5e6433604800b",
+          "observation": "The page header visibly prints C Major."
+        }
+      },
+      "blocker": "The linked SH2025 scan directly observes C major, but this structured reference is provenance-labeled as an alternate/other-edition witness. The key observation is retained separately; no edition-matched notation identity was proven, so it is not applied to referenceScoreByBook and cannot promote the witness as exact 2025 notation.",
+      "externalSourceEvidence": null
+    },
+    {
+      "queueId": "sh2025/472",
+      "songNo": "472",
+      "title": "Akin",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/b9bca38a2f7803a6a73f0154.json",
+      "referenceScoreAssetSha256": "8a513055441446f79a3a2bf1800509084311585ea3fb5e0a731643ee7cf2f902",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "472"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=472",
+        "https://fasola.org/indexes/1991/?p=472",
+        "https://shapenote.net/musicxml/472.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 167
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/472.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=472",
+          "https://fasola.org/indexes/1991/?p=472",
+          "https://shapenote.net/musicxml/472.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/477",
+      "songNo": "477",
+      "title": "Lord, We Adore Thee",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/d0d39e51ec9aedb148243771.json",
+      "referenceScoreAssetSha256": "d78c51a4ba44a8a51513601811540b92a4c05ee8a6a69fd326f460e87895edbc",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "477"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=477",
+        "https://fasola.org/indexes/1991/?p=477",
+        "https://shapenote.net/musicxml/477.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 292
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/477.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=477",
+          "https://fasola.org/indexes/1991/?p=477",
+          "https://shapenote.net/musicxml/477.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/486",
+      "songNo": "486",
+      "title": "Beneficence",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/2f8118a868c39576a944dc6d.json",
+      "referenceScoreAssetSha256": "e5741fd906bc44768089d68fb044bb83d330122394c9cc3eb4d7ed5b1ccb83b5",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "486"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=486",
+        "https://fasola.org/indexes/1991/?p=486",
+        "https://shapenote.net/musicxml/486.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 235
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/486.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=486",
+          "https://fasola.org/indexes/1991/?p=486",
+          "https://shapenote.net/musicxml/486.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/505",
+      "songNo": "505",
+      "title": "Where Ceaseless Ages Roll",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/2ee4487c5c53f87dbb35e8db.json",
+      "referenceScoreAssetSha256": "5bc06dc660f550b6f12e015864b445fbd386ecbe6b782199fa82a28275e749e3",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "505"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=505",
+        "https://fasola.org/indexes/1991/?p=505",
+        "https://shapenote.net/musicxml/505d.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 191
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/505d.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=505",
+          "https://fasola.org/indexes/1991/?p=505",
+          "https://shapenote.net/musicxml/505d.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/542",
+      "songNo": "542",
+      "title": "I’ll Seek His Blessings",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/2e0c70a5588be6ae8b4a85dc.json",
+      "referenceScoreAssetSha256": "b412eedee7310a32a95bea08a434ac2293ed104e61a9b8ca9c6976b4f61a4e50",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "542"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=542",
+        "https://fasola.org/indexes/1991/?p=542",
+        "https://shapenote.net/musicxml/542d.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 182
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/542d.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=542",
+          "https://fasola.org/indexes/1991/?p=542",
+          "https://shapenote.net/musicxml/542d.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/567",
+      "songNo": "567",
+      "title": "The Great Day",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "referenceWitnessKeyApplied": false,
+      "keySignature": "",
+      "mode": "",
+      "referenceScoreRef": "/scores/b4e1c455cd1f7119cdb0b75f.json",
+      "referenceScoreAssetSha256": "583833b60e265a18d1ee31855c245fd2c00fe2677dc83cfa4e88721079a47fcb",
+      "referenceProvenance": {
+        "kind": "alternate-source",
+        "label": "Transposable reference · sh1991",
+        "sourceEdition": "sh1991",
+        "sourceRecordKey": "567"
+      },
+      "sourceUrls": [
+        "https://fasola.org/indexes/2025/?p=567",
+        "https://fasola.org/indexes/1991/?p=567",
+        "https://shapenote.net/musicxml/567d.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 170
+        },
+        "exactLinkedMusicXml": {
+          "url": "https://shapenote.net/musicxml/567d.mxl",
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "sourceScan": null
+      },
+      "blocker": "External source evidence is required: the local pitch-bearing reference asset and its exact linked MusicXML witness provide no key element, and no direct printed key/mode evidence is available from the linked source inputs checked for this record. No key is inferred from pitch spelling, fifths, filenames, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local reference score and exact linked MusicXML witness were checked; no authoritative key/mode evidence is available for this reference record.",
+        "missingEvidence": [
+          "An authoritative source that explicitly supplies both key and major/minor mode for this reference witness."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=567",
+          "https://fasola.org/indexes/1991/?p=567",
+          "https://shapenote.net/musicxml/567d.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    }
+  ]
+}

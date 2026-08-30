@@ -1,0 +1,3237 @@
+{
+  "generatedAt": "2026-08-30T03:30:22.924816+00:00",
+  "version": 2,
+  "edition": "sh2025",
+  "catalogSection": "Sacred Harp (2025 Revision)",
+  "policy": "Only exact SH25 MusicXML with four-part structure, source-supported key/mode/meter, and either explicit four-shape noteheads or a verified direct source comparison that preserves the event stream is safe to promote. Alternate witnesses and unresolved conventional-staff files remain blocked references.",
+  "summary": {
+    "catalogEntries": 26,
+    "safeToPromote": 0,
+    "statusCounts": {
+      "verified-with-correction-needed": 13,
+      "external-source-blocked": 13
+    },
+    "errors": 0
+  },
+  "errors": [],
+  "records": [
+    {
+      "queueId": "sh2025/118",
+      "songNo": "118",
+      "title": "Heavenly Meeting",
+      "sourceUrl": "https://shapenote.net/musicxml/SH25-HEAVENLY-MEETING.mxl",
+      "sourceEdition": "sh2025",
+      "catalogVariant": "",
+      "catalogSection": "Sacred Harp (2025 Revision)",
+      "catalogLabel": "Heavenly Meeting [music: myrweb pdf musicxml myriad ]",
+      "rawPath": "work/shapenote-musicxml/03a339caa2415ca69c6f48eb.mxl",
+      "sourceBytes": 2428,
+      "sourceSha256": "3f2346a8142331026011b89db6599d71320e34c4ab61cca632cb71d2afe12cd6",
+      "recordSourceMetadata": {
+        "keySignature": "A minor",
+        "meter": "Short Meter (6,6,8,6)",
+        "timeSignature": "6/4",
+        "composer": "John G. McCurry",
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=118",
+          "https://shapenote.net/musicxml/SH25-HEAVENLY-MEETING.mxl"
+        ]
+      },
+      "embeddedMusicXml": {
+        "workTitle": "HEAVENLY MEETING. S.M.",
+        "creators": [
+          "John G. McCurry, 1846"
+        ],
+        "partCount": 3,
+        "measuresByPart": [
+          20,
+          20,
+          20
+        ],
+        "keyDeclarations": [
+          {
+            "fifths": "0",
+            "mode": ""
+          },
+          {
+            "fifths": "0",
+            "mode": ""
+          },
+          {
+            "fifths": "0",
+            "mode": ""
+          }
+        ],
+        "timeDeclarations": [
+          {
+            "beats": "6",
+            "beatType": "4"
+          },
+          {
+            "beats": "6",
+            "beatType": "4"
+          },
+          {
+            "beats": "6",
+            "beatType": "4"
+          }
+        ],
+        "explicitShapeNoteheads": 0,
+        "shapeValues": []
+      },
+      "evidence": {
+        "editionIdentity": "exact-sh25-url",
+        "keyMode": {
+          "source": "A minor",
+          "embeddedFifths": "0",
+          "embeddedMode": "",
+          "supported": false
+        },
+        "meter": {
+          "source": "6/4",
+          "embedded": "6/4",
+          "supported": true
+        },
+        "parts": {
+          "sourceExpected": 3,
+          "embedded": 3,
+          "supported": false
+        },
+        "shapeNoteheads": {
+          "status": "not-encoded-in-embedded-musicxml",
+          "explicitCount": 0,
+          "values": [],
+          "supported": false,
+          "supportedInVerifiedDerivative": true,
+          "supportedInRawMusicXml": false
+        }
+      },
+      "comparisonStatus": "verified-with-correction-needed",
+      "safeToPromote": false,
+      "blockedReasons": [],
+      "externalSourceEvidence": null,
+      "verifiedSourceComparison": {
+        "comparisonPath": "work/source-transcriptions/2025/118-official-scan-correction-comparison.json",
+        "sourceImagePath": "work/source-pdfs/official-sh25-scans/SH25-HEAVENLY-MEETING.jpg",
+        "sourceImageSha256": "bcfba8f372ba4116458bb5972a51410ca3874a0b8cc5f8079178f496222c6e47",
+        "derivativePath": "work/omr/autonomous-transcriptions/2025/official-scan-corrections/118-corrected.mxl",
+        "derivativeSha256": "89148d51a1b0683fcdd6a1dfa776fa24a8b8a195244315589a5fa77baa868702",
+        "sourceImageChecksumVerified": true,
+        "candidateChecksumVerified": true,
+        "derivativeChecksumVerified": true,
+        "eventStreamsEqual": true,
+        "sourceStructureVerified": true,
+        "directObservations": {
+          "header": "HEAVENLY MEETING",
+          "key": "A minor",
+          "timeSignature": "6/4",
+          "meter": "Short Meter (6,6,8,6)",
+          "parts": 3,
+          "measuresByPart": {
+            "P1": 20,
+            "P2": 20,
+            "P3": 20
+          },
+          "fourShapeNoteheadsVisible": true,
+          "lyricsVisible": true
+        }
+      },
+      "promotionDisposition": "authoritative-2025-source-retained; correction-needed-before-promotion"
+    },
+    {
+      "queueId": "sh2025/160t",
+      "songNo": "160t",
+      "title": "Prosperity",
+      "sourceUrl": "https://shapenote.net/musicxml/C-359.mxl",
+      "sourceEdition": "sh2025",
+      "catalogVariant": "",
+      "catalogSection": "Sacred Harp (2025 Revision)",
+      "catalogLabel": "Prosperity [music: myrweb pdf musicxml myriad ]",
+      "rawPath": "work/shapenote-musicxml/1aa18cb1f40b51127fc2e615.mxl",
+      "sourceBytes": 5003,
+      "sourceSha256": "2e576c11433947fbbfba56b48269ff24e1c2551de52c2a7271cf7094386b8197",
+      "recordSourceMetadata": {
+        "keySignature": "G major",
+        "meter": "Long Meter (8,8,8,8)",
+        "timeSignature": "4/4",
+        "composer": "Leonard P. Breedlove",
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=160t",
+          "https://shapenote.net/musicxml/C-359.mxl"
+        ]
+      },
+      "embeddedMusicXml": {
+        "workTitle": "PROSPERITY, 359 - Cooper",
+        "creators": [
+          "L. P. Breedlove.   Transposed and Alto by Miss Minnie Floyd.",
+          ""
+        ],
+        "partCount": 4,
+        "measuresByPart": [
+          10,
+          10,
+          10,
+          10
+        ],
+        "keyDeclarations": [
+          {
+            "fifths": "1",
+            "mode": "major"
+          },
+          {
+            "fifths": "1",
+            "mode": "major"
+          },
+          {
+            "fifths": "1",
+            "mode": "major"
+          },
+          {
+            "fifths": "1",
+            "mode": "major"
+          }
+        ],
+        "timeDeclarations": [
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          }
+        ],
+        "explicitShapeNoteheads": 0,
+        "shapeValues": []
+      },
+      "evidence": {
+        "editionIdentity": "alternate-catalog-witness",
+        "keyMode": {
+          "source": "G major",
+          "embeddedFifths": "1",
+          "embeddedMode": "major",
+          "supported": true
+        },
+        "meter": {
+          "source": "4/4",
+          "embedded": "4/4",
+          "supported": true
+        },
+        "parts": {
+          "sourceExpected": 4,
+          "embedded": 4,
+          "supported": true
+        },
+        "shapeNoteheads": {
+          "status": "not-encoded-in-embedded-musicxml",
+          "explicitCount": 0,
+          "values": [],
+          "supported": false
+        }
+      },
+      "comparisonStatus": "external-source-blocked",
+      "safeToPromote": false,
+      "blockedReasons": [
+        "catalog entry is an alternate-edition/source witness, not an edition-specific SH25 file"
+      ],
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The SH2025 catalog entry for sh2025/160t is an alternate source witness; the checked material does not establish an edition-matched, source-visible correction suitable for promotion.",
+        "missingEvidence": [
+          "An edition-matched SH2025 source-visible comparison that verifies the complete notation identity and supports promotion."
+        ],
+        "sourceUrls": [
+          "https://shapenote.net/musicxml/C-359.mxl",
+          "https://fasola.org/indexes/2025/?p=160t"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/169",
+      "songNo": "169",
+      "title": "God’s Helping Hand",
+      "sourceUrl": "https://shapenote.net/musicxml/SH25-GOD%27S-HELPING-HAND.mxl",
+      "sourceEdition": "sh2025",
+      "catalogVariant": "",
+      "catalogSection": "Sacred Harp (2025 Revision)",
+      "catalogLabel": "God's Helping Hand [music: myrweb pdf musicxml myriad ]",
+      "rawPath": "work/shapenote-musicxml/1558e368262eed678887992c.mxl",
+      "sourceBytes": 3067,
+      "sourceSha256": "34435dcfd2f98600c5a2814c8c2c7c24f6277e13b00ad08f81e39516ba400536",
+      "recordSourceMetadata": {
+        "keySignature": "E minor",
+        "meter": "Long Meter (8,8,8,8)",
+        "timeSignature": "4/4",
+        "composer": "O. A. Parris",
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=169",
+          "https://shapenote.net/musicxml/SH25-GOD'S-HELPING-HAND.mxl",
+          "https://shapenote.net/musicxml/SH25-GOD%27S-HELPING-HAND.mxl",
+          "https://shapenote.net/musicxml/SH25-GOD%27S-HELPING-HAND.mxl"
+        ]
+      },
+      "embeddedMusicXml": {
+        "workTitle": "GOD'S HELPING HAND. L.M.",
+        "creators": [
+          "O.A. Parris, 1954"
+        ],
+        "partCount": 4,
+        "measuresByPart": [
+          23,
+          23,
+          23,
+          23
+        ],
+        "keyDeclarations": [
+          {
+            "fifths": "1",
+            "mode": ""
+          },
+          {
+            "fifths": "1",
+            "mode": ""
+          },
+          {
+            "fifths": "1",
+            "mode": ""
+          },
+          {
+            "fifths": "1",
+            "mode": ""
+          }
+        ],
+        "timeDeclarations": [
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          }
+        ],
+        "explicitShapeNoteheads": 0,
+        "shapeValues": []
+      },
+      "evidence": {
+        "editionIdentity": "exact-sh25-url",
+        "keyMode": {
+          "source": "E minor",
+          "embeddedFifths": "1",
+          "embeddedMode": "",
+          "supported": false
+        },
+        "meter": {
+          "source": "4/4",
+          "embedded": "4/4",
+          "supported": true
+        },
+        "parts": {
+          "sourceExpected": 4,
+          "embedded": 4,
+          "supported": true
+        },
+        "shapeNoteheads": {
+          "status": "not-encoded-in-embedded-musicxml",
+          "explicitCount": 0,
+          "values": [],
+          "supported": false,
+          "supportedInVerifiedDerivative": true,
+          "supportedInRawMusicXml": false
+        }
+      },
+      "comparisonStatus": "verified-with-correction-needed",
+      "safeToPromote": false,
+      "blockedReasons": [],
+      "externalSourceEvidence": null,
+      "verifiedSourceComparison": {
+        "comparisonPath": "work/source-transcriptions/2025/169-official-scan-correction-comparison.json",
+        "sourceImagePath": "work/source-pdfs/official-sh25-scans/SH25-GODS-HELPING-HAND.jpg",
+        "sourceImageSha256": "983a599a8a60de4f7cd6764b628358bbafef6effbf5e5efd58a6638f81e05da2",
+        "derivativePath": "work/omr/autonomous-transcriptions/2025/official-scan-corrections/169-corrected.mxl",
+        "derivativeSha256": "ac7d6ac642d36b704d64e05475fe195daa263c778d2b16ec0b706d41a9b78641",
+        "sourceImageChecksumVerified": true,
+        "candidateChecksumVerified": true,
+        "derivativeChecksumVerified": true,
+        "eventStreamsEqual": true,
+        "sourceStructureVerified": true,
+        "directObservations": {
+          "header": "GOD’S HELPING HAND",
+          "key": "E minor",
+          "timeSignature": "4/4",
+          "meter": "Long Meter (8,8,8,8)",
+          "parts": 4,
+          "measuresByPart": {
+            "P1": 23,
+            "P2": 23,
+            "P3": 23,
+            "P4": 23
+          },
+          "fourShapeNoteheadsVisible": true,
+          "lyricsVisible": true
+        }
+      },
+      "promotionDisposition": "authoritative-2025-source-retained; correction-needed-before-promotion"
+    },
+    {
+      "queueId": "sh2025/178b",
+      "songNo": "178b",
+      "title": "Gaines",
+      "sourceUrl": "https://shapenote.net/musicxml/CHA-61b.mxl",
+      "sourceEdition": "sh2025",
+      "catalogVariant": "",
+      "catalogSection": "Sacred Harp (2025 Revision)",
+      "catalogLabel": "Gaines [music: myrweb pdf musicxml myriad ]",
+      "rawPath": "work/shapenote-musicxml/5bbdd9dd54a226365fc629f7.mxl",
+      "sourceBytes": 9963,
+      "sourceSha256": "9a0ca31441cc60530c3bca7ec7388688221d03d0d8b313c744ca7831b6b1b710",
+      "recordSourceMetadata": {
+        "keySignature": "A major",
+        "meter": "Common Meter (8,6,8,6)",
+        "timeSignature": "4/4",
+        "composer": "William Hauser",
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=178b",
+          "https://shapenote.net/musicxml/CHA-61b.mxl"
+        ]
+      },
+      "embeddedMusicXml": {
+        "workTitle": "61b GAINES - Christian Harmony AL",
+        "creators": [],
+        "partCount": 4,
+        "measuresByPart": [
+          13,
+          13,
+          13,
+          13
+        ],
+        "keyDeclarations": [
+          {
+            "fifths": "3",
+            "mode": "major"
+          },
+          {
+            "fifths": "3",
+            "mode": "major"
+          },
+          {
+            "fifths": "3",
+            "mode": "major"
+          },
+          {
+            "fifths": "3",
+            "mode": "major"
+          }
+        ],
+        "timeDeclarations": [
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          }
+        ],
+        "explicitShapeNoteheads": 151,
+        "shapeValues": [
+          "do",
+          "fa",
+          "la",
+          "mi",
+          "re",
+          "ti"
+        ]
+      },
+      "evidence": {
+        "editionIdentity": "alternate-catalog-witness",
+        "keyMode": {
+          "source": "A major",
+          "embeddedFifths": "3",
+          "embeddedMode": "major",
+          "supported": true
+        },
+        "meter": {
+          "source": "4/4",
+          "embedded": "4/4",
+          "supported": true
+        },
+        "parts": {
+          "sourceExpected": 4,
+          "embedded": 4,
+          "supported": true
+        },
+        "shapeNoteheads": {
+          "status": "explicit-four-shape-noteheads",
+          "explicitCount": 151,
+          "values": [
+            "do",
+            "fa",
+            "la",
+            "mi",
+            "re",
+            "ti"
+          ],
+          "supported": true
+        }
+      },
+      "comparisonStatus": "external-source-blocked",
+      "safeToPromote": false,
+      "blockedReasons": [
+        "catalog entry is an alternate-edition/source witness, not an edition-specific SH25 file"
+      ],
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The SH2025 catalog entry for sh2025/178b is an alternate source witness; the checked material does not establish an edition-matched, source-visible correction suitable for promotion.",
+        "missingEvidence": [
+          "An edition-matched SH2025 source-visible comparison that verifies the complete notation identity and supports promotion."
+        ],
+        "sourceUrls": [
+          "https://shapenote.net/musicxml/CHA-61b.mxl",
+          "https://fasola.org/indexes/2025/?p=178b"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/27b",
+      "songNo": "27b",
+      "title": "Rochester",
+      "sourceUrl": "https://shapenote.net/musicxml/C-30t.mxl",
+      "sourceEdition": "sh2025",
+      "catalogVariant": "",
+      "catalogSection": "Sacred Harp (2025 Revision)",
+      "catalogLabel": "Rochester [music: myrweb pdf musicxml myriad ]",
+      "rawPath": "work/shapenote-musicxml/1592c23fe0890c5af76c4582.mxl",
+      "sourceBytes": 5100,
+      "sourceSha256": "6daa8f7e02b8b2f46e4b5b0fdd89c17d5e2c9775e95e2ff9ad6e1f649c967683",
+      "recordSourceMetadata": {
+        "keySignature": "Ab major",
+        "meter": "Common Meter (8,6,8,6)",
+        "timeSignature": "4/4",
+        "composer": "Israel Holdroyd",
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=27b",
+          "https://shapenote.net/musicxml/C-30t.mxl"
+        ]
+      },
+      "embeddedMusicXml": {
+        "workTitle": "ROCHESTER, 30t - Cooper",
+        "creators": [
+          "Israel Holdroyd, 1722.",
+          "Isaac Watts, 1707."
+        ],
+        "partCount": 4,
+        "measuresByPart": [
+          14,
+          14,
+          14,
+          14
+        ],
+        "keyDeclarations": [
+          {
+            "fifths": "-4",
+            "mode": "major"
+          },
+          {
+            "fifths": "-4",
+            "mode": "major"
+          },
+          {
+            "fifths": "-4",
+            "mode": "major"
+          },
+          {
+            "fifths": "-4",
+            "mode": "major"
+          }
+        ],
+        "timeDeclarations": [
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          }
+        ],
+        "explicitShapeNoteheads": 0,
+        "shapeValues": []
+      },
+      "evidence": {
+        "editionIdentity": "alternate-catalog-witness",
+        "keyMode": {
+          "source": "Ab major",
+          "embeddedFifths": "-4",
+          "embeddedMode": "major",
+          "supported": true
+        },
+        "meter": {
+          "source": "4/4",
+          "embedded": "4/4",
+          "supported": true
+        },
+        "parts": {
+          "sourceExpected": 4,
+          "embedded": 4,
+          "supported": true
+        },
+        "shapeNoteheads": {
+          "status": "not-encoded-in-embedded-musicxml",
+          "explicitCount": 0,
+          "values": [],
+          "supported": false
+        }
+      },
+      "comparisonStatus": "external-source-blocked",
+      "safeToPromote": false,
+      "blockedReasons": [
+        "catalog entry is an alternate-edition/source witness, not an edition-specific SH25 file"
+      ],
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The SH2025 catalog entry for sh2025/27b is an alternate source witness; the checked material does not establish an edition-matched, source-visible correction suitable for promotion.",
+        "missingEvidence": [
+          "An edition-matched SH2025 source-visible comparison that verifies the complete notation identity and supports promotion."
+        ],
+        "sourceUrls": [
+          "https://shapenote.net/musicxml/C-30t.mxl",
+          "https://fasola.org/indexes/2025/?p=27b"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/308",
+      "songNo": "308",
+      "title": "The Lost City",
+      "sourceUrl": "https://shapenote.net/musicxml/C-320.mxl",
+      "sourceEdition": "sh2025",
+      "catalogVariant": "",
+      "catalogSection": "Sacred Harp (2025 Revision)",
+      "catalogLabel": "The Lost City [music: myrweb pdf musicxml myriad ]",
+      "rawPath": "work/shapenote-musicxml/f7654365a8b14b630dc52349.mxl",
+      "sourceBytes": 5191,
+      "sourceSha256": "ac45bf81bc45144bdbfad9f64054a7eae484c11e455bb02223bf006c7a8f67a7",
+      "recordSourceMetadata": {
+        "keySignature": "",
+        "meter": "7s & 6s.",
+        "timeSignature": "2/4",
+        "composer": "E. L. King",
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=308",
+          "https://shapenote.net/musicxml/C-320.mxl"
+        ]
+      },
+      "embeddedMusicXml": {
+        "workTitle": "THE LOST CITY, 320 - Cooper",
+        "creators": [],
+        "partCount": 4,
+        "measuresByPart": [
+          20,
+          20,
+          20,
+          20
+        ],
+        "keyDeclarations": [],
+        "timeDeclarations": [
+          {
+            "beats": "2",
+            "beatType": "4"
+          },
+          {
+            "beats": "2",
+            "beatType": "4"
+          },
+          {
+            "beats": "2",
+            "beatType": "4"
+          },
+          {
+            "beats": "2",
+            "beatType": "4"
+          }
+        ],
+        "explicitShapeNoteheads": 0,
+        "shapeValues": []
+      },
+      "evidence": {
+        "editionIdentity": "alternate-catalog-witness",
+        "keyMode": {
+          "source": "",
+          "embeddedFifths": "",
+          "embeddedMode": "",
+          "supported": false
+        },
+        "meter": {
+          "source": "2/4",
+          "embedded": "2/4",
+          "supported": true
+        },
+        "parts": {
+          "sourceExpected": 4,
+          "embedded": 4,
+          "supported": true
+        },
+        "shapeNoteheads": {
+          "status": "not-encoded-in-embedded-musicxml",
+          "explicitCount": 0,
+          "values": [],
+          "supported": false
+        }
+      },
+      "comparisonStatus": "external-source-blocked",
+      "safeToPromote": false,
+      "blockedReasons": [
+        "catalog entry is an alternate-edition/source witness, not an edition-specific SH25 file"
+      ],
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The SH2025 catalog entry for sh2025/308 is an alternate source witness; the checked material does not establish an edition-matched, source-visible correction suitable for promotion.",
+        "missingEvidence": [
+          "An edition-matched SH2025 source-visible comparison that verifies the complete notation identity and supports promotion."
+        ],
+        "sourceUrls": [
+          "https://shapenote.net/musicxml/C-320.mxl",
+          "https://fasola.org/indexes/2025/?p=308"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/41",
+      "songNo": "41",
+      "title": "Evening Hymn",
+      "sourceUrl": "https://shapenote.net/musicxml/SH25-EVENING-HYMN.mxl",
+      "sourceEdition": "sh2025",
+      "catalogVariant": "",
+      "catalogSection": "Sacred Harp (2025 Revision)",
+      "catalogLabel": "Evening Hymn (Elisha West) [music: myrweb pdf musicxml myriad ]",
+      "rawPath": "work/shapenote-musicxml/19a80c54621e6b851dedf1d0.mxl",
+      "sourceBytes": 2546,
+      "sourceSha256": "0c55ec9bb3bc635a89c1ef9f4dedd7635e8675b59119b43e71e688252fa7b9e4",
+      "recordSourceMetadata": {
+        "keySignature": "B minor",
+        "meter": "Short Meter (6,6,8,6)",
+        "timeSignature": "4/4",
+        "composer": "Elisha West",
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=41",
+          "https://shapenote.net/musicxml/SH25-EVENING-HYMN.mxl"
+        ]
+      },
+      "embeddedMusicXml": {
+        "workTitle": "EVENING HYMN. S.M.",
+        "creators": [
+          "Elisha West, 1802"
+        ],
+        "partCount": 4,
+        "measuresByPart": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "keyDeclarations": [
+          {
+            "fifths": "2",
+            "mode": ""
+          },
+          {
+            "fifths": "2",
+            "mode": ""
+          },
+          {
+            "fifths": "2",
+            "mode": ""
+          },
+          {
+            "fifths": "2",
+            "mode": ""
+          }
+        ],
+        "timeDeclarations": [
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          }
+        ],
+        "explicitShapeNoteheads": 0,
+        "shapeValues": []
+      },
+      "evidence": {
+        "editionIdentity": "exact-sh25-url",
+        "keyMode": {
+          "source": "B minor",
+          "embeddedFifths": "2",
+          "embeddedMode": "",
+          "supported": false
+        },
+        "meter": {
+          "source": "4/4",
+          "embedded": "4/4",
+          "supported": true
+        },
+        "parts": {
+          "sourceExpected": 4,
+          "embedded": 4,
+          "supported": true
+        },
+        "shapeNoteheads": {
+          "status": "not-encoded-in-embedded-musicxml",
+          "explicitCount": 0,
+          "values": [],
+          "supported": false,
+          "supportedInVerifiedDerivative": true,
+          "supportedInRawMusicXml": false
+        }
+      },
+      "comparisonStatus": "verified-with-correction-needed",
+      "safeToPromote": false,
+      "blockedReasons": [],
+      "externalSourceEvidence": null,
+      "verifiedSourceComparison": {
+        "comparisonPath": "work/source-transcriptions/2025/41-official-scan-correction-comparison.json",
+        "sourceImagePath": "work/source-pdfs/official-sh25-scans/SH25-EVENING-HYMN.jpg",
+        "sourceImageSha256": "65af3c268bcf08b2de84e55944090e1bf2905817e953964d635a2d1bd266f99b",
+        "derivativePath": "work/omr/autonomous-transcriptions/2025/official-scan-corrections/41-corrected.mxl",
+        "derivativeSha256": "8bfe8cea250cc7614f94a67bedd1b40114b642e0bcd91fd8ec39dffcbe49ed62",
+        "sourceImageChecksumVerified": true,
+        "candidateChecksumVerified": true,
+        "derivativeChecksumVerified": true,
+        "eventStreamsEqual": true,
+        "sourceStructureVerified": true,
+        "directObservations": {
+          "header": "EVENING HYMN",
+          "key": "B minor",
+          "timeSignature": "4/4",
+          "meter": "Short Meter (6,6,8,6)",
+          "parts": 4,
+          "measuresByPart": {
+            "P1": 16,
+            "P2": 16,
+            "P3": 16,
+            "P4": 16
+          },
+          "fourShapeNoteheadsVisible": true,
+          "lyricsVisible": true
+        }
+      },
+      "promotionDisposition": "authoritative-2025-source-retained; correction-needed-before-promotion"
+    },
+    {
+      "queueId": "sh2025/415",
+      "songNo": "415",
+      "title": "Endless Praise",
+      "sourceUrl": "https://shapenote.net/musicxml/SH25-ENDLESS-PRAISE.mxl",
+      "sourceEdition": "sh2025",
+      "catalogVariant": "",
+      "catalogSection": "Sacred Harp (2025 Revision)",
+      "catalogLabel": "Endless Praise [music: myrweb pdf musicxml myriad ]",
+      "rawPath": "work/shapenote-musicxml/2eb61146c1b9bb3bc35d6bd8.mxl",
+      "sourceBytes": 2537,
+      "sourceSha256": "4458f77cb9f35d0ea6c8e144464388203b24a649fb3f88d89c82e891ccf153ed",
+      "recordSourceMetadata": {
+        "keySignature": "D minor",
+        "meter": "Common Meter (8,6,8,6)",
+        "timeSignature": "4/4",
+        "composer": "J. D. Wall",
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=415",
+          "https://shapenote.net/musicxml/SH25-ENDLESS-PRAISE.mxl"
+        ]
+      },
+      "embeddedMusicXml": {
+        "workTitle": "ENDLESS PRAISE. C.M.",
+        "creators": [
+          "J.D. Wall 1935"
+        ],
+        "partCount": 4,
+        "measuresByPart": [
+          17,
+          17,
+          17,
+          17
+        ],
+        "keyDeclarations": [
+          {
+            "fifths": "-1",
+            "mode": ""
+          },
+          {
+            "fifths": "-1",
+            "mode": ""
+          },
+          {
+            "fifths": "-1",
+            "mode": ""
+          },
+          {
+            "fifths": "-1",
+            "mode": ""
+          }
+        ],
+        "timeDeclarations": [
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          }
+        ],
+        "explicitShapeNoteheads": 0,
+        "shapeValues": []
+      },
+      "evidence": {
+        "editionIdentity": "exact-sh25-url",
+        "keyMode": {
+          "source": "D minor",
+          "embeddedFifths": "-1",
+          "embeddedMode": "",
+          "supported": false
+        },
+        "meter": {
+          "source": "4/4",
+          "embedded": "4/4",
+          "supported": true
+        },
+        "parts": {
+          "sourceExpected": 4,
+          "embedded": 4,
+          "supported": true
+        },
+        "shapeNoteheads": {
+          "status": "not-encoded-in-embedded-musicxml",
+          "explicitCount": 0,
+          "values": [],
+          "supported": false,
+          "supportedInVerifiedDerivative": true,
+          "supportedInRawMusicXml": false
+        }
+      },
+      "comparisonStatus": "verified-with-correction-needed",
+      "safeToPromote": false,
+      "blockedReasons": [],
+      "externalSourceEvidence": null,
+      "verifiedSourceComparison": {
+        "comparisonPath": "work/source-transcriptions/2025/415-endless-praise-autonomous-comparison.json",
+        "sourcePdfPath": "work/source-pdfs/SH25-ENDLESS-PRAISE.pdf",
+        "sourcePdfSha256": "8df40afb404065ab7871429c67f0d1573ea7e15075a9d99042332bcaddb20e94",
+        "sourceRenderPath": "work/source-pdfs/rendered/SH25-ENDLESS-PRAISE.png",
+        "sourceRenderSha256": "358871c4a609e75cacbc431adfd111bab9c3752c87cbdc961b18fc2fd67d6c0c",
+        "derivativePath": "work/omr/autonomous-transcriptions/2025/isolated-audit/415-endless-praise-corrected.mxl",
+        "derivativeSha256": "4ae5ee3d3ca72020646e64b412a35435b03c0fd09af86769385ae83d4974e55b",
+        "sourcePdfChecksumVerified": true,
+        "sourceRenderChecksumVerified": true,
+        "candidateChecksumVerified": true,
+        "derivativeChecksumVerified": true,
+        "eventStreamsEqual": true,
+        "directObservations": {
+          "header": "ENDLESS PRAISE. C.M.",
+          "composer": "J.D. Wall 1935",
+          "key": "D minor",
+          "timeSignature": "4/4",
+          "meter": "Common Meter (8,6,8,6)",
+          "parts": 4,
+          "measuresByPart": {
+            "P1": 17,
+            "P2": 17,
+            "P3": 17,
+            "P4": 17
+          },
+          "fourShapeNoteheadsVisible": true,
+          "sourceScanSha256": "014a70d8d2c69be3b3ae176cbd38b204b37ff56ececda9a725d04d1bed1ebd1a"
+        }
+      },
+      "promotionDisposition": "authoritative-2025-source-retained; correction-needed-before-promotion"
+    },
+    {
+      "queueId": "sh2025/438",
+      "songNo": "438",
+      "title": "The Blind Girl",
+      "sourceUrl": "https://shapenote.net/musicxml/OSH-521.mxl",
+      "sourceEdition": "sh2025",
+      "catalogVariant": "",
+      "catalogSection": "Sacred Harp (2025 Revision)",
+      "catalogLabel": "The Blind Girl [music: myrweb pdf musicxml myriad ]",
+      "rawPath": "work/shapenote-musicxml/213ca5a4a6e7c3e34fdfd38b.mxl",
+      "sourceBytes": 9622,
+      "sourceSha256": "1bb0b5c6f6123c17db974312eb03af44adbf5e93710d05fda9b5b6a0f44370e8",
+      "recordSourceMetadata": {
+        "keySignature": "",
+        "meter": "Common Meter Double (8,6,8,6,8,6,8,6)",
+        "timeSignature": "6/4",
+        "composer": "J. M. Brown",
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=438",
+          "https://shapenote.net/musicxml/OSH-521.mxl"
+        ]
+      },
+      "embeddedMusicXml": {
+        "workTitle": "OSH-521, The Blind Girl",
+        "creators": [
+          "J. M. and J. C. Brown, 1908",
+          "J. M. and J. C. B."
+        ],
+        "partCount": 4,
+        "measuresByPart": [
+          10,
+          10,
+          10,
+          10
+        ],
+        "keyDeclarations": [],
+        "timeDeclarations": [
+          {
+            "beats": "6",
+            "beatType": "4"
+          },
+          {
+            "beats": "6",
+            "beatType": "4"
+          },
+          {
+            "beats": "6",
+            "beatType": "4"
+          },
+          {
+            "beats": "6",
+            "beatType": "4"
+          }
+        ],
+        "explicitShapeNoteheads": 0,
+        "shapeValues": []
+      },
+      "evidence": {
+        "editionIdentity": "alternate-catalog-witness",
+        "keyMode": {
+          "source": "",
+          "embeddedFifths": "",
+          "embeddedMode": "",
+          "supported": false
+        },
+        "meter": {
+          "source": "6/4",
+          "embedded": "6/4",
+          "supported": true
+        },
+        "parts": {
+          "sourceExpected": 4,
+          "embedded": 4,
+          "supported": true
+        },
+        "shapeNoteheads": {
+          "status": "not-encoded-in-embedded-musicxml",
+          "explicitCount": 0,
+          "values": [],
+          "supported": false
+        }
+      },
+      "comparisonStatus": "external-source-blocked",
+      "safeToPromote": false,
+      "blockedReasons": [
+        "catalog entry is an alternate-edition/source witness, not an edition-specific SH25 file"
+      ],
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The SH2025 catalog entry for sh2025/438 is an alternate source witness; the checked material does not establish an edition-matched, source-visible correction suitable for promotion.",
+        "missingEvidence": [
+          "An edition-matched SH2025 source-visible comparison that verifies the complete notation identity and supports promotion."
+        ],
+        "sourceUrls": [
+          "https://shapenote.net/musicxml/OSH-521.mxl",
+          "https://fasola.org/indexes/2025/?p=438"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/452t",
+      "songNo": "452t",
+      "title": "Peterborough",
+      "sourceUrl": "https://shapenote.net/musicxml/CHN-67t.mxl",
+      "sourceEdition": "sh2025",
+      "catalogVariant": "",
+      "catalogSection": "Sacred Harp (2025 Revision)",
+      "catalogLabel": "Peterborough [music: myrweb pdf musicxml myriad ]",
+      "rawPath": "work/shapenote-musicxml/0970f147cd8cc7aa446b299b.mxl",
+      "sourceBytes": 9953,
+      "sourceSha256": "d171166e218a6b665c550736210a6baab47728efd750d0d7a51589471729ca1e",
+      "recordSourceMetadata": {
+        "keySignature": "G major",
+        "meter": "Common Meter (8,6,8,6)",
+        "timeSignature": "2/2",
+        "composer": "The Musical Instructor",
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=452t",
+          "https://shapenote.net/musicxml/CHN-67t.mxl"
+        ]
+      },
+      "embeddedMusicXml": {
+        "workTitle": "PETERBORO, 67t - Christian Harmony N.C.",
+        "creators": [],
+        "partCount": 4,
+        "measuresByPart": [
+          15,
+          15,
+          15,
+          15
+        ],
+        "keyDeclarations": [
+          {
+            "fifths": "1",
+            "mode": "major"
+          },
+          {
+            "fifths": "1",
+            "mode": "major"
+          },
+          {
+            "fifths": "1",
+            "mode": "major"
+          },
+          {
+            "fifths": "1",
+            "mode": "major"
+          }
+        ],
+        "timeDeclarations": [
+          {
+            "beats": "2",
+            "beatType": "2"
+          },
+          {
+            "beats": "2",
+            "beatType": "2"
+          },
+          {
+            "beats": "2",
+            "beatType": "2"
+          },
+          {
+            "beats": "2",
+            "beatType": "2"
+          }
+        ],
+        "explicitShapeNoteheads": 92,
+        "shapeValues": [
+          "do",
+          "fa",
+          "la",
+          "mi",
+          "re",
+          "ti"
+        ]
+      },
+      "evidence": {
+        "editionIdentity": "alternate-catalog-witness",
+        "keyMode": {
+          "source": "G major",
+          "embeddedFifths": "1",
+          "embeddedMode": "major",
+          "supported": true
+        },
+        "meter": {
+          "source": "2/2",
+          "embedded": "2/2",
+          "supported": true
+        },
+        "parts": {
+          "sourceExpected": 4,
+          "embedded": 4,
+          "supported": true
+        },
+        "shapeNoteheads": {
+          "status": "explicit-four-shape-noteheads",
+          "explicitCount": 92,
+          "values": [
+            "do",
+            "fa",
+            "la",
+            "mi",
+            "re",
+            "ti"
+          ],
+          "supported": true
+        }
+      },
+      "comparisonStatus": "external-source-blocked",
+      "safeToPromote": false,
+      "blockedReasons": [
+        "catalog entry is an alternate-edition/source witness, not an edition-specific SH25 file"
+      ],
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The SH2025 catalog entry for sh2025/452t is an alternate source witness; the checked material does not establish an edition-matched, source-visible correction suitable for promotion.",
+        "missingEvidence": [
+          "An edition-matched SH2025 source-visible comparison that verifies the complete notation identity and supports promotion."
+        ],
+        "sourceUrls": [
+          "https://shapenote.net/musicxml/CHN-67t.mxl",
+          "https://fasola.org/indexes/2025/?p=452t"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/467",
+      "songNo": "467",
+      "title": "Lisbon",
+      "sourceUrl": "https://shapenote.net/musicxml/X-Lis.mxl",
+      "sourceEdition": "sh2025",
+      "catalogVariant": "",
+      "catalogSection": "Sacred Harp (2025 Revision)",
+      "catalogLabel": "Lisbon (Daniel Read) [music: myrweb pdf musicxml myriad ]",
+      "rawPath": "work/shapenote-musicxml/a0bfb6e238dcfb34a05b0434.mxl",
+      "sourceBytes": 5240,
+      "sourceSha256": "e86b5a684eeb722ecb9fb37369088ecea0b307deb62b33ef9cdb08c8fc5ab9b1",
+      "recordSourceMetadata": {
+        "keySignature": "",
+        "meter": "Short Meter (6,6,8,6)",
+        "timeSignature": "3/2",
+        "composer": "Daniel Read",
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=467",
+          "https://shapenote.net/musicxml/X-Lis.mxl",
+          "https://fasola.org/indexes/1991/?p=467",
+          "https://shapenote.net/musicxml/467.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      },
+      "embeddedMusicXml": {
+        "workTitle": "LISBON - Read's original fuging version",
+        "creators": [
+          "Daniel Read, 1785",
+          ""
+        ],
+        "partCount": 4,
+        "measuresByPart": [
+          14,
+          14,
+          14,
+          14
+        ],
+        "keyDeclarations": [
+          {
+            "fifths": "-2",
+            "mode": "major"
+          },
+          {
+            "fifths": "-2",
+            "mode": "major"
+          },
+          {
+            "fifths": "-2",
+            "mode": "major"
+          },
+          {
+            "fifths": "-2",
+            "mode": "major"
+          }
+        ],
+        "timeDeclarations": [
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          }
+        ],
+        "explicitShapeNoteheads": 0,
+        "shapeValues": []
+      },
+      "evidence": {
+        "editionIdentity": "alternate-catalog-witness",
+        "keyMode": {
+          "source": "",
+          "embeddedFifths": "-2",
+          "embeddedMode": "major",
+          "supported": false
+        },
+        "meter": {
+          "source": "3/2",
+          "embedded": "4/4",
+          "supported": false
+        },
+        "parts": {
+          "sourceExpected": 4,
+          "embedded": 4,
+          "supported": true
+        },
+        "shapeNoteheads": {
+          "status": "not-encoded-in-embedded-musicxml",
+          "explicitCount": 0,
+          "values": [],
+          "supported": false
+        }
+      },
+      "comparisonStatus": "external-source-blocked",
+      "safeToPromote": false,
+      "blockedReasons": [
+        "catalog entry is an alternate-edition/source witness, not an edition-specific SH25 file",
+        "meter mismatch: source metadata '3/2', embedded '4/4'"
+      ],
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The SH2025 catalog entry for sh2025/467 is an alternate source witness; the checked material does not establish an edition-matched, source-visible correction suitable for promotion.",
+        "missingEvidence": [
+          "An edition-matched SH2025 source-visible comparison that verifies the complete notation identity and supports promotion."
+        ],
+        "sourceUrls": [
+          "https://shapenote.net/musicxml/X-Lis.mxl",
+          "https://fasola.org/indexes/2025/?p=467",
+          "https://fasola.org/indexes/1991/?p=467",
+          "https://shapenote.net/musicxml/467.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/497b",
+      "songNo": "497b",
+      "title": "Supplication",
+      "sourceUrl": "https://shapenote.net/musicxml/C-45b.mxl",
+      "sourceEdition": "sh2025",
+      "catalogVariant": "",
+      "catalogSection": "Sacred Harp (2025 Revision)",
+      "catalogLabel": "Supplication [music: myrweb pdf musicxml myriad ]",
+      "rawPath": "work/shapenote-musicxml/caf0fa33702b5b531f2f7ca7.mxl",
+      "sourceBytes": 5134,
+      "sourceSha256": "7a693b69a2a1482a34aaee103589ef501387816ffda3889b18ee090308d9c1a6",
+      "recordSourceMetadata": {
+        "keySignature": "A minor",
+        "meter": "Long Meter (8,8,8,8)",
+        "timeSignature": "4/4",
+        "composer": "The Southern Harmony",
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=497b",
+          "https://fasola.org/indexes/1991/?p=539",
+          "https://shapenote.net/musicxml/539d.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/",
+          "https://shapenote.net/musicxml/C-45b.mxl"
+        ]
+      },
+      "embeddedMusicXml": {
+        "workTitle": "SUPPLICATION, 45b-Cooper",
+        "creators": [
+          "Composer :",
+          "Remarks :"
+        ],
+        "partCount": 4,
+        "measuresByPart": [
+          14,
+          14,
+          14,
+          14
+        ],
+        "keyDeclarations": [],
+        "timeDeclarations": [
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          }
+        ],
+        "explicitShapeNoteheads": 0,
+        "shapeValues": []
+      },
+      "evidence": {
+        "editionIdentity": "alternate-catalog-witness",
+        "keyMode": {
+          "source": "A minor",
+          "embeddedFifths": "",
+          "embeddedMode": "",
+          "supported": false
+        },
+        "meter": {
+          "source": "4/4",
+          "embedded": "4/4",
+          "supported": true
+        },
+        "parts": {
+          "sourceExpected": 4,
+          "embedded": 4,
+          "supported": true
+        },
+        "shapeNoteheads": {
+          "status": "not-encoded-in-embedded-musicxml",
+          "explicitCount": 0,
+          "values": [],
+          "supported": false
+        }
+      },
+      "comparisonStatus": "external-source-blocked",
+      "safeToPromote": false,
+      "blockedReasons": [
+        "catalog entry is an alternate-edition/source witness, not an edition-specific SH25 file",
+        "key mismatch: source metadata 'A minor', embedded fifths ''",
+        "embedded key declaration omits mode; source metadata supplies the mode"
+      ],
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The SH2025 catalog entry for sh2025/497b is an alternate source witness; the checked material does not establish an edition-matched, source-visible correction suitable for promotion.",
+        "missingEvidence": [
+          "An edition-matched SH2025 source-visible comparison that verifies the complete notation identity and supports promotion."
+        ],
+        "sourceUrls": [
+          "https://shapenote.net/musicxml/C-45b.mxl",
+          "https://fasola.org/indexes/2025/?p=497b",
+          "https://fasola.org/indexes/1991/?p=539",
+          "https://shapenote.net/musicxml/539d.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/50b",
+      "songNo": "50b",
+      "title": "Canaan",
+      "sourceUrl": "https://shapenote.net/musicxml/SM-Canaan%20%28Edson%29.mxl",
+      "sourceEdition": "sh2025",
+      "catalogVariant": "",
+      "catalogSection": "Sacred Harp (2025 Revision)",
+      "catalogLabel": "Canaan (Lewis Edson) [music: myrweb pdf musicxml myriad ]",
+      "rawPath": "work/shapenote-musicxml/9c9d2ac4e94331080e2ec2d1.mxl",
+      "sourceBytes": 10154,
+      "sourceSha256": "e56d1561066c0051a21563e892178463c417556da538efcd272d07ffdf0edf75",
+      "recordSourceMetadata": {
+        "keySignature": "",
+        "meter": "Common Meter (8,6,8,6)",
+        "timeSignature": "",
+        "composer": "Lewis Edson",
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=50b",
+          "https://shapenote.net/musicxml/SM-Canaan",
+          "https://shapenote.net/musicxml/SM-Canaan%20%28Edson%29.mxl",
+          "https://shapenote.net/musicxml/SM-Canaan%20%28Edson%29.mxl"
+        ]
+      },
+      "embeddedMusicXml": {
+        "workTitle": "CANAAN-The Sacred Meledeon, 63",
+        "creators": [
+          "Lewis Edson, 1801",
+          "(transposed to conventional staves)"
+        ],
+        "partCount": 4,
+        "measuresByPart": [
+          13,
+          13,
+          13,
+          13
+        ],
+        "keyDeclarations": [
+          {
+            "fifths": "-1",
+            "mode": "major"
+          },
+          {
+            "fifths": "-1",
+            "mode": "major"
+          },
+          {
+            "fifths": "-1",
+            "mode": "major"
+          },
+          {
+            "fifths": "-1",
+            "mode": "major"
+          }
+        ],
+        "timeDeclarations": [
+          {
+            "beats": "2",
+            "beatType": "2"
+          },
+          {
+            "beats": "2",
+            "beatType": "2"
+          },
+          {
+            "beats": "2",
+            "beatType": "2"
+          },
+          {
+            "beats": "2",
+            "beatType": "2"
+          }
+        ],
+        "explicitShapeNoteheads": 118,
+        "shapeValues": [
+          "do",
+          "fa",
+          "la",
+          "mi",
+          "re",
+          "ti"
+        ]
+      },
+      "evidence": {
+        "editionIdentity": "alternate-catalog-witness",
+        "keyMode": {
+          "source": "",
+          "embeddedFifths": "-1",
+          "embeddedMode": "major",
+          "supported": false
+        },
+        "meter": {
+          "source": "",
+          "embedded": "2/2",
+          "supported": false
+        },
+        "parts": {
+          "sourceExpected": 4,
+          "embedded": 4,
+          "supported": true
+        },
+        "shapeNoteheads": {
+          "status": "explicit-four-shape-noteheads",
+          "explicitCount": 118,
+          "values": [
+            "do",
+            "fa",
+            "la",
+            "mi",
+            "re",
+            "ti"
+          ],
+          "supported": true
+        }
+      },
+      "comparisonStatus": "external-source-blocked",
+      "safeToPromote": false,
+      "blockedReasons": [
+        "catalog entry is an alternate-edition/source witness, not an edition-specific SH25 file"
+      ],
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The SH2025 catalog entry for sh2025/50b is an alternate source witness; the checked material does not establish an edition-matched, source-visible correction suitable for promotion.",
+        "missingEvidence": [
+          "An edition-matched SH2025 source-visible comparison that verifies the complete notation identity and supports promotion."
+        ],
+        "sourceUrls": [
+          "https://shapenote.net/musicxml/SM-Canaan%20%28Edson%29.mxl",
+          "https://fasola.org/indexes/2025/?p=50b",
+          "https://shapenote.net/musicxml/SM-Canaan"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/50t",
+      "songNo": "50t",
+      "title": "Devotion",
+      "sourceUrl": "https://shapenote.net/musicxml/SH25-DEVOTION.mxl",
+      "sourceEdition": "sh2025",
+      "catalogVariant": "",
+      "catalogSection": "Sacred Harp (2025 Revision)",
+      "catalogLabel": "Devotion (Daniel Read) [music: myrweb pdf musicxml myriad ]",
+      "rawPath": "work/shapenote-musicxml/25051a87a2fddb2c322ec07f.mxl",
+      "sourceBytes": 2623,
+      "sourceSha256": "762737cbeed87f6fa0b8fdbf7b305f860eca6ce69aedf84b6b4c78ec4b0c09bf",
+      "recordSourceMetadata": {
+        "keySignature": "C major",
+        "meter": "Long Meter (8,8,8,8)",
+        "timeSignature": "4/4",
+        "composer": "Daniel Read",
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=50t",
+          "https://shapenote.net/musicxml/SH25-DEVOTION.mxl",
+          "https://fasola.org/indexes/1991/?p=48t",
+          "https://shapenote.net/musicxml/48t.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      },
+      "embeddedMusicXml": {
+        "workTitle": "DEVOTION. L.M.",
+        "creators": [
+          "Daniel Read, 1786 \n(revised 1804)"
+        ],
+        "partCount": 4,
+        "measuresByPart": [
+          17,
+          17,
+          17,
+          17
+        ],
+        "keyDeclarations": [
+          {
+            "fifths": "0",
+            "mode": ""
+          },
+          {
+            "fifths": "0",
+            "mode": ""
+          },
+          {
+            "fifths": "0",
+            "mode": ""
+          },
+          {
+            "fifths": "0",
+            "mode": ""
+          }
+        ],
+        "timeDeclarations": [
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          }
+        ],
+        "explicitShapeNoteheads": 26,
+        "shapeValues": [
+          "fa"
+        ]
+      },
+      "evidence": {
+        "editionIdentity": "exact-sh25-url",
+        "keyMode": {
+          "source": "C major",
+          "embeddedFifths": "0",
+          "embeddedMode": "",
+          "supported": true
+        },
+        "meter": {
+          "source": "4/4",
+          "embedded": "4/4",
+          "supported": true
+        },
+        "parts": {
+          "sourceExpected": 4,
+          "embedded": 4,
+          "supported": true
+        },
+        "shapeNoteheads": {
+          "status": "explicit-four-shape-noteheads",
+          "explicitCount": 26,
+          "values": [
+            "fa"
+          ],
+          "supported": true,
+          "supportedInVerifiedDerivative": true,
+          "supportedInRawMusicXml": false
+        }
+      },
+      "comparisonStatus": "verified-with-correction-needed",
+      "safeToPromote": false,
+      "blockedReasons": [],
+      "externalSourceEvidence": null,
+      "verifiedSourceComparison": {
+        "comparisonPath": "work/source-transcriptions/2025/50t-devotion-autonomous-comparison.json",
+        "sourceImagePath": "work/source-pdfs/official-sh25-scans/isolated-audit/SH25-DEVOTION.jpg",
+        "sourceImageSha256": "172d3613ce22907f58fecb61cb45087e1f053227a0e4694b447f93ce255deccc",
+        "derivativePath": "work/omr/autonomous-transcriptions/2025/isolated-audit/50t-devotion-corrected.mxl",
+        "derivativeSha256": "94a7db5249dbdfe3bd151357dfc357fc6aca3e50c395ccb437e952ffbae0a535",
+        "sourceImageChecksumVerified": true,
+        "derivativeChecksumVerified": true,
+        "eventStreamsEqual": true,
+        "directObservations": {
+          "header": "DEVOTION. L.M.",
+          "key": "C major",
+          "timeSignature": "4/4",
+          "meter": "Long Meter (8,8,8,8)",
+          "parts": 4,
+          "measuresByPart": {
+            "P1": 17,
+            "P2": 17,
+            "P3": 17,
+            "P4": 17
+          },
+          "fourShapeNoteheadsVisible": true,
+          "sourceLyricsVisible": true,
+          "sourceLyricsEncoded": false,
+          "sourceScanSha256": "172d3613ce22907f58fecb61cb45087e1f053227a0e4694b447f93ce255deccc"
+        }
+      },
+      "promotionDisposition": "authoritative-2025-source-retained; correction-needed-before-promotion",
+      "sourceEncodingAssessment": {
+        "rawMusicXml": {
+          "shapeNoteheads": "partial-in-raw-MusicXML",
+          "explicitShapeNoteheads": 26,
+          "lyrics": "omitted-in-raw-MusicXML",
+          "complete": false
+        },
+        "verifiedDerivative": {
+          "path": "work/omr/autonomous-transcriptions/2025/isolated-audit/50t-devotion-corrected.mxl",
+          "sha256": "94a7db5249dbdfe3bd151357dfc357fc6aca3e50c395ccb437e952ffbae0a535",
+          "shapeNoteheads": 156,
+          "lyrics": "omitted; notation remains usable",
+          "complete": true
+        }
+      }
+    },
+    {
+      "queueId": "sh2025/51",
+      "songNo": "51",
+      "title": "Star in the East",
+      "sourceUrl": "https://shapenote.net/musicxml/CHA-345b.mxl",
+      "sourceEdition": "sh2025",
+      "catalogVariant": "",
+      "catalogSection": "Sacred Harp (2025 Revision)",
+      "catalogLabel": "Star in the East (The Shepherd's Star) (R. Herron) [music: myrweb pdf musicxml myriad ]",
+      "rawPath": "work/shapenote-musicxml/215d73f479142910798acad3.mxl",
+      "sourceBytes": 9891,
+      "sourceSha256": "5bcd8d4fbb9feb05dfe83fa694a33257585023faf31d520fe989f6fa9aa2481e",
+      "recordSourceMetadata": {
+        "keySignature": "",
+        "meter": "11s & 10s.",
+        "timeSignature": "2/2",
+        "composer": "R. Herron",
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=51",
+          "https://shapenote.net/musicxml/CHA-345b.mxl"
+        ]
+      },
+      "embeddedMusicXml": {
+        "workTitle": "345b THE SHEPHERD'S STAR - Christian Harmony AL",
+        "creators": [],
+        "partCount": 4,
+        "measuresByPart": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "keyDeclarations": [],
+        "timeDeclarations": [
+          {
+            "beats": "2",
+            "beatType": "2"
+          },
+          {
+            "beats": "2",
+            "beatType": "2"
+          },
+          {
+            "beats": "2",
+            "beatType": "2"
+          },
+          {
+            "beats": "2",
+            "beatType": "2"
+          }
+        ],
+        "explicitShapeNoteheads": 122,
+        "shapeValues": [
+          "do",
+          "fa",
+          "la",
+          "mi",
+          "re",
+          "ti"
+        ]
+      },
+      "evidence": {
+        "editionIdentity": "alternate-catalog-witness",
+        "keyMode": {
+          "source": "",
+          "embeddedFifths": "",
+          "embeddedMode": "",
+          "supported": false
+        },
+        "meter": {
+          "source": "2/2",
+          "embedded": "2/2",
+          "supported": true
+        },
+        "parts": {
+          "sourceExpected": 4,
+          "embedded": 4,
+          "supported": true
+        },
+        "shapeNoteheads": {
+          "status": "explicit-four-shape-noteheads",
+          "explicitCount": 122,
+          "values": [
+            "do",
+            "fa",
+            "la",
+            "mi",
+            "re",
+            "ti"
+          ],
+          "supported": true
+        }
+      },
+      "comparisonStatus": "external-source-blocked",
+      "safeToPromote": false,
+      "blockedReasons": [
+        "catalog entry is an alternate-edition/source witness, not an edition-specific SH25 file"
+      ],
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The SH2025 catalog entry for sh2025/51 is an alternate source witness; the checked material does not establish an edition-matched, source-visible correction suitable for promotion.",
+        "missingEvidence": [
+          "An edition-matched SH2025 source-visible comparison that verifies the complete notation identity and supports promotion."
+        ],
+        "sourceUrls": [
+          "https://shapenote.net/musicxml/CHA-345b.mxl",
+          "https://fasola.org/indexes/2025/?p=51"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/515",
+      "songNo": "515",
+      "title": "Rockbridge",
+      "sourceUrl": "https://shapenote.net/musicxml/HS-67b.mxl",
+      "sourceEdition": "sh2025",
+      "catalogVariant": "",
+      "catalogSection": "Sacred Harp (2025 Revision)",
+      "catalogLabel": "Rockbridge [music: myrweb pdf musicxml myriad ]",
+      "rawPath": "work/shapenote-musicxml/b115572a82a9a0307b0fdc09.mxl",
+      "sourceBytes": 9923,
+      "sourceSha256": "9afe808ab7503676c47c810f72af216ca35d0174bcbe06b77c70201a8c4d15ac",
+      "recordSourceMetadata": {
+        "keySignature": "",
+        "meter": "Long Meter (8,8,8,8)",
+        "timeSignature": "3/2",
+        "composer": "The Southern Harmony",
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=515",
+          "https://shapenote.net/musicxml/HS-67b.mxl"
+        ]
+      },
+      "embeddedMusicXml": {
+        "workTitle": "ROCKBRIDGE, 67b - Harmonia Sacra",
+        "creators": [
+          "Lucius Chapin, 1812"
+        ],
+        "partCount": 4,
+        "measuresByPart": [
+          12,
+          12,
+          12,
+          12
+        ],
+        "keyDeclarations": [],
+        "timeDeclarations": [
+          {
+            "beats": "3",
+            "beatType": "2"
+          },
+          {
+            "beats": "3",
+            "beatType": "2"
+          },
+          {
+            "beats": "3",
+            "beatType": "2"
+          },
+          {
+            "beats": "3",
+            "beatType": "2"
+          }
+        ],
+        "explicitShapeNoteheads": 0,
+        "shapeValues": []
+      },
+      "evidence": {
+        "editionIdentity": "alternate-catalog-witness",
+        "keyMode": {
+          "source": "",
+          "embeddedFifths": "",
+          "embeddedMode": "",
+          "supported": false
+        },
+        "meter": {
+          "source": "3/2",
+          "embedded": "3/2",
+          "supported": true
+        },
+        "parts": {
+          "sourceExpected": 4,
+          "embedded": 4,
+          "supported": true
+        },
+        "shapeNoteheads": {
+          "status": "not-encoded-in-embedded-musicxml",
+          "explicitCount": 0,
+          "values": [],
+          "supported": false
+        }
+      },
+      "comparisonStatus": "external-source-blocked",
+      "safeToPromote": false,
+      "blockedReasons": [
+        "catalog entry is an alternate-edition/source witness, not an edition-specific SH25 file"
+      ],
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The SH2025 catalog entry for sh2025/515 is an alternate source witness; the checked material does not establish an edition-matched, source-visible correction suitable for promotion.",
+        "missingEvidence": [
+          "An edition-matched SH2025 source-visible comparison that verifies the complete notation identity and supports promotion."
+        ],
+        "sourceUrls": [
+          "https://shapenote.net/musicxml/HS-67b.mxl",
+          "https://fasola.org/indexes/2025/?p=515"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/525",
+      "songNo": "525",
+      "title": "Imandra",
+      "sourceUrl": "https://shapenote.net/musicxml/SH25-IMANDRA.mxl",
+      "sourceEdition": "sh2025",
+      "catalogVariant": "",
+      "catalogSection": "Sacred Harp (2025 Revision)",
+      "catalogLabel": "Imandra (Ananias Davisson) [music: myrweb pdf musicxml myriad ]",
+      "rawPath": "work/shapenote-musicxml/5a92b7eda65e22d5b535a03c.mxl",
+      "sourceBytes": 2353,
+      "sourceSha256": "3d5755cea0a83f38d5fa85b598f6a41d84e5c1e23d1e98e099b15a545aacce47",
+      "recordSourceMetadata": {
+        "keySignature": "A minor",
+        "meter": "11s.",
+        "timeSignature": "4/4",
+        "composer": "Ananias Davisson",
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=525",
+          "https://shapenote.net/musicxml/SH25-IMANDRA.mxl"
+        ]
+      },
+      "embeddedMusicXml": {
+        "workTitle": "IMANDRA. 11's.",
+        "creators": [
+          "Ananias Davisson, 1820"
+        ],
+        "partCount": 4,
+        "measuresByPart": [
+          14,
+          14,
+          14,
+          14
+        ],
+        "keyDeclarations": [
+          {
+            "fifths": "0",
+            "mode": ""
+          },
+          {
+            "fifths": "0",
+            "mode": ""
+          },
+          {
+            "fifths": "0",
+            "mode": ""
+          },
+          {
+            "fifths": "0",
+            "mode": ""
+          }
+        ],
+        "timeDeclarations": [
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          }
+        ],
+        "explicitShapeNoteheads": 0,
+        "shapeValues": []
+      },
+      "evidence": {
+        "editionIdentity": "exact-sh25-url",
+        "keyMode": {
+          "source": "A minor",
+          "embeddedFifths": "0",
+          "embeddedMode": "",
+          "supported": false
+        },
+        "meter": {
+          "source": "4/4",
+          "embedded": "4/4",
+          "supported": true
+        },
+        "parts": {
+          "sourceExpected": 4,
+          "embedded": 4,
+          "supported": true
+        },
+        "shapeNoteheads": {
+          "status": "not-encoded-in-embedded-musicxml",
+          "explicitCount": 0,
+          "values": [],
+          "supported": false,
+          "supportedInVerifiedDerivative": true,
+          "supportedInRawMusicXml": false
+        }
+      },
+      "comparisonStatus": "verified-with-correction-needed",
+      "safeToPromote": false,
+      "blockedReasons": [],
+      "externalSourceEvidence": null,
+      "verifiedSourceComparison": {
+        "comparisonPath": "work/source-transcriptions/2025/525-official-scan-correction-comparison.json",
+        "sourceImagePath": "work/source-pdfs/official-sh25-scans/SH25-IMANDRA.jpg",
+        "sourceImageSha256": "e3475d56e8bb457d691dc5be49b8d00256e0955bb124efcc4d02d026f33e1c94",
+        "derivativePath": "work/omr/autonomous-transcriptions/2025/official-scan-corrections/525-corrected.mxl",
+        "derivativeSha256": "bb8debba75c3565608df9b5da5fde12d669e871b75694e087454acc84d8cfa22",
+        "sourceImageChecksumVerified": true,
+        "candidateChecksumVerified": true,
+        "derivativeChecksumVerified": true,
+        "eventStreamsEqual": true,
+        "sourceStructureVerified": true,
+        "directObservations": {
+          "header": "IMANDRA",
+          "key": "A minor",
+          "timeSignature": "4/4",
+          "meter": "11s.",
+          "parts": 4,
+          "measuresByPart": {
+            "P1": 14,
+            "P2": 14,
+            "P3": 14,
+            "P4": 14
+          },
+          "fourShapeNoteheadsVisible": true,
+          "lyricsVisible": true
+        }
+      },
+      "promotionDisposition": "authoritative-2025-source-retained; correction-needed-before-promotion"
+    },
+    {
+      "queueId": "sh2025/537",
+      "songNo": "537",
+      "title": "Portsmouth",
+      "sourceUrl": "https://shapenote.net/musicxml/SH25-PORTSMOUTH.mxl",
+      "sourceEdition": "sh2025",
+      "catalogVariant": "",
+      "catalogSection": "Sacred Harp (2025 Revision)",
+      "catalogLabel": "Portsmouth [music: myrweb pdf musicxml myriad ]",
+      "rawPath": "work/shapenote-musicxml/75e5c1575fb0039e840c1838.mxl",
+      "sourceBytes": 2285,
+      "sourceSha256": "5a66da5c81f91113ec0333e5433d96c8cd837f6d6921c0436b30657e16e29201",
+      "recordSourceMetadata": {
+        "keySignature": "Bb major",
+        "meter": "Long Meter (8,8,8,8)",
+        "timeSignature": "4/4",
+        "composer": "Songs of Zion",
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=537",
+          "https://shapenote.net/musicxml/SH25-PORTSMOUTH.mxl"
+        ]
+      },
+      "embeddedMusicXml": {
+        "workTitle": "PORTSMOUTH. L.M.",
+        "creators": [
+          "Songs of Zion, 1821"
+        ],
+        "partCount": 4,
+        "measuresByPart": [
+          14,
+          14,
+          14,
+          14
+        ],
+        "keyDeclarations": [
+          {
+            "fifths": "-2",
+            "mode": ""
+          },
+          {
+            "fifths": "-2",
+            "mode": ""
+          },
+          {
+            "fifths": "-2",
+            "mode": ""
+          },
+          {
+            "fifths": "-2",
+            "mode": ""
+          }
+        ],
+        "timeDeclarations": [
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          }
+        ],
+        "explicitShapeNoteheads": 0,
+        "shapeValues": []
+      },
+      "evidence": {
+        "editionIdentity": "exact-sh25-url",
+        "keyMode": {
+          "source": "Bb major",
+          "embeddedFifths": "-2",
+          "embeddedMode": "",
+          "supported": true
+        },
+        "meter": {
+          "source": "4/4",
+          "embedded": "4/4",
+          "supported": true
+        },
+        "parts": {
+          "sourceExpected": 4,
+          "embedded": 4,
+          "supported": true
+        },
+        "shapeNoteheads": {
+          "status": "not-encoded-in-embedded-musicxml",
+          "explicitCount": 0,
+          "values": [],
+          "supported": false,
+          "supportedInVerifiedDerivative": true,
+          "supportedInRawMusicXml": false
+        }
+      },
+      "comparisonStatus": "verified-with-correction-needed",
+      "safeToPromote": false,
+      "blockedReasons": [],
+      "externalSourceEvidence": null,
+      "verifiedSourceComparison": {
+        "comparisonPath": "work/source-transcriptions/2025/537-official-scan-correction-comparison.json",
+        "sourceImagePath": "work/source-pdfs/official-sh25-scans/SH25-PORTSMOUTH.jpg",
+        "sourceImageSha256": "51001e387269e9d4ca5653a329ffab259ae19f0ecdd625e4c56783fb8701c5a6",
+        "derivativePath": "work/omr/autonomous-transcriptions/2025/official-scan-corrections/537-corrected.mxl",
+        "derivativeSha256": "0f8843118c067ffb1ba5d98cbf0f184a6968629cd8b0fe2ce32cec8c60266e67",
+        "sourceImageChecksumVerified": true,
+        "candidateChecksumVerified": true,
+        "derivativeChecksumVerified": true,
+        "eventStreamsEqual": true,
+        "sourceStructureVerified": true,
+        "directObservations": {
+          "header": "PORTSMOUTH",
+          "key": "Bb major",
+          "timeSignature": "4/4",
+          "meter": "Long Meter (8,8,8,8)",
+          "parts": 4,
+          "measuresByPart": {
+            "P1": 14,
+            "P2": 14,
+            "P3": 14,
+            "P4": 14
+          },
+          "fourShapeNoteheadsVisible": true,
+          "lyricsVisible": true
+        }
+      },
+      "promotionDisposition": "authoritative-2025-source-retained; correction-needed-before-promotion"
+    },
+    {
+      "queueId": "sh2025/54",
+      "songNo": "54",
+      "title": "Russell",
+      "sourceUrl": "https://shapenote.net/musicxml/SaH59-RussellTR.mxl",
+      "sourceEdition": "sh2025",
+      "catalogVariant": "traditional",
+      "catalogSection": "Sacred Harp (2025 Revision)",
+      "catalogLabel": "Russell [traditional: myrweb pdf musicxml myriad ] [as written: myrweb pdf musicxml myriad ]",
+      "rawPath": "work/shapenote-musicxml/2afea17244c7be63be41f17b.mxl",
+      "sourceBytes": 9151,
+      "sourceSha256": "7191622e89344ca5eab75d036d30b4f514bdbd4260d400e97a808a85747c9440",
+      "recordSourceMetadata": {
+        "keySignature": "G major",
+        "meter": "Long Meter Double (8,8,8,8,8,8,8,8)",
+        "timeSignature": "4/4",
+        "composer": "J. M. Day",
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=54",
+          "https://shapenote.net/musicxml/SaH59-RussellTR.mxl",
+          "https://shapenote.net/musicxml/SaH59-Russell.mxl"
+        ]
+      },
+      "embeddedMusicXml": {
+        "workTitle": "RUSSELL-Sacred Harp (1859 Edition), 271",
+        "creators": [
+          "J. M. Day"
+        ],
+        "partCount": 3,
+        "measuresByPart": [
+          28,
+          28,
+          28
+        ],
+        "keyDeclarations": [
+          {
+            "fifths": "1",
+            "mode": "major"
+          },
+          {
+            "fifths": "1",
+            "mode": "major"
+          },
+          {
+            "fifths": "1",
+            "mode": "major"
+          }
+        ],
+        "timeDeclarations": [
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          }
+        ],
+        "explicitShapeNoteheads": 0,
+        "shapeValues": []
+      },
+      "evidence": {
+        "editionIdentity": "alternate-catalog-witness",
+        "keyMode": {
+          "source": "G major",
+          "embeddedFifths": "1",
+          "embeddedMode": "major",
+          "supported": true
+        },
+        "meter": {
+          "source": "4/4",
+          "embedded": "4/4",
+          "supported": true
+        },
+        "parts": {
+          "sourceExpected": 4,
+          "embedded": 3,
+          "supported": false
+        },
+        "shapeNoteheads": {
+          "status": "not-encoded-in-embedded-musicxml",
+          "explicitCount": 0,
+          "values": [],
+          "supported": false
+        }
+      },
+      "comparisonStatus": "external-source-blocked",
+      "safeToPromote": false,
+      "blockedReasons": [
+        "catalog entry is an alternate-edition/source witness, not an edition-specific SH25 file",
+        "embedded score has 3 parts; source structure requires four parts"
+      ],
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The SH2025 catalog entry for sh2025/54 is an alternate source witness; the checked material does not establish an edition-matched, source-visible correction suitable for promotion.",
+        "missingEvidence": [
+          "An edition-matched SH2025 source-visible comparison that verifies the complete notation identity and supports promotion."
+        ],
+        "sourceUrls": [
+          "https://shapenote.net/musicxml/SaH59-RussellTR.mxl",
+          "https://fasola.org/indexes/2025/?p=54",
+          "https://shapenote.net/musicxml/SaH59-Russell.mxl"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/54-as-written",
+      "songNo": "54",
+      "title": "Russell",
+      "sourceUrl": "https://shapenote.net/musicxml/SaH59-Russell.mxl",
+      "sourceEdition": "sh2025",
+      "catalogVariant": "as-written",
+      "catalogSection": "Sacred Harp (2025 Revision)",
+      "catalogLabel": "Russell [traditional: myrweb pdf musicxml myriad ] [as written: myrweb pdf musicxml myriad ]",
+      "rawPath": "work/shapenote-musicxml/271f8d657622d06add9ad7de.mxl",
+      "sourceBytes": 9123,
+      "sourceSha256": "d5cf33586f8b597d956245be31748fa8deeef35f9f74a3492aa43aa136da4c74",
+      "recordSourceMetadata": {
+        "keySignature": "G major",
+        "meter": "Long Meter Double (8,8,8,8,8,8,8,8)",
+        "timeSignature": "4/4",
+        "composer": "J. M. Day",
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=54",
+          "https://shapenote.net/musicxml/SaH59-RussellTR.mxl",
+          "https://shapenote.net/musicxml/SaH59-Russell.mxl"
+        ]
+      },
+      "embeddedMusicXml": {
+        "workTitle": "RUSSELL-Sacred Harp (1859 Edition), 271",
+        "creators": [
+          "J. M. Day"
+        ],
+        "partCount": 3,
+        "measuresByPart": [
+          28,
+          28,
+          28
+        ],
+        "keyDeclarations": [
+          {
+            "fifths": "1",
+            "mode": "major"
+          },
+          {
+            "fifths": "1",
+            "mode": "major"
+          },
+          {
+            "fifths": "1",
+            "mode": "major"
+          }
+        ],
+        "timeDeclarations": [
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          }
+        ],
+        "explicitShapeNoteheads": 0,
+        "shapeValues": []
+      },
+      "evidence": {
+        "editionIdentity": "alternate-catalog-witness",
+        "keyMode": {
+          "source": "G major",
+          "embeddedFifths": "1",
+          "embeddedMode": "major",
+          "supported": true
+        },
+        "meter": {
+          "source": "4/4",
+          "embedded": "4/4",
+          "supported": true
+        },
+        "parts": {
+          "sourceExpected": 4,
+          "embedded": 3,
+          "supported": false
+        },
+        "shapeNoteheads": {
+          "status": "not-encoded-in-embedded-musicxml",
+          "explicitCount": 0,
+          "values": [],
+          "supported": false
+        }
+      },
+      "comparisonStatus": "external-source-blocked",
+      "safeToPromote": false,
+      "blockedReasons": [
+        "catalog entry is an alternate-edition/source witness, not an edition-specific SH25 file",
+        "embedded score has 3 parts; source structure requires four parts"
+      ],
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The SH2025 catalog entry for sh2025/54-as-written is an alternate source witness; the checked material does not establish an edition-matched, source-visible correction suitable for promotion.",
+        "missingEvidence": [
+          "An edition-matched SH2025 source-visible comparison that verifies the complete notation identity and supports promotion."
+        ],
+        "sourceUrls": [
+          "https://shapenote.net/musicxml/SaH59-Russell.mxl",
+          "https://fasola.org/indexes/2025/?p=54",
+          "https://shapenote.net/musicxml/SaH59-RussellTR.mxl"
+        ]
+      }
+    },
+    {
+      "queueId": "sh2025/544",
+      "songNo": "544",
+      "title": "Youthful Blessings",
+      "sourceUrl": "https://shapenote.net/musicxml/SH25-YOUTHFUL-BLESSINGS.mxl",
+      "sourceEdition": "sh2025",
+      "catalogVariant": "",
+      "catalogSection": "Sacred Harp (2025 Revision)",
+      "catalogLabel": "Youthful Blessings [music: myrweb pdf musicxml myriad ]",
+      "rawPath": "work/shapenote-musicxml/33ef25e2f36fb7a49704178b.mxl",
+      "sourceBytes": 3035,
+      "sourceSha256": "27f503007bbcea3e6ad7c98eadc9eab93649d4ec96083e76a3c3efaaf53a2601",
+      "recordSourceMetadata": {
+        "keySignature": "A major",
+        "meter": "Common Meter (8,6,8,6)",
+        "timeSignature": "4/4",
+        "composer": "Mary Kitchens Gardner",
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=544",
+          "https://shapenote.net/musicxml/SH25-YOUTHFUL-BLESSINGS.mxl"
+        ]
+      },
+      "embeddedMusicXml": {
+        "workTitle": "YOUTHFUL BLESSINGS. C.M.",
+        "creators": [
+          "Mrs. Mary Kitchens Gardner, 1954"
+        ],
+        "partCount": 4,
+        "measuresByPart": [
+          22,
+          22,
+          22,
+          22
+        ],
+        "keyDeclarations": [
+          {
+            "fifths": "3",
+            "mode": ""
+          },
+          {
+            "fifths": "3",
+            "mode": ""
+          },
+          {
+            "fifths": "3",
+            "mode": ""
+          },
+          {
+            "fifths": "3",
+            "mode": ""
+          }
+        ],
+        "timeDeclarations": [
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          }
+        ],
+        "explicitShapeNoteheads": 0,
+        "shapeValues": []
+      },
+      "evidence": {
+        "editionIdentity": "exact-sh25-url",
+        "keyMode": {
+          "source": "A major",
+          "embeddedFifths": "3",
+          "embeddedMode": "",
+          "supported": true
+        },
+        "meter": {
+          "source": "4/4",
+          "embedded": "4/4",
+          "supported": true
+        },
+        "parts": {
+          "sourceExpected": 4,
+          "embedded": 4,
+          "supported": true
+        },
+        "shapeNoteheads": {
+          "status": "not-encoded-in-embedded-musicxml",
+          "explicitCount": 0,
+          "values": [],
+          "supported": false,
+          "supportedInVerifiedDerivative": true,
+          "supportedInRawMusicXml": false
+        }
+      },
+      "comparisonStatus": "verified-with-correction-needed",
+      "safeToPromote": false,
+      "blockedReasons": [],
+      "externalSourceEvidence": null,
+      "verifiedSourceComparison": {
+        "comparisonPath": "work/source-transcriptions/2025/544-official-scan-correction-comparison.json",
+        "sourceImagePath": "work/source-pdfs/official-sh25-scans/SH25-YOUTHFUL-BLESSINGS.jpg",
+        "sourceImageSha256": "650ab264a5106c06a8a78c880034f43a6a791745f41c5d6b1013535c4389abdd",
+        "derivativePath": "work/omr/autonomous-transcriptions/2025/official-scan-corrections/544-corrected.mxl",
+        "derivativeSha256": "b8654f3d0bc8e0f7624cc53215588b6a3ace657f7c1e9daf2df8cf8756f24327",
+        "sourceImageChecksumVerified": true,
+        "candidateChecksumVerified": true,
+        "derivativeChecksumVerified": true,
+        "eventStreamsEqual": true,
+        "sourceStructureVerified": true,
+        "directObservations": {
+          "header": "YOUTHFUL BLESSINGS",
+          "key": "A major",
+          "timeSignature": "4/4",
+          "meter": "Common Meter (8,6,8,6)",
+          "parts": 4,
+          "measuresByPart": {
+            "P1": 22,
+            "P2": 22,
+            "P3": 22,
+            "P4": 22
+          },
+          "fourShapeNoteheadsVisible": true,
+          "lyricsVisible": true
+        }
+      },
+      "promotionDisposition": "authoritative-2025-source-retained; correction-needed-before-promotion"
+    },
+    {
+      "queueId": "sh2025/545",
+      "songNo": "545",
+      "title": "Somers",
+      "sourceUrl": "https://shapenote.net/musicxml/SH25-SOMERS.mxl",
+      "sourceEdition": "sh2025",
+      "catalogVariant": "",
+      "catalogSection": "Sacred Harp (2025 Revision)",
+      "catalogLabel": "Somers [music: myrweb pdf musicxml myriad ]",
+      "rawPath": "work/shapenote-musicxml/86e7564fcec896dc2d113aa2.mxl",
+      "sourceBytes": 2273,
+      "sourceSha256": "11345b9cc0a7275a2a7177145dc676a33e15aec424bdc38fda0de9a7293fdd36",
+      "recordSourceMetadata": {
+        "keySignature": "A minor",
+        "meter": "Short Meter (6,6,8,6)",
+        "timeSignature": "4/4",
+        "composer": "Stephen Jenks",
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=545",
+          "https://shapenote.net/musicxml/SH25-SOMERS.mxl"
+        ]
+      },
+      "embeddedMusicXml": {
+        "workTitle": "SOMERS. S.M.",
+        "creators": [
+          "Stephen Jenks, 1800"
+        ],
+        "partCount": 4,
+        "measuresByPart": [
+          14,
+          14,
+          14,
+          14
+        ],
+        "keyDeclarations": [
+          {
+            "fifths": "0",
+            "mode": ""
+          },
+          {
+            "fifths": "0",
+            "mode": ""
+          },
+          {
+            "fifths": "0",
+            "mode": ""
+          },
+          {
+            "fifths": "0",
+            "mode": ""
+          }
+        ],
+        "timeDeclarations": [
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          }
+        ],
+        "explicitShapeNoteheads": 0,
+        "shapeValues": []
+      },
+      "evidence": {
+        "editionIdentity": "exact-sh25-url",
+        "keyMode": {
+          "source": "A minor",
+          "embeddedFifths": "0",
+          "embeddedMode": "",
+          "supported": false
+        },
+        "meter": {
+          "source": "4/4",
+          "embedded": "4/4",
+          "supported": true
+        },
+        "parts": {
+          "sourceExpected": 4,
+          "embedded": 4,
+          "supported": true
+        },
+        "shapeNoteheads": {
+          "status": "not-encoded-in-embedded-musicxml",
+          "explicitCount": 0,
+          "values": [],
+          "supported": false,
+          "supportedInVerifiedDerivative": true,
+          "supportedInRawMusicXml": false
+        }
+      },
+      "comparisonStatus": "verified-with-correction-needed",
+      "safeToPromote": false,
+      "blockedReasons": [],
+      "externalSourceEvidence": null,
+      "verifiedSourceComparison": {
+        "comparisonPath": "work/source-transcriptions/2025/545-official-scan-correction-comparison.json",
+        "sourceImagePath": "work/source-pdfs/official-sh25-scans/SH25-SOMERS.jpg",
+        "sourceImageSha256": "490e34b0e8e9353e3f81a40d50336d9cd5ffa1371cc671c899d4428272cc1109",
+        "derivativePath": "work/omr/autonomous-transcriptions/2025/official-scan-corrections/545-corrected.mxl",
+        "derivativeSha256": "8d026d784f73f5960420b540658d8561249f4694726fa7a95198941a3c7a3984",
+        "sourceImageChecksumVerified": true,
+        "candidateChecksumVerified": true,
+        "derivativeChecksumVerified": true,
+        "eventStreamsEqual": true,
+        "sourceStructureVerified": true,
+        "directObservations": {
+          "header": "SOMERS",
+          "key": "A minor",
+          "timeSignature": "4/4",
+          "meter": "Short Meter (6,6,8,6)",
+          "parts": 4,
+          "measuresByPart": {
+            "P1": 14,
+            "P2": 14,
+            "P3": 14,
+            "P4": 14
+          },
+          "fourShapeNoteheadsVisible": true,
+          "lyricsVisible": true
+        }
+      },
+      "promotionDisposition": "authoritative-2025-source-retained; correction-needed-before-promotion"
+    },
+    {
+      "queueId": "sh2025/55",
+      "songNo": "55",
+      "title": "Converse",
+      "sourceUrl": "https://shapenote.net/musicxml/SH25-CONVERSE.mxl",
+      "sourceEdition": "sh2025",
+      "catalogVariant": "",
+      "catalogSection": "Sacred Harp (2025 Revision)",
+      "catalogLabel": "Converse [music: myrweb pdf musicxml myriad ]",
+      "rawPath": "work/shapenote-musicxml/53c8ee986905cbd07c468efd.mxl",
+      "sourceBytes": 2413,
+      "sourceSha256": "1db754f3b1309c95edd987d41b0e4352ff5c597e2d60d634dba313d9ad6acfbd",
+      "recordSourceMetadata": {
+        "keySignature": "A major",
+        "meter": "Particular Meter",
+        "timeSignature": "4/4",
+        "composer": "James C. Lowry",
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=55",
+          "https://shapenote.net/musicxml/SH25-CONVERSE.mxl"
+        ]
+      },
+      "embeddedMusicXml": {
+        "workTitle": "CONVERSE. 8.8.6.8.8.8.6.",
+        "creators": [
+          "James C. Lowry, 1820"
+        ],
+        "partCount": 4,
+        "measuresByPart": [
+          21,
+          21,
+          21,
+          21
+        ],
+        "keyDeclarations": [
+          {
+            "fifths": "3",
+            "mode": ""
+          },
+          {
+            "fifths": "3",
+            "mode": ""
+          },
+          {
+            "fifths": "3",
+            "mode": ""
+          },
+          {
+            "fifths": "3",
+            "mode": ""
+          }
+        ],
+        "timeDeclarations": [
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          }
+        ],
+        "explicitShapeNoteheads": 0,
+        "shapeValues": []
+      },
+      "evidence": {
+        "editionIdentity": "exact-sh25-url",
+        "keyMode": {
+          "source": "A major",
+          "embeddedFifths": "3",
+          "embeddedMode": "",
+          "supported": true
+        },
+        "meter": {
+          "source": "4/4",
+          "embedded": "4/4",
+          "supported": true
+        },
+        "parts": {
+          "sourceExpected": 4,
+          "embedded": 4,
+          "supported": true
+        },
+        "shapeNoteheads": {
+          "status": "not-encoded-in-embedded-musicxml",
+          "explicitCount": 0,
+          "values": [],
+          "supported": false,
+          "supportedInVerifiedDerivative": true,
+          "supportedInRawMusicXml": false
+        }
+      },
+      "comparisonStatus": "verified-with-correction-needed",
+      "safeToPromote": false,
+      "blockedReasons": [],
+      "externalSourceEvidence": null,
+      "verifiedSourceComparison": {
+        "comparisonPath": "work/source-transcriptions/2025/55-converse-autonomous-comparison.json",
+        "sourcePdfPath": "work/source-pdfs/SH25-CONVERSE.pdf",
+        "sourcePdfSha256": "a5b4ffd6420d2dc0e49d7b38cd93e40ecaf835ac82e892c8e899a1ba4955b43f",
+        "sourceRenderPath": "work/source-pdfs/rendered/SH25-CONVERSE.png",
+        "sourceRenderSha256": "92848ff1bce33ab186ebe0f03740ec225d6728103a25491264aeba5b0f2f3a4e",
+        "derivativePath": "work/omr/autonomous-transcriptions/2025/isolated-audit/55-converse-corrected.mxl",
+        "derivativeSha256": "d12c0966f68b0083c9deb47a95eb6201c82e532fd7df70373e65e7fa87f88c59",
+        "sourcePdfChecksumVerified": true,
+        "sourceRenderChecksumVerified": true,
+        "candidateChecksumVerified": true,
+        "derivativeChecksumVerified": true,
+        "eventStreamsEqual": true,
+        "directObservations": {
+          "header": "CONVERSE. 8.8.6.8.8.8.6.",
+          "composer": "James C. Lowry, 1820",
+          "key": "A major",
+          "timeSignature": "4/4",
+          "meter": "Particular Meter (8,8,6,8,8,8,6)",
+          "parts": 4,
+          "measuresByPart": {
+            "P1": 21,
+            "P2": 21,
+            "P3": 21,
+            "P4": 21
+          },
+          "fourShapeNoteheadsVisible": true,
+          "sourceScanSha256": "27894c56076c94de739a7dd0f502fd8e0df2b711a19d6d75fdf7106e41902993"
+        }
+      },
+      "promotionDisposition": "authoritative-2025-source-retained; correction-needed-before-promotion"
+    },
+    {
+      "queueId": "sh2025/557",
+      "songNo": "557",
+      "title": "New Farewell",
+      "sourceUrl": "https://shapenote.net/musicxml/SH25-NEW-FAREWELL.mxl",
+      "sourceEdition": "sh2025",
+      "catalogVariant": "",
+      "catalogSection": "Sacred Harp (2025 Revision)",
+      "catalogLabel": "New Farewell [music: myrweb pdf musicxml myriad ]",
+      "rawPath": "work/shapenote-musicxml/6a19c6f645e15e9926079f61.mxl",
+      "sourceBytes": 2366,
+      "sourceSha256": "2e0e46196d2ed25ad9bbc55aef86cd70747ca47e984ef1a7b57ec6baed49ad77",
+      "recordSourceMetadata": {
+        "keySignature": "A minor",
+        "meter": "8s & 7s D.",
+        "timeSignature": "6/8",
+        "composer": "The Southern Harmony",
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=557",
+          "https://shapenote.net/musicxml/SH25-NEW-FAREWELL.mxl"
+        ]
+      },
+      "embeddedMusicXml": {
+        "workTitle": "NEW FAREWELL. 8.7.8.7.D.",
+        "creators": [
+          "The Southern Harmony, 1835., Alto The Hesperian Harp, 1848"
+        ],
+        "partCount": 4,
+        "measuresByPart": [
+          15,
+          15,
+          15,
+          15
+        ],
+        "keyDeclarations": [
+          {
+            "fifths": "0",
+            "mode": ""
+          },
+          {
+            "fifths": "0",
+            "mode": ""
+          },
+          {
+            "fifths": "0",
+            "mode": ""
+          },
+          {
+            "fifths": "0",
+            "mode": ""
+          }
+        ],
+        "timeDeclarations": [
+          {
+            "beats": "6",
+            "beatType": "8"
+          },
+          {
+            "beats": "6",
+            "beatType": "8"
+          },
+          {
+            "beats": "6",
+            "beatType": "8"
+          },
+          {
+            "beats": "6",
+            "beatType": "8"
+          }
+        ],
+        "explicitShapeNoteheads": 0,
+        "shapeValues": []
+      },
+      "evidence": {
+        "editionIdentity": "exact-sh25-url",
+        "keyMode": {
+          "source": "A minor",
+          "embeddedFifths": "0",
+          "embeddedMode": "",
+          "supported": false
+        },
+        "meter": {
+          "source": "6/8",
+          "embedded": "6/8",
+          "supported": true
+        },
+        "parts": {
+          "sourceExpected": 4,
+          "embedded": 4,
+          "supported": true
+        },
+        "shapeNoteheads": {
+          "status": "not-encoded-in-embedded-musicxml",
+          "explicitCount": 0,
+          "values": [],
+          "supported": false,
+          "supportedInVerifiedDerivative": true,
+          "supportedInRawMusicXml": false
+        }
+      },
+      "comparisonStatus": "verified-with-correction-needed",
+      "safeToPromote": false,
+      "blockedReasons": [],
+      "externalSourceEvidence": null,
+      "verifiedSourceComparison": {
+        "comparisonPath": "work/source-transcriptions/2025/557-official-scan-correction-comparison.json",
+        "sourceImagePath": "work/source-pdfs/official-sh25-scans/SH25-NEW-FAREWELL.jpg",
+        "sourceImageSha256": "63fc4f464688c2ce687891014d994d61ec3298ebab5e45164f0c0986fce12bf5",
+        "derivativePath": "work/omr/autonomous-transcriptions/2025/official-scan-corrections/557-corrected.mxl",
+        "derivativeSha256": "d434a05d3055fbb436c73c179d2a7488b5c0c7dc3c358236955ff9c87cb13341",
+        "sourceImageChecksumVerified": true,
+        "candidateChecksumVerified": true,
+        "derivativeChecksumVerified": true,
+        "eventStreamsEqual": true,
+        "sourceStructureVerified": true,
+        "directObservations": {
+          "header": "NEW FAREWELL",
+          "key": "A minor",
+          "timeSignature": "6/8",
+          "meter": "8s & 7s D.",
+          "parts": 4,
+          "measuresByPart": {
+            "P1": 15,
+            "P2": 15,
+            "P3": 15,
+            "P4": 15
+          },
+          "fourShapeNoteheadsVisible": true,
+          "lyricsVisible": true
+        }
+      },
+      "promotionDisposition": "authoritative-2025-source-retained; correction-needed-before-promotion"
+    },
+    {
+      "queueId": "sh2025/563",
+      "songNo": "563",
+      "title": "Suffield",
+      "sourceUrl": "https://shapenote.net/musicxml/SH25-SUFFIELD.mxl",
+      "sourceEdition": "sh2025",
+      "catalogVariant": "",
+      "catalogSection": "Sacred Harp (2025 Revision)",
+      "catalogLabel": "Suffield [music: myrweb pdf musicxml myriad ]",
+      "rawPath": "work/shapenote-musicxml/2b5e5a1e3b647397778a7c44.mxl",
+      "sourceBytes": 2708,
+      "sourceSha256": "647f90ffaae28fdc6aa61d99c1e890fa65704d2d95e8a713a7d7b71cf68fc912",
+      "recordSourceMetadata": {
+        "keySignature": "E minor",
+        "meter": "Common Meter (8,6,8,6)",
+        "timeSignature": "4/4",
+        "composer": "Oliver King",
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=563",
+          "https://shapenote.net/musicxml/SH25-SUFFIELD.mxl"
+        ]
+      },
+      "embeddedMusicXml": {
+        "workTitle": "SUFFIELD. C.M.",
+        "creators": [
+          "Oliver King, 1779"
+        ],
+        "partCount": 4,
+        "measuresByPart": [
+          13,
+          13,
+          13,
+          13
+        ],
+        "keyDeclarations": [
+          {
+            "fifths": "1",
+            "mode": ""
+          },
+          {
+            "fifths": "1",
+            "mode": ""
+          },
+          {
+            "fifths": "1",
+            "mode": ""
+          },
+          {
+            "fifths": "1",
+            "mode": ""
+          }
+        ],
+        "timeDeclarations": [
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          }
+        ],
+        "explicitShapeNoteheads": 0,
+        "shapeValues": []
+      },
+      "evidence": {
+        "editionIdentity": "exact-sh25-url",
+        "keyMode": {
+          "source": "E minor",
+          "embeddedFifths": "1",
+          "embeddedMode": "",
+          "supported": false
+        },
+        "meter": {
+          "source": "4/4",
+          "embedded": "4/4",
+          "supported": true
+        },
+        "parts": {
+          "sourceExpected": 4,
+          "embedded": 4,
+          "supported": true
+        },
+        "shapeNoteheads": {
+          "status": "not-encoded-in-embedded-musicxml",
+          "explicitCount": 0,
+          "values": [],
+          "supported": false,
+          "supportedInVerifiedDerivative": true,
+          "supportedInRawMusicXml": false
+        }
+      },
+      "comparisonStatus": "verified-with-correction-needed",
+      "safeToPromote": false,
+      "blockedReasons": [],
+      "externalSourceEvidence": null,
+      "verifiedSourceComparison": {
+        "comparisonPath": "work/source-transcriptions/2025/563-official-scan-correction-comparison.json",
+        "sourceImagePath": "work/source-pdfs/official-sh25-scans/SH25-SUFFIELD.jpg",
+        "sourceImageSha256": "34b455909517b551201c10759e9d849f8521151f5ce16adf504748133153a6ca",
+        "derivativePath": "work/omr/autonomous-transcriptions/2025/official-scan-corrections/563-corrected.mxl",
+        "derivativeSha256": "d84ddc7914abe49e363a744d1052cd890760f544149e709a84e2976fafe5e3ea",
+        "sourceImageChecksumVerified": true,
+        "candidateChecksumVerified": true,
+        "derivativeChecksumVerified": true,
+        "eventStreamsEqual": true,
+        "sourceStructureVerified": true,
+        "directObservations": {
+          "header": "SUFFIELD",
+          "key": "E minor",
+          "timeSignature": "4/4",
+          "meter": "Common Meter (8,6,8,6)",
+          "parts": 4,
+          "measuresByPart": {
+            "P1": 13,
+            "P2": 13,
+            "P3": 13,
+            "P4": 13
+          },
+          "fourShapeNoteheadsVisible": true,
+          "lyricsVisible": true
+        }
+      },
+      "promotionDisposition": "authoritative-2025-source-retained; correction-needed-before-promotion"
+    },
+    {
+      "queueId": "sh2025/575",
+      "songNo": "575",
+      "title": "Lisbon",
+      "sourceUrl": "https://shapenote.net/musicxml/SH25-LISBON-Chandler.mxl",
+      "sourceEdition": "sh2025",
+      "catalogVariant": "",
+      "catalogSection": "Sacred Harp (2025 Revision)",
+      "catalogLabel": "Lisbon (Henry F. Chandler) (similar to SH1991 pg. 51 My Home (First)) [music: myrweb pdf musicxml myriad ]",
+      "rawPath": "work/shapenote-musicxml/62a2ff0ce19a4466290ee3c0.mxl",
+      "sourceBytes": 2472,
+      "sourceSha256": "004fdb3c6fbc0200cc37df2e433eb2bd12e136d71e0696f6d8b90cf470375df5",
+      "recordSourceMetadata": {
+        "keySignature": "E minor",
+        "meter": "Long Meter Half (8,8)",
+        "timeSignature": "4/4",
+        "composer": "Henry F. Chandler",
+        "sourceUrls": [
+          "https://fasola.org/indexes/2025/?p=575",
+          "https://shapenote.net/musicxml/SH25-LISBON-Chandler.mxl",
+          "https://fasola.org/indexes/1991/?p=467",
+          "https://shapenote.net/musicxml/467.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://sacredharp.com/2025/08/13/verse-key-and-part-changes-in-the-sacred-harp-2025-edition/"
+        ]
+      },
+      "embeddedMusicXml": {
+        "workTitle": "LISBON. L.M.",
+        "creators": [
+          "Henry F. Chandler, 1854"
+        ],
+        "partCount": 3,
+        "measuresByPart": [
+          19,
+          19,
+          19
+        ],
+        "keyDeclarations": [
+          {
+            "fifths": "1",
+            "mode": ""
+          },
+          {
+            "fifths": "1",
+            "mode": ""
+          },
+          {
+            "fifths": "1",
+            "mode": ""
+          }
+        ],
+        "timeDeclarations": [
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          },
+          {
+            "beats": "4",
+            "beatType": "4"
+          }
+        ],
+        "explicitShapeNoteheads": 0,
+        "shapeValues": []
+      },
+      "evidence": {
+        "editionIdentity": "exact-sh25-url",
+        "keyMode": {
+          "source": "E minor",
+          "embeddedFifths": "1",
+          "embeddedMode": "",
+          "supported": false
+        },
+        "meter": {
+          "source": "4/4",
+          "embedded": "4/4",
+          "supported": true
+        },
+        "parts": {
+          "sourceExpected": 3,
+          "embedded": 3,
+          "supported": false
+        },
+        "shapeNoteheads": {
+          "status": "not-encoded-in-embedded-musicxml",
+          "explicitCount": 0,
+          "values": [],
+          "supported": false,
+          "supportedInVerifiedDerivative": true,
+          "supportedInRawMusicXml": false
+        }
+      },
+      "comparisonStatus": "verified-with-correction-needed",
+      "safeToPromote": false,
+      "blockedReasons": [],
+      "externalSourceEvidence": null,
+      "verifiedSourceComparison": {
+        "comparisonPath": "work/source-transcriptions/2025/575-official-scan-correction-comparison.json",
+        "sourceImagePath": "work/source-pdfs/official-sh25-scans/SH25-LISBON.jpg",
+        "sourceImageSha256": "9357456ba2aa60e325ac9690e26b6920a81d65bef6e54f592881675085dc161e",
+        "derivativePath": "work/omr/autonomous-transcriptions/2025/official-scan-corrections/575-corrected.mxl",
+        "derivativeSha256": "53de07000079df05bb036ff058363fdcbf1f06499475e8b8a650f5bcdbb4f0c5",
+        "sourceImageChecksumVerified": true,
+        "candidateChecksumVerified": true,
+        "derivativeChecksumVerified": true,
+        "eventStreamsEqual": true,
+        "sourceStructureVerified": true,
+        "directObservations": {
+          "header": "LISBON",
+          "key": "E minor",
+          "timeSignature": "4/4",
+          "meter": "Long Meter Half (8,8)",
+          "parts": 3,
+          "measuresByPart": {
+            "P1": 19,
+            "P2": 19,
+            "P3": 19
+          },
+          "fourShapeNoteheadsVisible": true,
+          "lyricsVisible": true
+        }
+      },
+      "promotionDisposition": "authoritative-2025-source-retained; correction-needed-before-promotion"
+    }
+  ]
+}

@@ -187,7 +187,7 @@ def main() -> int:
         "inputOmr": {
             "path": "work/shapenote-musicxml/53c8ee986905cbd07c468efd.mxl",
             "sha256": source_hash,
-            "status": "exact-authorized-2025-structured-source",
+            "status": "exact-authorized-2025-structured-source; correction-needed",
         },
         "correctedDraft": {
             "path": "work/omr/autonomous-transcriptions/2025/55-autonomous-verified.mxl",
@@ -213,9 +213,9 @@ def main() -> int:
             "lyrics": "Lyrics are omitted from the raw MXL and are not present in the inspected official source PDF; no lyric alignment is fabricated.",
             "rawSourceCompleteness": "The raw exact SH25 MXL omits mode, four-shape noteheads, and lyrics; the corrected derivative supplies only source-supported mode and shape encoding.",
         },
-        "promotionDisposition": "authoritative-2025-source-promoted; shape-complete-derivative-delivered",
-        "nextAction": "promoted-to-corpus; no-human-review-required",
-        "policy": "The exact 2025 source score remains authoritative for source events. Direct comparison against the immutable source scan verifies the event stream, source-supported A-major mode, four-part structure, meter, and four-shape derivative encoding; this decisive source-faithful comparison authorizes automatic promotion.",
+        "promotionDisposition": "authoritative-2025-source-retained; correction-needed-before-promotion",
+        "nextAction": "autonomous-correction-needed; no-human-review-handoff",
+        "policy": "The exact 2025 source score remains authoritative for source events. Direct comparison verifies the event stream, source-supported A-major mode, four-part structure, meter, and four-shape derivative encoding, but the raw witness omits source-visible lyrics and mode/shape declarations; the derivative is retained as correction work and cannot authorize corpus promotion until those fields are complete and validated.",
         "generatedAt": datetime.now(timezone.utc).isoformat(),
     }
     COMPARISON.parent.mkdir(parents=True, exist_ok=True)

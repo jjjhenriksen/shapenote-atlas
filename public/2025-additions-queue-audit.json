@@ -1,0 +1,232 @@
+{
+  "generatedAt": "2026-08-29T00:48:27.754448+00:00",
+  "status": "valid",
+  "edition": "sh2025",
+  "sourceOfTruth": {
+    "additions": "public/edition-2025-additions.json",
+    "corpus": "public/corpus.json",
+    "transcriptionQueue": "public/transcription-queue.json",
+    "humanReviewQueue": "public/human-review-queue.json",
+    "imageReviewQueue": "public/image-review-queue.json",
+    "sourceComparisonLedger": "public/source-comparison-ledger.json"
+  },
+  "precedenceRules": [
+    "exact-structured-score is the primary surface when scoreByBook.sh2025 exists",
+    "alternate-reference-score is primary only when an exact 2025 score is absent",
+    "review-only-draft is primary only when exact and reference scores are absent",
+    "source observations and clean candidates are auxiliary evidence, never authoritative notation",
+    "transcription queue includes every 2025 record whose coverage status is not structured-score",
+    "human review uniquely covers every 2025 draft; duplicate rows require distinct draft artifacts",
+    "source-comparison ledger duplicates require distinct audit files and never authorize promotion"
+  ],
+  "summary": {
+    "corpus2025Records": 590,
+    "additions": 113,
+    "transcriptionQueueRecords": 565,
+    "structuredScoreRecordsExcludedFromTranscriptionQueue": 25,
+    "draftRecords": 121,
+    "humanReviewRows": 122,
+    "humanReviewUniqueRecords": 121,
+    "imageReviewRecords": 90,
+    "sourceComparisonRows": 180,
+    "sourceComparisonUniqueRecords": 135,
+    "errors": 0
+  },
+  "counts": {
+    "editionStatus": {
+      "added-in-2025": 113,
+      "not-new-in-2025": 477
+    },
+    "primarySurface": {
+      "alternate-reference-score": 475,
+      "exact-structured-score": 25,
+      "review-only-draft": 90
+    },
+    "presencePatterns": {
+      "DI": 64,
+      "DIC": 26,
+      "E": 22,
+      "EC": 2,
+      "EDC": 1,
+      "R": 390,
+      "RC": 55,
+      "RD": 29,
+      "RDC": 1
+    },
+    "additionPresencePatterns": {
+      "DI": 61,
+      "DIC": 26,
+      "E": 22,
+      "EC": 2,
+      "EDC": 1,
+      "RD": 1
+    }
+  },
+  "overlaps": {
+    "humanReviewDuplicateArtifacts": {
+      "sh2025/50t": [
+        "work/omr/50t-devotion/SH25-DEVOTION.mxl",
+        "work/omr/50t-devotion/source.mxl"
+      ]
+    },
+    "sourceComparisonDuplicateAuditFiles": {
+      "sh2025/130": [
+        "work/source-transcriptions/2025/130-old-graveyard-autonomous-comparison.json",
+        "work/source-transcriptions/2025/130-the-old-graveyard-comparison.json"
+      ],
+      "sh2025/140": [
+        "work/source-transcriptions/2025/140-moreno-autonomous-comparison.json",
+        "work/source-transcriptions/2025/140-moreno-comparison.json",
+        "work/source-transcriptions/2025/140-moreno-source-correction-v2-comparison.json"
+      ],
+      "sh2025/161": [
+        "work/source-transcriptions/2025/161-southminster-comparison.json",
+        "work/source-transcriptions/2025/161-southminster-source-correction-v2-comparison.json"
+      ],
+      "sh2025/184": [
+        "work/source-transcriptions/2025/184-and-jesus-crucified-autonomous-comparison.json",
+        "work/source-transcriptions/2025/184-and-jesus-crucified-comparison.json"
+      ],
+      "sh2025/188": [
+        "work/source-transcriptions/2025/188-ephesus-autonomous-comparison.json",
+        "work/source-transcriptions/2025/188-ephesus-comparison.json"
+      ],
+      "sh2025/213b": [
+        "work/source-transcriptions/2025/213b-trembling-spirit-autonomous-comparison.json",
+        "work/source-transcriptions/2025/213b-trembling-spirit-comparison.json",
+        "work/source-transcriptions/2025/213b-trembling-spirit-exact-title-comparison.json",
+        "work/source-transcriptions/2025/213b-trembling-spirit-source-correction-v2-comparison.json"
+      ],
+      "sh2025/223": [
+        "work/source-transcriptions/2025/223-balm-in-gilead-source-correction-v2-comparison.json",
+        "work/source-transcriptions/2025/223-source-shape-autonomous-blocked-comparison.json"
+      ],
+      "sh2025/231": [
+        "work/source-transcriptions/2025/231-seiler-autonomous-comparison.json",
+        "work/source-transcriptions/2025/231-seiler-comparison.json"
+      ],
+      "sh2025/242": [
+        "work/source-transcriptions/2025/242-revere-source-correction-v2-comparison.json",
+        "work/source-transcriptions/2025/242-source-shape-autonomous-blocked-comparison.json"
+      ],
+      "sh2025/243": [
+        "work/source-transcriptions/2025/243-stanton-autonomous-comparison.json",
+        "work/source-transcriptions/2025/243-stanton-comparison.json"
+      ],
+      "sh2025/244": [
+        "work/source-transcriptions/2025/244-plevna-source-correction-v2-comparison.json",
+        "work/source-transcriptions/2025/244-source-shape-autonomous-blocked-comparison.json"
+      ],
+      "sh2025/254": [
+        "work/source-transcriptions/2025/254-warsaw-autonomous-comparison.json",
+        "work/source-transcriptions/2025/254-warsaw-comparison.json"
+      ],
+      "sh2025/255": [
+        "work/source-transcriptions/2025/255-mechanicville-autonomous-comparison.json",
+        "work/source-transcriptions/2025/255-mechanicville-comparison.json"
+      ],
+      "sh2025/256": [
+        "work/source-transcriptions/2025/256-northampton-autonomous-comparison.json",
+        "work/source-transcriptions/2025/256-northampton-comparison.json"
+      ],
+      "sh2025/264": [
+        "work/source-transcriptions/2025/264-night-song-source-correction-v2-comparison.json",
+        "work/source-transcriptions/2025/264-source-shape-autonomous-blocked-comparison.json"
+      ],
+      "sh2025/322": [
+        "work/source-transcriptions/2025/322-mans-redemption-source-correction-v2-comparison.json",
+        "work/source-transcriptions/2025/322-source-shape-autonomous-blocked-comparison.json"
+      ],
+      "sh2025/366": [
+        "work/source-transcriptions/2025/366-bremen-autonomous-comparison.json",
+        "work/source-transcriptions/2025/366-bremen-comparison.json",
+        "work/source-transcriptions/2025/366-bremen-source-correction-v2-comparison.json"
+      ],
+      "sh2025/367": [
+        "work/source-transcriptions/2025/367-nassau-autonomous-comparison.json",
+        "work/source-transcriptions/2025/367-nassau-comparison.json",
+        "work/source-transcriptions/2025/367-nassau-source-correction-v2-comparison.json"
+      ],
+      "sh2025/381": [
+        "work/source-transcriptions/2025/381-wells-second-comparison.json",
+        "work/source-transcriptions/2025/381-wells-second-rising-sun-comparison.json",
+        "work/source-transcriptions/2025/381-wells-second-source-correction-v2-comparison.json"
+      ],
+      "sh2025/393": [
+        "work/source-transcriptions/2025/393-rebekah-source-correction-v2-comparison.json",
+        "work/source-transcriptions/2025/393-source-shape-autonomous-blocked-comparison.json"
+      ],
+      "sh2025/395": [
+        "work/source-transcriptions/2025/395-source-shape-autonomous-blocked-comparison.json",
+        "work/source-transcriptions/2025/395-unrath-source-correction-v2-comparison.json"
+      ],
+      "sh2025/409": [
+        "work/source-transcriptions/2025/409-exeter-source-correction-v2-comparison.json",
+        "work/source-transcriptions/2025/409-source-shape-autonomous-blocked-comparison.json"
+      ],
+      "sh2025/41": [
+        "work/source-transcriptions/2025/41-evening-hymn-autonomous-comparison.json",
+        "work/source-transcriptions/2025/41-official-scan-correction-comparison.json"
+      ],
+      "sh2025/413": [
+        "work/source-transcriptions/2025/413-buffam-falls-source-correction-v2-comparison.json",
+        "work/source-transcriptions/2025/413-source-shape-autonomous-blocked-comparison.json"
+      ],
+      "sh2025/414t": [
+        "work/source-transcriptions/2025/414t-farewell-brethren-source-correction-v2-comparison.json",
+        "work/source-transcriptions/2025/414t-source-shape-autonomous-blocked-comparison.json"
+      ],
+      "sh2025/420t": [
+        "work/source-transcriptions/2025/420t-source-shape-autonomous-blocked-comparison.json",
+        "work/source-transcriptions/2025/420t-tides-of-love-source-correction-v2-comparison.json"
+      ],
+      "sh2025/423b": [
+        "work/source-transcriptions/2025/423b-hall-source-correction-v2-comparison.json",
+        "work/source-transcriptions/2025/423b-source-shape-autonomous-blocked-comparison.json"
+      ],
+      "sh2025/429": [
+        "work/source-transcriptions/2025/429-red-sands-source-correction-v2-comparison.json",
+        "work/source-transcriptions/2025/429-source-shape-autonomous-blocked-comparison.json"
+      ],
+      "sh2025/459": [
+        "work/source-transcriptions/2025/459-hurricane-creek-autonomous-comparison.json",
+        "work/source-transcriptions/2025/459-hurricane-creek-comparison.json"
+      ],
+      "sh2025/463": [
+        "work/source-transcriptions/2025/463-morel-autonomous-comparison.json",
+        "work/source-transcriptions/2025/463-morel-comparison.json"
+      ],
+      "sh2025/476": [
+        "work/source-transcriptions/2025/476-eternal-ages-easton-comparison.json",
+        "work/source-transcriptions/2025/476-eternal-ages-halebourne-comparison.json",
+        "work/source-transcriptions/2025/476-source-shape-autonomous-blocked-comparison.json"
+      ],
+      "sh2025/502": [
+        "work/source-transcriptions/2025/502-new-york-comparison.json",
+        "work/source-transcriptions/2025/502-new-york-dearborn-comparison.json"
+      ],
+      "sh2025/507": [
+        "work/source-transcriptions/2025/507-source-shape-autonomous-blocked-comparison.json",
+        "work/source-transcriptions/2025/507-woodlands-steele-comparison.json",
+        "work/source-transcriptions/2025/507-woodlands-wallace-comparison.json"
+      ],
+      "sh2025/526": [
+        "work/source-transcriptions/2025/526-schwab-autonomous-comparison.json",
+        "work/source-transcriptions/2025/526-schwab-comparison.json"
+      ],
+      "sh2025/539": [
+        "work/source-transcriptions/2025/539-simena-comparison.json",
+        "work/source-transcriptions/2025/539-source-shape-autonomous-blocked-comparison.json"
+      ],
+      "sh2025/571": [
+        "work/source-transcriptions/2025/571-hamrick-autonomous-comparison.json",
+        "work/source-transcriptions/2025/571-hamrick-comparison.json"
+      ],
+      "sh2025/81b": [
+        "work/source-transcriptions/2025/81b-windlesham-autonomous-comparison.json",
+        "work/source-transcriptions/2025/81b-windlesham-comparison.json"
+      ]
+    }
+  },
+  "errors": []
+}

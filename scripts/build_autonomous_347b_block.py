@@ -59,6 +59,19 @@ def build() -> tuple[bytes, dict[str, object]]:
         counts: dict[str, int] = {}
         for part in parts:
             counts[part.attrib.get("id", "")] = len(direct(part, "measure"))
+            for measure in direct(part, "measure"):
+                attributes = first(measure, "attributes")
+                if attributes is None:
+                    attributes = ET.Element("attributes")
+                    measure.insert(0, attributes)
+                key = first(attributes, "key")
+                if key is None:
+                    key = ET.Element("key")
+                    attributes.insert(1, key)
+                for old in direct(key, "fifths") + direct(key, "mode"):
+                    key.remove(old)
+                ET.SubElement(key, "fifths").text = "-1"
+                ET.SubElement(key, "mode").text = "major"
             for note in [child for child in part.iter() if local_name(child.tag) == "note"]:
                 pitch = first(note, "pitch")
                 if pitch is None:

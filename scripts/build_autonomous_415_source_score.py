@@ -19,9 +19,8 @@ OUTPUT = ROOT / "work/omr/autonomous-transcriptions/2025/415-autonomous-verified
 COMPARISON = ROOT / "work/source-transcriptions/2025/415-endless-praise-autonomous-comparison.json"
 
 
-# F major is established by the source metadata and the one-flat key
-# signature in the inspected PDF. These values are not inferred from XML
-# fifths alone.
+# D minor is established by the printed SH25 source scan. The one-flat key
+# signature alone is ambiguous, so the mode is never inferred from fifths.
 SHAPES = {
     ("F", 0): "fa",
     ("G", 0): "sol",
@@ -83,7 +82,7 @@ def correct_score() -> tuple[bytes, dict[str, object]]:
                 alter = int((alter_node.text or "0").strip()) if alter_node is not None else 0
                 shape = SHAPES.get((step, alter))
                 if shape is None:
-                    raise ValueError(f"unsupported F-major source pitch: {step}{alter:+d}")
+                    raise ValueError(f"unsupported D-minor source pitch: {step}{alter:+d}")
                 pitched_events += 1
                 shape_counts[shape] = shape_counts.get(shape, 0) + 1
                 for old in direct(note, "notehead"):
@@ -107,15 +106,15 @@ def correct_score() -> tuple[bytes, dict[str, object]]:
             identification = ET.Element("identification")
             root.insert(0, identification)
         add_field(identification, "atlas-queue-id", "sh2025/415")
-        add_field(identification, "atlas-transcription-status", "autonomously-verified-source-score")
+        add_field(identification, "atlas-transcription-status", "verified-with-correction-needed")
         add_field(identification, "atlas-safe-to-promote", "false")
         add_field(identification, "atlas-source-pdf", "work/source-pdfs/SH25-ENDLESS-PRAISE.pdf")
         add_field(identification, "atlas-source-pdf-sha256", sha256(SOURCE_PDF))
         add_field(identification, "atlas-source-render-sha256", sha256(SOURCE_RENDER))
-        add_field(identification, "atlas-source-key", "F major")
+        add_field(identification, "atlas-source-key", "D minor")
         add_field(identification, "atlas-source-meter", "Common Meter (8,6,8,6)")
         add_field(identification, "atlas-source-time-signature", "4/4")
-        add_field(identification, "atlas-shape-encoding", "four-shape noteheads transcribed from the visible SH25 source PDF after source metadata established F major")
+        add_field(identification, "atlas-shape-encoding", "four-shape noteheads transcribed from the visible SH25 source scan after the printed source established D minor")
         add_field(identification, "atlas-lyrics", "lyrics omitted; source-visible notation remains usable")
         add_field(identification, "atlas-provenance", "exact 2025 source score from shapenote.net/musicxml/SH25-ENDLESS-PRAISE.mxl; original retained separately")
         return ET.tostring(root, encoding="utf-8", xml_declaration=True), {
@@ -143,8 +142,8 @@ def main() -> int:
         "edition": "Sacred Harp, 2025 Edition",
         "songNo": "415",
         "title": "Endless Praise",
-        "comparisonStatus": "autonomously-verified-source-score",
-        "autonomousDecision": "verified",
+        "comparisonStatus": "verified-with-correction-needed",
+        "autonomousDecision": "verified-with-correction-needed",
         "safeToPromote": False,
         "humanReviewRequired": False,
         "sourceAuthority": {
@@ -160,7 +159,7 @@ def main() -> int:
             "directObservations": {
                 "header": "ENDLESS PRAISE. C.M.",
                 "composer": "J.D. Wall 1935",
-                "key": "F major (one-flat key signature in the source PDF; edition metadata agrees)",
+                "key": "D minor (one-flat key signature; mode read directly from the printed SH25 source scan)",
                 "timeSignature": "4/4",
                 "meter": "Common Meter (8,6,8,6)",
                 "parts": 4,
@@ -173,6 +172,11 @@ def main() -> int:
             "candidateMusicXmlSha256": source_hash,
             "candidateMusicXmlIsOmrDerivative": False,
             "candidateRole": "exact 2025 structured source named by the repository score manifest",
+            "rawSourceCompleteness": {
+                "mode": "omitted-in-raw-MusicXML",
+                "shapeNoteheads": "omitted-in-raw-MusicXML",
+                "lyrics": "omitted-in-raw-MusicXML",
+            },
             "sourceManifest": {
                 "sourceUrl": "https://shapenote.net/musicxml/SH25-ENDLESS-PRAISE.mxl",
                 "rawPath": "work/shapenote-musicxml/2eb61146c1b9bb3bc35d6bd8.mxl",
@@ -189,7 +193,7 @@ def main() -> int:
             "path": "work/omr/autonomous-transcriptions/2025/415-autonomous-verified.mxl",
             "sha256": output_hash,
             "summary": summary,
-            "corrections": ["complete four-shape notehead tags", "explicit F-major mode", "fail-closed provenance fields"],
+            "corrections": ["complete four-shape notehead tags", "explicit D-minor mode", "fail-closed provenance fields"],
         },
         "comparisonEvidence": {
             "sourceScanInspected": True,
@@ -199,18 +203,19 @@ def main() -> int:
                 "work/omr/autonomous-transcriptions/2025/415-autonomous-verified.mxl",
             ],
             "method": "direct visual inspection of the immutable official SH25 PDF render, plus exact MusicXML structure and event-stream comparison",
-            "visualAgreement": "The source PDF shows one four-part score in 4/4 with 17 measures per part, a one-flat F-major key signature, and visible geometric four-shape noteheads. The exact MXL matches the source title, composer, part count, measure count, meter, pitch placement, and rhythm placement; its event stream is unchanged in the derivative.",
+            "visualAgreement": "The source scan shows one four-part score in 4/4 with 17 measures per part, a one-flat D-minor key signature, and visible geometric four-shape noteheads. The exact MXL matches the source title, composer, part count, measure count, meter, pitch placement, and rhythm placement; its event stream is unchanged in the derivative.",
             "eventStreamEqual": True,
             "blockingFindings": [],
         },
         "directSourceEvidence": {
             "sourceScore": "The exact SH25-ENDLESS-PRAISE MXL is listed under the Sacred Harp (2025 Revision) catalog section and its retained checksum is recorded in the manifest.",
-            "shapeComparison": "The official source PDF visibly uses four geometric notehead forms; all 209 pitched events in the exact source MXL receive the corresponding F-major four-shape value in the derivative.",
-            "lyrics": "Lyrics are not required for usable notation here and are omitted without fabrication.",
+            "shapeComparison": "The official source scan visibly uses four geometric notehead forms; all 209 pitched events in the exact source MXL receive the corresponding D-minor four-shape value in the derivative.",
+            "lyrics": "Lyrics are omitted from the raw MXL and are not present in the inspected official source PDF; no lyric alignment is fabricated.",
+            "rawSourceCompleteness": "The raw exact SH25 MXL omits mode, four-shape noteheads, and lyrics; the corrected derivative supplies only source-supported mode and shape encoding.",
         },
-        "promotionDisposition": "authoritative-2025-source-retained; shape-complete-derivative-delivered-without-corpus-promotion",
-        "nextAction": "retain-authoritative-source-score; no-human-review-or-promotion-required",
-        "policy": "The exact 2025 source score remains authoritative. This derivative adds source-supported shape and mode encoding without changing pitch, rhythm, part structure, or source content; safeToPromote remains false because comparison records never self-authorize corpus promotion.",
+        "promotionDisposition": "corrected-derivative-retained; raw-source-not-exact; no-corpus-promotion",
+        "nextAction": "retain-authoritative-source-score-and-corrected-derivative; no-human-handoff-or-promotion",
+        "policy": "The exact 2025 source score remains authoritative for source events, but the raw MXL omits mode, four-shape noteheads, and lyrics. The corrected derivative is verified against the source PDF; safeToPromote remains false because the verdict is verified-with-correction-needed, not exact.",
         "generatedAt": datetime.now(timezone.utc).isoformat(),
     }
     COMPARISON.parent.mkdir(parents=True, exist_ok=True)

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shape-Note Atlas audio harness</title>
+    <style>
+      body { margin: 0; padding: 18px; background: #111; color: #eee; font: 14px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace; }
+      p { max-width: 72rem; }
+      pre { white-space: pre-wrap; overflow-wrap: anywhere; padding: 12px; border: 1px solid #555; background: #1d1d1d; }
+      #root { margin-top: 18px; }
+    </style>
+  </head>
+  <body>
+    <h1>Audio instrumentation harness</h1>
+    <p>This page loads the production app with an opt-in Web Audio wrapper. It records oscillator frequencies, start/stop times, and audio-context errors for browser smoke tests; it is not part of the dashboard UI.</p>
+    <pre id="audio-trace" aria-live="polite">Waiting for audio…</pre>
+    <div id="root"></div>
+    <script type="module">
+      const NativeAudioContext = window.AudioContext || window.webkitAudioContext;
+      const sessions = [];
+      const trace = { sessions };
+      window.__ATLAS_AUDIO_TRACE__ = trace;
+
+      function recordError(session, error) {
+        session.errors.push(String(error?.stack || error));
+      }
+
+      if (NativeAudioContext) {
+        class TracedAudioContext extends NativeAudioContext {
+          constructor(...args) {
+            super(...args);
+            this.__atlasSession = { stateAtStart: this.state, frequencies: [], starts: [], stops: [], errors: [] };
+            sessions.push(this.__atlasSession);
+          }
+
+          createOscillator() {
+            const oscillator = super.createOscillator();
+            const session = this.__atlasSession;
+            return new Proxy(oscillator, {
+              get(target, property, receiver) {
+                if (property === "frequency") {
+                  const parameter = Reflect.get(target, property, target);
+                  return {
+                    get value() { return parameter.value; },
+                    set value(value) {
+                      session.frequencies.push(Number(value));
+                      try { parameter.value = value; } catch (error) { recordError(session, error); throw error; }
+                    },
+                  };
+                }
+                if (property === "start" || property === "stop") {
+                  return (...values) => {
+                    try {
+                      session[property === "start" ? "starts" : "stops"].push(Number(values[0]));
+                      return target[property](...values);
+                    } catch (error) {
+                      recordError(session, error);
+                      throw error;
+                    }
+                  };
+                }
+                const value = Reflect.get(target, property, target);
+                return typeof value === "function" ? value.bind(target) : value;
+              },
+              set(target, property, value, receiver) {
+                try { return Reflect.set(target, property, value, target); } catch (error) { recordError(session, error); throw error; }
+              },
+            });
+          }
+        }
+        window.AudioContext = TracedAudioContext;
+        if (window.webkitAudioContext) window.webkitAudioContext = TracedAudioContext;
+      } else {
+        trace.errors = ["AudioContext is unavailable in this browser"];
+      }
+
+      const output = document.querySelector("#audio-trace");
+      window.setInterval(() => {
+        output.textContent = JSON.stringify({
+          contextAvailable: Boolean(NativeAudioContext),
+          sessions: sessions.map((session) => ({
+            stateAtStart: session.stateAtStart,
+            frequencyCount: session.frequencies.length,
+            frequencies: session.frequencies,
+            startCount: session.starts.length,
+            stopCount: session.stops.length,
+            errors: session.errors,
+          })),
+          errors: trace.errors || [],
+        }, null, 2);
+      }, 50);
+
+      const app = document.createElement("script");
+      app.type = "module";
+      app.src = "/src/main.jsx";
+      document.head.append(app);
+    </script>
+  </body>
+</html>

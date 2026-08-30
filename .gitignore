@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.build/
+work/
+work-shapenote-music.htm
+
+# Machine-local Codex/browser state and captured QA output.
+.codex/
+.playwright-cli/
+.DS_Store
+outputs/
+__pycache__/
+*.py[cod]

@@ -552,3 +552,11 @@
 - Validation performed: The source-comparison ledger rebuilt with 86 records, 41 autonomous blocks, 13 corrected-source records, 0 errors, and 0 safe promotions; candidate reconciliation remained 94 blocked candidates. Playback validation passed with 1,283 playable assets, and MuseScore rendered the two-page derivative.
 - Commit: Block O’Leary’s incomplete 3/4 event stream (this cycle).
 - Remaining opportunities/blockers: Continue autonomous comparison on the next strongest disjoint page; promote only if every event in a candidate is directly source-supported.
+
+## Cycle 70 — Block Martin’s conflicting 6/4 source stream
+
+- Problem identified: Martin (452b) had a legible F-major 6/4 source scan with four parts and seven source-aligned measures, but retained OMR recorded 3/4, omitted key/mode metadata, and contained 19 cursor-time failures plus multiple blank source-visible groups.
+- Change made: Created a provenance-bearing derivative preserving the retained four-part structure, 35 detected pitched events, source F-major key/mode and 6/4 meter, and 35 derived four-shape noteheads. Lyrics remain optional and were omitted because the notation remains usable without fabricated underlay. Watermark overlap is limited to the intersected middle-system events.
+- Validation performed: The source-comparison ledger rebuilt with 87 records, 42 autonomous blocks, 13 corrected-source records, 0 errors, and 0 safe promotions; candidate reconciliation remained 94 blocked candidates. Playback validation passed with 1,283 playable assets, and MuseScore rendered the two-page derivative.
+- Commit: Block Martin’s conflicting 6/4 source stream (this cycle).
+- Remaining opportunities/blockers: Continue autonomous comparison on the next strongest disjoint page; no event stream with a source/OMR meter conflict is promoted.

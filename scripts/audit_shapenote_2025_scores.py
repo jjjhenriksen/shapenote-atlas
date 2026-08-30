@@ -30,6 +30,10 @@ OUTPUT = ROOT / "public/shapenote-2025-score-audit.json"
 EXISTING_50T_COMPARISON = ROOT / "work/source-transcriptions/2025/50t-devotion-autonomous-comparison.json"
 EXISTING_55_COMPARISON = ROOT / "work/source-transcriptions/2025/55-converse-autonomous-comparison.json"
 EXISTING_415_COMPARISON = ROOT / "work/source-transcriptions/2025/415-endless-praise-autonomous-comparison.json"
+OFFICIAL_SCAN_COMPARISONS = {
+    song_no: ROOT / f"work/source-transcriptions/2025/{song_no}-official-scan-correction-comparison.json"
+    for song_no in ("41", "118", "169", "525", "537", "544", "545", "557", "563", "575")
+}
 
 FIFTHS = {
     "C": 0,
@@ -329,12 +333,59 @@ def main() -> int:
                     "eventStreamsEqual": events_equal,
                     "directObservations": direct_scan,
                 }
-                if source_pdf_ok and source_render_ok and candidate_ok and derivative_ok and events_equal and direct_scan.get("key", "").startswith("F major") and direct_scan.get("timeSignature") == "4/4" and direct_scan.get("fourShapeNoteheadsVisible") is True:
+                if source_pdf_ok and source_render_ok and candidate_ok and derivative_ok and events_equal and direct_scan.get("key", "").startswith(("F major", "D minor")) and direct_scan.get("timeSignature") == "4/4" and direct_scan.get("fourShapeNoteheadsVisible") is True:
                     reasons = []
                 else:
                     reasons.append("existing 415 source/shape comparison does not meet its checksum, event-stream, or direct-scan checks")
             except (OSError, KeyError, TypeError, ValueError, json.JSONDecodeError, zipfile.BadZipFile, ET.ParseError) as exc:
                 reasons.append(f"existing 415 verified-source comparison could not be reconciled: {exc}")
+        elif song_no in OFFICIAL_SCAN_COMPARISONS:
+            comparison_path = OFFICIAL_SCAN_COMPARISONS[song_no]
+            try:
+                comparison = json.loads(comparison_path.read_text(encoding="utf-8"))
+                source_authority = comparison["sourceAuthority"]
+                direct_scan = source_authority["directObservations"]
+                source_image = ROOT / source_authority["sourceImagePath"]
+                derivative = ROOT / comparison["correctedDraft"]["path"]
+                source_image_ok = (
+                    source_image.is_file()
+                    and sha256(source_image) == source_authority["sourceImageSha256"]
+                    and source_authority.get("immutable") is True
+                )
+                candidate_ok = path.is_file() and sha256(path) == comparison["candidateWitness"]["candidateMusicXmlSha256"]
+                derivative_ok = derivative.is_file() and sha256(derivative) == comparison["correctedDraft"]["sha256"]
+                events_equal = path.is_file() and derivative.is_file() and event_signature(path) == event_signature(derivative)
+                observed_parts = int(direct_scan["parts"])
+                observed_measures = list(direct_scan["measuresByPart"].values())
+                source_structure_ok = (
+                    embedded.get("partCount") == observed_parts
+                    and embedded.get("measuresByPart") == observed_measures
+                )
+                direct_ok = (
+                    direct_scan.get("key") == source_key
+                    and direct_scan.get("timeSignature") == source_time
+                    and direct_scan.get("fourShapeNoteheadsVisible") is True
+                    and source_structure_ok
+                )
+                existing_verified_source = {
+                    "comparisonPath": str(comparison_path.relative_to(ROOT)),
+                    "sourceImagePath": str(source_image.relative_to(ROOT)),
+                    "sourceImageSha256": source_authority["sourceImageSha256"],
+                    "derivativePath": str(derivative.relative_to(ROOT)),
+                    "derivativeSha256": comparison["correctedDraft"]["sha256"],
+                    "sourceImageChecksumVerified": source_image_ok,
+                    "candidateChecksumVerified": candidate_ok,
+                    "derivativeChecksumVerified": derivative_ok,
+                    "eventStreamsEqual": events_equal,
+                    "sourceStructureVerified": source_structure_ok,
+                    "directObservations": direct_scan,
+                }
+                if source_image_ok and candidate_ok and derivative_ok and events_equal and direct_ok:
+                    reasons = []
+                else:
+                    reasons.append("official SH25 scan correction does not meet its checksum, event-stream, source-structure, or direct-observation checks")
+            except (OSError, KeyError, TypeError, ValueError, json.JSONDecodeError, zipfile.BadZipFile, ET.ParseError) as exc:
+                reasons.append(f"official SH25 scan correction could not be reconciled: {exc}")
 
         shape_status = "explicit-four-shape-noteheads" if embedded.get("explicitShapeNoteheads") else "not-encoded-in-embedded-musicxml"
         exact_structural = exact_2025_url(source_url) and not any(
@@ -342,8 +393,31 @@ def main() -> int:
             for reason in reasons
         )
         safe = bool(exact_structural and embedded.get("explicitShapeNoteheads"))
-        verified_existing_source = queue_id in {"sh2025/50t", "sh2025/55", "sh2025/415"} and not reasons and bool(existing_verified_source)
-        status = "verified-with-correction-needed" if verified_existing_source else "autonomously-blocked"
+        verified_existing_source = (
+            (queue_id in {"sh2025/50t", "sh2025/55", "sh2025/415"} or song_no in OFFICIAL_SCAN_COMPARISONS)
+            and not reasons
+            and bool(existing_verified_source)
+        )
+        status = "verified-with-correction-needed" if verified_existing_source else "external-source-blocked"
+        external_source_evidence = None
+        if status == "external-source-blocked":
+            source_urls = list(dict.fromkeys(
+                url
+                for url in [source_url, *(source_metadata.get("sourceUrls", []) or [])]
+                if url
+            ))
+            external_source_evidence = {
+                "status": "external-source-blocked",
+                "reason": (
+                    f"The SH2025 catalog entry for {queue_id} is an alternate source witness; "
+                    "the checked material does not establish an edition-matched, source-visible "
+                    "correction suitable for promotion."
+                ),
+                "missingEvidence": [
+                    "An edition-matched SH2025 source-visible comparison that verifies the complete notation identity and supports promotion."
+                ],
+                "sourceUrls": source_urls,
+            }
         records.append({
             "queueId": queue_id,
             "songNo": song_no,
@@ -392,6 +466,7 @@ def main() -> int:
             "comparisonStatus": status,
             "safeToPromote": safe,
             "blockedReasons": reasons,
+            "externalSourceEvidence": external_source_evidence,
         })
         if existing_verified_source:
             records[-1]["verifiedSourceComparison"] = existing_verified_source
@@ -419,6 +494,10 @@ def main() -> int:
                 }
                 records[-1]["evidence"]["shapeNoteheads"]["supportedInVerifiedDerivative"] = True
                 records[-1]["evidence"]["shapeNoteheads"]["supportedInRawMusicXml"] = False
+            else:
+                records[-1]["evidence"]["shapeNoteheads"]["supportedInVerifiedDerivative"] = True
+                records[-1]["evidence"]["shapeNoteheads"]["supportedInRawMusicXml"] = bool(embedded.get("explicitShapeNoteheads"))
+                records[-1]["evidence"]["parts"]["sourceExpected"] = existing_verified_source.get("directObservations", {}).get("parts", 4)
 
     if len(entries) != 26:
         errors.append(f"expected 26 sh2025 MusicXML links, found {len(entries)}")
@@ -432,7 +511,7 @@ def main() -> int:
         status_counts[status] = status_counts.get(status, 0) + 1
     payload = {
         "generatedAt": datetime.now(timezone.utc).isoformat(),
-        "version": 1,
+        "version": 2,
         "edition": "sh2025",
         "catalogSection": "Sacred Harp (2025 Revision)",
     "policy": "Only exact SH25 MusicXML with four-part structure, source-supported key/mode/meter, and either explicit four-shape noteheads or a verified direct source comparison that preserves the event stream is safe to promote. Alternate witnesses and unresolved conventional-staff files remain blocked references.",

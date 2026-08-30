@@ -23,6 +23,7 @@ function Icon({ name, size = 18 }) {
     stop: <rect x="6" y="6" width="12" height="12" rx="1" fill="currentColor" stroke="none" />,
     arrowDown: <><path d="M12 4v15M6 13l6 6 6-6" /></>,
     arrowUp: <><path d="M12 20V5M6 11l6-6 6 6" /></>,
+    download: <><path d="M12 4v11M7 11l5 5 5-5" /><path d="M5 20h14" /></>,
     check: <path d="m5 12 4 4L19 6" />,
     info: <><circle cx="12" cy="12" r="9" /><path d="M12 10v6M12 7.5h.01" strokeWidth="2.2" /></>,
     external: <><path d="M14 5h5v5M19 5l-8 8" /><path d="M18 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" /></>,
@@ -167,8 +168,63 @@ function keyContext(score, metadata, enteredKey = "") {
 function keyEvidenceLabel(evidence, keyName, reference = false) {
   if (!keyName || evidence?.status === "unknown") return "Key unavailable";
   if (evidence?.status === "omr-detected") return `OMR-detected key: ${keyName}`;
+  if (evidence?.status === "source-observed") return `Source-observed key: ${keyName}`;
   if (evidence?.status === "entered") return `Entered source key: ${keyName}`;
   return `${reference ? "Source-verified witness key" : "Source-verified key"}: ${keyName}`;
+}
+
+function isRejectedReviewItem(item) {
+  return item?.status === "rejected" || item?.status === "rejected-source-mismatch";
+}
+
+function reviewDisposition(item, ambiguous = false) {
+  if (ambiguous) {
+    return {
+      label: "Ambiguous evidence",
+      badge: "Ambiguous",
+      badgeClass: "ambiguous-evidence",
+      heading: "Multiple evidence records need reconciliation",
+      summary: "More than one review record is attached to this tune, so the dashboard will not treat its draft as promotion-safe.",
+    };
+  }
+  const status = item?.status || "";
+  if (isRejectedReviewItem(item)) {
+    return {
+      label: "Rejected source mismatch",
+      badge: "Rejected",
+      badgeClass: "rejected-source-mismatch",
+      heading: "Candidate rejected for source mismatch",
+      summary: "Autonomous comparison found that the retained candidate does not establish this edition’s tune.",
+    };
+  }
+  if (status === "autonomously-blocked") {
+    return {
+      label: "Autonomously blocked",
+      badge: "Blocked",
+      badgeClass: "autonomously-blocked",
+      heading: "Transcription blocked by source evidence",
+      summary: "Autonomous comparison found unresolved source evidence, so this draft remains isolated and is not promoted.",
+    };
+  }
+  return {
+    label: "Review only",
+    badge: "Review only",
+    badgeClass: "review-only",
+    heading: "Four-shape MusicXML is ready for review",
+    summary: "This draft is downloadable for checking against the untouched page, but it is not authoritative notation.",
+  };
+}
+
+function reviewQueueItems(queue, song, bookId) {
+  return (queue?.reviewNow || []).filter((item) => item.queueId === `${bookId}/${song?.songNo || ""}`);
+}
+
+function reviewQueueItem(queue, song, bookId) {
+  return reviewQueueItems(queue, song, bookId)[0];
+}
+
+function reviewQueueIsAmbiguous(queue, song, bookId) {
+  return reviewQueueItems(queue, song, bookId).length > 1;
 }
 
 function tonicStepFromKey(key) {
@@ -291,23 +347,74 @@ function SourceNotation({ song, bookId }) {
   useEffect(() => setImageFailed(false), [song?.id, imageUrl]);
   if (!pdfUrl && !imageUrl && !pageUrl) return null;
   if (imageUrl && !imageFailed) return <div className="source-notation" data-image-url={imageUrl}><div className="source-notation-head"><span className="section-label">Source scan</span><span>Page image · not transposable</span></div><img src={imageUrl} alt={`${song.songNo} ${song.title} source notation`} loading="lazy" referrerPolicy="no-referrer" onError={() => setImageFailed(true)} /><a href={pageUrl || imageUrl} target="_blank" rel="noreferrer noopener">Open the authoritative source page <Icon name="external" size={16} /></a></div>;
-  if (pdfUrl) return <div className="source-notation"><div className="source-notation-head"><span className="section-label">Source notation</span><span>PDF scan · not transposable</span></div><iframe title={`${song.songNo} ${song.title} source notation`} src={pdfUrl} loading="lazy" /><a href={pdfUrl} target="_blank" rel="noreferrer noopener">Open the source PDF <Icon name="external" size={16} /></a></div>;
-  return <div className="source-notation source-notation-link" data-image-url={imageUrl}><div><span className="section-label">Source notation</span><h3>Notation is available on the authoritative source page</h3><p>This book publishes the page scan and recordings there; this atlas does not redraw it or invent a transposable score.</p></div><a href={pageUrl} target="_blank" rel="noreferrer noopener">Open source page <Icon name="external" size={16} /></a></div>;
+  if (pdfUrl && !imageUrl) return <div className="source-notation"><div className="source-notation-head"><span className="section-label">Source notation</span><span>PDF scan · not transposable</span></div><iframe title={`${song.songNo} ${song.title} source notation`} src={pdfUrl} loading="lazy" /><a href={pdfUrl} target="_blank" rel="noreferrer noopener">Open the source PDF <Icon name="external" size={16} /></a></div>;
+  return <div className="source-notation source-notation-link" data-image-url={imageUrl}><div><span className="section-label">Source notation</span><h3>Notation is available on the authoritative source page</h3><p>This book publishes the page scan and recordings there; this atlas does not redraw it or invent a transposable score.</p></div><a href={pageUrl || imageUrl} target="_blank" rel="noreferrer noopener">Open source page <Icon name="external" size={16} /></a></div>;
 }
 
 function SourceRecording({ song, coverage }) {
   const tracks = coverage?.recordingTracks || [];
   const fullTrack = tracks.find((track) => track.isFullSong) || tracks.find((track) => /all\s*4\s*parts/i.test(track.title || ""));
+  const [audioFailed, setAudioFailed] = useState(false);
+  useEffect(() => setAudioFailed(false), [song?.id, fullTrack?.url]);
   if (!fullTrack?.url) return null;
   const debutRecording = fullTrack.kind === "full-song-source-witness";
   const linkedTracks = tracks.filter((track) => track.url !== fullTrack.url);
   const sourcePages = coverage?.recordingSourcePages || [];
   return <div className="source-recording">
     <div className="source-notation-head"><span className="section-label">Reference audio</span><span>{debutRecording ? "Source witness · does not drive rendering" : "Four parts · does not drive rendering"}</span></div>
-    <audio controls preload="none" src={fullTrack.url} aria-label={`${song.songNo} ${song.title} source recording`} />
+    <audio controls preload="none" src={fullTrack.url} aria-label={`${song.songNo} ${song.title} source recording`} onError={() => setAudioFailed(true)} />
+    {audioFailed && <p className="source-recording-fallback" role="alert">Reference audio could not be loaded here. Use the preserved recording source links below.</p>}
     {debutRecording && <p className="source-recording-note">Recorded at the official 2025 debut singing. This is source audio only; it does not create or validate transposable notation.</p>}
     <div className="source-recording-links">{linkedTracks.map((track) => <a key={track.url} href={track.url} target="_blank" rel="noreferrer noopener">{track.title.replace(/^\d+\s*[-–]\s*/, "")} <Icon name="external" size={13} /></a>)}{sourcePages.filter((url) => /^https:\/\//.test(url)).map((url) => <a key={url} href={url} target="_blank" rel="noreferrer noopener" aria-label={`Open recording source at ${sourceHostLabel(url)}`}>Open recording source <Icon name="external" size={13} /></a>)}</div>
   </div>;
+}
+
+function CleanSourceCandidates({ coverage }) {
+  const candidates = coverage?.cleanSourceCandidates || [];
+  if (!candidates.length) return null;
+  return <div className="clean-source-candidates">
+    <div className="source-notation-head"><span className="section-label">Comparison sources</span><span>Not edition-verified</span></div>
+    <p>Public score candidates are available for note-for-note comparison. They are not used as the book engraving until the edition match is verified. <a href="/candidate-reconciliation.json" target="_blank" rel="noreferrer noopener">Open reconciliation ledger <Icon name="external" size={13} /></a></p>
+    <div className="clean-source-candidate-list">
+      {candidates.map((candidate) => <div className="clean-source-candidate" key={candidate.candidateKey || candidate.pdfUrl}>
+        <div><strong>{candidate.title || "Public score candidate"}</strong><span>{candidate.matchKind === "same_text_key" ? "Text/key match" : "Title and text/key match"}{candidate.compositePdfPage ? ` · extracted source page ${candidate.compositePdfPage}` : ""}</span></div>
+        <a href={candidate.pdfUrl} target="_blank" rel="noreferrer noopener">Open candidate PDF <Icon name="external" size={14} /></a>
+      </div>)}
+    </div>
+  </div>;
+}
+
+function SourceComparisonPanel({ song, bookId, coverage }) {
+  const imageUrl = bookId === "sh2025" ? coverage?.sourceImageUrl || "" : "";
+  const sourceUrl = coverage?.sourceRecordUrl || coverage?.sourceUrls?.[0] || imageUrl;
+  const [imageFailed, setImageFailed] = useState(false);
+  useEffect(() => {
+    setImageFailed(false);
+  }, [song?.id, imageUrl]);
+  if (!imageUrl && !sourceUrl) return null;
+  const bodyId = `source-comparison-body-${bookId}-${String(song.id).replace(/[^a-z0-9_-]+/gi, "-")}`;
+  return <details className="source-comparison-panel">
+    <summary aria-controls={bodyId}><span><span className="section-label">Source comparison</span><strong>Open the untouched page image</strong></span><span className="source-comparison-status">Review aid · not transposable</span></summary>
+    <div className="source-comparison-body" id={bodyId}>
+      <p>Compare this authorized source witness directly against the draft. The original is preserved unchanged; cleaned images are only review aids.</p>
+      {imageUrl && !imageFailed && <img src={imageUrl} alt={`${song.songNo} ${song.title} untouched source page`} referrerPolicy="no-referrer" onError={() => setImageFailed(true)} />}
+      {imageFailed && <p className="source-comparison-fallback">The page image could not be loaded here.</p>}
+      {sourceUrl && <a href={sourceUrl} target="_blank" rel="noreferrer noopener">Open the authoritative source page <Icon name="external" size={14} /></a>}
+    </div>
+  </details>;
+}
+
+function ShapeReviewDraftPanel({ reviewItem, ambiguous = false }) {
+  const shapeReview = reviewItem?.shapeReviewDraft;
+  const draft = shapeReview?.reviewDraft;
+  if (!shapeReview || !draft?.publicPath) return null;
+  const disposition = reviewDisposition(reviewItem, ambiguous);
+  return <section className="shape-review-draft-panel" aria-label="Shape transcription review draft">
+    <div className="shape-review-draft-heading"><div><span className="section-label">Shape transcription draft</span><h3>{disposition.heading}</h3></div><span className={`review-only-badge ${disposition.badgeClass}`}>{disposition.badge}</span></div>
+    <p>{disposition.summary} Derived from the comparison witness and source key; it cannot replace the source engraving.</p>
+    <div className="shape-review-draft-meta"><span><strong>{draft.pitchedEventsRetained}</strong> pitched events</span><span><strong>{draft.sourceKey || "Key not recorded"}</strong>{draft.sourceMode ? ` · ${draft.sourceMode}` : ""}</span><span><strong>{draft.sourceTimeSignature || "Meter not recorded"}</strong></span></div>
+    <div className="shape-review-draft-actions"><a href={`/${draft.publicPath}`} download={`${reviewItem.songNo}-shape-review.mxl`}>Download review MusicXML <Icon name="download" size={14} /></a><a href="/human-review-queue.json" target="_blank" rel="noreferrer noopener">Open review evidence <Icon name="external" size={14} /></a></div>
+  </section>;
 }
 
 function accidentalGlyph(value) {
@@ -321,8 +428,33 @@ function Notehead({ shape, filled, x, y }) {
   return <ellipse cx={x} cy={y} rx="5.2" ry="3.5" transform={`rotate(-18 ${x} ${y})`} className={filled ? "notehead filled" : "notehead"} />;
 }
 
-function ScorePreview({ score, transpose, complete, sourceKey, targetKey, shapeSourceUrl, keyEvidence }) {
+function reviewEventsForPart(part, reviewDraft) {
+  const events = part?.events || [];
+  if (!reviewDraft) return { events, suppressed: 0, collisionGroups: 0 };
+  const pitchedByOnset = new Map();
+  events.forEach((event) => {
+    if (event.rest || !event.step) return;
+    const key = `${event.measure || ""}|${Number(event.onset).toFixed(3)}`;
+    pitchedByOnset.set(key, (pitchedByOnset.get(key) || 0) + 1);
+  });
+  const ambiguous = new Set([...pitchedByOnset.entries()].filter(([, count]) => count > 1).map(([key]) => key));
+  if (!ambiguous.size) return { events, suppressed: 0, collisionGroups: 0 };
+  return {
+    events: events.filter((event) => {
+      if (event.rest || !event.step) return true;
+      const key = `${event.measure || ""}|${Number(event.onset).toFixed(3)}`;
+      return !ambiguous.has(key);
+    }),
+    suppressed: [...pitchedByOnset.values()].filter((count) => count > 1).reduce((total, count) => total + count, 0),
+    collisionGroups: ambiguous.size,
+  };
+}
+
+function ScorePreview({ score, transpose, complete, sourceKey, targetKey, shapeSourceUrl, keyEvidence, sourceTimeSignature, reviewDraft }) {
   const partRows = score?.parts || [];
+  const partReviews = partRows.map((part) => reviewEventsForPart(part, reviewDraft));
+  const reviewSuppressed = partReviews.reduce((total, review) => total + review.suppressed, 0);
+  const reviewCollisionGroups = partReviews.reduce((total, review) => total + review.collisionGroups, 0);
   const timelineEnd = Math.max(...partRows.flatMap((part) => (part.events || []).map((event) => event.onset + event.beats)), 1);
   const scoreWidth = 760;
   const systemHeight = 214;
@@ -352,7 +484,7 @@ function ScorePreview({ score, transpose, complete, sourceKey, targetKey, shapeS
     const preceding = measureStarts.reduce((index, measure, indexValue) => measure.onset <= event.onset ? indexValue : index, 0);
     return Math.min(Math.floor(preceding / measuresPerSystem), systemCount - 1);
   };
-  const noteEvents = partRows.flatMap((part) => part.events || []).filter((event) => !event.rest && event.step);
+  const noteEvents = partReviews.flatMap((review) => review.events).filter((event) => !event.rest && event.step);
   const shapeStats = noteEvents.reduce((stats, event) => {
     const shape = shapeForEvent(event, sourceKey);
     stats[shape.kind] += 1;
@@ -364,6 +496,8 @@ function ScorePreview({ score, transpose, complete, sourceKey, targetKey, shapeS
   const displayedKey = targetKey ? keyLabel(`${targetKey} ${keyMode(sourceKey) || "major"}`) : keyLabel(sourceKey);
   const shapeNote = keyEvidence?.status === "omr-detected"
     ? "Shapes derived from an OMR-detected key; verify the key against the source before promotion."
+    : keyEvidence?.status === "source-observed"
+      ? "Shapes derived from the key observed in the source page; human verification is still required."
     : shapeStats.derived > 0
       ? "Shapes derived from the recorded source key; the linked PDF remains authoritative."
       : shapeStats.source > 0
@@ -375,8 +509,9 @@ function ScorePreview({ score, transpose, complete, sourceKey, targetKey, shapeS
       ? `${measureStarts.length} detected / ${sourceMeasureCount} source measures · draft view`
       : `${measureStarts.length ? `${measureStarts.length} measures · ` : ""}full-song view`
     : "loading full song";
+  const displayedTimeSignature = score?.timeSignature || sourceTimeSignature || "time not encoded";
   return <div className="score-frame">
-    <div className="score-caption"><span>{complete ? `${shapeCaption} · ${measureCaption}` : `MusicXML source preview · ${measureCaption}`}</span><span>{displayedKey} · {score?.timeSignature || "time not encoded"}</span></div>
+    <div className="score-caption"><span>{complete ? `${shapeCaption} · ${measureCaption}` : `MusicXML source preview · ${measureCaption}`}</span><span>{displayedKey} · {displayedTimeSignature}</span></div>
     <svg className="score-svg" style={{ width: "100%" }} viewBox={`0 0 ${scoreWidth} ${scoreHeight}`} role="img" aria-label={`${complete ? "Full" : "Preview of"} available source score with ${partRows.length} available parts`}>
       <rect x="0" y="0" width={scoreWidth} height={scoreHeight} fill="transparent" />
       {Array.from({ length: systemCount }, (_, systemIndex) => {
@@ -388,7 +523,7 @@ function ScorePreview({ score, transpose, complete, sourceKey, targetKey, shapeS
         return <g key={`system-${systemIndex}`} className="score-system">
           {partRows.map((part, partIndex) => {
             const base = systemTop + 22 + partIndex * 47;
-            const events = (part.events || []).filter((event) => systemForEvent(event) === systemIndex);
+            const events = (partReviews[partIndex]?.events || []).filter((event) => systemForEvent(event) === systemIndex);
             const staff = partStaff(part, partIndex);
             return <g key={`${systemIndex}-${part.name}`} className="score-part">
               {[0, 1, 2, 3, 4].map((line) => <line key={line} x1="58" y1={base + line * 4} x2={scoreWidth - 16} y2={base + line * 4} />)}
@@ -425,6 +560,7 @@ function ScorePreview({ score, transpose, complete, sourceKey, targetKey, shapeS
         </g>;
       })}
     </svg>
+    {reviewSuppressed > 0 && <p className="score-note">{reviewSuppressed} ambiguous OMR notes across {reviewCollisionGroups} onset collisions are hidden in this review view; the raw draft remains preserved.</p>}
     <p className="score-note">{shapeNote}{score?.playbackTransform?.finalChordRemoved && <> Final chord omitted from playback and transposition; source evidence is preserved.</>}{shapeSourceUrl && <> {" "}<a href={shapeSourceUrl} target="_blank" rel="noreferrer noopener">Open shape-source PDF <Icon name="external" size={13} /></a></>}</p>
   </div>;
 }
@@ -514,6 +650,8 @@ function App() {
     return () => { cancelled = true; };
   }, [humanReviewQueueAttempt]);
 
+  const reviewQueueReady = Boolean(humanReviewQueue) && !humanReviewQueueError;
+
   useEffect(() => {
     try {
       window.localStorage.setItem("sh-corpus-dashboard-source-keys", JSON.stringify(sourceKeyOverrides));
@@ -524,8 +662,16 @@ function App() {
 
   const book = corpus?.books?.[bookId];
   const bookCoverage = corpus?.coverage?.byBook?.[bookId] || { records: 0, localScoreRecords: 0 };
-  const transposableCount = bookCoverage.transposableRecords || 0;
-  const coverageSummary = `${formatCount(bookCoverage.transposableLocalScoreRecords || 0)} exact scores, ${formatCount(bookCoverage.transposableReferenceRecords || 0)} reference witnesses, and ${formatCount(bookCoverage.transposableDraftRecords || 0)} review drafts are transposable; ${formatCount(bookCoverage.keyUnknownStructuredRecords || 0)} structured records remain key-unknown`;
+  const unsafeTransposableDrafts = useMemo(() => {
+    if (!corpus) return 0;
+    return getBookSongs(corpus, bookId).filter((song) => {
+      const draft = getBookDraftScore(song, bookId);
+      return draft?.transposition?.available && !getBookScore(song, bookId) && !getBookReferenceScore(song, bookId) && (!reviewQueueReady || isRejectedReviewItem(reviewQueueItem(humanReviewQueue, song, bookId)) || reviewQueueIsAmbiguous(humanReviewQueue, song, bookId));
+    }).length;
+  }, [corpus, humanReviewQueue, humanReviewQueueError, reviewQueueReady, bookId]);
+  const transposableCount = Math.max(0, (bookCoverage.transposableRecords || 0) - unsafeTransposableDrafts);
+  const transposableDraftCount = Math.max(0, (bookCoverage.transposableDraftRecords || 0) - unsafeTransposableDrafts);
+  const coverageSummary = `${formatCount(bookCoverage.transposableLocalScoreRecords || 0)} exact scores, ${formatCount(bookCoverage.transposableReferenceRecords || 0)} reference witnesses, and ${formatCount(transposableDraftCount)} review drafts are transposable; ${formatCount(bookCoverage.keyUnknownStructuredRecords || 0)} structured records remain key-unknown`;
 
   useEffect(() => {
     if (!book) return;
@@ -575,9 +721,12 @@ function App() {
     }
   }, [bookId, selectedSong?.id]);
 
+  const reviewDraft = reviewQueueItem(humanReviewQueue, selectedSong, bookId);
+  const reviewDraftAmbiguous = reviewQueueIsAmbiguous(humanReviewQueue, selectedSong, bookId);
+  const rejectedDraft = reviewDraftAmbiguous || isRejectedReviewItem(reviewDraft);
   const selectedScorePreview = getBookScore(selectedSong, bookId);
   const selectedReferenceScore = getBookReferenceScore(selectedSong, bookId);
-  const selectedDraftScore = getBookDraftScore(selectedSong, bookId);
+  const selectedDraftScore = !reviewQueueReady || rejectedDraft ? null : getBookDraftScore(selectedSong, bookId);
   const activeScorePreview = selectedScorePreview || selectedReferenceScore || selectedDraftScore;
   const referenceScoreActive = !selectedScorePreview && Boolean(selectedReferenceScore);
   const draftScoreActive = !selectedScorePreview && !selectedReferenceScore && Boolean(selectedDraftScore);
@@ -585,11 +734,20 @@ function App() {
   const selectedCoverage = selectedSong?.sourceCoverageByBook?.[bookId];
   const sourceKeyOverrideId = selectedSong ? `${bookId}/${selectedSong.songNo}` : "";
   const enteredSourceKey = sourceKeyOverrides[sourceKeyOverrideId] || "";
+  const reviewSourceKey = bookId === "sh2025" && draftScoreActive
+    ? reviewDraft?.shapeReviewDraft?.reviewDraft?.sourceKey || reviewDraft?.sourceComparison?.sourceMetadata?.key || reviewDraft?.sourceMetadataObservation?.observations?.key?.value || ""
+    : "";
+  const reviewSourceTimeSignature = bookId === "sh2025" && draftScoreActive
+    ? reviewDraft?.shapeReviewDraft?.reviewDraft?.sourceTimeSignature || reviewDraft?.sourceComparison?.sourceMetadata?.timeSignature || ""
+    : "";
   // Transposition follows the loaded witness itself. A score key wins over
-  // catalog metadata; metadata is only a fallback when the score does not
-  // encode a valid key. If neither is recorded, the user may enter the key
-  // printed in the linked source; it remains separate from source metadata.
-  const resolvedKey = keyContext(activeScorePreview, selectedMetadata, enteredSourceKey);
+  // catalog metadata for authoritative/reference scores. For an unverified
+  // 2025 OMR draft, an explicit source-comparison key takes precedence over
+  // the draft's detected key so review playback does not silently transpose
+  // from an OMR error.
+  const resolvedKey = parseKey(reviewSourceKey)
+    ? { value: reviewSourceKey, evidence: { status: "source-observed", source: "untouched 2025 source image observation" } }
+    : keyContext(activeScorePreview, selectedMetadata, enteredSourceKey);
   const sourceKeyValue = resolvedKey.value;
   const shapeSourceKey = sourceKeyValue;
   const sourceKeyName = keyLabel(sourceKeyValue);
@@ -609,13 +767,11 @@ function App() {
   const alternateEdition = bookId === "sh2025" && getBookScore(selectedSong, "sh1991") ? "sh1991" : bookId === "sh1991" && getBookScore(selectedSong, "sh2025") ? "sh2025" : "";
   const editionReconciliation = selectedSong?.editionReconciliation;
   const referenceSourceLabel = activeScorePreview?.provenance?.sourceEdition === "sh1991" ? "Sacred Harp 1991" : "another edition/source";
-  const reviewDraft = humanReviewQueue?.reviewNow?.find((item) => item.queueId === `${bookId}/${selectedSong?.songNo || ""}`);
-
   const results = useMemo(() => {
     if (!corpus?.songs) return [];
     const normalizedQuery = normalize(query);
     const songs = getBookSongs(corpus, bookId).filter((song) => {
-      if (activeSection === "Practice") return getBookScore(song, bookId) || getBookReferenceScore(song, bookId) || getBookDraftScore(song, bookId);
+      if (activeSection === "Practice") return getBookScore(song, bookId) || getBookReferenceScore(song, bookId) || (reviewQueueReady && getBookDraftScore(song, bookId) && !isRejectedReviewItem(reviewQueueItem(humanReviewQueue, song, bookId)) && !reviewQueueIsAmbiguous(humanReviewQueue, song, bookId));
       if (activeSection === "Sources") return isSourceRecord(song, bookId);
       return true;
     });
@@ -627,7 +783,7 @@ function App() {
         : visibleSongs;
     }
     return songs.filter((song) => { const metadata = getBookMetadata(song, bookId) || {}; const coverage = song.sourceCoverageByBook?.[bookId] || {}; const sourceTerms = [metadata.sourceUrl, ...(metadata.sourceUrls || []), ...(coverage.sourceUrls || []), coverage.editionEvidenceUrl, coverage.sourceImageUrl]; return normalize([song.songNo, song.title, song.rawFirstLine, song.textKey, metadata.composer, metadata.lyricist, coverage.status, coverage.nextAction, ...sourceTerms].join(" ")).includes(normalizedQuery); }).slice(0, 80);
-  }, [corpus, bookId, query, activeSection, selectedId]);
+  }, [corpus, humanReviewQueue, humanReviewQueueError, reviewQueueReady, bookId, query, activeSection, selectedId]);
 
   useEffect(() => {
     if (results.length && selectedSong && !results.some((song) => song.id === selectedSong.id)) {
@@ -702,7 +858,10 @@ function App() {
     const now = context.currentTime + 0.08;
     const beatSeconds = 0.34;
     const nodes = [];
-    const parts = selectedScore.parts.filter((part) => activeParts.includes(part.name));
+    const parts = selectedScore.parts.filter((part) => activeParts.includes(part.name)).map((part) => ({
+      ...part,
+      events: reviewEventsForPart(part, draftScoreActive).events,
+    }));
     const master = context.createGain();
     master.gain.setValueAtTime(0.78, now);
     master.connect(context.destination);
@@ -819,7 +978,7 @@ function App() {
       <section className="results-column" aria-label="Tune search results">
         <div className="results-head"><div className="search-box"><Icon name="search" size={20} /><input data-testid="tune-search" type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search tunes, pages, first lines, or sources" aria-label="Search tune, page, first line, or source metadata" />{query && <button className="clear-search" onClick={() => setQuery("")} aria-label="Clear search">×</button>}</div><div className="results-kicker">{activeSection}</div><div className="results-summary" aria-live="polite" aria-atomic="true">{resultSummary}</div></div>
         <div className="results-list">
-        {results.length ? results.map((song) => { const sourceStatus = sourceRowStatus(song, bookId); const rowStatus = activeSection === "Sources" ? <span className="tiny-status source-status"><Icon name={sourceStatus.icon} size={13} />{sourceStatus.label}</span> : getBookScore(song, bookId) ? <span className="tiny-status"><Icon name="check" size={13} />score</span> : getBookReferenceScore(song, bookId) ? <span className="tiny-status"><Icon name="check" size={13} />reference</span> : getBookDraftScore(song, bookId) ? <span className="tiny-status draft-status">draft</span> : <span className="tiny-status muted"><Icon name="info" size={13} />metadata</span>; return <button key={song.id} className={`result-row ${song.id === selectedSong?.id ? "selected" : ""}`} aria-pressed={song.id === selectedSong?.id} onClick={() => setSelectedId(song.id)}><div className="result-copy"><span className="result-number">{song.songNo}</span><strong>{song.title}</strong><span>{song.rawFirstLine || song.textKey}</span></div><div className="result-status">{rowStatus}<Icon name="chevron" size={17} /></div></button>; }) : <div className="empty-results"><Icon name="search" size={23} /><h3>No matching records</h3><p>{activeSection === "Sources" ? "This edition has no source follow-up records." : "Try a tune title, page number, or first line."}</p></div>}
+        {results.length ? results.map((song) => { const sourceStatus = sourceRowStatus(song, bookId); const reviewItem = reviewQueueItem(humanReviewQueue, song, bookId); const reviewAmbiguous = reviewQueueIsAmbiguous(humanReviewQueue, song, bookId); const rowStatus = activeSection === "Sources" ? <span className="tiny-status source-status"><Icon name={sourceStatus.icon} size={13} />{sourceStatus.label}</span> : getBookScore(song, bookId) ? <span className="tiny-status"><Icon name="check" size={13} />score</span> : getBookReferenceScore(song, bookId) ? <span className="tiny-status"><Icon name="check" size={13} />reference</span> : reviewAmbiguous ? <span className="tiny-status ambiguous-evidence">ambiguous</span> : isRejectedReviewItem(reviewItem) ? <span className="tiny-status rejected-source-mismatch">rejected</span> : reviewItem?.status === "autonomously-blocked" ? <span className="tiny-status autonomously-blocked">blocked</span> : !reviewQueueReady && getBookDraftScore(song, bookId) ? <span className="tiny-status muted">checking</span> : getBookDraftScore(song, bookId) ? <span className="tiny-status draft-status">draft</span> : <span className="tiny-status muted"><Icon name="info" size={13} />metadata</span>; return <button key={song.id} className={`result-row ${song.id === selectedSong?.id ? "selected" : ""}`} aria-current={song.id === selectedSong?.id ? "true" : undefined} onClick={() => setSelectedId(song.id)}><div className="result-copy"><span className="result-number">{song.songNo}</span><strong>{song.title}</strong><span>{song.rawFirstLine || song.textKey}</span></div><div className="result-status">{rowStatus}<Icon name="chevron" size={17} /></div></button>; }) : <div className="empty-results"><Icon name="search" size={23} /><h3>No matching records</h3><p>{activeSection === "Sources" ? "This edition has no source follow-up records." : "Try a tune title, page number, or first line."}</p></div>}
         </div>
       </section>
 
@@ -832,11 +991,14 @@ function App() {
           {humanReviewQueueError && selectedCoverage && selectedCoverage.status !== "structured-score" && <div className="source-coverage-note"><Icon name="info" size={18} /><span role="status"><strong>Review status unavailable.</strong> The local human-review queue could not be loaded. Source coverage and score data are unchanged; reload when the local server is available.</span><button className="text-button" type="button" onClick={() => setHumanReviewQueueAttempt((attempt) => attempt + 1)}>Retry</button></div>}
           {selectedScore ? <>
             {referenceScoreActive && <div className="reference-score-note"><Icon name="info" size={18} /><span>This is a transposable reference witness from {referenceSourceLabel}. It is shown for practice, but it is not being presented as the {book.label} engraving.</span></div>}
-            {draftScoreActive && <div className="draft-score-note"><Icon name="info" size={18} /><span>This is an unverified OMR transcription draft. It is playable and transposable for review, but it is not the {book.label} engraving and does not count as verified coverage. <a href="/human-review-queue.json" target="_blank" rel="noreferrer noopener">Open review queue <Icon name="external" size={13} /></a></span></div>}
+            {draftScoreActive && <div className="draft-score-note"><Icon name="info" size={18} /><span>{reviewDraft ? <><strong>{reviewDisposition(reviewDraft, reviewDraftAmbiguous).label}.</strong> {reviewDisposition(reviewDraft, reviewDraftAmbiguous).summary} </> : "This is an unverified OMR transcription draft. "}It is playable and transposable only as isolated review material, but it is not the {book.label} engraving and does not count as verified coverage. <a href="/human-review-queue.json" target="_blank" rel="noreferrer noopener">{reviewDraft ? "View disposition evidence" : "Open review evidence"} <Icon name="external" size={13} /></a></span></div>}
             {selectedCoverage?.status === "transcription-blocked" && <div className="source-coverage-note"><Icon name="info" size={18} /><span><strong>Source coverage blocked.</strong> {coverageNextStep(selectedCoverage)} This review draft remains isolated until an authorized source is acquired.</span></div>}
+            {draftScoreActive && <CleanSourceCandidates coverage={selectedCoverage} />}
+            {draftScoreActive && <SourceComparisonPanel song={selectedSong} bookId={bookId} coverage={selectedCoverage} />}
+            {draftScoreActive && <ShapeReviewDraftPanel reviewItem={reviewDraft} ambiguous={reviewDraftAmbiguous} />}
             <div className="parts-heading"><span className="section-label">Available parts</span><span className="parts-count">{activeParts.length} of {selectedScore.parts.length} selected</span></div>
-            <div className="part-toggles" role="group" aria-label="Available parts">{selectedScore.parts.map((part) => <button key={part.name} className={`part-toggle ${activeParts.includes(part.name) ? "selected" : ""}`} aria-pressed={activeParts.includes(part.name)} onClick={() => togglePart(part.name)}><span className="part-clef">{part.name === "Bass" || part.name === "Tenor" ? "𝄢" : "𝄞"}</span><span>{part.name}</span><span className="part-check"><Icon name="check" size={13} /></span></button>)}</div>
-            <ScorePreview score={selectedScore} transpose={signedTranspose} complete={scoreLoaded} sourceKey={shapeSourceKey} targetKey={targetKey} shapeSourceUrl={shapeSourcePdfUrl(activeScorePreview)} keyEvidence={resolvedKey.evidence} />
+            <div className="part-toggles" role="group" aria-label="Available parts">{selectedScore.parts.map((part, partIndex) => <button key={part.name} className={`part-toggle ${activeParts.includes(part.name) ? "selected" : ""}`} aria-pressed={activeParts.includes(part.name)} onClick={() => togglePart(part.name)}><span className="part-clef">{partClefGlyph(part, partIndex)}</span><span>{part.name}</span><span className="part-check"><Icon name="check" size={13} /></span></button>)}</div>
+            <ScorePreview score={selectedScore} transpose={signedTranspose} complete={scoreLoaded} sourceKey={shapeSourceKey} targetKey={targetKey} shapeSourceUrl={shapeSourcePdfUrl(activeScorePreview)} keyEvidence={resolvedKey.evidence} sourceTimeSignature={reviewSourceTimeSignature} reviewDraft={draftScoreActive} />
             {(!sourceKeyValue || resolvedKey.evidence?.status === "entered") && <div className="source-key-picker"><div><span className="section-label">{sourceKeyValue ? "Entered source key" : "Source key required"}</span><p>{sourceKeyValue ? "Change this if the key printed in the source differs." : "Choose the key printed in this source to unlock pitch-accurate transposition."}</p></div><label className="key-select-wrap"><span className="sr-only">Source key</span><select aria-label="Source key" value={enteredSourceKey} onChange={(event) => setEnteredSourceKey(event.target.value)}><option value="">Choose source key…</option>{["major", "minor"].flatMap((mode) => KEY_NAMES.map((key) => <option key={`${key}:${mode}`} value={`${key}:${mode}`}>{key} {mode}</option>))}</select><span className="select-chevron">⌄</span></label></div>}
             <div className="transport-row"><div className="playback-controls"><button className="primary-button" onClick={playing ? () => stopAudio() : scoreLoadError ? () => setScoreLoadAttempt((attempt) => attempt + 1) : playAvailableParts} disabled={scoreLoadError ? false : !scoreLoaded || !activeParts.length}>{playing ? <Icon name="stop" size={14} /> : <Icon name="play" size={15} />}{playing ? "Stop" : scoreLoadError ? "Retry loading" : scoreLoaded ? "Play song" : "Loading…"}</button></div><div className="transpose-controls"><button className="secondary-button" title="Transpose down one semitone" aria-label="Transpose down one semitone" onClick={() => nudgeTranspose(-1)} disabled={!canTranspose}><Icon name="arrowDown" size={16} />Down</button><label className="key-select-wrap"><span className="sr-only">Target key</span><select aria-label="Target key" value={targetKey} onChange={(event) => { stopAudio("Playback stopped because the target key changed."); setTargetKey(event.target.value); }} disabled={!canTranspose}><option value="">{sourceKeyName}</option>{KEY_NAMES.filter((key) => key !== sourceKeyName.split(" ")[0]).map((key) => <option key={key} value={key}>{key} {sourceMode}</option>)}</select><span className="select-chevron">⌄</span></label><button className="secondary-button" title="Transpose up one semitone" aria-label="Transpose up one semitone" onClick={() => nudgeTranspose(1)} disabled={!canTranspose}><Icon name="arrowUp" size={16} />Up</button></div></div>
             {scoreRef && !scoreLoaded && !scoreLoadError && <div className="sr-only" role="status" aria-live="polite">Loading the structured score…</div>}
@@ -844,7 +1006,7 @@ function App() {
             {signedTranspose !== 0 && <div className="transposition-note" role="status" aria-live="polite" aria-atomic="true"><span>Transposed {signedTranspose > 0 ? "+" : "−"}{Math.abs(signedTranspose)} semitone{Math.abs(signedTranspose) === 1 ? "" : "s"} from {sourceKeyName}</span></div>}
             <div className="structured-score-status"><Icon name={draftScoreActive || !canTranspose ? "info" : "check"} size={16} /><span>{draftScoreActive ? "Draft loaded for review playback and transposition; source comparison is still required." : "Structured source loaded for playback."} {sourceKeyValue ? `${sourceKeyLabel}.` : "Choose the source key above to enable transposition."}</span></div>
             {draftScoreActive && <SourceRecording song={selectedSong} coverage={selectedCoverage} />}
-          </> : <><div className="missing-score"><Icon name="info" size={23} /><div><h3>No transposable score file for this record</h3><p>The atlas preserves the exact source link or scan instead of synthesizing notation where structured score data is absent.</p>{selectedCoverage && <p className="edition-note"><strong>{coverageLabel(selectedCoverage)}.</strong> {coverageNextStep(selectedCoverage)}</p>}{selectedCoverage?.editionStatus === "added-in-2025" && <p className="edition-note"><strong>New in 2025.</strong> This page is on the publisher's additions list and has no verified 2025 MusicXML yet. <a href={selectedCoverage.editionEvidenceUrl} target="_blank" rel="noreferrer noopener">View the source list <Icon name="external" size={13} /></a></p>}{reviewDraft && <p className="edition-note"><strong>Draft ready for human review.</strong> {reviewDraft.draftSummary.parts} parts, {Object.values(reviewDraft.draftSummary.measuresByPart)[0] || "unknown"} measures per part. It is not playable or transposable until the source comparison is complete. <a href="/human-review-queue.json" target="_blank" rel="noreferrer noopener">Open review queue <Icon name="external" size={13} /></a></p>}{alternateEdition && <p className="edition-note">A verified {alternateEdition === "sh1991" ? "1991" : "2025"}-edition score is available for this shared tune, but it is not being mislabeled as a {bookId === "sh2025" ? "2025" : "1991"} score.</p>}{alternateEdition && <button className="text-button" onClick={() => { setBookId(alternateEdition); setSelectedId(selectedSong.id); }}>Open the verified {alternateEdition === "sh1991" ? "1991" : "2025"} score</button>}</div></div><SourceNotation song={selectedSong} bookId={bookId} /><SourceRecording song={selectedSong} coverage={selectedCoverage} /></>}
+          </> : <><div className="missing-score"><Icon name="info" size={23} /><div><h3>No transposable score file for this record</h3><p>The atlas preserves the exact source link or scan instead of synthesizing notation where structured score data is absent.</p>{selectedCoverage && <p className="edition-note"><strong>{coverageLabel(selectedCoverage)}.</strong> {coverageNextStep(selectedCoverage)}</p>}{selectedCoverage?.editionStatus === "added-in-2025" && <p className="edition-note"><strong>New in 2025.</strong> This page is on the publisher's additions list and has no verified 2025 MusicXML yet. <a href={selectedCoverage.editionEvidenceUrl} target="_blank" rel="noreferrer noopener">View the source list <Icon name="external" size={13} /></a></p>}{reviewDraft && <p className="edition-note"><strong>{reviewDisposition(reviewDraft, reviewDraftAmbiguous).label}.</strong> {reviewDisposition(reviewDraft, reviewDraftAmbiguous).summary} {reviewDraft.draftSummary.parts} parts, {Object.values(reviewDraft.draftSummary.measuresByPart)[0] || "unknown"} measures per part. It is not playable or transposable because the source comparison is not promotion-safe. <a href="/human-review-queue.json" target="_blank" rel="noreferrer noopener">View disposition evidence <Icon name="external" size={13} /></a></p>}{alternateEdition && <p className="edition-note">A verified {alternateEdition === "sh1991" ? "1991" : "2025"}-edition score is available for this shared tune, but it is not being mislabeled as a {bookId === "sh2025" ? "2025" : "1991"} score.</p>}{alternateEdition && <button className="text-button" onClick={() => { setBookId(alternateEdition); setSelectedId(selectedSong.id); }}>Open the verified {alternateEdition === "sh1991" ? "1991" : "2025"} score</button>}</div></div><ShapeReviewDraftPanel reviewItem={reviewDraft} ambiguous={reviewDraftAmbiguous} /><CleanSourceCandidates coverage={selectedCoverage} /><SourceNotation song={selectedSong} bookId={bookId} /><SourceRecording song={selectedSong} coverage={selectedCoverage} /></>}
           <div className="source-strip"><div><span className="section-label">Source</span><span>{selectedMetadata?.sourceUrl ? `${book.label}, page ${selectedSong.songNo}` : "Local corpus record"}</span></div><div className="source-actions">{sourceUrls.map((url) => <a key={url} href={url} target="_blank" rel="noreferrer noopener" aria-label={`Open source record at ${sourceDestinationLabel(url)}`}>Open source record <Icon name="external" size={16} /></a>)}{activeScorePreview && shapeSourcePdfUrl(activeScorePreview) && <a href={shapeSourcePdfUrl(activeScorePreview)} target="_blank" rel="noreferrer noopener">Open shape-source PDF <Icon name="external" size={16} /></a>}</div></div>
           <div className="detail-footer"><ShapeLegend /></div>
         </> : <div className="missing-score"><Icon name="info" size={23} /><div><h3>Select a tune to begin</h3><p>Search the local atlas by page, title, or first line.</p></div></div>}

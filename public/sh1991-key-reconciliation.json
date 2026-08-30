@@ -1,0 +1,3661 @@
+{
+  "generatedAt": "2026-08-30T03:28:12.398466+00:00",
+  "kind": "sacred-harp-1991-key-evidence-reconciliation",
+  "version": 2,
+  "authority": {
+    "scope": "Existing Sacred Harp 1991 scoreByBook records with pitch-bearing structured assets and unknown keyEvidence",
+    "sourceOfTruth": "public/corpus.json generated from the existing corpus source metadata",
+    "policy": "Only direct source-backed major/minor observations may be added; absence is recorded here without changing corpus metadata.",
+    "editionSeparation": "1991 only; no 2025 missing-score or transcription ledger is in scope."
+  },
+  "inputs": [
+    {
+      "path": "public/corpus.json",
+      "sha256": "9aa7bc3c7c3245142cd329bff4b321b583dfe407c261b694748d8efa30f6f246"
+    }
+  ],
+  "directAudit": {
+    "fasola1991Pages": {
+      "recordCount": 68,
+      "http200Count": 68,
+      "explicitKeyOrModeCount": 0
+    },
+    "exactLinkedMusicXmlWitnesses": {
+      "urlCount": 96,
+      "http200ValidMusicXmlCount": 96,
+      "keyElementCount": 0
+    }
+  },
+  "summary": {
+    "targetRecords": 68,
+    "verifiedKeys": 0,
+    "autonomouslyBlocked": 0,
+    "externalSourceBlocked": 68,
+    "safeToPromote": 0,
+    "humanReviewRequired": 0,
+    "corpusRecordsChanged": 0,
+    "recordsStillWithoutAutonomousDisposition": 0
+  },
+  "records": [
+    {
+      "queueId": "sh1991/28t",
+      "songNo": "28t",
+      "title": "Aylesbury",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/39d3f51c14c3f3b4d9550562.json",
+      "scoreAssetSha256": "f82d3b689fcd7f72843766dc31a74f37b1eb7333b8241f837ad4eaf9ceb82458",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=28t",
+        "https://shapenote.net/musicxml/28td.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://shapenote.net/musicxml/28ta.mxl"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 105
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/28td.mxl",
+            "https://shapenote.net/musicxml/28ta.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=28t",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=28t",
+          "https://shapenote.net/musicxml/28td.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://shapenote.net/musicxml/28ta.mxl"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/29t",
+      "songNo": "29t",
+      "title": "Fairfield",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/77afee6bc3b2d7e93f7b39f5.json",
+      "scoreAssetSha256": "e72bcf9de293c47c3130cf090b5060d563b06af7acf2e30eaea4ae925ac9a361",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=29t",
+        "https://shapenote.net/musicxml/29td.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://shapenote.net/musicxml/29ta.mxl"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 184
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/29td.mxl",
+            "https://shapenote.net/musicxml/29ta.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=29t",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=29t",
+          "https://shapenote.net/musicxml/29td.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://shapenote.net/musicxml/29ta.mxl"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/30b",
+      "songNo": "30b",
+      "title": "Prospect",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/c751d8573bde1da2307556fb.json",
+      "scoreAssetSha256": "f7ac3421024f84ed593801dffedb2f8168e60b48e17fc85b9f9ccb546c00d9f5",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=30b",
+        "https://shapenote.net/musicxml/30b.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 170
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/30b.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=30b",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=30b",
+          "https://shapenote.net/musicxml/30b.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/30t",
+      "songNo": "30t",
+      "title": "Love Divine",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/45c35ffa0cd962db549b00a9.json",
+      "scoreAssetSha256": "3ec6a773da5017f7767149b5d03e6c83409f8242b237902068b31c3d82b35769",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=30t",
+        "https://shapenote.net/musicxml/30t.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 132
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/30t.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=30t",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=30t",
+          "https://shapenote.net/musicxml/30t.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/31t",
+      "songNo": "31t",
+      "title": "Ninety-Third Psalm",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/dd8c38fe89bee92be6a5e68e.json",
+      "scoreAssetSha256": "b1c55004b0e06c3134121cc6d409810525d337c22a4f88703db2ce8abbf480de",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=31t",
+        "https://shapenote.net/musicxml/31t.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 127
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/31t.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=31t",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=31t",
+          "https://shapenote.net/musicxml/31t.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/36t",
+      "songNo": "36t",
+      "title": "America",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/480cad881dee19f56dd5dca8.json",
+      "scoreAssetSha256": "649bd0c8dc138fde1ff2351a5aeb91d4ad3082496cff8551c84e59c8e9df14a5",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=36t",
+        "https://shapenote.net/musicxml/36td.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://shapenote.net/musicxml/36ta.mxl"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 132
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/36td.mxl",
+            "https://shapenote.net/musicxml/36ta.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=36t",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=36t",
+          "https://shapenote.net/musicxml/36td.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://shapenote.net/musicxml/36ta.mxl"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/44",
+      "songNo": "44",
+      "title": "The Converted Thief",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/02230b03e30d720c6aee410d.json",
+      "scoreAssetSha256": "fc8c920549a9e93c729f4b7ec315073391b7245d1ef3df0ad624d362b0b3caa2",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=44",
+        "https://shapenote.net/musicxml/44.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 229
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/44.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=44",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=44",
+          "https://shapenote.net/musicxml/44.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/45t",
+      "songNo": "45t",
+      "title": "New Britain",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/c165d6455704c7c4595ab7c5.json",
+      "scoreAssetSha256": "3f002286871fa443d5e9ea936828afc008b66ced6e5f37dcf8284a92cbf35115",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=45t",
+        "https://shapenote.net/musicxml/45t.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 128
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/45t.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=45t",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=45t",
+          "https://shapenote.net/musicxml/45t.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/47b",
+      "songNo": "47b",
+      "title": "Idumea",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/41215cab36bf3b02ee91afa7.json",
+      "scoreAssetSha256": "50cc83ee138838053d175682189025f144adcb8ad4a33a7f7521cce79fc3ae40",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=47b",
+        "https://shapenote.net/musicxml/47bd.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://shapenote.net/musicxml/47ba.mxl"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 137
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/47bd.mxl",
+            "https://shapenote.net/musicxml/47ba.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=47b",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=47b",
+          "https://shapenote.net/musicxml/47bd.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://shapenote.net/musicxml/47ba.mxl"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/48t",
+      "songNo": "48t",
+      "title": "Devotion",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/342da589bb60c5a38f61798c.json",
+      "scoreAssetSha256": "784e9b208eab9ac58745f4d1ba27041eff009494f9770d23ccd63037e9b35c0c",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=48t",
+        "https://shapenote.net/musicxml/48t.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 135
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/48t.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=48t",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=48t",
+          "https://shapenote.net/musicxml/48t.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/53",
+      "songNo": "53",
+      "title": "Jerusalem",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/4a4235f4c6d8b302f983637f.json",
+      "scoreAssetSha256": "814a10c0a40753b28d029372f1f2b417a9281d3a242f701d35ec64f9cc4f92e6",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=53",
+        "https://shapenote.net/musicxml/53d.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://shapenote.net/musicxml/53a.mxl"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 229
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/53d.mxl",
+            "https://shapenote.net/musicxml/53a.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=53",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=53",
+          "https://shapenote.net/musicxml/53d.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://shapenote.net/musicxml/53a.mxl"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/54",
+      "songNo": "54",
+      "title": "The Blessed Lamb",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/3cfeb0c759c9104ca9e4d786.json",
+      "scoreAssetSha256": "1bde03cb0c1c72c9969b4b670f6f39b88224a45de0e0d6324cbfdffabc5836cd",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=54",
+        "https://shapenote.net/musicxml/54.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 198
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/54.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=54",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=54",
+          "https://shapenote.net/musicxml/54.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/56t",
+      "songNo": "56t",
+      "title": "Columbiana",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/e34c8b045a7c48883e197290.json",
+      "scoreAssetSha256": "aa6b3246398cc87feca48b411eff28c684b02e81937c2cabfe23fccd8991c124",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=56t",
+        "https://shapenote.net/musicxml/56t.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 121
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/56t.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=56t",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=56t",
+          "https://shapenote.net/musicxml/56t.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/59",
+      "songNo": "59",
+      "title": "Holy Manna",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/3e406bfd34af19427e38f3ba.json",
+      "scoreAssetSha256": "3223fc4a42a647031a381d17398ff5673e31c2e038d2dc7c6ce0fac2929b7edb",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=59",
+        "https://shapenote.net/musicxml/59.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 219
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/59.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=59",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=59",
+          "https://shapenote.net/musicxml/59.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/71",
+      "songNo": "71",
+      "title": "Leander",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/67bb3a9423232bd6ca7ae5bd.json",
+      "scoreAssetSha256": "92d959f6cd88e36ec73bf64311b306c66c42ee51a629096c9c9d72fd7e66edbf",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=71",
+        "https://shapenote.net/musicxml/71d.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://shapenote.net/musicxml/71a.mxl"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 252
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/71d.mxl",
+            "https://shapenote.net/musicxml/71a.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=71",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=71",
+          "https://shapenote.net/musicxml/71d.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://shapenote.net/musicxml/71a.mxl"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/74b",
+      "songNo": "74b",
+      "title": "King of Peace",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/2d4342f73474009c094020aa.json",
+      "scoreAssetSha256": "a956a5ef3a8fe783321dff309a364ee87250d4ee21e62a6e8456ce2b6db3e3b1",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=74b",
+        "https://shapenote.net/musicxml/74b.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 117
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/74b.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=74b",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=74b",
+          "https://shapenote.net/musicxml/74b.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/76b",
+      "songNo": "76b",
+      "title": "Desire for Piety",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/18a590c3d20437c6324fe496.json",
+      "scoreAssetSha256": "14038a2462543d3e157ef3f969e5d1bfc1959239f6e4c9e7f840c0e0ab841991",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=76b",
+        "https://shapenote.net/musicxml/76b.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 143
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/76b.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=76b",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=76b",
+          "https://shapenote.net/musicxml/76b.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/77b",
+      "songNo": "77b",
+      "title": "Holcombe",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/82198df97129ecfbfa973a3b.json",
+      "scoreAssetSha256": "84fd1a522fe0f8005c403b3fa9daaf44c9e3faa8eb3b13546a7e6154c9f972b6",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=77b",
+        "https://shapenote.net/musicxml/77b.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 109
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/77b.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=77b",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=77b",
+          "https://shapenote.net/musicxml/77b.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/77t",
+      "songNo": "77t",
+      "title": "The Child of Grace",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/53e9e809f1c943a43f7add47.json",
+      "scoreAssetSha256": "47bb74802732c11663e566c9edd5464ec0aaa85b3f8d73b9f8786d42ca06d6ec",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=77t",
+        "https://shapenote.net/musicxml/77t.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 182
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/77t.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=77t",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=77t",
+          "https://shapenote.net/musicxml/77t.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/83t",
+      "songNo": "83t",
+      "title": "Vale of Sorrow",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/d5d171d1bd78eb34c5a612eb.json",
+      "scoreAssetSha256": "ab06ce79471d92247127b66def1d90fd7d99ad987309164e15cd0ee64c006479",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=83t",
+        "https://shapenote.net/musicxml/83td.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://shapenote.net/musicxml/83ta.mxl"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 161
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/83td.mxl",
+            "https://shapenote.net/musicxml/83ta.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=83t",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=83t",
+          "https://shapenote.net/musicxml/83td.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://shapenote.net/musicxml/83ta.mxl"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/107",
+      "songNo": "107",
+      "title": "Russia",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/f709bdeb4b5870829db7af8d.json",
+      "scoreAssetSha256": "935fb0fab732e54d525d89ca3e8e48cb887b98d118d79fbcff087181a24cd990",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=107",
+        "https://shapenote.net/musicxml/107d.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://shapenote.net/musicxml/107a.mxl"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 158
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/107d.mxl",
+            "https://shapenote.net/musicxml/107a.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=107",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=107",
+          "https://shapenote.net/musicxml/107d.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://shapenote.net/musicxml/107a.mxl"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/108b",
+      "songNo": "108b",
+      "title": "The Traveler",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/112fe40afdde9dead58ad8ff.json",
+      "scoreAssetSha256": "ba920add1a6278ef338d872277795f80761a82cfb97ab7065ce152eba87fc00b",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=108b",
+        "https://shapenote.net/musicxml/108bd.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://shapenote.net/musicxml/108ba.mxl"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 139
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/108bd.mxl",
+            "https://shapenote.net/musicxml/108ba.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=108b",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=108b",
+          "https://shapenote.net/musicxml/108bd.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://shapenote.net/musicxml/108ba.mxl"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/108t",
+      "songNo": "108t",
+      "title": "Weeping Sinners",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/3c38972f7cda9a3e154735f6.json",
+      "scoreAssetSha256": "24c5b3c4d6cd1a2f85c1e0c2963be2c36b8720d4ff84ea131cebfbf6a704a9da",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=108t",
+        "https://shapenote.net/musicxml/108t.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 108
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/108t.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=108t",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=108t",
+          "https://shapenote.net/musicxml/108t.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/116",
+      "songNo": "116",
+      "title": "Union",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/bd3e18f29a0d694d158213be.json",
+      "scoreAssetSha256": "f0e54ab6a81e3f9de56a950a22ff19db1c1088475d2ff4790269e0ebd0ca1f01",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=116",
+        "https://shapenote.net/musicxml/116d.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://shapenote.net/musicxml/116a.mxl"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 180
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/116d.mxl",
+            "https://shapenote.net/musicxml/116a.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=116",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=116",
+          "https://shapenote.net/musicxml/116d.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://shapenote.net/musicxml/116a.mxl"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/118",
+      "songNo": "118",
+      "title": "Stockwood",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/14d95f5e279c73df97dc32cd.json",
+      "scoreAssetSha256": "865d15c20001e427f204b19a84c5b1d8a6a8b7f4fc3e2c6c0c633a1af153aa65",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=118",
+        "https://shapenote.net/musicxml/118d.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://shapenote.net/musicxml/118a.mxl"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 182
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/118d.mxl",
+            "https://shapenote.net/musicxml/118a.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=118",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=118",
+          "https://shapenote.net/musicxml/118d.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://shapenote.net/musicxml/118a.mxl"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/129",
+      "songNo": "129",
+      "title": "Heavenly Armor",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/55af15b972e403a1c5641816.json",
+      "scoreAssetSha256": "63fd974bf6e643c28a98ba7647d38a42d7cfaf96da7d55d489b41b5b9d5e0301",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=129",
+        "https://shapenote.net/musicxml/129.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 191
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/129.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=129",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=129",
+          "https://shapenote.net/musicxml/129.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/147b",
+      "songNo": "147b",
+      "title": "Laban",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/a1ee9feb821762ba24e82300.json",
+      "scoreAssetSha256": "1d3c1a212072588bf15a28206561ee7195fe0357de7870617124feaf61c587c5",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=147b",
+        "https://shapenote.net/musicxml/147b.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 104
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/147b.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=147b",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=147b",
+          "https://shapenote.net/musicxml/147b.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/147t",
+      "songNo": "147t",
+      "title": "Boylston",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/87674485b5aaddbe162aef6d.json",
+      "scoreAssetSha256": "b1a8dacf9911b428da4e7f5fca380a265f02cd05519b09d87a9141f67ce46c25",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=147t",
+        "https://shapenote.net/musicxml/147t.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 102
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/147t.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=147t",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=147t",
+          "https://shapenote.net/musicxml/147t.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/148",
+      "songNo": "148",
+      "title": "Jefferson",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/4e8e61c8a2f9070bd80358d4.json",
+      "scoreAssetSha256": "9f91bdb4927a62fca183e97ca7fec6b38d784debd51f1a384f78dc65470b4433",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=148",
+        "https://shapenote.net/musicxml/148d.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://shapenote.net/musicxml/148a.mxl"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 213
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/148d.mxl",
+            "https://shapenote.net/musicxml/148a.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=148",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=148",
+          "https://shapenote.net/musicxml/148d.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://shapenote.net/musicxml/148a.mxl"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/165",
+      "songNo": "165",
+      "title": "Family Bible",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/bd8aabd231cbc0b5077de681.json",
+      "scoreAssetSha256": "a93ed0c99d5a91dbde6c6a463ed87ab47e743bee1726044909e96a1a6180c977",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=165",
+        "https://shapenote.net/musicxml/165d.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://shapenote.net/musicxml/165a.mxl"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 398
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/165d.mxl",
+            "https://shapenote.net/musicxml/165a.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=165",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=165",
+          "https://shapenote.net/musicxml/165d.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://shapenote.net/musicxml/165a.mxl"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/166",
+      "songNo": "166",
+      "title": "Still Better",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/81d44496335509a283bb1022.json",
+      "scoreAssetSha256": "9420125082b2571425087cd41e9cf5b5bc5dce2b0d483b0f9b27dffa3c5702cf",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=166",
+        "https://shapenote.net/musicxml/166.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 136
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/166.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=166",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=166",
+          "https://shapenote.net/musicxml/166.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/179",
+      "songNo": "179",
+      "title": "The Christian Warfare",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/101fb058366da4631601abdb.json",
+      "scoreAssetSha256": "7ad116bd5d58831c3de6acda14cf8c5a19fc7b00abc906e9ae19e82c89c67cfb",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=179",
+        "https://shapenote.net/musicxml/179.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 276
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/179.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=179",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=179",
+          "https://shapenote.net/musicxml/179.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/182",
+      "songNo": "182",
+      "title": "Newburgh",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/d76bb2fce77a4e00907775ec.json",
+      "scoreAssetSha256": "0e6ea896cc43545765dd12f365dc1f3e4c16c10215c9bf1ae1804134d97c300d",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=182",
+        "https://shapenote.net/musicxml/182.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 251
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/182.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=182",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=182",
+          "https://shapenote.net/musicxml/182.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/189",
+      "songNo": "189",
+      "title": "Montgomery",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/10c974df087e02bb15ea3ef3.json",
+      "scoreAssetSha256": "5b31aad2f97c2c31e0e9ff39f0683891760004a7708f3f49aed2b68fcc3d9fd3",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=189",
+        "https://shapenote.net/musicxml/189.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 367
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/189.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=189",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=189",
+          "https://shapenote.net/musicxml/189.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/220",
+      "songNo": "220",
+      "title": "Mount Zion",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/fa19e847f54afae312004801.json",
+      "scoreAssetSha256": "6c57b7b3dcebf78e24e28449d6e80cfe1b9d3ffc42cb99a6cb2758c3a6cbbb38",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=220",
+        "https://shapenote.net/musicxml/220.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 443
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/220.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=220",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=220",
+          "https://shapenote.net/musicxml/220.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/228",
+      "songNo": "228",
+      "title": "Marlborough",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/0e55711bb94e05127a67f48e.json",
+      "scoreAssetSha256": "7a35e3fe4e5fbc76f9909b948a20b0a58494bdc41ab5e600c86400861d5993d3",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=228",
+        "https://shapenote.net/musicxml/228.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 230
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/228.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=228",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=228",
+          "https://shapenote.net/musicxml/228.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/234",
+      "songNo": "234",
+      "title": "Reverential Anthem",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/b4faa54dea3329dad7e3335d.json",
+      "scoreAssetSha256": "7f0c15b53f5e6c72f8d03b5bdd816716b001a63509f83bc5a5bc961ec655362f",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=234",
+        "https://shapenote.net/musicxml/234.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 300
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/234.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=234",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=234",
+          "https://shapenote.net/musicxml/234.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/235",
+      "songNo": "235",
+      "title": "Long Sought Home",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/96e7b594fe9220d6640df5ed.json",
+      "scoreAssetSha256": "84f05ab920e8dd9c80858d5248e75b83cc80971eaedce8f942301ceba83ce4cf",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=235",
+        "https://shapenote.net/musicxml/235.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 121
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/235.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=235",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=235",
+          "https://shapenote.net/musicxml/235.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/245",
+      "songNo": "245",
+      "title": "Claremont",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/6e2a0b32798df2c8160c1e68.json",
+      "scoreAssetSha256": "1ee5164eb544bcfa1c7664d5eea20eb41dca2152da7028ca587bd13ad4ed1090",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=245",
+        "https://shapenote.net/musicxml/245d.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://shapenote.net/musicxml/245a.mxl"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 1149
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/245d.mxl",
+            "https://shapenote.net/musicxml/245a.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=245",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=245",
+          "https://shapenote.net/musicxml/245d.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://shapenote.net/musicxml/245a.mxl"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/260",
+      "songNo": "260",
+      "title": "Farewell Anthem",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/65129dd37cb40764bc288f95.json",
+      "scoreAssetSha256": "1b95abe11c4926aa3d605dcaae3fd32a896d631ba1defd35a7c32b9131ef50f9",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=260",
+        "https://shapenote.net/musicxml/260d.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://shapenote.net/musicxml/260a.mxl"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 800
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/260d.mxl",
+            "https://shapenote.net/musicxml/260a.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=260",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=260",
+          "https://shapenote.net/musicxml/260d.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://shapenote.net/musicxml/260a.mxl"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/268",
+      "songNo": "268",
+      "title": "Davids Lamentation",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/cf71871656c800da7527106f.json",
+      "scoreAssetSha256": "966682dcb5d0c03955a8c5857e09e8c546bec324ba5ab81e24c838fadcc7e7ec",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=268",
+        "https://shapenote.net/musicxml/268d.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://shapenote.net/musicxml/268a.mxl"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 224
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/268d.mxl",
+            "https://shapenote.net/musicxml/268a.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=268",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=268",
+          "https://shapenote.net/musicxml/268d.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://shapenote.net/musicxml/268a.mxl"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/271t",
+      "songNo": "271t",
+      "title": "Arkansas",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/c66f7faba9be1720250f90ee.json",
+      "scoreAssetSha256": "75be465e42863b4256d33c0aa953d666164e997b1fd88495ee0b3cd4cfc2959f",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=271t",
+        "https://shapenote.net/musicxml/271td.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://shapenote.net/musicxml/271ta.mxl"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 125
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/271td.mxl",
+            "https://shapenote.net/musicxml/271ta.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=271t",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=271t",
+          "https://shapenote.net/musicxml/271td.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://shapenote.net/musicxml/271ta.mxl"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/272",
+      "songNo": "272",
+      "title": "Exhortation",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/c3ff3749663e0cb6f9b2042f.json",
+      "scoreAssetSha256": "c636dbd1f0d961a07278f553c3f926afa520d69e86938f7093a13712da6d5db6",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=272",
+        "https://shapenote.net/musicxml/272d.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://shapenote.net/musicxml/272a.mxl"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 220
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/272d.mxl",
+            "https://shapenote.net/musicxml/272a.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=272",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=272",
+          "https://shapenote.net/musicxml/272d.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://shapenote.net/musicxml/272a.mxl"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/275t",
+      "songNo": "275t",
+      "title": "Loving-Kindness",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/19e3edd63f0bda385a670dad.json",
+      "scoreAssetSha256": "ea0b65fb8f8ee008bd10ff1047413aeabd334a1013ea8fdc20d2aa57b0495c13",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=275t",
+        "https://shapenote.net/musicxml/275td.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://shapenote.net/musicxml/275ta.mxl"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 178
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/275td.mxl",
+            "https://shapenote.net/musicxml/275ta.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=275t",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=275t",
+          "https://shapenote.net/musicxml/275td.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://shapenote.net/musicxml/275ta.mxl"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/276",
+      "songNo": "276",
+      "title": "Bridgewater",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/c499a9585be7fb79894fe21a.json",
+      "scoreAssetSha256": "f55476d476265df0ea01196cab1144f72599d8a1fb65d70bcd26caa9507b6a20",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=276",
+        "https://shapenote.net/musicxml/276.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 167
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/276.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=276",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=276",
+          "https://shapenote.net/musicxml/276.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/297",
+      "songNo": "297",
+      "title": "Conversion",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/0da18b1d58dfcc17e35ba3b1.json",
+      "scoreAssetSha256": "d366f92f0b9214fe48d090e8d86bc54de81af1f7c4bfaf7a5f2faf74b269939f",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=297",
+        "https://shapenote.net/musicxml/297.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 156
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/297.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=297",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=297",
+          "https://shapenote.net/musicxml/297.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/300",
+      "songNo": "300",
+      "title": "Calvary",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/4db74213039df72f6247cc04.json",
+      "scoreAssetSha256": "3979fbe2197c0cb08e6f6aa6d1f7981b7006544b3ce6dd634c7d39b468d91cc4",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=300",
+        "https://shapenote.net/musicxml/300d.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://shapenote.net/musicxml/300a.mxl"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 215
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/300d.mxl",
+            "https://shapenote.net/musicxml/300a.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=300",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=300",
+          "https://shapenote.net/musicxml/300d.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://shapenote.net/musicxml/300a.mxl"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/311",
+      "songNo": "311",
+      "title": "Silver Street",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/2cd36bdbb9f0917116b40aff.json",
+      "scoreAssetSha256": "dd34307213e82f71dc4c3acc07e32afe0367fa75a0648ce9668e5c760c603b7c",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=311",
+        "https://shapenote.net/musicxml/311.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 230
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/311.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=311",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=311",
+          "https://shapenote.net/musicxml/311.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/312b",
+      "songNo": "312b",
+      "title": "Restoration (First)",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/ef369cd5104b1187f3e7f948.json",
+      "scoreAssetSha256": "fa9059049afc6e3a21df16f9362ec13b673b283077f575d12b01d7986ccf13ef",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=312b",
+        "https://shapenote.net/musicxml/312b.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 140
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/312b.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=312b",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=312b",
+          "https://shapenote.net/musicxml/312b.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/313",
+      "songNo": "313",
+      "title": "Cobb",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/d306328036a2b4420292b60f.json",
+      "scoreAssetSha256": "14a826f48f7a39a098f9e416ddfdcd62e6a22b5f66588fa02ef140a8639bc3c0",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=313b",
+        "https://shapenote.net/musicxml/313bd.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://shapenote.net/musicxml/313ba.mxl"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 116
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/313bd.mxl",
+            "https://shapenote.net/musicxml/313ba.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=313b",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=313b",
+          "https://shapenote.net/musicxml/313bd.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://shapenote.net/musicxml/313ba.mxl"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/313t",
+      "songNo": "313t",
+      "title": "Concord",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/9defb3cc83b445a6b584914d.json",
+      "scoreAssetSha256": "3f2b7706ef74728866c22ff22916defdb1adcbb2764f521d704e39c9e3d197b8",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=313t",
+        "https://shapenote.net/musicxml/313t.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 146
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/313t.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=313t",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=313t",
+          "https://shapenote.net/musicxml/313t.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/315",
+      "songNo": "315",
+      "title": "Immensity",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/9c5a7e8a92dcdce667c3d5f2.json",
+      "scoreAssetSha256": "9d9b740032c38470c2c26f001c01bafdfbdd35e442880b3f5108f2476d748309",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=315",
+        "https://shapenote.net/musicxml/315d.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://shapenote.net/musicxml/315a.mxl"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 203
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/315d.mxl",
+            "https://shapenote.net/musicxml/315a.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=315",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=315",
+          "https://shapenote.net/musicxml/315d.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://shapenote.net/musicxml/315a.mxl"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/324",
+      "songNo": "324",
+      "title": "North Port",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/9173ea2522425db8306576b1.json",
+      "scoreAssetSha256": "b3f4d55123e98256383f11fdcfd7624d54b5113dc61472d64bab24e61917d3df",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=324",
+        "https://shapenote.net/musicxml/324.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 233
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/324.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=324",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=324",
+          "https://shapenote.net/musicxml/324.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/351",
+      "songNo": "351",
+      "title": "Pittsford",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/333ba9428b49b0ed06c1e1fc.json",
+      "scoreAssetSha256": "1b86c220b532e282ba496c3b231242255342f73db3c0d94723ac8ba4129a7f9f",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=351",
+        "https://shapenote.net/musicxml/351.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 199
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/351.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=351",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=351",
+          "https://shapenote.net/musicxml/351.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/370",
+      "songNo": "370",
+      "title": "Monroe",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/e4af8d63d2a97de6ed4c5267.json",
+      "scoreAssetSha256": "12e6b61d7366eb2dcf86685f2477fa54bb8b27290c79e09bd49401dc2dfd52b0",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=370",
+        "https://shapenote.net/musicxml/370.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 195
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/370.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=370",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=370",
+          "https://shapenote.net/musicxml/370.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/376",
+      "songNo": "376",
+      "title": "Help Me to Sing",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/479978c10d64a5257bc21b05.json",
+      "scoreAssetSha256": "7c46ccc0a79c18d9d3fd9dfb985d93f4ca01b511db29ba56d8f757ee004f13ba",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=376",
+        "https://shapenote.net/musicxml/376.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 269
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/376.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=376",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=376",
+          "https://shapenote.net/musicxml/376.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/385b",
+      "songNo": "385b",
+      "title": "Can I Leave You",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/6ab883a771b2c62bfa75c924.json",
+      "scoreAssetSha256": "1572f9ae2b8e52b62b12f81bf215a4ff6fa8a1a8040000116cf5641ced6efa57",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=385b",
+        "https://shapenote.net/musicxml/385bd.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://shapenote.net/musicxml/385ba.mxl"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 108
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/385bd.mxl",
+            "https://shapenote.net/musicxml/385ba.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=385b",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=385b",
+          "https://shapenote.net/musicxml/385bd.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://shapenote.net/musicxml/385ba.mxl"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/399b",
+      "songNo": "399b",
+      "title": "Happy Christian",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/e3fe65466853a620b4a5d94a.json",
+      "scoreAssetSha256": "f649001b35ae526bee398241887e00db094d9790ef30b37a3ba6b7dbadbde458",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=399b",
+        "https://shapenote.net/musicxml/399bd.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://shapenote.net/musicxml/399ba.mxl"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 165
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/399bd.mxl",
+            "https://shapenote.net/musicxml/399ba.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=399b",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=399b",
+          "https://shapenote.net/musicxml/399bd.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://shapenote.net/musicxml/399ba.mxl"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/413",
+      "songNo": "413",
+      "title": "The Loved Ones",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/c7d1fd2e8e04a649183cd929.json",
+      "scoreAssetSha256": "d734ad805b75afd8461b7a06228172a4059bed7da7db7eddcf2481b4c5a17055",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=413",
+        "https://shapenote.net/musicxml/413.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 322
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/413.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=413",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=413",
+          "https://shapenote.net/musicxml/413.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/433",
+      "songNo": "433",
+      "title": "McKay",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/89885c5365565fd74c13acff.json",
+      "scoreAssetSha256": "8d0ac7b744c6d65e94caf17db9e0d737cda6a256c61dab1b454c3afa94490977",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=433",
+        "https://shapenote.net/musicxml/433d.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://shapenote.net/musicxml/433a.mxl"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 307
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/433d.mxl",
+            "https://shapenote.net/musicxml/433a.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=433",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=433",
+          "https://shapenote.net/musicxml/433d.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://shapenote.net/musicxml/433a.mxl"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/445b",
+      "songNo": "445b",
+      "title": "Passing Away",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/2314c2b9cf2c19a9ac3b9a61.json",
+      "scoreAssetSha256": "adab5ab0a145ae20c86e6f2e401431d02fa35f5be4c248deaa4fbc3cb01a7c5e",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=445",
+        "https://shapenote.net/musicxml/445.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 166
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/445.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=445",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=445",
+          "https://shapenote.net/musicxml/445.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/472",
+      "songNo": "472",
+      "title": "Akin",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/b9bca38a2f7803a6a73f0154.json",
+      "scoreAssetSha256": "8a513055441446f79a3a2bf1800509084311585ea3fb5e0a731643ee7cf2f902",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=472",
+        "https://shapenote.net/musicxml/472.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 167
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/472.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=472",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=472",
+          "https://shapenote.net/musicxml/472.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/477",
+      "songNo": "477",
+      "title": "Lord, We Adore Thee",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/d0d39e51ec9aedb148243771.json",
+      "scoreAssetSha256": "d78c51a4ba44a8a51513601811540b92a4c05ee8a6a69fd326f460e87895edbc",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=477",
+        "https://shapenote.net/musicxml/477.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 292
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/477.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=477",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=477",
+          "https://shapenote.net/musicxml/477.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/486",
+      "songNo": "486",
+      "title": "Beneficence",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/2f8118a868c39576a944dc6d.json",
+      "scoreAssetSha256": "e5741fd906bc44768089d68fb044bb83d330122394c9cc3eb4d7ed5b1ccb83b5",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=486",
+        "https://shapenote.net/musicxml/486.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 235
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/486.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=486",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=486",
+          "https://shapenote.net/musicxml/486.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/491",
+      "songNo": "491",
+      "title": "Oh, What Love",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/d9ddcd5bac43895476f0b887.json",
+      "scoreAssetSha256": "e177e3ea28c60cd0b5b4739233108030695e421f01b35a7904116e4753e6727a",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=491",
+        "https://shapenote.net/musicxml/491.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 185
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/491.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=491",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=491",
+          "https://shapenote.net/musicxml/491.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/505",
+      "songNo": "505",
+      "title": "Where Ceaseless Ages Roll",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/2ee4487c5c53f87dbb35e8db.json",
+      "scoreAssetSha256": "5bc06dc660f550b6f12e015864b445fbd386ecbe6b782199fa82a28275e749e3",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=505",
+        "https://shapenote.net/musicxml/505d.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://shapenote.net/musicxml/505a.mxl"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 191
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/505d.mxl",
+            "https://shapenote.net/musicxml/505a.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=505",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=505",
+          "https://shapenote.net/musicxml/505d.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://shapenote.net/musicxml/505a.mxl"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/542",
+      "songNo": "542",
+      "title": "I’ll Seek His Blessings",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/2e0c70a5588be6ae8b4a85dc.json",
+      "scoreAssetSha256": "b412eedee7310a32a95bea08a434ac2293ed104e61a9b8ca9c6976b4f61a4e50",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=542",
+        "https://shapenote.net/musicxml/542d.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://shapenote.net/musicxml/542a.mxl"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 182
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/542d.mxl",
+            "https://shapenote.net/musicxml/542a.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=542",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=542",
+          "https://shapenote.net/musicxml/542d.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://shapenote.net/musicxml/542a.mxl"
+        ]
+      }
+    },
+    {
+      "queueId": "sh1991/567",
+      "songNo": "567",
+      "title": "The Great Day",
+      "outcome": "external-source-blocked",
+      "safeToPromote": false,
+      "humanReviewRequired": false,
+      "keySignature": "",
+      "mode": "",
+      "scoreRef": "/scores/b4e1c455cd1f7119cdb0b75f.json",
+      "scoreAssetSha256": "583833b60e265a18d1ee31855c245fd2c00fe2677dc83cfa4e88721079a47fcb",
+      "sourceUrls": [
+        "https://fasola.org/indexes/1991/?p=567",
+        "https://shapenote.net/musicxml/567d.mxl",
+        "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+        "https://shapenote.net/musicxml/567a.mxl"
+      ],
+      "auditedEvidence": {
+        "localStructuredAsset": {
+          "keyEvidence": {
+            "status": "unknown",
+            "source": "not encoded in structured source"
+          },
+          "keyElementPresent": false,
+          "pitchedEventCount": 170
+        },
+        "linkedMusicXml": {
+          "urls": [
+            "https://shapenote.net/musicxml/567d.mxl",
+            "https://shapenote.net/musicxml/567a.mxl"
+          ],
+          "directFetchStatus": "http-200-valid-musicxml",
+          "keyElementPresent": false
+        },
+        "fasolaIndex": {
+          "url": "https://fasola.org/indexes/1991/?p=567",
+          "directFetchStatus": "http-200",
+          "explicitKeyOrModeObserved": false
+        }
+      },
+      "blocker": "Autonomous key recovery is blocked: the local pitch-bearing 1991 structured asset and every exact linked MusicXML witness audited contain no key element, while the fetched Fasola 1991 index page provides no explicit major/minor key or mode. No key is inferred from pitch spelling, fifths, or another edition.",
+      "externalSourceEvidence": {
+        "status": "external-source-blocked",
+        "reason": "The local 1991 structured score, exact linked MusicXML witnesses, and fetched Fasola index page were checked; none provides an explicit key and major/minor mode.",
+        "missingEvidence": [
+          "An authoritative 1991 source that explicitly supplies both key and major/minor mode."
+        ],
+        "sourceUrls": [
+          "https://fasola.org/indexes/1991/?p=567",
+          "https://shapenote.net/musicxml/567d.mxl",
+          "https://raw.githubusercontent.com/edjw/Sacred-Harp-datasets/master/sacred_harp_songs_data.csv",
+          "https://shapenote.net/musicxml/567a.mxl"
+        ]
+      }
+    }
+  ]
+}

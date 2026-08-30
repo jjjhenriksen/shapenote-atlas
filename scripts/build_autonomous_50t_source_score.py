@@ -81,12 +81,23 @@ def correct_score() -> tuple[bytes, dict[str, object]]:
                 note.insert(stem_index, notehead)
                 shape_events += 1
 
+            # The raw SH25 witness has the C-major fifths value but omits the
+            # explicit mode declaration. The retained source scan identifies
+            # C major, so add only that source-supported declaration.
+            attributes = first(measures[0], "attributes") if measures else None
+            key = first(attributes, "key") if attributes is not None else None
+            if key is not None and first(key, "mode") is None:
+                mode = ET.Element("mode")
+                mode.text = "major"
+                fifths_index = next((index for index, child in enumerate(key) if local_name(child.tag) == "fifths"), len(key))
+                key.insert(fifths_index + 1, mode)
+
         identification = first(root, "identification")
         if identification is None:
             identification = ET.Element("identification")
             root.insert(0, identification)
         add_field(identification, "atlas-queue-id", "sh2025/50t")
-        add_field(identification, "atlas-transcription-status", "autonomously-verified-source-score")
+        add_field(identification, "atlas-transcription-status", "verified-with-correction-needed")
         add_field(identification, "atlas-safe-to-promote", "false")
         add_field(identification, "atlas-source-image", "work/omr/50t-devotion/50t-source-authority.jpg")
         add_field(identification, "atlas-source-image-sha256", sha256(SOURCE_IMAGE))
@@ -95,6 +106,7 @@ def correct_score() -> tuple[bytes, dict[str, object]]:
         add_field(identification, "atlas-source-time-signature", "4/4")
         add_field(identification, "atlas-shape-encoding", "complete four-shape encoding derived from every source pitch in the exact 2025 structured score and C-major source key")
         add_field(identification, "atlas-lyrics", "source lyrics are visible but omitted from this structured score; notation remains usable")
+        add_field(identification, "atlas-raw-source-completeness", "raw exact SH25 MXL has partial shape-notehead encoding and omits lyrics; complete verification applies only to this corrected derivative")
         add_field(identification, "atlas-provenance", "exact 2025 source score from shapenote.net/musicxml/SH25-DEVOTION.mxl; original retained separately")
 
         return ET.tostring(root, encoding="utf-8", xml_declaration=True), {
@@ -120,8 +132,8 @@ def main() -> int:
         "edition": "Sacred Harp, 2025 Edition",
         "songNo": "50t",
         "title": "Devotion",
-        "comparisonStatus": "autonomously-verified-source-score",
-        "autonomousDecision": "verified",
+        "comparisonStatus": "verified-with-correction-needed",
+        "autonomousDecision": "verified-with-correction-needed",
         "safeToPromote": False,
         "humanReviewRequired": False,
         "sourceAuthority": {
@@ -138,6 +150,8 @@ def main() -> int:
                 "parts": 4,
                 "measuresByPart": summary["measuresByPart"],
                 "fourShapeNoteheadsVisible": True,
+                "sourceLyricsVisible": True,
+                "sourceLyricsEncoded": False,
             },
         },
         "candidateWitness": {
@@ -145,6 +159,11 @@ def main() -> int:
             "candidateMusicXmlSha256": source_hash,
             "candidateMusicXmlIsOmrDerivative": False,
             "candidateRole": "exact 2025 structured source named by the repository score manifest",
+            "rawSourceCompleteness": {
+                "pitchRhythmPartsMeter": "source-supported",
+                "shapeNoteheads": "partial-in-raw-MusicXML",
+                "lyrics": "omitted-in-raw-MusicXML",
+            },
             "sourceManifest": {
                 "sourceUrl": "https://shapenote.net/musicxml/SH25-DEVOTION.mxl",
                 "rawPath": "work/shapenote-musicxml/25051a87a2fddb2c322ec07f.mxl",
@@ -154,7 +173,7 @@ def main() -> int:
         "inputOmr": {
             "path": "work/shapenote-musicxml/25051a87a2fddb2c322ec07f.mxl",
             "sha256": source_hash,
-            "status": "exact-authorized-2025-structured-source",
+            "status": "exact-authorized-2025-structured-source; correction-needed",
         },
         "correctedDraft": {
             "path": "work/omr/autonomous-transcriptions/2025/50t-autonomous-verified.mxl",
@@ -176,11 +195,12 @@ def main() -> int:
         "directSourceEvidence": {
             "sourceScore": "The exact 2025 MusicXML is explicitly listed in shapenote-score-manifest.json under Sacred Harp (2025 Revision) and is already the corpus score source.",
             "shapeComparison": "The source scan visibly uses four-shape noteheads; the derivative encodes all 156 pitched events with the C-major four-shape mapping, while preserving the original exact source archive unchanged.",
-            "lyrics": "Lyrics are visible in the scan but omitted from the structured source; notation remains usable and no lyric alignment is fabricated.",
+            "lyrics": "Lyrics are visible in the source scan but omitted from the raw and corrected structured score; notation remains usable and no lyric alignment is fabricated.",
+            "rawSourceCompleteness": "The raw exact SH25 MXL is not shape-complete and omits lyrics; autonomous verification applies to the corrected derivative, not to a claim that the raw MXL encodes every visible shape or lyric.",
         },
-        "promotionDisposition": "authoritative-2025-source-already-present; shape-complete-derivative-delivered-without-corpus-promotion",
-        "nextAction": "retain-authoritative-source-score; no-human-review-or-promotion-required",
-        "policy": "The exact 2025 source score is already authoritative. This derivative adds complete shape encoding without changing pitch, rhythm, parts, or source content; safeToPromote remains false because no comparison record self-authorizes corpus promotion.",
+        "promotionDisposition": "corrected-derivative-retained; raw-source-not-exact; no-corpus-promotion",
+        "nextAction": "retain-authoritative-source-score-and-corrected-derivative; no-human-handoff-or-promotion",
+        "policy": "The exact 2025 source score remains authoritative for source events, but the raw MXL is not complete: shape-notehead encoding is partial and lyrics are omitted. The corrected derivative is verified against the source scan; safeToPromote remains false because the verdict is verified-with-correction-needed, not exact.",
     }
     AUDIT.parent.mkdir(parents=True, exist_ok=True)
     AUDIT.write_text(json.dumps(audit, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
