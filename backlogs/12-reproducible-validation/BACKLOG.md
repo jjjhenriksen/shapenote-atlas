@@ -6,22 +6,38 @@
 
 ## Current evidence
 
-- Validators are separate scripts and the checkout is heavily dirty/untracked.
-- Individual checks pass, but there is no single reproducible command proving the complete state.
+- `python3 scripts/verify_all.py` is the aggregate, read-only entry point. It emits a machine-readable JSON receipt and a human-readable Markdown receipt.
+- The post-rewrite checkout is `580665e` before the refreshed receipt. Receipts belong under ignored `work/agent-10-verification/` so verification does not overwrite shared historical evidence.
+- The aggregate is fail-closed for required checks. Browser smoke is an explicitly optional worker-discovered check: this checkout has no worker, so `--allow-missing-optional` records a limitation and still completes; without that flag, the absent worker is a blocker.
 
 ## Work
 
-- Define a deterministic validation order and dependency/runtime requirements.
-- Add a read-only aggregate command that reports pass/fail per subsystem and preserves useful logs.
-- Verify against generated output and, where possible, a clean temporary export or packaged app without cleaning the user's checkout.
-- Document which checks require network, a browser, retained source files, or optional tools.
+- [x] Use the existing deterministic aggregate order: generated-artifact and stale-input checks, fail-closed policy checks, focused validators, offline source-health collection/validation, optional browser smoke, production build, and required startup smoke.
+- [x] Preserve useful stdout/stderr and exact command details in the JSON receipt; write receipts only to `work/agent-10-verification/` for this audit.
+- [x] Verify generated output and the production static bundle without cleaning or mutating the checkout.
+- [x] Document runtime boundaries: offline source-health is the default; bounded online source-health is opt-in; browser smoke requires a browser worker; retained local source evidence is required by the image/source validators; startup smoke uses the local preview server.
+- [x] Add the agent-10 current-count reconciliation and a focused report-contract test so stale audit prose is detectable.
 
 ## Acceptance
 
-- One command produces a complete, machine-readable and human-readable receipt.
-- It fails closed on missing source data, stale generated data, unknown mode defaults, queue contradictions, or unsafe promotion.
-- The receipt includes exact counts, commit/worktree context, and remaining blockers.
-- Existing focused validators remain independently runnable.
+- [x] One command produces a complete, machine-readable and human-readable receipt.
+- [x] It fails closed on missing source data, stale generated data, unknown mode defaults, queue contradictions, or unsafe promotion.
+- [x] The receipt includes exact counts, commit/worktree context, limitations, and remaining blockers.
+- [x] Existing focused validators remain independently runnable.
+
+## Agent-10 closeout — 2026-08-30
+
+Run from the repository root:
+
+```sh
+python3 scripts/verify_all.py --allow-missing-optional \
+  --json-out work/agent-10-verification/verification-receipt.json \
+  --markdown-out work/agent-10-verification/verification-receipt.md
+```
+
+The fresh run passed all required checks at the post-rewrite `580665e` head. Browser smoke was recorded as `not-available` with `required: false`; startup smoke passed. The exact receipt is in `work/agent-10-verification/verification-receipt.json` and `work/agent-10-verification/verification-receipt.md`.
+
+The current generated-report snapshot and stale-count reconciliation are recorded in `work/agent-10-verification/agent-10-current-audit-reconciliation.md`. The focused contract test is `tests/test_agent_10_reproducible_validation.py`.
 
 ## Ownership
 
