@@ -43,3 +43,25 @@ with zero pitch/rhythm/part edits and zero direct per-event source-shape
 proof. Candidates render successfully and preserve the raw event streams;
 the exact blockers are duration/topology mismatches and watermark-obscured
 source regions. Receipt: `work/agent-04-shapes/agent-04-source-correction-receipt.json`.
+
+## Autonomous blocker-clearing batch — 2026-08-30
+
+- Audited only `sh2025/561` Cunningham and `sh2025/562` Mournful Joy against
+  their immutable SH25 page images, retained raw OMR, existing source-shape
+  drafts, and playable draft witnesses. The pages directly establish E minor,
+  the printed meters, four vocal parts, lyrics/repeat treatment, and the four
+  geometric notehead vocabulary. They do not establish event-level alignment.
+- Both records remain blocked. The existing playable drafts are usable for
+  playback but are not source-verified: their key evidence is source-observed,
+  mode declarations are incomplete, and time signatures are blank. Existing
+  shape tags remain derived OMR hypotheses rather than direct per-note proof.
+- Isolated candidates add only source-observed key/mode/time metadata and
+  derived four-shape tags while preserving raw pitch/rhythm/part events;
+  `safeToPromote: 0`, direct per-event shape matches `0`, verified event data
+  `0`, and pitch/rhythm/part edits `0`. The exact evidence gaps are recorded
+  per record, including source/OMR topology and duration disagreement and
+  watermark-intersected notation. No imagegen output or generated ledger was
+  used as notation authority.
+- Receipt: `work/agent-04-shapes/blocker-clearing-561-562/agent-04-source-verification-receipt.json`.
+  Builder: `scripts/agent-04_source_verification_561_562.py`. Read-only
+  integrity test: `tests/test_agent-04_source_verification_561_562.py`.
