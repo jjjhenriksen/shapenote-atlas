@@ -34,3 +34,12 @@ Own shape derivation, shape evidence, and shape validators. Do not alter pitch/r
 - Render evidence: 110 of 111 scheduled MXLs rendered successfully in isolated PDFs. `sh2025/130` source-shape draft remains blocked because MuseScore returns code 40 without producing a PDF; its raw source OMR renders and its XML shape validator passes.
 - Both duplicate `sh2025/81b` comparison records remain distinct and blocked. Their retained source image copy is byte-identical to the immutable source image; candidate MXLs render but contain zero direct notehead tags, so neither supplies source-faithful shape proof. Generated image artifacts remain excluded from notation evidence.
 - Validators: `validate_shape_evidence.py` passed (`reviewErrors: 0`, `safeToPromote: 0`); `validate_shape_review_drafts.py` passed (19 records, 2,589 pitched events/noteheads); `validate_source_shape_review_drafts.py` passed (90 records, 14,115 pitched events/noteheads); `test_shape_evidence.py` passed when invoked with `PYTHONPATH=.`; the isolated agent-04 test passed (3 tests).
+
+## Autonomous source-correction recheck — 2026-08-30
+
+`sh2025/140` Moreno and `sh2025/161` Southminster received isolated
+source-correction candidates. Both remain blocked: `safeToPromote: false`,
+with zero pitch/rhythm/part edits and zero direct per-event source-shape
+proof. Candidates render successfully and preserve the raw event streams;
+the exact blockers are duration/topology mismatches and watermark-obscured
+source regions. Receipt: `work/agent-04-shapes/agent-04-source-correction-receipt.json`.
