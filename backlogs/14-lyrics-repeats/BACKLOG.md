@@ -38,3 +38,24 @@ dashboard: lyrics/syllable attachment, repeat bars, and numbered endings.
 Own parser semantic fields, score rendering, and semantic fixtures needed for
 these features. Do not own or rewrite `public/source-comparison-ledger.json`
 generation; coordinate with the semantic-fidelity worker instead.
+
+## Agent-11 bounded handoff
+
+Implemented an isolated source-semantic contract in
+`scripts/agent_11_lyrics_repeats.py` and
+`src/agent_11_score_semantics.js`, with fixtures and focused tests under
+`tests/fixtures/agent-11-lyrics-repeats/` and
+`tests/test_agent_11_lyrics_repeats.py`. The adapter is not connected to the
+protected dashboard entry point; no shared public output or active
+transcription was regenerated.
+
+Verified from retained structured witness `work/445.mxl`: repeat barlines and
+numbered endings are encoded and expand to an explicit measure sequence;
+lyrics are unavailable in that MusicXML and remain unavailable. The fixture
+also proves lyric-to-event attachment, editorial-marking extraction, and
+linear fallback for absent or unpaired repeat data.
+
+Blocked or unavailable: current dashboard UI integration is deferred because
+`src/main.jsx` and `src/styles.css` are protected for this ownership boundary;
+scan-visible lyrics are not promoted into structured playback without
+event-level source encoding.

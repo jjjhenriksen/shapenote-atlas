@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<score-partwise version="4.0">
+  <!--
+    Agent-11 semantic fixture.  The lyric words and repeat/ending attributes
+    are bounded source observations from the retained Passing Away witness;
+    this fixture tests attachment/expansion mechanics only and is never a
+    corpus transcription or promotion source.
+  -->
+  <part-list>
+    <score-part id="P1"><part-name>Treble</part-name></score-part>
+  </part-list>
+  <part id="P1">
+    <measure number="1">
+      <attributes><divisions>1</divisions></attributes>
+      <note><pitch><step>C</step><octave>4</octave></pitch><duration>1</duration><voice>1</voice><type>quarter</type>
+        <lyric number="1"><syllabic>single</syllabic><text>And</text></lyric>
+        <notations><articulations><strong-accent type="down"/></articulations></notations>
+      </note>
+    </measure>
+    <measure number="2">
+      <barline location="left"><repeat direction="forward"/></barline>
+      <note><pitch><step>D</step><octave>4</octave></pitch><duration>1</duration><voice>1</voice><type>quarter</type>
+        <lyric number="1"><syllabic>single</syllabic><text>must</text></lyric>
+      </note>
+    </measure>
+    <measure number="3">
+      <note><pitch><step>E</step><octave>4</octave></pitch><duration>1</duration><voice>1</voice><type>quarter</type>
+        <lyric number="1"><syllabic>single</syllabic><text>I</text></lyric>
+      </note>
+    </measure>
+    <measure number="4">
+      <note><pitch><step>F</step><octave>4</octave></pitch><duration>1</duration><voice>1</voice><type>quarter</type>
+        <lyric number="1"><syllabic>single</syllabic><text>be</text></lyric>
+      </note>
+    </measure>
+    <measure number="5">
+      <note><pitch><step>G</step><octave>4</octave></pitch><duration>1</duration><voice>1</voice><type>quarter</type>
+        <lyric number="1"><syllabic>single</syllabic><text>to</text></lyric>
+      </note>
+    </measure>
+    <measure number="6">
+      <barline location="left"><ending number="1" type="start"/></barline>
+      <note><pitch><step>A</step><octave>4</octave></pitch><duration>1</duration><voice>1</voice><type>quarter</type>
+        <lyric number="1"><syllabic>single</syllabic><text>judgment</text></lyric>
+      </note>
+      <barline location="right"><repeat direction="backward" times="1"/><ending number="1" type="discontinue"/></barline>
+    </measure>
+    <measure number="7">
+      <barline location="left"><ending number="2" type="start"/></barline>
+      <note><pitch><step>C</step><octave>5</octave></pitch><duration>1</duration><voice>1</voice><type>quarter</type>
+        <lyric number="1"><syllabic>single</syllabic><text>brought</text></lyric>
+      </note>
+      <barline location="right"><ending number="2" type="discontinue"/></barline>
+    </measure>
+  </part>
+</score-partwise>
