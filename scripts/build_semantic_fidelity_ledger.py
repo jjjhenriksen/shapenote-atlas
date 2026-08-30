@@ -20,6 +20,8 @@ from pathlib import Path
 from typing import Any
 from xml.etree import ElementTree as ET
 
+from agent_03_semantic_musicxml import parse_source as parse_agent_03_source
+
 
 ROOT = Path(__file__).resolve().parents[1]
 CORPUS = ROOT / "public" / "corpus.json"
@@ -76,7 +78,7 @@ def source_xml(path: Path) -> ET.Element:
         return ET.fromstring(archive.read(names[0]))
 
 
-def parse_source(path: Path) -> dict[str, Any]:
+def parse_source_legacy(path: Path) -> dict[str, Any]:
     """Parse enough MusicXML independently to compare serialized semantics."""
     root = source_xml(path)
     part_names: dict[str, str] = {}
@@ -187,7 +189,7 @@ def parse_source(path: Path) -> dict[str, Any]:
 
 
 def normalized_event(event: dict[str, Any]) -> dict[str, Any]:
-    keys = ("onset", "beats", "measure", "rest", "voice", "staff", "type", "dots", "accidental", "notehead", "step", "alter", "octave", "tieStart", "tieStop")
+    keys = ("onset", "beats", "measure", "rest", "voice", "staff", "type", "dots", "accidental", "notehead", "step", "alter", "octave", "tieStart", "tieStop", "lyrics", "editorialMarkings")
     normalized: dict[str, Any] = {}
     for key in keys:
         value = event.get(key)
@@ -199,6 +201,8 @@ def normalized_event(event: dict[str, Any]) -> dict[str, Any]:
             value = int(value) if value is not None else None
         elif key in {"rest", "tieStart", "tieStop"}:
             value = bool(value)
+        elif key in {"lyrics", "editorialMarkings"}:
+            value = value if isinstance(value, list) else []
         elif value is None:
             value = ""
         normalized[key] = value
@@ -312,7 +316,8 @@ def semantic_fields(source: dict[str, Any], asset: dict[str, Any], transform: di
         differences.append("lyrics-not-modeled-in-generated-asset")
     if source_shapes and asset_shapes != source_shapes:
         differences.append("shape-notehead-count-differs")
-    if source.get("repeatBarlines", 0) or source.get("endingBarlines", 0):
+    source_repeat_semantics = source.get("repeatSemantics", [])
+    if source_repeat_semantics and not asset.get("repeatSemantics"):
         differences.append("repeat-ending-semantics-not-modeled-in-generated-asset")
     source_keys = source.get("keyDeclarations", [])
     asset_keys = asset.get("musicXmlKeyDeclarations", [])
@@ -334,6 +339,9 @@ def semantic_fields(source: dict[str, Any], asset: dict[str, Any], transform: di
         "assetRepeatSemanticsModeled": bool(asset.get("repeatSemantics")),
         "sourceRepeatBarlines": source.get("repeatBarlines", 0),
         "sourceEndingBarlines": source.get("endingBarlines", 0),
+        "sourceRepeatSemantics": source_repeat_semantics,
+        "sourceEditorialMarkingsDetected": len(source.get("editorialMarkings", [])),
+        "assetEditorialMarkingsModeled": bool(asset.get("editorialMarkings")),
         "differences": differences,
     }
 
@@ -412,7 +420,7 @@ def main() -> int:
                             errors.append(f"{mapping_id}: source checksum drift")
                         if str(source_path) not in source_cache:
                             try:
-                                source_cache[str(source_path)] = parse_source(source_path)
+                                source_cache[str(source_path)] = parse_agent_03_source(source_path)
                             except (OSError, ValueError, zipfile.BadZipFile, ET.ParseError) as exc:
                                 source_cache[str(source_path)] = None
                                 errors.append(f"{mapping_id}: source parse failed: {exc}")

@@ -21,6 +21,7 @@ from typing import Any
 from xml.etree import ElementTree as ET
 
 from review_dispositions import transcription_disposition
+from agent_03_semantic_musicxml import parse_source as parse_semantic_source
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -590,9 +591,9 @@ def parse_score(url: str, source_path: Path | None = None) -> dict[str, Any] | N
                 elif item_name == "note":
                     duration_text = child_text(item, "duration")
                     try:
-                        beats = float(duration_text) / divisions if duration_text else 0.5
+                        beats = float(duration_text) / divisions if duration_text else 0.0
                     except ValueError:
-                        beats = 0.5
+                        beats = 0.0
                     chord = any(local_name(child.tag) == "chord" for child in item)
                     voice = child_text(item, "voice")
                     staff = child_text(item, "staff") or "1"
@@ -603,7 +604,11 @@ def parse_score(url: str, source_path: Path | None = None) -> dict[str, Any] | N
                     pitch = next((node for node in item if local_name(node.tag) == "pitch"), None)
                     event: dict[str, Any] = {
                         "onset": round(note_onset, 3),
-                        "beats": round(max(beats, 0.125), 3),
+                        # Preserve the source duration exactly.  Clamping a
+                        # short or zero-duration source event to an invented
+                        # eighth-note made timing audits look healthier than
+                        # the witness and hid malformed source data.
+                        "beats": round(beats, 3),
                         "measure": measure.attrib.get("number", ""),
                         "rest": pitch is None,
                         "voice": voice,
@@ -614,6 +619,10 @@ def parse_score(url: str, source_path: Path | None = None) -> dict[str, Any] | N
                         "notehead": child_text(item, "notehead"),
                         "clef": current_clefs.get(child_text(item, "staff") or "1", default_clef),
                     }
+                    if not duration_text:
+                        event["timingStatus"] = "unavailable"
+                    elif beats <= 0:
+                        event["timingStatus"] = "invalid"
                     if pitch is not None:
                         event.update(
                             {
@@ -654,6 +663,28 @@ def parse_score(url: str, source_path: Path | None = None) -> dict[str, Any] | N
         "parts": parts,
     } if parts else None
     if score:
+        # The playback parser above owns the existing score event shape.  Add
+        # semantic evidence from the agent-03 parser without replacing those
+        # events: lyrics and editorial markings are attached by stable event
+        # order, while repeats/endings and measure timing remain source-level
+        # data.  A semantic parse failure must not make an otherwise readable
+        # score disappear or cause unavailable source semantics to be guessed.
+        try:
+            semantic = parse_semantic_source(cache_path)
+        except (OSError, ValueError, zipfile.BadZipFile, ET.ParseError):
+            semantic = None
+        if semantic is not None:
+            score["lyrics"] = semantic["lyrics"]
+            score["repeatSemantics"] = semantic["repeatSemantics"]
+            score["editorialMarkings"] = semantic["editorialMarkings"]
+            score["semanticAvailability"] = semantic["semanticAvailability"]
+            semantic_parts = [part for part in semantic["parts"] if part["events"]]
+            for parsed_part, semantic_part in zip(parts, semantic_parts):
+                parsed_part["measureSemantics"] = semantic_part["measureSemantics"]
+                for parsed_event, semantic_event in zip(parsed_part["events"], semantic_part["events"]):
+                    for field in ("lyrics", "editorialMarkings"):
+                        if semantic_event.get(field):
+                            parsed_event[field] = semantic_event[field]
         score["keyEvidence"] = {
             "status": "source-verified" if global_key else "unknown",
             "source": "structured MusicXML source" if global_key else "not encoded in structured source",
