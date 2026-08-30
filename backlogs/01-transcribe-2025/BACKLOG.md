@@ -68,3 +68,24 @@ The report is intentionally outside `public/` and does not rewrite shared
 ledgers. A record can leave this backlog only after an authorized exact-edition
 source is retained and compared note-for-note, including rhythm, rests,
 ties, repeats/endings, lyrics, and shape identity.
+
+## Autonomous delivery recheck — 2026-08-30
+
+Two additional retained SH25 records were re-inspected autonomously:
+
+- `sh2025/258` Inspiration — source A major, 4/4, four parts; the retained
+  derivative has 16 measures per part, 153 pitched events, empty/failed
+  duration groups, omitted lyrics/repeats, and watermark-obscured notation.
+- `sh2025/259` Easton — source F major, 4/4, four parts; the retained
+  derivative has 18 rather than 20 source measures per part, 164 pitched
+  events, empty/failed duration groups, omitted lyrics/repeats, and
+  watermark-obscured notation.
+
+Both remain `autonomously-blocked`, with `safeToPromote: false`; no new
+MusicXML was claimed. The bounded receipt and per-record evidence are under
+`work/agent-01-notation/` and preserve the protected 115/116 boundary.
+
+The same recheck produced source-derived, review-only derivatives for
+`sh2025/366` Bremen and `sh2025/484b` Parwich. Bremen has 24 duration
+failures; Parwich has 25. Their source metadata and derived four-shape tags
+are retained as evidence only, not promoted notation.

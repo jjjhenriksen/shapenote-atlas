@@ -50,3 +50,14 @@ Agent-06 verification: `python3 scripts/agent_06_audit_edition_reconciliation.py
 ## Ownership
 
 Own edition mapping and reconciliation artifacts. Do not promote alternate-edition scores or change the UI's visual language.
+
+## Autonomous source reconciliation recheck — 2026-08-30
+
+`sh2025/254` Warsaw and `sh2025/255` Mechanicville were rechecked against
+their retained 2025 pages and available alternate witnesses. Warsaw remains
+`external-source-blocked`: the same-text witness is Departure C.M.D. in 4/4
+with different credits and layout. Mechanicville remains
+`external-source-blocked`: the same-title witness is D minor with 22 measures
+per part versus the retained E-minor 2025 page. Neither alternate can support
+exact transposition or promotion. Receipt:
+`work/agent-06-editions/agent-06-sh2025-254-255-receipt.json`.

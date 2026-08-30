@@ -26,3 +26,12 @@
 ## Ownership
 
 Own comparison normalization, diffing, and ledger generation. Do not change source files or UI components.
+
+## Autonomous semantic recheck — 2026-08-30
+
+`sh2025/366` Bremen and `sh2025/484b` Parwich were compared against their
+immutable source pages and retained OMR. Source metadata, four-part layout,
+and derived shape annotations were preserved, but event timing remains
+incomplete: Bremen has 24 duration failures and Parwich has 25. Both remain
+review-only, `autonomously-blocked`, and `safeToPromote: false`; no uncertain
+lyrics, ties, repeats, endings, pitches, or rhythms were invented.

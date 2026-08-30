@@ -33,3 +33,14 @@ Own only the 13 ledger records and their direct audit/correction artifacts. Do n
 - The source scans visibly print lyrics and four-shape notation. The raw and corrected MusicXML each contain zero lyric elements, and no direct note-to-syllable alignment was established without inference. No lyrics, notes, repeats, endings, or shapes were fabricated.
 - Independent event-signature comparison passed for all 13; corrected derivatives preserve candidate part/measure/pitched-event structure and carry complete allowed four-shape noteheads.
 - Full evidence and checksums: `work/agent-02-corrections/correction-dispositions.json`. The agent-02 audit and focused tests pass; data, playback, transposition, key/mode, and shared-edition validators pass. Semantic-fidelity validation remains blocked by unrelated pre-existing checksum drift for `ch7/543 — Chase High Road`.
+
+## Autonomous correction recheck — 2026-08-30
+
+`sh2025/41` Evening Hymn, `sh2025/50t` Devotion, and `sh2025/55` Converse
+were re-inspected against their retained SH25 source scans and exact
+structured witnesses. All three preserve source-backed part/measure,
+key/mode, event-signature, repeat/ending, and derived four-shape evidence.
+None has a lyric-bearing structured witness, so none was promoted; each is
+classified as `autonomously-blocked` specifically for missing direct
+note-to-syllable alignment, not for an unresolved note-stream mismatch.
+The bounded reports and receipt are under `work/agent-02-corrections/`.
