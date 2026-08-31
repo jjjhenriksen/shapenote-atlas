@@ -2,6 +2,13 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./styles.css";
 
+const PUBLIC_BASE = import.meta.env.BASE_URL || "/";
+
+function assetUrl(path) {
+  if (!path || /^(?:https?:|data:|#)/i.test(String(path))) return path;
+  return `${PUBLIC_BASE}${String(path).replace(/^\/+/, "")}`;
+}
+
 const BOOK_ORDER = ["sh1991", "sh2025", "shcooper2012", "ch7", "shenandoah", "southernharmony", "kentucky", "socialharp", "mnharmony", "sacredharptunes", "trumpet"];
 const KEY_NAMES = ["C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B"];
 const ROOT_PITCH = { C: 0, "B#": 0, "C#": 1, Db: 1, D: 2, "D#": 3, Eb: 3, E: 4, Fb: 4, "E#": 5, F: 5, "F#": 6, Gb: 6, G: 7, "G#": 8, Ab: 8, A: 9, "A#": 10, Bb: 10, B: 11, Cb: 11 };
@@ -374,7 +381,7 @@ function CleanSourceCandidates({ coverage }) {
   if (!candidates.length) return null;
   return <div className="clean-source-candidates">
     <div className="source-notation-head"><span className="section-label">Comparison sources</span><span>Not edition-verified</span></div>
-    <p>Public score candidates are available for note-for-note comparison. They are not used as the book engraving until the edition match is verified. <a href="/candidate-reconciliation.json" target="_blank" rel="noreferrer noopener">Open reconciliation ledger <Icon name="external" size={13} /></a></p>
+    <p>Public score candidates are available for note-for-note comparison. They are not used as the book engraving until the edition match is verified. <a href={assetUrl("/candidate-reconciliation.json")} target="_blank" rel="noreferrer noopener">Open reconciliation ledger <Icon name="external" size={13} /></a></p>
     <div className="clean-source-candidate-list">
       {candidates.map((candidate) => <div className="clean-source-candidate" key={candidate.candidateKey || candidate.pdfUrl}>
         <div><strong>{candidate.title || "Public score candidate"}</strong><span>{candidate.matchKind === "same_text_key" ? "Text/key match" : "Title and text/key match"}{candidate.compositePdfPage ? ` · extracted source page ${candidate.compositePdfPage}` : ""}</span></div>
@@ -413,7 +420,7 @@ function ShapeReviewDraftPanel({ reviewItem, ambiguous = false }) {
     <div className="shape-review-draft-heading"><div><span className="section-label">Shape transcription draft</span><h3>{disposition.heading}</h3></div><span className={`review-only-badge ${disposition.badgeClass}`}>{disposition.badge}</span></div>
     <p>{disposition.summary} Derived from the comparison witness and source key; it cannot replace the source engraving.</p>
     <div className="shape-review-draft-meta"><span><strong>{draft.pitchedEventsRetained}</strong> pitched events</span><span><strong>{draft.sourceKey || "Key not recorded"}</strong>{draft.sourceMode ? ` · ${draft.sourceMode}` : ""}</span><span><strong>{draft.sourceTimeSignature || "Meter not recorded"}</strong></span></div>
-    <div className="shape-review-draft-actions"><a href={`/${draft.publicPath}`} download={`${reviewItem.songNo}-shape-review.mxl`}>Download review MusicXML <Icon name="download" size={14} /></a><a href="/human-review-queue.json" target="_blank" rel="noreferrer noopener">Open review evidence <Icon name="external" size={14} /></a></div>
+    <div className="shape-review-draft-actions"><a href={assetUrl(draft.publicPath)} download={`${reviewItem.songNo}-shape-review.mxl`}>Download review MusicXML <Icon name="download" size={14} /></a><a href={assetUrl("/human-review-queue.json")} target="_blank" rel="noreferrer noopener">Open review evidence <Icon name="external" size={14} /></a></div>
   </section>;
 }
 
@@ -622,7 +629,7 @@ function App() {
   useEffect(() => {
     let cancelled = false;
     setCorpus(null);
-    fetch("/corpus.json")
+    fetch(assetUrl("/corpus.json"))
       .then((response) => {
         if (!response.ok) throw new Error(`Corpus request failed: ${response.status}`);
         return response.json();
@@ -635,7 +642,7 @@ function App() {
   useEffect(() => {
     let cancelled = false;
     setHumanReviewQueueError(false);
-    fetch("/human-review-queue.json")
+    fetch(assetUrl("/human-review-queue.json"))
       .then((response) => {
         if (!response.ok) throw new Error(`Review queue request failed: ${response.status}`);
         return response.json();
@@ -757,6 +764,7 @@ function App() {
   const signedTranspose = transpose > 6 ? transpose - 12 : transpose;
   const sourceUrls = [...new Set([...(selectedMetadata?.sourceUrl ? [selectedMetadata.sourceUrl] : []), ...(selectedMetadata?.sourceUrls || []), ...(selectedSong?.urls || [])])].slice(0, 6);
   const scoreRef = activeScorePreview?.scoreRef || "";
+  const scoreRequestRef = assetUrl(scoreRef);
   const selectedScore = fullScore?.sourceUrl === activeScorePreview?.sourceUrl ? fullScore : activeScorePreview;
   const scoreLoaded = Boolean(activeScorePreview && fullScore?.sourceUrl === activeScorePreview.sourceUrl);
   const hasPitchedEvents = Boolean(selectedScore?.parts?.some((part) => (part.events || []).some((event) => !event.rest && event.step)));
@@ -796,7 +804,7 @@ function App() {
     setFullScore(null);
     setScoreLoadError(false);
     if (!scoreRef) return () => { cancelled = true; };
-    fetch(scoreRef)
+    fetch(scoreRequestRef)
       .then((response) => {
         if (!response.ok) throw new Error(`Score request failed: ${response.status}`);
         return response.json();
@@ -804,7 +812,7 @@ function App() {
       .then((score) => { if (!cancelled) setFullScore(score); })
       .catch(() => { if (!cancelled) { setFullScore(null); setScoreLoadError(true); } });
     return () => { cancelled = true; };
-  }, [scoreRef, scoreLoadAttempt]);
+  }, [scoreRequestRef, scoreLoadAttempt]);
 
   useEffect(() => {
     if (!selectedSong) return;
@@ -991,7 +999,7 @@ function App() {
           {humanReviewQueueError && selectedCoverage && selectedCoverage.status !== "structured-score" && <div className="source-coverage-note"><Icon name="info" size={18} /><span role="status"><strong>Review status unavailable.</strong> The local human-review queue could not be loaded. Source coverage and score data are unchanged; reload when the local server is available.</span><button className="text-button" type="button" onClick={() => setHumanReviewQueueAttempt((attempt) => attempt + 1)}>Retry</button></div>}
           {selectedScore ? <>
             {referenceScoreActive && <div className="reference-score-note"><Icon name="info" size={18} /><span>This is a transposable reference witness from {referenceSourceLabel}. It is shown for practice, but it is not being presented as the {book.label} engraving.</span></div>}
-            {draftScoreActive && <div className="draft-score-note"><Icon name="info" size={18} /><span>{reviewDraft ? <><strong>{reviewDisposition(reviewDraft, reviewDraftAmbiguous).label}.</strong> {reviewDisposition(reviewDraft, reviewDraftAmbiguous).summary} </> : "This is an unverified OMR transcription draft. "}It is playable and transposable only as isolated review material, but it is not the {book.label} engraving and does not count as verified coverage. <a href="/human-review-queue.json" target="_blank" rel="noreferrer noopener">{reviewDraft ? "View disposition evidence" : "Open review evidence"} <Icon name="external" size={13} /></a></span></div>}
+            {draftScoreActive && <div className="draft-score-note"><Icon name="info" size={18} /><span>{reviewDraft ? <><strong>{reviewDisposition(reviewDraft, reviewDraftAmbiguous).label}.</strong> {reviewDisposition(reviewDraft, reviewDraftAmbiguous).summary} </> : "This is an unverified OMR transcription draft. "}It is playable and transposable only as isolated review material, but it is not the {book.label} engraving and does not count as verified coverage. <a href={assetUrl("/human-review-queue.json")} target="_blank" rel="noreferrer noopener">{reviewDraft ? "View disposition evidence" : "Open review evidence"} <Icon name="external" size={13} /></a></span></div>}
             {selectedCoverage?.status === "transcription-blocked" && <div className="source-coverage-note"><Icon name="info" size={18} /><span><strong>Source coverage blocked.</strong> {coverageNextStep(selectedCoverage)} This review draft remains isolated until an authorized source is acquired.</span></div>}
             {draftScoreActive && <CleanSourceCandidates coverage={selectedCoverage} />}
             {draftScoreActive && <SourceComparisonPanel song={selectedSong} bookId={bookId} coverage={selectedCoverage} />}
@@ -1006,7 +1014,7 @@ function App() {
             {signedTranspose !== 0 && <div className="transposition-note" role="status" aria-live="polite" aria-atomic="true"><span>Transposed {signedTranspose > 0 ? "+" : "−"}{Math.abs(signedTranspose)} semitone{Math.abs(signedTranspose) === 1 ? "" : "s"} from {sourceKeyName}</span></div>}
             <div className="structured-score-status"><Icon name={draftScoreActive || !canTranspose ? "info" : "check"} size={16} /><span>{draftScoreActive ? "Draft loaded for review playback and transposition; source comparison is still required." : "Structured source loaded for playback."} {sourceKeyValue ? `${sourceKeyLabel}.` : "Choose the source key above to enable transposition."}</span></div>
             {draftScoreActive && <SourceRecording song={selectedSong} coverage={selectedCoverage} />}
-          </> : <><div className="missing-score"><Icon name="info" size={23} /><div><h3>No transposable score file for this record</h3><p>The atlas preserves the exact source link or scan instead of synthesizing notation where structured score data is absent.</p>{selectedCoverage && <p className="edition-note"><strong>{coverageLabel(selectedCoverage)}.</strong> {coverageNextStep(selectedCoverage)}</p>}{selectedCoverage?.editionStatus === "added-in-2025" && <p className="edition-note"><strong>New in 2025.</strong> This page is on the publisher's additions list and has no verified 2025 MusicXML yet. <a href={selectedCoverage.editionEvidenceUrl} target="_blank" rel="noreferrer noopener">View the source list <Icon name="external" size={13} /></a></p>}{reviewDraft && <p className="edition-note"><strong>{reviewDisposition(reviewDraft, reviewDraftAmbiguous).label}.</strong> {reviewDisposition(reviewDraft, reviewDraftAmbiguous).summary} {reviewDraft.draftSummary.parts} parts, {Object.values(reviewDraft.draftSummary.measuresByPart)[0] || "unknown"} measures per part. It is not playable or transposable because the source comparison is not promotion-safe. <a href="/human-review-queue.json" target="_blank" rel="noreferrer noopener">View disposition evidence <Icon name="external" size={13} /></a></p>}{alternateEdition && <p className="edition-note">A verified {alternateEdition === "sh1991" ? "1991" : "2025"}-edition score is available for this shared tune, but it is not being mislabeled as a {bookId === "sh2025" ? "2025" : "1991"} score.</p>}{alternateEdition && <button className="text-button" onClick={() => { setBookId(alternateEdition); setSelectedId(selectedSong.id); }}>Open the verified {alternateEdition === "sh1991" ? "1991" : "2025"} score</button>}</div></div><ShapeReviewDraftPanel reviewItem={reviewDraft} ambiguous={reviewDraftAmbiguous} /><CleanSourceCandidates coverage={selectedCoverage} /><SourceNotation song={selectedSong} bookId={bookId} /><SourceRecording song={selectedSong} coverage={selectedCoverage} /></>}
+          </> : <><div className="missing-score"><Icon name="info" size={23} /><div><h3>No transposable score file for this record</h3><p>The atlas preserves the exact source link or scan instead of synthesizing notation where structured score data is absent.</p>{selectedCoverage && <p className="edition-note"><strong>{coverageLabel(selectedCoverage)}.</strong> {coverageNextStep(selectedCoverage)}</p>}{selectedCoverage?.editionStatus === "added-in-2025" && <p className="edition-note"><strong>New in 2025.</strong> This page is on the publisher's additions list and has no verified 2025 MusicXML yet. <a href={selectedCoverage.editionEvidenceUrl} target="_blank" rel="noreferrer noopener">View the source list <Icon name="external" size={13} /></a></p>}{reviewDraft && <p className="edition-note"><strong>{reviewDisposition(reviewDraft, reviewDraftAmbiguous).label}.</strong> {reviewDisposition(reviewDraft, reviewDraftAmbiguous).summary} {reviewDraft.draftSummary.parts} parts, {Object.values(reviewDraft.draftSummary.measuresByPart)[0] || "unknown"} measures per part. It is not playable or transposable because the source comparison is not promotion-safe. <a href={assetUrl("/human-review-queue.json")} target="_blank" rel="noreferrer noopener">View disposition evidence <Icon name="external" size={13} /></a></p>}{alternateEdition && <p className="edition-note">A verified {alternateEdition === "sh1991" ? "1991" : "2025"}-edition score is available for this shared tune, but it is not being mislabeled as a {bookId === "sh2025" ? "2025" : "1991"} score.</p>}{alternateEdition && <button className="text-button" onClick={() => { setBookId(alternateEdition); setSelectedId(selectedSong.id); }}>Open the verified {alternateEdition === "sh1991" ? "1991" : "2025"} score</button>}</div></div><ShapeReviewDraftPanel reviewItem={reviewDraft} ambiguous={reviewDraftAmbiguous} /><CleanSourceCandidates coverage={selectedCoverage} /><SourceNotation song={selectedSong} bookId={bookId} /><SourceRecording song={selectedSong} coverage={selectedCoverage} /></>}
           <div className="source-strip"><div><span className="section-label">Source</span><span>{selectedMetadata?.sourceUrl ? `${book.label}, page ${selectedSong.songNo}` : "Local corpus record"}</span></div><div className="source-actions">{sourceUrls.map((url) => <a key={url} href={url} target="_blank" rel="noreferrer noopener" aria-label={`Open source record at ${sourceDestinationLabel(url)}`}>Open source record <Icon name="external" size={16} /></a>)}{activeScorePreview && shapeSourcePdfUrl(activeScorePreview) && <a href={shapeSourcePdfUrl(activeScorePreview)} target="_blank" rel="noreferrer noopener">Open shape-source PDF <Icon name="external" size={16} /></a>}</div></div>
           <div className="detail-footer"><ShapeLegend /></div>
         </> : <div className="missing-score"><Icon name="info" size={23} /><div><h3>Select a tune to begin</h3><p>Search the local atlas by page, title, or first line.</p></div></div>}
