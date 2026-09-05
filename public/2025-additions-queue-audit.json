@@ -22,13 +22,13 @@
   "summary": {
     "corpus2025Records": 590,
     "additions": 113,
-    "transcriptionQueueRecords": 565,
-    "structuredScoreRecordsExcludedFromTranscriptionQueue": 25,
+    "transcriptionQueueRecords": 577,
+    "structuredScoreRecordsExcludedFromTranscriptionQueue": 13,
     "draftRecords": 121,
     "humanReviewRows": 122,
     "humanReviewUniqueRecords": 121,
     "imageReviewRecords": 90,
-    "sourceComparisonRows": 180,
+    "sourceComparisonRows": 181,
     "sourceComparisonUniqueRecords": 135,
     "errors": 0
   },
@@ -38,27 +38,27 @@
       "not-new-in-2025": 477
     },
     "primarySurface": {
-      "alternate-reference-score": 475,
-      "exact-structured-score": 25,
+      "alternate-reference-score": 487,
+      "exact-structured-score": 13,
       "review-only-draft": 90
     },
     "presencePatterns": {
       "DI": 64,
       "DIC": 26,
-      "E": 22,
-      "EC": 2,
+      "E": 12,
       "EDC": 1,
-      "R": 390,
-      "RC": 55,
+      "R": 400,
+      "RC": 57,
       "RD": 29,
       "RDC": 1
     },
     "additionPresencePatterns": {
       "DI": 61,
       "DIC": 26,
-      "E": 22,
-      "EC": 2,
+      "E": 12,
       "EDC": 1,
+      "R": 10,
+      "RC": 2,
       "RD": 1
     }
   },
@@ -128,6 +128,10 @@
       "sh2025/256": [
         "work/source-transcriptions/2025/256-northampton-autonomous-comparison.json",
         "work/source-transcriptions/2025/256-northampton-comparison.json"
+      ],
+      "sh2025/263": [
+        "work/source-transcriptions/2025/263-every-grace-autonomous-comparison.json",
+        "work/source-transcriptions/2025/263-every-grace-comparison.json"
       ],
       "sh2025/264": [
         "work/source-transcriptions/2025/264-night-song-source-correction-v2-comparison.json",

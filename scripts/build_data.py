@@ -12,6 +12,7 @@ import csv
 import copy
 import hashlib
 import json
+import math
 import re
 import sys
 from urllib.parse import unquote, urlparse
@@ -22,6 +23,7 @@ from xml.etree import ElementTree as ET
 
 from review_dispositions import transcription_disposition
 from agent_03_semantic_musicxml import parse_source as parse_semantic_source
+from agent_11_lyrics_repeats import parse_musicxml_semantics
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -79,10 +81,103 @@ REMOTE_SCORE_ALIASES = {
 }
 EXACT_SCORE_URLS = {
     # The public 2025 catalog places both Lisbons in its 2025 section, but
-    # they live on different pages and have different composers.
-    "https://shapenote.net/musicxml/X-Lis.mxl",
+    # only the explicitly SH25-named witness is an exact-edition candidate.
     "https://shapenote.net/musicxml/SH25-LISBON-Chandler.mxl",
 }
+
+# These retained source-observed witnesses are integrated by canonical
+# reparsing even though they are not part of the downloaded score manifest.
+# Their printed-edition comparisons remain outside this builder and fail
+# closed in the semantic ledger.
+LOCAL_RETAINED_SOURCE_PATHS = {
+    "https://shapenote.net/musicxml/CH2010-543.mxl": (
+        "work/luna-program-20260904/existing_books/assets/christian-harmony/ch2010-543.mxl",
+        "ch7",
+    ),
+    "https://shapenote.net/musicxml/CH2010-546b.mxl": (
+        "work/luna-program-20260904/existing_books/assets/christian-harmony/ch2010-546b.mxl",
+        "ch7",
+    ),
+    "https://shapenote.net/musicxml/CH2010-549b.mxl": (
+        "work/luna-program-20260904/existing_books/assets/christian-harmony/ch2010-549b.mxl",
+        "ch7",
+    ),
+    "https://shapenote.net/musicxml/SH-12.mxl": (
+        "work/luna-program-20260904/existing_books/assets/southern-harmony/sh-12.mxl",
+        "southernharmony",
+    ),
+}
+
+# The score manifest preserves these useful MusicXML files under the 2025
+# catalog keys, but the embedded work titles and source audit identify them as
+# other books or historical witnesses.  Keep them available as reference
+# notation while preventing them from entering ``scoreByBook.sh2025``.  This
+# is intentionally keyed by edition record, not URL or title: one URL can be
+# reused by multiple edition records and a matching title is not edition
+# equivalence.
+SH2025_ALTERNATE_WITNESS_RECORDS = {
+    "27b": {
+        "witnessEdition": "shcooper2012",
+        "witnessRecordKey": "30t",
+        "witnessLabel": "Cooper 2012 · 30t",
+    },
+    "50b": {
+        "witnessEdition": "sacred-melodeon-1859",
+        "witnessRecordKey": "63",
+        "witnessLabel": "Sacred Melodeon · 63",
+    },
+    "51": {
+        "witnessEdition": "christianharmony-al",
+        "witnessRecordKey": "345b",
+        "witnessLabel": "Christian Harmony Alabama · 345b",
+    },
+    "54": {
+        "witnessEdition": "sacred-harp-1859",
+        "witnessRecordKey": "271",
+        "witnessLabel": "Sacred Harp 1859 · 271",
+    },
+    "160t": {
+        "witnessEdition": "shcooper2012",
+        "witnessRecordKey": "359",
+        "witnessLabel": "Cooper 2012 · 359",
+    },
+    "178b": {
+        "witnessEdition": "christianharmony-al",
+        "witnessRecordKey": "61b",
+        "witnessLabel": "Christian Harmony Alabama · 61b",
+    },
+    "308": {
+        "witnessEdition": "shcooper2012",
+        "witnessRecordKey": "320",
+        "witnessLabel": "Cooper 2012 · 320",
+    },
+    "438": {
+        "witnessEdition": "old-sacred-harp",
+        "witnessRecordKey": "521",
+        "witnessLabel": "Old Sacred Harp · 521",
+    },
+    "452t": {
+        "witnessEdition": "christianharmony-nc",
+        "witnessRecordKey": "67t",
+        "witnessLabel": "Christian Harmony North Carolina · 67t",
+    },
+    "467": {
+        "witnessEdition": "historical-original",
+        "witnessRecordKey": "lisbon-original-fuging",
+        "witnessLabel": "Historical original fuging witness",
+    },
+    "497b": {
+        "witnessEdition": "shcooper2012",
+        "witnessRecordKey": "45b",
+        "witnessLabel": "Cooper 2012 · 45b",
+    },
+    "515": {
+        "witnessEdition": "harmonia-sacra",
+        "witnessRecordKey": "67b",
+        "witnessLabel": "Harmonia Sacra · 67b",
+    },
+}
+
 # The local metadata export predates the 2025 index and carries a copied
 # 1991 URL for these two pages. Keep that legacy evidence, but make the
 # edition-specific source record canonical in the generated atlas.
@@ -484,8 +579,26 @@ def source_urls(row: dict[str, str]) -> list[str]:
     return list(dict.fromkeys(urls))
 
 
+def locally_readable(path: Path) -> bool:
+    """Return false for macOS cloud placeholders without opening the file.
+
+    The shared checkout contains File Provider placeholders whose ``exists``
+    and size look valid but whose first read can block indefinitely.  The
+    high-bit flag is macOS' placeholder marker; ordinary files keep the
+    existing behavior.  This makes a rebuild fail closed per witness while
+    allowing independent records to complete.
+    """
+    try:
+        flags = int(path.stat().st_flags)
+    except OSError:
+        return False
+    return not bool(flags & 0x40000000)
+
+
 def parse_score(url: str, source_path: Path | None = None) -> dict[str, Any] | None:
     cache_path = source_path or (CACHE_ROOT / f"{hashlib.sha256(url.encode()).hexdigest()[:24]}.mxl")
+    if not locally_readable(cache_path):
+        return None
     try:
         with zipfile.ZipFile(cache_path) as archive:
             xml_names = [name for name in archive.namelist() if name.endswith(".xml") and "container" not in name]
@@ -595,6 +708,7 @@ def parse_score(url: str, source_path: Path | None = None) -> dict[str, Any] | N
                     except ValueError:
                         beats = 0.0
                     chord = any(local_name(child.tag) == "chord" for child in item)
+                    grace = any(local_name(child.tag) == "grace" for child in item)
                     voice = child_text(item, "voice")
                     staff = child_text(item, "staff") or "1"
                     stream = (voice, staff)
@@ -611,6 +725,7 @@ def parse_score(url: str, source_path: Path | None = None) -> dict[str, Any] | N
                         "beats": round(beats, 3),
                         "measure": measure.attrib.get("number", ""),
                         "rest": pitch is None,
+                        "grace": grace,
                         "voice": voice,
                         "staff": staff,
                         "type": child_text(item, "type"),
@@ -619,7 +734,9 @@ def parse_score(url: str, source_path: Path | None = None) -> dict[str, Any] | N
                         "notehead": child_text(item, "notehead"),
                         "clef": current_clefs.get(child_text(item, "staff") or "1", default_clef),
                     }
-                    if not duration_text:
+                    if grace and not duration_text:
+                        event["timingStatus"] = "grace-no-duration"
+                    elif not duration_text:
                         event["timingStatus"] = "unavailable"
                     elif beats <= 0:
                         event["timingStatus"] = "invalid"
@@ -664,18 +781,32 @@ def parse_score(url: str, source_path: Path | None = None) -> dict[str, Any] | N
     } if parts else None
     if score:
         # The playback parser above owns the existing score event shape.  Add
-        # semantic evidence from the agent-03 parser without replacing those
-        # events: lyrics and editorial markings are attached by stable event
-        # order, while repeats/endings and measure timing remain source-level
-        # data.  A semantic parse failure must not make an otherwise readable
-        # score disappear or cause unavailable source semantics to be guessed.
+        # semantic evidence without replacing those events: lyrics and
+        # editorial markings are attached by stable event order, while
+        # repeats/endings and measure timing remain source-level data.  Agent
+        # 11 is the canonical source-semantic contract; the older agent-03
+        # fields remain as compatibility projections for existing ledgers.
+        semantic_contract = None
         try:
             semantic = parse_semantic_source(cache_path)
         except (OSError, ValueError, zipfile.BadZipFile, ET.ParseError):
             semantic = None
+        try:
+            semantic_contract = parse_musicxml_semantics(
+                cache_path,
+                source_id=url,
+                authority="structured-musicxml-source",
+            )
+        except (OSError, ValueError, zipfile.BadZipFile, ET.ParseError):
+            semantic_contract = None
         if semantic is not None:
             score["lyrics"] = semantic["lyrics"]
             score["repeatSemantics"] = semantic["repeatSemantics"]
+            score["soundNavigation"] = [
+                item for item in semantic["repeatSemantics"]
+                if item.get("kind") == "sound"
+                and any(key in item for key in ("dacapo", "dalsegno", "tocoda", "fine", "segno", "coda"))
+            ]
             score["editorialMarkings"] = semantic["editorialMarkings"]
             score["semanticAvailability"] = semantic["semanticAvailability"]
             semantic_parts = [part for part in semantic["parts"] if part["events"]]
@@ -685,6 +816,70 @@ def parse_score(url: str, source_path: Path | None = None) -> dict[str, Any] | N
                     for field in ("lyrics", "editorialMarkings"):
                         if semantic_event.get(field):
                             parsed_event[field] = semantic_event[field]
+        if semantic_contract is not None:
+            # Keep one explicit, versioned object for consumers that need
+            # source availability and playback safety.  Empty lists are
+            # intentional: their paired ``unavailable`` status is the
+            # fail-closed representation of omitted source semantics.
+            contract_parts = []
+            for part in semantic_contract["parts"]:
+                contract_parts.append(
+                    {
+                        "id": part["id"],
+                        "name": part["name"],
+                        "lyrics": part["lyrics"],
+                        "barlines": [
+                            {
+                                "measure": marker.get("measure", ""),
+                                "type": (
+                                    "repeat"
+                                    if marker.get("repeat")
+                                    else "ending"
+                                    if marker.get("ending")
+                                    else "barline"
+                                ),
+                                "ending": marker.get("ending"),
+                                "repeat": marker.get("repeat"),
+                                "location": marker.get("location", ""),
+                                "style": marker.get("style", ""),
+                            }
+                            for marker in part["barlines"]
+                        ],
+                    }
+                )
+            score["semanticContract"] = {
+                "schemaVersion": 1,
+                "source": semantic_contract["source"],
+                "availability": semantic_contract["availability"],
+                "playback": semantic_contract["playback"],
+                "measureBoundaries": semantic_contract["measureBoundaries"],
+                "barlines": semantic_contract["barlines"],
+                "parts": contract_parts,
+            }
+            score["semanticAvailability"] = {
+                name: details.get("status", "unavailable")
+                for name, details in semantic_contract["availability"].items()
+            }
+            score["lyrics"] = semantic_contract["lyrics"]
+            score["repeatSemantics"] = [
+                {
+                    "part": marker.get("partId", ""),
+                    "kind": "repeat" if marker.get("repeat") else "ending",
+                    "measure": marker.get("measure", ""),
+                    **(marker.get("repeat") or marker.get("ending") or {}),
+                }
+                for marker in semantic_contract["barlines"]
+                if marker.get("repeat") or marker.get("ending")
+            ]
+            score["editorialMarkings"] = semantic_contract["editorialMarkings"]
+            populated_contract_parts = [part for part in semantic_contract["parts"] if part["events"]]
+            for parsed_part, contract_part in zip(parts, populated_contract_parts):
+                parsed_part["measureSemantics"] = contract_part["measures"]
+                for parsed_event, contract_event in zip(parsed_part["events"], contract_part["events"]):
+                    if contract_event.get("lyrics"):
+                        parsed_event["lyrics"] = contract_event["lyrics"]
+                    if contract_event.get("editorialMarkings"):
+                        parsed_event["editorialMarkings"] = contract_event["editorialMarkings"]
         score["keyEvidence"] = {
             "status": "source-verified" if global_key else "unknown",
             "source": "structured MusicXML source" if global_key else "not encoded in structured source",
@@ -833,6 +1028,9 @@ def draft_score_asset(draft_key: str, score: dict[str, Any], draft: dict[str, An
     if source_measure_counts:
         score["sourceMeasureCounts"] = source_measure_counts
         score["sourceMeasureCount"] = max(source_measure_counts.values())
+    playback_quarantine = build_draft_playback_validation(draft_key, score, draft)
+    if playback_quarantine:
+        score["playbackValidation"] = playback_quarantine
     _add_transposition_capability(score)
     digest = hashlib.sha256(f"{draft_key}:{draft.get('sha256', '')}".encode()).hexdigest()[:24]
     asset_name = f"{digest}.json"
@@ -858,6 +1056,54 @@ def draft_score_asset(draft_key: str, score: dict[str, Any], draft: dict[str, An
     return preview
 
 
+def build_draft_playback_validation(
+    draft_key: str, score: dict[str, Any], draft: dict[str, Any]
+) -> dict[str, Any] | None:
+    """Quarantine every observed invalid draft event without repairing it."""
+    invalid_events: list[dict[str, Any]] = []
+    for part_index, part in enumerate(score.get("parts", [])):
+        for event_index, event in enumerate(part.get("events", [])):
+            if event.get("grace"):
+                continue
+            try:
+                beats = float(event.get("beats"))
+            except (TypeError, ValueError):
+                beats = None
+            if beats is None or not math.isfinite(beats) or beats <= 0:
+                invalid_events.append(
+                    {
+                        "part": part.get("name", ""),
+                        "eventIndex": event_index,
+                        "measure": str(event.get("measure", "")),
+                        "beats": event.get("beats"),
+                        "timingStatus": event.get("timingStatus", "unavailable"),
+                        "sourcePath": f"parts[{part_index}].events[{event_index}].beats",
+                    }
+                )
+    if not invalid_events:
+        return None
+    return {
+        "status": "quarantined",
+        "safeToApply": False,
+        "reason": f"OMR draft contains {len(invalid_events)} invalid-duration event(s); source rhythm is unresolved.",
+        "sourceRecord": draft_key,
+        "sourceArtifact": str(draft.get("artifact", "")),
+        "sourceArtifactSha256": str(draft.get("sha256", "")),
+        "invalidEvents": invalid_events,
+    }
+
+
+def draft_playback_metadata(draft_score: dict[str, Any] | None) -> dict[str, Any]:
+    """Expose draft-only playback quarantine without hiding review evidence."""
+    validation = (draft_score or {}).get("playbackValidation") or {}
+    if not validation:
+        return {}
+    return {
+        "draftPlaybackStatus": validation.get("status", "unavailable"),
+        "draftPlaybackValidation": copy.deepcopy(validation),
+    }
+
+
 def _add_transposition_capability(score: dict[str, Any]) -> None:
     """Record the fail-closed transposition capability beside each score."""
     has_pitched_events = any(
@@ -867,12 +1113,15 @@ def _add_transposition_capability(score: dict[str, Any]) -> None:
     )
     key_status = score.get("keyEvidence", {}).get("status", "unknown")
     key_is_usable = key_status in {"source-verified", "source-observed", "omr-detected"} and bool(score.get("keySignature"))
+    playback_quarantined = (score.get("playbackValidation") or {}).get("status") == "quarantined"
     score["transposition"] = {
-        "available": bool(has_pitched_events and key_is_usable),
+        "available": bool(has_pitched_events and key_is_usable and not playback_quarantined),
         "hasPitchedEvents": bool(has_pitched_events),
-        "manualKeyAllowed": bool(has_pitched_events and not key_is_usable),
+        "manualKeyAllowed": bool(has_pitched_events and not key_is_usable and not playback_quarantined),
         "keyStatus": key_status,
-        "reason": "available"
+        "reason": "playback-quarantined"
+        if playback_quarantined
+        else "available"
         if has_pitched_events and key_is_usable
         else "manual-source-key-required"
         if has_pitched_events
@@ -881,7 +1130,10 @@ def _add_transposition_capability(score: dict[str, Any]) -> None:
 
 
 def score_provenance(
-    book_id: str, url: str, manifest_entry: dict[str, Any] | None = None
+    book_id: str,
+    url: str,
+    manifest_entry: dict[str, Any] | None = None,
+    record_key: str = "",
 ) -> dict[str, str]:
     """Classify a parsed score without conflating a witness with an edition.
 
@@ -890,6 +1142,19 @@ def score_provenance(
     SH25 sources are admitted as the 2025 edition's transposable score until
     an edition-specific witness is available.
     """
+    normalized_record_key = str(record_key or "").strip().lower()
+    if book_id == "sh2025" and normalized_record_key in SH2025_ALTERNATE_WITNESS_RECORDS:
+        witness = SH2025_ALTERNATE_WITNESS_RECORDS[normalized_record_key]
+        return {
+            "kind": "alternate-source",
+            "label": f"Transposable reference · {witness['witnessLabel']}",
+            "sourceEdition": "alternate-reference",
+            "sourceRecordKey": normalized_record_key,
+            "witnessEdition": witness["witnessEdition"],
+            "witnessRecordKey": witness["witnessRecordKey"],
+            "witnessLabel": witness["witnessLabel"],
+            "reason": "record-level SH2025 audit identifies the manifest witness as an alternate source",
+        }
     stem = Path(unquote(urlparse(url).path)).stem.lower()
     if manifest_entry and manifest_entry.get("sourceEdition") == book_id:
         return {
@@ -907,20 +1172,39 @@ def score_provenance(
     }
 
 
-def existing_score_asset(url: str) -> dict[str, Any] | None:
+def existing_score_asset(url: str, asset_key: str | None = None) -> dict[str, Any] | None:
+    candidate_paths = []
+    if asset_key:
+        candidate_paths.append(SCORES_OUTPUT / f"{hashlib.sha256(asset_key.encode()).hexdigest()[:24]}.json")
+    candidate_paths.append(SCORES_OUTPUT / f"{hashlib.sha256(url.encode()).hexdigest()[:24]}.json")
+    for asset_path in candidate_paths:
+        if not asset_path.exists():
+            continue
+        try:
+            score = json.loads(asset_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            continue
+        if score.get("sourceUrl") == url and score.get("parts"):
+            return score
     cache_path = CACHE_ROOT / f"{hashlib.sha256(url.encode()).hexdigest()[:24]}.mxl"
     if cache_path.exists():
         parsed = parse_score(url, cache_path)
         if parsed:
             return parsed
-    asset_path = SCORES_OUTPUT / f"{hashlib.sha256(url.encode()).hexdigest()[:24]}.json"
-    if not asset_path.exists():
-        return None
+    # Reference assets are keyed by ``book_id:url`` so their filenames do not
+    # match the URL-only cache hash. Preserve a readable prior asset when the
+    # current raw file is an unreadable cloud placeholder; otherwise a
+    # transient local availability failure would erase known provenance.
     try:
-        score = json.loads(asset_path.read_text(encoding="utf-8"))
+        for candidate in SCORES_OUTPUT.glob("*.json"):
+            if candidate in candidate_paths:
+                continue
+            candidate_score = json.loads(candidate.read_text(encoding="utf-8"))
+            if candidate_score.get("sourceUrl") == url and candidate_score.get("parts"):
+                return candidate_score
     except (OSError, json.JSONDecodeError):
         return None
-    return score if score.get("sourceUrl") == url and score.get("parts") else None
+    return None
 
 
 def load_dashboard_data() -> dict[str, Any]:
@@ -1058,6 +1342,27 @@ def load_source_images() -> dict[str, dict[str, str]]:
     except (OSError, json.JSONDecodeError):
         return {}
     return payload.get("records", {})
+
+
+def attach_source_image_metadata(
+    target: dict[str, Any], image_entry: dict[str, Any] | None
+) -> None:
+    """Expose retained source-image provenance without making it score data."""
+    if not image_entry:
+        return
+    for field in (
+        "sourcePageUrl",
+        "sourceImageUrl",
+        "sourceImageOriginUrl",
+        "sourceImagePath",
+        "sourceImageSha256",
+        "sourceImageStatus",
+    ):
+        value = image_entry.get(field)
+        if value:
+            target[field] = value
+    if "sourceImageImmutable" in image_entry:
+        target["sourceImageImmutable"] = image_entry["sourceImageImmutable"] is True
 
 
 def load_source_metadata_observations() -> dict[str, dict[str, Any]]:
@@ -1544,11 +1849,23 @@ def main() -> int:
             if image_entry is None and metadata_key != song_key:
                 image_entry = source_images.get(f"{book_id}/{metadata_key}")
             source_image_url = (image_entry or {}).get("sourceImageUrl", "")
+            source_page_url = (image_entry or {}).get("sourcePageUrl", "")
             if not row:
                 catalog_source_urls = [
                     url for url in song.get("urls", [])
                     if isinstance(url, str) and url.startswith("https://")
                 ]
+                if source_page_url:
+                    catalog_source_urls = list(dict.fromkeys(catalog_source_urls + [source_page_url]))
+                if image_entry:
+                    metadata_by_book[book_id] = {
+                        "sourceUrl": (source_page_url or catalog_source_urls[0]) if catalog_source_urls else "",
+                        "sourceUrls": catalog_source_urls,
+                        "sourceRecordKey": song_key,
+                        "keySignature": "",
+                        "keyEvidence": {"status": "unknown", "source": "not recorded"},
+                    }
+                    attach_source_image_metadata(metadata_by_book[book_id], image_entry)
                 manifest_key = REMOTE_SCORE_ALIASES.get(book_id, {}).get(song_key, song_key)
                 manifest_entry = remote_entries.get(f"{book_id}/{song_key}")
                 if manifest_entry is None:
@@ -1562,7 +1879,9 @@ def main() -> int:
                     parsed_score = score_cache.get(cache_key)
                     if parsed_score:
                         score_preview = score_asset(url, parsed_score, asset_key=f"{book_id}:{url}")
-                        score_preview["provenance"] = score_provenance(book_id, url, manifest_entry)
+                        score_preview["provenance"] = score_provenance(
+                            book_id, url, manifest_entry, song_key
+                        )
                         if score_preview["provenance"]["kind"] == "edition-source":
                             score_by_book[book_id] = score_preview
                             book_coverage[book_id]["localScoreRecords"] += 1
@@ -1581,8 +1900,7 @@ def main() -> int:
                             source_record_key=song_key,
                         )
                         coverage_record.update(edition_evidence(book_id, song_key, edition_additions))
-                        if source_image_url:
-                            coverage_record["sourceImageUrl"] = source_image_url
+                        attach_source_image_metadata(coverage_record, image_entry)
                         attach_source_metadata_observation(coverage_record, source_metadata_observation)
                         attach_clean_source_candidates(coverage_record, clean_source_candidates, book_id, song_key)
                         source_coverage_by_book[book_id] = coverage_record
@@ -1597,8 +1915,7 @@ def main() -> int:
                     source_record_key=song_key,
                 )
                 coverage_record.update(edition_evidence(book_id, song_key, edition_additions))
-                if source_image_url:
-                    coverage_record["sourceImageUrl"] = source_image_url
+                attach_source_image_metadata(coverage_record, image_entry)
                 attach_source_metadata_observation(coverage_record, source_metadata_observation)
                 attach_clean_source_candidates(coverage_record, clean_source_candidates, book_id, song_key, metadata_key)
                 source_coverage_by_book[book_id] = coverage_record
@@ -1615,6 +1932,8 @@ def main() -> int:
                 if isinstance(value, str) and value.startswith("http")
             ]
             all_source_urls = list(dict.fromkeys(source_urls(row) + audit_urls))
+            if source_page_url:
+                all_source_urls = list(dict.fromkeys(all_source_urls + [source_page_url]))
             source_override = EDITION_SOURCE_OVERRIDES.get((book_id, song_key)) or EDITION_SOURCE_OVERRIDES.get((book_id, metadata_key))
             if book_id == "sh2025" and not source_override:
                 canonical_2025_url = f"https://fasola.org/indexes/2025/?p={song['songNo']}"
@@ -1642,13 +1961,12 @@ def main() -> int:
             if key_candidate:
                 metadata_by_book[book_id]["keyCandidate"] = key_candidate
             metadata_by_book[book_id].update(edition_evidence(book_id, song_key, edition_additions))
+            attach_source_image_metadata(metadata_by_book[book_id], image_entry)
             if source_override and legacy_source_urls:
                 metadata_by_book[book_id]["legacySourceUrls"] = [
                     url for url in legacy_source_urls if url not in source_override["sourceUrls"]
                 ]
             metadata_by_book[book_id]["keyEvidence"] = key_evidence
-            if source_image_url:
-                metadata_by_book[book_id]["sourceImageUrl"] = source_image_url
             manifest_entry = remote_entries.get(f"{book_id}/{song_key}")
             if manifest_entry is None and metadata_key != song_key:
                 manifest_entry = remote_entries.get(f"{book_id}/{metadata_key}")
@@ -1680,6 +1998,18 @@ def main() -> int:
             if manifest_entry and url not in all_source_urls:
                 all_source_urls.append(url)
                 metadata_by_book[book_id]["sourceUrls"].append(url)
+            if not source_path and url in LOCAL_RETAINED_SOURCE_PATHS:
+                local_path, source_edition = LOCAL_RETAINED_SOURCE_PATHS[url]
+                source_path = PROJECT_ROOT / local_path
+                manifest_entry = {
+                    "sourceUrl": url,
+                    "rawPath": local_path,
+                    "sourceEdition": source_edition,
+                    "sourceSha256": hashlib.sha256(source_path.read_bytes()).hexdigest()
+                    if source_path.is_file()
+                    else "",
+                }
+                cache_key = f"local-retained:{url}"
 
             draft_score = None
             if draft and book_id == "sh2025":
@@ -1732,8 +2062,7 @@ def main() -> int:
                     book_id, row, all_source_urls, None, manifest_entry, audit, recording
                 )
                 coverage_record.update(edition_evidence(book_id, song_key, edition_additions))
-                if source_image_url:
-                    coverage_record["sourceImageUrl"] = source_image_url
+                attach_source_image_metadata(coverage_record, image_entry)
                 if draft_score:
                     draft_score_by_book[book_id] = draft_score
                     coverage_record.update({
@@ -1741,6 +2070,7 @@ def main() -> int:
                         "draftScoreRef": draft_score["scoreRef"],
                         "draftScoreStatus": "needs-human-review",
                     })
+                    coverage_record.update(draft_playback_metadata(draft_score))
                 source_coverage_by_book[book_id] = coverage_record
                 if source_coverage_by_book[book_id]["status"] == "transcription-blocked":
                     book_coverage[book_id].setdefault("blockedTranscriptionRecords", 0)
@@ -1751,23 +2081,32 @@ def main() -> int:
                     book_coverage[book_id]["metadataOnlyRecords"] += 1
                 continue
             if cache_key not in score_cache:
-                score_cache[cache_key] = parse_score(url, source_path) if source_path and source_path.exists() else existing_score_asset(url)
-            if score_cache[cache_key]:
-                provenance = score_provenance(book_id, url, manifest_entry)
+                score_cache[cache_key] = (
+                    parse_score(url, source_path) or existing_score_asset(url)
+                    if source_path and source_path.exists()
+                    else existing_score_asset(url)
+                )
+            provenance = score_provenance(book_id, url, manifest_entry, song_key)
+            score_data = score_cache[cache_key]
+            if provenance["kind"] == "alternate-source":
+                # Preserve an existing record-scoped reference asset before
+                # considering a URL-only or freshly parsed shared witness.
+                score_data = existing_score_asset(url, asset_key=f"{book_id}:{url}") or score_data
+            if score_data:
                 # Edition metadata may correct an exact edition source. It
                 # must never overwrite the key of an alternate witness whose
                 # pitches remain in that witness's original key.
                 score_for_asset = (
-                    apply_source_key_to_score(score_cache[cache_key], metadata_by_book[book_id])
+                    apply_source_key_to_score(score_data, metadata_by_book[book_id])
                     if provenance["kind"] == "edition-source"
-                    else score_cache[cache_key]
+                    else score_data
                 )
                 score_preview = score_asset(url, score_for_asset, asset_key=f"{book_id}:{url}")
                 score_preview["provenance"] = provenance
                 if provenance["kind"] == "edition-source":
                     score_by_book[book_id] = score_preview
                     book_coverage[book_id]["localScoreRecords"] += 1
-                    book_coverage[book_id]["localScoreParts"] += len(score_cache[cache_key]["parts"])
+                    book_coverage[book_id]["localScoreParts"] += len(score_data["parts"])
                 else:
                     reference_score_by_book[book_id] = score_preview
             if draft_score:
@@ -1776,16 +2115,15 @@ def main() -> int:
                 book_id,
                 row,
                 all_source_urls,
-                apply_source_key_to_score(score_cache.get(cache_key), metadata_by_book[book_id])
-                if cache_key and score_cache.get(cache_key) and score_provenance(book_id, url, manifest_entry)["kind"] == "edition-source"
+                apply_source_key_to_score(score_data, metadata_by_book[book_id])
+                if cache_key and score_data and provenance["kind"] == "edition-source"
                 else None,
                 manifest_entry,
                 audit,
                 recording,
             )
             coverage_record.update(edition_evidence(book_id, song_key, edition_additions))
-            if source_image_url:
-                coverage_record["sourceImageUrl"] = source_image_url
+            attach_source_image_metadata(coverage_record, image_entry)
             attach_source_metadata_observation(coverage_record, source_metadata_observation)
             attach_clean_source_candidates(coverage_record, clean_source_candidates, book_id, song_key, metadata_key)
             if draft_score:
@@ -1794,6 +2132,7 @@ def main() -> int:
                     "draftScoreRef": draft_score["scoreRef"],
                     "draftScoreStatus": "needs-human-review",
                 })
+                coverage_record.update(draft_playback_metadata(draft_score))
             source_coverage_by_book[book_id] = coverage_record
             status = source_coverage_by_book[book_id]["status"]
             if status == "source-reference":
@@ -1808,6 +2147,15 @@ def main() -> int:
                 score_records[(book_id, metadata_key)] = book_id in score_by_book
 
         for coverage_book_id, coverage in source_coverage_by_book.items():
+            reference_score = reference_score_by_book.get(coverage_book_id)
+            if reference_score:
+                # A reference witness is useful evidence but must not make the
+                # edition record look complete.  Materialize this relationship
+                # in coverage and queue data so the twelve corrected SH25
+                # records stay actionable while retaining their notation.
+                coverage["referenceScoreAvailable"] = True
+                coverage["referenceScoreRef"] = reference_score.get("scoreRef", "")
+                coverage["referenceScoreProvenance"] = reference_score.get("provenance", {})
             if coverage_book_id == "sh2025":
                 observation = source_metadata_observations.get(f"{coverage_book_id}/{str(coverage.get('sourceRecordKey') or song['songNo']).lower()}")
                 attach_source_metadata_observation(coverage, observation)
@@ -1938,7 +2286,15 @@ def main() -> int:
             None,
         )
         source_score = (source_song or {}).get("scoreByBook", {}).get(source_book_id)
-        if source_score and not target.get("scoreByBook", {}).get(target_book_id):
+        existing_reference = target.get("referenceScoreByBook", {}).get(target_book_id) or {}
+        preserve_audited_reference = (
+            (existing_reference.get("provenance") or {}).get("sourceEdition") == "alternate-reference"
+        )
+        if (
+            source_score
+            and not target.get("scoreByBook", {}).get(target_book_id)
+            and not preserve_audited_reference
+        ):
             reference_score = json.loads(json.dumps(source_score))
             reference_score["provenance"] = {
                 "kind": "alternate-source",
@@ -2002,10 +2358,21 @@ def main() -> int:
                 "humanReviewRequired": False,
                 "reviewAvailable": bool(coverage_record.get("sourceUrls")),
                 "safeToPromote": False,
+                "referenceScoreAvailable": bool(coverage_record.get("referenceScoreAvailable")),
+                "referenceScoreRef": coverage_record.get("referenceScoreRef", ""),
+                "referenceScoreProvenance": coverage_record.get("referenceScoreProvenance", {}),
+                "draftPlaybackStatus": coverage_record.get("draftPlaybackStatus", ""),
+                "draftPlaybackValidation": coverage_record.get("draftPlaybackValidation", {}),
                 "priority": transcription_priority(coverage_record["status"]),
                 "nextAction": coverage_record["nextAction"],
                 "sourceUrls": coverage_record.get("sourceUrls", []),
                 "sourceImageUrl": coverage_record.get("sourceImageUrl", ""),
+                "sourceImagePath": coverage_record.get("sourceImagePath", ""),
+                "sourceImageSha256": coverage_record.get("sourceImageSha256", ""),
+                "sourceImageOriginUrl": coverage_record.get("sourceImageOriginUrl", ""),
+                "sourcePageUrl": coverage_record.get("sourcePageUrl", ""),
+                "sourceImageStatus": coverage_record.get("sourceImageStatus", ""),
+                "sourceImageImmutable": coverage_record.get("sourceImageImmutable", False),
                 "sourceRecordKey": coverage_record.get("sourceRecordKey", ""),
                 "editionStatus": coverage_record.get("editionStatus", ""),
                 "editionEvidenceUrl": coverage_record.get("editionEvidenceUrl", ""),

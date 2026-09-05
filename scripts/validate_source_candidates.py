@@ -60,6 +60,15 @@ def main() -> int:
                 errors.append(f"candidate OMR input checksum changed: {omr_input}")
             elif item.get("omrInputPages") != 1:
                 errors.append(f"candidate OMR input is not single-page: {omr_input}")
+        historical_omr_input = item.get("historicalOmrInputPdf", "")
+        if historical_omr_input:
+            historical_path = ROOT / historical_omr_input
+            if historical_path.exists():
+                errors.append(f"historical candidate derivative unexpectedly exists: {historical_omr_input}")
+            if item.get("historicalOmrInputStatus") != "missing-historical-bytes-preserved":
+                errors.append(f"historical candidate derivative status is not preserved: {identity}")
+            if not item.get("historicalOmrInputSha256"):
+                errors.append(f"historical candidate derivative hash is missing: {identity}")
     if errors:
         raise SystemExit("\n".join(errors))
     omr_payload = json.loads(OMR_RUN.read_text(encoding="utf-8")) if OMR_RUN.exists() else {}

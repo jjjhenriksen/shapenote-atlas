@@ -112,6 +112,10 @@ def lyric_for_note(
                 "onset": round(onset, 3),
                 "number": lyric.attrib.get("number", ""),
                 "name": lyric.attrib.get("name", ""),
+                # ``verse`` is a source identifier only.  An empty value means
+                # MusicXML did not label the lyric verse; it is never guessed
+                # to be verse one.
+                "verse": lyric.attrib.get("number", "") or lyric.attrib.get("name", ""),
                 "text": lyric_text,
                 "syllabic": text(lyric, "syllabic"),
                 "elision": [
@@ -207,49 +211,172 @@ def _measure_key(value: str) -> str:
     return str(value).strip()
 
 
-def _ending_ranges(measures: list[str], barlines: list[dict[str, Any]]) -> list[tuple[str, int, int]]:
+def _ending_ranges(
+    measures: list[str], barlines: list[dict[str, Any]]
+) -> tuple[list[tuple[frozenset[str], int, int]], str]:
     index_by_measure = {_measure_key(measure): index for index, measure in enumerate(measures)}
-    starts: dict[str, int] = {}
-    ranges: list[tuple[str, int, int]] = []
+    starts: dict[frozenset[str], int] = {}
+    ranges: list[tuple[frozenset[str], int, int]] = []
     for marker in barlines:
         ending = marker.get("ending") or {}
         number = str(ending.get("number", "")).strip()
         kind = str(ending.get("type", "")).strip()
         measure = _measure_key(marker.get("measure", ""))
-        if not number or measure not in index_by_measure:
-            continue
+        if not number:
+            return [], "numbered ending marker has no source number"
+        if measure not in index_by_measure:
+            return [], "numbered ending marker references an unknown measure"
+        membership = frozenset(item.strip() for item in number.split(",") if item.strip())
+        if not membership:
+            return [], "numbered ending marker has no source number"
         if kind == "start":
-            for ending_number in number.split(","):
-                ending_number = ending_number.strip()
-                if ending_number:
-                    starts[ending_number] = index_by_measure[measure]
+            if membership in starts:
+                return [], f"numbered ending {number} is opened more than once"
+            starts[membership] = index_by_measure[measure]
         elif kind in {"stop", "discontinue"}:
-            start = starts.get(number)
-            if start is not None:
-                ranges.append((number, start, index_by_measure[measure]))
-    return ranges
+            start = starts.pop(membership, None)
+            if start is None:
+                return [], f"numbered ending {number} closes without an opening marker"
+            ranges.append((membership, start, index_by_measure[measure]))
+        else:
+            return [], f"numbered ending uses unsupported type {kind!r}"
+    if starts:
+        return [], "numbered ending marker is unclosed"
+    return ranges, ""
 
 
-def build_playback_plan(measures: list[str], barlines: list[dict[str, Any]]) -> dict[str, Any]:
-    """Return an explicit linear plan, or a fail-closed blocked plan.
+def _structural_barline_signature(marker: dict[str, Any]) -> tuple[str, str, str, str, str, str]:
+    repeat = marker.get("repeat") or {}
+    ending = marker.get("ending") or {}
+    return (
+        _measure_key(marker.get("measure", "")),
+        str(marker.get("location", "")),
+        str(repeat.get("direction", "")),
+        str(repeat.get("times", "")),
+        str(ending.get("number", "")),
+        str(ending.get("type", "")),
+    )
 
-    A backward repeat with ``times=1`` means one additional pass, matching the
-    common MusicXML encoding used by the retained source witness.  Numbered
-    endings are selected by pass number.  Anything outside this small,
-    inspectable model remains blocked and is not silently flattened.
+
+def build_global_measure_boundaries(parts: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Build shared source-time boundaries without using a single voice.
+
+    Measure numbers remain strings because MusicXML permits ``0``, pickup
+    labels, and nonnumeric labels.  Each boundary also carries a stable
+    zero-based index.  A boundary is complete only when every part that
+    contains the measure supplies a positive encoded span and all parts agree
+    on its start/end; otherwise playback must remain fail-closed.
+    """
+    ordered_numbers: list[str] = []
+    observations: dict[str, list[dict[str, Any]]] = {}
+    for part in parts:
+        for measure in part.get("measures", []):
+            number = _measure_key(measure.get("number", ""))
+            if number not in ordered_numbers:
+                ordered_numbers.append(number)
+            observations.setdefault(number, []).append(measure)
+
+    boundaries: list[dict[str, Any]] = []
+    part_count = len(parts)
+    for index, number in enumerate(ordered_numbers):
+        measures = observations.get(number, [])
+        starts = [float(item["onset"]) for item in measures if item.get("onset") is not None]
+        ends = [float(item["end"]) for item in measures if item.get("end") is not None]
+        durations = [float(item["duration"]) for item in measures if item.get("durationAvailable")]
+        start = min(starts) if starts else None
+        end = max(ends) if ends else None
+        starts_agree = len({round(value, 3) for value in starts}) <= 1
+        ends_agree = len({round(value, 3) for value in ends}) <= 1
+        complete = (
+            len(measures) == part_count
+            and len(durations) == part_count
+            and start is not None
+            and end is not None
+            and end > start
+            and starts_agree
+            and ends_agree
+        )
+        boundaries.append(
+            {
+                "number": number,
+                "index": index,
+                "start": round(start, 3) if start is not None else None,
+                "end": round(end, 3) if end is not None else None,
+                "duration": round(end - start, 3) if complete and start is not None and end is not None else None,
+                "status": "encoded" if complete else "unavailable",
+                "partCount": len(measures),
+                "expectedPartCount": part_count,
+            }
+        )
+    return boundaries
+
+
+def build_playback_plan(
+    measures: list[str],
+    barlines: list[dict[str, Any]],
+    *,
+    measure_boundaries: list[dict[str, Any]] | None = None,
+    part_barlines: list[list[dict[str, Any]]] | None = None,
+) -> dict[str, Any]:
+    """Return an explicit source-order plan, or a fail-closed blocked plan.
+
+    MusicXML ``repeat/@times`` is the total number of passes through the
+    repeated section.  Missing ``times`` uses the MusicXML default of two
+    passes.  Numbered endings are applied only inside the repeated section;
+    malformed endings and disagreements between parts remain blocked.
     """
 
     original = list(measures)
-    repeat_markers = [marker for marker in barlines if marker.get("repeat")]
-    ending_markers = [marker for marker in barlines if marker.get("ending")]
-    if not repeat_markers and not ending_markers:
+    measure_boundaries = list(measure_boundaries or [])
+    boundary_by_number = {
+        _measure_key(item.get("number", "")): item for item in measure_boundaries
+    }
+    boundaries_complete = bool(measures) and all(
+        boundary_by_number.get(_measure_key(number), {}).get("status") == "encoded"
+        for number in measures
+    )
+    boundary_reason = (
+        "shared global measure boundaries are source-encoded across all parts"
+        if boundaries_complete
+        else "shared global measure boundaries are unavailable or disagree across parts"
+    )
+    measure_starts = (
+        {number: boundary_by_number[number]["start"] for number in measures}
+        if boundaries_complete
+        else {}
+    )
+    measure_durations = (
+        {number: boundary_by_number[number]["duration"] for number in measures}
+        if boundaries_complete
+        else {}
+    )
+
+    def linear_result(status: str, reason: str) -> dict[str, Any]:
         return {
-            "status": "unavailable",
+            "status": status,
             "safeToApply": False,
             "mode": "linear-source-order",
             "measureSequence": original,
-            "reason": "source contains no encoded repeat or ending markers",
+            "measureSequenceIndices": list(range(len(original))),
+            "measureBoundaries": measure_boundaries,
+            "measureStarts": measure_starts,
+            "measureDurations": measure_durations,
+            "durationStatus": "encoded" if boundaries_complete else "unavailable",
+            "reason": reason,
         }
+
+    structural_barlines = part_barlines or [barlines]
+    signatures = [
+        tuple(_structural_barline_signature(marker) for marker in markers if marker.get("repeat") or marker.get("ending"))
+        for markers in structural_barlines
+    ]
+    if signatures and any(signature != signatures[0] for signature in signatures[1:]):
+        return linear_result("blocked", "repeat or ending markers disagree across source parts")
+
+    repeat_markers = [marker for marker in barlines if marker.get("repeat")]
+    ending_markers = [marker for marker in barlines if marker.get("ending")]
+    if not repeat_markers and not ending_markers:
+        return linear_result("unavailable", "source contains no encoded repeat or ending markers")
 
     index_by_measure = {_measure_key(measure): index for index, measure in enumerate(measures)}
     forward = [
@@ -270,15 +397,11 @@ def build_playback_plan(measures: list[str], barlines: list[dict[str, Any]]) -> 
         if (marker.get("repeat") or {}).get("direction") not in {"forward", "backward"}
     ]
     if unknown_directions or not backward:
-        return {
-            "status": "blocked",
-            "safeToApply": False,
-            "mode": "linear-source-order",
-            "measureSequence": original,
-            "reason": "repeat markers are incomplete or use an unsupported direction",
-        }
+        return linear_result("blocked", "repeat markers are incomplete or use an unsupported direction")
 
-    ranges = _ending_ranges(measures, barlines)
+    ranges, ending_error = _ending_ranges(measures, ending_markers)
+    if ending_error:
+        return linear_result("blocked", ending_error)
     plan: list[str] = []
     passes: list[dict[str, Any]] = []
     cursor = 0
@@ -287,66 +410,78 @@ def build_playback_plan(measures: list[str], barlines: list[dict[str, Any]]) -> 
         starts = [candidate for candidate in forward if cursor <= candidate <= end]
         start = starts[-1] if starts else 0
         if start < cursor or start > end:
-            return {
-                "status": "blocked",
-                "safeToApply": False,
-                "mode": "linear-source-order",
-                "measureSequence": original,
-                "reason": "repeat regions overlap or are not ordered",
-            }
+            return linear_result("blocked", "repeat regions overlap or are not ordered")
         plan.extend(measures[cursor:start])
         repeat = marker.get("repeat") or {}
         try:
-            additional_passes = int(repeat.get("times", "1"))
+            repeat_count = int(repeat.get("times", "2") or "2")
         except (TypeError, ValueError):
-            return {
-                "status": "blocked",
-                "safeToApply": False,
-                "mode": "linear-source-order",
-                "measureSequence": original,
-                "reason": "repeat times is not numeric",
-            }
-        pass_count = max(2, additional_passes + 1)
+            return linear_result("blocked", "repeat times is not numeric")
+        if repeat_count < 1:
+            return linear_result("blocked", "repeat times must be a positive total pass count")
+        pass_count = repeat_count
+        ending_numbers = {
+            int(number)
+            for membership, _, _ in ranges
+            for number in membership
+            if number.isdigit()
+        }
+        if any(not number.isdigit() for membership, _, _ in ranges for number in membership):
+            return linear_result("blocked", "numbered ending is not numeric")
+        if ending_numbers and max(ending_numbers) > pass_count:
+            return linear_result("blocked", "numbered ending exceeds repeat pass count")
+        region_end = max(
+            [end]
+            + [ending_end for _, ending_start, ending_end in ranges if ending_start >= start]
+        )
+        if any(ending_start < start or ending_end > region_end for _, ending_start, ending_end in ranges):
+            return linear_result("blocked", "numbered ending falls outside the repeat region")
         pass_sequences: list[list[str]] = []
         for pass_number in range(1, pass_count + 1):
             selected: list[str] = []
-            for index in range(start, end + 1):
-                excluded = False
-                for ending_number, ending_start, ending_end in ranges:
-                    if ending_start <= index <= ending_end:
-                        try:
-                            ending_pass = int(ending_number.split(",", 1)[0])
-                        except ValueError:
-                            return {
-                                "status": "blocked",
-                                "safeToApply": False,
-                                "mode": "linear-source-order",
-                                "measureSequence": original,
-                                "reason": "numbered ending is not numeric",
-                            }
-                        if ending_pass != pass_number:
-                            excluded = True
-                if not excluded:
+            selected_ending = False
+            for index in range(start, region_end + 1):
+                matching_endings = [
+                    membership
+                    for membership, ending_start, ending_end in ranges
+                    if ending_start <= index <= ending_end
+                ]
+                if not matching_endings or any(str(pass_number) in membership for membership in matching_endings):
                     selected.append(measures[index])
+                    if matching_endings:
+                        selected_ending = True
+            if ranges and not selected_ending:
+                return linear_result("blocked", f"no numbered ending is encoded for repeat pass {pass_number}")
             pass_sequences.append(selected)
             plan.extend(selected)
         passes.append(
             {
                 "startMeasure": measures[start],
-                "endMeasure": measures[end],
+                "endMeasure": measures[region_end],
                 "passCount": pass_count,
                 "sequences": pass_sequences,
             }
         )
-        cursor = end + 1
+        cursor = region_end + 1
     plan.extend(measures[cursor:])
+    sequence_indices = [index_by_measure[_measure_key(number)] for number in plan]
+    safe_to_apply = boundaries_complete
     return {
-        "status": "encoded",
-        "safeToApply": True,
+        "status": "encoded" if safe_to_apply else "blocked",
+        "safeToApply": safe_to_apply,
         "mode": "explicit-repeat-and-ending-sequence",
         "measureSequence": plan,
+        "measureSequenceIndices": sequence_indices,
+        "measureBoundaries": measure_boundaries,
+        "measureStarts": measure_starts,
+        "measureDurations": measure_durations,
+        "durationStatus": "encoded" if boundaries_complete else "unavailable",
         "passes": passes,
-        "reason": "sequence derived only from encoded forward/backward repeats and numbered endings",
+        "reason": (
+            "sequence derived only from encoded forward/backward repeats and numbered endings"
+            if safe_to_apply
+            else boundary_reason
+        ),
     }
 
 
@@ -471,6 +606,9 @@ def parse_musicxml_semantics(
                     "number": measure_number,
                     "index": len(measures),
                     "onset": round(measure_start, 3),
+                    "end": round(max_cursor, 3),
+                    "duration": round(max(0.0, max_cursor - measure_start), 3),
+                    "durationAvailable": bool(max_cursor > measure_start),
                     "barlines": measure_barlines,
                     "editorialMarkings": measure_markings,
                 }
@@ -489,6 +627,7 @@ def parse_musicxml_semantics(
 
     canonical_measures = [measure["number"] for measure in parts[0]["measures"]] if parts else []
     canonical_barlines = parts[0]["barlines"] if parts else []
+    measure_boundaries = build_global_measure_boundaries(parts)
     endings_present = any(marker.get("ending") for marker in all_barlines)
     repeats_present = any(marker.get("repeat") for marker in all_barlines)
     lyrics_present = any(item.get("text") for item in all_lyrics)
@@ -503,7 +642,13 @@ def parse_musicxml_semantics(
         "lyrics": all_lyrics,
         "barlines": all_barlines,
         "editorialMarkings": all_markings,
-        "playback": build_playback_plan(canonical_measures, canonical_barlines),
+        "playback": build_playback_plan(
+            canonical_measures,
+            canonical_barlines,
+            measure_boundaries=measure_boundaries,
+            part_barlines=[part["barlines"] for part in parts],
+        ),
+        "measureBoundaries": measure_boundaries,
         "availability": {
             "lyrics": {
                 "status": "encoded" if lyrics_present else "unavailable",
@@ -544,4 +689,9 @@ def write_json_report(source_path: Path, output_path: Path, *, source_id: str = 
     )
 
 
-__all__ = ["build_playback_plan", "parse_musicxml_semantics", "write_json_report"]
+__all__ = [
+    "build_global_measure_boundaries",
+    "build_playback_plan",
+    "parse_musicxml_semantics",
+    "write_json_report",
+]

@@ -1,22 +1,24 @@
 {
-  "generatedAt": "2026-08-30T23:39:33.921208+00:00",
+  "generatedAt": "2026-09-05T04:12:39.827207+00:00",
   "edition": "Sacred Harp, 2025 Edition",
   "status": "review-only",
   "policy": "This ledger records direct source/candidate comparison work. Disposition state is canonical workflow metadata; it does not alter the immutable source or authorize notation promotion unless safeToPromote is explicitly true.",
   "summary": {
-    "records": 180,
+    "records": 181,
     "safeToPromote": 0,
     "statusCounts": {
       "external-source-blocked": 154,
       "verified-with-correction-needed": 13,
       "rejected-source-mismatch": 10,
       "source-mismatch-rejected": 1,
+      "strong-visual-match-not-promoted": 1,
       "autonomously-blocked": 2
     },
     "dispositionCounts": {
       "external-source-blocked": 154,
       "review-only": 13,
       "rejected": 11,
+      "unavailable": 1,
       "autonomously-blocked": 2
     },
     "humanReviewRequired": 0,
@@ -43261,6 +43263,98 @@
         "safeToPromote": false,
         "reason": "External-source block for sh2025/263: the canonical source-scan OMR preserves the 13-measure four-part topology but not a proven event/duration stream, aligned lyrics, complete repeat/endings, or direct per-note shapes. The alternate public witness supports visual identity only and is not an authorized exact-edition structured source; the watermark obscures central/lower source events. The existing corrected derivative remains playable/transposition-testable review work product only.",
         "autonomousDecision": "external-source-blocked"
+      }
+    },
+    {
+      "queueId": "sh2025/263",
+      "edition": "Sacred Harp, 2025 Edition",
+      "songNo": "263",
+      "title": "Every Grace",
+      "comparisonStatus": "strong-visual-match-not-promoted",
+      "safeToPromote": false,
+      "sourceAuthority": {
+        "sourcePageUrl": "https://fasola.org/indexes/2025/?p=263",
+        "sourceImageUrl": "https://sacredharpbremen.org/wp-content/uploads/songs/200-299/263-Every-Grace/263.jpg",
+        "sourceImagePath": "work/source-images/2025/263-every-grace-3b35cf9ccf.jpg",
+        "sourceImageSha256": "37aa405d9c30fc679f4c13e250885824faa5d16bc02daee83cdf3688a9382c9b",
+        "immutable": true
+      },
+      "candidateWitness": {
+        "candidateKey": "sh2025/263/1b93a80a89",
+        "candidatePageUrl": "https://www.sacredharptunes.com/author/david/every-grace/",
+        "candidatePdfUrl": "https://media.sacredharptunes.com/david_389.pdf",
+        "candidatePdfPath": "work/source-transcriptions/2025/clean-source-candidates/263-every-grace-every-grace-s-m-43884f0c3b/source-candidate.pdf",
+        "candidatePdfSha256": "383cacf5c5939b23eddadb67800ee22096fc001392e8b35b1176cc324a0e1770",
+        "candidateMusicXmlPath": "work/omr/clean-source-candidates/263-every-grace-every-grace-s-m-1b93a80a89/source-candidate.mxl",
+        "candidateMusicXmlSha256": "e71e730e961838761300e5ecb1c28f3d839cccffc1bdff9b90ca9c50bbb1d1e7",
+        "candidateMusicXmlIsOmrDerivative": true
+      },
+      "sourceMetadata": {
+        "key": "G major",
+        "mode": "major",
+        "timeSignature": "4/4",
+        "meter": "Short Meter (6,6,8,6)",
+        "composer": "David B. Wright",
+        "lyricist": "Isaac Watts",
+        "sourcePrintedComposerDate": "1999"
+      },
+      "visualObservations": {
+        "scope": "full-page, all four vocal systems and both printed stanzas",
+        "headerIdentity": "The title, S.M. designation, Isaac Watts text credit, David B. Wright music credit, and G Major header agree between the 2025 scan and candidate PDF.",
+        "meterAndParts": "Both witnesses show four vocal systems in treble/treble/treble/bass order, common-time notation equivalent to 4/4, the same repeat layout, and the same full-song two-stanza arrangement.",
+        "noteAndRhythmIdentity": "Full-page visual comparison supports matching note placement, beams, durations, rests, repeat bars, endings, and the two-stanza layout across all four systems. The candidate is a clean 1999 witness, not a claim that the PDF is the 2025 engraving.",
+        "shapeIdentity": "The source scan and candidate PDF visibly use the same four-shape noteheads, including triangles, circles, squares, and diamonds. The candidate MusicXML does not encode notehead values.",
+        "obstruction": "The authorized source image has a diagonal watermark across the lower-middle systems; obscured note intersections still require human confirmation against the untouched image."
+      },
+      "structuredEvidence": {
+        "candidateMusicXml": {
+          "partCount": 4,
+          "measureCountByPart": {
+            "P1": 13,
+            "P2": 13,
+            "P3": 13,
+            "P4": 13
+          },
+          "keyFifths": 1,
+          "keyMode": "not encoded; source metadata identifies G major",
+          "timeSignature": "4/4",
+          "noteheadTags": 0
+        },
+        "sourceScanOmr": {
+          "canonicalDraftPath": "work/omr/263-every-grace/source.mxl",
+          "canonicalDraftSha256": "a526d3bd7d475b5ef19a028637650f46e3668f6031804c8f878589a85a22b5ce",
+          "status": "not-suitable-for-note-proof",
+          "reason": "The source-scan OMR has divergent note/rest content despite matching the thirteen-measure part structure; it is retained only as review work product."
+        },
+        "normalizedScanOmr": {
+          "path": "work/omr/cleaned-normalized-v2-263-every-grace-3b35cf9ccf/work__source-images__2025__263-every-grace-3b35cf9ccf.mxl",
+          "sha256": "2d6341c16a5291bfaa392001043505a881edf1c8897a4e2e82920248cf9c136d",
+          "status": "not-suitable-for-note-proof",
+          "reason": "The normalized-v2 retry retains thirteen measures but diverges in part note content; it remains review-only."
+        }
+      },
+      "blockingFindings": [
+        "The candidate is a public composer PDF and its MusicXML derivative, not an authorized publisher-delivered 2025 MusicXML file.",
+        "The candidate MusicXML contains no four-shape notehead tags; shape evidence currently exists in the two rendered page witnesses only.",
+        "The source-scan OMR and normalized-v2 OMR are not reliable note-for-note evidence, so visual similarity cannot be reduced to an automated structured-score proof.",
+        "The source watermark crosses notation in the lower-middle systems; a human must confirm every obscured note, rhythm, rest, repeat, and ending before promotion."
+      ],
+      "nextAction": "human-review-source-match-and-shape-encode",
+      "reviewProtocol": [
+        "Compare the untouched 2025 scan and candidate PDF measure by measure in all four parts.",
+        "Encode the visible four-shape identities in a separate review-only MusicXML derivative and compare it against the source scan.",
+        "Only after that comparison is signed off may this witness be considered for exact 2025 promotion."
+      ],
+      "auditFile": "work/source-transcriptions/2025/263-every-grace-comparison.json",
+      "canonicalRecordId": "sh2025/263",
+      "disposition": {
+        "state": "unavailable",
+        "role": "source-comparison",
+        "humanReviewRequired": false,
+        "reviewAvailable": false,
+        "safeToPromote": false,
+        "reason": "human-review-source-match-and-shape-encode",
+        "autonomousDecision": ""
       }
     },
     {
@@ -128207,7 +128301,43 @@
         "candidatePdfSha256": "e96803eef77b5897ef1a43efb6ea08c88a842f11049e31bd490c050abec74f38",
         "candidateMusicXmlPath": "work/omr/clean-source-candidates/459-hurricane-creek-hurricane-creek-fddb73d604/page-157.mxl",
         "candidateMusicXmlSha256": "ddd89081ed0be958533fdce17ac0c1dc4de44a8c450e35eb0e7b6066f1ecd355",
-        "candidateMusicXmlIsOmrDerivative": true
+        "candidateMusicXmlIsOmrDerivative": true,
+        "versionedDerivativeRecovery": {
+          "status": "versioned-candidate-derivative",
+          "historicalPath": "work/source-transcriptions/2025/clean-source-candidates/extracted/459-f209d45efd/page-157.pdf",
+          "historicalSha256": "8f62ca329238c69dda405a062a6ea516c9b640c03828d471c9bfcd5f3fc95b2a",
+          "historicalArtifactState": "missing-historical-bytes-preserved",
+          "parentPath": "work/source-transcriptions/2025/clean-source-candidates/459-hurricane-creek-hurricane-creek-f209d45efd/source-candidate.pdf",
+          "parentSha256": "e96803eef77b5897ef1a43efb6ea08c88a842f11049e31bd490c050abec74f38",
+          "page": 157,
+          "pageSize": "792 x 612 points",
+          "producer": "pdfseparate",
+          "producerOptions": "-f 157 -l 157",
+          "outputs": [
+            {
+              "path": "work/luna-program-20260904/runtime/derivative-recovery/459/candidate-page-157-poppler-system.pdf",
+              "sha256": "562983bd80e89c19d8bce6afe79ac6741b9f01326b3159ba9f1456df7ebf34a2",
+              "renderPath": "work/luna-program-20260904/runtime/derivative-recovery/459/system-extract-page-157.png",
+              "renderSha256": "8ad3a6bb94ce221213571cdeda1fedc25aa83e15850578009275b579ca9a30d7"
+            },
+            {
+              "path": "work/luna-program-20260904/runtime/derivative-recovery/459/candidate-page-157-poppler-bundled.pdf",
+              "sha256": "b3f9d2ab4599376da768be4f8f7d6db48537bcf6eaa5f00f21b9de0cf1a8f087",
+              "renderPath": "work/luna-program-20260904/runtime/derivative-recovery/459/bundled-extract-page-157.png",
+              "renderSha256": "8ad3a6bb94ce221213571cdeda1fedc25aa83e15850578009275b579ca9a30d7"
+            }
+          ],
+          "parentRenderPath": "work/luna-program-20260904/runtime/derivative-recovery/459/parent-page-157.png",
+          "parentRenderSha256": "8ad3a6bb94ce221213571cdeda1fedc25aa83e15850578009275b579ca9a30d7",
+          "pageRenderEquivalentToParent": true,
+          "candidateMusicXmlPath": "work/omr/clean-source-candidates/459-hurricane-creek-hurricane-creek-fddb73d604/page-157.mxl",
+          "candidateMusicXmlSha256": "ddd89081ed0be958533fdce17ac0c1dc4de44a8c450e35eb0e7b6066f1ecd355",
+          "candidateMusicXmlRole": "Retained OMR derivative from the original candidate PDF/OMR run; kept separate from the versioned page-157 PDF re-derivation.",
+          "candidateMusicXmlRegenerated": false,
+          "candidateMusicXmlSourceBoundary": "The retained MXL remains tied to its original candidate PDF/OMR run and was not regenerated from the current rederived PDF bytes.",
+          "safeToPromote": false,
+          "provenanceBoundary": "Derived from an alternate composite parent; not an exact Sacred Harp 2025 structured source."
+        }
       },
       "sourceMetadata": {
         "key": "A major",

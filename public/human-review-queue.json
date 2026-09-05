@@ -15,7 +15,7 @@
     "candidateLinks": 29,
     "candidateStructuralAgreements": 5,
     "candidateNeedsHumanComparison": 0,
-    "sourceComparisons": 179,
+    "sourceComparisons": 180,
     "sourceComparisonsSafeToPromote": 0,
     "sourceShapeReviewDrafts": 90,
     "sourceShapeReviewDraftsSafeToPromote": 0,
@@ -389,6 +389,8 @@
       "draftArtifact": "work/omr/50t-devotion/SH25-DEVOTION.mxl",
       "draftPdf": "",
       "draftSha256": "762737cbeed87f6fa0b8fdbf7b305f860eca6ce69aedf84b6b4c78ec4b0c09bf",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -779,6 +781,8 @@
       "draftArtifact": "work/omr/50t-devotion/source.mxl",
       "draftPdf": "work/omr/50t-devotion/source-draft.pdf",
       "draftSha256": "5b15b79f49193fbca1975e5684dc27c64cea129532beb85ef7c79cad18df3998",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -1182,6 +1186,8 @@
       "draftArtifact": "work/omr/80t-troubles-over/source.mxl",
       "draftPdf": "work/omr/80t-troubles-over/source-draft.pdf",
       "draftSha256": "10667e5d4a1ab2ed6634499ef712b7f7c88bfeb66ba1b49326ee1b08ddafc6b6",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -3440,6 +3446,8 @@
       "draftArtifact": "work/omr/81b-windlesham/source.mxl",
       "draftPdf": "work/omr/81b-windlesham/source-draft.pdf",
       "draftSha256": "2cc3677bb30457013caf6983b2386ba476a3c0b36a8ba9c0adf003dc2c1b679a",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -3777,6 +3785,8 @@
       "draftArtifact": "work/omr/115-holbrook/source.mxl",
       "draftPdf": "work/omr/115-holbrook/source-draft.pdf",
       "draftSha256": "2c2f9aea4d1f2f94afd61e2c36ef156e22468b097414c33f812e2b8c196bc9e3",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -4113,6 +4123,8 @@
       "draftArtifact": "work/omr/116-hooper/source.mxl",
       "draftPdf": "work/omr/116-hooper/source-draft.pdf",
       "draftSha256": "c5a7bb5be402a125c41da17eaa0666f0409d7365ba44ecb57ab3a76c8616bd55",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -4642,6 +4654,8 @@
       "draftArtifact": "work/omr/130-the-old-graveyard/source.mxl",
       "draftPdf": "work/omr/130-the-old-graveyard/source-draft.pdf",
       "draftSha256": "9d8537f3c40cc613ecdba7e7e43021df547f038d7cd516c3b869dfcce007e4b0",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -7586,6 +7600,8 @@
       "draftArtifact": "work/omr/140-moreno/source.mxl",
       "draftPdf": "work/omr/140-moreno/source-draft.pdf",
       "draftSha256": "20812fada0ec2e7e91d641b5ecda954c76f38af95824292b1c290822c2667c90",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -11288,6 +11304,8 @@
       "draftArtifact": "work/omr/161-southminster/source.mxl",
       "draftPdf": "work/omr/161-southminster/source-draft.pdf",
       "draftSha256": "d971e7ba05c5692d07d05e41de1b4479ee4122994bdde596c060b828685752dc",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -11803,6 +11821,8 @@
       "draftArtifact": "work/omr/184-and-jesus-crucified/source.mxl",
       "draftPdf": "work/omr/184-and-jesus-crucified/source-draft.pdf",
       "draftSha256": "186ff897f15ade25238555634bbc511914615beec535e1941a2e12fa526eb202",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -12395,6 +12415,8 @@
       "draftArtifact": "work/omr/188-ephesus/source.mxl",
       "draftPdf": "work/omr/188-ephesus/source-draft.pdf",
       "draftSha256": "aed3666428c894c6fa12bf164fe5377eaf22b63153b4614abb018281b63b5976",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -14591,6 +14613,8 @@
       "draftArtifact": "work/omr/213b-trembling-spirit/source.mxl",
       "draftPdf": "work/omr/213b-trembling-spirit/source-draft.pdf",
       "draftSha256": "8f9532a0bdd43331f480c6c6efcc3cd14be0fd6b461e87eec78c19afe81de587",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -15086,6 +15110,8 @@
       "draftArtifact": "work/omr/219-he-hath-saved-us/source.mxl",
       "draftPdf": "work/omr/219-he-hath-saved-us/source-draft.pdf",
       "draftSha256": "71087a095db40b594a63819227af845e32e5f2ed1751c891f6b059bcc7f82aec",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -21582,6 +21608,8 @@
       "draftArtifact": "work/omr/223-balm-in-gilead/source.mxl",
       "draftPdf": "work/omr/223-balm-in-gilead/source-draft.pdf",
       "draftSha256": "f098c26633fce459d9e309339e94694d71f1219dc5487b3ab6ab82d9c609ecef",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -22158,6 +22186,8 @@
       "draftArtifact": "work/omr/231-seiler/source.mxl",
       "draftPdf": "work/omr/231-seiler/source-draft.pdf",
       "draftSha256": "30fe6d35cb645e820432a738590b105d6184a73a8afcf11c32e8ab5e39d6a277",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -31407,6 +31437,8 @@
       "draftArtifact": "work/omr/242-revere/source.mxl",
       "draftPdf": "work/omr/242-revere/source-draft.pdf",
       "draftSha256": "e512e53f8a67bb0a653b012c452f3e330d9baa671938006df2e36e75e9c366f8",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -32045,6 +32077,8 @@
       "draftArtifact": "work/omr/243-stanton/source.mxl",
       "draftPdf": "work/omr/243-stanton/source-draft.pdf",
       "draftSha256": "b263a1959c947902ef3499fea7c5225e39c0c65ae10dd91f0f8773f36d1049e1",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -40262,6 +40296,8 @@
       "draftArtifact": "work/omr/244-plevna/source.mxl",
       "draftPdf": "work/omr/244-plevna/source-draft.pdf",
       "draftSha256": "8833aade47831c5a739d1ca83117bc4d3352eacc85bd63235b4ea4870e44d016",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -40931,6 +40967,8 @@
       "draftArtifact": "work/omr/254-warsaw/254-warsaw.mxl",
       "draftPdf": "work/omr/254-warsaw/254-warsaw-draft.pdf",
       "draftSha256": "13d78dedc690ddefad72bf4e6c9694a33b47655aa9048c3996f6014896c4bebc",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -41577,6 +41615,8 @@
       "draftArtifact": "work/omr/255-mechanicville/255-mechanicville.mxl",
       "draftPdf": "work/omr/255-mechanicville/255-mechanicville-draft.pdf",
       "draftSha256": "9359356434ad187a2a86ff45285a3193c57593ee40199727b2055601bd99e227",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -42185,6 +42225,8 @@
       "draftArtifact": "work/omr/256-northampton/256-northampton.mxl",
       "draftPdf": "work/omr/256-northampton/256-northampton-draft.pdf",
       "draftSha256": "817a79554418b89f679f49457ccc18847e4c1d61c7df28427f893f8d1463a143",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -48936,6 +48978,8 @@
       "draftArtifact": "work/omr/257-manatawny/257-manatawny.mxl",
       "draftPdf": "work/omr/257-manatawny/257-manatawny-draft.pdf",
       "draftSha256": "d107b7096d77a038ff4847cb4e3bc35266ae6f274e4a8c3d2f59cd617f460c8c",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -53896,6 +53940,8 @@
       "draftArtifact": "work/omr/258-inspiration/258-inspiration.mxl",
       "draftPdf": "work/omr/258-inspiration/258-inspiration-draft.pdf",
       "draftSha256": "b7c30a9b896c6343da59c2a742929e0ebab704405535a4e0b27ecd7157faf11f",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -61574,6 +61620,8 @@
       "draftArtifact": "work/omr/259-easton/259-easton.mxl",
       "draftPdf": "work/omr/259-easton/259-easton-draft.pdf",
       "draftSha256": "00c0242a44f3506066fa25ac14be0439a2ed6efcad110194e9a4f366ac97cc8a",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -62085,6 +62133,98 @@
             "reason": "External-source block for sh2025/263: the canonical source-scan OMR preserves the 13-measure four-part topology but not a proven event/duration stream, aligned lyrics, complete repeat/endings, or direct per-note shapes. The alternate public witness supports visual identity only and is not an authorized exact-edition structured source; the watermark obscures central/lower source events. The existing corrected derivative remains playable/transposition-testable review work product only.",
             "autonomousDecision": "external-source-blocked"
           }
+        },
+        {
+          "queueId": "sh2025/263",
+          "edition": "Sacred Harp, 2025 Edition",
+          "songNo": "263",
+          "title": "Every Grace",
+          "comparisonStatus": "strong-visual-match-not-promoted",
+          "safeToPromote": false,
+          "sourceAuthority": {
+            "sourcePageUrl": "https://fasola.org/indexes/2025/?p=263",
+            "sourceImageUrl": "https://sacredharpbremen.org/wp-content/uploads/songs/200-299/263-Every-Grace/263.jpg",
+            "sourceImagePath": "work/source-images/2025/263-every-grace-3b35cf9ccf.jpg",
+            "sourceImageSha256": "37aa405d9c30fc679f4c13e250885824faa5d16bc02daee83cdf3688a9382c9b",
+            "immutable": true
+          },
+          "candidateWitness": {
+            "candidateKey": "sh2025/263/1b93a80a89",
+            "candidatePageUrl": "https://www.sacredharptunes.com/author/david/every-grace/",
+            "candidatePdfUrl": "https://media.sacredharptunes.com/david_389.pdf",
+            "candidatePdfPath": "work/source-transcriptions/2025/clean-source-candidates/263-every-grace-every-grace-s-m-43884f0c3b/source-candidate.pdf",
+            "candidatePdfSha256": "383cacf5c5939b23eddadb67800ee22096fc001392e8b35b1176cc324a0e1770",
+            "candidateMusicXmlPath": "work/omr/clean-source-candidates/263-every-grace-every-grace-s-m-1b93a80a89/source-candidate.mxl",
+            "candidateMusicXmlSha256": "e71e730e961838761300e5ecb1c28f3d839cccffc1bdff9b90ca9c50bbb1d1e7",
+            "candidateMusicXmlIsOmrDerivative": true
+          },
+          "sourceMetadata": {
+            "key": "G major",
+            "mode": "major",
+            "timeSignature": "4/4",
+            "meter": "Short Meter (6,6,8,6)",
+            "composer": "David B. Wright",
+            "lyricist": "Isaac Watts",
+            "sourcePrintedComposerDate": "1999"
+          },
+          "visualObservations": {
+            "scope": "full-page, all four vocal systems and both printed stanzas",
+            "headerIdentity": "The title, S.M. designation, Isaac Watts text credit, David B. Wright music credit, and G Major header agree between the 2025 scan and candidate PDF.",
+            "meterAndParts": "Both witnesses show four vocal systems in treble/treble/treble/bass order, common-time notation equivalent to 4/4, the same repeat layout, and the same full-song two-stanza arrangement.",
+            "noteAndRhythmIdentity": "Full-page visual comparison supports matching note placement, beams, durations, rests, repeat bars, endings, and the two-stanza layout across all four systems. The candidate is a clean 1999 witness, not a claim that the PDF is the 2025 engraving.",
+            "shapeIdentity": "The source scan and candidate PDF visibly use the same four-shape noteheads, including triangles, circles, squares, and diamonds. The candidate MusicXML does not encode notehead values.",
+            "obstruction": "The authorized source image has a diagonal watermark across the lower-middle systems; obscured note intersections still require human confirmation against the untouched image."
+          },
+          "structuredEvidence": {
+            "candidateMusicXml": {
+              "partCount": 4,
+              "measureCountByPart": {
+                "P1": 13,
+                "P2": 13,
+                "P3": 13,
+                "P4": 13
+              },
+              "keyFifths": 1,
+              "keyMode": "not encoded; source metadata identifies G major",
+              "timeSignature": "4/4",
+              "noteheadTags": 0
+            },
+            "sourceScanOmr": {
+              "canonicalDraftPath": "work/omr/263-every-grace/source.mxl",
+              "canonicalDraftSha256": "a526d3bd7d475b5ef19a028637650f46e3668f6031804c8f878589a85a22b5ce",
+              "status": "not-suitable-for-note-proof",
+              "reason": "The source-scan OMR has divergent note/rest content despite matching the thirteen-measure part structure; it is retained only as review work product."
+            },
+            "normalizedScanOmr": {
+              "path": "work/omr/cleaned-normalized-v2-263-every-grace-3b35cf9ccf/work__source-images__2025__263-every-grace-3b35cf9ccf.mxl",
+              "sha256": "2d6341c16a5291bfaa392001043505a881edf1c8897a4e2e82920248cf9c136d",
+              "status": "not-suitable-for-note-proof",
+              "reason": "The normalized-v2 retry retains thirteen measures but diverges in part note content; it remains review-only."
+            }
+          },
+          "blockingFindings": [
+            "The candidate is a public composer PDF and its MusicXML derivative, not an authorized publisher-delivered 2025 MusicXML file.",
+            "The candidate MusicXML contains no four-shape notehead tags; shape evidence currently exists in the two rendered page witnesses only.",
+            "The source-scan OMR and normalized-v2 OMR are not reliable note-for-note evidence, so visual similarity cannot be reduced to an automated structured-score proof.",
+            "The source watermark crosses notation in the lower-middle systems; a human must confirm every obscured note, rhythm, rest, repeat, and ending before promotion."
+          ],
+          "nextAction": "human-review-source-match-and-shape-encode",
+          "reviewProtocol": [
+            "Compare the untouched 2025 scan and candidate PDF measure by measure in all four parts.",
+            "Encode the visible four-shape identities in a separate review-only MusicXML derivative and compare it against the source scan.",
+            "Only after that comparison is signed off may this witness be considered for exact 2025 promotion."
+          ],
+          "auditFile": "work/source-transcriptions/2025/263-every-grace-comparison.json",
+          "canonicalRecordId": "sh2025/263",
+          "disposition": {
+            "state": "unavailable",
+            "role": "source-comparison",
+            "humanReviewRequired": false,
+            "reviewAvailable": false,
+            "safeToPromote": false,
+            "reason": "human-review-source-match-and-shape-encode",
+            "autonomousDecision": ""
+          }
         }
       ],
       "shapeReviewDraft": {
@@ -62212,6 +62352,8 @@
       "draftArtifact": "work/omr/263-every-grace/source.mxl",
       "draftPdf": "work/omr/263-every-grace/source-draft.pdf",
       "draftSha256": "a526d3bd7d475b5ef19a028637650f46e3668f6031804c8f878589a85a22b5ce",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -74489,6 +74631,8 @@
       "draftArtifact": "work/omr/264-night-song/source.mxl",
       "draftPdf": "work/omr/264-night-song/source-draft.pdf",
       "draftSha256": "22fc14f1d61ed35f3c840e7618f0380529466e6b8cd46659c9cd9720ab86a65f",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -77567,6 +77711,8 @@
       "draftArtifact": "work/omr/265-gwehelog/source.mxl",
       "draftPdf": "work/omr/265-gwehelog/source-draft.pdf",
       "draftSha256": "a239a129aefb59ec1aa19fb34da729da7aef2da25342cf53a1951686597bc229",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -83125,6 +83271,8 @@
       "draftArtifact": "work/omr/266-chambersburg/source.mxl",
       "draftPdf": "work/omr/266-chambersburg/source-draft.pdf",
       "draftSha256": "1184ebf5464aed5413930b9dbad80bf1da8af864acc5bce1c7568f9a71e18c2d",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -90293,6 +90441,8 @@
       "draftArtifact": "work/omr/279-mink-hollow/source.mxl",
       "draftPdf": "work/omr/279-mink-hollow/source-draft.pdf",
       "draftSha256": "35e3007c819577d56ab69fc33198c80f62a9d072903e0828d9ccb42cae9212ac",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -90799,6 +90949,8 @@
       "draftArtifact": "work/omr/293-midnight-hour/source.mxl",
       "draftPdf": "work/omr/293-midnight-hour/source-draft.pdf",
       "draftSha256": "407c26f7f35d18aa03afbdd8e7f9bb8fe15c1ab3a8d512c81a87ea3f9af32790",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -95109,6 +95261,8 @@
       "draftArtifact": "work/omr/295-iowa/source.mxl",
       "draftPdf": "work/omr/295-iowa/source-draft.pdf",
       "draftSha256": "cde5cbc8abbe52a631ed602bd436a386b014af1e4b84ed4240452266604cddf2",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -98800,6 +98954,8 @@
       "draftArtifact": "work/omr/323b-kingswood/source.mxl",
       "draftPdf": "work/omr/323b-kingswood/source-draft.pdf",
       "draftSha256": "f1fa73eabfe2b245f4f57f6b0885b715da48de0577aed7adb23bc39918146682",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -105975,6 +106131,8 @@
       "draftArtifact": "work/omr/330b-chandesse/source.mxl",
       "draftPdf": "work/omr/330b-chandesse/source-draft.pdf",
       "draftSha256": "70495b083ab5334efd1c3a520a26b56baa5e4ce8d922d04fc110f2b0252e0e11",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -106877,6 +107035,8 @@
       "draftArtifact": "work/omr/334-bainbridge-island/source.mxl",
       "draftPdf": "work/omr/334-bainbridge-island/source-draft.pdf",
       "draftSha256": "9860d9f506884b06aae9b98a7f72f35e38ffd41e5aad0c3d835d13ac73beec32",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -107149,6 +107309,8 @@
       "draftArtifact": "work/omr/347b-humility/source.mxl",
       "draftPdf": "work/omr/347b-humility/source-draft.pdf",
       "draftSha256": "3f161234e87e21b9337a6841a1971597796446e029136b551742086eda42c555",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -107710,6 +107872,8 @@
       "draftArtifact": "work/omr/355-torrington/source.mxl",
       "draftPdf": "work/omr/355-torrington/source-draft.pdf",
       "draftSha256": "629a81fc1aa209997b3bcb0c10bb46d78bb20085b9048d802d55b8e1fec5e044",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -108384,6 +108548,8 @@
       "draftArtifact": "work/omr/356-boundless-grace/source.mxl",
       "draftPdf": "work/omr/356-boundless-grace/source-draft.pdf",
       "draftSha256": "14355d08b863fca509246789b8d3ed8021b9dda2594f20a694d7e26dc679b52b",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -109060,6 +109226,8 @@
       "draftArtifact": "work/omr/357-kedar/source.mxl",
       "draftPdf": "work/omr/357-kedar/source-draft.pdf",
       "draftSha256": "2bcf8c2c50c67c08092bff9313c49d54f8dd85d2d3a46a31ea6e28beeb8687b1",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -112087,6 +112255,8 @@
       "draftArtifact": "work/omr/366-bremen/source.mxl",
       "draftPdf": "work/omr/366-bremen/source-draft.pdf",
       "draftSha256": "73f1a93a63665aa3ea20b1b8a327287e6c15478ee5dd9f591057e78c275ea877",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -115771,6 +115941,8 @@
       "draftArtifact": "work/omr/367-nassau/source.mxl",
       "draftPdf": "work/omr/367-nassau/source-draft.pdf",
       "draftSha256": "6594817b9aaff51422b281d065e6fd759b85fb938e37274eddab2e13d5070e66",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -118447,6 +118619,8 @@
       "draftArtifact": "work/omr/381-wells-second/source.mxl",
       "draftPdf": "work/omr/381-wells-second/source-draft.pdf",
       "draftSha256": "a6cd66a489714824aeaef6644b7ad2891c6994b5c3cabce06497868defb02bbd",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -123696,6 +123870,8 @@
       "draftArtifact": "work/omr/393-rebekah/source.mxl",
       "draftPdf": "work/omr/393-rebekah/source-draft.pdf",
       "draftSha256": "008f32f98cddc9ed29c23b26476ccd45783b592300030c95111c1884566f03ec",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -127192,6 +127368,8 @@
       "draftArtifact": "work/omr/395-unrath/source.mxl",
       "draftPdf": "work/omr/395-unrath/source-draft.pdf",
       "draftSha256": "d41900052f6514301a9d9cc1f041673fa8c624f7175cb5ae9051385b3e710c16",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -134190,6 +134368,8 @@
       "draftArtifact": "work/omr/409-exeter/source.mxl",
       "draftPdf": "work/omr/409-exeter/source-draft.pdf",
       "draftSha256": "5121c0be2d1cc3cd1156c34a2622baa543032950b06caca4f0a61b78a0f6eec4",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -140664,6 +140844,8 @@
       "draftArtifact": "work/omr/413-buffam-falls/source.mxl",
       "draftPdf": "work/omr/413-buffam-falls/source-draft.pdf",
       "draftSha256": "7e0c5c4480b385405121555f7fed1ee4d5d717464f7a69ec5222642f235f5d3b",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -145114,6 +145296,8 @@
       "draftArtifact": "work/omr/414t-farewell-brethren/source.mxl",
       "draftPdf": "work/omr/414t-farewell-brethren/source-draft.pdf",
       "draftSha256": "f735ccf66c08459d4c19d35bc8771aa37da7bb679c5d12bb874f537d1f929029",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -148133,6 +148317,8 @@
       "draftArtifact": "work/omr/420t-tides-of-love/source.mxl",
       "draftPdf": "work/omr/420t-tides-of-love/source-draft.pdf",
       "draftSha256": "e009f51ccb5bc10b13763c55afe062ce7c4868b99e31e08057cdc45bf6b6d4dc",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 3,
         "measuresByPart": {
@@ -152958,6 +153144,8 @@
       "draftArtifact": "work/omr/423b-hall/source.mxl",
       "draftPdf": "work/omr/423b-hall/source-draft.pdf",
       "draftSha256": "e1b84d0d1d782a66dedaf0994a58232f28e43cbd786ec04fe2b82bed8fbcfa07",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -158480,6 +158668,8 @@
       "draftArtifact": "work/omr/429-red-sands/source.mxl",
       "draftPdf": "work/omr/429-red-sands/source-draft.pdf",
       "draftSha256": "ba4fc02c87202d8bc08f9534d40b85043d7a6008fe416d4e0ce9ea7e915ec6a9",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -160382,6 +160572,8 @@
       "draftArtifact": "work/omr/433-springdale/source.mxl",
       "draftPdf": "work/omr/433-springdale/source-draft.pdf",
       "draftSha256": "517e521b33dc5bf927fce97293a7ba2f674cc5a57b6dc991ef3fb27c0e6cc46d",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -162032,6 +162224,8 @@
       "draftArtifact": "work/omr/437-enoch/source.mxl",
       "draftPdf": "work/omr/437-enoch/source-draft.pdf",
       "draftSha256": "0e917996cb170d0ccca2d826f172ca4b47edba45f66fb8a2b668520f4eb2e0b8",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -163644,6 +163838,8 @@
       "draftArtifact": "work/omr/449-lovely-social-band/source.mxl",
       "draftPdf": "work/omr/449-lovely-social-band/source-draft.pdf",
       "draftSha256": "10ebe1da760fac2c5c2afcd53d3763ecc30fd4c6c394fe015ed48e59b091f580",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -165392,6 +165588,8 @@
       "draftArtifact": "work/omr/451-milton/source.mxl",
       "draftPdf": "work/omr/451-milton/source-draft.pdf",
       "draftSha256": "b3a6a0bf8048ed0f15ed18f955b41f32c39fbf2b288c50f153923c7c208173c9",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -166950,6 +167148,25 @@
       "draftArtifact": "work/omr/453-newbury/source.mxl",
       "draftPdf": "work/omr/453-newbury/source-draft.pdf",
       "draftSha256": "3dd0094e5c3a76cbbe57ad30ee4c70d8fccb13f64327a2029562d1f6c93bb71b",
+      "draftPlaybackStatus": "quarantined",
+      "draftPlaybackValidation": {
+        "status": "quarantined",
+        "safeToApply": false,
+        "reason": "OMR draft contains 1 invalid-duration event(s); source rhythm is unresolved.",
+        "sourceRecord": "sh2025/453",
+        "sourceArtifact": "work/omr/453-newbury/source.mxl",
+        "sourceArtifactSha256": "3dd0094e5c3a76cbbe57ad30ee4c70d8fccb13f64327a2029562d1f6c93bb71b",
+        "invalidEvents": [
+          {
+            "part": "Treble",
+            "eventIndex": 9,
+            "measure": "7",
+            "beats": 0.0,
+            "timingStatus": "invalid",
+            "sourcePath": "parts[0].events[9].beats"
+          }
+        ]
+      },
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -167182,7 +167399,7 @@
           "candidatePageUrl": "https://www.singthetrumpet.com/the-trumpet-composite-vol-1-5.pdf",
           "pdfUrl": "https://www.singthetrumpet.com/the-trumpet-composite-vol-1-5.pdf",
           "localPdf": "work/source-transcriptions/2025/clean-source-candidates/459-hurricane-creek-hurricane-creek-f209d45efd/source-candidate.pdf",
-          "omrInputPdf": "work/source-transcriptions/2025/clean-source-candidates/extracted/459-f209d45efd/page-157.pdf",
+          "omrInputPdf": "work/luna-program-20260904/runtime/derivative-recovery/459/candidate-page-157-poppler-system.pdf",
           "compositePdfPage": 157,
           "sha256": "e96803eef77b5897ef1a43efb6ea08c88a842f11049e31bd490c050abec74f38",
           "matchKind": "same_title_and_text_key",
@@ -167331,7 +167548,38 @@
             "candidatePdfSha256": "e96803eef77b5897ef1a43efb6ea08c88a842f11049e31bd490c050abec74f38",
             "candidateMusicXmlPath": "work/omr/clean-source-candidates/459-hurricane-creek-hurricane-creek-fddb73d604/page-157.mxl",
             "candidateMusicXmlSha256": "ddd89081ed0be958533fdce17ac0c1dc4de44a8c450e35eb0e7b6066f1ecd355",
-            "candidateMusicXmlIsOmrDerivative": true
+            "candidateMusicXmlIsOmrDerivative": true,
+            "versionedDerivativeRecovery": {
+              "status": "versioned-candidate-derivative",
+              "historicalPath": "work/source-transcriptions/2025/clean-source-candidates/extracted/459-f209d45efd/page-157.pdf",
+              "historicalSha256": "8f62ca329238c69dda405a062a6ea516c9b640c03828d471c9bfcd5f3fc95b2a",
+              "historicalArtifactState": "missing-historical-bytes-preserved",
+              "parentPath": "work/source-transcriptions/2025/clean-source-candidates/459-hurricane-creek-hurricane-creek-f209d45efd/source-candidate.pdf",
+              "parentSha256": "e96803eef77b5897ef1a43efb6ea08c88a842f11049e31bd490c050abec74f38",
+              "page": 157,
+              "pageSize": "792 x 612 points",
+              "producer": "pdfseparate",
+              "producerOptions": "-f 157 -l 157",
+              "outputs": [
+                {
+                  "path": "work/luna-program-20260904/runtime/derivative-recovery/459/candidate-page-157-poppler-system.pdf",
+                  "sha256": "562983bd80e89c19d8bce6afe79ac6741b9f01326b3159ba9f1456df7ebf34a2",
+                  "renderPath": "work/luna-program-20260904/runtime/derivative-recovery/459/system-extract-page-157.png",
+                  "renderSha256": "8ad3a6bb94ce221213571cdeda1fedc25aa83e15850578009275b579ca9a30d7"
+                },
+                {
+                  "path": "work/luna-program-20260904/runtime/derivative-recovery/459/candidate-page-157-poppler-bundled.pdf",
+                  "sha256": "b3f9d2ab4599376da768be4f8f7d6db48537bcf6eaa5f00f21b9de0cf1a8f087",
+                  "renderPath": "work/luna-program-20260904/runtime/derivative-recovery/459/bundled-extract-page-157.png",
+                  "renderSha256": "8ad3a6bb94ce221213571cdeda1fedc25aa83e15850578009275b579ca9a30d7"
+                }
+              ],
+              "parentRenderPath": "work/luna-program-20260904/runtime/derivative-recovery/459/parent-page-157.png",
+              "parentRenderSha256": "8ad3a6bb94ce221213571cdeda1fedc25aa83e15850578009275b579ca9a30d7",
+              "pageRenderEquivalentToParent": true,
+              "safeToPromote": false,
+              "provenanceBoundary": "Derived from an alternate composite parent; not an exact Sacred Harp 2025 structured source."
+            }
           },
           "sourceMetadata": {
             "key": "A major",
@@ -167538,6 +167786,8 @@
       "draftArtifact": "work/omr/459-hurricane-creek/source.mxl",
       "draftPdf": "work/omr/459-hurricane-creek/source-draft.pdf",
       "draftSha256": "b11544427eb6cc4044761809cfa9d1288e12bf3bc366d709c47f1ce9e1b003c0",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -169617,6 +169867,8 @@
       "draftArtifact": "work/omr/461-john-3-37/source.mxl",
       "draftPdf": "work/omr/461-john-3-37/source-draft.pdf",
       "draftSha256": "97e655981fce8b8917bf8c3805c0a5acfbdb47ce39aebc3893e3bb5d5bec33ae",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -170205,6 +170457,8 @@
       "draftArtifact": "work/omr/463-morel/source.mxl",
       "draftPdf": "work/omr/463-morel/source-draft.pdf",
       "draftSha256": "3704c500c8df5603c5bfbcd70f5f5fbf331224f75dd4109c2a2108a6782a21c5",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -171980,6 +172234,8 @@
       "draftArtifact": "work/omr/468-soul-s-delight/source.mxl",
       "draftPdf": "work/omr/468-soul-s-delight/source-draft.pdf",
       "draftSha256": "502184494bb070a0a79314ebc987b150e40c9cb0868e3738d7f445b80bef5234",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -172382,6 +172638,8 @@
       "draftArtifact": "work/omr/469-thy-strength/source.mxl",
       "draftPdf": "work/omr/469-thy-strength/source-draft.pdf",
       "draftSha256": "21e6727bcac188443a35c0e761496105e9f940a34a49caee2b7c6d346053cbb2",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -173962,6 +174220,8 @@
       "draftArtifact": "work/omr/471-becket/source.mxl",
       "draftPdf": "work/omr/471-becket/source-draft.pdf",
       "draftSha256": "a577094a874763319076fb8fe5a595959ad7187065689323ad196c6f36048467",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -175305,6 +175565,8 @@
       "draftArtifact": "work/omr/476-eternal-ages/source.mxl",
       "draftPdf": "work/omr/476-eternal-ages/source-draft.pdf",
       "draftSha256": "d863e7b0f82019e57777049f45a0088a710baf787bfddbd6af32bcbe19199122",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -176990,6 +177252,8 @@
       "draftArtifact": "work/omr/478-helen-hills-hills/source.mxl",
       "draftPdf": "work/omr/478-helen-hills-hills/source-draft.pdf",
       "draftSha256": "7954a36dfe6a588129aa7b9d5c8546df362441b5bc715ec20e20260a72efe6bd",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -178746,6 +179010,8 @@
       "draftArtifact": "work/omr/483-golden-gardens/source.mxl",
       "draftPdf": "work/omr/483-golden-gardens/source-draft.pdf",
       "draftSha256": "c50f6820fd1c4b76db55c02d085a6a88a0793ac69fcb61ab782013fa71eebd7a",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -179146,6 +179412,8 @@
       "draftArtifact": "work/omr/484b-parwich/source.mxl",
       "draftPdf": "work/omr/484b-parwich/source-draft.pdf",
       "draftSha256": "6e51de7d48a486cbb60446591a38afebfc77a639a4f130e5f1d9f7ff78ca2ef5",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -180540,6 +180808,8 @@
       "draftArtifact": "work/omr/484t-millbrook/source.mxl",
       "draftPdf": "work/omr/484t-millbrook/source-draft.pdf",
       "draftSha256": "4a57e163f69784957906bfbd9febb009c96b84b7b24f3d8ac036bdd902e94891",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -182074,6 +182344,8 @@
       "draftArtifact": "work/omr/487-lowndes/source.mxl",
       "draftPdf": "work/omr/487-lowndes/source-draft.pdf",
       "draftSha256": "4e707dedf878b919bd453c4b5b1cb9f50dd9872689ac8702c554a08b68fc21d4",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -183794,6 +184066,8 @@
       "draftArtifact": "work/omr/488-radiance/source.mxl",
       "draftPdf": "work/omr/488-radiance/source-draft.pdf",
       "draftSha256": "b05b75cec476ff717a4dd9f8f1f482ad5daac62d8ea9cd5ff8b4dd21be53d235",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -185510,6 +185784,8 @@
       "draftArtifact": "work/omr/491-eagles-wings/source.mxl",
       "draftPdf": "work/omr/491-eagles-wings/source-draft.pdf",
       "draftSha256": "b5e371c8b6406fd8bd7d30e1357b4581d7ae3ca25f194cb375a9dd8e93ef81e6",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -187044,6 +187320,8 @@
       "draftArtifact": "work/omr/493-blessed-road/source.mxl",
       "draftPdf": "work/omr/493-blessed-road/source-draft.pdf",
       "draftSha256": "1b9d4cf2f77d91ec64c6b42cd33055e4d43c0cda81e66b163c0c0abac84ad1a3",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -188478,6 +188756,8 @@
       "draftArtifact": "work/omr/494-harrison/source.mxl",
       "draftPdf": "work/omr/494-harrison/source-draft.pdf",
       "draftSha256": "4710eb6844391d7a21f9f84d9c4bae10390489657ce5db629e36026b35610a51",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -188948,6 +189228,8 @@
       "draftArtifact": "work/omr/499t-pastures-green/source.mxl",
       "draftPdf": "work/omr/499t-pastures-green/source-draft.pdf",
       "draftSha256": "3e9c55003ed3403101a5111cabb92419d264c6f837b6262bc8e60c9ba2c5b547",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -189420,6 +189702,8 @@
       "draftArtifact": "work/omr/501t-penn/source.mxl",
       "draftPdf": "work/omr/501t-penn/source-draft.pdf",
       "draftSha256": "37e4605eff8e5765a17cfe9ea512621f2136f375ce851e047473ca21b1b90be1",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -191586,6 +191870,8 @@
       "draftArtifact": "work/omr/502-new-york/source.mxl",
       "draftPdf": "work/omr/502-new-york/source-draft.pdf",
       "draftSha256": "927976c11d3fb6291e92fcd4b66e40d676cc87960dcc5d210269d323897359a3",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -193610,6 +193896,8 @@
       "draftArtifact": "work/omr/507-woodlands/source.mxl",
       "draftPdf": "work/omr/507-woodlands/source-draft.pdf",
       "draftSha256": "d789ab4d171ce3cbddc2f049e0ebd9bdf78a69062197cfb642b1a54b06712502",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -195013,6 +195301,8 @@
       "draftArtifact": "work/omr/513-oakland/source.mxl",
       "draftPdf": "work/omr/513-oakland/source-draft.pdf",
       "draftSha256": "a2269eeb2fb02347a5a63607590bab08dced1c2f874c48dbea9e6e7a0705488f",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -196865,6 +197155,8 @@
       "draftArtifact": "work/omr/514-choctawhatchee/source.mxl",
       "draftPdf": "work/omr/514-choctawhatchee/source-draft.pdf",
       "draftSha256": "3cfaa26db840855e1157bd0dbb27e99fb0aaf95d8ea1f613f365e6f9d0eca984",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -198559,6 +198851,8 @@
       "draftArtifact": "work/omr/516-granada/source.mxl",
       "draftPdf": "work/omr/516-granada/source-draft.pdf",
       "draftSha256": "9e9ab3837bdcd0b6a5ddd3a35b0ce2b0aca8bb8dff4e6bd7c3774ad1b82ca32a",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -199877,6 +200171,8 @@
       "draftArtifact": "work/omr/520-ata/source.mxl",
       "draftPdf": "work/omr/520-ata/source-draft.pdf",
       "draftSha256": "c137ef17c66be9167e794211d49043ffde5b099e8c00890d2631a19b0fe1f557",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -201351,6 +201647,8 @@
       "draftArtifact": "work/omr/523-just-for-a-day/source.mxl",
       "draftPdf": "work/omr/523-just-for-a-day/source-draft.pdf",
       "draftSha256": "35ccbf6ecfd6793208521a0615bcac808d0d540de3b09822b924f1d986cf64c3",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -202939,6 +203237,8 @@
       "draftArtifact": "work/omr/524-moonlight/source.mxl",
       "draftPdf": "work/omr/524-moonlight/source-draft.pdf",
       "draftSha256": "4385b5c6c2b6133281ebbb5b8988a1995b36dccc0f11be760139d0cd52afa670",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -203579,6 +203879,8 @@
       "draftArtifact": "work/omr/526-schwab/source.mxl",
       "draftPdf": "work/omr/526-schwab/source-draft.pdf",
       "draftSha256": "8e71c78cab7f7d74631162d567f492c0001ce56f612ad8af76e76adcd9640e40",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -204050,6 +204352,8 @@
       "draftArtifact": "work/omr/531-clayton/source.mxl",
       "draftPdf": "work/omr/531-clayton/source-draft.pdf",
       "draftSha256": "66c8233ac7587e4e772861b5a06d463e1a1b1832075612cc617713f3f2be255e",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -205518,6 +205822,8 @@
       "draftArtifact": "work/omr/539-simena/source.mxl",
       "draftPdf": "work/omr/539-simena/source-draft.pdf",
       "draftSha256": "beb4c03ed6c27b2304b10d76496ddcc635e0173dc225860e993b5b809e501cee",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -207297,6 +207603,8 @@
       "draftArtifact": "work/omr/541-willkie/source.mxl",
       "draftPdf": "work/omr/541-willkie/source-draft.pdf",
       "draftSha256": "28c05a35b92ca885458ffea09eb467187e1594c20c1821082a13fed042092c76",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -208717,6 +209025,8 @@
       "draftArtifact": "work/omr/561-cunningham/source.mxl",
       "draftPdf": "work/omr/561-cunningham/source-draft.pdf",
       "draftSha256": "877f950b4bab2eaa930dd7c7ab1113525d83fe6a523b3c55f6cfd067a167199d",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -210593,6 +210903,8 @@
       "draftArtifact": "work/omr/562-mournful-joy/source.mxl",
       "draftPdf": "work/omr/562-mournful-joy/source-draft.pdf",
       "draftSha256": "d3b7b251fac2f191682f9214d60239185e987e2aa012cda7adb83b44061a3443",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -212143,6 +212455,8 @@
       "draftArtifact": "work/omr/566-gum-pond/source.mxl",
       "draftPdf": "work/omr/566-gum-pond/source-draft.pdf",
       "draftSha256": "4431dba32d932c45469b1b2225283fe7e04c0a4c87d8feaba937e5cef0ee2413",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -214223,6 +214537,8 @@
       "draftArtifact": "work/omr/570-sleepers-awake/source.mxl",
       "draftPdf": "work/omr/570-sleepers-awake/source-draft.pdf",
       "draftSha256": "e43037f3135e4de13804249303b7a5be3632c25a5e2a2242dca3ccbcec63d161",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -214809,6 +215125,8 @@
       "draftArtifact": "work/omr/571-hamrick/source.mxl",
       "draftPdf": "work/omr/571-hamrick/source-draft.pdf",
       "draftSha256": "427e944cb368268631336c5d7fb09f8bc91d35478c04597b1297c9fca55d9389",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -216922,6 +217240,8 @@
       "draftArtifact": "work/omr/574-thomaston/source.mxl",
       "draftPdf": "work/omr/574-thomaston/source-draft.pdf",
       "draftSha256": "676ab68fc37d5f1786b2c37f70783fc9cfccf1a18e4ef06c84ae3198bab80c01",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -221055,6 +221375,8 @@
       "draftArtifact": "work/omr/27t-bethel/source.mxl",
       "draftPdf": "work/omr/27t-bethel/source-draft.pdf",
       "draftSha256": "78e4f9bf944ec04bbb89a5251688257a254fb96380d0eef653cb7cf71171528b",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -221422,6 +221744,8 @@
       "draftArtifact": "work/omr/37t-ester/source.mxl",
       "draftPdf": "work/omr/37t-ester/source-draft.pdf",
       "draftSha256": "57742f63ab94889731cfa2f6afead2014c825bb52d07249cef8f454321d39340",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -226241,6 +226565,8 @@
       "draftArtifact": "work/omr/77t-the-child-of-grace/source.mxl",
       "draftPdf": "work/omr/77t-the-child-of-grace/source-draft.pdf",
       "draftSha256": "43ddccf71a6635fedc9e24362c289701291069062d21d16593e3f375610d5667",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -230222,6 +230548,8 @@
       "draftArtifact": "work/omr/78-stafford/source.mxl",
       "draftPdf": "work/omr/78-stafford/source-draft.pdf",
       "draftSha256": "b67bc06c97cf7de5eb7e2f5b28a54f3508e05de9d2408c1a1acfc0c5e60d199f",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -232489,6 +232817,8 @@
       "draftArtifact": "work/omr/80b-service-of-the-lord/source.mxl",
       "draftPdf": "work/omr/80b-service-of-the-lord/source-draft.pdf",
       "draftSha256": "814ec0fde33468d1012347028affb56dbc04a51dda48e55e6c44d5cbeca4b393",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -237495,6 +237825,8 @@
       "draftArtifact": "work/omr/135-olney/source.mxl",
       "draftPdf": "work/omr/135-olney/source-draft.pdf",
       "draftSha256": "85a3f4c49e91168eb4ce7ba922c88a745af8ea2912530e502b66c23ddf6ec272",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -237838,6 +238170,8 @@
       "draftArtifact": "work/omr/145t-warrenton/source.mxl",
       "draftPdf": "work/omr/145t-warrenton/source-draft.pdf",
       "draftSha256": "6b81fda7828293f41766cfa4330d3af59b2e1ef84cdd4d8f4220b3f381bab8c8",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -243545,6 +243879,8 @@
       "draftArtifact": "work/omr/154-rest-for-the-weary/source.mxl",
       "draftPdf": "work/omr/154-rest-for-the-weary/source-draft.pdf",
       "draftSha256": "8145f64b41cf248fda329e9d59be243c59f4f93e0d136125513166c6837ae749",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -243886,6 +244222,8 @@
       "draftArtifact": "work/omr/176t-ragan/source.mxl",
       "draftPdf": "work/omr/176t-ragan/source-draft.pdf",
       "draftSha256": "74ba74a673e5600a9d17652062122d114bca3d06cdd27ec3883e16b7de78a74e",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -246603,6 +246941,8 @@
       "draftArtifact": "work/omr/178t-africa/source.mxl",
       "draftPdf": "work/omr/178t-africa/source-draft.pdf",
       "draftSha256": "cd01792f3f291e38b652c6738116add4d6b5401b42d5c4ce3ca7657421476f82",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -256878,6 +257218,8 @@
       "draftArtifact": "work/omr/211-whitestown/source.mxl",
       "draftPdf": "work/omr/211-whitestown/source-draft.pdf",
       "draftSha256": "db0a139cd4131723e09a6b3c4512897447ba0e1b2fc5af182a44da52e929f259",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -262291,6 +262633,8 @@
       "draftArtifact": "work/omr/274t-the-golden-harp/source.mxl",
       "draftPdf": "work/omr/274t-the-golden-harp/source-draft.pdf",
       "draftSha256": "7cad90e3b0c4e9783034a09be0a81c4d6c2642f938322db7942e85f22e92c17f",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -262644,6 +262988,8 @@
       "draftArtifact": "work/omr/278b-traveling-pilgrim/source.mxl",
       "draftPdf": "work/omr/278b-traveling-pilgrim/source-draft.pdf",
       "draftSha256": "2858a2e4ab313458286baf32c5178e8c787264a0a921773745f8525f7a013fba",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -266709,6 +267055,8 @@
       "draftArtifact": "work/omr/282-i-m-going-home/source.mxl",
       "draftPdf": "work/omr/282-i-m-going-home/source-draft.pdf",
       "draftSha256": "dca9c57c3101ad643adae52d4bd936821fbae32ee01b6e93065a926a33015cdd",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -271300,6 +271648,8 @@
       "draftArtifact": "work/omr/312b-restoration/source.mxl",
       "draftPdf": "work/omr/312b-restoration/source-draft.pdf",
       "draftSha256": "40e61155d66308e483b7a6d18679e5ef1aee17f1e72c0a230c98706ad79ec711",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -275538,6 +275888,8 @@
       "draftArtifact": "work/omr/313b-cobb/source.mxl",
       "draftPdf": "work/omr/313b-cobb/source-draft.pdf",
       "draftSha256": "ba3ff036ebc18145f0683c08258c0d1cbd00003d2550f4278604927fe7af49cb",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -281811,6 +282163,8 @@
       "draftArtifact": "work/omr/322-man-s-redemption/source.mxl",
       "draftPdf": "work/omr/322-man-s-redemption/source-draft.pdf",
       "draftSha256": "3b81c1df4657826507074fc315ad5b5728bb58130056740bef0a415d358f3562",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -285515,6 +285869,8 @@
       "draftArtifact": "work/omr/330t-fellowship/source.mxl",
       "draftPdf": "work/omr/330t-fellowship/source-draft.pdf",
       "draftSha256": "d0cc0fba2310f521127c01b5dd3afaf08be94d9f07bc6238136726e5bf0c9f1b",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -292055,6 +292411,8 @@
       "draftArtifact": "work/omr/333-family-circle/source.mxl",
       "draftPdf": "work/omr/333-family-circle/source-draft.pdf",
       "draftSha256": "cae259111db93c4ee9a96e911367f8e55043b1892373ec15bc86684283444ecd",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -295510,6 +295868,8 @@
       "draftArtifact": "work/omr/347t-christian-s-farewell/source.mxl",
       "draftPdf": "work/omr/347t-christian-s-farewell/source-draft.pdf",
       "draftSha256": "5b322939f4af8896e0c0f21b4b6d3d3775cad931b4b3d4217fc50adfdec737cd",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -295935,6 +296295,8 @@
       "draftArtifact": "work/omr/360-the-royal-band/source.mxl",
       "draftPdf": "work/omr/360-the-royal-band/source-draft.pdf",
       "draftSha256": "0d36be81d3e4377613478d53ab674069c548a5c4c5a980a1b30037613bfe198b",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -304692,6 +305054,8 @@
       "draftArtifact": "work/omr/364-southwell/source.mxl",
       "draftPdf": "work/omr/364-southwell/source-draft.pdf",
       "draftSha256": "a9dfebbcb00316f33e756081e6945ea2fe36ea010c8f33ad809993766514d9fe",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -305043,6 +305407,8 @@
       "draftArtifact": "work/omr/423t-grantville/source.mxl",
       "draftPdf": "work/omr/423t-grantville/source-draft.pdf",
       "draftSha256": "5eb69b215171f33717b1d4b67d948f1369570bed6af555b88822d3e5d3745769",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -309842,6 +310208,8 @@
       "draftArtifact": "work/omr/445-passing-away/source.mxl",
       "draftPdf": "work/omr/445-passing-away/source-draft.pdf",
       "draftSha256": "b7b8dba4c70f8731ef5fccd1ba8f553dd64624ef76eea6b395e4397b52713a57",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -310177,6 +310545,8 @@
       "draftArtifact": "work/omr/452b-martin/source.mxl",
       "draftPdf": "work/omr/452b-martin/source-draft.pdf",
       "draftSha256": "73f40fab6d41f0f1546855dba4fa8ff6a802f8d3aa9226472d14d2c1bf527aa1",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -310544,6 +310914,8 @@
       "draftArtifact": "work/omr/497t-natick/source.mxl",
       "draftPdf": "work/omr/497t-natick/source-draft.pdf",
       "draftSha256": "8d64a0f02f5a057e09bb4aa610b8daf09e1bb7da4b535cb2f4320bdad7ca89b4",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -314457,6 +314829,8 @@
       "draftArtifact": "work/omr/499b-at-rest/source.mxl",
       "draftPdf": "work/omr/499b-at-rest/source-draft.pdf",
       "draftSha256": "a8e716a41b8720b928d4c6603277a91d18c640c1d56a9e1d5d9e53e5f378113d",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -314780,6 +315154,8 @@
       "draftArtifact": "work/omr/501b-o-leary/source.mxl",
       "draftPdf": "work/omr/501b-o-leary/source-draft.pdf",
       "draftSha256": "75b0b82c3847a6fe8b3ccb70e53c1bb1572c836a44eefda4f097f3139df9b5e9",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -315055,6 +315431,8 @@
       "draftArtifact": "work/omr/503-lloyd/source.mxl",
       "draftPdf": "work/omr/503-lloyd/source-draft.pdf",
       "draftSha256": "b8289c537f6426041fc6a8a8be06d32d06bc995a74a3ff23999724368fbcad0d",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -324906,6 +325284,8 @@
       "draftArtifact": "work/omr/508-sermon-on-the-mount/source.mxl",
       "draftPdf": "work/omr/508-sermon-on-the-mount/source-draft.pdf",
       "draftSha256": "e5303c136550040f8ec5ab46ccc0bc5d13a066421a2884c631e47a93a4f949a6",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -327261,6 +327641,8 @@
       "draftArtifact": "work/omr/565b-hebron/source.mxl",
       "draftPdf": "work/omr/565b-hebron/source-draft.pdf",
       "draftSha256": "928904ff3132c405c1e512b4faeed541bbe7dd5ddb1a2da54fe3a688da892a51",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {
@@ -331160,6 +331542,8 @@
       "draftArtifact": "work/omr/565t-the-hill-of-zion/source.mxl",
       "draftPdf": "work/omr/565t-the-hill-of-zion/source-draft.pdf",
       "draftSha256": "944d99f7c4043fb316fdcce319113b8bb83c2010b178ad292c8f77e87fdfba9e",
+      "draftPlaybackStatus": "",
+      "draftPlaybackValidation": {},
       "draftSummary": {
         "parts": 4,
         "measuresByPart": {

@@ -20,6 +20,19 @@ def finite_number(value: object) -> bool:
         return False
 
 
+def same_numeric_or_raw(left: object, right: object) -> bool:
+    if left == right:
+        return True
+    try:
+        left_number = float(left)
+        right_number = float(right)
+    except (TypeError, ValueError):
+        return False
+    if math.isnan(left_number) and math.isnan(right_number):
+        return True
+    return math.isfinite(left_number) and math.isfinite(right_number) and left_number == right_number
+
+
 def main() -> int:
     corpus = json.loads((ROOT / "public" / "corpus.json").read_text(encoding="utf-8"))
     refs: dict[str, str] = {}
@@ -36,8 +49,11 @@ def main() -> int:
         "events": 0,
         "pitchedEvents": 0,
         "rests": 0,
+        "assetsWithPitchedEvents": 0,
         "playableAssets": 0,
         "samePitchDuplicateEvents": 0,
+        "quarantinedDraftAssets": 0,
+        "quarantinedInvalidDurations": 0,
     }
     errors: list[str] = []
     for ref, label in refs.items():
@@ -47,20 +63,56 @@ def main() -> int:
             continue
         asset = json.loads(path.read_text(encoding="utf-8"))
         counts["assets"] += 1
+        playback_validation = asset.get("playbackValidation") or {}
+        quarantined_event_details = {
+            (str(item.get("part", "")), int(item.get("eventIndex"))): item
+            for item in playback_validation.get("invalidEvents", [])
+            if str(item.get("eventIndex", "")).isdigit()
+        }
+        quarantined_events = set(quarantined_event_details)
+        observed_quarantine_events: set[tuple[str, int]] = set()
+        if playback_validation.get("status") == "quarantined":
+            if (
+                "draftScoreByBook" not in label
+                or playback_validation.get("safeToApply") is not False
+                or not playback_validation.get("reason")
+                or not quarantined_events
+            ):
+                errors.append(f"{label}: invalid draft quarantine metadata")
+            counts["quarantinedDraftAssets"] += 1
+            transposition = asset.get("transposition") or {}
+            if transposition.get("available") or transposition.get("manualKeyAllowed"):
+                errors.append(f"{label}: quarantined draft advertises transposition capability")
         parts = asset.get("parts") or []
         counts["parts"] += len(parts)
         names = [str(part.get("name", "")) for part in parts]
         if not parts or any(not name for name in names) or len(names) != len(set(names)):
             errors.append(f"{label}: playback parts are missing or duplicated")
         playable = 0
-        for part in parts:
+        pitched_in_asset = False
+        for part_index, part in enumerate(parts):
             seen_pitched_events: set[tuple[object, object, object, object, object, object]] = set()
             for index, event in enumerate(part.get("events") or []):
                 counts["events"] += 1
                 if not finite_number(event.get("onset")) or float(event["onset"]) < 0:
                     errors.append(f"{label} {part.get('name', '')} event {index}: invalid onset")
+                if event.get("grace"):
+                    continue
                 if not finite_number(event.get("beats")) or float(event["beats"]) <= 0:
-                    errors.append(f"{label} {part.get('name', '')} event {index}: invalid duration")
+                    quarantine_key = (str(part.get("name", "")), index)
+                    if playback_validation.get("status") == "quarantined" and quarantine_key in quarantined_events:
+                        evidence = quarantined_event_details[quarantine_key]
+                        if (
+                            str(event.get("measure", "")) != str(evidence.get("measure", ""))
+                            or not same_numeric_or_raw(event.get("beats"), evidence.get("beats"))
+                            or event.get("timingStatus") != evidence.get("timingStatus")
+                            or evidence.get("sourcePath") != f"parts[{part_index}].events[{index}].beats"
+                        ):
+                            errors.append(f"{label} {part.get('name', '')} event {index}: quarantine evidence drift")
+                        observed_quarantine_events.add(quarantine_key)
+                        counts["quarantinedInvalidDurations"] += 1
+                    else:
+                        errors.append(f"{label} {part.get('name', '')} event {index}: invalid duration")
                 if event.get("rest"):
                     counts["rests"] += 1
                     continue
@@ -90,11 +142,17 @@ def main() -> int:
                 else:
                     seen_pitched_events.add(duplicate_key)
                 counts["pitchedEvents"] += 1
+                pitched_in_asset = True
                 playable += 1
-        if playable:
+        if pitched_in_asset:
+            counts["assetsWithPitchedEvents"] += 1
+        if playable and playback_validation.get("status") != "quarantined":
             counts["playableAssets"] += 1
         elif asset.get("transposition", {}).get("available"):
             errors.append(f"{label}: marked transposable but has no playable events")
+        stale_quarantine_events = quarantined_events - observed_quarantine_events
+        for part_name, index in sorted(stale_quarantine_events):
+            errors.append(f"{label} {part_name} event {index}: quarantine evidence does not identify an invalid duration")
 
     if errors:
         raise SystemExit("\n".join(errors))

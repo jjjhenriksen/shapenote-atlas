@@ -72,3 +72,29 @@ exact transposition or promotion. Receipt:
 - [x] Add regression coverage in `tests/test_agent_06_433_437_blocker_clearing.py` and bounded receipt in `work/agent-06-editions/agent-06-sh2025-433-437-receipt.json`.
 
 Both records remain `external-source-blocked` and `safeToPromote: false`; obtain a clean authorized 2025 scan or publisher-delivered structured source before any source-faithful transposable score is admitted.
+
+## Current canonical reconciliation — 2026-09-05
+
+The August 30 counts above are preserved as a historical snapshot. The
+current builder and validator were rerun against the current corpus and now
+record the following canonical state:
+
+- 448 shared 1991/2025 pairs remain present and unique.
+- SH2025 has **0 exact-edition score witnesses**, **446 alternate-reference
+  witnesses**, and **3 review drafts** within these pairs; all **448** remain
+  unavailable as exact SH2025 scores.
+- The two formerly exact-counted records, **467 Lisbon** and **515 Rockbridge**,
+  are now explicitly `referenceScoreByBook.sh2025` with role
+  `alternate-reference`; neither is counted as an exact SH2025 score.
+- Current field classifications are: 156 meter differences, 28 title
+  differences, 10 text-key differences, 1 time-signature difference, 2
+  changed alternate-witness notation/parts comparisons, and unavailable
+  exact key/mode comparison for all 448 pairs. Repeat/endings remain
+  unavailable for all 448.
+- `safeToPromote` remains `0`. The regenerated report carries the current
+  corpus SHA-256, and the validator checks every record’s witness presence,
+  role, and score reference against the corpus.
+
+Verification: `python3 scripts/build_shared_edition_reconciliation.py`,
+`python3 scripts/validate_shared_edition_reconciliation.py`, and the focused
+shared-edition regression tests pass.

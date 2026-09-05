@@ -130,7 +130,12 @@ def validate_asset(path: Path, label: str, draft: bool = False) -> None:
         for event in part.get("events", [])
     )
     key_status = asset.get("keyEvidence", {}).get("status", "unknown")
-    expected_transposable = has_pitched_events and key_status in {"source-verified", "source-observed", "omr-detected"}
+    playback_quarantined = (asset.get("playbackValidation") or {}).get("status") == "quarantined"
+    expected_transposable = (
+        has_pitched_events
+        and key_status in {"source-verified", "source-observed", "omr-detected"}
+        and not playback_quarantined
+    )
     capability = asset.get("transposition", {})
     if capability.get("hasPitchedEvents") is not has_pitched_events or capability.get("available") is not expected_transposable:
         raise SystemExit(f"{label}: transposition capability metadata does not match score content")

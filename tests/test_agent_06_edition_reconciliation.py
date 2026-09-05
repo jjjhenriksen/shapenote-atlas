@@ -29,8 +29,7 @@ class Agent06EditionReconciliationTests(unittest.TestCase):
         self.assertEqual(key_mode["exactMetadataComparablePairs"], 0)
         self.assertEqual(key_mode["exactMetadataUnavailablePairs"], 448)
         self.assertEqual(key_mode["sh2025SecondaryCandidates"], 366)
-        self.assertEqual(key_mode["existingLedgerChangedCandidates"][0]["values"], {"sh1991": "Ab major", "sh2025": "F minor"})
-        self.assertEqual(key_mode["existingLedgerChangedCandidates"][0]["status"], "retained-as-unverified-candidate")
+        self.assertEqual(key_mode["existingLedgerChangedCandidates"], [])
 
     def test_golden_harp_same_slot_is_not_silently_merged(self):
         candidates = [item for item in self.report["mappingAudit"]["sameSlotCandidates"] if item["slot"] == "274t"]
@@ -49,11 +48,11 @@ class Agent06EditionReconciliationTests(unittest.TestCase):
 
     def test_sh2025_exact_score_gap_and_reference_provenance(self):
         witnesses = self.report["summary"]["sh2025Witnesses"]
-        self.assertEqual(witnesses["exactEditionScores"], 2)
-        self.assertEqual(witnesses["alternateReferenceScores"], 444)
+        self.assertEqual(witnesses["exactEditionScores"], 0)
+        self.assertEqual(witnesses["alternateReferenceScores"], 446)
         self.assertEqual(witnesses["reviewDrafts"], 3)
-        self.assertEqual(witnesses["exactScoreUnavailable"], 446)
-        self.assertEqual(self.report["summary"]["referenceProvenance"], {"sh1991": 444})
+        self.assertEqual(witnesses["exactScoreUnavailable"], 448)
+        self.assertEqual(self.report["summary"]["referenceProvenance"], {"alternate-reference": 2, "sh1991": 444})
 
 
 if __name__ == "__main__":

@@ -331,7 +331,10 @@ def main() -> int:
             if not asset.get("sourceUrl", "").startswith("draft://") or not asset.get("parts") or not any(part.get("events") for part in asset["parts"]):
                 raise SystemExit(f"{song['id']} {book_id}: incomplete draft score asset")
             transposition = asset.get("transposition", {})
-            if transposition.get("hasPitchedEvents") and not transposition.get("available") and not transposition.get("manualKeyAllowed"):
+            playback_quarantined = (asset.get("playbackValidation") or {}).get("status") == "quarantined"
+            if playback_quarantined and (transposition.get("available") or transposition.get("manualKeyAllowed")):
+                raise SystemExit(f"{song['id']} {book_id}: quarantined draft advertises transposition capability")
+            if transposition.get("hasPitchedEvents") and not transposition.get("available") and not transposition.get("manualKeyAllowed") and not playback_quarantined:
                 raise SystemExit(f"{song['id']} {book_id}: pitched draft is neither transposable nor marked for source-key entry")
             coverage = song.get("sourceCoverageByBook", {}).get(book_id, {})
             if coverage.get("draftScoreRef") != ref or coverage.get("draftScoreStatus") != "needs-human-review":

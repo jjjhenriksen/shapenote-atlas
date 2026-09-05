@@ -32,6 +32,63 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
+def versioned_derivative_checks(candidate: dict[str, Any]) -> list[str]:
+    recovery = candidate.get("versionedDerivativeRecovery")
+    if not recovery:
+        return []
+    errors: list[str] = []
+    if recovery.get("safeToPromote") is not False:
+        errors.append("versioned derivative recovery cannot authorize promotion")
+    historical = ROOT / str(recovery.get("historicalPath", ""))
+    if historical.exists():
+        errors.append("historical missing derivative unexpectedly exists; preserve historical state")
+    parent = ROOT / str(recovery.get("parentPath", ""))
+    if not parent.is_file():
+        errors.append(f"versioned derivative parent is missing: {recovery.get('parentPath', '')}")
+    elif recovery.get("parentSha256") and sha256(parent) != recovery["parentSha256"]:
+        errors.append("versioned derivative parent checksum mismatch")
+    output_renders = []
+    for output in recovery.get("outputs", []):
+        path = ROOT / str(output.get("path", ""))
+        render = ROOT / str(output.get("renderPath", ""))
+        if not path.is_file():
+            errors.append(f"versioned derivative output is missing: {output.get('path', '')}")
+        elif output.get("sha256") and sha256(path) != output["sha256"]:
+            errors.append(f"versioned derivative checksum mismatch: {output.get('path', '')}")
+        if not render.is_file():
+            errors.append(f"versioned derivative render is missing: {output.get('renderPath', '')}")
+        elif output.get("renderSha256") and sha256(render) != output["renderSha256"]:
+            errors.append(f"versioned derivative render checksum mismatch: {output.get('renderPath', '')}")
+        output_renders.append(output.get("renderSha256", ""))
+    parent_render = ROOT / str(recovery.get("parentRenderPath", ""))
+    if not parent_render.is_file():
+        errors.append(f"versioned derivative parent render is missing: {recovery.get('parentRenderPath', '')}")
+    elif recovery.get("parentRenderSha256") and sha256(parent_render) != recovery["parentRenderSha256"]:
+        errors.append("versioned derivative parent render checksum mismatch")
+    expected_render = recovery.get("parentRenderSha256", "")
+    if not recovery.get("pageRenderEquivalentToParent") or not expected_render or any(
+        render != expected_render for render in output_renders
+    ):
+        errors.append("versioned derivative page-render equivalence evidence is incomplete")
+    candidate_music_xml = ROOT / str(recovery.get("candidateMusicXmlPath", ""))
+    if recovery.get("candidateMusicXmlPath") != candidate.get("candidateMusicXmlPath"):
+        errors.append("versioned derivative retained candidate MXL path does not match candidate witness")
+    if recovery.get("candidateMusicXmlSha256") != candidate.get("candidateMusicXmlSha256"):
+        errors.append("versioned derivative retained candidate MXL checksum does not match candidate witness")
+    output_paths = {str(output.get("path", "")) for output in recovery.get("outputs", [])}
+    if recovery.get("candidateMusicXmlPath") in output_paths:
+        errors.append("versioned derivative retained candidate MXL must remain separate from PDF outputs")
+    if not candidate_music_xml.is_file():
+        errors.append(f"versioned derivative retained candidate MXL is missing: {recovery.get('candidateMusicXmlPath', '')}")
+    elif recovery.get("candidateMusicXmlSha256") and sha256(candidate_music_xml) != recovery["candidateMusicXmlSha256"]:
+        errors.append("versioned derivative retained candidate MXL checksum mismatch")
+    if recovery.get("candidateMusicXmlRegenerated") is not False:
+        errors.append("versioned derivative retained candidate MXL must be explicitly unre-generated")
+    if not recovery.get("candidateMusicXmlSourceBoundary"):
+        errors.append("versioned derivative retained candidate MXL source boundary is missing")
+    return errors
+
+
 def local_checks(payload: dict[str, Any]) -> list[str]:
     errors: list[str] = []
     comparison_status = str(payload.get("comparisonStatus", ""))
@@ -45,6 +102,7 @@ def local_checks(payload: dict[str, Any]) -> list[str]:
     )
     source_authority = payload.get("sourceAuthority", {})
     candidate = payload.get("candidateWitness", {})
+    errors.extend(versioned_derivative_checks(candidate))
     if is_corrected_source_record and payload.get("correctedDraft"):
         witnesses = [
             (

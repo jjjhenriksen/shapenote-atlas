@@ -279,6 +279,8 @@ def review_item(
         "draftArtifact": artifact,
         "draftPdf": str(pdf_path.relative_to(ROOT)) if pdf_path.exists() else "",
         "draftSha256": draft.get("sha256", ""),
+        "draftPlaybackStatus": coverage.get("draftPlaybackStatus", ""),
+        "draftPlaybackValidation": coverage.get("draftPlaybackValidation", {}),
         "draftSummary": {
             "parts": len(parts),
             "measuresByPart": {part.get("id", ""): part.get("measures", 0) for part in parts},

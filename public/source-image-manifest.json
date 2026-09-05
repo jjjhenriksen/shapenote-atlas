@@ -1,6 +1,61 @@
 {
-  "policy": "Confirmed remote page-scan URLs only; scans are authoritative source notation and are never promoted to transposable score data.",
+  "policy": "Confirmed remote page-scan URLs only; scans are authoritative source notation and are never promoted to transposable score data. Retained local paths and SHA-256 values are reproducible image provenance; source page URLs are explicit browser-confirmed links.",
   "records": {
+    "ch7/1": {
+      "songNo": "1",
+      "title": "Weary Rest",
+      "sourcePageUrl": "https://sevenshapes.sacredharpbremen.org/1-weary-rest/",
+      "sourceImageUrl": "https://sevenshapes.sacredharpbremen.org/wp-content/uploads/songs/001-099/001-Weary-Rest/1-Weary-Rest.jpg",
+      "sourceImageOriginUrl": "https://sevenshapes.sacredharpbremen.org/1",
+      "sourceImagePath": "work/luna-program-20260904/existing_books/assets/christian-harmony/batch-01/scans/1-weary-rest.jpg",
+      "sourceImageSha256": "4572312908535735cebe2b89145abd6ea1f7e4e609bee876efef19ef38cb522a",
+      "sourceImageStatus": "source-observed-image-only",
+      "sourceImageImmutable": true
+    },
+    "ch7/10": {
+      "songNo": "10",
+      "title": "Zion’s Dove",
+      "sourcePageUrl": "https://sevenshapes.sacredharpbremen.org/10-zions-dove/",
+      "sourceImageUrl": "https://sevenshapes.sacredharpbremen.org/wp-content/uploads/songs/001-099/010-Zions-Dove/10-Zions-Dove.jpg",
+      "sourceImageOriginUrl": "https://sevenshapes.sacredharpbremen.org/10",
+      "sourceImagePath": "work/luna-program-20260904/existing_books/assets/christian-harmony/batch-01/scans/10-zions-dove.jpg",
+      "sourceImageSha256": "eba3f9387bf9b2ba9b83bee3e8c6f7abb33f37acb38ddf3f726423175af78584",
+      "sourceImageStatus": "source-observed-image-only",
+      "sourceImageImmutable": true
+    },
+    "ch7/100": {
+      "songNo": "100",
+      "title": "Tennessee",
+      "sourcePageUrl": "https://sevenshapes.sacredharpbremen.org/100-tennessee/",
+      "sourceImageUrl": "https://sevenshapes.sacredharpbremen.org/wp-content/uploads/songs/100-199/100-Tennessee/100-Tennessee.jpg",
+      "sourceImageOriginUrl": "https://sevenshapes.sacredharpbremen.org/100",
+      "sourceImagePath": "work/luna-program-20260904/existing_books/assets/christian-harmony/batch-01/scans/100-tennessee.jpg",
+      "sourceImageSha256": "2dfe192622d5a8d14996d55c6ebe655f858a9c21e3cf06218464ecd1444d38cc",
+      "sourceImageStatus": "source-observed-image-only",
+      "sourceImageImmutable": true
+    },
+    "ch7/101": {
+      "songNo": "101",
+      "title": "An Address for All",
+      "sourcePageUrl": "https://sevenshapes.sacredharpbremen.org/101-an-address-for-all/",
+      "sourceImageUrl": "https://sevenshapes.sacredharpbremen.org/wp-content/uploads/songs/100-199/101-An-Address-For-All/101-An-Address-for-All.jpg",
+      "sourceImageOriginUrl": "https://sevenshapes.sacredharpbremen.org/101",
+      "sourceImagePath": "work/luna-program-20260904/existing_books/assets/christian-harmony/batch-01/scans/101-an-address-for-all.jpg",
+      "sourceImageSha256": "28fa4f087cdb6763856b8ed5dae3b98d448584f40269083572ad4b0438b74c0b",
+      "sourceImageStatus": "source-observed-image-only",
+      "sourceImageImmutable": true
+    },
+    "ch7/102": {
+      "songNo": "102",
+      "title": "Missionary’s Adieu",
+      "sourcePageUrl": "https://sevenshapes.sacredharpbremen.org/102-missionarys-adieu/",
+      "sourceImageUrl": "https://sevenshapes.sacredharpbremen.org/wp-content/uploads/songs/100-199/102-Missionarys-Adieu/102-Missionarys-Adieu.jpg",
+      "sourceImageOriginUrl": "https://sevenshapes.sacredharpbremen.org/102",
+      "sourceImagePath": "work/luna-program-20260904/existing_books/assets/christian-harmony/batch-01/scans/102-missionarys-adieu.jpg",
+      "sourceImageSha256": "b2e72c0e9b04a6af030724478effb824fc29ce3d89beb3317ef9b9145217c6f3",
+      "sourceImageStatus": "source-observed-image-only",
+      "sourceImageImmutable": true
+    },
     "sh2025/115": {
       "songNo": "115",
       "title": "Holbrook",

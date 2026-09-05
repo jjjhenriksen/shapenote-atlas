@@ -318,10 +318,23 @@ def main() -> int:
         "generatedAt": datetime.now(timezone.utc).isoformat(),
         "kind": "sacred-harp-shared-edition-reconciliation",
         "policy": "1991 and 2025 records remain edition-separated. Structured witnesses are evidence with explicit roles; an alternate witness never authorizes selected-edition promotion.",
-        "source": {"corpus": "public/corpus.json", "editions": list(EDITIONS)},
+        "source": {
+            "corpus": "public/corpus.json",
+            "corpusSha256": sha256(CORPUS),
+            "corpusGeneratedAt": corpus.get("generatedAt", ""),
+            "editions": list(EDITIONS),
+        },
         "summary": {
             "sharedPairs": len(records),
             "expectedBooks": list(EDITIONS),
+            "witnessCounts": {
+                book: {
+                    "exactScore": sum(bool(record["witnesses"].get(book, {}).get("scoreByBook")) for record in records),
+                    "referenceScore": sum(bool(record["witnesses"].get(book, {}).get("referenceScoreByBook")) for record in records),
+                    "reviewDraft": sum(bool(record["witnesses"].get(book, {}).get("draftScoreByBook")) for record in records),
+                }
+                for book in EDITIONS
+            },
             "statusCounts": dict(sorted(status_counts.items())),
             "classificationCounts": dict(sorted(classification_counts.items())),
             "safeToPromote": 0,

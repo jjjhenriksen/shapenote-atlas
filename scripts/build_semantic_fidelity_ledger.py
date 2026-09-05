@@ -28,11 +28,38 @@ CORPUS = ROOT / "public" / "corpus.json"
 MANIFEST = ROOT / "public" / "shapenote-score-manifest.json"
 OUTPUT = ROOT / "public" / "semantic-fidelity-ledger.json"
 FIELDS = ("scoreByBook", "referenceScoreByBook", "draftScoreByBook")
+SUPPLEMENTAL_RETAINED_WITNESSES = {
+    "https://shapenote.net/musicxml/CH2010-543.mxl": {
+        "rawPath": "work/luna-program-20260904/existing_books/assets/christian-harmony/ch2010-543.mxl",
+        "sourceSha256": "ac9855660a59298892329b907a41a916a3acc7364f1ef4b5e18e252b6c54ef57",
+        "sourceEdition": "ch7",
+        "sourceAuthority": "source-observed-existing-books-witness",
+    },
+    "https://shapenote.net/musicxml/CH2010-546b.mxl": {
+        "rawPath": "work/luna-program-20260904/existing_books/assets/christian-harmony/ch2010-546b.mxl",
+        "sourceSha256": "0d815e611aba4e73bee6276d90452e2cbb65b8ac03ecd1ba13ad51acdc9cbf35",
+        "sourceEdition": "ch7",
+        "sourceAuthority": "source-observed-existing-books-witness",
+    },
+    "https://shapenote.net/musicxml/CH2010-549b.mxl": {
+        "rawPath": "work/luna-program-20260904/existing_books/assets/christian-harmony/ch2010-549b.mxl",
+        "sourceSha256": "a888a4c72b004f5e40ee7ff934ff0c2b6b9472c64291ac9cf868a982247555a3",
+        "sourceEdition": "ch7",
+        "sourceAuthority": "source-observed-existing-books-witness",
+    },
+    "https://shapenote.net/musicxml/SH-12.mxl": {
+        "rawPath": "work/luna-program-20260904/existing_books/assets/southern-harmony/sh-12.mxl",
+        "sourceSha256": "280aa4755358122e8282f7a3c156be20bd0207d599ba60b9ffedac48ccfabab7",
+        "sourceEdition": "southernharmony",
+        "sourceAuthority": "source-observed-existing-books-witness",
+    },
+}
 DIFFERENCE_TAXONOMY = {
     "draft-is-not-authoritative-source": "Draft score is excluded from source-authoritative verification.",
     "event-stream-diff": "Parts, pitch, duration, rests, ties, voice, staff, accidentals, or notehead event serialization differs.",
     "measure-count-diff": "Source and generated event-bearing measure identities differ after recorded transforms.",
     "repeat-ending-semantics-not-modeled-in-generated-asset": "Source has repeat or ending directives not represented in the generated asset.",
+    "sound-navigation-semantics-not-modeled-in-generated-asset": "Source has sound navigation directives not represented in the generated asset.",
     "lyrics-not-modeled-in-generated-asset": "Source contains lyrics that are not represented in the generated asset.",
     "shape-notehead-count-differs": "Source and generated shape-notehead counts differ.",
     "key-declaration-differs": "Source key declaration differs from the generated asset declaration.",
@@ -316,9 +343,23 @@ def semantic_fields(source: dict[str, Any], asset: dict[str, Any], transform: di
         differences.append("lyrics-not-modeled-in-generated-asset")
     if source_shapes and asset_shapes != source_shapes:
         differences.append("shape-notehead-count-differs")
-    source_repeat_semantics = source.get("repeatSemantics", [])
+    # Agent 03 retains ``sound`` directives in the compatibility list. Tempo-
+    # only sound markings are editorial evidence, not repeat navigation, but
+    # navigation-bearing attributes (D.C./D.S./coda/fine/segno) are retained
+    # as a distinct semantic dimension below.
+    source_repeat_semantics = [
+        item for item in source.get("repeatSemantics", [])
+        if item.get("kind") in {"repeat", "ending"}
+        or (
+            item.get("kind") == "sound"
+            and any(key in item for key in ("dacapo", "dalsegno", "tocoda", "fine", "segno", "coda"))
+        )
+    ]
+    source_sound_navigation = [item for item in source_repeat_semantics if item.get("kind") == "sound"]
     if source_repeat_semantics and not asset.get("repeatSemantics"):
         differences.append("repeat-ending-semantics-not-modeled-in-generated-asset")
+    if source_sound_navigation and not asset.get("soundNavigation"):
+        differences.append("sound-navigation-semantics-not-modeled-in-generated-asset")
     source_keys = source.get("keyDeclarations", [])
     asset_keys = asset.get("musicXmlKeyDeclarations", [])
     if source_keys and asset_keys and source_keys != asset_keys:
@@ -340,6 +381,8 @@ def semantic_fields(source: dict[str, Any], asset: dict[str, Any], transform: di
         "sourceRepeatBarlines": source.get("repeatBarlines", 0),
         "sourceEndingBarlines": source.get("endingBarlines", 0),
         "sourceRepeatSemantics": source_repeat_semantics,
+        "sourceSoundNavigation": source_sound_navigation,
+        "assetSoundNavigationModeled": bool(asset.get("soundNavigation")),
         "sourceEditorialMarkingsDetected": len(source.get("editorialMarkings", [])),
         "assetEditorialMarkingsModeled": bool(asset.get("editorialMarkings")),
         "differences": differences,
@@ -351,6 +394,9 @@ def manifest_by_url() -> dict[str, list[dict[str, Any]]]:
     grouped: dict[str, list[dict[str, Any]]] = {}
     for entry in payload.get("entries", {}).values():
         grouped.setdefault(str(entry.get("sourceUrl", "")), []).append(entry)
+    for url, entry in SUPPLEMENTAL_RETAINED_WITNESSES.items():
+        if not grouped.get(url):
+            grouped[url] = [dict(entry, sourceUrl=url)]
     return grouped
 
 

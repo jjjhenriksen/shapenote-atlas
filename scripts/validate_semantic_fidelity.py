@@ -27,6 +27,7 @@ TAXONOMY_KEYS = {
     "event-stream-diff",
     "measure-count-diff",
     "repeat-ending-semantics-not-modeled-in-generated-asset",
+    "sound-navigation-semantics-not-modeled-in-generated-asset",
     "lyrics-not-modeled-in-generated-asset",
     "shape-notehead-count-differs",
     "key-declaration-differs",
