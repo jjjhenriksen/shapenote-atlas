@@ -10,7 +10,10 @@ from check_source_health import OUTPUT, ROOT, inventory_sources
 
 
 NETWORK_STATUSES = {"reachable", "redirected", "unreachable", "network-error", "cached", "not-checked-offline", "not-checked-budget"}
-LOCAL_STATUSES = {"exact", "drifted", "missing"}
+LOCAL_STATUSES = {"exact", "drifted", "missing", "unavailable"}
+RETENTION_STATUSES = {"retained-exact", "local-drift", "missing-retention", "retention-unavailable"}
+EVIDENCE_AGES = {"current", "cached", "not-checked"}
+REMOTE_BODY_STATUSES = {"unknown", "not-checked-budget"}
 
 
 def main() -> int:
@@ -40,6 +43,12 @@ def main() -> int:
             errors.append(f"invalid URL: {url}")
         if record.get("status") not in NETWORK_STATUSES:
             errors.append(f"invalid network status for {url}: {record.get('status')}")
+        if record.get("retentionStatus") not in RETENTION_STATUSES:
+            errors.append(f"invalid retention status for {url}: {record.get('retentionStatus')}")
+        if record.get("evidenceAge") not in EVIDENCE_AGES:
+            errors.append(f"invalid evidence age for {url}: {record.get('evidenceAge')}")
+        if record.get("remoteBodyStatus") not in REMOTE_BODY_STATUSES:
+            errors.append(f"invalid remote body status for {url}: {record.get('remoteBodyStatus')}")
         for field in ("checkedAt", "finalUrl", "evidenceScope"):
             if not record.get(field):
                 errors.append(f"missing {field}: {url}")
@@ -69,6 +78,16 @@ def main() -> int:
                     errors.append(f"local byte count changed after report: {url}: {path_text}")
             if evidence.get("status") == "drifted" and evidence.get("actualSha256") == evidence.get("expectedSha256"):
                 errors.append(f"drifted evidence has equal hashes: {url}: {path_text}")
+        expected_retention = "missing-retention"
+        evidence_states = {evidence.get("status") for evidence in record.get("localEvidence", [])}
+        if "unavailable" in evidence_states:
+            expected_retention = "retention-unavailable"
+        elif "drifted" in evidence_states:
+            expected_retention = "local-drift"
+        elif "exact" in evidence_states:
+            expected_retention = "retained-exact"
+        if record.get("retentionStatus") != expected_retention:
+            errors.append(f"retention status does not match local evidence for {url}")
 
     summary = payload.get("summary", {})
     if summary.get("totalUrls") != len(records):
@@ -76,6 +95,16 @@ def main() -> int:
     computed_statuses = {status: sum(record.get("status") == status for record in records) for status in sorted({record.get("status") for record in records})}
     if summary.get("byStatus") != computed_statuses:
         errors.append("summary byStatus does not match records")
+    computed_retention = {status: sum(record.get("retentionStatus") == status for record in records) for status in sorted({record.get("retentionStatus") for record in records})}
+    if summary.get("byRetention") != computed_retention:
+        errors.append("summary byRetention does not match records")
+    if summary.get("totalUrls") != summary.get("corpusSongUrls", summary.get("totalUrls")) and summary.get("corpusSongUrls", 0) > summary.get("totalUrls", 0):
+        errors.append("summary corpusSongUrls exceeds totalUrls")
+    inventory = payload.get("inventory", {})
+    if inventory.get("fullManifestUrls") != len(records):
+        errors.append("inventory fullManifestUrls does not match records")
+    if inventory.get("bookCount") != 11:
+        errors.append("inventory bookCount must be 11")
     if errors:
         raise SystemExit("\n".join(errors))
     print(json.dumps({"report": str(OUTPUT), "records": len(records), "errors": []}, indent=2))

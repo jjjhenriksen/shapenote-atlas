@@ -41,3 +41,39 @@
 ## Ownership
 
 Own source-health scripts/manifests and retention reports. Do not delete or overwrite retained originals.
+
+## Collector fix — 2026-09-04
+
+The production `walk_urls` now includes HTTP(S) strings directly inside
+lists, including nested lists, with path-based roles and reference evidence.
+Dictionary URL behavior, deduplication, and immutable source retention are
+unchanged. Tests compare the collector with an independent recursive URL
+inventory for every one of the 11 books and cover nested recording/source
+lists, duplicate references, and non-URL values.
+
+Reading the current corpus yields 7,590 distinct URLs, of which 3,857 are
+absent from the existing public health cache. These are current corpus-only
+counts, not the older multi-manifest audit's 7,604/3,867 counts. The public
+health report has not been regenerated or live-checked: some required source
+manifests remain cloud placeholders. This fix completes inventory traversal,
+not external reachability or retention verification.
+
+## Luna health implementation — 2026-09-04
+
+The collector now produces `source-health-v2` with a separate 7,590-song URL
+baseline and full multi-manifest inventory across all 11 books, including book
+assets and the source-only lane retention manifest. Manifest and retained-file
+reads are bounded so cloud placeholders become explicit unavailable evidence;
+they are never replaced or guessed through. Records distinguish cached/current
+network status, budget exclusions, network failures, missing/unavailable local
+retention, local drift, and unknown remote body drift. Live checks accept
+`--max-urls`, `--max-seconds`, `--workers`, `--per-host-concurrency`, and
+`--resume` for polite resumable operation.
+
+The current offline report is `public/source-health.json`; its latest inventory
+is 7,619 URLs, with 61 cached live checks, 7,544 budget exclusions, 1,334
+retained-exact records, zero cloud-placeholder records, 6,285 missing-retention
+records, and zero local drift. The stable UI contract and retention summary
+are under `work/luna-program-20260904/health/`. Seven focused tests and the
+source-health validator pass. Full live coverage and canonical build validation
+remain intentionally outside this bounded lane run.
