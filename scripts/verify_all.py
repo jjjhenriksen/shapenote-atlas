@@ -12,6 +12,7 @@ import argparse
 import json
 import os
 import re
+import signal
 import subprocess
 import sys
 import time
@@ -25,12 +26,63 @@ PUBLIC = ROOT / "public"
 WORK = ROOT / "work" / "verification"
 
 
+class InputUnavailable(RuntimeError):
+    """A tracked file is not readable locally within the bounded probe."""
+
+
+def read_text_bounded(path: Path, *, timeout: float = 3.0) -> str:
+    """Read a likely cloud placeholder in a child process with a hard bound.
+
+    macOS File Provider can expose a regular file with a size but no local
+    blocks. A direct ``read_text`` on such a path may wait indefinitely for
+    hydration. Local files use the normal fast path; dataless-looking files
+    are probed in a disposable child so a missing source becomes an explicit
+    blocker rather than a hung verification run.
+    """
+    try:
+        stat_result = path.stat()
+    except OSError as error:
+        raise InputUnavailable(f"{path}: stat failed: {error}") from error
+    if getattr(stat_result, "st_blocks", 1) > 0:
+        try:
+            return path.read_text(encoding="utf-8")
+        except OSError as error:
+            raise InputUnavailable(f"{path}: read failed: {error}") from error
+
+    probe = [
+        sys.executable,
+        "-c",
+        "from pathlib import Path; import sys; sys.stdout.write(Path(sys.argv[1]).read_text(encoding='utf-8'))",
+        str(path),
+    ]
+    try:
+        completed = subprocess.run(
+            probe,
+            cwd=ROOT,
+            text=True,
+            capture_output=True,
+            timeout=timeout,
+            check=False,
+        )
+    except subprocess.TimeoutExpired as error:
+        raise InputUnavailable(f"{path}: cloud placeholder did not hydrate within {timeout:g}s") from error
+    except OSError as error:
+        raise InputUnavailable(f"{path}: bounded read could not start: {error}") from error
+    if completed.returncode != 0:
+        detail = completed.stderr.strip() or f"child exited {completed.returncode}"
+        raise InputUnavailable(f"{path}: bounded read failed: {detail}")
+    return completed.stdout
+
+
 def now_iso() -> str:
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
 
 def load_json(path: Path) -> Any:
-    return json.loads(path.read_text(encoding="utf-8"))
+    try:
+        return json.loads(read_text_bounded(path))
+    except json.JSONDecodeError as error:
+        raise json.JSONDecodeError(f"{path}: {error.msg}", error.doc, error.pos) from error
 
 
 def git_context() -> dict[str, Any]:
@@ -77,24 +129,44 @@ def result(name: str, status: str, *, detail: str = "", **extra: Any) -> dict[st
 
 def run_command(name: str, command: list[str], *, timeout: int) -> dict[str, Any]:
     started = time.monotonic()
+    process: subprocess.Popen[str] | None = None
     try:
-        completed = subprocess.run(
+        process = subprocess.Popen(
             command,
             cwd=ROOT,
             text=True,
-            capture_output=True,
-            timeout=timeout,
-            check=False,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            start_new_session=(os.name == "posix"),
         )
+        stdout, stderr = process.communicate(timeout=timeout)
     except subprocess.TimeoutExpired as exc:
+        if process is not None:
+            try:
+                if os.name == "posix":
+                    os.killpg(process.pid, signal.SIGTERM)
+                else:
+                    process.terminate()
+                stdout, stderr = process.communicate(timeout=3)
+            except (OSError, subprocess.TimeoutExpired):
+                try:
+                    if os.name == "posix":
+                        os.killpg(process.pid, signal.SIGKILL)
+                    else:
+                        process.kill()
+                    stdout, stderr = process.communicate(timeout=3)
+                except (OSError, subprocess.TimeoutExpired):
+                    stdout, stderr = "", ""
+        else:
+            stdout, stderr = "", ""
         return result(
             name,
             "failed",
             detail=f"timed out after {timeout}s",
             command=command,
             durationSeconds=round(time.monotonic() - started, 3),
-            stdout=(exc.stdout or "")[-4000:],
-            stderr=(exc.stderr or "")[-4000:],
+            stdout=(stdout or exc.stdout or "")[-4000:],
+            stderr=(stderr or exc.stderr or "")[-4000:],
         )
     except OSError as exc:
         return result(
@@ -104,16 +176,16 @@ def run_command(name: str, command: list[str], *, timeout: int) -> dict[str, Any
             command=command,
             durationSeconds=round(time.monotonic() - started, 3),
         )
-    status = "passed" if completed.returncode == 0 else "failed"
+    status = "passed" if process and process.returncode == 0 else "failed"
     return result(
         name,
         status,
-        detail=f"exit code {completed.returncode}",
+        detail=f"exit code {process.returncode if process else 'unknown'}",
         command=command,
-        exitCode=completed.returncode,
+        exitCode=process.returncode if process else None,
         durationSeconds=round(time.monotonic() - started, 3),
-        stdout=completed.stdout[-4000:],
-        stderr=completed.stderr[-4000:],
+        stdout=(stdout or "")[-4000:],
+        stderr=(stderr or "")[-4000:],
     )
 
 
@@ -124,11 +196,13 @@ def check_generated_artifacts() -> dict[str, Any]:
         "transcription-queue.json",
         "human-review-queue.json",
         "source-comparison-ledger.json",
+        "shared-edition-reconciliation.json",
     ]
     if (ROOT / "scripts" / "check_source_health.py").exists():
         required.append("source-health.json")
     missing = [name for name in required if not (PUBLIC / name).exists()]
     malformed: list[str] = []
+    unreadable: list[str] = []
     sizes: dict[str, int] = {}
     for name in required:
         path = PUBLIC / name
@@ -137,15 +211,18 @@ def check_generated_artifacts() -> dict[str, Any]:
         sizes[name] = path.stat().st_size
         try:
             load_json(path)
+        except InputUnavailable:
+            unreadable.append(name)
         except (OSError, json.JSONDecodeError):
             malformed.append(name)
-    if missing or malformed:
+    if missing or malformed or unreadable:
         return result(
             "generated-artifacts",
-            "failed",
-            detail="required generated artifacts are missing or malformed",
+            "blocked" if unreadable and not missing and not malformed else "failed",
+            detail="required generated artifacts are missing, malformed, or not readable locally",
             missing=missing,
             malformed=malformed,
+            unreadable=unreadable,
             sizes=sizes,
         )
     return result("generated-artifacts", "passed", detail="required JSON artifacts load", sizes=sizes)
@@ -221,11 +298,22 @@ def walk_unsafe_promotions(value: Any, path: str = "$") -> list[dict[str, Any]]:
 def check_promotion_gate() -> dict[str, Any]:
     files = sorted(PUBLIC.rglob("*.json"))
     unsafe: list[dict[str, Any]] = []
+    unreadable: list[str] = []
     for path in files:
         try:
             unsafe.extend({"file": str(path.relative_to(ROOT)), **item} for item in walk_unsafe_promotions(load_json(path)))
+        except InputUnavailable:
+            unreadable.append(str(path.relative_to(ROOT)))
         except (OSError, json.JSONDecodeError):
             continue
+    if unreadable:
+        return result(
+            "promotion-gate",
+            "blocked",
+            detail="cannot inspect every public JSON file within the bounded read policy",
+            unreadableFiles=unreadable[:100],
+            unreadableFileCount=len(unreadable),
+        )
     if unsafe:
         return result(
             "promotion-gate",
@@ -242,8 +330,11 @@ def check_queue_contradictions() -> dict[str, Any]:
     reconciliation_path = PUBLIC / "sacred-harp-2025-autonomous-reconciliation.json"
     if not queue_path.exists() or not reconciliation_path.exists():
         return result("queue-contradictions", "failed", detail="canonical queue or reconciliation artifact is missing")
-    queue = load_json(queue_path)
-    reconciliation = load_json(reconciliation_path)
+    try:
+        queue = load_json(queue_path)
+        reconciliation = load_json(reconciliation_path)
+    except InputUnavailable as error:
+        return result("queue-contradictions", "blocked", detail=str(error))
     queue_by_id: dict[str, set[str]] = {}
     review_required_by_id: dict[str, set[bool]] = {}
     invalid_review_now: list[dict[str, Any]] = []
@@ -321,6 +412,31 @@ def discover_optional_command(kind: str) -> list[str] | None:
     return None
 
 
+def browser_smoke_command(receipt: Path | None = None) -> list[str] | None:
+    """Resolve the browser checker and optionally select a receipt explicitly."""
+    command = discover_optional_command("browser-smoke")
+    if command and receipt is not None:
+        command.extend(["--receipt", str(receipt if receipt.is_absolute() else (ROOT / receipt).resolve())])
+    return command
+
+
+def validation_commands() -> list[tuple[str, list[str]]]:
+    """Return required generated-report validators in dependency order."""
+    return [
+        ("dependencies", [sys.executable, "scripts/verify_dependencies.py"]),
+        ("data", [sys.executable, "scripts/validate_data.py"]),
+        ("playback", [sys.executable, "scripts/validate_playback.py"]),
+        ("transposition", [sys.executable, "scripts/validate_transposition.py"]),
+        ("shape-review", [sys.executable, "scripts/validate_shape_review_drafts.py"]),
+        ("source-shape-review", [sys.executable, "scripts/validate_source_shape_review_drafts.py"]),
+        ("transcription-images", [sys.executable, "scripts/validate_transcription_images.py"]),
+        ("image-review-queue", [sys.executable, "scripts/validate_image_review_queue.py"]),
+        ("source-candidates", [sys.executable, "scripts/validate_source_candidates.py"]),
+        ("shared-edition-reconciliation", [sys.executable, "scripts/validate_shared_edition_reconciliation.py"]),
+        ("omr-audit", [sys.executable, "scripts/audit_omr_drafts.py"]),
+    ]
+
+
 def source_health_checks(args: argparse.Namespace) -> list[dict[str, Any]]:
     collector = ROOT / "scripts" / "check_source_health.py"
     validator = ROOT / "scripts" / "validate_source_health.py"
@@ -334,7 +450,16 @@ def source_health_checks(args: argparse.Namespace) -> list[dict[str, Any]]:
             )
         ]
 
-    if args.no_write:
+    if args.skip_source_health_collection:
+        checks = [
+            result(
+                "source-health-collection",
+                "not-run",
+                detail="skipped by --skip-source-health-collection; existing report will be validated",
+                required=False,
+            )
+        ]
+    elif args.no_write:
         checks = [
             result(
                 "source-health-collection",
@@ -426,6 +551,8 @@ def main() -> int:
     parser.add_argument("--source-health-request-timeout", type=float, default=8.0, help="Per-request timeout for opt-in online source-health checks")
     parser.add_argument("--source-health-workers", type=int, default=4, help="Concurrent workers for opt-in online source-health checks")
     parser.add_argument("--no-write", action="store_true", help="Print the receipt without writing receipt files")
+    parser.add_argument("--skip-source-health-collection", action="store_true", help="Validate the existing source-health report without rewriting it")
+    parser.add_argument("--browser-receipt", type=Path, help="Use an explicit browser receipt path; omitted preserves the checker default")
     parser.add_argument("--json-out", type=Path, default=WORK / "verification-receipt.json")
     parser.add_argument("--markdown-out", type=Path, default=WORK / "verification-receipt.md")
     args = parser.parse_args()
@@ -437,24 +564,13 @@ def main() -> int:
         check_promotion_gate(),
         check_queue_contradictions(),
     ]
-    commands = [
-        ("data", [sys.executable, "scripts/validate_data.py"]),
-        ("playback", [sys.executable, "scripts/validate_playback.py"]),
-        ("transposition", [sys.executable, "scripts/validate_transposition.py"]),
-        ("shape-review", [sys.executable, "scripts/validate_shape_review_drafts.py"]),
-        ("source-shape-review", [sys.executable, "scripts/validate_source_shape_review_drafts.py"]),
-        ("transcription-images", [sys.executable, "scripts/validate_transcription_images.py"]),
-        ("image-review-queue", [sys.executable, "scripts/validate_image_review_queue.py"]),
-        ("source-candidates", [sys.executable, "scripts/validate_source_candidates.py"]),
-        ("omr-audit", [sys.executable, "scripts/audit_omr_drafts.py"]),
-    ]
-    for name, command in commands:
+    for name, command in validation_commands():
         checks.append(run_command(name, command, timeout=args.timeout))
 
     checks.extend(source_health_checks(args))
 
     for name in ("browser-smoke",):
-        command = discover_optional_command(name)
+        command = browser_smoke_command(args.browser_receipt)
         if command:
             checks.append(run_command(name, command, timeout=args.timeout))
         else:
@@ -486,7 +602,7 @@ def main() -> int:
     blockers: list[str] = []
     limitations: list[str] = []
     for item in checks:
-        if item["status"] in {"failed", "not-available", "not-run"}:
+        if item["status"] in {"failed", "blocked", "not-available", "not-run"}:
             message = f"{item['name']}: {item['detail']}"
             if item.get("required", True):
                 blockers.append(message)

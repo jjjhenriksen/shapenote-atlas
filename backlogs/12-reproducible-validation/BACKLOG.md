@@ -7,6 +7,8 @@
 ## Current evidence
 
 - `python3 scripts/verify_all.py` is the aggregate, read-only entry point. It emits a machine-readable JSON receipt and a human-readable Markdown receipt.
+- `python3 scripts/verify_dependencies.py` is the read-only package/lock contract check. The current retained, build-proven set is Vite 7.3.6 with React and ReactDOM 19.2.8; an offline temporary-project `npm ci` restored 17 packages successfully.
+- Aggregate subprocesses now run in their own process groups and are reaped on timeout. Public JSON inputs that look dataless are probed in a disposable child with a hard read bound and become explicit blockers when unavailable.
 - The post-rewrite checkout is `580665e` before the refreshed receipt. Receipts belong under ignored `work/agent-10-verification/` so verification does not overwrite shared historical evidence.
 - The aggregate is fail-closed for required checks. Browser smoke is an explicitly optional worker-discovered check: this checkout has no worker, so `--allow-missing-optional` records a limitation and still completes; without that flag, the absent worker is a blocker.
 
@@ -35,7 +37,7 @@ python3 scripts/verify_all.py --allow-missing-optional \
   --markdown-out work/agent-10-verification/verification-receipt.md
 ```
 
-The fresh run passed all required checks at the post-rewrite `580665e` head. Browser smoke was recorded as `not-available` with `required: false`; startup smoke passed. The exact receipt is in `work/agent-10-verification/verification-receipt.json` and `work/agent-10-verification/verification-receipt.md`.
+That historical receipt is not current integration proof. The 2026-09-04 runtime receipts are under `work/luna-program-20260904/runtime/startup-receipt.json` and `work/luna-program-20260904/runtime/verification-receipt.json`. The canonical build and startup checks pass; the aggregate remains fail-closed blocked by current data/playback/source-validator/browser-receipt issues recorded in the JSON and Markdown receipts.
 
 The current generated-report snapshot and stale-count reconciliation are recorded in `work/agent-10-verification/agent-10-current-audit-reconciliation.md`. The focused contract test is `tests/test_agent_10_reproducible_validation.py`.
 

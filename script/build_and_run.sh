@@ -8,6 +8,7 @@ BUNDLE_ID="com.sacredharp.shapenoteatlas"
 MIN_SYSTEM_VERSION="13.0"
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$ROOT_DIR"
 OUTPUT_DIR="$ROOT_DIR/outputs"
 APP_BUNDLE="$OUTPUT_DIR/$APP_NAME.app"
 APP_CONTENTS="$APP_BUNDLE/Contents"
@@ -16,19 +17,26 @@ APP_RESOURCES="$APP_CONTENTS/Resources"
 APP_BINARY="$APP_MACOS/$PRODUCT_NAME"
 INFO_PLIST="$APP_CONTENTS/Info.plist"
 ICON_SOURCE="$ROOT_DIR/Assets/ShapeNoteAtlas.svg"
-ICONSET_DIR="$ROOT_DIR/work/ShapeNoteAtlas.iconset"
-ICON_PNG="$ROOT_DIR/work/ShapeNoteAtlas-1024.png"
+DIST_DIR="${ATLAS_DIST_DIR:-$ROOT_DIR/dist}"
+PUBLIC_DIR="${ATLAS_PUBLIC_DIR:-$ROOT_DIR/public}"
+SWIFT_BUILD_DIR="${ATLAS_SWIFT_BUILD_DIR:-$ROOT_DIR/.build/shape-note-atlas}"
+ICONSET_DIR="${ATLAS_ICONSET_DIR:-$ROOT_DIR/work/ShapeNoteAtlas.iconset}"
+ICON_PNG="${ATLAS_ICON_PNG:-$ROOT_DIR/work/ShapeNoteAtlas-1024.png}"
+BUILD_TIMEOUT_SECONDS="${ATLAS_BUILD_TIMEOUT_SECONDS:-180}"
 
-cleanup_local_servers() {
-  pkill -f "ThreadingHTTPServer.*$APP_RESOURCES/web" >/dev/null 2>&1 || true
-}
+if [[ -n "${ATLAS_OUTPUT_DIR:-}" ]]; then
+  OUTPUT_DIR="$ATLAS_OUTPUT_DIR"
+  APP_BUNDLE="$OUTPUT_DIR/$APP_NAME.app"
+  APP_CONTENTS="$APP_BUNDLE/Contents"
+  APP_MACOS="$APP_CONTENTS/MacOS"
+  APP_RESOURCES="$APP_CONTENTS/Resources"
+  APP_BINARY="$APP_MACOS/$PRODUCT_NAME"
+  INFO_PLIST="$APP_CONTENTS/Info.plist"
+fi
 
-pkill -x "$PRODUCT_NAME" >/dev/null 2>&1 || true
-cleanup_local_servers
-pkill -f 'http.server 48721' >/dev/null 2>&1 || true
-
-npm run build
-SWIFT_BUILD_DIR="$ROOT_DIR/.build/shape-note-atlas"
+python3 "$ROOT_DIR/scripts/run_bounded_command.py" \
+  --timeout "$BUILD_TIMEOUT_SECONDS" -- \
+  env ATLAS_PUBLIC_DIR="$PUBLIC_DIR" npm run build -- --outDir "$DIST_DIR"
 mkdir -p "$SWIFT_BUILD_DIR"
 SWIFT_SOURCES=()
 while IFS= read -r source_file; do
@@ -43,7 +51,7 @@ rm -rf "$APP_BUNDLE"
 mkdir -p "$APP_MACOS" "$APP_RESOURCES/web"
 cp "$BUILD_BINARY" "$APP_BINARY"
 chmod +x "$APP_BINARY"
-cp -R "$ROOT_DIR/dist/." "$APP_RESOURCES/web/"
+cp -R "$DIST_DIR/." "$APP_RESOURCES/web/"
 
 rm -rf "$ICONSET_DIR"
 mkdir -p "$ICONSET_DIR"
@@ -63,7 +71,9 @@ make_icon 256 icon_256x256.png
 make_icon 512 icon_256x256@2x.png
 make_icon 512 icon_512x512.png
 make_icon 1024 icon_512x512@2x.png
-iconutil -c icns "$ICONSET_DIR" -o "$APP_RESOURCES/ShapeNoteAtlas.icns"
+if ! iconutil -c icns "$ICONSET_DIR" -o "$APP_RESOURCES/ShapeNoteAtlas.icns"; then
+  echo "warning: iconutil could not build the optional app icon; continuing without it" >&2
+fi
 
 cat >"$INFO_PLIST" <<PLIST
 <?xml version="1.0" encoding="UTF-8"?>
@@ -76,8 +86,6 @@ cat >"$INFO_PLIST" <<PLIST
   <string>$BUNDLE_ID</string>
   <key>CFBundleName</key>
   <string>$APP_NAME</string>
-  <key>CFBundleIconFile</key>
-  <string>ShapeNoteAtlas</string>
   <key>CFBundlePackageType</key>
   <string>APPL</string>
   <key>LSMinimumSystemVersion</key>
@@ -108,9 +116,7 @@ case "$MODE" in
     /usr/bin/log stream --info --style compact --predicate "subsystem == \"$BUNDLE_ID\""
     ;;
   --verify|verify)
-    open_app
-    sleep 1
-    pgrep -x "$PRODUCT_NAME" >/dev/null
+    python3 "$ROOT_DIR/scripts/verify_startup.py" --dist "$DIST_DIR" --package "$APP_BUNDLE"
     ;;
   *)
     echo "usage: $0 [run|--debug|--logs|--telemetry|--verify]" >&2

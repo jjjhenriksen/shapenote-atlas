@@ -105,12 +105,24 @@ def main() -> int:
         type=Path,
         default=ROOT / "outputs" / "The Shape-Note Atlas.app",
     )
+    parser.add_argument("--receipt", type=Path, help="Optional JSON receipt path")
     args = parser.parse_args()
 
     try:
         static_evidence = check_static_bundle(args.dist, args.package)
         process = subprocess.Popen(
-            ["npm", "run", "preview", "--", "--host", "127.0.0.1", "--port", "0"],
+            [
+                "npm",
+                "run",
+                "preview",
+                "--",
+                "--host",
+                "127.0.0.1",
+                "--port",
+                "0",
+                "--outDir",
+                str(args.dist.resolve()),
+            ],
             cwd=ROOT,
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
@@ -139,10 +151,18 @@ def main() -> int:
                 }
         finally:
             stop_owned_process(process)
-        print(json.dumps({"status": "passed", "static": static_evidence, "preview": endpoint_evidence}, indent=2))
+        receipt = {"status": "passed", "static": static_evidence, "preview": endpoint_evidence}
+        if args.receipt:
+            args.receipt.parent.mkdir(parents=True, exist_ok=True)
+            args.receipt.write_text(json.dumps(receipt, indent=2) + "\n", encoding="utf-8")
+        print(json.dumps(receipt, indent=2))
         return 0
     except (OSError, RuntimeError, URLError, ValueError, json.JSONDecodeError) as error:
-        print(json.dumps({"status": "failed", "error": str(error)}), file=sys.stderr)
+        receipt = {"status": "failed", "error": str(error)}
+        if args.receipt:
+            args.receipt.parent.mkdir(parents=True, exist_ok=True)
+            args.receipt.write_text(json.dumps(receipt, indent=2) + "\n", encoding="utf-8")
+        print(json.dumps(receipt), file=sys.stderr)
         return 1
 
 
