@@ -38,3 +38,4 @@ usable practice surface without changing source notation or provenance.
 Own `src/main.jsx`, `src/styles.css`, and browser practice tests/harness
 changes only. Do not edit score builders, ledgers, source images, or
 transcription outputs.
+Historical baseline (2026-08-30); current UI implementation now provides tempo, pause/resume, bounded loops, progress, cancellation guards, and quarantine gating. See work/luna-program-20260904/ui/STATUS.md and browser-current-observations.json for current evidence. Full all-case browser aggregate remains incomplete.

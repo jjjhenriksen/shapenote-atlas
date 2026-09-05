@@ -35,6 +35,8 @@ reference-only, or authoritative.
 
 ## Ownership
 
+Current UI status (2026-09-05): selected-record source-health timestamps, current/cached/budget distinctions, retention states, and provenance labels are surfaced. Historical cache counts below are baseline evidence only; refreshed health truth remains owned by the health lane.
+
 Own source-health/provenance presentation in `src/main.jsx` and
 `src/styles.css`, plus UI fixtures. Do not edit `scripts/check_source_health.py`
 or source manifests; coordinate with the source-health worker for schema

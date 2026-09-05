@@ -246,6 +246,16 @@ select option { color: #1a1a18; background: #f3eddf; }
 .text-button { margin-top: 12px; border: 0; padding: 0; color: var(--brass); background: transparent; font: 700 13px/1.4 var(--body-font); cursor: pointer; }
 .text-button:hover { color: var(--ink); text-decoration: underline; }
 .source-strip { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-top: 24px; padding: 16px 0; color: var(--muted); }
+.source-health-card { display:flex; justify-content:space-between; gap:16px; align-items:center; margin-top:20px; padding:14px 16px; border:1px solid var(--line); border-radius:10px; background:color-mix(in srgb, var(--card) 82%, transparent); color:var(--muted); }
+.source-health-card strong { display:block; color:var(--ink); margin-top:4px; font-size:.9rem; }
+.source-health-retention { font-size:.78rem; white-space:nowrap; }
+.practice-options { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+.practice-options label { display:flex; align-items:center; gap:5px; color:var(--muted); font-size:.82rem; }
+.practice-options input, .practice-options select { width:62px; border:1px solid var(--line); border-radius:6px; background:var(--pine); color:var(--ink); padding:6px; }
+.practice-progress { height:4px; width:100%; margin-top:10px; border-radius:99px; background:var(--line); overflow:hidden; }
+.practice-progress span { display:block; height:100%; background:var(--brass); transition:width .1s linear; }
+.semantic-summary { color:var(--muted); }
+.practice-fallback-note { margin:12px 0 0; color:var(--muted); font-size:.82rem; }
 .source-strip > div:first-child { display: flex; align-items: center; gap: 16px; }
 .source-actions { display: flex; flex-wrap: wrap; gap: 14px; }
 .source-actions a { display: inline-flex; align-items: center; gap: 7px; color: var(--teal); text-decoration: none; font-size: 12px; }
@@ -376,3 +386,14 @@ body[data-native-shell="true"] .atlas-header { padding-left: 82px; }
 
 .skip-link { position: fixed; top: 8px; left: 8px; z-index: 100; transform: translateY(-160%); border: 1px solid var(--teal); background: var(--pine-raised); color: var(--ink); padding: 9px 12px; font-weight: 700; text-decoration: none; }
 .skip-link:focus { transform: translateY(0); }
+
+/* Discovery uses the existing edition theme and native labeled controls. */
+.discovery-controls { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .7fr); gap: 12px; margin: 16px 0; }
+.discovery-controls label { display: grid; gap: 8px; color: var(--muted); font-size: 14px; }
+.discovery-controls select { min-height: 44px; padding: 8px; border: 1px solid var(--line-cool); border-radius: 4px; background: var(--pine-raised); appearance: auto; }
+.discovery-controls .additions-filter { display: flex; align-items: center; grid-column: 1 / -1; min-height: 44px; }
+.additions-filter input { width: 18px; height: 18px; accent-color: var(--brass); }
+.result-pagination { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 12px 4px; color: var(--muted); }
+.result-pagination button { min-height: 44px; }
+.result-pagination button:disabled { opacity: .45; cursor: default; }
+.tune-link { display: inline-block; padding: 8px 0; margin-bottom: 8px; color: var(--brass); }

@@ -37,3 +37,21 @@ data or visual language.
 
 Own `src/main.jsx`, `src/styles.css`, and focused browser/UI tests only. Do not
 edit corpus builders, score assets, key/mode data, or source-health reports.
+
+## Implementation started — 2026-09-04
+
+Added notation availability and new-in-2025 filters, title sorting, complete
+80-row pagination, clear-filter/no-match states, and edition/tune URL links
+with invalid-link recovery. Filters apply to all 11 books. The label
+“Catalogued score” deliberately describes the existing score mapping, not
+verified exact-edition fidelity: 12 SH2025 mappings still require provenance
+correction in the data pipeline. Key/mode, transposability, and part filters
+remain unfinished.
+
+Verified in the browser: all 11 book totals; all 554 SH1991 records across
+seven pages without duplicates; SH2025 filters; title sorting; search/empty
+states; Rochester URL round-trip; invalid link; and 320px width without page
+horizontal overflow. Four discovery tests pass against the actual corpus.
+An isolated React 19/Vite 7 build passes; normal dependency/build and full
+music validators remain blocked by cloud-placeholder files. No score data
+or source authority was modified.
