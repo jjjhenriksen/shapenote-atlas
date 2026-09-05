@@ -92,6 +92,7 @@ def main() -> int:
                 ],
             }
         )
+    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT.write_text(json.dumps({"status": "drafts-only", "records": records}, indent=2) + "\n", encoding="utf-8")
     print(f"Audited {len(records)} local OMR drafts; none were promoted to the corpus.")
     return 0

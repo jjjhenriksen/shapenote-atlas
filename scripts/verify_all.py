@@ -400,10 +400,7 @@ def discover_optional_command(kind: str) -> list[str] | None:
             ROOT / "scripts" / "check_source_health.py",
         ],
         "browser-smoke": [
-            ROOT / "work" / "agent-05-browser" / "agent-05-browser-smoke.py",
             ROOT / "scripts" / "verify_browser_smoke.py",
-            ROOT / "scripts" / "browser_smoke.py",
-            ROOT / "scripts" / "smoke_browser.py",
         ],
     }
     for path in candidates[kind]:

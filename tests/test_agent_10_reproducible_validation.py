@@ -14,6 +14,8 @@ import importlib.util
 import subprocess
 import sys
 import unittest
+import tempfile
+from unittest.mock import patch
 from pathlib import Path
 
 
@@ -57,6 +59,36 @@ class Agent10ReproducibleValidationTests(unittest.TestCase):
         assert default_command is not None and override_command is not None
         self.assertEqual(override_command[:-2], default_command)
         self.assertEqual(override_command[-2:], ["--receipt", str((ROOT / override).resolve())])
+
+    def test_browser_smoke_uses_tracked_checker(self) -> None:
+        command = VERIFY_MODULE.browser_smoke_command()
+        self.assertEqual(command, [sys.executable, str(ROOT / "scripts" / "verify_browser_smoke.py")])
+        self.assertNotIn("work/agent-05-browser", command[1])
+        completed = subprocess.run([*command, "--help"], cwd=ROOT, text=True, capture_output=True, check=False)
+        self.assertEqual(completed.returncode, 0, completed.stderr)
+
+    def test_fresh_checkout_prerequisite_report_is_explicit(self) -> None:
+        report_script = ROOT / "scripts" / "report_fresh_checkout_prerequisites.py"
+        completed = subprocess.run([sys.executable, str(report_script)], cwd=ROOT, text=True, capture_output=True, check=False)
+        self.assertEqual(completed.returncode, 0, completed.stderr)
+        report = json.loads(completed.stdout)
+        self.assertEqual(report["kind"], "fresh-checkout-retained-source-prerequisites")
+        self.assertTrue(report["policy"]["fidelityValidatorsRemainFailClosed"])
+        self.assertFalse(report["policy"]["exhaustiveAcrossDataLanes"])
+        self.assertIn("generatedOutputs", report)
+        self.assertEqual(report["summary"]["missingRetainedSourcePaths"], len(report["missing"]))
+        self.assertIn("missing", report)
+
+    def test_prerequisites_report_missing_evidence_in_empty_checkout(self) -> None:
+        spec = importlib.util.spec_from_file_location("prerequisites", ROOT / "scripts/report_fresh_checkout_prerequisites.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        with tempfile.TemporaryDirectory() as directory:
+            with patch.object(module, "ROOT", Path(directory)), patch.object(module, "load_public", return_value={}):
+                report = module.build_report()
+        self.assertGreater(report["summary"]["missingRetainedSourcePaths"], 0)
+        self.assertEqual(report["summary"]["missingRetainedSourcePaths"], len(report["missing"]))
+        self.assertNotIn("work/omr/draft-index.json", [item["path"] for item in report["missing"]])
 
     def test_shared_edition_reconciliation_gate_is_registered_and_passes(self) -> None:
         commands = dict(VERIFY_MODULE.validation_commands())
