@@ -150,6 +150,10 @@ def acquisition_requirement(artifact_class: str, source_urls: list[str]) -> str:
         return "Restore the retained source and candidate/OMR witnesses, rebuild the review draft, and verify its hash; keep it fail-closed and review-only."
     if artifact_class == "derived-public-copy":
         return "Restore or rebuild the linked local review draft, copy it deterministically, and verify local/public hash equality; do not promote it."
+    if artifact_class == "derived-public-score-asset":
+        return "Restore the exact public score asset or rebuild it from retained score inputs, then verify its hash before validation; it is a generated representation, not a source witness."
+    if artifact_class == "derived-review-pdf":
+        return "Restore the exact retained review PDF and verify its bytes before human-review validation; it is review work product, not source engraving evidence."
     if artifact_class == "derived-transcription-artifact":
         return "Restore the source image and rerun the bounded transcription/OMR preparation step; do not use an absent artifact as proof of fidelity."
     if artifact_class == "source-health-local-evidence":
@@ -271,6 +275,8 @@ class DependencyCollector:
                         "derived-suppressed-image",
                         "derived-review-draft",
                         "derived-public-copy",
+                        "derived-public-score-asset",
+                        "derived-review-pdf",
                         "derived-transcription-artifact",
                         "dependency-manifest",
                         "canonical-generated-manifest",
@@ -323,6 +329,36 @@ def main() -> int:
         path = ROOT / relative
         loaded[relative] = load_json(path, issues)
         collector.add(relative, artifact_class=artifact_class, consumers=consumers, gates=gates, reference="canonical-validator-input", immutable=False, derived=artifact_class != "dependency-manifest")
+
+    # validate_data.py opens every scoreRef in the corpus, including exact,
+    # alternate-reference, and draft score assets. Keep those generated public
+    # JSON files in the same allow-list as the validator that consumes them.
+    corpus = loaded.get("public/corpus.json", {})
+    for song in corpus.get("songs", []):
+        if not isinstance(song, dict):
+            continue
+        for field in ("scoreByBook", "referenceScoreByBook", "draftScoreByBook"):
+            scores = song.get(field) if isinstance(song.get(field), dict) else {}
+            for book_id, score in scores.items():
+                if not isinstance(score, dict):
+                    continue
+                score_ref = score.get("scoreRef", "")
+                if not isinstance(score_ref, str) or not score_ref.startswith(("/scores/", "/draft-scores/")):
+                    continue
+                relative = f"public/{score_ref.lstrip('/')}"
+                asset = load_json(ROOT / relative, issues)
+                collector.add(
+                    relative,
+                    artifact_class="derived-public-score-asset",
+                    consumers=("scripts/validate_data.py", "scripts/validate_playback.py", "scripts/validate_transposition.py"),
+                    gates=("data", "playback", "transposition"),
+                    source_urls=url_values(score) + url_values(asset),
+                    expected_sha256=score.get("sha256") or score.get("assetSha256"),
+                    expected_bytes=score.get("bytes") or score.get("assetBytes"),
+                    immutable=False,
+                    derived=True,
+                    reference=f"public/corpus.json:{song.get('id', 'unknown')}:{book_id}:{field}",
+                )
 
     # Every raw score path in either exact-score manifest is an independent
     # retained witness.  The 2025 audit is separate because its catalog is not
@@ -382,6 +418,38 @@ def main() -> int:
             immutable=False,
             derived=True,
             reference=f"public/source-metadata-observations.json:{key}:ocr.rawTextPath",
+        )
+
+    # The review-now branch of validate_data.py verifies every retained OMR
+    # draft and, when present, its rendered PDF. These are separate from the
+    # shape-review manifests because the public queue is the validator's
+    # authoritative path map.
+    human_review = loaded.get("public/human-review-queue.json", {})
+    for item in human_review.get("reviewNow", []):
+        if not isinstance(item, dict):
+            continue
+        key = str(item.get("queueId", "unknown"))
+        source_urls = url_values(item)
+        collector.add(
+            item.get("draftArtifact"),
+            artifact_class="derived-review-draft",
+            consumers=("scripts/validate_data.py",),
+            gates=("data", "queue-contradictions"),
+            source_urls=source_urls,
+            expected_sha256=item.get("draftSha256"),
+            immutable=False,
+            derived=True,
+            reference=f"public/human-review-queue.json:{key}:draftArtifact",
+        )
+        collector.add(
+            item.get("draftPdf"),
+            artifact_class="derived-review-pdf",
+            consumers=("scripts/validate_data.py",),
+            gates=("data", "queue-contradictions"),
+            source_urls=source_urls,
+            immutable=False,
+            derived=True,
+            reference=f"public/human-review-queue.json:{key}:draftPdf",
         )
 
     # Candidate PDFs are retained witnesses for alternate-source comparison;

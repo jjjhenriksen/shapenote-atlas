@@ -259,6 +259,20 @@ def inventory_sources() -> dict[str, dict[str, Any]]:
     return inventory
 
 
+def inventory_declarations(inventory: dict[str, dict[str, Any]]) -> dict[str, Any]:
+    """Return the canonical counts derived from the exact collected inventory."""
+    books = sorted({book for item in inventory.values() for book in item["books"]})
+    return {
+        "corpusSongUrls": sum(
+            1 for item in inventory.values()
+            if any(reference.startswith("corpus:") and ":book:" not in reference for reference in item["references"])
+        ),
+        "fullManifestUrls": len(inventory),
+        "bookCount": len(books),
+        "bookUrlCounts": {book: sum(book in item["books"] for item in inventory.values()) for book in books},
+    }
+
+
 class RedirectRecorder(HTTPRedirectHandler):
     def __init__(self) -> None:
         super().__init__()
@@ -372,18 +386,21 @@ def previous_network(item: dict[str, Any] | None) -> dict[str, Any]:
             "contentType": item.get("contentType", ""),
             "method": "offline-cached",
             "redirects": item.get("redirects", []),
-            "networkCheckedAt": item.get("networkCheckedAt") or item.get("checkedAt"),
+            "networkCheckedAt": None,
             "remoteBodyStatus": item.get("remoteBodyStatus", "unknown"),
         }
+    actual_statuses = {"reachable", "redirected", "unreachable", "network-error"}
+    cached_status = item.get("networkStatus", item.get("cachedStatus", item.get("status")))
+    has_actual_network_evidence = prior_status in actual_statuses or cached_status in actual_statuses
     return {
         "status": "cached",
-        "cachedStatus": item.get("networkStatus", item.get("cachedStatus", item.get("status"))),
+        "cachedStatus": cached_status,
         "httpStatus": item.get("httpStatus"),
         "finalUrl": item.get("finalUrl", ""),
         "contentType": item.get("contentType", ""),
         "method": "cached",
         "redirects": item.get("redirects", []),
-        "networkCheckedAt": item.get("networkCheckedAt") or item.get("checkedAt"),
+        "networkCheckedAt": item.get("networkCheckedAt") or (item.get("checkedAt") if has_actual_network_evidence else None),
         "remoteBodyStatus": item.get("remoteBodyStatus", "unknown"),
     }
 
@@ -524,6 +541,7 @@ def main() -> int:
         }
     manifest_states = {path: details.get("status") for path, details in sorted(LOAD_DIAGNOSTICS.items()) if path != str(OUTPUT.relative_to(ROOT))}
     manifest_issues = {path: status for path, status in manifest_states.items() if status != "loaded"}
+    declarations = inventory_declarations(inventory)
     summary = {
         "totalUrls": len(records),
         "byStatus": {status: sum(record["status"] == status for record in records) for status in statuses},
@@ -537,7 +555,7 @@ def main() -> int:
         "checkedCurrent": len(checked_urls),
         "budgetExcluded": sum(record["status"] == "not-checked-budget" for record in records),
         "networkFailures": sum(record["status"] == "network-error" for record in records),
-        "corpusSongUrls": sum(1 for item in inventory.values() if any(reference.startswith("corpus:") and ":book:" not in reference for reference in item["references"])),
+        "corpusSongUrls": declarations["corpusSongUrls"],
         "manifestReadIssues": len(manifest_issues),
     }
     output = {
@@ -554,9 +572,9 @@ def main() -> int:
         },
         "policy": "Remote source changes are reported only. Retained source files are immutable and are never overwritten or replaced automatically. HEAD/range checks do not establish remote body-hash equality; remote body drift remains unknown unless a future body-hash check is recorded.",
         "inventory": {
-            "corpusSongUrls": summary["corpusSongUrls"],
-            "fullManifestUrls": len(records),
-            "bookCount": 11,
+            "corpusSongUrls": declarations["corpusSongUrls"],
+            "fullManifestUrls": declarations["fullManifestUrls"],
+            "bookCount": declarations["bookCount"],
             "books": by_book,
             "manifestReads": manifest_states,
             "manifestReadIssues": manifest_issues,

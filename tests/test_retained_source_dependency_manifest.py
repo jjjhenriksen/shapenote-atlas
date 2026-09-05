@@ -67,6 +67,7 @@ class RetainedSourceDependencyManifestTests(unittest.TestCase):
         by_path = {record["path"]: record for record in report["records"]}
         expected = {
             "work/source-metadata/ocr/2025/115-holbrook.txt": "c703b3e394abeba38bcfa77ffe6038c977e5bdf8c1b2d1cc7f3b8e772b9b7674",
+            "work/omr/50t-devotion/SH25-DEVOTION.mxl": "762737cbeed87f6fa0b8fdbf7b305f860eca6ce69aedf84b6b4c78ec4b0c09bf",
             "work/luna-program-20260904/runtime/derivative-recovery/459/candidate-page-157-poppler-system.pdf": "562983bd80e89c19d8bce6afe79ac6741b9f01326b3159ba9f1456df7ebf34a2",
             "work/source-transcriptions/2025/clean-source-candidates/extracted/463-f209d45efd/page-197.pdf": "e8fd0b684e4f2f95fcdee2e52e8dac283f2c2145f6b2ca8b0c745fee58391fb8",
             "work/source-transcriptions/2025/clean-source-candidates/extracted/539-f209d45efd/page-303.pdf": "76d88b1cc55584481955fd4ae8f11839c15452090bba6bfcefab413aaa22e58d",
@@ -84,8 +85,54 @@ class RetainedSourceDependencyManifestTests(unittest.TestCase):
             ["derived-source-metadata-ocr"],
         )
         for path in expected:
-            if path.endswith(".pdf"):
+            if path.endswith(".pdf") or path.endswith(".mxl") and "50t-devotion" not in path:
                 self.assertEqual(by_path[path]["artifactClasses"], ["derived-candidate-pdf"])
+        self.assertEqual(by_path["work/omr/50t-devotion/SH25-DEVOTION.mxl"]["artifactClasses"], ["derived-review-draft"])
+
+    def test_validate_data_filesystem_consumers_are_all_manifested(self) -> None:
+        report = self.build_report()
+        manifested = {record["path"] for record in report["records"]}
+        expected: set[str] = set()
+
+        corpus = json.loads((ROOT / "public/corpus.json").read_text(encoding="utf-8"))
+        for song in corpus.get("songs", []):
+            for field in ("scoreByBook", "referenceScoreByBook", "draftScoreByBook"):
+                for score in (song.get(field) or {}).values():
+                    reference = score.get("scoreRef", "")
+                    if reference.startswith(("/scores/", "/draft-scores/")):
+                        expected.add(f"public/{reference.lstrip('/')}")
+
+        image_queue = json.loads((ROOT / "public/image-review-queue.json").read_text(encoding="utf-8"))
+        for item in image_queue.get("records", []):
+            expected.add(item["original"]["path"])
+            expected.add(item["workingLayers"]["normalized-v2"]["path"])
+            expected.add(item["workingLayers"]["suppressed-v2"]["path"])
+
+        source_metadata = json.loads((ROOT / "public/source-metadata-observations.json").read_text(encoding="utf-8"))
+        expected.update(
+            item["ocr"]["rawTextPath"]
+            for item in source_metadata.get("records", [])
+            if item.get("ocr", {}).get("rawTextPath")
+        )
+
+        audit = json.loads((ROOT / "public/shapenote-2025-score-audit.json").read_text(encoding="utf-8"))
+        expected.update(item["rawPath"] for item in audit.get("records", []) if item.get("rawPath"))
+
+        human_review = json.loads((ROOT / "public/human-review-queue.json").read_text(encoding="utf-8"))
+        for item in human_review.get("reviewNow", []):
+            expected.add(item["draftArtifact"])
+            if item.get("draftPdf"):
+                expected.add(item["draftPdf"])
+
+        candidates = json.loads((ROOT / "work/source-transcriptions/2025/clean-source-candidates.json").read_text(encoding="utf-8"))
+        for item in candidates.get("records", []):
+            for field in ("localPdf", "omrInputPdf"):
+                if item.get(field):
+                    expected.add(item[field])
+
+        missing = sorted(expected - manifested)
+        self.assertEqual(missing, [], f"validator filesystem references missing from dependency manifest: {missing[:10]}")
+        self.assertGreaterEqual(len(expected), 2000)
 
     def test_relative_paths_are_root_anchored_and_normalized(self) -> None:
         self.assertEqual(MODULE.path_text("work/../public/corpus.json"), "public/corpus.json")

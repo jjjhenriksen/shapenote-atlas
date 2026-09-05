@@ -1,5 +1,6 @@
 import importlib.util
 import json
+import sys
 import unittest
 from pathlib import Path
 from unittest.mock import patch
@@ -8,6 +9,10 @@ ROOT = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location('health', ROOT / 'scripts/check_source_health.py')
 health = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(health)
+sys.modules['check_source_health'] = health
+validate_spec = importlib.util.spec_from_file_location('validate_source_health', ROOT / 'scripts/validate_source_health.py')
+validate_source_health = importlib.util.module_from_spec(validate_spec)
+validate_spec.loader.exec_module(validate_source_health)
 
 class UrlInventoryTests(unittest.TestCase):
     def test_nested_urls_roles_and_duplicate_references(self):
@@ -46,6 +51,25 @@ class UrlInventoryTests(unittest.TestCase):
         self.assertEqual(carried['status'], 'not-checked-budget')
         self.assertEqual(carried['remoteBodyStatus'], 'not-checked-budget')
 
+    def test_offline_carry_forward_does_not_invent_network_timestamp(self):
+        carried = health.previous_network({
+            'status': 'not-checked-offline',
+            'checkedAt': '2026-09-05T00:00:00+00:00',
+            'networkCheckedAt': '2026-09-04T00:00:00+00:00',
+            'finalUrl': 'https://example.org/a',
+        })
+        self.assertIsNone(carried['networkCheckedAt'])
+        self.assertIsNone(validate_source_health.network_timestamp_error({
+            'status': 'not-checked-offline',
+            'url': 'https://example.org/a',
+            'networkCheckedAt': None,
+        }))
+        self.assertIsNotNone(validate_source_health.network_timestamp_error({
+            'status': 'not-checked-offline',
+            'url': 'https://example.org/a',
+            'networkCheckedAt': '2026-09-04T00:00:00+00:00',
+        }))
+
     def test_cloud_placeholder_is_not_read_as_exact(self):
         path = next((candidate for candidate in (ROOT / 'work/shapenote-musicxml').glob('*.mxl') if getattr(candidate.stat(), 'st_flags', 0) & health.CLOUD_PLACEHOLDER_FLAG), None)
         if path is None:
@@ -79,6 +103,46 @@ class UrlInventoryTests(unittest.TestCase):
         self.assertGreater(len(song_urls), 0)
         self.assertEqual(len(book_urls), 10)
         self.assertTrue(song_urls.isdisjoint(book_urls))
+
+    def test_inventory_declarations_match_current_collector(self):
+        declarations = health.inventory_declarations(health.inventory_sources())
+        self.assertEqual(declarations['corpusSongUrls'], 7600)
+        self.assertEqual(declarations['fullManifestUrls'], 7619)
+        self.assertEqual(declarations['bookCount'], 11)
+        self.assertEqual(declarations['bookUrlCounts']['ch7'], 683)
+
+    def test_stale_inventory_declarations_are_rejected(self):
+        fixture = {
+            'https://example.org/song': {
+                'books': {'ch7'},
+                'references': {'corpus:song-1'},
+            },
+        }
+        stale = {'inventory': {
+            'corpusSongUrls': 0,
+            'fullManifestUrls': 1,
+            'bookCount': 1,
+            'books': {'ch7': {'totalUrls': 0}},
+        }, 'summary': {'corpusSongUrls': 0}}
+        errors = validate_source_health.inventory_declaration_errors(stale, fixture)
+        self.assertIn("inventory corpusSongUrls is stale (0 != 1)", errors)
+        self.assertTrue(any("inventory book URL attribution is stale" in error for error in errors))
+        self.assertIn("summary corpusSongUrls is stale (0 != 1)", errors)
+
+    def test_fresh_inventory_declarations_are_accepted(self):
+        fixture = {
+            'https://example.org/song': {
+                'books': {'ch7'},
+                'references': {'corpus:song-1'},
+            },
+        }
+        fresh = {'inventory': {
+            'corpusSongUrls': 1,
+            'fullManifestUrls': 1,
+            'bookCount': 1,
+            'books': {'ch7': {'totalUrls': 1}},
+        }, 'summary': {'corpusSongUrls': 1}}
+        self.assertEqual(validate_source_health.inventory_declaration_errors(fresh, fixture), [])
 
     def test_host_bounded_checker_records_only_completed_urls(self):
         calls = []
