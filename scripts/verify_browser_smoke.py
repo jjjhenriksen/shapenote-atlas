@@ -279,7 +279,8 @@ def main(receipt_path: Path | None = None) -> int:
     reset = observed["target-reset"]
     if not reset.get("targetResetToSource") or reset.get("selected") != "41 — Evening Hymn":
         fail("target-reset: target key did not reset with tune selection")
-    print(json.dumps({"cases": checked, "errors": [], "receipt": str(receipt_file.relative_to(ROOT))}, sort_keys=True))
+    receipt_label = receipt_file.relative_to(ROOT) if receipt_file.is_relative_to(ROOT) else receipt_file
+    print(json.dumps({"cases": checked, "errors": [], "receipt": str(receipt_label)}, sort_keys=True))
     return 0
 
 

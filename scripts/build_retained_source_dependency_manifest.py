@@ -47,6 +47,7 @@ CANONICAL_MANIFESTS = (
     ("public/transcription-queue.json", "canonical-generated-manifest", ("scripts/validate_data.py",), ("data",)),
     ("public/human-review-queue.json", "canonical-generated-manifest", ("scripts/validate_data.py", "scripts/verify_all.py"), ("data", "queue-contradictions")),
     ("public/source-health.json", "canonical-generated-manifest", ("scripts/validate_source_health.py", "scripts/verify_all.py"), ("source-health",)),
+    ("public/source-metadata-observations.json", "canonical-generated-manifest", ("scripts/validate_data.py", "scripts/build_human_review_queue.py"), ("data", "source-metadata")),
     ("work/source-images/manifest.json", "dependency-manifest", ("scripts/check_source_health.py",), ("source-health",)),
     ("work/source-transcriptions/2025/recording-index.json", "dependency-manifest", ("scripts/check_source_health.py",), ("source-health",)),
     ("work/source-transcriptions/2025/debut-recording-index.json", "dependency-manifest", ("scripts/check_source_health.py",), ("source-health",)),
@@ -137,6 +138,8 @@ def acquisition_requirement(artifact_class: str, source_urls: list[str]) -> str:
         return "Restore the exact publisher MusicXML bytes from the recorded source URL and verify the recorded hash; do not regenerate from PDF or OMR."
     if artifact_class == "candidate-pdf-witness":
         return "Re-acquire the candidate PDF from its recorded candidate URL, then verify the recorded hash and retain its review-only status."
+    if artifact_class == "derived-candidate-pdf":
+        return "Restore the retained candidate PDF parent or re-run the recorded page-extraction step, then verify the derived PDF hash; never treat it as an exact-edition source witness."
     if artifact_class == "derived-candidate-mxl":
         return "Restore the candidate PDF first, then rerun the bounded clean-source OMR step and verify the resulting MXL hash; never promote it as exact evidence."
     if artifact_class == "derived-normalized-image":
@@ -151,6 +154,8 @@ def acquisition_requirement(artifact_class: str, source_urls: list[str]) -> str:
         return "Restore the source image and rerun the bounded transcription/OMR preparation step; do not use an absent artifact as proof of fidelity."
     if artifact_class == "source-health-local-evidence":
         return "Restore the exact local evidence named by the source-health record, or rebuild only when its recorded kind is explicitly derived; recheck the recorded hash before offline health validation."
+    if artifact_class == "derived-source-metadata-ocr":
+        return "Restore the exact retained OCR bytes or rerun the recorded OCR step from the exact source image, then verify the hash; OCR is metadata evidence only, not source engraving evidence."
     if artifact_class == "dependency-manifest":
         return "Preserve this manifest or rebuild it from its named lane inputs before running the consuming validator; missing manifests remain blocking."
     if artifact_class == "canonical-generated-manifest":
@@ -260,6 +265,7 @@ class DependencyCollector:
                         "exact-score-witness",
                         "immutable-retained-source",
                         "candidate-pdf-witness",
+                        "derived-candidate-pdf",
                         "derived-candidate-mxl",
                         "derived-normalized-image",
                         "derived-suppressed-image",
@@ -355,6 +361,29 @@ def main() -> int:
             reference=f"public/shapenote-2025-score-audit.json:{record.get('queueId', record.get('songNo', 'unknown'))}",
         )
 
+    # validate_data.py reads the OCR sidecar for every source-metadata
+    # observation. OCR is retained review evidence derived from the exact
+    # source image; preserve its bytes and recorded hash without treating it
+    # as authoritative notation or lyrics.
+    source_metadata = loaded.get("public/source-metadata-observations.json", {})
+    for record in source_metadata.get("records", []):
+        if not isinstance(record, dict):
+            continue
+        ocr = record.get("ocr") if isinstance(record.get("ocr"), dict) else {}
+        source = record.get("source") if isinstance(record.get("source"), dict) else {}
+        key = str(record.get("queueId", record.get("songNo", "unknown")))
+        collector.add(
+            ocr.get("rawTextPath"),
+            artifact_class="derived-source-metadata-ocr",
+            consumers=("scripts/validate_data.py", "scripts/build_human_review_queue.py"),
+            gates=("data", "source-metadata"),
+            source_urls=url_values(source.get("imageUrl")),
+            expected_sha256=ocr.get("rawTextSha256"),
+            immutable=False,
+            derived=True,
+            reference=f"public/source-metadata-observations.json:{key}:ocr.rawTextPath",
+        )
+
     # Candidate PDFs are retained witnesses for alternate-source comparison;
     # candidate MXLs are always derived OMR and remain non-promotable.
     candidate_manifest = loaded.get("work/source-transcriptions/2025/clean-source-candidates.json", {})
@@ -375,6 +404,17 @@ def main() -> int:
             immutable=True,
             derived=False,
             reference=f"work/source-transcriptions/2025/clean-source-candidates.json:{key}",
+        )
+        collector.add(
+            record.get("omrInputPdf"),
+            artifact_class="derived-candidate-pdf",
+            consumers=("scripts/validate_source_candidates.py", "scripts/validate_data.py"),
+            gates=("source-candidates", "data"),
+            source_urls=urls,
+            expected_sha256=record.get("omrInputSha256"),
+            immutable=False,
+            derived=True,
+            reference=f"work/source-transcriptions/2025/clean-source-candidates.json:{key}:omrInputPdf",
         )
 
     omr_run = loaded.get("work/omr/clean-source-omr-run.json", {})

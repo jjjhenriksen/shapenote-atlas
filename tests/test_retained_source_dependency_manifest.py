@@ -51,6 +51,7 @@ class RetainedSourceDependencyManifestTests(unittest.TestCase):
         self.assertGreaterEqual(first["summary"]["artifactClassCounts"]["derived-suppressed-image"], 200)
         self.assertGreaterEqual(first["summary"]["artifactClassCounts"]["source-health-local-evidence"], 1)
         self.assertIn("public/source-health.json", {record["path"] for record in records})
+        self.assertIn("public/source-metadata-observations.json", {record["path"] for record in records})
         self.assertTrue(all(" 2" not in record["path"] for record in records))
         for record in records:
             self.assertTrue(record["path"])
@@ -60,6 +61,31 @@ class RetainedSourceDependencyManifestTests(unittest.TestCase):
                 self.assertEqual(len(record["sha256"]), 64)
             else:
                 self.assertNotEqual(record["status"], "present")
+
+    def test_live_validator_references_include_ocr_and_extracted_candidate_pdf_witnesses(self) -> None:
+        report = self.build_report()
+        by_path = {record["path"]: record for record in report["records"]}
+        expected = {
+            "work/source-metadata/ocr/2025/115-holbrook.txt": "c703b3e394abeba38bcfa77ffe6038c977e5bdf8c1b2d1cc7f3b8e772b9b7674",
+            "work/luna-program-20260904/runtime/derivative-recovery/459/candidate-page-157-poppler-system.pdf": "562983bd80e89c19d8bce6afe79ac6741b9f01326b3159ba9f1456df7ebf34a2",
+            "work/source-transcriptions/2025/clean-source-candidates/extracted/463-f209d45efd/page-197.pdf": "e8fd0b684e4f2f95fcdee2e52e8dac283f2c2145f6b2ca8b0c745fee58391fb8",
+            "work/source-transcriptions/2025/clean-source-candidates/extracted/539-f209d45efd/page-303.pdf": "76d88b1cc55584481955fd4ae8f11839c15452090bba6bfcefab413aaa22e58d",
+        }
+        for path, expected_hash in expected.items():
+            with self.subTest(path=path):
+                self.assertIn(path, by_path)
+                record = by_path[path]
+                self.assertEqual(record["status"], "present")
+                self.assertEqual(record["sha256"], expected_hash)
+                self.assertEqual(record["expectedSha256"], [expected_hash])
+                self.assertFalse(record["tracked"])
+        self.assertEqual(
+            by_path["work/source-metadata/ocr/2025/115-holbrook.txt"]["artifactClasses"],
+            ["derived-source-metadata-ocr"],
+        )
+        for path in expected:
+            if path.endswith(".pdf"):
+                self.assertEqual(by_path[path]["artifactClasses"], ["derived-candidate-pdf"])
 
     def test_relative_paths_are_root_anchored_and_normalized(self) -> None:
         self.assertEqual(MODULE.path_text("work/../public/corpus.json"), "public/corpus.json")
