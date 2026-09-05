@@ -41,6 +41,88 @@ class Agent10ReproducibleValidationTests(unittest.TestCase):
         )
         self.assertEqual(completed.returncode, 0, completed.stderr)
 
+    def test_dependency_preflight_rejects_installed_version_drift(self) -> None:
+        spec = importlib.util.spec_from_file_location("verify_dependencies", ROOT / "scripts/verify_dependencies.py")
+        module = importlib.util.module_from_spec(spec)
+        assert spec and spec.loader
+        spec.loader.exec_module(module)
+        with tempfile.TemporaryDirectory() as directory:
+            fixture = Path(directory)
+            package = {"dependencies": {"react": "19.2.8", "react-dom": "19.2.8", "vite": "7.3.6"}}
+            lock = {
+                "lockfileVersion": 3,
+                "packages": {
+                    "": {"dependencies": package["dependencies"]},
+                    "node_modules/react": {"version": "19.2.8"},
+                    "node_modules/react-dom": {"version": "19.2.8"},
+                    "node_modules/vite": {"version": "7.3.6"},
+                },
+            }
+            (fixture / "package.json").write_text(json.dumps(package), encoding="utf-8")
+            (fixture / "package-lock.json").write_text(json.dumps(lock), encoding="utf-8")
+            for name, version in (("react", "19.2.8"), ("react-dom", "19.2.8"), ("vite", "8.2.1")):
+                package_dir = fixture / "node_modules" / name
+                package_dir.mkdir(parents=True)
+                (package_dir / "package.json").write_text(json.dumps({"version": version}), encoding="utf-8")
+            with patch.object(module, "ROOT", fixture), patch("sys.stderr"), patch("sys.stdout"):
+                self.assertEqual(module.main(), 1)
+
+    def test_dependency_preflight_rejects_missing_local_install(self) -> None:
+        spec = importlib.util.spec_from_file_location("verify_dependencies_missing", ROOT / "scripts/verify_dependencies.py")
+        module = importlib.util.module_from_spec(spec)
+        assert spec and spec.loader
+        spec.loader.exec_module(module)
+        with tempfile.TemporaryDirectory() as directory:
+            fixture = Path(directory)
+            dependencies = {"react": "19.2.8", "react-dom": "19.2.8", "vite": "7.3.6"}
+            package = {"dependencies": dependencies}
+            lock = {
+                "lockfileVersion": 3,
+                "packages": {
+                    "": {"dependencies": dependencies},
+                    **{f"node_modules/{name}": {"version": version} for name, version in dependencies.items()},
+                },
+            }
+            (fixture / "package.json").write_text(json.dumps(package), encoding="utf-8")
+            (fixture / "package-lock.json").write_text(json.dumps(lock), encoding="utf-8")
+            with patch.object(module, "ROOT", fixture), patch("sys.stderr"), patch("sys.stdout"):
+                self.assertEqual(module.main(), 1)
+
+    def test_dependency_preflight_rejects_missing_or_wrong_local_vite_bin(self) -> None:
+        spec = importlib.util.spec_from_file_location("verify_dependencies_bin", ROOT / "scripts/verify_dependencies.py")
+        module = importlib.util.module_from_spec(spec)
+        assert spec and spec.loader
+        spec.loader.exec_module(module)
+        for mode in ("missing", "wrong"):
+            with self.subTest(mode=mode), tempfile.TemporaryDirectory() as directory:
+                fixture = Path(directory)
+                dependencies = {"react": "19.2.8", "react-dom": "19.2.8", "vite": "7.3.6"}
+                package = {"dependencies": dependencies}
+                lock = {
+                    "lockfileVersion": 3,
+                    "packages": {
+                        "": {"dependencies": dependencies},
+                        **{f"node_modules/{name}": {"version": version} for name, version in dependencies.items()},
+                    },
+                }
+                (fixture / "package.json").write_text(json.dumps(package), encoding="utf-8")
+                (fixture / "package-lock.json").write_text(json.dumps(lock), encoding="utf-8")
+                for name, version in dependencies.items():
+                    package_dir = fixture / "node_modules" / name
+                    package_dir.mkdir(parents=True)
+                    metadata = {"version": version}
+                    if name == "vite":
+                        metadata["bin"] = {"vite": "bin/vite.js"}
+                        (package_dir / "bin").mkdir()
+                        (package_dir / "bin" / "vite.js").write_text("#!/usr/bin/env node\n", encoding="utf-8")
+                    (package_dir / "package.json").write_text(json.dumps(metadata), encoding="utf-8")
+                if mode == "wrong":
+                    link_dir = fixture / "node_modules" / ".bin"
+                    link_dir.mkdir()
+                    (link_dir / "vite").symlink_to("../vite/wrong.js")
+                with patch.object(module, "ROOT", fixture), patch("sys.stderr"), patch("sys.stdout"):
+                    self.assertEqual(module.main(), 1)
+
     def test_command_timeout_terminates_its_process_group(self) -> None:
         check = VERIFY_MODULE.run_command(
             "sleeping-test",

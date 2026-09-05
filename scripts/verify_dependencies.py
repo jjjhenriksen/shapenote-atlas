@@ -20,6 +20,49 @@ def fail(message: str) -> int:
     return 1
 
 
+def installed_package(name: str) -> tuple[dict[str, object] | None, str | None]:
+    package_path = ROOT / "node_modules" / name / "package.json"
+    try:
+        package = json.loads(package_path.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        return None, f"installed dependency is missing: {name} (run npm ci)"
+    except json.JSONDecodeError as error:
+        return None, f"installed metadata is malformed for {name}: line {error.lineno}, column {error.colno}"
+    except OSError as error:
+        return None, f"cannot read installed metadata for {name}: {error}"
+    if not isinstance(package, dict):
+        return None, f"installed metadata is not an object for {name}"
+    version = package.get("version")
+    if not isinstance(version, str):
+        return None, f"installed metadata has no version for {name}"
+    return package, None
+
+
+def validate_vite_bin(package: dict[str, object]) -> str | None:
+    bin_spec = package.get("bin")
+    if isinstance(bin_spec, str):
+        relative_bin = bin_spec
+    elif isinstance(bin_spec, dict) and isinstance(bin_spec.get("vite"), str):
+        relative_bin = bin_spec["vite"]
+    else:
+        return "installed vite metadata has no vite bin declaration"
+    package_dir = ROOT / "node_modules" / "vite"
+    expected_bin = (package_dir / relative_bin).resolve(strict=False)
+    try:
+        expected_bin.relative_to(package_dir.resolve())
+    except ValueError:
+        return f"installed vite bin escapes its package: {relative_bin!r}"
+    if not expected_bin.is_file():
+        return f"installed vite bin target is missing: {expected_bin}"
+    link = ROOT / "node_modules" / ".bin" / "vite"
+    if not link.exists() and not link.is_symlink():
+        return "local vite executable is missing: node_modules/.bin/vite (run npm ci)"
+    resolved_link = link.resolve(strict=False)
+    if resolved_link != expected_bin:
+        return f"local vite executable resolves to {resolved_link}, expected {expected_bin}"
+    return None
+
+
 def main() -> int:
     try:
         package = json.loads((ROOT / "package.json").read_text(encoding="utf-8"))
@@ -43,6 +86,8 @@ def main() -> int:
     if not isinstance(packages, dict):
         return fail("package-lock.json packages table is missing")
     resolved: dict[str, str] = {}
+    installed_versions: dict[str, str] = {}
+    installed_packages: dict[str, dict[str, object]] = {}
     for name, requested in sorted(declared.items()):
         entry = packages.get(f"node_modules/{name}")
         if not isinstance(entry, dict) or not isinstance(entry.get("version"), str):
@@ -52,7 +97,33 @@ def main() -> int:
         if requested != version:
             return fail(f"{name} requests {requested!r} but lockfile resolves {version!r}")
 
-    print(json.dumps({"status": "passed", "lockfileVersion": lock.get("lockfileVersion"), "resolved": resolved}, sort_keys=True))
+        installed, error = installed_package(name)
+        if error is not None:
+            return fail(error)
+        assert installed is not None
+        installed_version = installed["version"]
+        assert isinstance(installed_version, str)
+        installed_versions[name] = installed_version
+        installed_packages[name] = installed
+        if installed_version != version:
+            return fail(f"{name} is installed at {installed_version!r} but lockfile resolves {version!r}")
+
+    if "vite" in installed_packages:
+        bin_error = validate_vite_bin(installed_packages["vite"])
+        if bin_error is not None:
+            return fail(bin_error)
+
+    print(
+        json.dumps(
+            {
+                "status": "passed",
+                "lockfileVersion": lock.get("lockfileVersion"),
+                "resolved": resolved,
+                "installed": installed_versions,
+            },
+            sort_keys=True,
+        )
+    )
     return 0
 
 
