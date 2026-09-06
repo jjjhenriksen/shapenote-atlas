@@ -1,0 +1,276 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-05T21:50:08Z",
+  "projectRoot": "/Users/jacquelinehenriksen/Documents/Codex/2026-09-04/atlas-luna-runtime/work/atlas-runtime-bdd-blzfF7/checkout",
+  "python": "3.9.6",
+  "pid": 20853,
+  "git": {
+    "root": "/Users/jacquelinehenriksen/Documents/Codex/2026-09-04/atlas-luna-runtime/work/atlas-runtime-bdd-blzfF7/checkout",
+    "head": "bdd6c49e5208aa9bb9c09f4a9872e6917cdefed2",
+    "dirty": false,
+    "statusEntryCount": 0
+  },
+  "overallStatus": "passed",
+  "complete": true,
+  "checks": [
+    {
+      "name": "generated-artifacts",
+      "status": "passed",
+      "detail": "required JSON artifacts load",
+      "sizes": {
+        "corpus.json": 42975236,
+        "source-coverage.json": 2801847,
+        "transcription-queue.json": 4743898,
+        "human-review-queue.json": 11290903,
+        "source-comparison-ledger.json": 4975111,
+        "shared-edition-reconciliation.json": 8251487,
+        "source-health.json": 9917373
+      }
+    },
+    {
+      "name": "stale-generated-data",
+      "status": "passed",
+      "detail": "known corpus source inputs are not newer than generated corpus",
+      "generator": "/Users/jacquelinehenriksen/Documents/Codex/2026-09-04/atlas-luna-runtime/work/atlas-runtime-bdd-blzfF7/checkout/scripts/build_data.py",
+      "checkedSourceInputs": [
+        "/Users/jacquelinehenriksen/sh-corpus-scripts/dashboard/data.js",
+        "/Users/jacquelinehenriksen/sh-corpus-scripts/rag_web_metadata.csv",
+        "/Users/jacquelinehenriksen/sh-corpus-scripts/changed_across_editions.csv"
+      ]
+    },
+    {
+      "name": "unknown-mode-defaults",
+      "status": "passed",
+      "detail": "no unsafe missing-mode major default found"
+    },
+    {
+      "name": "promotion-gate",
+      "status": "passed",
+      "detail": "no unsafe promotion markers found"
+    },
+    {
+      "name": "queue-contradictions",
+      "status": "passed",
+      "detail": "covered queue states agree"
+    },
+    {
+      "name": "dependencies",
+      "status": "passed",
+      "detail": "exit code 0",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/verify_dependencies.py"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 0.108,
+      "stdout": "{\"installed\": {\"react\": \"19.2.8\", \"react-dom\": \"19.2.8\", \"vite\": \"7.3.6\"}, \"lockfileVersion\": 3, \"resolved\": {\"react\": \"19.2.8\", \"react-dom\": \"19.2.8\", \"vite\": \"7.3.6\"}, \"status\": \"passed\"}\n",
+      "stderr": ""
+    },
+    {
+      "name": "data",
+      "status": "passed",
+      "detail": "exit code 0",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_data.py"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 3.436,
+      "stdout": "Validated 3547 songs, 1155 lazy full-score assets, 121 review draft assets, 3047 transcription queue records, 90 image review records, and all book coverage counters.\n",
+      "stderr": ""
+    },
+    {
+      "name": "playback",
+      "status": "passed",
+      "detail": "exit code 0",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_playback.py"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 2.383,
+      "stdout": "{\"assets\": 1317, \"assetsWithPitchedEvents\": 1317, \"errors\": [], \"events\": 292984, \"parts\": 5182, \"pitchedEvents\": 281148, \"playableAssets\": 1316, \"quarantinedDraftAssets\": 1, \"quarantinedInvalidDurations\": 1, \"rests\": 11772, \"samePitchDuplicateEvents\": 270}\n",
+      "stderr": ""
+    },
+    {
+      "name": "transposition",
+      "status": "passed",
+      "detail": "exit code 0",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_transposition.py"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 3.127,
+      "stdout": "{\"assets\": 1317, \"omrDetected\": 0, \"preserved\": 1317, \"trimmed\": 0, \"unknown\": 171}\n",
+      "stderr": ""
+    },
+    {
+      "name": "shape-review",
+      "status": "passed",
+      "detail": "exit code 0",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_shape_review_drafts.py"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 0.393,
+      "stdout": "{\"records\": 19, \"pitchedEvents\": 2589, \"shapeNoteheads\": 2589, \"safeToPromote\": 0}\n",
+      "stderr": ""
+    },
+    {
+      "name": "source-shape-review",
+      "status": "passed",
+      "detail": "exit code 0",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_source_shape_review_drafts.py"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 1.698,
+      "stdout": "{\"records\": 90, \"pitchedEvents\": 14115, \"shapeNoteheads\": 14115, \"safeToPromote\": 0}\n",
+      "stderr": ""
+    },
+    {
+      "name": "transcription-images",
+      "status": "passed",
+      "detail": "exit code 0",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_transcription_images.py"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 0.374,
+      "stdout": "{\n  \"sourceImages\": 218,\n  \"normalizedWorkingImages\": 218,\n  \"suppressedWorkingImages\": 218,\n  \"aiEditedSamples\": 8,\n  \"explicitWorkingImages\": 8,\n  \"unsafeExplicitWorkingImages\": 8,\n  \"cleanedOMRRecords\": 90,\n  \"cleanedOMRDrafts\": 89,\n  \"errors\": []\n}\n",
+      "stderr": ""
+    },
+    {
+      "name": "image-review-queue",
+      "status": "passed",
+      "detail": "exit code 0",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_image_review_queue.py"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 0.917,
+      "stdout": "{\n  \"records\": 90,\n  \"readyForHumanReview\": 90,\n  \"errors\": []\n}\n",
+      "stderr": ""
+    },
+    {
+      "name": "source-candidates",
+      "status": "passed",
+      "detail": "exit code 0",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_source_candidates.py"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 0.134,
+      "stdout": "{\n  \"candidates\": 94,\n  \"downloadedPdfs\": 94,\n  \"omrRecords\": 94,\n  \"reconciliationFiles\": 0,\n  \"errors\": []\n}\n",
+      "stderr": ""
+    },
+    {
+      "name": "shared-edition-reconciliation",
+      "status": "passed",
+      "detail": "exit code 0",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_shared_edition_reconciliation.py"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 0.955,
+      "stdout": "{\"errors\": [], \"safeToPromote\": 0, \"sharedPairs\": 448}\n",
+      "stderr": ""
+    },
+    {
+      "name": "omr-audit",
+      "status": "passed",
+      "detail": "exit code 0",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/audit_omr_drafts.py"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 0.32,
+      "stdout": "Audited 122 local OMR drafts; none were promoted to the corpus.\n",
+      "stderr": ""
+    },
+    {
+      "name": "source-health-collection",
+      "status": "not-run",
+      "detail": "skipped by --skip-source-health-collection; existing report will be validated",
+      "required": false
+    },
+    {
+      "name": "source-health-validation",
+      "status": "passed",
+      "detail": "exit code 0",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/jacquelinehenriksen/Documents/Codex/2026-09-04/atlas-luna-runtime/work/atlas-runtime-bdd-blzfF7/checkout/scripts/validate_source_health.py"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 5.37,
+      "stdout": "{\n  \"report\": \"/Users/jacquelinehenriksen/Documents/Codex/2026-09-04/atlas-luna-runtime/work/atlas-runtime-bdd-blzfF7/checkout/public/source-health.json\",\n  \"records\": 7619,\n  \"errors\": []\n}\n",
+      "stderr": "",
+      "networkMode": "offline-report-validation"
+    },
+    {
+      "name": "browser-smoke",
+      "status": "passed",
+      "detail": "exit code 0",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/jacquelinehenriksen/Documents/Codex/2026-09-04/atlas-luna-runtime/work/atlas-runtime-bdd-blzfF7/checkout/scripts/verify_browser_smoke.py",
+        "--receipt",
+        "/Users/jacquelinehenriksen/Documents/Codex/2026-09-04/atlas-luna-runtime/work/atlas-runtime-bdd-blzfF7/checkout/work/luna-program-20260905/ui/agent-11-browser-receipt-bdd6c49-497b-v6-20260905.json"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 0.169,
+      "stdout": "{\"cases\": 6, \"errors\": [], \"receipt\": \"work/luna-program-20260905/ui/agent-11-browser-receipt-bdd6c49-497b-v6-20260905.json\"}\n",
+      "stderr": ""
+    },
+    {
+      "name": "build",
+      "status": "passed",
+      "detail": "exit code 0",
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 4.572,
+      "stdout": "\n> shape-note-atlas@0.1.0 build\n> vite build\n\nvite v7.3.6 building client environment for production...\ntransforming...\n✓ 28 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/index.html                   0.52 kB │ gzip:  0.32 kB\ndist/assets/index-DulcBiyX.css   29.29 kB │ gzip:  6.18 kB\ndist/assets/index-CEfqjkWM.js   258.43 kB │ gzip: 80.31 kB\n✓ built in 4.13s\n",
+      "stderr": ""
+    },
+    {
+      "name": "startup-smoke",
+      "status": "passed",
+      "detail": "exit code 0",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/jacquelinehenriksen/Documents/Codex/2026-09-04/atlas-luna-runtime/work/atlas-runtime-bdd-blzfF7/checkout/scripts/verify_startup.py",
+        "--timeout",
+        "12.0"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 1.334,
+      "stdout": "{\n  \"status\": \"passed\",\n  \"static\": {\n    \"distAssets\": 2,\n    \"corpusRecords\": 3547,\n    \"package\": \"/Users/jacquelinehenriksen/Documents/Codex/2026-09-04/atlas-luna-runtime/work/atlas-runtime-bdd-blzfF7/checkout/outputs/The Shape-Note Atlas.app\"\n  },\n  \"preview\": {\n    \"/\": {\n      \"status\": 200,\n      \"contentType\": \"text/html\",\n      \"bytes\": 521\n    },\n    \"/corpus.json\": {\n      \"status\": 200,\n      \"contentType\": \"application/json\",\n      \"bytes\": 42975236\n    },\n    \"/source-coverage.json\": {\n      \"status\": 200,\n      \"contentType\": \"application/json\",\n      \"bytes\": 2801847\n    }\n  }\n}\n",
+      "stderr": ""
+    }
+  ],
+  "blockers": [],
+  "limitations": [
+    "source-health-collection: skipped by --skip-source-health-collection; existing report will be validated"
+  ],
+  "policy": {
+    "failClosed": true,
+    "immutableSourcesPreserved": true,
+    "unsafePromotionRejected": true,
+    "missingModeNeverDefaultsToMajor": true,
+    "sourceHealthDefault": "offline",
+    "onlineSourceHealthRequiresPositiveBudget": true
+  }
+}
