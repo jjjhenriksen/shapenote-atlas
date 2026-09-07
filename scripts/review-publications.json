@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "policy": "Publish usable drafts for human correction; publication does not certify canonical source fidelity. Completeness describes notation extent, not correctness.",
+  "publications": [
+    {
+      "slug": "mnharmony-afton",
+      "songId": "mnharmony afton — Afton",
+      "bookId": "mnharmony",
+      "version": "v25",
+      "completeness": "complete",
+      "limitations": [
+        "Full-song notation draft, not a certified edition transcription.",
+        "Some lyric syllable alignment and melismas remain unresolved, especially measure 8 Treble 1.",
+        "Mode is unknown; supply a source key for transposition."
+      ],
+      "musicXml": {
+        "path": "work/openclaw-afton-20260907/afton-full-song-candidate-v25.musicxml",
+        "sha256": "7db156b17f9bb126415c0816bf9919fa4c43e4c738bbb7e597d2a9ea87b0d444"
+      },
+      "source": {
+        "path": "work/luna-program-20260904/source_only/retained-sources/mnharmony-afton.pdf",
+        "sha256": "6ba40c10dbdfa9b93e16f67ae34619254c88004367d802f07a6eddd156047192"
+      },
+      "evidence": {
+        "path": "work/openclaw-afton-20260907/afton-v25-review.json",
+        "sha256": "23c9116d597de0a7f218081cf79e5999bdebcdc6f8389e2fe3e726145b75aa32"
+      }
+    },
+    {
+      "slug": "ch7-10-zions-dove",
+      "songId": "ch7 10 — Zion’s Dove",
+      "bookId": "ch7",
+      "version": "v21",
+      "completeness": "partial",
+      "limitations": [
+        "Partial transcription: first system and three bars of the second system only.",
+        "Later notes, lyrics, endings and final boundary are not yet transcribed.",
+        "Some noteheads and lyric extensions remain unencoded; repeats require source review.",
+        "Mode is unknown; supply a source key for transposition."
+      ],
+      "musicXml": {
+        "path": "work/openclaw-zions-dove-20260907/ch7-10-first-system-candidate-v21.musicxml",
+        "sha256": "942cadae85155b9ab43a04a836d44897caed7f3df05c37dacff553dd5d427ba1"
+      },
+      "source": {
+        "path": "work/luna-program-20260904/existing_books/assets/christian-harmony/batch-01/scans/10-zions-dove.jpg",
+        "sha256": "eba3f9387bf9b2ba9b83bee3e8c6f7abb33f37acb38ddf3f726423175af78584"
+      },
+      "evidence": {
+        "path": "work/openclaw-zions-dove-20260907/verification.json",
+        "sha256": "d3f0221d9bbafb0cb722b1d12f35979d6e76ead056e0c92a0ebe05c3575c4d03"
+      }
+    }
+  ]
+}

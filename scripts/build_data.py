@@ -2459,6 +2459,8 @@ def main() -> int:
         ),
         encoding="utf-8",
     )
+    from review_publications import publish
+    publish(PROJECT_ROOT, OUTPUT.parent)
     print(f"Built {OUTPUT} with {len(songs)} songs and {local_scores} full-song MusicXML scores.")
     return 0
 

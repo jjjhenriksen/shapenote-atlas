@@ -6,11 +6,11 @@ Companion to the full [OpenClaw handoff](OPENCLAW_HANDOFF.md), not a replacement
 
 Advance exact-source coverage across **all eleven books**, in small independently verified commits. Afton is one lane, not the project. Keep notation, lyric alignment, provenance, playback, discovery, and validation in scope. Existing structured mappings do not prove printed-edition fidelity.
 
-One coordinator owns Git and integration. Workers own separate new record/version directories. For each batch: inspect current local handoffs and exact retained source; export a new candidate; verify actual XML and predecessor preservation; commit only the reviewed batch. Never stage the whole checkout. Canonical promotion requires complete exact-source semantics and applicable integration gates, not just an importing candidate. Application changes require focused runtime/browser checks; source-only review packages do not claim that proof.
+One coordinator owns Git and integration. Workers own separate new record/version directories. For each batch: inspect current local handoffs and exact retained source; export a new candidate; verify actual XML and predecessor preservation; commit only the reviewed batch. Never stage the whole checkout. Publish useful human-correctable review drafts as soon as parsing, timing, provenance, and correction/download checks pass; do not wait for complete lyrics or every shape audit. Reserve exact-edition verified status for completed source review. The user explicitly prioritized early promotion with human correction on 2026-09-07. Application changes require focused runtime/browser checks; source-only review packages do not claim that proof.
 
 ## Current canonical scope
 
-Recomputed from `public/source-coverage.json`, `public/transcription-queue.json`, and `public/human-review-queue.json` on 2026-09-07. No canonical records changed in this cycle.
+Recomputed from `public/source-coverage.json`, `public/transcription-queue.json`, and `public/human-review-queue.json` on 2026-09-07. The initial source-only cycle changed no canonical records. The next delivery publishes review drafts without increasing verified mapping counts.
 
 | Book / edition | Appearances | Structured mappings | Missing mappings |
 | --- | ---: | ---: | ---: |
@@ -58,4 +58,15 @@ Keep Sacred Harp Tunes and every other zero-mapping book visible in the table ev
 - Git initially failed on an unreadable derived pack index and five tree objects. The index was regenerated from a readable pack; exact-hash tree bytes were recovered from a separate GitHub object copy. Original unreadable files were preserved; no reset, cleaning, or unrelated working-file replacement occurred.
 - Unrelated untracked files, including iCloud duplicates, remain untouched. Do not clean them to make a status report appear clean.
 - Command Center menu service remains absent; no service repair or operational dispatch was performed.
-- Commits are local in this cycle; no push has been performed. Retained source PDFs and predecessors remain local-only dependencies as documented in each review package.
+- Initial three commits were local. Draft publication and push status are recorded below. Historical predecessor files remain local-only dependencies; published review packages include their editable XML and source comparison assets.
+
+
+## First usable draft publication
+
+Afton v25 and Zion's Dove v21 are now attached to their live corpus records as published review drafts. Afton covers the full notation extent; Zion is explicitly partial. Both have playable pitch/rhythm data, editable MusicXML downloads, retained source comparison, evidence links, and a GitHub correction form with tune/version context. No issue is sent automatically. Mode stays unknown until the user supplies a key for transposition.
+
+`scripts/review-publications.json` pins the releases; `scripts/review_publications.py` reapplies them after data regeneration. Missing local source files fall back to hash-checked tracked publication assets; changed source bytes are rejected. Verified mapping counts stay unchanged; the two drafts are available without waiting for complete source-semantic certification.
+
+Validation: three publication tests passed, plus 19 playback/discovery/key tests and the Vite 7.3.6 production build in an isolated checkout with locked dependencies. Browser checks on desktop and 390px mobile passed for playback, pause/stop, manual-key transposition, byte-matched editable downloads, source/evidence HTTP links, correction context, and expandable known gaps. No browser errors or warnings in the final check. GitHub Issues is enabled; no correction was submitted during testing.
+
+The existing full data validator remains unavailable in the isolated clone because `work/source-transcriptions/2025/clean-source-candidates.json` is a local-only dependency. This is focused draft-publication proof, not an all-application or all-book certification. The shared checkout's unreadable `index.html` was not replaced; isolated runtime proof used the same tracked base plus the exact changed files.

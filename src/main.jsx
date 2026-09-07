@@ -6,6 +6,7 @@ import { barlinesForMeasure, lyricForEvent, scoreSemanticSummary } from "./agent
 import { buildPracticeSchedule, guardedAudioAction, resolvePlaybackQuarantine, scheduleWithCleanup, sessionIsCurrent, shouldCompleteSession } from "./practice.js";
 import { summarizeSourceHealth } from "./sourceHealthPresentation.js";
 import { resolveKeyContext } from "./keyResolution.js";
+import { PublishedDraftActions } from "./PublishedDraftActions.jsx";
 
 const PUBLIC_BASE = import.meta.env.BASE_URL || "/";
 
@@ -521,7 +522,7 @@ function ScorePreview({ score, transpose, complete, sourceKey, targetKey, shapeS
   const measureCaption = complete
     ? sourceMeasureCount && sourceMeasureCount !== measureStarts.length
       ? `${measureStarts.length} detected / ${sourceMeasureCount} source measures · draft view`
-      : `${measureStarts.length ? `${measureStarts.length} measures · ` : ""}full-song view`
+      : `${measureStarts.length ? `${measureStarts.length} measures · ` : ""}${score?.reviewPublication?.completeness === "partial" ? "partial-tune view" : "full-song view"}`
     : "loading full song";
   const displayedTimeSignature = score?.timeSignature || sourceTimeSignature || "time not encoded";
   const semantic = scoreSemanticSummary(score);
@@ -1125,8 +1126,9 @@ function App() {
           {humanReviewQueueError && selectedCoverage && selectedCoverage.status !== "structured-score" && <div className="source-coverage-note"><Icon name="info" size={18} /><span role="status"><strong>Review status unavailable.</strong> The local human-review queue could not be loaded. Source coverage and score data are unchanged; reload when the local server is available.</span><button className="text-button" type="button" onClick={() => setHumanReviewQueueAttempt((attempt) => attempt + 1)}>Retry</button></div>}
           {selectedScore ? <>
             {referenceScoreActive && <div className="reference-score-note"><Icon name="info" size={18} /><span>This is a transposable reference witness from {referenceSourceLabel}. It is shown for practice, but it is not being presented as the {book.label} engraving.</span></div>}
-            {draftScoreActive && <div className="draft-score-note"><Icon name="info" size={18} /><span>{reviewDraft ? <><strong>{reviewDisposition(reviewDraft, reviewDraftAmbiguous).label}.</strong> {reviewDisposition(reviewDraft, reviewDraftAmbiguous).summary} </> : "This is an unverified OMR transcription draft. "}It is playable and transposable only as isolated review material, but it is not the {book.label} engraving and does not count as verified coverage. <a href={assetUrl("/human-review-queue.json")} target="_blank" rel="noreferrer noopener">{reviewDraft ? "View disposition evidence" : "Open review evidence"} <Icon name="external" size={13} /></a></span></div>}
+            {draftScoreActive && <div className="draft-score-note"><Icon name="info" size={18} /><span>{reviewDraft ? <><strong>{reviewDisposition(reviewDraft, reviewDraftAmbiguous).label}.</strong> {reviewDisposition(reviewDraft, reviewDraftAmbiguous).summary} </> : selectedDraftScore?.reviewPublication ? "This is a published working transcription. " : "This is an unverified OMR transcription draft. "}{selectedDraftScore?.reviewPublication ? "Ready for practice and correction; not yet a verified edition score. " : <>It is playable and transposable only as isolated review material, but it is not the {book.label} engraving and does not count as verified coverage. </>}<a href={assetUrl(selectedDraftScore?.reviewPublication?.evidenceUrl || "/human-review-queue.json")} target="_blank" rel="noreferrer noopener">{reviewDraft ? "View disposition evidence" : "Open review evidence"} <Icon name="external" size={13} /></a></span></div>}
             {selectedCoverage?.status === "transcription-blocked" && <div className="source-coverage-note"><Icon name="info" size={18} /><span><strong>Source coverage blocked.</strong> {coverageNextStep(selectedCoverage)} This review draft remains isolated until an authorized source is acquired.</span></div>}
+            {draftScoreActive && <PublishedDraftActions draft={selectedDraftScore} song={selectedSong} bookLabel={book.label} assetUrl={assetUrl} />}
             {draftScoreActive && <CleanSourceCandidates coverage={selectedCoverage} />}
             {draftScoreActive && <SourceComparisonPanel song={selectedSong} bookId={bookId} coverage={selectedCoverage} />}
             {draftScoreActive && <ShapeReviewDraftPanel reviewItem={reviewDraft} ambiguous={reviewDraftAmbiguous} />}

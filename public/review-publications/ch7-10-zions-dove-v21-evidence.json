@@ -1,0 +1,44 @@
+{
+  "status": "passed",
+  "safeToPromote": false,
+  "sourceSha256": "eba3f9387bf9b2ba9b83bee3e8c6f7abb33f37acb38ddf3f726423175af78584",
+  "baseXmlSha256": "90e3f0f6c183e3f2bab4b13205d326525870f5a87d6f5f69539d0d58d41ac41b",
+  "candidateXmlSha256": "942cadae85155b9ab43a04a836d44897caed7f3df05c37dacff553dd5d427ba1",
+  "candidateJsonSha256": "733fda430103aea988dfa979fa72fde1ecd87447f07840b7dee64a80b272da44",
+  "parts": [
+    {
+      "part": "Treble",
+      "prefixPreserved": true,
+      "eventsAdded": 2,
+      "endOnset": 56.0,
+      "totalPitchedNotes": 37
+    },
+    {
+      "part": "Alto",
+      "prefixPreserved": true,
+      "eventsAdded": 2,
+      "endOnset": 56.0,
+      "totalPitchedNotes": 43
+    },
+    {
+      "part": "Tenor",
+      "prefixPreserved": true,
+      "eventsAdded": 2,
+      "endOnset": 56.0,
+      "totalPitchedNotes": 37
+    },
+    {
+      "part": "Bass",
+      "prefixPreserved": true,
+      "eventsAdded": 1,
+      "endOnset": 56.0,
+      "totalPitchedNotes": 42
+    }
+  ],
+  "historicalFilesUnchanged": 33,
+  "newLyrics": [
+    "dove,",
+    "be;"
+  ],
+  "scope": "Structural preservation and exported parity only; direct scan review is separately documented, not established by these assertions."
+}
