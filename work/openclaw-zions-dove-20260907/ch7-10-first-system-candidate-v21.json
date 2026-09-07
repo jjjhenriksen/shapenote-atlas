@@ -1,0 +1,2560 @@
+{
+  "record": "ch7/10",
+  "title": "Zion's Dove",
+  "edition": "Christian Harmony",
+  "sourceScan": "work/luna-program-20260904/existing_books/assets/christian-harmony/batch-01/scans/10-zions-dove.jpg",
+  "sourceScanSha256": "eba3f9387bf9b2ba9b83bee3e8c6f7abb33f37acb38ddf3f726423175af78584",
+  "coordinateFrame": "full retained 1654x1119 raster; origin top-left",
+  "timeSignatureObserved": "4/4",
+  "keySignatureObserved": {
+    "flats": [
+      "B",
+      "E",
+      "A",
+      "D"
+    ],
+    "count": 4
+  },
+  "mode": null,
+  "shapeSystemObserved": "seven-shape glyphs observed separately from pitch",
+  "safeToPromote": false,
+  "status": "partial-first-and-second-system-review-candidate-v21",
+  "preservedCandidates": [
+    "ch7-10-first-unit-candidate.json",
+    "ch7-10-first-unit-candidate-v2.json",
+    "ch7-10-first-system-candidate-v3.json",
+    "ch7-10-first-system-candidate-v4.json",
+    "ch7-10-first-system-candidate-v5.json",
+    "ch7-10-first-system-candidate-v6.json",
+    "ch7-10-first-system-candidate-v7.json",
+    "ch7-10-first-system-candidate-v8.json",
+    "ch7-10-first-system-candidate-v9.json",
+    "ch7-10-first-system-candidate-v10.json",
+    "ch7-10-first-system-candidate-v11.json",
+    "ch7-10-first-system-candidate-v13.json",
+    "ch7-10-first-system-candidate-v15.json",
+    "ch7-10-first-system-candidate-v16.json",
+    "ch7-10-first-system-candidate-v17.json",
+    "ch7-10-first-system-candidate-v20.json"
+  ],
+  "parts": [
+    {
+      "name": "Treble",
+      "clef": "treble",
+      "staffLinesY": [
+        127,
+        139,
+        151,
+        164,
+        177
+      ],
+      "events": [
+        {
+          "onset": 0.0,
+          "beats": 2.0,
+          "measure": "opening",
+          "rest": true,
+          "type": "half",
+          "staffY": null
+        },
+        {
+          "onset": 2.0,
+          "beats": 2.0,
+          "measure": "opening",
+          "rest": false,
+          "type": "half",
+          "staffY": 146,
+          "stepPitch": "C5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "hollow-diamond",
+          "lyrics": [
+            {
+              "number": "1",
+              "syllable": "Hark!",
+              "sourceAnchored": true
+            }
+          ]
+        },
+        {
+          "onset": 4.0,
+          "beats": 1.0,
+          "measure": "next",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 249,
+          "staffY": 134,
+          "stepPitch": "Eb5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "filled-oval",
+          "lyrics": [
+            {
+              "number": "1",
+              "syllable": "don't",
+              "sourceAnchored": true
+            }
+          ]
+        },
+        {
+          "onset": 5.0,
+          "beats": 1.0,
+          "measure": "next",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 292,
+          "staffY": 146,
+          "stepPitch": "C5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "diamond",
+          "lyrics": [
+            {
+              "number": "1",
+              "syllable": "you",
+              "sourceAnchored": true
+            }
+          ]
+        },
+        {
+          "onset": 6.0,
+          "beats": 2.0,
+          "measure": "next",
+          "rest": false,
+          "type": "half",
+          "staffX": 330,
+          "staffY": 146,
+          "stepPitch": "C5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "hollow-diamond",
+          "lyrics": [
+            {
+              "number": "1",
+              "syllable": "hear",
+              "sourceAnchored": true
+            }
+          ]
+        },
+        {
+          "onset": 8.0,
+          "beats": 2.0,
+          "measure": "reviewed-3",
+          "rest": false,
+          "type": "half",
+          "staffX": 374,
+          "staffY": 146,
+          "stepPitch": "C5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "hollow-diamond",
+          "lyrics": [
+            {
+              "number": "1",
+              "syllable": "the",
+              "sourceAnchored": true
+            }
+          ]
+        },
+        {
+          "onset": 10.0,
+          "beats": 1.0,
+          "measure": "reviewed-3",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 411,
+          "staffY": 134,
+          "stepPitch": "Eb5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "filled-oval",
+          "lyrics": [
+            {
+              "number": "1",
+              "syllable": "tur-",
+              "sourceAnchored": true
+            }
+          ]
+        },
+        {
+          "onset": 11.0,
+          "beats": 1.0,
+          "measure": "reviewed-3",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 431,
+          "staffY": 134,
+          "stepPitch": "Eb5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "filled-oval",
+          "lyrics": [
+            {
+              "number": "1",
+              "syllable": "tle",
+              "sourceAnchored": true
+            }
+          ]
+        },
+        {
+          "onset": 12.0,
+          "beats": 0.5,
+          "measure": "reviewed-4",
+          "rest": false,
+          "type": "eighth",
+          "staffX": 478,
+          "staffY": 146,
+          "stepPitch": "C5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "diamond",
+          "lyrics": [
+            {
+              "number": "1",
+              "syllable": "dove,",
+              "sourceAnchored": true,
+              "anchorOnly": true
+            }
+          ],
+          "sourceObservedSlur": "slur across this note-group; not a tie"
+        },
+        {
+          "onset": 12.5,
+          "beats": 0.5,
+          "measure": "reviewed-4",
+          "rest": false,
+          "type": "eighth",
+          "staffX": 500,
+          "staffY": 140,
+          "stepPitch": "Db5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "filled-oval"
+        },
+        {
+          "onset": 13.0,
+          "beats": 0.5,
+          "measure": "reviewed-4",
+          "rest": false,
+          "type": "eighth",
+          "staffX": 520,
+          "staffY": 134,
+          "stepPitch": "Eb5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "diamond"
+        },
+        {
+          "onset": 13.5,
+          "beats": 0.5,
+          "measure": "reviewed-4",
+          "rest": false,
+          "type": "eighth",
+          "staffX": 543,
+          "staffY": 140,
+          "stepPitch": "Db5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "diamond"
+        },
+        {
+          "onset": 14.0,
+          "beats": 2.0,
+          "measure": "reviewed-4",
+          "rest": false,
+          "type": "half",
+          "staffX": 566,
+          "staffY": 146,
+          "stepPitch": "C5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "hollow-diamond"
+        },
+        {
+          "onset": 16.0,
+          "beats": 2.0,
+          "measure": "reviewed-5",
+          "rest": false,
+          "type": "half",
+          "staffX": 609,
+          "staffY": 158,
+          "stepPitch": "Ab4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "filled-oval",
+          "lyrics": [
+            {
+              "number": "1",
+              "syllable": "The",
+              "sourceAnchored": true
+            }
+          ]
+        },
+        {
+          "onset": 18.0,
+          "beats": 1.0,
+          "measure": "reviewed-5",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 650,
+          "staffY": 134,
+          "stepPitch": "Eb5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "filled-oval",
+          "lyrics": [
+            {
+              "number": "1",
+              "syllable": "to-",
+              "sourceAnchored": true
+            }
+          ]
+        },
+        {
+          "onset": 19.0,
+          "beats": 1.0,
+          "measure": "reviewed-5",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 690,
+          "staffY": 134,
+          "stepPitch": "Eb5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "filled-oval",
+          "lyrics": [
+            {
+              "number": "1",
+              "syllable": "ken",
+              "sourceAnchored": true
+            }
+          ]
+        },
+        {
+          "onset": 20.0,
+          "beats": 1.0,
+          "measure": "reviewed-6",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 720,
+          "staffY": 134,
+          "stepPitch": "Eb5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "filled-oval",
+          "lyrics": [
+            {
+              "number": "1",
+              "syllable": "of",
+              "sourceAnchored": true,
+              "syllabic": "single"
+            }
+          ]
+        },
+        {
+          "onset": 21.0,
+          "beats": 1.0,
+          "measure": "reviewed-6",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 760,
+          "staffY": 134,
+          "stepPitch": "Eb5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "filled-oval",
+          "lyrics": [
+            {
+              "number": "1",
+              "syllable": "re-",
+              "sourceAnchored": true,
+              "syllabic": "begin"
+            }
+          ]
+        },
+        {
+          "onset": 22.0,
+          "beats": 1.0,
+          "measure": "reviewed-6",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 800,
+          "staffY": 157,
+          "stepPitch": "Ab4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "diamond",
+          "lyrics": [
+            {
+              "number": "1",
+              "syllable": "deem-",
+              "sourceAnchored": true,
+              "syllabic": "begin"
+            }
+          ]
+        },
+        {
+          "onset": 23.0,
+          "beats": 1.0,
+          "measure": "reviewed-6",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 840,
+          "staffY": 151,
+          "stepPitch": "Bb4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "triangle",
+          "lyrics": [
+            {
+              "number": "1",
+              "syllable": "ing",
+              "sourceAnchored": true,
+              "syllabic": "single"
+            }
+          ]
+        },
+        {
+          "onset": 24.0,
+          "beats": 3.0,
+          "measure": "reviewed-7",
+          "rest": false,
+          "type": "dotted-half",
+          "staffX": 875,
+          "staffY": 146,
+          "stepPitch": "C5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "diamond",
+          "lyrics": [
+            {
+              "number": "1",
+              "syllable": "love?",
+              "sourceAnchored": true,
+              "syllabic": "single"
+            }
+          ]
+        },
+        {
+          "onset": 27.0,
+          "beats": 1.0,
+          "measure": "reviewed-7",
+          "rest": true,
+          "type": "quarter",
+          "staffX": 940,
+          "staffY": null
+        },
+        {
+          "onset": 28.0,
+          "beats": 1.0,
+          "measure": "reviewed-8",
+          "rest": true,
+          "type": "quarter",
+          "staffX": 980,
+          "staffY": null
+        },
+        {
+          "onset": 29.0,
+          "beats": 1.0,
+          "measure": "reviewed-8",
+          "rest": true,
+          "type": "quarter",
+          "staffX": 1020,
+          "staffY": null
+        },
+        {
+          "onset": 30.0,
+          "beats": 1.0,
+          "measure": "reviewed-8",
+          "rest": true,
+          "type": "quarter",
+          "staffX": 1065,
+          "staffY": null
+        },
+        {
+          "onset": 31.0,
+          "beats": 1.0,
+          "measure": "reviewed-8",
+          "rest": true,
+          "type": "quarter",
+          "staffX": 1105,
+          "staffY": null
+        },
+        {
+          "onset": 32.0,
+          "beats": 1.0,
+          "measure": "reviewed-9",
+          "rest": true,
+          "type": "quarter",
+          "staffX": 1145,
+          "staffY": null
+        },
+        {
+          "onset": 33.0,
+          "beats": 1.0,
+          "measure": "reviewed-9",
+          "rest": true,
+          "type": "quarter",
+          "staffX": 1190,
+          "staffY": null
+        },
+        {
+          "onset": 34.0,
+          "beats": 1.0,
+          "measure": "reviewed-9",
+          "rest": true,
+          "type": "quarter",
+          "staffX": 1245,
+          "staffY": null
+        },
+        {
+          "onset": 35.0,
+          "beats": 1.0,
+          "measure": "reviewed-9",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 1290,
+          "staffY": 146,
+          "stepPitch": "Eb5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 36.0,
+          "beats": 1.0,
+          "measure": "reviewed-10",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 1340,
+          "staffY": 146,
+          "stepPitch": "Eb5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 37.0,
+          "beats": 1.0,
+          "measure": "reviewed-10",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 1380,
+          "staffY": 146,
+          "stepPitch": "C5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 38.0,
+          "beats": 1.0,
+          "measure": "reviewed-10",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 1420,
+          "staffY": 146,
+          "stepPitch": "C5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 39.0,
+          "beats": 1.0,
+          "measure": "reviewed-10",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 1465,
+          "staffY": 146,
+          "stepPitch": "Ab4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 40.0,
+          "beats": 1.0,
+          "measure": "reviewed-11",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 1515,
+          "staffY": 146,
+          "stepPitch": "Ab4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 41.0,
+          "beats": 1.0,
+          "measure": "reviewed-11",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 1555,
+          "staffY": 146,
+          "stepPitch": "C5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 42.0,
+          "beats": 2.0,
+          "measure": "reviewed-11",
+          "rest": false,
+          "type": "half",
+          "staffX": 1595,
+          "staffY": 146,
+          "stepPitch": "C5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 44.0,
+          "beats": 2.0,
+          "measure": "second-1",
+          "rest": false,
+          "type": "half",
+          "staffX": 166,
+          "staffY": 680,
+          "stepPitch": "C5",
+          "pitchDerivation": "second-system staff-position plus printed key signature; not glyph",
+          "lyrics": [
+            {
+              "number": "1",
+              "syllable": "O",
+              "sourceAnchored": true,
+              "syllabic": "single"
+            }
+          ]
+        },
+        {
+          "onset": 46.0,
+          "beats": 1.0,
+          "measure": "second-1",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 207,
+          "staffY": 693,
+          "stepPitch": "Ab4",
+          "pitchDerivation": "second-system staff-position plus printed key signature; not glyph",
+          "lyrics": [
+            {
+              "number": "1",
+              "syllable": "Zi",
+              "sourceAnchored": true,
+              "syllabic": "begin"
+            }
+          ]
+        },
+        {
+          "onset": 47.0,
+          "beats": 1.0,
+          "measure": "second-1",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 244,
+          "staffY": 693,
+          "stepPitch": "Ab4",
+          "pitchDerivation": "second-system staff-position plus printed key signature; not glyph",
+          "lyrics": [
+            {
+              "number": "1",
+              "syllable": "on",
+              "sourceAnchored": true,
+              "syllabic": "end"
+            }
+          ]
+        },
+        {
+          "onset": 48.0,
+          "beats": 1.0,
+          "measure": "second-2",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 284,
+          "staffY": 680,
+          "stepPitch": "C5",
+          "pitchDerivation": "second-system staff-position plus printed key signature; not glyph",
+          "lyrics": [
+            {
+              "number": "1",
+              "syllable": "hear",
+              "sourceAnchored": true,
+              "syllabic": "single"
+            }
+          ]
+        },
+        {
+          "onset": 49.0,
+          "beats": 1.0,
+          "measure": "second-2",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 337,
+          "staffY": 680,
+          "stepPitch": "C5",
+          "pitchDerivation": "second-system staff-position plus printed key signature; not glyph",
+          "lyrics": [
+            {
+              "number": "1",
+              "syllable": "the",
+              "sourceAnchored": true,
+              "syllabic": "single"
+            }
+          ]
+        },
+        {
+          "onset": 50.0,
+          "beats": 1.0,
+          "measure": "second-2",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 375,
+          "staffY": 668,
+          "stepPitch": "Eb5",
+          "pitchDerivation": "second-system staff-position plus printed key signature; not glyph",
+          "lyrics": [
+            {
+              "number": "1",
+              "syllable": "tur",
+              "sourceAnchored": true,
+              "syllabic": "begin"
+            }
+          ]
+        },
+        {
+          "onset": 51.0,
+          "beats": 1.0,
+          "measure": "second-2",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 414,
+          "staffY": 668,
+          "stepPitch": "Eb5",
+          "pitchDerivation": "second-system staff-position plus printed key signature; not glyph",
+          "lyrics": [
+            {
+              "number": "1",
+              "syllable": "tle",
+              "sourceAnchored": true,
+              "syllabic": "end"
+            }
+          ]
+        },
+        {
+          "onset": 52.0,
+          "beats": 2.0,
+          "measure": "second-3",
+          "rest": false,
+          "type": "half",
+          "staffX": 457,
+          "staffY": 668,
+          "stepPitch": "Eb5",
+          "pitchDerivation": "direct second-system staff position with printed four-flat signature; not shape",
+          "shapeGlyphObserved": "not-audited-in-v21",
+          "sourceObservedSlur": {
+            "type": "start",
+            "number": "1",
+            "evidence": "visible curve between distinct pitches, not tie"
+          },
+          "lyrics": [
+            {
+              "number": "1",
+              "syllable": "dove,",
+              "sourceAnchored": true,
+              "syllabic": "single"
+            }
+          ]
+        },
+        {
+          "onset": 54.0,
+          "beats": 2.0,
+          "measure": "second-3",
+          "rest": false,
+          "type": "half",
+          "staffX": 482,
+          "staffY": 687,
+          "stepPitch": "Bb4",
+          "pitchDerivation": "direct second-system staff position with printed four-flat signature; not shape",
+          "shapeGlyphObserved": "not-audited-in-v21",
+          "sourceObservedSlur": {
+            "type": "stop",
+            "number": "1",
+            "evidence": "visible curve between distinct pitches, not tie"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Alto",
+      "clef": "treble",
+      "staffLinesY": [
+        255,
+        268,
+        280,
+        292,
+        305
+      ],
+      "events": [
+        {
+          "onset": 0.0,
+          "beats": 2.0,
+          "measure": "opening",
+          "rest": true,
+          "type": "half",
+          "staffY": null
+        },
+        {
+          "onset": 2.0,
+          "beats": 2.0,
+          "measure": "opening",
+          "rest": false,
+          "type": "half",
+          "staffY": 305,
+          "stepPitch": "Eb4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "hollow-oval"
+        },
+        {
+          "onset": 4.0,
+          "beats": 1.0,
+          "measure": "next",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 249,
+          "staffY": 287,
+          "stepPitch": "Ab4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "filled-oval"
+        },
+        {
+          "onset": 5.0,
+          "beats": 1.0,
+          "measure": "next",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 292,
+          "staffY": 305,
+          "stepPitch": "Eb4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "hollow-oval"
+        },
+        {
+          "onset": 6.0,
+          "beats": 2.0,
+          "measure": "next",
+          "rest": false,
+          "type": "half",
+          "staffX": 330,
+          "staffY": 287,
+          "stepPitch": "Ab4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "filled-oval"
+        },
+        {
+          "onset": 8.0,
+          "beats": 2.0,
+          "measure": "reviewed-3",
+          "rest": false,
+          "type": "half",
+          "staffX": 374,
+          "staffY": 299,
+          "stepPitch": "F4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "filled-oval"
+        },
+        {
+          "onset": 10.0,
+          "beats": 1.0,
+          "measure": "reviewed-3",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 411,
+          "staffY": 305,
+          "stepPitch": "Eb4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "hollow-oval"
+        },
+        {
+          "onset": 11.0,
+          "beats": 1.0,
+          "measure": "reviewed-3",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 431,
+          "staffY": 305,
+          "stepPitch": "Eb4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "hollow-oval"
+        },
+        {
+          "onset": 12.0,
+          "beats": 1.5,
+          "measure": "reviewed-4",
+          "rest": false,
+          "type": "dotted-quarter",
+          "staffX": 478,
+          "staffY": 305,
+          "stepPitch": "Eb4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "hollow-oval"
+        },
+        {
+          "onset": 13.5,
+          "beats": 0.5,
+          "measure": "reviewed-4",
+          "rest": false,
+          "type": "eighth",
+          "staffX": 520,
+          "staffY": 299,
+          "stepPitch": "F4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "filled-oval"
+        },
+        {
+          "onset": 14.0,
+          "beats": 2.0,
+          "measure": "reviewed-4",
+          "rest": false,
+          "type": "half",
+          "staffX": 566,
+          "staffY": 287,
+          "stepPitch": "Ab4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "filled-oval"
+        },
+        {
+          "onset": 16.0,
+          "beats": 2.0,
+          "measure": "reviewed-5",
+          "rest": false,
+          "type": "half",
+          "staffX": 609,
+          "staffY": 287,
+          "stepPitch": "Ab4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "hollow-triangle"
+        },
+        {
+          "onset": 18.0,
+          "beats": 1.0,
+          "measure": "reviewed-5",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 650,
+          "staffY": 287,
+          "stepPitch": "Ab4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "filled-triangle"
+        },
+        {
+          "onset": 19.0,
+          "beats": 1.0,
+          "measure": "reviewed-5",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 690,
+          "staffY": 275,
+          "stepPitch": "Bb4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "filled-oval"
+        },
+        {
+          "onset": 20.0,
+          "beats": 1.0,
+          "measure": "reviewed-6",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 720,
+          "staffY": 274,
+          "stepPitch": "C5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "diamond"
+        },
+        {
+          "onset": 21.0,
+          "beats": 1.0,
+          "measure": "reviewed-6",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 760,
+          "staffY": 287,
+          "stepPitch": "Ab4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "triangle"
+        },
+        {
+          "onset": 22.0,
+          "beats": 1.0,
+          "measure": "reviewed-6",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 800,
+          "staffY": 287,
+          "stepPitch": "Ab4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "triangle"
+        },
+        {
+          "onset": 23.0,
+          "beats": 1.0,
+          "measure": "reviewed-6",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 840,
+          "staffY": 292,
+          "stepPitch": "G4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "filled-oval"
+        },
+        {
+          "onset": 24.0,
+          "beats": 3.0,
+          "measure": "reviewed-7",
+          "rest": false,
+          "type": "dotted-half",
+          "staffX": 875,
+          "staffY": 305,
+          "stepPitch": "Eb4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "hollow-oval"
+        },
+        {
+          "onset": 27.0,
+          "beats": 1.0,
+          "measure": "reviewed-7",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 940,
+          "staffY": 305,
+          "stepPitch": "Eb4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "filled-oval"
+        },
+        {
+          "onset": 28.0,
+          "beats": 1.0,
+          "measure": "reviewed-8",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 980,
+          "staffY": 287,
+          "stepPitch": "Ab4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 29.0,
+          "beats": 1.0,
+          "measure": "reviewed-8",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 1020,
+          "staffY": 287,
+          "stepPitch": "C5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 30.0,
+          "beats": 1.0,
+          "measure": "reviewed-8",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 1065,
+          "staffY": 287,
+          "stepPitch": "C5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 31.0,
+          "beats": 1.0,
+          "measure": "reviewed-8",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 1105,
+          "staffY": 287,
+          "stepPitch": "Bb4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 32.0,
+          "beats": 1.0,
+          "measure": "reviewed-9",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 1145,
+          "staffY": 287,
+          "stepPitch": "C5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 33.0,
+          "beats": 1.0,
+          "measure": "reviewed-9",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 1190,
+          "staffY": 287,
+          "stepPitch": "Ab4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 34.0,
+          "beats": 1.0,
+          "measure": "reviewed-9",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 1245,
+          "staffY": 287,
+          "stepPitch": "Ab4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 35.0,
+          "beats": 1.0,
+          "measure": "reviewed-9",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 1290,
+          "staffY": 287,
+          "stepPitch": "Ab4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 36.0,
+          "beats": 1.0,
+          "measure": "reviewed-10",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 1340,
+          "staffY": 287,
+          "stepPitch": "Ab4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 37.0,
+          "beats": 1.0,
+          "measure": "reviewed-10",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 1380,
+          "staffY": 287,
+          "stepPitch": "Ab4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 38.0,
+          "beats": 1.0,
+          "measure": "reviewed-10",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 1420,
+          "staffY": 287,
+          "stepPitch": "Ab4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 39.0,
+          "beats": 1.0,
+          "measure": "reviewed-10",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 1465,
+          "staffY": 287,
+          "stepPitch": "Eb4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 40.0,
+          "beats": 1.0,
+          "measure": "reviewed-11",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 1515,
+          "staffY": 287,
+          "stepPitch": "Eb4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 41.0,
+          "beats": 1.0,
+          "measure": "reviewed-11",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 1555,
+          "staffY": 287,
+          "stepPitch": "Eb4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 42.0,
+          "beats": 2.0,
+          "measure": "reviewed-11",
+          "rest": false,
+          "type": "half",
+          "staffX": 1595,
+          "staffY": 287,
+          "stepPitch": "F4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 44.0,
+          "beats": 2.0,
+          "measure": "second-1",
+          "rest": false,
+          "type": "half",
+          "staffX": 166,
+          "staffY": 839,
+          "stepPitch": "Eb4",
+          "pitchDerivation": "second-system staff-position plus printed key signature; not glyph"
+        },
+        {
+          "onset": 46.0,
+          "beats": 1.0,
+          "measure": "second-1",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 207,
+          "staffY": 833,
+          "stepPitch": "F4",
+          "pitchDerivation": "second-system staff-position plus printed key signature; not glyph"
+        },
+        {
+          "onset": 47.0,
+          "beats": 1.0,
+          "measure": "second-1",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 244,
+          "staffY": 833,
+          "stepPitch": "F4",
+          "pitchDerivation": "second-system staff-position plus printed key signature; not glyph"
+        },
+        {
+          "onset": 48.0,
+          "beats": 1.0,
+          "measure": "second-2",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 284,
+          "staffY": 821,
+          "stepPitch": "Ab4",
+          "pitchDerivation": "second-system staff-position plus printed key signature; not glyph"
+        },
+        {
+          "onset": 49.0,
+          "beats": 1.0,
+          "measure": "second-2",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 337,
+          "staffY": 821,
+          "stepPitch": "Ab4",
+          "pitchDerivation": "second-system staff-position plus printed key signature; not glyph"
+        },
+        {
+          "onset": 50.0,
+          "beats": 1.0,
+          "measure": "second-2",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 375,
+          "staffY": 821,
+          "stepPitch": "Ab4",
+          "pitchDerivation": "second-system staff-position plus printed key signature; not glyph"
+        },
+        {
+          "onset": 51.0,
+          "beats": 1.0,
+          "measure": "second-2",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 414,
+          "staffY": 839,
+          "stepPitch": "Eb4",
+          "pitchDerivation": "second-system staff-position plus printed key signature; not glyph"
+        },
+        {
+          "onset": 52.0,
+          "beats": 2.0,
+          "measure": "second-3",
+          "rest": false,
+          "type": "half",
+          "staffX": 457,
+          "staffY": 821,
+          "stepPitch": "Ab4",
+          "pitchDerivation": "direct second-system staff position with printed four-flat signature; not shape",
+          "shapeGlyphObserved": "not-audited-in-v21",
+          "sourceObservedSlur": {
+            "type": "start",
+            "number": "1",
+            "evidence": "visible curve between distinct pitches, not tie"
+          }
+        },
+        {
+          "onset": 54.0,
+          "beats": 2.0,
+          "measure": "second-3",
+          "rest": false,
+          "type": "half",
+          "staffX": 482,
+          "staffY": 827,
+          "stepPitch": "G4",
+          "pitchDerivation": "direct second-system staff position with printed four-flat signature; not shape",
+          "shapeGlyphObserved": "not-audited-in-v21",
+          "sourceObservedSlur": {
+            "type": "stop",
+            "number": "1",
+            "evidence": "visible curve between distinct pitches, not tie"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Tenor",
+      "clef": "treble",
+      "staffLinesY": [
+        356,
+        369,
+        381,
+        394,
+        407
+      ],
+      "events": [
+        {
+          "onset": 0.0,
+          "beats": 2.0,
+          "measure": "opening",
+          "rest": true,
+          "type": "half",
+          "staffY": null
+        },
+        {
+          "onset": 2.0,
+          "beats": 2.0,
+          "measure": "opening",
+          "rest": false,
+          "type": "half",
+          "staffY": 389,
+          "stepPitch": "Ab4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "hollow-triangle",
+          "lyrics": [
+            {
+              "number": "2",
+              "syllable": "His",
+              "sourceAnchored": true
+            }
+          ]
+        },
+        {
+          "onset": 4.0,
+          "beats": 1.0,
+          "measure": "next",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 249,
+          "staffY": 375,
+          "stepPitch": "C5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "diamond",
+          "lyrics": [
+            {
+              "number": "2",
+              "syllable": "ban-",
+              "sourceAnchored": true
+            }
+          ]
+        },
+        {
+          "onset": 5.0,
+          "beats": 1.0,
+          "measure": "next",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 292,
+          "staffY": 389,
+          "stepPitch": "Ab4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "triangle",
+          "lyrics": [
+            {
+              "number": "2",
+              "syllable": "ner",
+              "sourceAnchored": true
+            }
+          ]
+        },
+        {
+          "onset": 6.0,
+          "beats": 2.0,
+          "measure": "next",
+          "rest": false,
+          "type": "half",
+          "staffX": 330,
+          "staffY": 389,
+          "stepPitch": "Ab4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "triangle",
+          "lyrics": [
+            {
+              "number": "2",
+              "syllable": "soon",
+              "sourceAnchored": true
+            }
+          ]
+        },
+        {
+          "onset": 8.0,
+          "beats": 2.0,
+          "measure": "reviewed-3",
+          "rest": false,
+          "type": "half",
+          "staffX": 374,
+          "staffY": 389,
+          "stepPitch": "Ab4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "hollow-oval",
+          "lyrics": [
+            {
+              "number": "2",
+              "syllable": "will",
+              "sourceAnchored": true
+            }
+          ]
+        },
+        {
+          "onset": 10.0,
+          "beats": 1.0,
+          "measure": "reviewed-3",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 411,
+          "staffY": 375,
+          "stepPitch": "C5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "diamond",
+          "lyrics": [
+            {
+              "number": "2",
+              "syllable": "be",
+              "sourceAnchored": true
+            }
+          ]
+        },
+        {
+          "onset": 11.0,
+          "beats": 1.0,
+          "measure": "reviewed-3",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 431,
+          "staffY": 360,
+          "stepPitch": "Eb5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "filled-oval",
+          "lyrics": [
+            {
+              "number": "2",
+              "syllable": "un-",
+              "sourceAnchored": true
+            }
+          ]
+        },
+        {
+          "onset": 12.0,
+          "beats": 0.5,
+          "measure": "reviewed-4",
+          "rest": false,
+          "type": "eighth",
+          "staffX": 478,
+          "staffY": 360,
+          "stepPitch": "Eb5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "filled-oval",
+          "lyrics": [
+            {
+              "number": "2",
+              "syllable": "furled,",
+              "sourceAnchored": true,
+              "anchorOnly": true
+            }
+          ],
+          "sourceObservedSlur": "slur across this note-group; not a tie"
+        },
+        {
+          "onset": 12.5,
+          "beats": 0.5,
+          "measure": "reviewed-4",
+          "rest": false,
+          "type": "eighth",
+          "staffX": 500,
+          "staffY": 365,
+          "stepPitch": "Db5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "diamond"
+        },
+        {
+          "onset": 13.0,
+          "beats": 0.5,
+          "measure": "reviewed-4",
+          "rest": false,
+          "type": "eighth",
+          "staffX": 520,
+          "staffY": 375,
+          "stepPitch": "C5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "diamond"
+        },
+        {
+          "onset": 13.5,
+          "beats": 0.5,
+          "measure": "reviewed-4",
+          "rest": false,
+          "type": "eighth",
+          "staffX": 543,
+          "staffY": 365,
+          "stepPitch": "Db5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "diamond"
+        },
+        {
+          "onset": 14.0,
+          "beats": 2.0,
+          "measure": "reviewed-4",
+          "rest": false,
+          "type": "half",
+          "staffX": 566,
+          "staffY": 360,
+          "stepPitch": "Eb5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "filled-oval"
+        },
+        {
+          "onset": 16.0,
+          "beats": 2.0,
+          "measure": "reviewed-5",
+          "rest": false,
+          "type": "half",
+          "staffX": 609,
+          "staffY": 375,
+          "stepPitch": "C5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "diamond",
+          "lyrics": [
+            {
+              "number": "2",
+              "syllable": "of",
+              "sourceAnchored": true
+            }
+          ]
+        },
+        {
+          "onset": 18.0,
+          "beats": 1.0,
+          "measure": "reviewed-5",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 650,
+          "staffY": 389,
+          "stepPitch": "Ab4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "triangle",
+          "lyrics": [
+            {
+              "number": "2",
+              "syllable": "redeem-",
+              "sourceAnchored": true
+            }
+          ]
+        },
+        {
+          "onset": 19.0,
+          "beats": 1.0,
+          "measure": "reviewed-5",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 690,
+          "staffY": 400,
+          "stepPitch": "G4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "inverted-triangle",
+          "lyrics": [
+            {
+              "number": "2",
+              "syllable": "ing",
+              "sourceAnchored": true
+            }
+          ]
+        },
+        {
+          "onset": 20.0,
+          "beats": 1.0,
+          "measure": "reviewed-6",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 720,
+          "staffY": 389,
+          "stepPitch": "Ab4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "triangle",
+          "lyrics": [
+            {
+              "number": "2",
+              "syllable": "come",
+              "sourceAnchored": true,
+              "syllabic": "single"
+            }
+          ]
+        },
+        {
+          "onset": 21.0,
+          "beats": 1.0,
+          "measure": "reviewed-6",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 760,
+          "staffY": 375,
+          "stepPitch": "C5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "diamond",
+          "lyrics": [
+            {
+              "number": "2",
+              "syllable": "to",
+              "sourceAnchored": true,
+              "syllabic": "single"
+            }
+          ]
+        },
+        {
+          "onset": 22.0,
+          "beats": 1.0,
+          "measure": "reviewed-6",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 800,
+          "staffY": 360,
+          "stepPitch": "Eb5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "filled-oval",
+          "lyrics": [
+            {
+              "number": "2",
+              "syllable": "judge",
+              "sourceAnchored": true,
+              "syllabic": "single"
+            }
+          ]
+        },
+        {
+          "onset": 23.0,
+          "beats": 1.0,
+          "measure": "reviewed-6",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 840,
+          "staffY": 375,
+          "stepPitch": "C5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "diamond",
+          "lyrics": [
+            {
+              "number": "2",
+              "syllable": "the",
+              "sourceAnchored": true,
+              "syllabic": "single"
+            }
+          ]
+        },
+        {
+          "onset": 24.0,
+          "beats": 3.0,
+          "measure": "reviewed-7",
+          "rest": false,
+          "type": "dotted-half",
+          "staffX": 875,
+          "staffY": 389,
+          "stepPitch": "Ab4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "triangle",
+          "lyrics": [
+            {
+              "number": "2",
+              "syllable": "world;",
+              "sourceAnchored": true,
+              "syllabic": "single"
+            }
+          ]
+        },
+        {
+          "onset": 27.0,
+          "beats": 1.0,
+          "measure": "reviewed-7",
+          "rest": true,
+          "type": "quarter",
+          "staffX": 940,
+          "staffY": null
+        },
+        {
+          "onset": 28.0,
+          "beats": 1.0,
+          "measure": "reviewed-8",
+          "rest": true,
+          "type": "quarter",
+          "staffX": 980,
+          "staffY": null
+        },
+        {
+          "onset": 29.0,
+          "beats": 1.0,
+          "measure": "reviewed-8",
+          "rest": true,
+          "type": "quarter",
+          "staffX": 1020,
+          "staffY": null
+        },
+        {
+          "onset": 30.0,
+          "beats": 1.0,
+          "measure": "reviewed-8",
+          "rest": true,
+          "type": "quarter",
+          "staffX": 1065,
+          "staffY": null
+        },
+        {
+          "onset": 31.0,
+          "beats": 1.0,
+          "measure": "reviewed-8",
+          "rest": true,
+          "type": "quarter",
+          "staffX": 1105,
+          "staffY": null
+        },
+        {
+          "onset": 32.0,
+          "beats": 1.0,
+          "measure": "reviewed-9",
+          "rest": true,
+          "type": "quarter",
+          "staffX": 1145,
+          "staffY": null
+        },
+        {
+          "onset": 33.0,
+          "beats": 1.0,
+          "measure": "reviewed-9",
+          "rest": true,
+          "type": "quarter",
+          "staffX": 1190,
+          "staffY": null
+        },
+        {
+          "onset": 34.0,
+          "beats": 1.0,
+          "measure": "reviewed-9",
+          "rest": true,
+          "type": "quarter",
+          "staffX": 1245,
+          "staffY": null
+        },
+        {
+          "onset": 35.0,
+          "beats": 1.0,
+          "measure": "reviewed-9",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 1290,
+          "staffY": 389,
+          "stepPitch": "Ab4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 36.0,
+          "beats": 1.0,
+          "measure": "reviewed-10",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 1340,
+          "staffY": 389,
+          "stepPitch": "C5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 37.0,
+          "beats": 1.0,
+          "measure": "reviewed-10",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 1380,
+          "staffY": 389,
+          "stepPitch": "Eb5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 38.0,
+          "beats": 1.0,
+          "measure": "reviewed-10",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 1420,
+          "staffY": 389,
+          "stepPitch": "Eb5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 39.0,
+          "beats": 1.0,
+          "measure": "reviewed-10",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 1465,
+          "staffY": 389,
+          "stepPitch": "C5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 40.0,
+          "beats": 1.0,
+          "measure": "reviewed-11",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 1515,
+          "staffY": 389,
+          "stepPitch": "C5",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 41.0,
+          "beats": 1.0,
+          "measure": "reviewed-11",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 1555,
+          "staffY": 389,
+          "stepPitch": "Ab4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 42.0,
+          "beats": 2.0,
+          "measure": "reviewed-11",
+          "rest": false,
+          "type": "half",
+          "staffX": 1595,
+          "staffY": 389,
+          "stepPitch": "Ab4",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 44.0,
+          "beats": 2.0,
+          "measure": "second-1",
+          "rest": false,
+          "type": "half",
+          "staffX": 166,
+          "staffY": 923,
+          "stepPitch": "Ab4",
+          "pitchDerivation": "second-system staff-position plus printed key signature; not glyph",
+          "lyrics": [
+            {
+              "number": "2",
+              "syllable": "When",
+              "sourceAnchored": true,
+              "syllabic": "single"
+            }
+          ]
+        },
+        {
+          "onset": 46.0,
+          "beats": 1.0,
+          "measure": "second-1",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 207,
+          "staffY": 911,
+          "stepPitch": "C5",
+          "pitchDerivation": "second-system staff-position plus printed key signature; not glyph",
+          "lyrics": [
+            {
+              "number": "2",
+              "syllable": "sun",
+              "sourceAnchored": true,
+              "syllabic": "single"
+            }
+          ]
+        },
+        {
+          "onset": 47.0,
+          "beats": 1.0,
+          "measure": "second-1",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 244,
+          "staffY": 911,
+          "stepPitch": "C5",
+          "pitchDerivation": "second-system staff-position plus printed key signature; not glyph",
+          "lyrics": [
+            {
+              "number": "2",
+              "syllable": "and",
+              "sourceAnchored": true,
+              "syllabic": "single"
+            }
+          ]
+        },
+        {
+          "onset": 48.0,
+          "beats": 1.0,
+          "measure": "second-2",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 284,
+          "staffY": 898,
+          "stepPitch": "Eb5",
+          "pitchDerivation": "second-system staff-position plus printed key signature; not glyph",
+          "lyrics": [
+            {
+              "number": "2",
+              "syllable": "moon",
+              "sourceAnchored": true,
+              "syllabic": "single"
+            }
+          ]
+        },
+        {
+          "onset": 49.0,
+          "beats": 1.0,
+          "measure": "second-2",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 337,
+          "staffY": 898,
+          "stepPitch": "Eb5",
+          "pitchDerivation": "second-system staff-position plus printed key signature; not glyph",
+          "lyrics": [
+            {
+              "number": "2",
+              "syllable": "shall",
+              "sourceAnchored": true,
+              "syllabic": "single"
+            }
+          ]
+        },
+        {
+          "onset": 50.0,
+          "beats": 1.0,
+          "measure": "second-2",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 375,
+          "staffY": 911,
+          "stepPitch": "C5",
+          "pitchDerivation": "second-system staff-position plus printed key signature; not glyph",
+          "lyrics": [
+            {
+              "number": "2",
+              "syllable": "dark",
+              "sourceAnchored": true,
+              "syllabic": "begin"
+            }
+          ]
+        },
+        {
+          "onset": 51.0,
+          "beats": 1.0,
+          "measure": "second-2",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 414,
+          "staffY": 923,
+          "stepPitch": "Ab4",
+          "pitchDerivation": "second-system staff-position plus printed key signature; not glyph",
+          "lyrics": [
+            {
+              "number": "2",
+              "syllable": "en'd",
+              "sourceAnchored": true,
+              "syllabic": "end"
+            }
+          ]
+        },
+        {
+          "onset": 52.0,
+          "beats": 2.0,
+          "measure": "second-3",
+          "rest": false,
+          "type": "half",
+          "staffX": 457,
+          "staffY": 911,
+          "stepPitch": "C5",
+          "pitchDerivation": "direct second-system staff position with printed four-flat signature; not shape",
+          "shapeGlyphObserved": "not-audited-in-v21",
+          "sourceObservedSlur": {
+            "type": "start",
+            "number": "1",
+            "evidence": "visible curve between distinct pitches, not tie"
+          },
+          "lyrics": [
+            {
+              "number": "2",
+              "syllable": "be;",
+              "sourceAnchored": true,
+              "syllabic": "single"
+            }
+          ]
+        },
+        {
+          "onset": 54.0,
+          "beats": 2.0,
+          "measure": "second-3",
+          "rest": false,
+          "type": "half",
+          "staffX": 482,
+          "staffY": 898,
+          "stepPitch": "Eb5",
+          "pitchDerivation": "direct second-system staff position with printed four-flat signature; not shape",
+          "shapeGlyphObserved": "not-audited-in-v21",
+          "sourceObservedSlur": {
+            "type": "stop",
+            "number": "1",
+            "evidence": "visible curve between distinct pitches, not tie"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Bass",
+      "clef": "bass",
+      "staffLinesY": [
+        484,
+        496,
+        509,
+        522,
+        534
+      ],
+      "events": [
+        {
+          "onset": 0.0,
+          "beats": 2.0,
+          "measure": "opening",
+          "rest": true,
+          "type": "half",
+          "staffY": null
+        },
+        {
+          "onset": 2.0,
+          "beats": 2.0,
+          "measure": "opening",
+          "rest": false,
+          "type": "half",
+          "staffY": 528,
+          "stepPitch": "Ab2",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "hollow-triangle"
+        },
+        {
+          "onset": 4.0,
+          "beats": 1.0,
+          "measure": "next",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 249,
+          "staffY": 528,
+          "stepPitch": "Ab2",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "triangle"
+        },
+        {
+          "onset": 5.0,
+          "beats": 1.0,
+          "measure": "next",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 292,
+          "staffY": 515,
+          "stepPitch": "C3",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "diamond"
+        },
+        {
+          "onset": 6.0,
+          "beats": 2.0,
+          "measure": "next",
+          "rest": false,
+          "type": "half",
+          "staffX": 330,
+          "staffY": 503,
+          "stepPitch": "Eb3",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "hollow-oval"
+        },
+        {
+          "onset": 8.0,
+          "beats": 2.0,
+          "measure": "reviewed-3",
+          "rest": false,
+          "type": "half",
+          "staffX": 374,
+          "staffY": 515,
+          "stepPitch": "C3",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "diamond"
+        },
+        {
+          "onset": 10.0,
+          "beats": 1.0,
+          "measure": "reviewed-3",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 411,
+          "staffY": 503,
+          "stepPitch": "Eb3",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "hollow-oval"
+        },
+        {
+          "onset": 11.0,
+          "beats": 1.0,
+          "measure": "reviewed-3",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 431,
+          "staffY": 503,
+          "stepPitch": "Eb3",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "hollow-oval"
+        },
+        {
+          "onset": 12.0,
+          "beats": 1.5,
+          "measure": "reviewed-4",
+          "rest": false,
+          "type": "dotted-quarter",
+          "staffX": 478,
+          "staffY": 478,
+          "stepPitch": "Ab3",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "triangle"
+        },
+        {
+          "onset": 13.5,
+          "beats": 0.5,
+          "measure": "reviewed-4",
+          "rest": false,
+          "type": "eighth",
+          "staffX": 520,
+          "staffY": 496,
+          "stepPitch": "F3",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "filled-oval"
+        },
+        {
+          "onset": 14.0,
+          "beats": 2.0,
+          "measure": "reviewed-4",
+          "rest": false,
+          "type": "half",
+          "staffX": 566,
+          "staffY": 503,
+          "stepPitch": "Eb3",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "hollow-oval"
+        },
+        {
+          "onset": 16.0,
+          "beats": 2.0,
+          "measure": "reviewed-5",
+          "rest": false,
+          "type": "half",
+          "staffX": 609,
+          "staffY": 503,
+          "stepPitch": "Eb3",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "hollow-oval"
+        },
+        {
+          "onset": 18.0,
+          "beats": 1.0,
+          "measure": "reviewed-5",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 650,
+          "staffY": 515,
+          "stepPitch": "C3",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "diamond"
+        },
+        {
+          "onset": 19.0,
+          "beats": 1.0,
+          "measure": "reviewed-5",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 690,
+          "staffY": 503,
+          "stepPitch": "Eb3",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "filled-oval"
+        },
+        {
+          "onset": 20.0,
+          "beats": 1.0,
+          "measure": "reviewed-6",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 720,
+          "staffY": 528,
+          "stepPitch": "Ab2",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "triangle"
+        },
+        {
+          "onset": 21.0,
+          "beats": 1.0,
+          "measure": "reviewed-6",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 760,
+          "staffY": 528,
+          "stepPitch": "Ab2",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "triangle"
+        },
+        {
+          "onset": 22.0,
+          "beats": 1.0,
+          "measure": "reviewed-6",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 800,
+          "staffY": 515,
+          "stepPitch": "C3",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "diamond"
+        },
+        {
+          "onset": 23.0,
+          "beats": 1.0,
+          "measure": "reviewed-6",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 840,
+          "staffY": 503,
+          "stepPitch": "Eb3",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "hollow-oval"
+        },
+        {
+          "onset": 24.0,
+          "beats": 3.0,
+          "measure": "reviewed-7",
+          "rest": false,
+          "type": "dotted-half",
+          "staffX": 875,
+          "staffY": 528,
+          "stepPitch": "Ab2",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "triangle"
+        },
+        {
+          "onset": 27.0,
+          "beats": 1.0,
+          "measure": "reviewed-7",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 940,
+          "staffY": 503,
+          "stepPitch": "Eb3",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "filled-oval"
+        },
+        {
+          "onset": 28.0,
+          "beats": 1.0,
+          "measure": "reviewed-8",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 980,
+          "staffY": 515,
+          "stepPitch": "C3",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 29.0,
+          "beats": 1.0,
+          "measure": "reviewed-8",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 1020,
+          "staffY": 515,
+          "stepPitch": "Ab2",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 30.0,
+          "beats": 1.0,
+          "measure": "reviewed-8",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 1065,
+          "staffY": 515,
+          "stepPitch": "Ab2",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 31.0,
+          "beats": 1.0,
+          "measure": "reviewed-8",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 1105,
+          "staffY": 515,
+          "stepPitch": "Eb3",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 32.0,
+          "beats": 1.0,
+          "measure": "reviewed-9",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 1145,
+          "staffY": 515,
+          "stepPitch": "F3",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 33.0,
+          "beats": 1.0,
+          "measure": "reviewed-9",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 1190,
+          "staffY": 515,
+          "stepPitch": "F3",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 34.0,
+          "beats": 1.0,
+          "measure": "reviewed-9",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 1245,
+          "staffY": 515,
+          "stepPitch": "Eb3",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 35.0,
+          "beats": 1.0,
+          "measure": "reviewed-9",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 1290,
+          "staffY": 515,
+          "stepPitch": "C3",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 36.0,
+          "beats": 1.0,
+          "measure": "reviewed-10",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 1340,
+          "staffY": 515,
+          "stepPitch": "Eb3",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 37.0,
+          "beats": 1.0,
+          "measure": "reviewed-10",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 1380,
+          "staffY": 515,
+          "stepPitch": "Ab2",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 38.0,
+          "beats": 1.0,
+          "measure": "reviewed-10",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 1420,
+          "staffY": 515,
+          "stepPitch": "Ab2",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 39.0,
+          "beats": 1.0,
+          "measure": "reviewed-10",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 1465,
+          "staffY": 515,
+          "stepPitch": "Ab2",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 40.0,
+          "beats": 1.0,
+          "measure": "reviewed-11",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 1515,
+          "staffY": 515,
+          "stepPitch": "C3",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 41.0,
+          "beats": 1.0,
+          "measure": "reviewed-11",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 1555,
+          "staffY": 515,
+          "stepPitch": "Eb3",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 42.0,
+          "beats": 2.0,
+          "measure": "reviewed-11",
+          "rest": false,
+          "type": "half",
+          "staffX": 1595,
+          "staffY": 515,
+          "stepPitch": "Ab2",
+          "pitchDerivation": "staff-position plus printed key signature; not glyph",
+          "shapeGlyphObserved": "not-audited-in-v11"
+        },
+        {
+          "onset": 44.0,
+          "beats": 2.0,
+          "measure": "second-1",
+          "rest": false,
+          "type": "half",
+          "staffX": 166,
+          "staffY": 1020,
+          "stepPitch": "Ab3",
+          "pitchDerivation": "second-system staff-position plus printed key signature; not glyph"
+        },
+        {
+          "onset": 46.0,
+          "beats": 1.0,
+          "measure": "second-1",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 207,
+          "staffY": 1033,
+          "stepPitch": "F3",
+          "pitchDerivation": "second-system staff-position plus printed key signature; not glyph"
+        },
+        {
+          "onset": 47.0,
+          "beats": 1.0,
+          "measure": "second-1",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 244,
+          "staffY": 1033,
+          "stepPitch": "F3",
+          "pitchDerivation": "second-system staff-position plus printed key signature; not glyph"
+        },
+        {
+          "onset": 48.0,
+          "beats": 1.0,
+          "measure": "second-2",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 284,
+          "staffY": 1039,
+          "stepPitch": "Eb3",
+          "pitchDerivation": "second-system staff-position plus printed key signature; not glyph"
+        },
+        {
+          "onset": 49.0,
+          "beats": 1.0,
+          "measure": "second-2",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 337,
+          "staffY": 1039,
+          "stepPitch": "Eb3",
+          "pitchDerivation": "second-system staff-position plus printed key signature; not glyph"
+        },
+        {
+          "onset": 50.0,
+          "beats": 1.0,
+          "measure": "second-2",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 375,
+          "staffY": 1064,
+          "stepPitch": "Ab2",
+          "pitchDerivation": "second-system staff-position plus printed key signature; not glyph"
+        },
+        {
+          "onset": 51.0,
+          "beats": 1.0,
+          "measure": "second-2",
+          "rest": false,
+          "type": "quarter",
+          "staffX": 414,
+          "staffY": 1051,
+          "stepPitch": "C3",
+          "pitchDerivation": "second-system staff-position plus printed key signature; not glyph"
+        },
+        {
+          "onset": 52.0,
+          "beats": 4.0,
+          "measure": "second-3",
+          "rest": false,
+          "type": "whole",
+          "staffX": 458,
+          "staffY": 1039,
+          "stepPitch": "Eb3",
+          "pitchDerivation": "direct second-system staff position with printed four-flat signature; not shape",
+          "shapeGlyphObserved": "not-audited-in-v21"
+        }
+      ]
+    }
+  ],
+  "reviewV21": {
+    "date": "2026-09-07",
+    "measure": "second-3",
+    "sourceXWindow": [
+      438,
+      502
+    ],
+    "base": "work/luna-program-20260904/existing_books/ch7-10-first-system-candidate-v17.musicxml",
+    "supersedes": "v20 appendix only; all v17 semantics preserved",
+    "directObservation": "Treble dove, and tenor be; belong to this slurred bar. The and And begin after x502. No second-note text printed in this bar.",
+    "remainingGaps": [
+      "Second system after x502 remains untranscribed, including printed endings/repeat.",
+      "New noteheads have no audited shape tags.",
+      "No added lyric extend markers: printed slurs retained separately.",
+      "No alto/bass lyric underlay inferred from other staves.",
+      "Full exact-edition semantics review still required."
+    ]
+  }
+}
