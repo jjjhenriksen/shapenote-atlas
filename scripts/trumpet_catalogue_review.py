@@ -18,6 +18,8 @@ def apply(documents, manifest):
         song['title'] = entry['title']
         song.setdefault('titlesByBook', {})['trumpet'] = entry['title']
         song['sourceIdentityReview'] = identity
+        song.setdefault('sourceCoverageByBook', {}).setdefault('trumpet', {})['sourceIdentityReview'] = copy.deepcopy(identity)
+        song.setdefault('sourceCoverage', {})['sourceIdentityReview'] = copy.deepcopy(identity)
         # IDs, text, score mappings, raw evidence, and count summaries remain intact.
         for name in ('source-coverage', 'transcription-queue'):
             for record in result[name]['records']:
