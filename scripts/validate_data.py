@@ -11,6 +11,7 @@ from review_dispositions import (
     ALLOWED_STATES,
     comparison_disposition,
     image_review_disposition,
+    published_review_disposition,
     transcription_disposition,
 )
 
@@ -81,6 +82,53 @@ def validate_draft_score(song: dict, book_id: str, score: dict, root: Path = ROO
     if coverage.get("draftScoreRef") != ref or coverage.get("draftScoreStatus") != "needs-human-review":
         raise SystemExit(f"{song['id']} {book_id}: draft score coverage marker drift")
     return ref
+
+
+def validate_transcription_queue_disposition(
+    record: dict, song: dict, indexed_coverage: dict, root: Path = ROOT,
+) -> None:
+    """Separate acquisition rows from retained, explicitly unverified publications.
+
+    A queue's self-reported publication marker never authorizes review status:
+    its corpus preview, coverage and actual retained asset must agree.
+    """
+    label = record.get("queueId", "")
+    book_id = record.get("bookId", "")
+    coverage = song.get("sourceCoverageByBook", {}).get(book_id, {})
+    score = song.get("draftScoreByBook", {}).get(book_id, {})
+    witnesses = (record, coverage, indexed_coverage, score)
+    published = any("reviewPublication" in witness for witness in witnesses)
+    if published:
+        publication = score.get("reviewPublication")
+        ref = score.get("scoreRef")
+        if (
+            record.get("songId") != song.get("id")
+            or indexed_coverage.get("songId") != song.get("id")
+            or indexed_coverage.get("bookId") != book_id
+            or not isinstance(publication, dict)
+            or not publication
+            or not ref
+            or any(witness.get("reviewPublication") != publication for witness in witnesses)
+        ):
+            raise SystemExit(f"published transcription queue metadata drift: {label}")
+        for witness in (record, coverage, indexed_coverage):
+            if (
+                witness.get("draftScoreAvailable") is not True
+                or witness.get("draftScoreRef") != ref
+                or witness.get("draftScoreStatus") != "needs-human-review"
+                or witness.get("nextAction") != "review-and-correct-published-draft"
+            ):
+                raise SystemExit(f"published transcription queue coverage drift: {label}")
+        validate_draft_score(song, book_id, score, root)
+        expected = published_review_disposition()
+    else:
+        expected = transcription_disposition(record.get("status", ""), record.get("sourceUrls", []))
+    if record.get("canonicalRecordId") != label or record.get("disposition") != expected:
+        raise SystemExit(f"transcription queue disposition is not canonical: {label}")
+    if any(record.get(field) is not expected[field] for field in (
+        "humanReviewRequired", "reviewAvailable", "safeToPromote",
+    )):
+        raise SystemExit(f"transcription queue is not fail-closed: {label}")
 
 
 def main() -> int:
@@ -400,6 +448,7 @@ def main() -> int:
         extra = sorted(corpus_candidate_keys - set(candidate_by_key))
         raise SystemExit(f"corpus clean-source candidate links drift (missing={missing}, extra={extra})")
     queue_records = queue_data.get("records", [])
+    songs_by_id = {song["id"]: song for song in data["songs"]}
     actual_queue = {(record.get("songId"), record.get("bookId")) for record in queue_records}
     if actual_queue != expected_queue or len(queue_records) != len(actual_queue):
         raise SystemExit("transcription queue does not exactly match non-structured coverage records")
@@ -415,11 +464,10 @@ def main() -> int:
         source_image_url = record.get("sourceImageUrl", "")
         if source_image_url and not source_image_url.startswith("https://"):
             raise SystemExit("transcription queue sourceImageUrl must be an https URL")
-        expected_disposition = transcription_disposition(record.get("status", ""), record.get("sourceUrls", []))
-        if record.get("canonicalRecordId") != record.get("queueId") or record.get("disposition") != expected_disposition:
-            raise SystemExit(f"transcription queue disposition is not canonical: {record.get('queueId', '')}")
-        if record.get("humanReviewRequired") is not False or record.get("safeToPromote") is not False:
-            raise SystemExit(f"transcription queue is not fail-closed: {record.get('queueId', '')}")
+        validate_transcription_queue_disposition(
+            record, songs_by_id[record["songId"]],
+            coverage_records[(record["songId"], record["bookId"])],
+        )
 
     ledger_records = source_comparison_data.get("records", [])
     ledger_ids = [record.get("queueId", "") for record in ledger_records]

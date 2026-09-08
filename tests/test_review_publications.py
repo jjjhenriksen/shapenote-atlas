@@ -11,6 +11,7 @@ from xml.etree import ElementTree as ET
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
 from review_publications import publish, score_xml, preserved_notation
+from review_dispositions import published_review_disposition
 
 
 class ReviewPublicationsTest(unittest.TestCase):
@@ -32,6 +33,11 @@ class ReviewPublicationsTest(unittest.TestCase):
     def test_published_event_stream_downloads_and_idempotency(self):
         publish(ROOT, self.public)
         corpus = json.loads((self.public / 'corpus.json').read_text())
+        queue = json.loads((self.public / 'transcription-queue.json').read_text())
+        for record in queue['records']:
+            self.assertEqual(record['disposition'], published_review_disposition())
+            self.assertTrue(record['humanReviewRequired'])
+            self.assertFalse(record['safeToPromote'])
         self.assertEqual(corpus['songs'][-1], self.original['songs'][-1])
         self.assertEqual(corpus['coverage']['localScoreSongs'], 88)
         for entry, song, original in zip(self.entries, corpus['songs'], self.original['songs']):

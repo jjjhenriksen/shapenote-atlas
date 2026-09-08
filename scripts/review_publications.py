@@ -16,6 +16,8 @@ import tempfile
 import zipfile
 from xml.etree import ElementTree as ET
 
+from review_dispositions import published_review_disposition
+
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "scripts/review-publications.json"
 
@@ -141,10 +143,7 @@ def publish(root: Path = ROOT, public: Path | None = None, manifest: Path | None
                 if record.get("songId") == entry["songId"] and record.get("bookId") == book:
                     record.update(copy.deepcopy(coverage_patch))
                     if name == "transcription-queue":
-                        disposition = {"state": "needs-human-review", "role": "published-draft-correction",
-                                       "humanReviewRequired": True, "reviewAvailable": True, "safeToPromote": False,
-                                       "reason": "Playable review draft published; source fidelity is not yet certified.",
-                                       "autonomousDecision": "published-for-correction"}
+                        disposition = published_review_disposition()
                         record.update({"disposition": disposition, "humanReviewRequired": True,
                                        "reviewAvailable": True, "safeToPromote": False})
         published.append(entry["songId"])

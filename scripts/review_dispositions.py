@@ -217,6 +217,18 @@ def image_review_disposition() -> dict[str, Any]:
     )
 
 
+def published_review_disposition() -> dict[str, Any]:
+    """A usable correction draft is published, without certifying source fidelity."""
+    return _result(
+        "review-only",
+        human_review_required=True,
+        review_available=True,
+        role="published-draft-correction",
+        reason="Playable review draft published; source fidelity is not yet certified.",
+        autonomous_decision="published-for-correction",
+    )
+
+
 def transcription_disposition(status: str, source_urls: list[Any] | None) -> dict[str, Any]:
     """Map non-structured-score coverage to acquisition workflow state."""
     normalized = str(status or "").strip().lower()
