@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-05T04:49:13.935749+00:00",
+  "generatedAt": "2026-09-08T01:05:28.610699+00:00",
   "kind": "sacred-harp-shared-edition-reconciliation",
   "policy": "1991 and 2025 records remain edition-separated. Structured witnesses are evidence with explicit roles; an alternate witness never authorizes selected-edition promotion.",
   "source": {
     "corpus": "public/corpus.json",
-    "corpusSha256": "f18c12d96dc435b329dae675dc11b89fc59d58d40d7e1ad04118d14421597473",
+    "corpusSha256": "c6d75b00ff3f30318b8e2b8aa3cd1d9257c611e945242fdab4796eb3ef01077c",
     "corpusGeneratedAt": "2026-08-29T00:48:27.754448+00:00",
     "editions": [
       "sh1991",
