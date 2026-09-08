@@ -1,0 +1,122 @@
+{
+  "schema": "shape-note-atlas/socialharp-page-map-supplement/v2",
+  "review_date": "2026-09-07",
+  "baseline": {
+    "path": "work/luna-program-20260904/source_only/socialharp-page-map-20260904.json",
+    "sha256": "8b30106fb48d2467d70063d684ac144887b02e3cfec4470da103dc13d2c90963",
+    "summary": {
+      "catalogue_records": 221,
+      "uniquely_mapped_records": 67,
+      "unresolved_records": 154
+    }
+  },
+  "previous_supplements": [
+    {
+      "path": "work/openclaw-socialharp-20260907/socialharp-page-map-supplement-v1.json",
+      "sha256": "c4c80ad0606d474367854fc37fb8ba9d6893535df63155e09c4e8f711f6c72d8"
+    }
+  ],
+  "source": {
+    "path": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+    "sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331"
+  },
+  "policy": {
+    "supplement_only": true,
+    "original_mapping_unchanged": true,
+    "previous_supplements_unchanged": true,
+    "notation_imported": false,
+    "lyrics_or_notes_inferred": false,
+    "catalogue_discrepancy": "221 corpus records versus 222 historical count remains unresolved; page-identity review does not settle inventory."
+  },
+  "summary": {
+    "reviewed_records": 5,
+    "resolved_source_identities": 5,
+    "previous_combined_mapped": 72,
+    "combined_mapped": 77,
+    "previous_combined_unresolved": 149,
+    "combined_unresolved": 144,
+    "catalogue_records_unchanged": 221
+  },
+  "records": [
+    {
+      "record_id": "socialharp 108 — DERRETT",
+      "song_no": "108",
+      "catalogue_title": "DERRETT",
+      "literal_heading": "DERRETT.",
+      "pdf_leaf_1_based": 108,
+      "printed_page": "108",
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-next-20260907/renders/leaf-108.png",
+      "render_sha256": "ca56b8943e9da5e23dbd7377b370440a5bf2d5afbe9fd6ee4498d74cb9f8afa4",
+      "review_method": "Direct visual inspection of full PDF leaf rendered by Poppler at scale-to 1800; title and printed page read independently.",
+      "status": "source-page-identity-verified",
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 109 — COLUMBUS",
+      "song_no": "109",
+      "catalogue_title": "COLUMBUS",
+      "literal_heading": "COLUMBUS.",
+      "pdf_leaf_1_based": 109,
+      "printed_page": "109",
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-next-20260907/renders/leaf-109.png",
+      "render_sha256": "4c85827260f1825638cf9faceaafa4f9a0c2b9145c4ba84c217bfbce0f26d3f6",
+      "review_method": "Direct visual inspection of full PDF leaf rendered by Poppler at scale-to 1800; title and printed page read independently.",
+      "status": "source-page-identity-verified",
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 110 — SHOUTING SONG",
+      "song_no": "110",
+      "catalogue_title": "SHOUTING SONG",
+      "literal_heading": "SHOUTING SONG.",
+      "pdf_leaf_1_based": 110,
+      "printed_page": "110",
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-next-20260907/renders/leaf-110.png",
+      "render_sha256": "185850d4e36e90d26cff8e48d6dd3b00763a6c7879b141159d364babe718deab",
+      "review_method": "Direct visual inspection of full PDF leaf rendered by Poppler at scale-to 1800; title and printed page read independently.",
+      "status": "source-page-identity-verified",
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 111 — THE MORNING TRUMPET",
+      "song_no": "111",
+      "catalogue_title": "THE MORNING TRUMPET",
+      "literal_heading": "THE MORNING TRUMPET.",
+      "pdf_leaf_1_based": 111,
+      "printed_page": "111",
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-next-20260907/renders/leaf-111.png",
+      "render_sha256": "82b34072b40ba4884238f388853906dbb8fd4aa08c3e2a7a3e6a681bb5f71bc5",
+      "review_method": "Direct visual inspection of full PDF leaf rendered by Poppler at scale-to 1800; title and printed page read independently.",
+      "status": "source-page-identity-verified",
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 113 — ETERNAL HOME",
+      "song_no": "113",
+      "catalogue_title": "ETERNAL HOME",
+      "literal_heading": "ETERNAL HOME.",
+      "pdf_leaf_1_based": 113,
+      "printed_page": "113",
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-next-20260907/renders/leaf-113.png",
+      "render_sha256": "f0de88a0d5dbe1fcd4105855b9281bcb57237af1fce89edc4a97832fa636d4f3",
+      "review_method": "Direct visual inspection of full PDF leaf rendered by Poppler at scale-to 1800; title and printed page read independently.",
+      "status": "source-page-identity-verified",
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    }
+  ]
+}
