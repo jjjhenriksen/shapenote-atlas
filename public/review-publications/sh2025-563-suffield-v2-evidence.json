@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "queueId": "sh2025/563",
+  "edition": "Sacred Harp, 2025 Edition",
+  "songNo": "563",
+  "title": "Suffield",
+  "status": "source-aligned-playable-with-partial-lyrics",
+  "safeToPromote": false,
+  "sourceAuthority": {
+    "exactMusicXmlPath": "work/shapenote-musicxml/2b5e5a1e3b647397778a7c44.mxl",
+    "exactMusicXmlSha256": "647f90ffaae28fdc6aa61d99c1e890fa65704d2d95e8a713a7d7b71cf68fc912",
+    "retainedScanPath": "work/source-pdfs/official-sh25-scans/SH25-SUFFIELD.jpg",
+    "retainedScanSha256": "34b455909517b551201c10759e9d849f8521151f5ce16adf504748133153a6ca",
+    "immutable": true,
+    "directObservations": {
+      "key": "E minor",
+      "timeSignature": "4/4",
+      "meter": "Common Meter (8,6,8,6)",
+      "parts": 4,
+      "measuresByPart": {
+        "P1": 13,
+        "P2": 13,
+        "P3": 13,
+        "P4": 13
+      },
+      "lyricsVisible": true,
+      "numberedEndingsVisible": true,
+      "retainedMxlEndingTopology": "preserved exactly; no new repeat or ending semantics inferred"
+    }
+  },
+  "correction": {
+    "outputPath": "work/luna-program-20260904/sh2025/563-suffield-correction-v2.mxl",
+    "outputSha256": "0ee7b2b9ac187023e8a309d19623aea6ce22f0dd9160937403fb8ab7c192083d",
+    "transformation": [
+      "preserve every source pitch, duration, part, measure, and barline",
+      "add explicit printed-source mode",
+      "add review-only four-shape tags derived from source pitch and key",
+      "add only directly anchored terminal lyric entries where the scan establishes the note mapping",
+      "retain all source repeat/ending elements"
+    ],
+    "summary": {
+      "parts": 4,
+      "measuresByPart": {
+        "P1": 13,
+        "P2": 13,
+        "P3": 13,
+        "P4": 13
+      },
+      "pitchedEvents": 144,
+      "shapeNoteheads": 144,
+      "lyricAnchors": 3,
+      "retainedRepeatElements": 8,
+      "retainedEndingElements": 4,
+      "anchors": [
+        {
+          "part": "P1",
+          "measure": "X1",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "B",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "4",
+          "syllable": "am.",
+          "sourceObservation": "direct retained SH25 scan anchor; lyric verse number is kept separate from any numbered musical ending",
+          "lyricNumber": "1"
+        },
+        {
+          "part": "P2",
+          "measure": "12",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "E",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "8",
+          "syllable": "prime.",
+          "sourceObservation": "direct retained SH25 scan anchor; lyric verse number is kept separate from any numbered musical ending",
+          "lyricNumber": "2"
+        },
+        {
+          "part": "P3",
+          "measure": "12",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "E",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "8",
+          "syllable": "vain.",
+          "sourceObservation": "direct retained SH25 scan anchor; lyric verse number is kept separate from any numbered musical ending",
+          "lyricNumber": "3"
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "Remaining printed lyric alignment is unavailable because direct note-to-syllable alignment was not established without inference.",
+    "Four-shape tags are review-only derived evidence, not direct per-note engraving proof.",
+    "safeToPromote remains false; retain the exact source witness separately."
+  ]
+}

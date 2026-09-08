@@ -9,13 +9,33 @@ from __future__ import annotations
 
 import copy
 import hashlib
+import io
 import json
 from pathlib import Path
 import tempfile
 import zipfile
+from xml.etree import ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "scripts/review-publications.json"
+
+
+def score_xml(payload: bytes) -> ET.Element:
+    """Read the same score member used by the semantic parser, without rewriting it."""
+    if zipfile.is_zipfile(io.BytesIO(payload)):
+        with zipfile.ZipFile(io.BytesIO(payload)) as archive:
+            name = next(name for name in archive.namelist()
+                        if name.endswith('.xml') and 'container' not in name)
+            payload = archive.read(name)
+    return ET.fromstring(payload)
+
+
+def preserved_notation(element: ET.Element) -> tuple:
+    # These candidates document only lyric, derived-shape and mode additions.
+    # Compare all remaining part semantics, including pitches/timing/navigation.
+    return (element.tag, tuple(sorted(element.attrib.items())),
+            (element.text or '').strip(), tuple(preserved_notation(child)
+            for child in element if child.tag not in ('lyric', 'notehead', 'mode')))
 
 
 def write_changed(path: Path, payload: bytes) -> None:
@@ -53,7 +73,10 @@ def publish(root: Path = ROOT, public: Path | None = None, manifest: Path | None
         stem = entry["slug"] + "-" + entry["version"]
         urls = {}
         inputs = {}
-        for field, url_field in (("musicXml", "musicXmlUrl"), ("source", "sourceUrl"), ("evidence", "evidenceUrl")):
+        fields = [("musicXml", "musicXmlUrl"), ("source", "sourceUrl"), ("evidence", "evidenceUrl")]
+        if "originalMusicXml" in entry:
+            fields.append(("originalMusicXml", "originalMusicXmlUrl"))
+        for field, url_field in fields:
             spec = entry[field]
             path = root / spec["path"]
             name = stem + "-" + field + path.suffix
@@ -69,10 +92,19 @@ def publish(root: Path = ROOT, public: Path | None = None, manifest: Path | None
         metadata = {**urls, "version": entry["version"], "completeness": entry["completeness"],
                     "limitations": entry["limitations"]}
         xml = inputs["musicXml"]
+        if "originalMusicXml" in inputs:
+            original = score_xml(inputs["originalMusicXml"])
+            candidate = score_xml(xml)
+            if ([preserved_notation(part) for part in original.findall('part')] !=
+                    [preserved_notation(part) for part in candidate.findall('part')]):
+                raise ValueError(f"Source notation changed outside documented corrections: {entry['songId']}")
         with tempfile.TemporaryDirectory() as temporary:
             mxl = Path(temporary) / "score.mxl"
-            with zipfile.ZipFile(mxl, "w") as archive:
-                archive.writestr("score.xml", xml)
+            if zipfile.is_zipfile(io.BytesIO(xml)):
+                mxl.write_bytes(xml)
+            else:
+                with zipfile.ZipFile(mxl, "w") as archive:
+                    archive.writestr("score.xml", xml)
             score = parse_score(urls["musicXmlUrl"], mxl)
             if not score:
                 raise ValueError(f"No playable score: {entry['songId']}")
@@ -88,7 +120,7 @@ def publish(root: Path = ROOT, public: Path | None = None, manifest: Path | None
             "kind": "omr-draft", "label": "Published review draft", "reviewRequired": True,
             "sourceEdition": book, "sourceRecordKey": song["songNo"],
             "sourceArtifact": entry["musicXml"]["path"], "sourceSha256": entry["musicXml"]["sha256"],
-            "sourceKeyVerified": False, "transcriptionMethod": "manual",
+            "sourceKeyVerified": False, "transcriptionMethod": entry.get("transcriptionMethod", "manual"),
         }
         prepare_score_for_playback(score)
         _add_transposition_capability(score)

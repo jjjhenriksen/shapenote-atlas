@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "queueId": "sh2025/575",
+  "edition": "Sacred Harp, 2025 Edition",
+  "songNo": "575",
+  "title": "Lisbon",
+  "status": "source-aligned-playable-with-partial-lyrics",
+  "safeToPromote": false,
+  "sourceAuthority": {
+    "exactMusicXmlPath": "work/shapenote-musicxml/62a2ff0ce19a4466290ee3c0.mxl",
+    "exactMusicXmlSha256": "004fdb3c6fbc0200cc37df2e433eb2bd12e136d71e0696f6d8b90cf470375df5",
+    "retainedScanPath": "work/source-pdfs/official-sh25-scans/SH25-LISBON.jpg",
+    "retainedScanSha256": "9357456ba2aa60e325ac9690e26b6920a81d65bef6e54f592881675085dc161e",
+    "immutable": true,
+    "directObservations": {
+      "key": "E minor",
+      "timeSignature": "4/4",
+      "meter": "Long Meter Half (8,8)",
+      "parts": 3,
+      "measuresByPart": {
+        "P1": 19,
+        "P2": 19,
+        "P3": 19
+      },
+      "lyricsVisible": true,
+      "numberedEndingsVisible": true,
+      "retainedMxlEndingTopology": "preserved exactly; no new repeat or ending semantics inferred"
+    }
+  },
+  "correction": {
+    "outputPath": "work/luna-program-20260904/sh2025/575-lisbon-correction-v1.mxl",
+    "outputSha256": "68776ffdba877f50d7c27522bf69899a22c9402d2ac1b72da3d14a0c50170890",
+    "transformation": [
+      "preserve every source pitch, duration, part, measure, and barline",
+      "add explicit printed-source mode",
+      "add review-only four-shape tags derived from source pitch and key",
+      "add only directly anchored terminal lyric entries where the scan establishes the note mapping",
+      "retain all source repeat/ending elements"
+    ],
+    "summary": {
+      "parts": 3,
+      "measuresByPart": {
+        "P1": 19,
+        "P2": 19,
+        "P3": 19
+      },
+      "pitchedEvents": 210,
+      "shapeNoteheads": 210,
+      "lyricAnchors": 4,
+      "retainedRepeatElements": 6,
+      "retainedEndingElements": 4,
+      "anchors": [
+        {
+          "part": "P1",
+          "measure": "17",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "B",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "6",
+          "syllable": "here.",
+          "sourceObservation": "direct retained SH25 scan anchor; lyric verse number is kept separate from any numbered musical ending",
+          "lyricNumber": "1"
+        },
+        {
+          "part": "P1",
+          "measure": "18",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "B",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "8",
+          "syllable": "here.",
+          "sourceObservation": "direct retained SH25 scan anchor; lyric verse number is kept separate from any numbered musical ending",
+          "lyricNumber": "1"
+        },
+        {
+          "part": "P2",
+          "measure": "17",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "E",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "6",
+          "syllable": "here.",
+          "sourceObservation": "direct retained SH25 scan anchor; lyric verse number is kept separate from any numbered musical ending",
+          "lyricNumber": "1"
+        },
+        {
+          "part": "P2",
+          "measure": "18",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "E",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "8",
+          "syllable": "here.",
+          "sourceObservation": "direct retained SH25 scan anchor; lyric verse number is kept separate from any numbered musical ending",
+          "lyricNumber": "1"
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "Remaining printed lyric alignment is unavailable because direct note-to-syllable alignment was not established without inference.",
+    "Four-shape tags are review-only derived evidence, not direct per-note engraving proof.",
+    "safeToPromote remains false; retain the exact source witness separately."
+  ]
+}

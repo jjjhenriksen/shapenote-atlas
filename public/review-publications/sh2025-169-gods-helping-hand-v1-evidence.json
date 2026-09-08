@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "queueId": "sh2025/169",
+  "edition": "Sacred Harp, 2025 Edition",
+  "songNo": "169",
+  "title": "God’s Helping Hand",
+  "status": "source-aligned-playable-with-partial-lyrics",
+  "safeToPromote": false,
+  "sourceAuthority": {
+    "exactMusicXmlPath": "work/shapenote-musicxml/1558e368262eed678887992c.mxl",
+    "exactMusicXmlSha256": "34435dcfd2f98600c5a2814c8c2c7c24f6277e13b00ad08f81e39516ba400536",
+    "retainedScanPath": "work/source-pdfs/official-sh25-scans/SH25-GODS-HELPING-HAND.jpg",
+    "retainedScanSha256": "983a599a8a60de4f7cd6764b628358bbafef6effbf5e5efd58a6638f81e05da2",
+    "immutable": true,
+    "directObservations": {
+      "header": "GOD’S HELPING HAND. L.M.",
+      "key": "E minor",
+      "timeSignature": "4/4",
+      "meter": "Long Meter (8,8,8,8)",
+      "parts": 4,
+      "measuresByPart": {
+        "P1": 23,
+        "P2": 23,
+        "P3": 23,
+        "P4": 23
+      },
+      "lyricsVisible": true,
+      "terminalKingAnchorsVisible": "King. is printed at both numbered endings under the terminal note of each voice",
+      "numberedEndingsVisible": [
+        "1.",
+        "2."
+      ],
+      "retainedMxlEndingTopology": "source MXL retains 8 repeat elements and 4 numbered-ending elements"
+    }
+  },
+  "correction": {
+    "outputPath": "work/luna-program-20260904/sh2025/169-gods-helping-hand-correction-v1.mxl",
+    "outputSha256": "95db381f2587ca9e3207886ef4154b1f9a6a1763b5c0559ef9bb6e2ada3f8204",
+    "transformation": [
+      "preserve every source pitch, duration, part, measure and barline",
+      "add explicit minor mode from the printed source key",
+      "add review-only four-shape tags derived from source pitch and E-minor key",
+      "add only four directly anchored 'King.' lyrics at retained MXL measure 23 terminal notes",
+      "retain all source repeat/ending elements and infer no additional branch"
+    ],
+    "summary": {
+      "parts": 4,
+      "measuresByPart": {
+        "P1": 23,
+        "P2": 23,
+        "P3": 23,
+        "P4": 23
+      },
+      "pitchedEvents": 274,
+      "shapeNoteheads": 274,
+      "shapeCounts": {
+        "sol": 76,
+        "mi": 62,
+        "la": 106,
+        "fa": 30
+      },
+      "lyricsEncoded": 4,
+      "lyricAnchors": [
+        {
+          "part": "P1",
+          "measure": "23",
+          "noteIndexWithinMeasure": 1,
+          "pitch": "B4",
+          "duration": "8",
+          "syllable": "King.",
+          "sourceObservation": "the retained scan visibly prints 'King.' under the terminal note of each voice"
+        },
+        {
+          "part": "P2",
+          "measure": "23",
+          "noteIndexWithinMeasure": 1,
+          "pitch": "E4",
+          "duration": "8",
+          "syllable": "King.",
+          "sourceObservation": "the retained scan visibly prints 'King.' under the terminal note of each voice"
+        },
+        {
+          "part": "P3",
+          "measure": "23",
+          "noteIndexWithinMeasure": 1,
+          "pitch": "E4",
+          "duration": "8",
+          "syllable": "King.",
+          "sourceObservation": "the retained scan visibly prints 'King.' under the terminal note of each voice"
+        },
+        {
+          "part": "P4",
+          "measure": "23",
+          "noteIndexWithinMeasure": 1,
+          "pitch": "E3",
+          "duration": "8",
+          "syllable": "King.",
+          "sourceObservation": "the retained scan visibly prints 'King.' under the terminal note of each voice"
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "Remaining printed lyric alignment is unavailable because direct note-to-syllable alignment was not established without inference.",
+    "The scan shows numbered 1/2 endings; the four anchors attach only to retained MXL measure 23 terminal notes and do not duplicate or reinterpret ending branches.",
+    "Four-shape tags are derived review evidence, not direct per-note engraving proof.",
+    "safeToPromote remains false; retain the exact source witness separately."
+  ]
+}

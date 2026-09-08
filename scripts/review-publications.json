@@ -50,6 +50,409 @@
         "path": "work/openclaw-zions-dove-20260907/verification.json",
         "sha256": "d3f0221d9bbafb0cb722b1d12f35979d6e76ead056e0c92a0ebe05c3575c4d03"
       }
+    },
+    {
+      "slug": "sh2025-118-heavenly-meeting",
+      "songId": "sh 118 (sh2025) — Heavenly Meeting",
+      "bookId": "sh2025",
+      "version": "v2",
+      "completeness": "complete",
+      "transcriptionMethod": "source-derived-correction",
+      "limitations": [
+        "Full retained notation stream, not a certified edition transcription; printed lyric underlay remains incomplete.",
+        "The remaining printed lyrics are unavailable because direct note-to-syllable alignment was not established without guessing.",
+        "Shape tags are derived review evidence and are not direct per-note engraving proof.",
+        "The scan visibly has numbered 1/2 endings, while the retained MXL has only a backward repeat at measure 19 and no numbered ending elements; the derivative preserves that boundary and does not invent ending branches.",
+        "Playback follows the retained encoded navigation; repeat and numbered-ending fidelity still require human review. Source key is not certified for this publication; enter a source key to transpose."
+      ],
+      "musicXml": {
+        "path": "work/luna-program-20260904/sh2025/118-heavenly-meeting-correction-v2.mxl",
+        "sha256": "c10e7b3361de633e88a447d661c482aac8eac8bf5a872a545ff91bbb008fc127"
+      },
+      "source": {
+        "path": "work/source-pdfs/official-sh25-scans/SH25-HEAVENLY-MEETING.jpg",
+        "sha256": "bcfba8f372ba4116458bb5972a51410ca3874a0b8cc5f8079178f496222c6e47"
+      },
+      "evidence": {
+        "path": "work/luna-program-20260904/sh2025/118-heavenly-meeting-evidence-v2.json",
+        "sha256": "c73b8e5c19f3df9ec561583181916e37833574de7d3cdd951f254e144a878cf6"
+      },
+      "originalMusicXml": {
+        "path": "work/shapenote-musicxml/03a339caa2415ca69c6f48eb.mxl",
+        "sha256": "3f2346a8142331026011b89db6599d71320e34c4ab61cca632cb71d2afe12cd6"
+      }
+    },
+    {
+      "slug": "sh2025-50t-devotion",
+      "songId": "sh 50t (sh2025) — Devotion",
+      "bookId": "sh2025",
+      "version": "v10",
+      "completeness": "complete",
+      "transcriptionMethod": "source-derived-correction",
+      "limitations": [
+        "Full retained notation stream, not a certified edition transcription; printed lyric underlay remains incomplete.",
+        "Whole solemn, P2-P4 continuation, and m16 first-ending lyric alignment remain unavailable without direct proof.",
+        "Shape tags are derived review evidence, not direct per-note engraving proof.",
+        "The m17 anchor does not add or infer another numbered-ending branch.",
+        "Playback follows the retained encoded navigation; repeat and numbered-ending fidelity still require human review. Source key is not certified for this publication; enter a source key to transpose."
+      ],
+      "musicXml": {
+        "path": "work/luna-program-20260904/sh2025/50t-devotion-correction-v10.mxl",
+        "sha256": "e3d30c6fe426c6f985052a342de54ec3040140fe92ce76cceacfbbaa5fccb0cb"
+      },
+      "source": {
+        "path": "work/source-pdfs/official-sh25-scans/isolated-audit/SH25-DEVOTION.jpg",
+        "sha256": "172d3613ce22907f58fecb61cb45087e1f053227a0e4694b447f93ce255deccc"
+      },
+      "evidence": {
+        "path": "work/luna-program-20260904/sh2025/50t-devotion-evidence-v10.json",
+        "sha256": "66f42407a04c705621627ed1585d6749eeae7c9ca09d038f84627b6f808c5db7"
+      },
+      "originalMusicXml": {
+        "path": "work/shapenote-musicxml/25051a87a2fddb2c322ec07f.mxl",
+        "sha256": "762737cbeed87f6fa0b8fdbf7b305f860eca6ce69aedf84b6b4c78ec4b0c09bf"
+      }
+    },
+    {
+      "slug": "sh2025-55-converse",
+      "songId": "sh 55 (sh2025) — Converse",
+      "bookId": "sh2025",
+      "version": "v2",
+      "completeness": "complete",
+      "transcriptionMethod": "source-derived-correction",
+      "limitations": [
+        "Full retained notation stream, not a certified edition transcription; printed lyric underlay remains incomplete.",
+        "Remaining printed lyric alignment is unavailable without inference.",
+        "Shape tags are derived review evidence, not direct per-note engraving proof.",
+        "No repeat, ending, or additional voice lyric semantics were inferred.",
+        "Playback follows the retained encoded navigation; repeat and numbered-ending fidelity still require human review. Source key is not certified for this publication; enter a source key to transpose.",
+        "Printed repeat dots are visible, but the retained MXL has no repeat elements; playback may omit printed repeats."
+      ],
+      "musicXml": {
+        "path": "work/luna-program-20260904/sh2025/55-converse-correction-v2.mxl",
+        "sha256": "7efef396f17d2acd1b2efc315682aadb823675abd9d25854062669def8ad89c0"
+      },
+      "source": {
+        "path": "work/source-pdfs/official-sh25-scans/isolated-audit/SH25-CONVERSE.jpg",
+        "sha256": "27894c56076c94de739a7dd0f502fd8e0df2b711a19d6d75fdf7106e41902993"
+      },
+      "evidence": {
+        "path": "work/luna-program-20260904/sh2025/55-converse-evidence-v2.json",
+        "sha256": "47833dcd892c21507dbc41bf4c9c3675eb93c30831a67e148d568322c34ac0cc"
+      },
+      "originalMusicXml": {
+        "path": "work/shapenote-musicxml/53c8ee986905cbd07c468efd.mxl",
+        "sha256": "1db754f3b1309c95edd987d41b0e4352ff5c597e2d60d634dba313d9ad6acfbd"
+      }
+    },
+    {
+      "slug": "sh2025-169-gods-helping-hand",
+      "songId": "sh 169 (sh2025) — God’s Helping Hand",
+      "bookId": "sh2025",
+      "version": "v1",
+      "completeness": "complete",
+      "transcriptionMethod": "source-derived-correction",
+      "limitations": [
+        "Full retained notation stream, not a certified edition transcription; printed lyric underlay remains incomplete.",
+        "Remaining printed lyric alignment is unavailable without inference.",
+        "The scan shows numbered 1/2 endings; anchors attach only to retained MXL measure 23 terminal notes and do not duplicate or reinterpret branches.",
+        "Shape tags are derived review evidence, not direct per-note engraving proof.",
+        "Playback follows the retained encoded navigation; repeat and numbered-ending fidelity still require human review. Source key is not certified for this publication; enter a source key to transpose."
+      ],
+      "musicXml": {
+        "path": "work/luna-program-20260904/sh2025/169-gods-helping-hand-correction-v1.mxl",
+        "sha256": "95db381f2587ca9e3207886ef4154b1f9a6a1763b5c0559ef9bb6e2ada3f8204"
+      },
+      "source": {
+        "path": "work/source-pdfs/official-sh25-scans/SH25-GODS-HELPING-HAND.jpg",
+        "sha256": "983a599a8a60de4f7cd6764b628358bbafef6effbf5e5efd58a6638f81e05da2"
+      },
+      "evidence": {
+        "path": "work/luna-program-20260904/sh2025/169-gods-helping-hand-evidence-v1.json",
+        "sha256": "017d2396bcca52a2df7333e1a59455b0212c9d028562b44b6c345127613645c2"
+      },
+      "originalMusicXml": {
+        "path": "work/shapenote-musicxml/1558e368262eed678887992c.mxl",
+        "sha256": "34435dcfd2f98600c5a2814c8c2c7c24f6277e13b00ad08f81e39516ba400536"
+      }
+    },
+    {
+      "slug": "sh2025-537-portsmouth",
+      "songId": "sh 537 (sh2025) — Portsmouth",
+      "bookId": "sh2025",
+      "version": "v2",
+      "completeness": "complete",
+      "transcriptionMethod": "source-derived-correction",
+      "limitations": [
+        "Full retained notation stream, not a certified edition transcription; printed lyric underlay remains incomplete.",
+        "Remaining printed lyric alignment is unavailable without inference.",
+        "Shape tags are derived review evidence, not direct per-note engraving proof.",
+        "No repeat, ending, or bass lyric semantics were inferred.",
+        "Playback follows the retained encoded navigation; repeat and numbered-ending fidelity still require human review. Source key is not certified for this publication; enter a source key to transpose."
+      ],
+      "musicXml": {
+        "path": "work/luna-program-20260904/sh2025/537-portsmouth-correction-v2.mxl",
+        "sha256": "141fcf54697c939e0bc72df4d6058135da1462af4eb6eec0eea3376df963eeb6"
+      },
+      "source": {
+        "path": "work/source-pdfs/official-sh25-scans/SH25-PORTSMOUTH.jpg",
+        "sha256": "51001e387269e9d4ca5653a329ffab259ae19f0ecdd625e4c56783fb8701c5a6"
+      },
+      "evidence": {
+        "path": "work/luna-program-20260904/sh2025/537-portsmouth-evidence-v2.json",
+        "sha256": "9e9f12eb67d562ea485a9e8a013253cdb77e2319a60e28d880f9580c9db99f10"
+      },
+      "originalMusicXml": {
+        "path": "work/shapenote-musicxml/75e5c1575fb0039e840c1838.mxl",
+        "sha256": "5a66da5c81f91113ec0333e5433d96c8cd837f6d6921c0436b30657e16e29201"
+      }
+    },
+    {
+      "slug": "sh2025-544-youthful-blessings",
+      "songId": "sh 544 (sh2025) — Youthful Blessings",
+      "bookId": "sh2025",
+      "version": "v1",
+      "completeness": "complete",
+      "transcriptionMethod": "source-derived-correction",
+      "limitations": [
+        "Full retained notation stream, not a certified edition transcription; printed lyric underlay remains incomplete.",
+        "Remaining printed lyric alignment is unavailable without inference.",
+        "Shape tags are derived review evidence, not direct per-note engraving proof.",
+        "Both verse-numbered lyric lines are attached to each retained terminal note because the scan visibly prints both under each numbered-ending terminal note; no new repeat or ending topology was inferred.",
+        "Playback follows the retained encoded navigation; repeat and numbered-ending fidelity still require human review. Source key is not certified for this publication; enter a source key to transpose."
+      ],
+      "musicXml": {
+        "path": "work/luna-program-20260904/sh2025/544-youthful-blessings-correction-v1.mxl",
+        "sha256": "08764ccc78019820c934aa26a9506a0d6b2f985e096b720beb138a0d436e3076"
+      },
+      "source": {
+        "path": "work/source-pdfs/official-sh25-scans/SH25-YOUTHFUL-BLESSINGS.jpg",
+        "sha256": "650ab264a5106c06a8a78c880034f43a6a791745f41c5d6b1013535c4389abdd"
+      },
+      "evidence": {
+        "path": "work/luna-program-20260904/sh2025/544-youthful-blessings-evidence-v1.json",
+        "sha256": "927dedca5ff55787b95067caed0e99782e31f3d32946f2733af64ebb9170340b"
+      },
+      "originalMusicXml": {
+        "path": "work/shapenote-musicxml/33ef25e2f36fb7a49704178b.mxl",
+        "sha256": "27f503007bbcea3e6ad7c98eadc9eab93649d4ec96083e76a3c3efaaf53a2601"
+      }
+    },
+    {
+      "slug": "sh2025-41-evening-hymn",
+      "songId": "sh 41 (sh2025) — Evening Hymn",
+      "bookId": "sh2025",
+      "version": "v2",
+      "completeness": "complete",
+      "transcriptionMethod": "source-derived-correction",
+      "limitations": [
+        "Full retained notation stream, not a certified edition transcription; printed lyric underlay remains incomplete.",
+        "Remaining printed lyric alignment is unavailable without inference.",
+        "Shape tags are derived review evidence, not direct per-note engraving proof.",
+        "Only the directly visible terminal verse lines were encoded; no new repeat or ending topology was inferred.",
+        "Playback follows the retained encoded navigation; repeat and numbered-ending fidelity still require human review. Source key is not certified for this publication; enter a source key to transpose."
+      ],
+      "musicXml": {
+        "path": "work/luna-program-20260904/sh2025/41-evening-hymn-correction-v2.mxl",
+        "sha256": "3c659c254e54dbbee7fe1e713c508eae6555332db3ec32bc37b7a3e6b0e60b8b"
+      },
+      "source": {
+        "path": "work/source-pdfs/official-sh25-scans/SH25-EVENING-HYMN.jpg",
+        "sha256": "65af3c268bcf08b2de84e55944090e1bf2905817e953964d635a2d1bd266f99b"
+      },
+      "evidence": {
+        "path": "work/luna-program-20260904/sh2025/41-evening-hymn-evidence-v2.json",
+        "sha256": "495d5827ab5af3c67e445196ac565a00dcfbeb1201fdc8cfd159ea06be98729d"
+      },
+      "originalMusicXml": {
+        "path": "work/shapenote-musicxml/19a80c54621e6b851dedf1d0.mxl",
+        "sha256": "0c55ec9bb3bc635a89c1ef9f4dedd7635e8675b59119b43e71e688252fa7b9e4"
+      }
+    },
+    {
+      "slug": "sh2025-415-endless-praise",
+      "songId": "sh 415 (sh2025) — Endless Praise",
+      "bookId": "sh2025",
+      "version": "v3",
+      "completeness": "complete",
+      "transcriptionMethod": "source-derived-correction",
+      "limitations": [
+        "Full retained notation stream, not a certified edition transcription; printed lyric underlay remains incomplete.",
+        "Remaining printed lyric alignment is unavailable without inference.",
+        "Shape tags are derived review evidence, not direct per-note engraving proof.",
+        "Only the directly visible terminal verse lines were encoded; no new repeat or ending topology was inferred.",
+        "Playback follows the retained encoded navigation; repeat and numbered-ending fidelity still require human review. Source key is not certified for this publication; enter a source key to transpose."
+      ],
+      "musicXml": {
+        "path": "work/luna-program-20260904/sh2025/415-endless-praise-correction-v3.mxl",
+        "sha256": "2238f2ca91b6eabed26de072f0fa15aa1f1c65c1593336ff9072491ef6533fba"
+      },
+      "source": {
+        "path": "work/source-pdfs/official-sh25-scans/isolated-audit/SH25-ENDLESS-PRAISE.jpg",
+        "sha256": "014a70d8d2c69be3b3ae176cbd38b204b37ff56ececda9a725d04d1bed1ebd1a"
+      },
+      "evidence": {
+        "path": "work/luna-program-20260904/sh2025/415-endless-praise-evidence-v3.json",
+        "sha256": "3751954d1706f5999acf5502e3415db93fbec266e27b565b75103f25b610f2ec"
+      },
+      "originalMusicXml": {
+        "path": "work/shapenote-musicxml/2eb61146c1b9bb3bc35d6bd8.mxl",
+        "sha256": "4458f77cb9f35d0ea6c8e144464388203b24a649fb3f88d89c82e891ccf153ed"
+      }
+    },
+    {
+      "slug": "sh2025-525-imandra",
+      "songId": "sh 525 (sh2025) — Imandra",
+      "bookId": "sh2025",
+      "version": "v2",
+      "completeness": "complete",
+      "transcriptionMethod": "source-derived-correction",
+      "limitations": [
+        "Full retained notation stream, not a certified edition transcription; printed lyric underlay remains incomplete.",
+        "Lyrics are visible but no direct note-to-syllable alignment was established without inference.",
+        "Shape tags are derived review evidence, not direct per-note engraving proof.",
+        "Playback follows the retained encoded navigation; repeat and numbered-ending fidelity still require human review. Source key is not certified for this publication; enter a source key to transpose."
+      ],
+      "musicXml": {
+        "path": "work/luna-program-20260904/sh2025/525-imandra-correction-v2.mxl",
+        "sha256": "5d7ebbea49fcd559fc20ce9b6411d85dbc61d3b59d52200d65b14df82a1d8a80"
+      },
+      "source": {
+        "path": "work/source-pdfs/official-sh25-scans/SH25-IMANDRA.jpg",
+        "sha256": "e3475d56e8bb457d691dc5be49b8d00256e0955bb124efcc4d02d026f33e1c94"
+      },
+      "evidence": {
+        "path": "work/luna-program-20260904/sh2025/525-imandra-evidence-v2.json",
+        "sha256": "c5140074e0784a1f6da8178e4bfae91eab23f867d2a541b360c61a6c3647fe10"
+      },
+      "originalMusicXml": {
+        "path": "work/shapenote-musicxml/5a92b7eda65e22d5b535a03c.mxl",
+        "sha256": "3d5755cea0a83f38d5fa85b598f6a41d84e5c1e23d1e98e099b15a545aacce47"
+      }
+    },
+    {
+      "slug": "sh2025-545-somers",
+      "songId": "sh 545 (sh2025) — Somers",
+      "bookId": "sh2025",
+      "version": "v3",
+      "completeness": "complete",
+      "transcriptionMethod": "source-derived-correction",
+      "limitations": [
+        "Full retained notation stream, not a certified edition transcription; printed lyric underlay remains incomplete.",
+        "Lyrics are visible but terminal alignment is not unambiguous across voices and numbered endings.",
+        "Shape tags are derived review evidence, not direct per-note engraving proof.",
+        "Playback follows the retained encoded navigation; repeat and numbered-ending fidelity still require human review. Source key is not certified for this publication; enter a source key to transpose."
+      ],
+      "musicXml": {
+        "path": "work/luna-program-20260904/sh2025/545-somers-correction-v3.mxl",
+        "sha256": "98fbaa261cbf289860543337c276a24a3378bbb5e96a668a9d600a1dc4f86ee7"
+      },
+      "source": {
+        "path": "work/source-pdfs/official-sh25-scans/SH25-SOMERS.jpg",
+        "sha256": "490e34b0e8e9353e3f81a40d50336d9cd5ffa1371cc671c899d4428272cc1109"
+      },
+      "evidence": {
+        "path": "work/luna-program-20260904/sh2025/545-somers-evidence-v3.json",
+        "sha256": "f84e41019fe99dd030e1c76531b85171aae87b024f90d0fff7fbf12de0e7c46b"
+      },
+      "originalMusicXml": {
+        "path": "work/shapenote-musicxml/86e7564fcec896dc2d113aa2.mxl",
+        "sha256": "11345b9cc0a7275a2a7177145dc676a33e15aec424bdc38fda0de9a7293fdd36"
+      }
+    },
+    {
+      "slug": "sh2025-557-new-farewell",
+      "songId": "sh 557 (sh2025) — New Farewell",
+      "bookId": "sh2025",
+      "version": "v2",
+      "completeness": "complete",
+      "transcriptionMethod": "source-derived-correction",
+      "limitations": [
+        "Full retained notation stream, not a certified edition transcription; printed lyric underlay remains incomplete.",
+        "Lyrics are visible but no direct note-to-syllable alignment was established without inference.",
+        "Shape tags are derived review evidence, not direct per-note engraving proof.",
+        "Playback follows the retained encoded navigation; repeat and numbered-ending fidelity still require human review. Source key is not certified for this publication; enter a source key to transpose.",
+        "No lyrics are encoded. The printed D.C. return is not fully represented by the linear MXL; playback is not a complete printed-navigation realization."
+      ],
+      "musicXml": {
+        "path": "work/luna-program-20260904/sh2025/557-new-farewell-correction-v2.mxl",
+        "sha256": "6f2dfe69b61b6106f2253f35fdf037e1fc26c299dd2b12b32ede98e05d071137"
+      },
+      "source": {
+        "path": "work/source-pdfs/official-sh25-scans/SH25-NEW-FAREWELL.jpg",
+        "sha256": "63fc4f464688c2ce687891014d994d61ec3298ebab5e45164f0c0986fce12bf5"
+      },
+      "evidence": {
+        "path": "work/luna-program-20260904/sh2025/557-new-farewell-evidence-v2.json",
+        "sha256": "be51f4e8e9f74b1562f49b27d3030b2c1a58c9656eadebdcde2f44c5ffb59ee9"
+      },
+      "originalMusicXml": {
+        "path": "work/shapenote-musicxml/6a19c6f645e15e9926079f61.mxl",
+        "sha256": "2e0e46196d2ed25ad9bbc55aef86cd70747ca47e984ef1a7b57ec6baed49ad77"
+      }
+    },
+    {
+      "slug": "sh2025-563-suffield",
+      "songId": "sh 563 (sh2025) — Suffield",
+      "bookId": "sh2025",
+      "version": "v2",
+      "completeness": "complete",
+      "transcriptionMethod": "source-derived-correction",
+      "limitations": [
+        "Full retained notation stream, not a certified edition transcription; printed lyric underlay remains incomplete.",
+        "Remaining printed lyric alignment is unavailable without inference.",
+        "Shape tags are derived review evidence, not direct per-note engraving proof.",
+        "No new repeat or ending topology was inferred.",
+        "Playback follows the retained encoded navigation; repeat and numbered-ending fidelity still require human review. Source key is not certified for this publication; enter a source key to transpose."
+      ],
+      "musicXml": {
+        "path": "work/luna-program-20260904/sh2025/563-suffield-correction-v2.mxl",
+        "sha256": "0ee7b2b9ac187023e8a309d19623aea6ce22f0dd9160937403fb8ab7c192083d"
+      },
+      "source": {
+        "path": "work/source-pdfs/official-sh25-scans/SH25-SUFFIELD.jpg",
+        "sha256": "34b455909517b551201c10759e9d849f8521151f5ce16adf504748133153a6ca"
+      },
+      "evidence": {
+        "path": "work/luna-program-20260904/sh2025/563-suffield-evidence-v2.json",
+        "sha256": "4d0a090c5995f15a3fa16b40a7d9016e9d7b18edb5dff291c569e5444eaa7f52"
+      },
+      "originalMusicXml": {
+        "path": "work/luna-program-20260904/data/evidence-bundles/retained-source-evidence-v4/files/work/shapenote-musicxml/2b5e5a1e3b647397778a7c44.mxl",
+        "sha256": "647f90ffaae28fdc6aa61d99c1e890fa65704d2d95e8a713a7d7b71cf68fc912",
+        "originalPath": "work/shapenote-musicxml/2b5e5a1e3b647397778a7c44.mxl"
+      }
+    },
+    {
+      "slug": "sh2025-575-lisbon",
+      "songId": "sh 575 (sh2025) — Lisbon",
+      "bookId": "sh2025",
+      "version": "v1",
+      "completeness": "complete",
+      "transcriptionMethod": "source-derived-correction",
+      "limitations": [
+        "Full retained notation stream, not a certified edition transcription; printed lyric underlay remains incomplete.",
+        "Remaining printed lyric alignment is unavailable without inference.",
+        "Shape tags are derived review evidence, not direct per-note engraving proof.",
+        "Only directly visible P1/P2 terminal branch words were encoded; no new repeat or ending topology was inferred.",
+        "Playback follows the retained encoded navigation; repeat and numbered-ending fidelity still require human review. Source key is not certified for this publication; enter a source key to transpose."
+      ],
+      "musicXml": {
+        "path": "work/luna-program-20260904/sh2025/575-lisbon-correction-v1.mxl",
+        "sha256": "68776ffdba877f50d7c27522bf69899a22c9402d2ac1b72da3d14a0c50170890"
+      },
+      "source": {
+        "path": "work/source-pdfs/official-sh25-scans/SH25-LISBON.jpg",
+        "sha256": "9357456ba2aa60e325ac9690e26b6920a81d65bef6e54f592881675085dc161e"
+      },
+      "evidence": {
+        "path": "work/luna-program-20260904/sh2025/575-lisbon-evidence-v1.json",
+        "sha256": "a0faefedbe7e802e6c01b2fb42e0dd6102da87d9482750df69073ee9fecc4c9b"
+      },
+      "originalMusicXml": {
+        "path": "work/shapenote-musicxml/62a2ff0ce19a4466290ee3c0.mxl",
+        "sha256": "004fdb3c6fbc0200cc37df2e433eb2bd12e136d71e0696f6d8b90cf470375df5"
+      }
     }
   ]
 }

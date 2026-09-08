@@ -1,0 +1,287 @@
+{
+  "schemaVersion": 1,
+  "queueId": "sh2025/41",
+  "edition": "Sacred Harp, 2025 Edition",
+  "songNo": "41",
+  "title": "Evening Hymn",
+  "status": "source-aligned-playable-with-partial-lyrics",
+  "safeToPromote": false,
+  "sourceAuthority": {
+    "exactMusicXmlPath": "work/shapenote-musicxml/19a80c54621e6b851dedf1d0.mxl",
+    "exactMusicXmlSha256": "0c55ec9bb3bc635a89c1ef9f4dedd7635e8675b59119b43e71e688252fa7b9e4",
+    "retainedScanPath": "work/source-pdfs/official-sh25-scans/SH25-EVENING-HYMN.jpg",
+    "retainedScanSha256": "65af3c268bcf08b2de84e55944090e1bf2905817e953964d635a2d1bd266f99b",
+    "immutable": true,
+    "directObservations": {
+      "key": "B minor",
+      "timeSignature": "4/4",
+      "meter": "Short Meter (6,6,8,6)",
+      "parts": 4,
+      "measuresByPart": {
+        "P1": 16,
+        "P2": 16,
+        "P3": 16,
+        "P4": 16
+      },
+      "lyricsVisible": true,
+      "numberedEndingsVisible": true,
+      "retainedMxlEndingTopology": "preserved exactly; no new repeat or ending semantics inferred"
+    }
+  },
+  "correction": {
+    "outputPath": "work/luna-program-20260904/sh2025/41-evening-hymn-correction-v2.mxl",
+    "outputSha256": "3c659c254e54dbbee7fe1e713c508eae6555332db3ec32bc37b7a3e6b0e60b8b",
+    "transformation": [
+      "preserve every source pitch, duration, part, measure, and barline",
+      "add explicit printed-source mode",
+      "add review-only four-shape tags derived from source pitch and key",
+      "add only directly anchored terminal lyric entries where the scan establishes the note mapping",
+      "retain all source repeat/ending elements"
+    ],
+    "summary": {
+      "parts": 4,
+      "measuresByPart": {
+        "P1": 16,
+        "P2": 16,
+        "P3": 16,
+        "P4": 16
+      },
+      "pitchedEvents": 173,
+      "shapeNoteheads": 173,
+      "lyricAnchors": 16,
+      "retainedRepeatElements": 8,
+      "retainedEndingElements": 4,
+      "anchors": [
+        {
+          "part": "P1",
+          "measure": "15",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "B",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "12",
+          "syllable": "near.",
+          "sourceObservation": "direct retained SH25 scan anchor; lyric verse number is kept separate from any numbered musical ending",
+          "lyricNumber": "1"
+        },
+        {
+          "part": "P1",
+          "measure": "15",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "B",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "12",
+          "syllable": "pears.",
+          "sourceObservation": "direct retained SH25 scan anchor; lyric verse number is kept separate from any numbered musical ending",
+          "lyricNumber": "2"
+        },
+        {
+          "part": "P1",
+          "measure": "16",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "B",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "16",
+          "syllable": "near.",
+          "sourceObservation": "direct retained SH25 scan anchor; lyric verse number is kept separate from any numbered musical ending",
+          "lyricNumber": "1"
+        },
+        {
+          "part": "P1",
+          "measure": "16",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "B",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "16",
+          "syllable": "pears.",
+          "sourceObservation": "direct retained SH25 scan anchor; lyric verse number is kept separate from any numbered musical ending",
+          "lyricNumber": "2"
+        },
+        {
+          "part": "P2",
+          "measure": "15",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "F",
+            "alter": 1,
+            "octave": 4
+          },
+          "duration": "12",
+          "syllable": "near.",
+          "sourceObservation": "direct retained SH25 scan anchor; lyric verse number is kept separate from any numbered musical ending",
+          "lyricNumber": "1"
+        },
+        {
+          "part": "P2",
+          "measure": "15",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "F",
+            "alter": 1,
+            "octave": 4
+          },
+          "duration": "12",
+          "syllable": "pears.",
+          "sourceObservation": "direct retained SH25 scan anchor; lyric verse number is kept separate from any numbered musical ending",
+          "lyricNumber": "2"
+        },
+        {
+          "part": "P2",
+          "measure": "16",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "F",
+            "alter": 1,
+            "octave": 4
+          },
+          "duration": "16",
+          "syllable": "near.",
+          "sourceObservation": "direct retained SH25 scan anchor; lyric verse number is kept separate from any numbered musical ending",
+          "lyricNumber": "1"
+        },
+        {
+          "part": "P2",
+          "measure": "16",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "F",
+            "alter": 1,
+            "octave": 4
+          },
+          "duration": "16",
+          "syllable": "pears.",
+          "sourceObservation": "direct retained SH25 scan anchor; lyric verse number is kept separate from any numbered musical ending",
+          "lyricNumber": "2"
+        },
+        {
+          "part": "P3",
+          "measure": "15",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "B",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "12",
+          "syllable": "near.",
+          "sourceObservation": "direct retained SH25 scan anchor; lyric verse number is kept separate from any numbered musical ending",
+          "lyricNumber": "1"
+        },
+        {
+          "part": "P3",
+          "measure": "15",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "B",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "12",
+          "syllable": "pears.",
+          "sourceObservation": "direct retained SH25 scan anchor; lyric verse number is kept separate from any numbered musical ending",
+          "lyricNumber": "2"
+        },
+        {
+          "part": "P3",
+          "measure": "16",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "B",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "16",
+          "syllable": "near.",
+          "sourceObservation": "direct retained SH25 scan anchor; lyric verse number is kept separate from any numbered musical ending",
+          "lyricNumber": "1"
+        },
+        {
+          "part": "P3",
+          "measure": "16",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "B",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "16",
+          "syllable": "pears.",
+          "sourceObservation": "direct retained SH25 scan anchor; lyric verse number is kept separate from any numbered musical ending",
+          "lyricNumber": "2"
+        },
+        {
+          "part": "P4",
+          "measure": "15",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "B",
+            "alter": 0,
+            "octave": 2
+          },
+          "duration": "12",
+          "syllable": "near.",
+          "sourceObservation": "direct retained SH25 scan anchor; lyric verse number is kept separate from any numbered musical ending",
+          "lyricNumber": "1"
+        },
+        {
+          "part": "P4",
+          "measure": "15",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "B",
+            "alter": 0,
+            "octave": 2
+          },
+          "duration": "12",
+          "syllable": "pears.",
+          "sourceObservation": "direct retained SH25 scan anchor; lyric verse number is kept separate from any numbered musical ending",
+          "lyricNumber": "2"
+        },
+        {
+          "part": "P4",
+          "measure": "16",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "B",
+            "alter": 0,
+            "octave": 2
+          },
+          "duration": "16",
+          "syllable": "near.",
+          "sourceObservation": "direct retained SH25 scan anchor; lyric verse number is kept separate from any numbered musical ending",
+          "lyricNumber": "1"
+        },
+        {
+          "part": "P4",
+          "measure": "16",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "B",
+            "alter": 0,
+            "octave": 2
+          },
+          "duration": "16",
+          "syllable": "pears.",
+          "sourceObservation": "direct retained SH25 scan anchor; lyric verse number is kept separate from any numbered musical ending",
+          "lyricNumber": "2"
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "Remaining printed lyric alignment is unavailable because direct note-to-syllable alignment was not established without inference.",
+    "Four-shape tags are review-only derived evidence, not direct per-note engraving proof.",
+    "safeToPromote remains false; retain the exact source witness separately."
+  ]
+}

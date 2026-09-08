@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "queueId": "sh2025/55",
+  "edition": "Sacred Harp, 2025 Edition",
+  "songNo": "55",
+  "title": "Converse",
+  "status": "source-aligned-playable-with-partial-lyrics",
+  "safeToPromote": false,
+  "sourceAuthority": {
+    "exactMusicXmlPath": "work/shapenote-musicxml/53c8ee986905cbd07c468efd.mxl",
+    "exactMusicXmlSha256": "1db754f3b1309c95edd987d41b0e4352ff5c597e2d60d634dba313d9ad6acfbd",
+    "retainedScanPath": "work/source-pdfs/official-sh25-scans/isolated-audit/SH25-CONVERSE.jpg",
+    "retainedScanSha256": "27894c56076c94de739a7dd0f502fd8e0df2b711a19d6d75fdf7106e41902993",
+    "immutable": true,
+    "directObservations": {
+      "header": "CONVERSE. P.M.",
+      "key": "A major",
+      "timeSignature": "4/4",
+      "printedMeter": "Particular Meter (8,8,6,8,8,8,6)",
+      "parts": 4,
+      "measuresByPart": {
+        "P1": 21,
+        "P2": 21,
+        "P3": 21,
+        "P4": 21
+      },
+      "lyricsVisible": true,
+      "lyricBearingVoices": [
+        "P1",
+        "P3"
+      ],
+      "terminalJoysAnchorsVisible": "joys. is printed under the final note of each lyric-bearing voice",
+      "repeatDotsVisible": true,
+      "numberedEndingsVisible": [],
+      "retainedMxlEndingTopology": "source MXL has zero repeat and ending elements despite repeat dots visible in the scan"
+    }
+  },
+  "correction": {
+    "outputPath": "work/luna-program-20260904/sh2025/55-converse-correction-v2.mxl",
+    "outputSha256": "7efef396f17d2acd1b2efc315682aadb823675abd9d25854062669def8ad89c0",
+    "transformation": [
+      "preserve every source pitch, duration, part, measure and barline",
+      "add explicit major mode from the printed source key",
+      "add review-only four-shape tags derived from source pitch and A-major key",
+      "add only P1/P3 measure-21 terminal 'joys.' lyric anchors; P2/P4 have no printed lyric line in the retained scan",
+      "preserve the source MXL's zero repeat/ending elements; do not infer repeat topology from scan dots"
+    ],
+    "summary": {
+      "parts": 4,
+      "measuresByPart": {
+        "P1": 21,
+        "P2": 21,
+        "P3": 21,
+        "P4": 21
+      },
+      "pitchedEvents": 212,
+      "shapeNoteheads": 212,
+      "shapeCounts": {
+        "fa": 73,
+        "mi": 19,
+        "la": 98,
+        "sol": 22
+      },
+      "lyricsEncoded": 2,
+      "lyricAnchors": [
+        {
+          "part": "P1",
+          "measure": "21",
+          "noteIndexWithinMeasure": 1,
+          "pitch": "C+15",
+          "duration": "8",
+          "syllable": "joys.",
+          "sourceObservation": "the retained scan visibly prints 'joys.' under the final note of the two lyric-bearing voices"
+        },
+        {
+          "part": "P3",
+          "measure": "21",
+          "noteIndexWithinMeasure": 1,
+          "pitch": "A4",
+          "duration": "8",
+          "syllable": "joys.",
+          "sourceObservation": "the retained scan visibly prints 'joys.' under the final note of the two lyric-bearing voices"
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "Remaining printed lyric syllables are unavailable because direct note-to-syllable alignment was not established without inference.",
+    "Four-shape tags are derived review evidence, not direct per-note engraving proof.",
+    "The scan visibly shows repeat dots, but the retained MXL has zero repeat and ending elements; the derivative preserves that boundary and adds no repeat topology.",
+    "safeToPromote remains false; retain the exact source witness separately."
+  ]
+}

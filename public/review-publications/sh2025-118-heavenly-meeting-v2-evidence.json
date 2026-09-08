@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "queueId": "sh2025/118",
+  "edition": "Sacred Harp, 2025 Edition",
+  "songNo": "118",
+  "title": "Heavenly Meeting",
+  "status": "source-aligned-playable-with-partial-lyrics",
+  "safeToPromote": false,
+  "sourceAuthority": {
+    "sourceMxlPath": "work/shapenote-musicxml/03a339caa2415ca69c6f48eb.mxl",
+    "sourceMxlSha256": "3f2346a8142331026011b89db6599d71320e34c4ab61cca632cb71d2afe12cd6",
+    "sourceImagePath": "work/source-pdfs/official-sh25-scans/SH25-HEAVENLY-MEETING.jpg",
+    "sourceImageSha256": "bcfba8f372ba4116458bb5972a51410ca3874a0b8cc5f8079178f496222c6e47",
+    "sourceImageImmutable": true,
+    "directObservations": {
+      "header": "HEAVENLY MEETING. S.M.",
+      "key": "A minor",
+      "timeSignature": "6/4",
+      "meter": "Short Meter (6,6,8,6)",
+      "parts": 3,
+      "measuresByPart": {
+        "P1": 20,
+        "P2": 20,
+        "P3": 20
+      },
+      "fourShapeNoteheadsVisible": true,
+      "lyricsVisible": true,
+      "finalThereAnchorsVisible": "the scan prints 'there.' in the terminal numbered-ending region for each voice",
+      "numberedEndingsVisible": [
+        "1.",
+        "2."
+      ],
+      "retainedMxlEndingTopology": "measure 19 has a backward repeat but no numbered ending elements"
+    }
+  },
+  "correction": {
+    "outputPath": "work/luna-program-20260904/sh2025/118-heavenly-meeting-correction-v2.mxl",
+    "outputSha256": "c10e7b3361de633e88a447d661c482aac8eac8bf5a872a545ff91bbb008fc127",
+    "transformation": [
+      "preserve every source pitch, duration, part, measure and barline",
+      "add explicit minor mode from the printed source key",
+      "add review-only four-shape tags derived from source pitch and A-minor key",
+      "add only three directly anchored 'there.' lyrics at the retained MXL terminal note P1/P2/P3 measure 19; do not interpret this as modeling both printed numbered endings"
+    ],
+    "summary": {
+      "parts": 3,
+      "measuresByPart": {
+        "P1": 20,
+        "P2": 20,
+        "P3": 20
+      },
+      "pitchedEvents": 186,
+      "shapeNoteheads": 186,
+      "shapeCounts": {
+        "la": 99,
+        "fa": 36,
+        "sol": 45,
+        "mi": 6
+      },
+      "lyricsEncoded": 3,
+      "lyricAnchors": [
+        {
+          "part": "P1",
+          "measure": "19",
+          "noteIndexWithinMeasure": 1,
+          "pitch": "A4",
+          "duration": "6",
+          "syllable": "there.",
+          "sourceObservation": "the retained scan visibly prints 'there.' at the terminal note region; this anchor is attached only to retained MXL measure 19 because the scan's numbered endings are not modeled in the MXL"
+        },
+        {
+          "part": "P2",
+          "measure": "19",
+          "noteIndexWithinMeasure": 1,
+          "pitch": "A4",
+          "duration": "6",
+          "syllable": "there.",
+          "sourceObservation": "the retained scan visibly prints 'there.' at the terminal note region; this anchor is attached only to retained MXL measure 19 because the scan's numbered endings are not modeled in the MXL"
+        },
+        {
+          "part": "P3",
+          "measure": "19",
+          "noteIndexWithinMeasure": 1,
+          "pitch": "A2",
+          "duration": "6",
+          "syllable": "there.",
+          "sourceObservation": "the retained scan visibly prints 'there.' at the terminal note region; this anchor is attached only to retained MXL measure 19 because the scan's numbered endings are not modeled in the MXL"
+        }
+      ]
+    }
+  },
+  "eventIntegrity": {
+    "sourcePitchedEvents": 186,
+    "correctionPitchedEvents": 186,
+    "sourceAndCorrectionEventStreamExpectedEqual": true
+  },
+  "limitations": [
+    "The remaining printed lyrics are visible but their note-to-syllable alignment was not established without inference.",
+    "The four-shape tags are derived review evidence, not direct per-note engraving proof.",
+    "The scan visibly has numbered 1/2 endings, while the retained MXL has only a backward repeat at measure 19 and no numbered ending elements; the derivative preserves that boundary and does not invent ending branches.",
+    "safeToPromote remains false and this artifact must not replace the exact source witness in canonical data."
+  ],
+  "integration": {
+    "consumer": "data lane",
+    "importableArtifact": "work/luna-program-20260904/sh2025/118-heavenly-meeting-correction-v2.mxl",
+    "evidenceArtifact": "work/luna-program-20260904/sh2025/118-heavenly-meeting-evidence-v2.json",
+    "canonicalPublicDataChanged": false
+  }
+}

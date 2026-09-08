@@ -1,0 +1,175 @@
+{
+  "schemaVersion": 1,
+  "queueId": "sh2025/415",
+  "edition": "Sacred Harp, 2025 Edition",
+  "songNo": "415",
+  "title": "Endless Praise",
+  "status": "source-aligned-playable-with-partial-lyrics",
+  "safeToPromote": false,
+  "sourceAuthority": {
+    "exactMusicXmlPath": "work/shapenote-musicxml/2eb61146c1b9bb3bc35d6bd8.mxl",
+    "exactMusicXmlSha256": "4458f77cb9f35d0ea6c8e144464388203b24a649fb3f88d89c82e891ccf153ed",
+    "retainedScanPath": "work/source-pdfs/official-sh25-scans/isolated-audit/SH25-ENDLESS-PRAISE.jpg",
+    "retainedScanSha256": "014a70d8d2c69be3b3ae176cbd38b204b37ff56ececda9a725d04d1bed1ebd1a",
+    "immutable": true,
+    "directObservations": {
+      "key": "D minor",
+      "timeSignature": "4/4",
+      "meter": "Common Meter (8,6,8,6)",
+      "parts": 4,
+      "measuresByPart": {
+        "P1": 17,
+        "P2": 17,
+        "P3": 17,
+        "P4": 17
+      },
+      "lyricsVisible": true,
+      "numberedEndingsVisible": true,
+      "retainedMxlEndingTopology": "preserved exactly; no new repeat or ending semantics inferred"
+    }
+  },
+  "correction": {
+    "outputPath": "work/luna-program-20260904/sh2025/415-endless-praise-correction-v3.mxl",
+    "outputSha256": "2238f2ca91b6eabed26de072f0fa15aa1f1c65c1593336ff9072491ef6533fba",
+    "transformation": [
+      "preserve every source pitch, duration, part, measure, and barline",
+      "add explicit printed-source mode",
+      "add review-only four-shape tags derived from source pitch and key",
+      "add only directly anchored terminal lyric entries where the scan establishes the note mapping",
+      "retain all source repeat/ending elements"
+    ],
+    "summary": {
+      "parts": 4,
+      "measuresByPart": {
+        "P1": 17,
+        "P2": 17,
+        "P3": 17,
+        "P4": 17
+      },
+      "pitchedEvents": 209,
+      "shapeNoteheads": 209,
+      "lyricAnchors": 8,
+      "retainedRepeatElements": 8,
+      "retainedEndingElements": 4,
+      "anchors": [
+        {
+          "part": "P1",
+          "measure": "16",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "6",
+          "syllable": "gun.",
+          "sourceObservation": "direct retained SH25 scan anchor; lyric verse number is kept separate from any numbered musical ending",
+          "lyricNumber": "1"
+        },
+        {
+          "part": "P1",
+          "measure": "16",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "6",
+          "syllable": "praise.",
+          "sourceObservation": "direct retained SH25 scan anchor; lyric verse number is kept separate from any numbered musical ending",
+          "lyricNumber": "2"
+        },
+        {
+          "part": "P2",
+          "measure": "16",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "6",
+          "syllable": "gun.",
+          "sourceObservation": "direct retained SH25 scan anchor; lyric verse number is kept separate from any numbered musical ending",
+          "lyricNumber": "1"
+        },
+        {
+          "part": "P2",
+          "measure": "16",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "6",
+          "syllable": "praise.",
+          "sourceObservation": "direct retained SH25 scan anchor; lyric verse number is kept separate from any numbered musical ending",
+          "lyricNumber": "2"
+        },
+        {
+          "part": "P3",
+          "measure": "16",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "D",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "6",
+          "syllable": "gun.",
+          "sourceObservation": "direct retained SH25 scan anchor; lyric verse number is kept separate from any numbered musical ending",
+          "lyricNumber": "1"
+        },
+        {
+          "part": "P3",
+          "measure": "16",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "D",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "6",
+          "syllable": "praise.",
+          "sourceObservation": "direct retained SH25 scan anchor; lyric verse number is kept separate from any numbered musical ending",
+          "lyricNumber": "2"
+        },
+        {
+          "part": "P4",
+          "measure": "16",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "D",
+            "alter": 0,
+            "octave": 3
+          },
+          "duration": "6",
+          "syllable": "gun.",
+          "sourceObservation": "direct retained SH25 scan anchor; lyric verse number is kept separate from any numbered musical ending",
+          "lyricNumber": "1"
+        },
+        {
+          "part": "P4",
+          "measure": "16",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "D",
+            "alter": 0,
+            "octave": 3
+          },
+          "duration": "6",
+          "syllable": "praise.",
+          "sourceObservation": "direct retained SH25 scan anchor; lyric verse number is kept separate from any numbered musical ending",
+          "lyricNumber": "2"
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "Remaining printed lyric alignment is unavailable because direct note-to-syllable alignment was not established without inference.",
+    "Four-shape tags are review-only derived evidence, not direct per-note engraving proof.",
+    "safeToPromote remains false; retain the exact source witness separately."
+  ]
+}

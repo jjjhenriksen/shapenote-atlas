@@ -624,6 +624,7 @@ function App() {
       return "sh 45t — New Britain";
     }
   });
+  const [draftSelection, setDraftSelection] = useState("");
   const [activeSection, setActiveSection] = useState("Library");
   const [targetKey, setTargetKey] = useState("");
   const [activeParts, setActiveParts] = useState([]);
@@ -790,18 +791,23 @@ function App() {
   const rejectedDraft = reviewDraftAmbiguous || isRejectedReviewItem(reviewDraft);
   const selectedScorePreview = getBookScore(selectedSong, bookId);
   const selectedReferenceScore = getBookReferenceScore(selectedSong, bookId);
-  const selectedDraftScore = !reviewQueueReady || rejectedDraft ? null : getBookDraftScore(selectedSong, bookId);
-  const activeScorePreview = selectedScorePreview || selectedReferenceScore || selectedDraftScore;
-  const referenceScoreActive = !selectedScorePreview && Boolean(selectedReferenceScore);
-  const draftScoreActive = !selectedScorePreview && !selectedReferenceScore && Boolean(selectedDraftScore);
+  const availableDraft = getBookDraftScore(selectedSong, bookId);
+  // Pinned publications are a separate reviewed artifact, not the old OMR queue item.
+  const publishedDraft = availableDraft?.reviewPublication ? availableDraft : null;
+  const selectedDraftScore = publishedDraft || (!reviewQueueReady || rejectedDraft ? null : availableDraft);
+  const draftSelectionKey = `${bookId}/${selectedSong?.id || ""}`;
+  const preferPublishedDraft = Boolean(publishedDraft && draftSelection === draftSelectionKey);
+  const activeScorePreview = preferPublishedDraft ? publishedDraft : selectedScorePreview || selectedReferenceScore || selectedDraftScore;
+  const referenceScoreActive = !preferPublishedDraft && !selectedScorePreview && Boolean(selectedReferenceScore);
+  const draftScoreActive = preferPublishedDraft || !selectedScorePreview && !selectedReferenceScore && Boolean(selectedDraftScore);
   const selectedMetadata = getBookMetadata(selectedSong, bookId);
   const selectedCoverage = selectedSong?.sourceCoverageByBook?.[bookId];
   const sourceKeyOverrideId = selectedSong ? `${bookId}/${selectedSong.songNo}` : "";
   const enteredSourceKey = sourceKeyOverrides[sourceKeyOverrideId] || "";
-  const reviewSourceKey = bookId === "sh2025" && draftScoreActive
+  const reviewSourceKey = bookId === "sh2025" && draftScoreActive && !publishedDraft
     ? reviewDraft?.shapeReviewDraft?.reviewDraft?.sourceKey || reviewDraft?.sourceComparison?.sourceMetadata?.key || reviewDraft?.sourceMetadataObservation?.observations?.key?.value || ""
     : "";
-  const reviewSourceTimeSignature = bookId === "sh2025" && draftScoreActive
+  const reviewSourceTimeSignature = bookId === "sh2025" && draftScoreActive && !publishedDraft
     ? reviewDraft?.shapeReviewDraft?.reviewDraft?.sourceTimeSignature || reviewDraft?.sourceComparison?.sourceMetadata?.timeSignature || ""
     : "";
   // Transposition follows the loaded witness itself. A score key wins over
@@ -811,7 +817,7 @@ function App() {
   // from an OMR error.
   const resolvedKey = parseKey(reviewSourceKey)
     ? { value: reviewSourceKey, evidence: { status: "source-observed", source: "untouched 2025 source image observation" } }
-    : resolveKeyContext(activeScorePreview, selectedMetadata, enteredSourceKey, { parseKey, keyEvidenceFor, allowMetadataFallback: !referenceScoreActive });
+    : resolveKeyContext(activeScorePreview, selectedMetadata, enteredSourceKey, { parseKey, keyEvidenceFor, allowMetadataFallback: !referenceScoreActive && !(draftScoreActive && publishedDraft) });
   const sourceKeyValue = resolvedKey.value;
   const shapeSourceKey = sourceKeyValue;
   const sourceKeyName = keyLabel(sourceKeyValue);
@@ -1124,14 +1130,15 @@ function App() {
           <div className="detail-tags">{selectedScore ? <span className={`tag ${canTranspose ? referenceScoreActive ? "reference-tag" : draftScoreActive ? "draft-tag" : "available" : "unavailable"}`}><Icon name={canTranspose ? "check" : "info"} size={14} />{scoreBadgeLabel}</span> : selectedCoverage?.status === "transcription-blocked" ? <span className="tag unavailable"><Icon name="info" size={14} />Transcription blocked</span> : sourcePdfUrl(selectedSong) || sourcePageUrl(selectedSong, bookId) ? <span className="tag available"><Icon name="check" size={14} />Source scan</span> : selectedCoverage?.status === "source-reference" ? <span className="tag available"><Icon name="check" size={14} />Source reference</span> : <span className="tag unavailable"><Icon name="info" size={14} />Metadata only</span>}{(selectedScore || sourceKeyValue || draftScoreActive) && <span className="tag key-tag">{sourceKeyValue ? sourceKeyLabel : "Key unavailable"}</span>}{bookId === "sh2025" && selectedMetadata?.editionStatus === "added-in-2025" && <span className="tag edition-new-tag">New in 2025</span>}{editionReconciliation && <span className="tag edition-tag">{editionReconciliation.status === "change-flagged" ? "1991 / 2025 text differs" : "Shared by 1991 / 2025"}</span>}</div>
           <div className="first-line"><span className="section-label">First line</span><p>{selectedSong.rawFirstLine || "No first line recorded in the local source."}</p></div>
           {humanReviewQueueError && selectedCoverage && selectedCoverage.status !== "structured-score" && <div className="source-coverage-note"><Icon name="info" size={18} /><span role="status"><strong>Review status unavailable.</strong> The local human-review queue could not be loaded. Source coverage and score data are unchanged; reload when the local server is available.</span><button className="text-button" type="button" onClick={() => setHumanReviewQueueAttempt((attempt) => attempt + 1)}>Retry</button></div>}
+          {publishedDraft && (selectedScorePreview || selectedReferenceScore) && <div className="source-key-picker"><div><span className="section-label">Score version</span><p>A corrected practice draft is available. The existing score is preserved.</p></div><label className="key-select-wrap"><span className="sr-only">Score version</span><select aria-label="Score version" value={preferPublishedDraft ? "draft" : "existing"} onChange={(event) => { stopAudio("Playback stopped because the score version changed."); setDraftSelection(event.target.value === "draft" ? draftSelectionKey : ""); }}><option value="existing">Existing structured score</option><option value="draft">Correction draft {publishedDraft.reviewPublication.version}</option></select><span className="select-chevron">⌄</span></label></div>}
           {selectedScore ? <>
             {referenceScoreActive && <div className="reference-score-note"><Icon name="info" size={18} /><span>This is a transposable reference witness from {referenceSourceLabel}. It is shown for practice, but it is not being presented as the {book.label} engraving.</span></div>}
-            {draftScoreActive && <div className="draft-score-note"><Icon name="info" size={18} /><span>{reviewDraft ? <><strong>{reviewDisposition(reviewDraft, reviewDraftAmbiguous).label}.</strong> {reviewDisposition(reviewDraft, reviewDraftAmbiguous).summary} </> : selectedDraftScore?.reviewPublication ? "This is a published working transcription. " : "This is an unverified OMR transcription draft. "}{selectedDraftScore?.reviewPublication ? "Ready for practice and correction; not yet a verified edition score. " : <>It is playable and transposable only as isolated review material, but it is not the {book.label} engraving and does not count as verified coverage. </>}<a href={assetUrl(selectedDraftScore?.reviewPublication?.evidenceUrl || "/human-review-queue.json")} target="_blank" rel="noreferrer noopener">{reviewDraft ? "View disposition evidence" : "Open review evidence"} <Icon name="external" size={13} /></a></span></div>}
+            {draftScoreActive && <div className="draft-score-note"><Icon name="info" size={18} /><span>{reviewDraft && !publishedDraft ? <><strong>{reviewDisposition(reviewDraft, reviewDraftAmbiguous).label}.</strong> {reviewDisposition(reviewDraft, reviewDraftAmbiguous).summary} </> : selectedDraftScore?.reviewPublication ? "This is a published working transcription. " : "This is an unverified OMR transcription draft. "}{selectedDraftScore?.reviewPublication ? "Ready for practice and correction; not yet a verified edition score. " : <>It is playable and transposable only as isolated review material, but it is not the {book.label} engraving and does not count as verified coverage. </>}<a href={assetUrl(selectedDraftScore?.reviewPublication?.evidenceUrl || "/human-review-queue.json")} target="_blank" rel="noreferrer noopener">{reviewDraft && !publishedDraft ? "View disposition evidence" : "Open review evidence"} <Icon name="external" size={13} /></a></span></div>}
             {selectedCoverage?.status === "transcription-blocked" && <div className="source-coverage-note"><Icon name="info" size={18} /><span><strong>Source coverage blocked.</strong> {coverageNextStep(selectedCoverage)} This review draft remains isolated until an authorized source is acquired.</span></div>}
             {draftScoreActive && <PublishedDraftActions draft={selectedDraftScore} song={selectedSong} bookLabel={book.label} assetUrl={assetUrl} />}
-            {draftScoreActive && <CleanSourceCandidates coverage={selectedCoverage} />}
-            {draftScoreActive && <SourceComparisonPanel song={selectedSong} bookId={bookId} coverage={selectedCoverage} />}
-            {draftScoreActive && <ShapeReviewDraftPanel reviewItem={reviewDraft} ambiguous={reviewDraftAmbiguous} />}
+            {draftScoreActive && !publishedDraft && <CleanSourceCandidates coverage={selectedCoverage} />}
+            {draftScoreActive && !publishedDraft && <SourceComparisonPanel song={selectedSong} bookId={bookId} coverage={selectedCoverage} />}
+            {draftScoreActive && !publishedDraft && <ShapeReviewDraftPanel reviewItem={reviewDraft} ambiguous={reviewDraftAmbiguous} />}
             <div className="parts-heading"><span className="section-label">Available parts</span><span className="parts-count">{activeParts.length} of {selectedScore.parts.length} selected</span></div>
             <div className="part-toggles" role="group" aria-label="Available parts">{selectedScore.parts.map((part, partIndex) => <button key={part.name} className={`part-toggle ${activeParts.includes(part.name) ? "selected" : ""}`} aria-pressed={activeParts.includes(part.name)} disabled={playing} onClick={() => togglePart(part.name)}><span className="part-clef">{partClefGlyph(part, partIndex)}</span><span>{part.name}</span><span className="part-check"><Icon name="check" size={13} /></span></button>)}</div>
             <ScorePreview score={selectedScore} transpose={signedTranspose} complete={assetLoaded} sourceKey={shapeSourceKey} targetKey={targetKey} shapeSourceUrl={shapeSourcePdfUrl(activeScorePreview)} keyEvidence={resolvedKey.evidence} sourceTimeSignature={reviewSourceTimeSignature} reviewDraft={draftScoreActive} />

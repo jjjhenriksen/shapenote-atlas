@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "queueId": "sh2025/537",
+  "edition": "Sacred Harp, 2025 Edition",
+  "songNo": "537",
+  "title": "Portsmouth",
+  "status": "source-aligned-playable-with-partial-lyrics",
+  "safeToPromote": false,
+  "sourceAuthority": {
+    "exactMusicXmlPath": "work/shapenote-musicxml/75e5c1575fb0039e840c1838.mxl",
+    "exactMusicXmlSha256": "5a66da5c81f91113ec0333e5433d96c8cd837f6d6921c0436b30657e16e29201",
+    "retainedScanPath": "work/source-pdfs/official-sh25-scans/SH25-PORTSMOUTH.jpg",
+    "retainedScanSha256": "51001e387269e9d4ca5653a329ffab259ae19f0ecdd625e4c56783fb8701c5a6",
+    "immutable": true,
+    "directObservations": {
+      "header": "PORTSMOUTH. L.M.",
+      "key": "B-flat major",
+      "timeSignature": "4/4",
+      "meter": "Long Meter (8,8,8,8)",
+      "parts": 4,
+      "measuresByPart": {
+        "P1": 14,
+        "P2": 14,
+        "P3": 14,
+        "P4": 14
+      },
+      "lyricsVisible": true,
+      "lyricBearingVoices": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "terminalAnchorsVisible": "mankind., more., and all. are printed under P1/P2/P3 terminal notes; P4 has no lyric line",
+      "repeatDotsVisible": false,
+      "numberedEndingsVisible": [],
+      "retainedMxlEndingTopology": "source MXL has zero repeat and ending elements"
+    }
+  },
+  "correction": {
+    "outputPath": "work/luna-program-20260904/sh2025/537-portsmouth-correction-v2.mxl",
+    "outputSha256": "141fcf54697c939e0bc72df4d6058135da1462af4eb6eec0eea3376df963eeb6",
+    "transformation": [
+      "preserve every source pitch, duration, part, measure and barline",
+      "add explicit major mode from the printed source key",
+      "add review-only four-shape tags derived from source pitch and B-flat-major key",
+      "add only P1/P2/P3 measure-14 terminal lyric anchors; P4 remains lyric-unavailable"
+    ],
+    "summary": {
+      "parts": 4,
+      "measuresByPart": {
+        "P1": 14,
+        "P2": 14,
+        "P3": 14,
+        "P4": 14
+      },
+      "pitchedEvents": 148,
+      "shapeNoteheads": 148,
+      "shapeCounts": {
+        "sol": 55,
+        "fa": 41,
+        "la": 48,
+        "mi": 4
+      },
+      "lyricsEncoded": 3,
+      "lyricAnchors": [
+        {
+          "part": "P1",
+          "measure": "14",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "D",
+            "alter": 0,
+            "octave": 5
+          },
+          "duration": "8",
+          "syllable": "mankind.",
+          "sourceObservation": "the retained scan visibly prints 'mankind.' under this terminal note"
+        },
+        {
+          "part": "P2",
+          "measure": "14",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "D",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "8",
+          "syllable": "more.",
+          "sourceObservation": "the retained scan visibly prints 'more.' under this terminal note"
+        },
+        {
+          "part": "P3",
+          "measure": "14",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "B",
+            "alter": -1,
+            "octave": 4
+          },
+          "duration": "8",
+          "syllable": "all.",
+          "sourceObservation": "the retained scan visibly prints 'all.' under this terminal note"
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "Remaining printed lyric alignment is unavailable because direct note-to-syllable alignment was not established without inference.",
+    "Four-shape tags are derived review evidence, not direct per-note engraving proof.",
+    "No repeat or ending semantics were inferred or added.",
+    "safeToPromote remains false; retain the exact source witness separately."
+  ]
+}

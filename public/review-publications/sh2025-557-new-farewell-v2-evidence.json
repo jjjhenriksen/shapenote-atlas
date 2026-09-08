@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "queueId": "sh2025/557",
+  "edition": "Sacred Harp, 2025 Edition",
+  "songNo": "557",
+  "title": "New Farewell",
+  "status": "source-aligned-playable-with-partial-lyrics",
+  "safeToPromote": false,
+  "sourceAuthority": {
+    "exactMusicXmlPath": "work/shapenote-musicxml/6a19c6f645e15e9926079f61.mxl",
+    "exactMusicXmlSha256": "2e0e46196d2ed25ad9bbc55aef86cd70747ca47e984ef1a7b57ec6baed49ad77",
+    "retainedScanPath": "work/source-pdfs/official-sh25-scans/SH25-NEW-FAREWELL.jpg",
+    "retainedScanSha256": "63fc4f464688c2ce687891014d994d61ec3298ebab5e45164f0c0986fce12bf5",
+    "immutable": true,
+    "directObservations": {
+      "key": "A minor",
+      "timeSignature": "6/8",
+      "meter": "8s & 7s D.",
+      "parts": 4,
+      "measuresByPart": {
+        "P1": 15,
+        "P2": 15,
+        "P3": 15,
+        "P4": 15
+      },
+      "lyricsVisible": true,
+      "numberedEndingsVisible": false,
+      "retainedMxlEndingTopology": "preserved exactly; no new repeat or ending semantics inferred",
+      "navigationBoundary": "scan visibly marks D.C. navigation while the retained MXL has only 15 linear measures per part; no inferred repeat target or terminal lyric mapping was added"
+    }
+  },
+  "correction": {
+    "outputPath": "work/luna-program-20260904/sh2025/557-new-farewell-correction-v2.mxl",
+    "outputSha256": "6f2dfe69b61b6106f2253f35fdf037e1fc26c299dd2b12b32ede98e05d071137",
+    "transformation": [
+      "preserve every source pitch, duration, part, measure, and barline",
+      "add explicit printed-source mode",
+      "add review-only four-shape tags derived from source pitch and key",
+      "add only directly anchored terminal lyric entries where the scan establishes the note mapping",
+      "retain all source repeat/ending elements"
+    ],
+    "summary": {
+      "parts": 4,
+      "measuresByPart": {
+        "P1": 15,
+        "P2": 15,
+        "P3": 15,
+        "P4": 15
+      },
+      "pitchedEvents": 196,
+      "shapeNoteheads": 196,
+      "lyricAnchors": 0,
+      "retainedRepeatElements": 4,
+      "retainedEndingElements": 0,
+      "anchors": []
+    }
+  },
+  "limitations": [
+    "Remaining printed lyric alignment is unavailable because direct note-to-syllable alignment was not established without inference.",
+    "Four-shape tags are review-only derived evidence, not direct per-note engraving proof.",
+    "safeToPromote remains false; retain the exact source witness separately."
+  ]
+}

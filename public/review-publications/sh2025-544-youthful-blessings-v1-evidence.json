@@ -1,0 +1,292 @@
+{
+  "schemaVersion": 2,
+  "queueId": "sh2025/544",
+  "edition": "Sacred Harp, 2025 Edition",
+  "songNo": "544",
+  "title": "Youthful Blessings",
+  "status": "source-aligned-playable-with-partial-lyrics",
+  "safeToPromote": false,
+  "sourceAuthority": {
+    "exactMusicXmlPath": "work/shapenote-musicxml/33ef25e2f36fb7a49704178b.mxl",
+    "exactMusicXmlSha256": "27f503007bbcea3e6ad7c98eadc9eab93649d4ec96083e76a3c3efaaf53a2601",
+    "retainedScanPath": "work/source-pdfs/official-sh25-scans/SH25-YOUTHFUL-BLESSINGS.jpg",
+    "retainedScanSha256": "650ab264a5106c06a8a78c880034f43a6a791745f41c5d6b1013535c4389abdd",
+    "immutable": true,
+    "directObservations": {
+      "header": "YOUTHFUL BLESSINGS. C.M.",
+      "key": "A major",
+      "timeSignature": "4/4",
+      "meter": "Common Meter (8,6,8,6)",
+      "parts": 4,
+      "measuresByPart": {
+        "P1": 22,
+        "P2": 22,
+        "P3": 22,
+        "P4": 22
+      },
+      "lyricsVisible": true,
+      "terminalAnchorsVisible": "both verse lines end. and die. are printed under each voice's m21 and m22 numbered-ending terminal notes",
+      "numberedEndingsVisible": [
+        "1.",
+        "2."
+      ],
+      "retainedMxlEndingTopology": "source MXL retains 8 repeat elements and 4 numbered-ending elements",
+      "verseEndingSeparation": "end./die. are encoded as lyric numbers 1/2 on each terminal note; numbered endings remain the source's musical branch topology"
+    }
+  },
+  "correction": {
+    "outputPath": "work/luna-program-20260904/sh2025/544-youthful-blessings-correction-v1.mxl",
+    "outputSha256": "08764ccc78019820c934aa26a9506a0d6b2f985e096b720beb138a0d436e3076",
+    "transformation": [
+      "preserve every source pitch, duration, part, measure and barline",
+      "add explicit major mode from the printed source key",
+      "add review-only four-shape tags derived from source pitch and A-major key",
+      "add sixteen directly anchored terminal lyric entries: verse 1 end. and verse 2 die. on both m21 duration 6 and m22 duration 8 terminal notes for P1-P4",
+      "retain all source repeat/ending elements"
+    ],
+    "summary": {
+      "parts": 4,
+      "measuresByPart": {
+        "P1": 22,
+        "P2": 22,
+        "P3": 22,
+        "P4": 22
+      },
+      "pitchedEvents": 278,
+      "shapeNoteheads": 278,
+      "lyricsEncoded": 16,
+      "lyricAnchors": [
+        {
+          "part": "P1",
+          "measure": "21",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "C",
+            "alter": 1,
+            "octave": 5
+          },
+          "duration": "6",
+          "lyricNumber": "1",
+          "syllable": "end.",
+          "sourceObservation": "the retained scan visibly prints both lyric lines 'end.' and 'die.' under this numbered-ending terminal note; verse number is kept distinct from ending number"
+        },
+        {
+          "part": "P1",
+          "measure": "21",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "C",
+            "alter": 1,
+            "octave": 5
+          },
+          "duration": "6",
+          "lyricNumber": "2",
+          "syllable": "die.",
+          "sourceObservation": "the retained scan visibly prints both lyric lines 'end.' and 'die.' under this numbered-ending terminal note; verse number is kept distinct from ending number"
+        },
+        {
+          "part": "P1",
+          "measure": "22",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "C",
+            "alter": 1,
+            "octave": 5
+          },
+          "duration": "8",
+          "lyricNumber": "1",
+          "syllable": "end.",
+          "sourceObservation": "the retained scan visibly prints both lyric lines 'end.' and 'die.' under this numbered-ending terminal note; verse number is kept distinct from ending number"
+        },
+        {
+          "part": "P1",
+          "measure": "22",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "C",
+            "alter": 1,
+            "octave": 5
+          },
+          "duration": "8",
+          "lyricNumber": "2",
+          "syllable": "die.",
+          "sourceObservation": "the retained scan visibly prints both lyric lines 'end.' and 'die.' under this numbered-ending terminal note; verse number is kept distinct from ending number"
+        },
+        {
+          "part": "P2",
+          "measure": "21",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "E",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "6",
+          "lyricNumber": "1",
+          "syllable": "end.",
+          "sourceObservation": "the retained scan visibly prints both lyric lines 'end.' and 'die.' under this numbered-ending terminal note; verse number is kept distinct from ending number"
+        },
+        {
+          "part": "P2",
+          "measure": "21",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "E",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "6",
+          "lyricNumber": "2",
+          "syllable": "die.",
+          "sourceObservation": "the retained scan visibly prints both lyric lines 'end.' and 'die.' under this numbered-ending terminal note; verse number is kept distinct from ending number"
+        },
+        {
+          "part": "P2",
+          "measure": "22",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "E",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "8",
+          "lyricNumber": "1",
+          "syllable": "end.",
+          "sourceObservation": "the retained scan visibly prints both lyric lines 'end.' and 'die.' under this numbered-ending terminal note; verse number is kept distinct from ending number"
+        },
+        {
+          "part": "P2",
+          "measure": "22",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "E",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "8",
+          "lyricNumber": "2",
+          "syllable": "die.",
+          "sourceObservation": "the retained scan visibly prints both lyric lines 'end.' and 'die.' under this numbered-ending terminal note; verse number is kept distinct from ending number"
+        },
+        {
+          "part": "P3",
+          "measure": "21",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "6",
+          "lyricNumber": "1",
+          "syllable": "end.",
+          "sourceObservation": "the retained scan visibly prints both lyric lines 'end.' and 'die.' under this numbered-ending terminal note; verse number is kept distinct from ending number"
+        },
+        {
+          "part": "P3",
+          "measure": "21",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "6",
+          "lyricNumber": "2",
+          "syllable": "die.",
+          "sourceObservation": "the retained scan visibly prints both lyric lines 'end.' and 'die.' under this numbered-ending terminal note; verse number is kept distinct from ending number"
+        },
+        {
+          "part": "P3",
+          "measure": "22",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "8",
+          "lyricNumber": "1",
+          "syllable": "end.",
+          "sourceObservation": "the retained scan visibly prints both lyric lines 'end.' and 'die.' under this numbered-ending terminal note; verse number is kept distinct from ending number"
+        },
+        {
+          "part": "P3",
+          "measure": "22",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "8",
+          "lyricNumber": "2",
+          "syllable": "die.",
+          "sourceObservation": "the retained scan visibly prints both lyric lines 'end.' and 'die.' under this numbered-ending terminal note; verse number is kept distinct from ending number"
+        },
+        {
+          "part": "P4",
+          "measure": "21",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 2
+          },
+          "duration": "6",
+          "lyricNumber": "1",
+          "syllable": "end.",
+          "sourceObservation": "the retained scan visibly prints both lyric lines 'end.' and 'die.' under this numbered-ending terminal note; verse number is kept distinct from ending number"
+        },
+        {
+          "part": "P4",
+          "measure": "21",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 2
+          },
+          "duration": "6",
+          "lyricNumber": "2",
+          "syllable": "die.",
+          "sourceObservation": "the retained scan visibly prints both lyric lines 'end.' and 'die.' under this numbered-ending terminal note; verse number is kept distinct from ending number"
+        },
+        {
+          "part": "P4",
+          "measure": "22",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 2
+          },
+          "duration": "8",
+          "lyricNumber": "1",
+          "syllable": "end.",
+          "sourceObservation": "the retained scan visibly prints both lyric lines 'end.' and 'die.' under this numbered-ending terminal note; verse number is kept distinct from ending number"
+        },
+        {
+          "part": "P4",
+          "measure": "22",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 2
+          },
+          "duration": "8",
+          "lyricNumber": "2",
+          "syllable": "die.",
+          "sourceObservation": "the retained scan visibly prints both lyric lines 'end.' and 'die.' under this numbered-ending terminal note; verse number is kept distinct from ending number"
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "Remaining printed lyric alignment is unavailable because direct note-to-syllable alignment was not established without inference.",
+    "Four-shape tags are derived review evidence, not direct per-note engraving proof.",
+    "Verse numbers are represented separately from numbered musical endings; no new repeat or ending topology was inferred.",
+    "safeToPromote remains false; retain the exact source witness separately."
+  ]
+}

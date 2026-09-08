@@ -21,6 +21,7 @@ export function PublishedDraftActions({ draft, song, bookLabel, assetUrl }) {
     <p>{publication.completeness === "partial" ? "This draft stops before the end of the tune. " : ""}Download the editable score, compare it with the source, and report a correction. You can edit MusicXML in a notation editor such as MuseScore; submitting a correction opens GitHub for your review.</p>
     <div className="shape-review-draft-actions">
       <a href={assetUrl(publication.musicXmlUrl)} download>Download editable MusicXML</a>
+      {publication.originalMusicXmlUrl && <a href={assetUrl(publication.originalMusicXmlUrl)} download>Download original witness</a>}
       {publication.sourceUrl && <a href={assetUrl(publication.sourceUrl)} target="_blank" rel="noreferrer noopener">Compare source</a>}
       <a href={correctionUrl} target="_blank" rel="noreferrer noopener">Suggest a correction on GitHub</a>
       {publication.evidenceUrl && <a href={assetUrl(publication.evidenceUrl)} target="_blank" rel="noreferrer noopener">Review notes</a>}

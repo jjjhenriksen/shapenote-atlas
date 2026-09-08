@@ -1,0 +1,1219 @@
+{
+  "schemaVersion": 10,
+  "queueId": "sh2025/50t",
+  "edition": "Sacred Harp, 2025 Edition",
+  "songNo": "50t",
+  "title": "Devotion",
+  "status": "source-aligned-playable-with-partial-lyrics",
+  "safeToPromote": false,
+  "sourceAuthority": {
+    "exactMusicXmlPath": "work/shapenote-musicxml/25051a87a2fddb2c322ec07f.mxl",
+    "exactMusicXmlSha256": "762737cbeed87f6fa0b8fdbf7b305f860eca6ce69aedf84b6b4c78ec4b0c09bf",
+    "retainedScanPath": "work/source-pdfs/official-sh25-scans/isolated-audit/SH25-DEVOTION.jpg",
+    "retainedScanSha256": "172d3613ce22907f58fecb61cb45087e1f053227a0e4694b447f93ce255deccc",
+    "immutable": true,
+    "p1ContinuationCrops": [
+      {
+        "path": "work/luna-program-20260904/sh2025/50t-devotion-p1-continuation-crop-v9-original.jpg",
+        "sha256": "e190d25894b038fe58610ba8aa28443123e1e0fe4d9d662d30fdd14cfbde4f04",
+        "region": "source x~925..1245, y~85..180 at original scale"
+      },
+      {
+        "path": "work/luna-program-20260904/sh2025/50t-devotion-p1-continuation-crop-v9-zoom.jpg",
+        "sha256": "1601c58a273db19b164b4d853114ccf71a8f248aabd0d9b1f36341c146df593e",
+        "region": "same source region, 5x display enlargement"
+      }
+    ]
+  },
+  "correction": {
+    "outputPath": "work/luna-program-20260904/sh2025/50t-devotion-correction-v10.mxl",
+    "outputSha256": "e3d30c6fe426c6f985052a342de54ec3040140fe92ce76cceacfbbaa5fccb0cb",
+    "summary": {
+      "parts": 4,
+      "measuresByPart": {
+        "P1": 17,
+        "P2": 17,
+        "P3": 17,
+        "P4": 17
+      },
+      "pitchedEvents": 156,
+      "shapeNoteheads": 156,
+      "shapeCounts": {
+        "fa": 47,
+        "la": 39,
+        "sol": 62,
+        "mi": 8
+      },
+      "lyricsEncoded": 72,
+      "lyricAnchors": [
+        {
+          "part": "P1",
+          "measure": "1",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "C",
+            "alter": 0,
+            "octave": 5
+          },
+          "duration": "4",
+          "lyricNumber": "1",
+          "syllable": "Sweet",
+          "sourceObservation": "the retained scan visibly prints Sweet under the x~91 pickup note before the first barline at x~113"
+        },
+        {
+          "part": "P3",
+          "measure": "1",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "G",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "4",
+          "lyricNumber": "1",
+          "syllable": "Sweet",
+          "sourceObservation": "the retained scan visibly prints Sweet under the x~91 pickup note before the first barline at x~113"
+        },
+        {
+          "part": "P1",
+          "measure": "2",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "E",
+            "alter": 0,
+            "octave": 5
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "is",
+          "sourceObservation": "the retained scan directly places this lyric under the corresponding m2 quarter note after the pickup"
+        },
+        {
+          "part": "P1",
+          "measure": "2",
+          "noteIndexWithinMeasure": 2,
+          "pitch": {
+            "step": "E",
+            "alter": 0,
+            "octave": 5
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "the",
+          "sourceObservation": "the retained scan directly places this lyric under the corresponding m2 quarter note after the pickup"
+        },
+        {
+          "part": "P1",
+          "measure": "2",
+          "noteIndexWithinMeasure": 3,
+          "pitch": {
+            "step": "D",
+            "alter": 0,
+            "octave": 5
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "day",
+          "sourceObservation": "the retained scan directly places this lyric under the corresponding m2 quarter note after the pickup"
+        },
+        {
+          "part": "P1",
+          "measure": "2",
+          "noteIndexWithinMeasure": 4,
+          "pitch": {
+            "step": "D",
+            "alter": 0,
+            "octave": 5
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "of",
+          "sourceObservation": "the retained scan directly places this lyric under the corresponding m2 quarter note after the pickup"
+        },
+        {
+          "part": "P1",
+          "measure": "3",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "C",
+            "alter": 0,
+            "octave": 5
+          },
+          "duration": "4",
+          "lyricNumber": "1",
+          "syllabic": "begin",
+          "syllable": "sa",
+          "sourceObservation": "the retained scan directly places sa-cred across the corresponding m3 half notes"
+        },
+        {
+          "part": "P1",
+          "measure": "3",
+          "noteIndexWithinMeasure": 2,
+          "pitch": {
+            "step": "B",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "4",
+          "lyricNumber": "1",
+          "syllabic": "end",
+          "syllable": "cred",
+          "sourceObservation": "the retained scan directly places sa-cred across the corresponding m3 half notes"
+        },
+        {
+          "part": "P3",
+          "measure": "2",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "C",
+            "alter": 0,
+            "octave": 5
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "is",
+          "sourceObservation": "the retained scan directly places this lyric under the corresponding m2 quarter note after the pickup"
+        },
+        {
+          "part": "P3",
+          "measure": "2",
+          "noteIndexWithinMeasure": 2,
+          "pitch": {
+            "step": "C",
+            "alter": 0,
+            "octave": 5
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "the",
+          "sourceObservation": "the retained scan directly places this lyric under the corresponding m2 quarter note after the pickup"
+        },
+        {
+          "part": "P3",
+          "measure": "2",
+          "noteIndexWithinMeasure": 3,
+          "pitch": {
+            "step": "D",
+            "alter": 0,
+            "octave": 5
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "day",
+          "sourceObservation": "the retained scan directly places this lyric under the corresponding m2 quarter note after the pickup"
+        },
+        {
+          "part": "P3",
+          "measure": "2",
+          "noteIndexWithinMeasure": 4,
+          "pitch": {
+            "step": "B",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "of",
+          "sourceObservation": "the retained scan directly places this lyric under the corresponding m2 quarter note after the pickup"
+        },
+        {
+          "part": "P3",
+          "measure": "3",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "C",
+            "alter": 0,
+            "octave": 5
+          },
+          "duration": "4",
+          "lyricNumber": "1",
+          "syllabic": "begin",
+          "syllable": "sa",
+          "sourceObservation": "the retained scan directly places sa-cred across the corresponding m3 half notes"
+        },
+        {
+          "part": "P3",
+          "measure": "3",
+          "noteIndexWithinMeasure": 2,
+          "pitch": {
+            "step": "D",
+            "alter": 0,
+            "octave": 5
+          },
+          "duration": "4",
+          "lyricNumber": "1",
+          "syllabic": "end",
+          "syllable": "cred",
+          "sourceObservation": "the retained scan directly places sa-cred across the corresponding m3 half notes"
+        },
+        {
+          "part": "P1",
+          "measure": "4",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "C",
+            "alter": 0,
+            "octave": 5
+          },
+          "duration": "6",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "rest,",
+          "sourceObservation": "the retained scan directly places this syllable under the corresponding P1/P3 note; m5 mor-tal is split across the d3/d1 notes"
+        },
+        {
+          "part": "P1",
+          "measure": "4",
+          "noteIndexWithinMeasure": 2,
+          "pitch": {
+            "step": "C",
+            "alter": 0,
+            "octave": 5
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "No",
+          "sourceObservation": "the retained scan directly places this syllable under the corresponding P1/P3 note; m5 mor-tal is split across the d3/d1 notes"
+        },
+        {
+          "part": "P1",
+          "measure": "5",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "B",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "3",
+          "lyricNumber": "1",
+          "syllabic": "begin",
+          "syllable": "mor",
+          "sourceObservation": "the retained scan directly places this syllable under the corresponding P1/P3 note; m5 mor-tal is split across the d3/d1 notes"
+        },
+        {
+          "part": "P1",
+          "measure": "5",
+          "noteIndexWithinMeasure": 2,
+          "pitch": {
+            "step": "C",
+            "alter": 0,
+            "octave": 5
+          },
+          "duration": "1",
+          "lyricNumber": "1",
+          "syllabic": "end",
+          "syllable": "tal",
+          "sourceObservation": "the retained scan directly places this syllable under the corresponding P1/P3 note; m5 mor-tal is split across the d3/d1 notes"
+        },
+        {
+          "part": "P1",
+          "measure": "5",
+          "noteIndexWithinMeasure": 3,
+          "pitch": {
+            "step": "D",
+            "alter": 0,
+            "octave": 5
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "cares",
+          "sourceObservation": "the retained scan directly places this syllable under the corresponding P1/P3 note; m5 mor-tal is split across the d3/d1 notes"
+        },
+        {
+          "part": "P1",
+          "measure": "5",
+          "noteIndexWithinMeasure": 4,
+          "pitch": {
+            "step": "E",
+            "alter": 0,
+            "octave": 5
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "shall",
+          "sourceObservation": "the retained scan directly places this syllable under the corresponding P1/P3 note; m5 mor-tal is split across the d3/d1 notes"
+        },
+        {
+          "part": "P1",
+          "measure": "6",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "D",
+            "alter": 0,
+            "octave": 5
+          },
+          "duration": "4",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "seize",
+          "sourceObservation": "the retained scan directly places this syllable under the corresponding P1/P3 note; m5 mor-tal is split across the d3/d1 notes"
+        },
+        {
+          "part": "P1",
+          "measure": "6",
+          "noteIndexWithinMeasure": 2,
+          "pitch": {
+            "step": "D",
+            "alter": 0,
+            "octave": 5
+          },
+          "duration": "4",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "my",
+          "sourceObservation": "the retained scan directly places this syllable under the corresponding P1/P3 note; m5 mor-tal is split across the d3/d1 notes"
+        },
+        {
+          "part": "P1",
+          "measure": "7",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "D",
+            "alter": 0,
+            "octave": 5
+          },
+          "duration": "6",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "breast;",
+          "sourceObservation": "the retained scan directly places this syllable under the corresponding P1/P3 note; m5 mor-tal is split across the d3/d1 notes"
+        },
+        {
+          "part": "P3",
+          "measure": "4",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "E",
+            "alter": 0,
+            "octave": 5
+          },
+          "duration": "6",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "rest,",
+          "sourceObservation": "the retained scan directly places this syllable under the corresponding P1/P3 note; m5 mor-tal is split across the d3/d1 notes"
+        },
+        {
+          "part": "P3",
+          "measure": "4",
+          "noteIndexWithinMeasure": 2,
+          "pitch": {
+            "step": "C",
+            "alter": 0,
+            "octave": 5
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "No",
+          "sourceObservation": "the retained scan directly places this syllable under the corresponding P1/P3 note; m5 mor-tal is split across the d3/d1 notes"
+        },
+        {
+          "part": "P3",
+          "measure": "5",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "D",
+            "alter": 0,
+            "octave": 5
+          },
+          "duration": "3",
+          "lyricNumber": "1",
+          "syllabic": "begin",
+          "syllable": "mor",
+          "sourceObservation": "the retained scan directly places this syllable under the corresponding P1/P3 note; m5 mor-tal is split across the d3/d1 notes"
+        },
+        {
+          "part": "P3",
+          "measure": "5",
+          "noteIndexWithinMeasure": 2,
+          "pitch": {
+            "step": "E",
+            "alter": 0,
+            "octave": 5
+          },
+          "duration": "1",
+          "lyricNumber": "1",
+          "syllabic": "end",
+          "syllable": "tal",
+          "sourceObservation": "the retained scan directly places this syllable under the corresponding P1/P3 note; m5 mor-tal is split across the d3/d1 notes"
+        },
+        {
+          "part": "P3",
+          "measure": "5",
+          "noteIndexWithinMeasure": 3,
+          "pitch": {
+            "step": "D",
+            "alter": 0,
+            "octave": 5
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "cares",
+          "sourceObservation": "the retained scan directly places this syllable under the corresponding P1/P3 note; m5 mor-tal is split across the d3/d1 notes"
+        },
+        {
+          "part": "P3",
+          "measure": "5",
+          "noteIndexWithinMeasure": 4,
+          "pitch": {
+            "step": "C",
+            "alter": 0,
+            "octave": 5
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "shall",
+          "sourceObservation": "the retained scan directly places this syllable under the corresponding P1/P3 note; m5 mor-tal is split across the d3/d1 notes"
+        },
+        {
+          "part": "P3",
+          "measure": "6",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "B",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "4",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "seize",
+          "sourceObservation": "the retained scan directly places this syllable under the corresponding P1/P3 note; m5 mor-tal is split across the d3/d1 notes"
+        },
+        {
+          "part": "P3",
+          "measure": "6",
+          "noteIndexWithinMeasure": 2,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "4",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "my",
+          "sourceObservation": "the retained scan directly places this syllable under the corresponding P1/P3 note; m5 mor-tal is split across the d3/d1 notes"
+        },
+        {
+          "part": "P3",
+          "measure": "7",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "G",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "6",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "breast;",
+          "sourceObservation": "the retained scan directly places this syllable under the corresponding P1/P3 note; m5 mor-tal is split across the d3/d1 notes"
+        },
+        {
+          "part": "P1",
+          "measure": "10",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "G",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "O",
+          "sourceObservation": "the retained scan directly prints this word in the P1/P2/P3/P4 later O-may line; the voice-specific entry note and raw duration are recorded without copying another part's measure offset"
+        },
+        {
+          "part": "P1",
+          "measure": "11",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "may",
+          "sourceObservation": "the retained scan directly prints this word in the P1/P2/P3/P4 later O-may line; the voice-specific entry note and raw duration are recorded without copying another part's measure offset"
+        },
+        {
+          "part": "P1",
+          "measure": "11",
+          "noteIndexWithinMeasure": 2,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "my",
+          "sourceObservation": "the retained scan directly prints this word in the P1/P2/P3/P4 later O-may line; the voice-specific entry note and raw duration are recorded without copying another part's measure offset"
+        },
+        {
+          "part": "P1",
+          "measure": "11",
+          "noteIndexWithinMeasure": 3,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "heart",
+          "sourceObservation": "the retained scan directly prints this word in the P1/P2/P3/P4 later O-may line; the voice-specific entry note and raw duration are recorded without copying another part's measure offset"
+        },
+        {
+          "part": "P1",
+          "measure": "11",
+          "noteIndexWithinMeasure": 4,
+          "pitch": {
+            "step": "D",
+            "alter": 0,
+            "octave": 5
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "in",
+          "sourceObservation": "the retained scan directly prints this word in the P1/P2/P3/P4 later O-may line; the voice-specific entry note and raw duration are recorded without copying another part's measure offset"
+        },
+        {
+          "part": "P1",
+          "measure": "12",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "C",
+            "alter": 0,
+            "octave": 5
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "tune",
+          "sourceObservation": "the retained scan directly prints this word in the P1/P2/P3/P4 later O-may line; the voice-specific entry note and raw duration are recorded without copying another part's measure offset"
+        },
+        {
+          "part": "P1",
+          "measure": "12",
+          "noteIndexWithinMeasure": 2,
+          "pitch": {
+            "step": "C",
+            "alter": 0,
+            "octave": 5
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "be",
+          "sourceObservation": "the retained scan directly prints this word in the P1/P2/P3/P4 later O-may line; the voice-specific entry note and raw duration are recorded without copying another part's measure offset"
+        },
+        {
+          "part": "P1",
+          "measure": "12",
+          "noteIndexWithinMeasure": 3,
+          "pitch": {
+            "step": "C",
+            "alter": 0,
+            "octave": 5
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "found,",
+          "sourceObservation": "the retained scan directly prints this word in the P1/P2/P3/P4 later O-may line; the voice-specific entry note and raw duration are recorded without copying another part's measure offset"
+        },
+        {
+          "part": "P1",
+          "measure": "12",
+          "noteIndexWithinMeasure": 4,
+          "pitch": {
+            "step": "C",
+            "alter": 0,
+            "octave": 5
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "Like",
+          "sourceObservation": "the retained scan directly prints this word in the P1/P2/P3/P4 later O-may line; the voice-specific entry note and raw duration are recorded without copying another part's measure offset"
+        },
+        {
+          "part": "P2",
+          "measure": "11",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "4",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "O",
+          "sourceObservation": "the retained scan directly prints this word in the P1/P2/P3/P4 later O-may line; the voice-specific entry note and raw duration are recorded without copying another part's measure offset"
+        },
+        {
+          "part": "P2",
+          "measure": "12",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "G",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "may",
+          "sourceObservation": "the retained scan directly prints this word in the P1/P2/P3/P4 later O-may line; the voice-specific entry note and raw duration are recorded without copying another part's measure offset"
+        },
+        {
+          "part": "P2",
+          "measure": "12",
+          "noteIndexWithinMeasure": 2,
+          "pitch": {
+            "step": "G",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "my",
+          "sourceObservation": "the retained scan directly prints this word in the P1/P2/P3/P4 later O-may line; the voice-specific entry note and raw duration are recorded without copying another part's measure offset"
+        },
+        {
+          "part": "P2",
+          "measure": "12",
+          "noteIndexWithinMeasure": 3,
+          "pitch": {
+            "step": "G",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "heart",
+          "sourceObservation": "the retained scan directly prints this word in the P1/P2/P3/P4 later O-may line; the voice-specific entry note and raw duration are recorded without copying another part's measure offset"
+        },
+        {
+          "part": "P2",
+          "measure": "12",
+          "noteIndexWithinMeasure": 4,
+          "pitch": {
+            "step": "G",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "in",
+          "sourceObservation": "the retained scan directly prints this word in the P1/P2/P3/P4 later O-may line; the voice-specific entry note and raw duration are recorded without copying another part's measure offset"
+        },
+        {
+          "part": "P2",
+          "measure": "13",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "G",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "tune",
+          "sourceObservation": "the retained scan directly prints this word in the P1/P2/P3/P4 later O-may line; the voice-specific entry note and raw duration are recorded without copying another part's measure offset"
+        },
+        {
+          "part": "P2",
+          "measure": "13",
+          "noteIndexWithinMeasure": 2,
+          "pitch": {
+            "step": "G",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "be",
+          "sourceObservation": "the retained scan directly prints this word in the P1/P2/P3/P4 later O-may line; the voice-specific entry note and raw duration are recorded without copying another part's measure offset"
+        },
+        {
+          "part": "P2",
+          "measure": "13",
+          "noteIndexWithinMeasure": 3,
+          "pitch": {
+            "step": "G",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "found,",
+          "sourceObservation": "the retained scan directly prints this word in the P1/P2/P3/P4 later O-may line; the voice-specific entry note and raw duration are recorded without copying another part's measure offset"
+        },
+        {
+          "part": "P2",
+          "measure": "13",
+          "noteIndexWithinMeasure": 4,
+          "pitch": {
+            "step": "E",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "Like",
+          "sourceObservation": "the retained scan directly prints this word in the P1/P2/P3/P4 later O-may line; the voice-specific entry note and raw duration are recorded without copying another part's measure offset"
+        },
+        {
+          "part": "P3",
+          "measure": "9",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "G",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "O",
+          "sourceObservation": "the retained scan directly prints this word in the P1/P2/P3/P4 later O-may line; the voice-specific entry note and raw duration are recorded without copying another part's measure offset"
+        },
+        {
+          "part": "P3",
+          "measure": "10",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "may",
+          "sourceObservation": "the retained scan directly prints this word in the P1/P2/P3/P4 later O-may line; the voice-specific entry note and raw duration are recorded without copying another part's measure offset"
+        },
+        {
+          "part": "P3",
+          "measure": "10",
+          "noteIndexWithinMeasure": 2,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "my",
+          "sourceObservation": "the retained scan directly prints this word in the P1/P2/P3/P4 later O-may line; the voice-specific entry note and raw duration are recorded without copying another part's measure offset"
+        },
+        {
+          "part": "P3",
+          "measure": "10",
+          "noteIndexWithinMeasure": 3,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "heart",
+          "sourceObservation": "the retained scan directly prints this word in the P1/P2/P3/P4 later O-may line; the voice-specific entry note and raw duration are recorded without copying another part's measure offset"
+        },
+        {
+          "part": "P3",
+          "measure": "10",
+          "noteIndexWithinMeasure": 4,
+          "pitch": {
+            "step": "G",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "in",
+          "sourceObservation": "the retained scan directly prints this word in the P1/P2/P3/P4 later O-may line; the voice-specific entry note and raw duration are recorded without copying another part's measure offset"
+        },
+        {
+          "part": "P3",
+          "measure": "11",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "C",
+            "alter": 0,
+            "octave": 5
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "tune",
+          "sourceObservation": "the retained scan directly prints this word in the P1/P2/P3/P4 later O-may line; the voice-specific entry note and raw duration are recorded without copying another part's measure offset"
+        },
+        {
+          "part": "P3",
+          "measure": "11",
+          "noteIndexWithinMeasure": 3,
+          "pitch": {
+            "step": "C",
+            "alter": 0,
+            "octave": 5
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "be",
+          "sourceObservation": "the retained scan directly prints this word in the P1/P2/P3/P4 later O-may line; the voice-specific entry note and raw duration are recorded without copying another part's measure offset"
+        },
+        {
+          "part": "P3",
+          "measure": "11",
+          "noteIndexWithinMeasure": 4,
+          "pitch": {
+            "step": "D",
+            "alter": 0,
+            "octave": 5
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "found,",
+          "sourceObservation": "the retained scan directly prints this word in the P1/P2/P3/P4 later O-may line; the voice-specific entry note and raw duration are recorded without copying another part's measure offset"
+        },
+        {
+          "part": "P3",
+          "measure": "13",
+          "noteIndexWithinMeasure": 4,
+          "pitch": {
+            "step": "G",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "Like",
+          "sourceObservation": "the retained scan directly prints this word in the P1/P2/P3/P4 later O-may line; the voice-specific entry note and raw duration are recorded without copying another part's measure offset"
+        },
+        {
+          "part": "P4",
+          "measure": "8",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "C",
+            "alter": 0,
+            "octave": 3
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "O",
+          "sourceObservation": "the retained scan directly prints this word in the P1/P2/P3/P4 later O-may line; the voice-specific entry note and raw duration are recorded without copying another part's measure offset"
+        },
+        {
+          "part": "P4",
+          "measure": "9",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "E",
+            "alter": 0,
+            "octave": 3
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "may",
+          "sourceObservation": "the retained scan directly prints this word in the P1/P2/P3/P4 later O-may line; the voice-specific entry note and raw duration are recorded without copying another part's measure offset"
+        },
+        {
+          "part": "P4",
+          "measure": "9",
+          "noteIndexWithinMeasure": 2,
+          "pitch": {
+            "step": "E",
+            "alter": 0,
+            "octave": 3
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "my",
+          "sourceObservation": "the retained scan directly prints this word in the P1/P2/P3/P4 later O-may line; the voice-specific entry note and raw duration are recorded without copying another part's measure offset"
+        },
+        {
+          "part": "P4",
+          "measure": "9",
+          "noteIndexWithinMeasure": 3,
+          "pitch": {
+            "step": "E",
+            "alter": 0,
+            "octave": 3
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "heart",
+          "sourceObservation": "the retained scan directly prints this word in the P1/P2/P3/P4 later O-may line; the voice-specific entry note and raw duration are recorded without copying another part's measure offset"
+        },
+        {
+          "part": "P4",
+          "measure": "9",
+          "noteIndexWithinMeasure": 4,
+          "pitch": {
+            "step": "C",
+            "alter": 0,
+            "octave": 3
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "in",
+          "sourceObservation": "the retained scan directly prints this word in the P1/P2/P3/P4 later O-may line; the voice-specific entry note and raw duration are recorded without copying another part's measure offset"
+        },
+        {
+          "part": "P1",
+          "measure": "13",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "B",
+            "alter": 0,
+            "octave": 4
+          },
+          "duration": "3",
+          "lyricNumber": "1",
+          "syllabic": "begin",
+          "syllable": "Da",
+          "noteheadCenter": {
+            "x": 940,
+            "y": 113
+          },
+          "auditedMelismaSpan": "m13 n1-n3",
+          "sourceObservation": "visible slur span retained in sidecar only; no open-ended MusicXML extend is emitted"
+        },
+        {
+          "part": "P1",
+          "measure": "13",
+          "noteIndexWithinMeasure": 4,
+          "pitch": {
+            "step": "D",
+            "alter": 0,
+            "octave": 5
+          },
+          "duration": "2",
+          "lyricNumber": "1",
+          "syllabic": "end",
+          "syllable": "vid's",
+          "noteheadCenter": {
+            "x": 1005,
+            "y": 102
+          },
+          "auditedMelismaSpan": null,
+          "sourceObservation": "printed final D5 onset after the Da- group"
+        },
+        {
+          "part": "P1",
+          "measure": "14",
+          "noteIndexWithinMeasure": 1,
+          "pitch": {
+            "step": "C",
+            "alter": 0,
+            "octave": 5
+          },
+          "duration": "3",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "harp",
+          "noteheadCenter": {
+            "x": 1033,
+            "y": 108
+          },
+          "auditedMelismaSpan": "m14 n1-n3",
+          "sourceObservation": "visible slur span retained in sidecar only; no open-ended MusicXML extend is emitted"
+        },
+        {
+          "part": "P1",
+          "measure": "14",
+          "noteIndexWithinMeasure": 4,
+          "pitch": {
+            "step": "F",
+            "alter": 0,
+            "octave": 5
+          },
+          "duration": "1",
+          "lyricNumber": "1",
+          "syllabic": "single",
+          "syllable": "of",
+          "noteheadCenter": {
+            "x": 1113,
+            "y": 91
+          },
+          "auditedMelismaSpan": null,
+          "sourceObservation": "onset under first F5 of the beamed F5/E5 pair; n5 receives no lyric"
+        },
+        {
+          "part": "P1",
+          "measure": "17",
+          "noteIndexWithinMeasure": 1,
+          "pitch": "E5",
+          "duration": "8",
+          "syllable": "sound.",
+          "sourceObservation": "the retained scan visibly prints 'sound.' in the terminal numbered-ending region; this anchor is attached only to retained MXL measure 17 because no additional ending branch is inferred"
+        },
+        {
+          "part": "P2",
+          "measure": "17",
+          "noteIndexWithinMeasure": 1,
+          "pitch": "E4",
+          "duration": "8",
+          "syllable": "sound.",
+          "sourceObservation": "the retained scan visibly prints 'sound.' in the terminal numbered-ending region; this anchor is attached only to retained MXL measure 17 because no additional ending branch is inferred"
+        },
+        {
+          "part": "P3",
+          "measure": "17",
+          "noteIndexWithinMeasure": 1,
+          "pitch": "C5",
+          "duration": "8",
+          "syllable": "sound.",
+          "sourceObservation": "the retained scan visibly prints 'sound.' in the terminal numbered-ending region; this anchor is attached only to retained MXL measure 17 because no additional ending branch is inferred"
+        },
+        {
+          "part": "P4",
+          "measure": "17",
+          "noteIndexWithinMeasure": 1,
+          "pitch": "C3",
+          "duration": "8",
+          "syllable": "sound.",
+          "sourceObservation": "the retained scan visibly prints 'sound.' in the terminal numbered-ending region; this anchor is attached only to retained MXL measure 17 because no additional ending branch is inferred"
+        }
+      ]
+    },
+    "transformation": [
+      "preserve every source pitch, duration, part, measure, repeat and ending element",
+      "retain the v8-supported 68 anchors",
+      "add only P1 Da m13 n1, vid's m13 n4, harp m14 n1, and of m14 n4",
+      "retain audited Da/harp slur spans in evidence only; emit no open-ended MusicXML extend markers",
+      "withdraw whole solemn pending direct onset/melisma proof",
+      "retain m17 sound. anchors without duplicating them into m16"
+    ]
+  },
+  "p1ContinuationReview": {
+    "resolvedAnchors": [
+      {
+        "part": "P1",
+        "measure": "17",
+        "noteIndexWithinMeasure": 1,
+        "pitch": "E5",
+        "duration": "8",
+        "syllable": "sound.",
+        "sourceObservation": "the retained scan visibly prints 'sound.' in the terminal numbered-ending region; this anchor is attached only to retained MXL measure 17 because no additional ending branch is inferred"
+      },
+      {
+        "part": "P2",
+        "measure": "17",
+        "noteIndexWithinMeasure": 1,
+        "pitch": "E4",
+        "duration": "8",
+        "syllable": "sound.",
+        "sourceObservation": "the retained scan visibly prints 'sound.' in the terminal numbered-ending region; this anchor is attached only to retained MXL measure 17 because no additional ending branch is inferred"
+      },
+      {
+        "part": "P3",
+        "measure": "17",
+        "noteIndexWithinMeasure": 1,
+        "pitch": "C5",
+        "duration": "8",
+        "syllable": "sound.",
+        "sourceObservation": "the retained scan visibly prints 'sound.' in the terminal numbered-ending region; this anchor is attached only to retained MXL measure 17 because no additional ending branch is inferred"
+      },
+      {
+        "part": "P4",
+        "measure": "17",
+        "noteIndexWithinMeasure": 1,
+        "pitch": "C3",
+        "duration": "8",
+        "syllable": "sound.",
+        "sourceObservation": "the retained scan visibly prints 'sound.' in the terminal numbered-ending region; this anchor is attached only to retained MXL measure 17 because no additional ending branch is inferred"
+      }
+    ],
+    "solemn": {
+      "textRegion": "x~1146..1199, y~151..163",
+      "candidateRawMxl": "m15 n1 D5/d6 near (1155,102), followed by n2 D5/d2 near (1187,102)",
+      "disposition": "withheld: the unhyphenated word spans two noteheads visually, but onset/melisma semantics are not encoded without a direct extender or unambiguous underlay proof"
+    },
+    "rawEvents": {
+      "m13": [
+        "n1 B4/d3",
+        "n2 C5/d1",
+        "n3 D5/d2",
+        "n4 D5/d2"
+      ],
+      "m14": [
+        "n1 C5/d3",
+        "n2 D5/d1",
+        "n3 E5/d2",
+        "n4 F5/d1",
+        "n5 E5/d1"
+      ],
+      "m15": [
+        "n1 D5/d6",
+        "n2 D5/d2"
+      ]
+    },
+    "terminalBoundary": "m16 first-ending lyric alignment remains unavailable; m17 sound. remains retained"
+  },
+  "preservedVersions": {
+    "v9": {
+      "derivativePath": "work/luna-program-20260904/sh2025/50t-devotion-correction-v9.mxl",
+      "derivativeSha256": "da8211b7aa33e2fb2e41be12579a659291296fd1f9c4e0e2de86aa1e6a10395f",
+      "evidencePath": "work/luna-program-20260904/sh2025/50t-devotion-evidence-v9.json",
+      "evidenceSha256": "977b1ee44c8d92337c478ae65158880deb3d55a3e864c02cd9fd855d4f38ac73"
+    },
+    "v8": {
+      "derivativePath": "work/luna-program-20260904/sh2025/50t-devotion-correction-v8.mxl",
+      "derivativeSha256": "04f83bfff468c3cd33a64ea4dd07e63a9a32550d3295dc6b502d5071fc5ccd84",
+      "evidencePath": "work/luna-program-20260904/sh2025/50t-devotion-evidence-v8.json",
+      "evidenceSha256": "2fa26a6b2b018ff73f9a346cf0f3e4dc64ab1edaaf04344e7c41f79229dddb13"
+    }
+  },
+  "limitations": [
+    "P2-P4 continuation remains withdrawn and is not copied from P1.",
+    "Da/harp slur spans are audit sidecar observations only; no open-ended extend markers are emitted.",
+    "Whole solemn remains unavailable rather than split or assigned across notes without direct proof.",
+    "safeToPromote remains false; this artifact must not replace the exact source witness in canonical data."
+  ]
+}
