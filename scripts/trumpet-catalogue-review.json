@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "review": "work/openclaw-trumpet-20260907/trumpet-page-identity-review-v1.json",
+  "sourceUrl": "https://www.singthetrumpet.com/the-trumpet-composite-vol-1-5.pdf",
+  "sourceSha256": "e96803eef77b5897ef1a43efb6ea08c88a842f11049e31bd490c050abec74f38",
+  "records": [
+    {
+      "songId": "trumpet p116 — Chris",
+      "originalTitle": "Chris",
+      "title": "JOSHUA",
+      "contentKind": "notation",
+      "pdfLeaf": 116,
+      "printedPage": "69",
+      "literalHeadings": [
+        "JOSHUA."
+      ],
+      "observation": "The catalogue title Chris occurs within the printed composer credit Chris Ballinger, 2005, not the tune heading."
+    },
+    {
+      "songId": "trumpet p125 — Thouper fect Lamb ofGod",
+      "originalTitle": "Thouper fect Lamb ofGod",
+      "title": "LAMB OF GOD",
+      "contentKind": "notation",
+      "pdfLeaf": 125,
+      "printedPage": "78",
+      "literalHeadings": [
+        "LAMB OF GOD.",
+        "ALLEGHENY. S.M."
+      ],
+      "observation": "The catalogue fragment Thouper fect Lamb ofGod corresponds to words under the upper LAMB OF GOD score. ALLEGHENY is a separate lower score; retain both page headings."
+    },
+    {
+      "songId": "trumpet p139 — Three",
+      "originalTitle": "Three",
+      "title": "Article: Three Amigos",
+      "contentKind": "prose",
+      "pdfLeaf": 139,
+      "printedPage": "vi",
+      "literalHeadings": [
+        "Three Amigos"
+      ],
+      "observation": "Prose article; Three is a truncated article heading, not a tune heading."
+    },
+    {
+      "songId": "trumpet p187 — By Thomas B",
+      "originalTitle": "By Thomas B",
+      "title": "Article: Mr. Jeff Sheppard and a Brief Untrue History of the Rocking Chair Convention",
+      "contentKind": "prose",
+      "pdfLeaf": 187,
+      "printedPage": "iv",
+      "literalHeadings": [
+        "Mr. Jeff Sheppard and a Brief Untrue History of the Rocking Chair Convention"
+      ],
+      "observation": "Prose article. By Thomas B is a fragment of the byline By Thomas B. Malone, Boston Massachusetts."
+    },
+    {
+      "songId": "trumpet p20 — Lincoln Street",
+      "originalTitle": "Lincoln Street",
+      "title": "Lincoln Street",
+      "contentKind": "notation",
+      "pdfLeaf": 20,
+      "printedPage": "12",
+      "literalHeadings": [
+        "Lincoln Street P.M."
+      ],
+      "observation": "Heading above opening notation. This leaf ends without completing the tune; page identity is not full-tune coverage."
+    },
+    {
+      "songId": "trumpet p265 — Sacred b aLLs Town",
+      "originalTitle": "Sacred b aLLs Town",
+      "title": "Article: Old Paths: Nehemiah Shumway",
+      "contentKind": "prose",
+      "pdfLeaf": 265,
+      "printedPage": "iv",
+      "literalHeadings": [
+        "Old Paths: Nehemiah Shumway"
+      ],
+      "observation": "Prose article. Sacred and Ballstown appear in article text, not as a tune heading."
+    },
+    {
+      "songId": "trumpet p42 — EUCLID",
+      "originalTitle": "EUCLID",
+      "title": "EUCLID",
+      "contentKind": "notation",
+      "pdfLeaf": 42,
+      "printedPage": "25",
+      "literalHeadings": [
+        "EUCLID. C.M."
+      ],
+      "observation": "EUCLID begins below a continuation system belonging to another tune. Map only the lower titled score."
+    },
+    {
+      "songId": "trumpet p45 — C Major New Canada",
+      "originalTitle": "C Major New Canada",
+      "title": "New Canada",
+      "contentKind": "notation",
+      "pdfLeaf": 45,
+      "printedPage": "28",
+      "literalHeadings": [
+        "New Canada. C.M."
+      ],
+      "observation": "C Major is separately printed at upper left; it is not part of the centered title."
+    },
+    {
+      "songId": "trumpet p47 — TRAV’LER’S REST - SAMSON",
+      "originalTitle": "TRAV’LER’S REST - SAMSON",
+      "title": "TRAV’LER’S REST - SAMSON",
+      "contentKind": "notation",
+      "pdfLeaf": 47,
+      "printedPage": "30",
+      "literalHeadings": [
+        "TRAV’LER’S REST - SAMSON. C.M."
+      ],
+      "observation": "Centered literal heading, ignoring the terminal punctuation and meter label only."
+    },
+    {
+      "songId": "trumpet p74 — ASHLEY",
+      "originalTitle": "ASHLEY",
+      "title": "ASHLEY",
+      "contentKind": "notation",
+      "pdfLeaf": 74,
+      "printedPage": "43",
+      "literalHeadings": [
+        "ASHLEY. L.M."
+      ],
+      "observation": "ASHLEY begins below a continuation system belonging to another tune. Map only the lower titled score."
+    }
+  ]
+}
