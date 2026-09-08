@@ -1,0 +1,27 @@
+{
+  "record": "southernharmony/12",
+  "title": "Salem",
+  "sourcePath": "work/luna-program-20260904/existing_books/assets/southern-harmony/sh-12.pdf",
+  "sha256": "526979c2a582917ace238e10b9d64c6e92d1cf2e9ed21f2842d474c16f39d5ba",
+  "pdfMetadata": "Title:           SALEM, 12 - Southern Harmony\nKeywords:        music myriad svgexport\nCreator:         Myriad /Harmony Assistant\nProducer:        SvgToPdf converter vers 1.0.4 (c) Myriad 2016-2021\nCreationDate:    Fri Dec 10 02:19:40 2021 PST\nModDate:         Fri Dec 10 02:19:40 2021 PST\nCustom Metadata: no\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           1\nEncrypted:       no\nPage size:       600 x 775 pts\nPage rot:        0\nFile size:       52431 bytes\nOptimized:       no\nPDF version:     1.4\n",
+  "directVisualReview": {
+    "pagesInspected": [
+      1
+    ],
+    "heading": "SALEM, 12 - Southern Harmony",
+    "voices": [
+      "treble",
+      "tenor",
+      "bass"
+    ],
+    "observations": [
+      "Computer-engraved notation on clean white page; no historical page facsimile or printed-edition publication imprint.",
+      "Three systems of notation; no lyric text visible."
+    ],
+    "classification": "modern-derivative-engraving",
+    "basis": "Direct page appearance plus Myriad/Harmony Assistant creator and 2021 SvgToPdf metadata.",
+    "boundary": "Useful derivative notation witness, not proof of exact printed-edition fidelity. No claim that individual notes are incorrect."
+  },
+  "canonicalChanges": false,
+  "needed": "Retain an identifiable printed Southern Harmony edition page for direct comparison."
+}

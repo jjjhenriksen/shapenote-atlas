@@ -1,0 +1,29 @@
+{
+  "scope": "Three exact handoff MusicXML endpoints only; not a source-wide health sweep.",
+  "checks": [
+    {
+      "record": "sh1991/322",
+      "url": "https://shapenote.net/musicxml/322.mxl",
+      "checkedAt": "2026-09-08T00:26:43.400143+00:00",
+      "method": "GET",
+      "httpStatus": 404,
+      "finalUrl": "https://shapenote.net/musicxml/322.mxl"
+    },
+    {
+      "record": "sh1991/80b",
+      "url": "https://shapenote.net/musicxml/80b.mxl",
+      "checkedAt": "2026-09-08T00:26:43.400944+00:00",
+      "method": "GET",
+      "httpStatus": 404,
+      "finalUrl": "https://shapenote.net/musicxml/80b.mxl"
+    },
+    {
+      "record": "shcooper2012/116",
+      "url": "https://shapenote.net/musicxml/C-116.mxl",
+      "checkedAt": "2026-09-08T00:26:43.401157+00:00",
+      "method": "GET",
+      "httpStatus": 404,
+      "finalUrl": "https://shapenote.net/musicxml/C-116.mxl"
+    }
+  ]
+}
