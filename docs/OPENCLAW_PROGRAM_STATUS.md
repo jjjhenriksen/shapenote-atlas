@@ -138,3 +138,46 @@ There are now **17 pinned human-correctable publications**. Both new drafts pres
 5. Restore a reproducible aggregate verification path and refresh source-dependent ledgers deliberately when complete inputs are available. The three exact missing MusicXML endpoints were checked on this cycle; avoid repeated immediate probes.
 
 All eleven books remain in scope; neither source-page identity nor one-bar draft publication reduces the count of missing exact-edition scores.
+
+## Fourth delivery cycle — 2026-09-07 PDT
+
+| Result | Commit | Boundary |
+| --- | --- | --- |
+| Ten additional Social Harp identities, including two top/bottom pairs | `a8463de` | 77 → **87 reviewed**, 144 → **134 unresolved**; original maps and 221/222 discrepancy preserved |
+| Full first-system New Salem and Something New v2 drafts | `0b50434` | Published immediately; all v1/v2 artifacts retained |
+| Complete written-notation New Salem and Something New v3 drafts | `5c732e5` | **16 measures / 167 pitches** and **15 measures / 235 pitches**, respectively, across four voices; not certified editions |
+| Score labels separated from clefs; keyboard-scrollable notation; mobile retention text wraps | `3041deb`, `3fd451d` | Full labels preserved; horizontal notation scrolling remains intentional |
+| Published-draft asset and review-queue contracts integrated with aggregate validation | `2eb1cd1`, `a33856d` | Hash-checked retained downloads; canonical `review-only` disposition; human review required; no verified-score promotion |
+| Ten Trumpet embedded coverage identities synchronized with indexes | `9431451` | Only the missing identity fields added; titles, IDs, notation, and counts preserved |
+| Shared-edition and source-health ledgers deliberately refreshed | `c062087` | Offline only; all previous network observations/dates retained; ten page-fragment URLs newly indexed but unprobed |
+
+There remain **17 pinned publications**: two existing drafts improved, not two additional records. Both v3 scores cover both printed systems and retain every v2 measure exactly. Coordinate-derived pitch checks, source hashes, complete-bar timing, ties/slurs, final boundaries, parser event parity, and corruption controls pass. See the [v3 source package](../work/openclaw-openings-v3-20260907/README.md).
+
+New Salem's printed terminal backward repeat is encoded without inventing a forward-repeat sign or explicit count. Its current app playback follows written order; repeat navigation remains a bounded implementation task. Something New has a plain final barline; final duration dots were not misread as repeat dots. Both still omit lyrics, printed shape glyphs, and mode; the printed key labels remain in evidence. Editable MusicXML, source pages, evidence, limitations, and correction links are published with each version.
+
+The Social Harp batch resolves 115 The Saint's Delight, 116 Repentance, 117 Pilgrim, 118b Sweet Heaven, 118t Windham, 119 Webster, 120b Abbeville, 120t Corinth, 121 Primrose Hill, and 123 Plenary. Repentance's continuation is distinguished from Pilgrim's opening on leaf 117. A subsequent worker attempt failed before execution with a tool-relay timeout; it produced no v4 review and is not counted. See the [v3 identity supplement](../work/openclaw-socialharp-third-20260907/README.md).
+
+### Current verification — all 20 required aggregate checks pass
+
+- [Unmodified aggregate receipt](handoff/verified-20260907-continuation.json): **20 required checks passed**, no blockers. Live source-health collection deliberately not run; the refreshed offline report was validated.
+- [Fresh browser audio receipt](handoff/browser-20260907-continuation.json): six source/target trace cases plus key-change cancellation, automatic ending, and target reset. Scheduled-note counts, first frequencies, semitone ratios, and oscillator cleanup agree with actual assets.
+- [Committed-file parity](handoff/verified-20260907-file-parity.json): 30 tested input/changed files match committed Git blobs at `c062087`. The isolated runtime retains its real base HEAD `7dfaacd` plus the tested overlay; receipts were **not relabeled** to a later commit. Existing cloud-placeholder working files remain untouched.
+- Fresh runtime: `/private/tmp/atlas-continue-20260907`; restored all 2,602 v4 retained-evidence files, installed locked dependencies, and ran Vite 7.3.6 with React/React DOM 19.2.8. The prior unreadable audit file was supplied by the fresh GitHub checkout, not overwritten in the shared checkout.
+- Full data validation: 3,547 songs, 1,155 structured score assets, 137 referenced review drafts, 3,047 transcription queue rows, 90 image-review rows, and all book coverage counters. One invalid-duration draft remains quarantined.
+- Focused checks: 19 playback/discovery/key tests, four publication tests, eight draft-asset tests, six queue-contract tests, two Trumpet overlay tests, all 12 reproducibility tests, and source-candidate verifiers pass.
+- Browser at `http://127.0.0.1:5189/`: both v3 drafts display full-song coverage, start and automatically complete playback; all six local download/evidence links succeed; both actual MusicXML downloads byte-match published assets. Desktop 1440×1000 and mobile 390×844 screenshots were inspected. Full voice labels do not overlap clefs, the score is keyboard-scrollable, and neither checked mobile page exceeds viewport width. No browser console errors or warnings observed.
+- SH2025/497b: alternate-edition warning retained, target-key controls initially unavailable, explicit F-major source-key entry enables transposition, and playback starts/stops. No key borrowed from selected-edition metadata.
+- Production build and the existing macOS package/static-preview startup verifier pass. This does not claim native-window interaction or public deployment verification.
+
+Reproduce aggregate validation in an isolated checkout after restoring v4 evidence, retaining current pinned publication assets, refreshing any changed-input ledgers, building the macOS package with `bash script/build_and_run.sh --verify`, and capturing a fresh browser receipt. Do not reuse this receipt for later edits or run broad corpus regeneration merely to repair a ledger checksum.
+
+### Next bounded work (current)
+
+1. Social Harp: start at **125 Animation**, then **127 Olney**; subtract all three supplements. Current reviewed/unresolved counts are **87 / 134**.
+2. New Salem and Something New: add directly observed lyric/shape evidence in new versions; review explicit printed key labels. Their full written notation is already published—do not repeat opening transcription work.
+3. Implement and verify New Salem's printed repeat navigation separately from linear practice playback; preserve its existing usable draft meanwhile.
+4. Continue Afton P1 m8/P3 m12, Zion after x502, and Devotion/Portsmouth lyric alignment as versioned improvements to available drafts.
+5. Obtain an identifiable printed Southern Harmony 12 witness for exact-edition comparison. Avoid immediately repeating the already dated three missing MusicXML endpoint probes.
+6. Keep Sacred Harp Tunes and other zero-exact-mapping books in the all-eleven-book plan; select another retained source for a useful first draft as capacity allows.
+
+The 3,047 missing exact mappings and thirteen SH2025 correction records remain open. Full written-notation draft publication is useful delivery, not a completed exact-edition audit. No background automation or public deployment was established by this cycle.

@@ -1,0 +1,276 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-08T01:10:14Z",
+  "projectRoot": "/private/tmp/atlas-continue-20260907",
+  "python": "3.9.6",
+  "pid": 58147,
+  "git": {
+    "root": "/private/tmp/atlas-continue-20260907",
+    "head": "7dfaacd3feb2a9c07310a133d13159ac887579bd",
+    "dirty": true,
+    "statusEntryCount": 32
+  },
+  "overallStatus": "passed",
+  "complete": true,
+  "checks": [
+    {
+      "name": "generated-artifacts",
+      "status": "passed",
+      "detail": "required JSON artifacts load",
+      "sizes": {
+        "corpus.json": 43344026,
+        "source-coverage.json": 2825615,
+        "transcription-queue.json": 4753424,
+        "human-review-queue.json": 11290903,
+        "source-comparison-ledger.json": 4975111,
+        "shared-edition-reconciliation.json": 8251487,
+        "source-health.json": 9925941
+      }
+    },
+    {
+      "name": "stale-generated-data",
+      "status": "passed",
+      "detail": "known corpus source inputs are not newer than generated corpus",
+      "generator": "/private/tmp/atlas-continue-20260907/scripts/build_data.py",
+      "checkedSourceInputs": [
+        "/Users/jacquelinehenriksen/sh-corpus-scripts/dashboard/data.js",
+        "/Users/jacquelinehenriksen/sh-corpus-scripts/rag_web_metadata.csv",
+        "/Users/jacquelinehenriksen/sh-corpus-scripts/changed_across_editions.csv"
+      ]
+    },
+    {
+      "name": "unknown-mode-defaults",
+      "status": "passed",
+      "detail": "no unsafe missing-mode major default found"
+    },
+    {
+      "name": "promotion-gate",
+      "status": "passed",
+      "detail": "no unsafe promotion markers found"
+    },
+    {
+      "name": "queue-contradictions",
+      "status": "passed",
+      "detail": "covered queue states agree"
+    },
+    {
+      "name": "dependencies",
+      "status": "passed",
+      "detail": "exit code 0",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/verify_dependencies.py"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 0.121,
+      "stdout": "{\"installed\": {\"react\": \"19.2.8\", \"react-dom\": \"19.2.8\", \"vite\": \"7.3.6\"}, \"lockfileVersion\": 3, \"resolved\": {\"react\": \"19.2.8\", \"react-dom\": \"19.2.8\", \"vite\": \"7.3.6\"}, \"status\": \"passed\"}\n",
+      "stderr": ""
+    },
+    {
+      "name": "data",
+      "status": "passed",
+      "detail": "exit code 0",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_data.py"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 4.986,
+      "stdout": "Validated 3547 songs, 1155 lazy full-score assets, 137 review draft assets, 3047 transcription queue records, 90 image review records, and all book coverage counters.\n",
+      "stderr": ""
+    },
+    {
+      "name": "playback",
+      "status": "passed",
+      "detail": "exit code 0",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_playback.py"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 4.051,
+      "stdout": "{\"assets\": 1333, \"assetsWithPitchedEvents\": 1333, \"errors\": [], \"events\": 296303, \"parts\": 5244, \"pitchedEvents\": 284336, \"playableAssets\": 1332, \"quarantinedDraftAssets\": 1, \"quarantinedInvalidDurations\": 1, \"rests\": 11905, \"samePitchDuplicateEvents\": 269}\n",
+      "stderr": ""
+    },
+    {
+      "name": "transposition",
+      "status": "passed",
+      "detail": "exit code 0",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_transposition.py"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 4.782,
+      "stdout": "{\"assets\": 1333, \"omrDetected\": 0, \"preserved\": 1333, \"trimmed\": 0, \"unknown\": 188}\n",
+      "stderr": ""
+    },
+    {
+      "name": "shape-review",
+      "status": "passed",
+      "detail": "exit code 0",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_shape_review_drafts.py"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 0.482,
+      "stdout": "{\"records\": 19, \"pitchedEvents\": 2589, \"shapeNoteheads\": 2589, \"safeToPromote\": 0}\n",
+      "stderr": ""
+    },
+    {
+      "name": "source-shape-review",
+      "status": "passed",
+      "detail": "exit code 0",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_source_shape_review_drafts.py"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 1.868,
+      "stdout": "{\"records\": 90, \"pitchedEvents\": 14115, \"shapeNoteheads\": 14115, \"safeToPromote\": 0}\n",
+      "stderr": ""
+    },
+    {
+      "name": "transcription-images",
+      "status": "passed",
+      "detail": "exit code 0",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_transcription_images.py"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 0.419,
+      "stdout": "{\n  \"sourceImages\": 218,\n  \"normalizedWorkingImages\": 218,\n  \"suppressedWorkingImages\": 218,\n  \"aiEditedSamples\": 8,\n  \"explicitWorkingImages\": 8,\n  \"unsafeExplicitWorkingImages\": 8,\n  \"cleanedOMRRecords\": 90,\n  \"cleanedOMRDrafts\": 89,\n  \"errors\": []\n}\n",
+      "stderr": ""
+    },
+    {
+      "name": "image-review-queue",
+      "status": "passed",
+      "detail": "exit code 0",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_image_review_queue.py"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 1.262,
+      "stdout": "{\n  \"records\": 90,\n  \"readyForHumanReview\": 90,\n  \"errors\": []\n}\n",
+      "stderr": ""
+    },
+    {
+      "name": "source-candidates",
+      "status": "passed",
+      "detail": "exit code 0",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_source_candidates.py"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 0.201,
+      "stdout": "{\n  \"candidates\": 94,\n  \"downloadedPdfs\": 94,\n  \"omrRecords\": 94,\n  \"reconciliationFiles\": 0,\n  \"errors\": []\n}\n",
+      "stderr": ""
+    },
+    {
+      "name": "shared-edition-reconciliation",
+      "status": "passed",
+      "detail": "exit code 0",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_shared_edition_reconciliation.py"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 1.209,
+      "stdout": "{\"errors\": [], \"safeToPromote\": 0, \"sharedPairs\": 448}\n",
+      "stderr": ""
+    },
+    {
+      "name": "omr-audit",
+      "status": "passed",
+      "detail": "exit code 0",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/audit_omr_drafts.py"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 0.34,
+      "stdout": "Audited 122 local OMR drafts; none were promoted to the corpus.\n",
+      "stderr": ""
+    },
+    {
+      "name": "source-health-collection",
+      "status": "not-run",
+      "detail": "skipped by --skip-source-health-collection; existing report will be validated",
+      "required": false
+    },
+    {
+      "name": "source-health-validation",
+      "status": "passed",
+      "detail": "exit code 0",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/private/tmp/atlas-continue-20260907/scripts/validate_source_health.py"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 6.708,
+      "stdout": "{\n  \"report\": \"/private/tmp/atlas-continue-20260907/public/source-health.json\",\n  \"records\": 7629,\n  \"errors\": []\n}\n",
+      "stderr": "",
+      "networkMode": "offline-report-validation"
+    },
+    {
+      "name": "browser-smoke",
+      "status": "passed",
+      "detail": "exit code 0",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/private/tmp/atlas-continue-20260907/scripts/verify_browser_smoke.py",
+        "--receipt",
+        "/private/tmp/atlas-browser-receipt-20260907.json"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 0.149,
+      "stdout": "{\"cases\": 6, \"errors\": [], \"receipt\": \"/private/tmp/atlas-browser-receipt-20260907.json\"}\n",
+      "stderr": ""
+    },
+    {
+      "name": "build",
+      "status": "passed",
+      "detail": "exit code 0",
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 8.709,
+      "stdout": "\n> shape-note-atlas@0.1.0 build\n> vite build\n\nvite v7.3.6 building client environment for production...\ntransforming...\n✓ 29 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/index.html                   0.52 kB │ gzip:  0.32 kB\ndist/assets/index-KyrlYit8.css   29.90 kB │ gzip:  6.27 kB\ndist/assets/index-6tf3Wvv3.js   262.34 kB │ gzip: 81.47 kB\n✓ built in 7.09s\n",
+      "stderr": ""
+    },
+    {
+      "name": "startup-smoke",
+      "status": "passed",
+      "detail": "exit code 0",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/private/tmp/atlas-continue-20260907/scripts/verify_startup.py",
+        "--timeout",
+        "12.0"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 4.014,
+      "stdout": "{\n  \"status\": \"passed\",\n  \"static\": {\n    \"distAssets\": 2,\n    \"corpusRecords\": 3547,\n    \"package\": \"/private/tmp/atlas-continue-20260907/outputs/The Shape-Note Atlas.app\"\n  },\n  \"preview\": {\n    \"/\": {\n      \"status\": 200,\n      \"contentType\": \"text/html\",\n      \"bytes\": 521\n    },\n    \"/corpus.json\": {\n      \"status\": 200,\n      \"contentType\": \"application/json\",\n      \"bytes\": 43344026\n    },\n    \"/source-coverage.json\": {\n      \"status\": 200,\n      \"contentType\": \"application/json\",\n      \"bytes\": 2825615\n    }\n  }\n}\n",
+      "stderr": ""
+    }
+  ],
+  "blockers": [],
+  "limitations": [
+    "source-health-collection: skipped by --skip-source-health-collection; existing report will be validated"
+  ],
+  "policy": {
+    "failClosed": true,
+    "immutableSourcesPreserved": true,
+    "unsafePromotionRejected": true,
+    "missingModeNeverDefaultsToMajor": true,
+    "sourceHealthDefault": "offline",
+    "onlineSourceHealthRequiresPositiveBudget": true
+  }
+}

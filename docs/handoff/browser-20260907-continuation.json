@@ -1,0 +1,145 @@
+{
+  "cases": {
+    "source-verified-major": {
+      "source": {
+        "scheduled": 295,
+        "starts": 295,
+        "firstFrequency": 523.2511306011972
+      },
+      "target": {
+        "scheduled": 295,
+        "starts": 295,
+        "firstFrequency": 493.8833012561241
+      },
+      "ratio": 0.9438743126816935,
+      "manualStopCalls": 295,
+      "stopVisibleAfter": 0,
+      "playVisibleAfter": 1
+    },
+    "source-verified-minor": {
+      "source": {
+        "scheduled": 173,
+        "starts": 173,
+        "firstFrequency": 493.8833012561241
+      },
+      "target": {
+        "scheduled": 173,
+        "starts": 173,
+        "firstFrequency": 523.2511306011972
+      },
+      "ratio": 1.059463094359295,
+      "manualStopCalls": 173,
+      "stopVisibleAfter": 0,
+      "playVisibleAfter": 1
+    },
+    "unknown-key-entry": {
+      "source": {
+        "scheduled": 104,
+        "starts": 104,
+        "firstFrequency": 440
+      },
+      "target": {
+        "scheduled": 104,
+        "starts": 104,
+        "firstFrequency": 493.8833012561241
+      },
+      "ratio": 1.122462048309373,
+      "manualStopCalls": 104,
+      "stopVisibleAfter": 0,
+      "playVisibleAfter": 1
+    },
+    "reference-witness": {
+      "source": {
+        "scheduled": 295,
+        "starts": 295,
+        "firstFrequency": 523.2511306011972
+      },
+      "target": {
+        "scheduled": 295,
+        "starts": 295,
+        "firstFrequency": 493.8833012561241
+      },
+      "ratio": 0.9438743126816935,
+      "manualStopCalls": 295,
+      "stopVisibleAfter": 0,
+      "playVisibleAfter": 1
+    },
+    "review-draft": {
+      "source": {
+        "scheduled": 39,
+        "starts": 39,
+        "firstFrequency": 587.3295358348151
+      },
+      "target": {
+        "scheduled": 39,
+        "starts": 39,
+        "firstFrequency": 783.9908719634985
+      },
+      "ratio": 1.3348398541700341,
+      "manualStopCalls": 39,
+      "stopVisibleAfter": 0,
+      "playVisibleAfter": 1
+    },
+    "partial-parts": {
+      "source": {
+        "scheduled": 223,
+        "starts": 223,
+        "firstFrequency": 523.2511306011972
+      },
+      "target": {
+        "scheduled": 223,
+        "starts": 223,
+        "firstFrequency": 523.2511306011972
+      },
+      "ratio": 1,
+      "manualStopCalls": 223,
+      "stopVisibleAfter": 0,
+      "playVisibleAfter": 1
+    },
+    "target-key-change": {
+      "scheduled": 223,
+      "stopCallsFromTargetChange": 223,
+      "stopVisible": 0,
+      "playVisible": 1,
+      "notice": true
+    },
+    "target-reset": {
+      "targetResetToSource": true,
+      "selected": "41 \u2014 Evening Hymn"
+    },
+    "automatic-end": {
+      "scheduled": 39,
+      "starts": 39,
+      "stops": 78,
+      "stopVisible": 0,
+      "playVisible": 1
+    }
+  },
+  "browser": {
+    "url": "http://127.0.0.1:5173/audio-harness.html",
+    "title": "Shape-Note Atlas audio harness",
+    "contextAvailable": true,
+    "harnessErrors": [],
+    "consoleErrors": []
+  },
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-08T01:08:23.514980+00:00",
+  "git": {
+    "head": "7dfaacd3feb2a9c07310a133d13159ac887579bd",
+    "dirty": true,
+    "testedOverlay": "Current publication, validation and renderer files; per-file hashes recorded."
+  },
+  "hashes": {
+    "src/main.jsx": "20bb79c79b2cdbcc908f0e23ae081611573bcf31867e5f9a0497d899101846c2",
+    "src/styles.css": "2762e436fcc894165184e1ce1ab7033e2491c82395e80e40f98b85644090b3e5",
+    "src/practice.js": "2627ab2f016571cf4eb3237786eb28f78ec2102c85a98a5a50171738185180be",
+    "src/agent_11_score_semantics.js": "11fada8505228499527867e20fc97579acd53a73f47e06f2d647400e858073d0",
+    "public/audio-harness.html": "c6a6624b5ad5ed28c6191e176363ab14c28b30f5be3627651d89e25cb49a7191",
+    "public/corpus.json": "c6d75b00ff3f30318b8e2b8aa3cd1d9257c611e945242fdab4796eb3ef01077c",
+    "scripts/browser-smoke-test-plan.md": "90b6baee89ca20d9dde0a73c358b3df7cdda356a99977a451ff7b8411473d6c1",
+    "public/scores/e1f782a69c5812f4bcd5418a.json": "f03b04e66ffb5356a9fae1d74d1172e1f07cfe43b14926bcaae6d436cf578e8a",
+    "public/scores/e8a639af812f0ca7c5298b2b.json": "ed86803c274b49eaf7c15ec95f07dac9777e6154eef2937e423818e02042c910",
+    "public/scores/3509deecb75016f0d85fe47d.json": "2fd6a5614def0f3558b0780dc7b2743bffefad66a25260ce6c8030a845bd3890",
+    "public/draft-scores/d70b33f990339c1c2aab49d0.json": "be45ce3bf1e3ee7b537f41753e0ee4cb075db39ac3cd5640b9f6d692e1596415"
+  }
+}
