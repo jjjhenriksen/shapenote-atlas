@@ -256,7 +256,7 @@ select option { color: #1a1a18; background: #f3eddf; }
 .source-strip { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-top: 24px; padding: 16px 0; color: var(--muted); }
 .source-health-card { display:flex; justify-content:space-between; gap:16px; align-items:center; margin-top:20px; padding:14px 16px; border:1px solid var(--line); border-radius:10px; background:color-mix(in srgb, var(--card) 82%, transparent); color:var(--muted); }
 .source-health-card strong { display:block; color:var(--ink); margin-top:4px; font-size:.9rem; }
-.source-health-retention { font-size:.78rem; white-space:nowrap; }
+.source-health-retention { font-size:.78rem; }
 .practice-options { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
 .practice-options label { display:flex; align-items:center; gap:5px; color:var(--muted); font-size:.82rem; }
 .practice-options input, .practice-options select { width:62px; border:1px solid var(--line); border-radius:6px; background:var(--pine); color:var(--ink); padding:6px; }
@@ -317,6 +317,7 @@ select option { color: #1a1a18; background: #f3eddf; }
   .source-key-picker .key-select-wrap { flex-basis: auto; }
   .source-strip > div:first-child { width: 100%; justify-content: space-between; }
   .source-notation iframe { height: 520px; }
+  .source-health-card { flex-wrap: wrap; }
   .source-notation-link { display: block; }
   .source-notation-link a { margin-top: 14px; }
   .clean-source-candidate { display: grid; gap: 8px; }
