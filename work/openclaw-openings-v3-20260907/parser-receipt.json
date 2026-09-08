@@ -1,0 +1,66 @@
+[
+  {
+    "candidate": "kentucky-new-salem-full-notation-candidate-v3.musicxml",
+    "result": "pass",
+    "rejectedCorruptionClasses": [
+      "predecessor drift",
+      "pitch drift",
+      "duration drift",
+      "missing terminal boundary",
+      "missing appended source curve"
+    ],
+    "parts": 4,
+    "pitchedNotesByPart": {
+      "P1": 42,
+      "P2": 42,
+      "P3": 42,
+      "P4": 41
+    },
+    "pitchedNotes": 167,
+    "addedPitchedNotes": 87,
+    "completeMeasuresPerPart": 16,
+    "durationQuarterPerPart": 64.0,
+    "exactV2PrefixPreserved": true,
+    "ties": 0,
+    "slurs": 12,
+    "parser": {
+      "durationValidation": "pass",
+      "actualXmlEventStreamPreserved": true,
+      "events": 175,
+      "pitchedNotes": 167,
+      "parserSourceSha256": "e20e2350e6f0ba40fbcc5cd1605705e11e3f934d1ab93acc252052ddcfca050a"
+    }
+  },
+  {
+    "candidate": "shenandoah-something-new-full-notation-candidate-v3.musicxml",
+    "result": "pass",
+    "rejectedCorruptionClasses": [
+      "predecessor drift",
+      "pitch drift",
+      "duration drift",
+      "missing terminal boundary",
+      "missing appended source curve"
+    ],
+    "parts": 4,
+    "pitchedNotesByPart": {
+      "P1": 59,
+      "P2": 58,
+      "P3": 60,
+      "P4": 58
+    },
+    "pitchedNotes": 235,
+    "addedPitchedNotes": 124,
+    "completeMeasuresPerPart": 15,
+    "durationQuarterPerPart": 45.0,
+    "exactV2PrefixPreserved": true,
+    "ties": 9,
+    "slurs": 3,
+    "parser": {
+      "durationValidation": "pass",
+      "actualXmlEventStreamPreserved": true,
+      "events": 239,
+      "pitchedNotes": 235,
+      "parserSourceSha256": "e20e2350e6f0ba40fbcc5cd1605705e11e3f934d1ab93acc252052ddcfca050a"
+    }
+  }
+]

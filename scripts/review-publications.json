@@ -458,52 +458,53 @@
       "slug": "kentucky-new-salem",
       "songId": "kentucky 10 — New-Salem",
       "bookId": "kentucky",
-      "version": "v2",
-      "completeness": "partial",
+      "version": "v3",
+      "completeness": "complete",
       "limitations": [
-        "First printed system only: 8 complete measures across all four printed voices; the second system is not yet transcribed.",
+        "Full written notation extent: 16 complete measures across all four printed voices; exact-edition fidelity is not certified.",
         "Lyrics and printed notehead shapes are not yet encoded.",
         "Pitch follows the written clefs; no unprinted octave adjustment is applied.",
         "Source-key transposition requires manual entry. The source label is retained in the evidence.",
-        "Source identity is based on the retained page; exact-edition fidelity is not certified."
+        "Source identity is based on the retained page; exact-edition fidelity is not certified.",
+        "The printed final backward repeat is retained in MusicXML. App playback follows written order; repeat navigation has not been enabled for this draft."
       ],
       "musicXml": {
-        "path": "work/openclaw-openings-v2-20260907/kentucky-new-salem-first-system-candidate-v2.musicxml",
-        "sha256": "a8ebdbfe9a80797f82fc19d6c53d29e3c38dc686b767f5d627c3a120693bb9b1"
+        "path": "work/openclaw-openings-v3-20260907/kentucky-new-salem-full-notation-candidate-v3.musicxml",
+        "sha256": "bf4e23b1446dc14843f2cbdc4a9d272a0a8d7e7c07d0ba76ea5154f41fb83079"
       },
       "source": {
         "path": "work/luna-program-20260904/source_only/retained-sources/kentucky-010-new-salem.pdf",
         "sha256": "f4ba7e2ead70aa38bfc626f017b4a4e060487f95eaeda05f1b67f98f78db8251"
       },
       "evidence": {
-        "path": "work/openclaw-openings-v2-20260907/kentucky-new-salem-evidence-v2.json",
-        "sha256": "f1448074189a32edd91e5a55408c8768f6bb3d941eb59b361f6436877aa40494"
+        "path": "work/openclaw-openings-v3-20260907/kentucky-new-salem-evidence-v3.json",
+        "sha256": "4bdc4a01ca7586d255f5fdd3eeae7cc4d04bbbbbc6b0f31bdd2b84f12c52763f"
       }
     },
     {
       "slug": "shenandoah-something-new",
       "songId": "shenandoah 10 — Something New",
       "bookId": "shenandoah",
-      "version": "v2",
-      "completeness": "partial",
+      "version": "v3",
+      "completeness": "complete",
       "limitations": [
-        "First printed system only: 7 complete measures across all four printed voices; the second system is not yet transcribed.",
+        "Full written notation extent: 15 complete measures across all four printed voices; exact-edition fidelity is not certified.",
         "Lyrics and printed notehead shapes are not yet encoded.",
         "Pitch follows the written clefs; no unprinted octave adjustment is applied.",
         "Source-key transposition requires manual entry. The source label is retained in the evidence.",
         "Source identity is based on the retained page; exact-edition fidelity is not certified."
       ],
       "musicXml": {
-        "path": "work/openclaw-openings-v2-20260907/shenandoah-something-new-first-system-candidate-v2.musicxml",
-        "sha256": "908aae8b06a0f1a7517e91437709794933dd590618d3b99ca82bbe164629ab7a"
+        "path": "work/openclaw-openings-v3-20260907/shenandoah-something-new-full-notation-candidate-v3.musicxml",
+        "sha256": "de23e8347b1dfd8bc338150b81f261fdb07c89c5b1bf8ca37d1fb2cd451340a8"
       },
       "source": {
         "path": "work/luna-program-20260904/source_only/retained-sources/shenandoah-010-something-new.jpg",
         "sha256": "36ccec1996b58e05135b7f9cdaeff7a9a57bfe3994ecc13171903f7a1895655c"
       },
       "evidence": {
-        "path": "work/openclaw-openings-v2-20260907/shenandoah-something-new-evidence-v2.json",
-        "sha256": "7c5db8921071a6de2b8b9d6e7255f58bfec91e2b0a9079c247dd36d2b5b186b1"
+        "path": "work/openclaw-openings-v3-20260907/shenandoah-something-new-evidence-v3.json",
+        "sha256": "906f5f321db014a1264bcfddef0755ebdc3069b05b6ce9fb1a48afcea1d5b466"
       }
     }
   ]
