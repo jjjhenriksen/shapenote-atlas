@@ -1,0 +1,120 @@
+{
+  "schema": "shape-note-atlas/socialharp-page-map-supplement/v1",
+  "review_date": "2026-09-07",
+  "baseline": {
+    "path": "work/luna-program-20260904/source_only/socialharp-page-map-20260904.json",
+    "sha256": "8b30106fb48d2467d70063d684ac144887b02e3cfec4470da103dc13d2c90963",
+    "summary": {
+      "catalogue_records": 221,
+      "uniquely_mapped_records": 67,
+      "unresolved_records": 154
+    }
+  },
+  "source": {
+    "path": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+    "sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331"
+  },
+  "policy": {
+    "supplement_only": true,
+    "original_mapping_unchanged": true,
+    "notation_imported": false,
+    "lyrics_or_notes_inferred": false,
+    "catalogue_discrepancy": "221 corpus records versus 222 historical count remains unresolved; five-leaf identity review does not settle inventory."
+  },
+  "summary": {
+    "reviewed_records": 5,
+    "resolved_source_identities": 5,
+    "baseline_mapped": 67,
+    "combined_mapped": 72,
+    "baseline_unresolved": 154,
+    "combined_unresolved": 149,
+    "catalogue_records_unchanged": 221
+  },
+  "records": [
+    {
+      "record_id": "socialharp 101 — PARTING FRIENDS",
+      "song_no": "101",
+      "catalogue_title": "PARTING FRIENDS",
+      "literal_heading": "PARTING FRIENDS.*",
+      "pdf_leaf_1_based": 101,
+      "printed_page": "101",
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-20260907/renders/leaf-101.png",
+      "render_sha256": "e6cf09a47346455f03e2c000b95b4bdc60d5145a42fbbf295ae463360179d091",
+      "review_method": "Direct visual inspection of full PDF leaf rendered by Poppler at scale-to 1800; title and printed page read independently.",
+      "status": "source-page-identity-verified",
+      "notation_imported": false,
+      "exact_edition_notation_verified": false,
+      "heading_note": "Asterisk is a printed footnote marker, retained separately from catalogue title."
+    },
+    {
+      "record_id": "socialharp 103 — MOSLEY",
+      "song_no": "103",
+      "catalogue_title": "MOSLEY",
+      "literal_heading": "MOSLEY.",
+      "pdf_leaf_1_based": 103,
+      "printed_page": "103",
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-20260907/renders/leaf-103.png",
+      "render_sha256": "650a5298b8be1081f32d155b87b0bf8631538d3e5ea04e4e1580d75d36959ba8",
+      "review_method": "Direct visual inspection of full PDF leaf rendered by Poppler at scale-to 1800; title and printed page read independently.",
+      "status": "source-page-identity-verified",
+      "notation_imported": false,
+      "exact_edition_notation_verified": false,
+      "heading_note": null
+    },
+    {
+      "record_id": "socialharp 104 — SHOUT FOR JOY",
+      "song_no": "104",
+      "catalogue_title": "SHOUT FOR JOY",
+      "literal_heading": "SHOUT FOR JOY.",
+      "pdf_leaf_1_based": 104,
+      "printed_page": "104",
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-20260907/renders/leaf-104.png",
+      "render_sha256": "a7ab0c59033af452ef36c2e43147f063de60c76e33c6226f61aadaa55324f559",
+      "review_method": "Direct visual inspection of full PDF leaf rendered by Poppler at scale-to 1800; title and printed page read independently.",
+      "status": "source-page-identity-verified",
+      "notation_imported": false,
+      "exact_edition_notation_verified": false,
+      "heading_note": null
+    },
+    {
+      "record_id": "socialharp 105 — THE SOUNDING TRUMPET",
+      "song_no": "105",
+      "catalogue_title": "THE SOUNDING TRUMPET",
+      "literal_heading": "THE SOUNDING TRUMPET.",
+      "pdf_leaf_1_based": 105,
+      "printed_page": "105",
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-20260907/renders/leaf-105.png",
+      "render_sha256": "ed103c234d01c6e715a2fabdf87be5e645d70a4395c7028597de77e0e145514d",
+      "review_method": "Direct visual inspection of full PDF leaf rendered by Poppler at scale-to 1800; title and printed page read independently.",
+      "status": "source-page-identity-verified",
+      "notation_imported": false,
+      "exact_edition_notation_verified": false,
+      "heading_note": null
+    },
+    {
+      "record_id": "socialharp 107 — MEMPHIS",
+      "song_no": "107",
+      "catalogue_title": "MEMPHIS",
+      "literal_heading": "MEMPHIS.",
+      "pdf_leaf_1_based": 107,
+      "printed_page": "107",
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-20260907/renders/leaf-107.png",
+      "render_sha256": "ddc81d7121de5ecc51df1187baf54c11951d2b68a8597f12eec22b45b490180b",
+      "review_method": "Direct visual inspection of full PDF leaf rendered by Poppler at scale-to 1800; title and printed page read independently.",
+      "status": "source-page-identity-verified",
+      "notation_imported": false,
+      "exact_edition_notation_verified": false,
+      "heading_note": null
+    }
+  ]
+}
