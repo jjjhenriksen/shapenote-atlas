@@ -472,6 +472,10 @@ function ScorePreview({ score, transpose, complete, sourceKey, targetKey, shapeS
   const reviewCollisionGroups = partReviews.reduce((total, review) => total + review.collisionGroups, 0);
   const timelineEnd = Math.max(...partRows.flatMap((part) => (part.events || []).map((event) => event.onset + event.beats)), 1);
   const scoreWidth = 760;
+  // Keep source voice names intact without drawing them over clefs or notes.
+  const labelWidth = Math.max(32, ...partRows.map((part) => String(part.name || "").length * 6));
+  const staffLeft = labelWidth + 32;
+  const notesLeft = staffLeft + 20;
   const systemHeight = 214;
   const measuresPerSystem = 4;
   // Diatonic coordinates use C4 as zero. These are the bottom staff lines
@@ -528,13 +532,14 @@ function ScorePreview({ score, transpose, complete, sourceKey, targetKey, shapeS
   const semantic = scoreSemanticSummary(score);
   return <div className="score-frame">
     <div className="score-caption"><span>{complete ? `${shapeCaption} · ${measureCaption}` : `MusicXML source preview · ${measureCaption}`}</span><span>{displayedKey} · {displayedTimeSignature}</span></div>
+    <div className="score-scroll" role="region" aria-label="Score notation; scroll horizontally to view all notes" tabIndex={0}>
     <svg className="score-svg" style={{ width: "100%" }} viewBox={`0 0 ${scoreWidth} ${scoreHeight}`} role="img" aria-label={`${complete ? "Full" : "Preview of"} available source score with ${partRows.length} available parts`}>
       <rect x="0" y="0" width={scoreWidth} height={scoreHeight} fill="transparent" />
       {Array.from({ length: systemCount }, (_, systemIndex) => {
         const systemTop = systemIndex * systemHeight;
         const systemStart = measureStarts[systemIndex * measuresPerSystem]?.onset || 0;
         const systemEnd = measureStarts[(systemIndex + 1) * measuresPerSystem]?.onset || timelineEnd;
-        const pixelsPerBeat = (scoreWidth - 88) / Math.max(systemEnd - systemStart, 1);
+        const pixelsPerBeat = (scoreWidth - notesLeft - 16) / Math.max(systemEnd - systemStart, 1);
         const systemMeasures = measureStarts.slice(systemIndex * measuresPerSystem, (systemIndex + 1) * measuresPerSystem);
         return <g key={`system-${systemIndex}`} className="score-system">
           {partRows.map((part, partIndex) => {
@@ -542,13 +547,13 @@ function ScorePreview({ score, transpose, complete, sourceKey, targetKey, shapeS
             const events = (partReviews[partIndex]?.events || []).filter((event) => systemForEvent(event) === systemIndex);
             const staff = partStaff(part, partIndex);
             return <g key={`${systemIndex}-${part.name}`} className="score-part">
-              {[0, 1, 2, 3, 4].map((line) => <line key={line} x1="58" y1={base + line * 4} x2={scoreWidth - 16} y2={base + line * 4} />)}
+              {[0, 1, 2, 3, 4].map((line) => <line key={line} x1={staffLeft} y1={base + line * 4} x2={scoreWidth - 16} y2={base + line * 4} />)}
               <text x="8" y={base + 12} className="part-label">{part.name}</text>
-              <text x="40" y={base + 14} className="clef-label">{partClefGlyph(part, partIndex)}</text>
-              <line x1="58" y1={base} x2="58" y2={base + 16} className="barline" />
-              {systemMeasures.slice(1).map((measure) => <line key={`${part.name}-measure-${measure.measure}`} x1={72 + (measure.onset - systemStart) * pixelsPerBeat} y1={base} x2={72 + (measure.onset - systemStart) * pixelsPerBeat} y2={base + 16} className={barlinesForMeasure(part, measure.measure).length ? "measure-line" : "measure-line inferred"} />)}
+              <text x={staffLeft - 18} y={base + 14} className="clef-label">{partClefGlyph(part, partIndex)}</text>
+              <line x1={staffLeft} y1={base} x2={staffLeft} y2={base + 16} className="barline" />
+              {systemMeasures.slice(1).map((measure) => <line key={`${part.name}-measure-${measure.measure}`} x1={notesLeft + (measure.onset - systemStart) * pixelsPerBeat} y1={base} x2={notesLeft + (measure.onset - systemStart) * pixelsPerBeat} y2={base + 16} className={barlinesForMeasure(part, measure.measure).length ? "measure-line" : "measure-line inferred"} />)}
               {events.map((event, eventIndex) => {
-                const x = 72 + Math.max(0, event.onset - systemStart) * pixelsPerBeat;
+                const x = notesLeft + Math.max(0, event.onset - systemStart) * pixelsPerBeat;
                 const midi = pitchToMidi(event);
                 if (midi === null) return <path key={`${part.name}-${eventIndex}`} d={`M${x - 3} ${base + 8} q3 -6 6 0 q-3 6 -6 0`} className="rest-mark" />;
                 const notation = transposedNotation(event, sourceKey, targetKey, transpose);
@@ -576,6 +581,7 @@ function ScorePreview({ score, transpose, complete, sourceKey, targetKey, shapeS
         </g>;
       })}
     </svg>
+    </div>
     <p className="score-note semantic-summary">Lyrics: {semantic.lyrics} · Repeats: {semantic.repeats} · Endings: {semantic.numberedEndings} · {semantic.playback}</p>
     {reviewSuppressed > 0 && <p className="score-note">{reviewSuppressed} ambiguous OMR notes across {reviewCollisionGroups} onset collisions are hidden in this review view; the raw draft remains preserved.</p>}
     <p className="score-note">{shapeNote}{score?.playbackTransform?.finalChordRemoved && <> Final chord omitted from playback and transposition; source evidence is preserved.</>}{shapeSourceUrl && <> {" "}<a href={shapeSourceUrl} target="_blank" rel="noreferrer noopener">Open shape-source PDF <Icon name="external" size={13} /></a></>}</p>
