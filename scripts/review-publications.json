@@ -453,6 +453,58 @@
         "path": "work/shapenote-musicxml/62a2ff0ce19a4466290ee3c0.mxl",
         "sha256": "004fdb3c6fbc0200cc37df2e433eb2bd12e136d71e0696f6d8b90cf470375df5"
       }
+    },
+    {
+      "slug": "kentucky-new-salem",
+      "songId": "kentucky 10 — New-Salem",
+      "bookId": "kentucky",
+      "version": "v1",
+      "completeness": "partial",
+      "limitations": [
+        "Opening measure only, across all four printed voices; the rest of the tune is not yet transcribed.",
+        "Lyrics and printed notehead shapes are not yet encoded.",
+        "Pitch follows the written clefs; no unprinted octave adjustment is applied.",
+        "Source-key transposition requires manual entry. The source label is retained in the evidence.",
+        "Source identity is based on the retained page; exact-edition fidelity is not certified."
+      ],
+      "musicXml": {
+        "path": "work/openclaw-openings-20260907/kentucky-new-salem-opening-candidate-v1.musicxml",
+        "sha256": "f198afa3df322de5259a8acbb14e01fe0ec58c99ba4e0698123a1476668d0145"
+      },
+      "source": {
+        "path": "work/luna-program-20260904/source_only/retained-sources/kentucky-010-new-salem.pdf",
+        "sha256": "f4ba7e2ead70aa38bfc626f017b4a4e060487f95eaeda05f1b67f98f78db8251"
+      },
+      "evidence": {
+        "path": "work/openclaw-openings-20260907/kentucky-new-salem-evidence-v1.json",
+        "sha256": "b3fb43426d60bea1f00a50ea33f93941f98a13e472db2dc520fff2df4aae4db4"
+      }
+    },
+    {
+      "slug": "shenandoah-something-new",
+      "songId": "shenandoah 10 — Something New",
+      "bookId": "shenandoah",
+      "version": "v1",
+      "completeness": "partial",
+      "limitations": [
+        "Opening measure only, across all four printed voices; the rest of the tune is not yet transcribed.",
+        "Lyrics and printed notehead shapes are not yet encoded.",
+        "Pitch follows the written clefs; no unprinted octave adjustment is applied.",
+        "Source-key transposition requires manual entry. The source label is retained in the evidence.",
+        "Source identity is based on the retained page; exact-edition fidelity is not certified."
+      ],
+      "musicXml": {
+        "path": "work/openclaw-openings-20260907/shenandoah-something-new-opening-candidate-v1.musicxml",
+        "sha256": "52a8487ca471fe68ac4262e568c06ced1ec832f7c75500fd7fdc5bd5cddf4a10"
+      },
+      "source": {
+        "path": "work/luna-program-20260904/source_only/retained-sources/shenandoah-010-something-new.jpg",
+        "sha256": "36ccec1996b58e05135b7f9cdaeff7a9a57bfe3994ecc13171903f7a1895655c"
+      },
+      "evidence": {
+        "path": "work/openclaw-openings-20260907/shenandoah-something-new-evidence-v1.json",
+        "sha256": "9586b844dc4f3e034032224021a4f431bcecb43cb63c8d154730fa0110ad2feb"
+      }
     }
   ]
 }

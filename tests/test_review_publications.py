@@ -59,8 +59,8 @@ class ReviewPublicationsTest(unittest.TestCase):
                                  [preserved_notation(p) for p in source.findall('part')])
             self.assertEqual(len(score['parts']), len(xml.findall('part')))
             for part, declaration in zip(score['parts'], xml.findall('./part-list/score-part')):
-                # Duplicate printed voice labels receive disambiguating numeric suffixes.
-                self.assertTrue(part['name'].startswith(declaration.findtext('part-name')))
+                # The parser title-cases labels and disambiguates duplicates.
+                self.assertTrue(part['name'].startswith(declaration.findtext('part-name').title()))
             for part, xml_part in zip(score['parts'], xml.findall('part')):
                 pitches = [(e['step'], e.get('alter',0), e['octave']) for e in part['events'] if not e.get('rest')]
                 expected = [(n.findtext('pitch/step'), int(n.findtext('pitch/alter','0')), int(n.findtext('pitch/octave'))) for n in xml_part.findall('./measure/note') if n.find('pitch') is not None]

@@ -1,0 +1,114 @@
+{
+  "version": 1,
+  "title": "Something New",
+  "bookId": "shenandoah",
+  "recordId": "shenandoah 10 — Something New",
+  "candidate": "shenandoah-something-new-opening-candidate-v1.musicxml",
+  "candidateSha256": "52a8487ca471fe68ac4262e568c06ced1ec832f7c75500fd7fdc5bd5cddf4a10",
+  "sourcePath": "work/luna-program-20260904/source_only/retained-sources/shenandoah-010-something-new.jpg",
+  "sourceSha256": "36ccec1996b58e05135b7f9cdaeff7a9a57bfe3994ecc13171903f7a1895655c",
+  "sourcePrintedPage": "10",
+  "directVisualReview": true,
+  "reviewDate": "2026-09-07",
+  "coverage": "one complete opening measure across all four printed voices",
+  "reviewRequired": true,
+  "safeToPromote": false,
+  "printedKeyLabel": "B♭ Major.",
+  "mode": "unknown",
+  "keySignatureFifths": -2,
+  "coordinateSystem": {
+    "origin": "top-left",
+    "reviewDisplayDimensions": [
+      1654,
+      1157
+    ],
+    "actualImageDimensions": [
+      1654,
+      1157
+    ],
+    "conversion": "Multiply display x/y by actual width/height divided by display width/height.",
+    "image": "work/luna-program-20260904/source_only/retained-sources/shenandoah-010-something-new.jpg",
+    "firstMeasureXRange": [
+      150,
+      277
+    ]
+  },
+  "voiceObservations": [
+    {
+      "part": "P1",
+      "clef": "G",
+      "clefLine": 2,
+      "noteCenter": [
+        224,
+        144
+      ],
+      "staffBottomY": 168,
+      "staffLineSpacing": 12.2,
+      "step": "B",
+      "octave": 4,
+      "alter": -1,
+      "restDurationQuarter": 1.5,
+      "noteOnsetQuarter": 1.5,
+      "noteDurationQuarter": 1.5
+    },
+    {
+      "part": "P2",
+      "clef": "G",
+      "clefLine": 2,
+      "noteCenter": [
+        224,
+        287
+      ],
+      "staffBottomY": 293,
+      "staffLineSpacing": 12.2,
+      "step": "F",
+      "octave": 4,
+      "alter": 0,
+      "restDurationQuarter": 1.5,
+      "noteOnsetQuarter": 1.5,
+      "noteDurationQuarter": 1.5
+    },
+    {
+      "part": "P3",
+      "clef": "G",
+      "clefLine": 2,
+      "noteCenter": [
+        224,
+        404
+      ],
+      "staffBottomY": 410,
+      "staffLineSpacing": 12.2,
+      "step": "F",
+      "octave": 4,
+      "alter": 0,
+      "restDurationQuarter": 1.5,
+      "noteOnsetQuarter": 1.5,
+      "noteDurationQuarter": 1.5
+    },
+    {
+      "part": "P4",
+      "clef": "F",
+      "clefLine": 4,
+      "noteCenter": [
+        224,
+        474
+      ],
+      "staffBottomY": 530,
+      "staffLineSpacing": 12.2,
+      "step": "B",
+      "octave": 3,
+      "alter": -1,
+      "restDurationQuarter": 1.5,
+      "noteOnsetQuarter": 1.5,
+      "noteDurationQuarter": 1.5
+    }
+  ],
+  "limitations": [
+    "Only first printed bar transcribed; remainder omitted, not silence.",
+    "Lyrics and notehead shapes intentionally omitted pending separate underlay/glyph review.",
+    "Printed key label retained here; no mode inference encoded in MusicXML.",
+    "Printed clefs retained literally; no unprinted octave transposition applied.",
+    "Retained source filename links this page to the book; exact-edition provenance is not newly certified.",
+    "No terminal final barline or repeats invented at excerpt boundary."
+  ]
+}

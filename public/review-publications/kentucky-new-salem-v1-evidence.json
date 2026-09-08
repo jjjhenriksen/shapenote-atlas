@@ -1,0 +1,115 @@
+{
+  "version": 1,
+  "title": "New Salem",
+  "bookId": "kentucky",
+  "recordId": "kentucky 10 — New-Salem",
+  "candidate": "kentucky-new-salem-opening-candidate-v1.musicxml",
+  "candidateSha256": "f198afa3df322de5259a8acbb14e01fe0ec58c99ba4e0698123a1476668d0145",
+  "sourcePath": "work/luna-program-20260904/source_only/retained-sources/kentucky-010-new-salem.pdf",
+  "sourceSha256": "f4ba7e2ead70aa38bfc626f017b4a4e060487f95eaeda05f1b67f98f78db8251",
+  "sourcePrintedPage": "10",
+  "directVisualReview": true,
+  "reviewDate": "2026-09-07",
+  "coverage": "one complete opening measure across all four printed voices",
+  "reviewRequired": true,
+  "safeToPromote": false,
+  "printedKeyLabel": "F Major.",
+  "mode": "unknown",
+  "keySignatureFifths": -1,
+  "coordinateSystem": {
+    "origin": "top-left",
+    "reviewDisplayDimensions": [
+      1780,
+      1376
+    ],
+    "actualImageDimensions": [
+      2200,
+      1700
+    ],
+    "conversion": "Multiply display x/y by actual width/height divided by display width/height.",
+    "image": "renders/kentucky.png",
+    "firstMeasureXRange": [
+      208,
+      354
+    ]
+  },
+  "voiceObservations": [
+    {
+      "part": "P1",
+      "clef": "G",
+      "clefLine": 2,
+      "noteCenter": [
+        297,
+        177
+      ],
+      "staffBottomY": 205,
+      "staffLineSpacing": 11.2,
+      "step": "C",
+      "octave": 5,
+      "alter": 0,
+      "restDurationQuarter": 2.0,
+      "noteOnsetQuarter": 2.0,
+      "noteDurationQuarter": 2.0
+    },
+    {
+      "part": "P2",
+      "clef": "F",
+      "clefLine": 4,
+      "noteCenter": [
+        297,
+        297
+      ],
+      "staffBottomY": 331,
+      "staffLineSpacing": 11.2,
+      "step": "F",
+      "octave": 3,
+      "alter": 0,
+      "restDurationQuarter": 2.0,
+      "noteOnsetQuarter": 2.0,
+      "noteDurationQuarter": 2.0
+    },
+    {
+      "part": "P3",
+      "clef": "G",
+      "clefLine": 2,
+      "noteCenter": [
+        297,
+        451
+      ],
+      "staffBottomY": 458,
+      "staffLineSpacing": 11.2,
+      "step": "F",
+      "octave": 4,
+      "alter": 0,
+      "restDurationQuarter": 2.0,
+      "noteOnsetQuarter": 2.0,
+      "noteDurationQuarter": 2.0
+    },
+    {
+      "part": "P4",
+      "clef": "F",
+      "clefLine": 4,
+      "noteCenter": [
+        297,
+        552
+      ],
+      "staffBottomY": 585,
+      "staffLineSpacing": 11.2,
+      "step": "F",
+      "octave": 3,
+      "alter": 0,
+      "restDurationQuarter": 2.0,
+      "noteOnsetQuarter": 2.0,
+      "noteDurationQuarter": 2.0
+    }
+  ],
+  "limitations": [
+    "Only first printed bar transcribed; remainder omitted, not silence.",
+    "Lyrics and notehead shapes intentionally omitted pending separate underlay/glyph review.",
+    "Printed key label retained here; no mode inference encoded in MusicXML.",
+    "Printed clefs retained literally; no unprinted octave transposition applied.",
+    "Retained source filename links this page to the book; exact-edition provenance is not newly certified.",
+    "No terminal final barline or repeats invented at excerpt boundary."
+  ],
+  "renderSha256": "d1ce6d63df07c19fdee2cc26b2ab7d459fc5724bfb0580b35133ceb81fc42a10"
+}
