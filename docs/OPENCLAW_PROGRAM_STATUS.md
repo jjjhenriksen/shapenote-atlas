@@ -106,3 +106,35 @@ The publisher now supports unchanged compressed MXL and verifies complete source
 5. Recheck the bounded SH1991/322, /80b, Cooper/116 source endpoints and Southern Harmony 12 witness fidelity when advancing those books.
 
 The all-eleven-book mission remains open. Draft publication does not reduce the 3,047 missing exact mappings or certify the thirteen SH2025 correction records. The three Trumpet prose records remain in historical counts pending a separately defined inventory migration; they must not be described as three newly completed scores.
+
+## Third delivery cycle — 2026-09-07 PDT
+
+| Result | Commit | Boundary |
+| --- | --- | --- |
+| Three exact MusicXML endpoints rechecked; Southern Harmony 12 PDF classified by visual inspection and metadata | `0bfc0d6` | All three URLs still 404; Salem PDF is a modern derivative engraving, not printed-edition proof; no canonical changes |
+| Next five Social Harp source identities: 108 Derrett, 109 Columbus, 110 Shouting Song, 111 The Morning Trumpet, 113 Eternal Home | `c576a8e` | Combined page mappings 72 → 77; unresolved 149 → 144; notation counts unchanged |
+| New Salem (Kentucky) and Something New (Shenandoah) v1 published as editable partial practice drafts | `82fa66b` | Exactly one complete opening measure across four printed voices each; not full tunes or certified editions |
+
+There are now **17 pinned human-correctable publications**. Both new drafts preserve written clefs, explicit rest/note timing, and key-signature alterations. No lyrics, shapes, mode, unseen measures, or final barlines were invented. Printed key labels remain in evidence; manual source-key entry is available. Source pages and coordinate/hash evidence are downloadable alongside unchanged candidate MusicXML. Existing canonical scores and all unrelated corpus rows are preserved.
+
+### Verification for this cycle
+
+- Source dependency/version check passed: React/React DOM 19.2.8 and Vite 7.3.6.
+- Both opening-candidate verifications passed: four voices, four pitched notes, complete opening bar, rest/type/dot durations and staff-coordinate pitch parity.
+- Social Harp v2 supplement verifier passed, preserving both predecessors and the 221/222 inventory discrepancy.
+- Four publication tests passed in the source checkout and fresh GitHub clone with no local-only source folders: exact pitch streams, source/download hashes, canonical preservation, regeneration, idempotency, and rejection of corrupted inputs. The existing voice-label assertion now respects the parser's title-case normalization.
+- Vite production build and all 19 playback/discovery/key tests passed in `/private/tmp/atlas-openings-clean-20260907`.
+- Browser at `http://127.0.0.1:5188/`: both drafts selected, playback started and automatically completed; all six local publication asset URLs returned HTTP 200; both actual MusicXML downloads byte-matched the published assets. Something New's expanded correction panel fits at 390×844; desktop and mobile screenshots inspected. No app console errors/warnings observed. Browser plugin unavailable; Playwright CLI used.
+- Presentation limit: long printed-voice labels crowd the score clefs; existing mobile score overflow is not claimed fixed. One mobile tune-selection attempt left the previous tune selected; selecting again loaded the intended draft. No selection-behavior fix is claimed.
+- Broader preflight is **not green**: 12 tests ran, 10 passed, one existing audit file raised `Resource deadlock avoided`, and shared-edition reconciliation rejected its stale corpus checksum. No full-project validation or public deployment claim.
+- A local Git clone/archive also encountered unreadable objects; a fresh GitHub clone supplied the build base, overlaid with precisely the publication changes. The shared checkout was not reset or cleaned, and services were untouched.
+
+### Next bounded work
+
+1. Extend New Salem and Something New beyond their now-published opening bars, issuing new candidate versions. Their retained printed key labels can be reviewed explicitly; no need to rediscover them.
+2. Social Harp: start at unresolved **115 THE SAINT'S DELIGHT**, subtracting both supplements from the original unresolved array. Reviewed count is 77, not 72.
+3. Continue Afton P1 m8/P3 m12, Zion after x502, and Devotion/Portsmouth lyric alignment as versioned improvements to available drafts.
+4. Obtain an identifiable printed Southern Harmony 12 witness for edition-fidelity comparison. The retained derivative PDF is classified; do not repeat that classification as unfinished work.
+5. Restore a reproducible aggregate verification path and refresh source-dependent ledgers deliberately when complete inputs are available. The three exact missing MusicXML endpoints were checked on this cycle; avoid repeated immediate probes.
+
+All eleven books remain in scope; neither source-page identity nor one-bar draft publication reduces the count of missing exact-edition scores.
