@@ -30,6 +30,59 @@ SOURCE_METADATA_OBSERVATIONS = ROOT / "public/source-metadata-observations.json"
 SHAPENOTE_2025_SCORE_AUDIT = ROOT / "public/shapenote-2025-score-audit.json"
 
 
+def validate_draft_score(song: dict, book_id: str, score: dict, root: Path = ROOT) -> str:
+    """Validate either a legacy OMR draft or a retained human-correctable publication."""
+    if score.get("provenance", {}).get("kind") != "omr-draft" or score.get("provenance", {}).get("reviewRequired") is not True:
+        raise SystemExit(f"{song['id']} {book_id}: draft score has invalid provenance")
+    ref = score.get("scoreRef", "")
+    if not ref.startswith("/draft-scores/"):
+        raise SystemExit(f"{song['id']} {book_id}: invalid draft scoreRef {ref!r}")
+    path = root / "public" / ref.lstrip("/")
+    if not path.exists():
+        raise SystemExit(f"{song['id']} {book_id}: missing draft score asset {path}")
+    asset = json.loads(path.read_text(encoding="utf-8"))
+    if not asset.get("parts") or not any(part.get("events") for part in asset["parts"]):
+        raise SystemExit(f"{song['id']} {book_id}: incomplete draft score asset")
+    source_url = asset.get("sourceUrl", "")
+    publication = asset.get("reviewPublication")
+    if publication is not None or score.get("reviewPublication") is not None:
+        # Published corrections use retained MusicXML URLs, not legacy draft:// IDs.
+        # Accept only the complete, explicitly unverified publication contract.
+        provenance = asset.get("provenance", {})
+        if (
+            not isinstance(publication, dict)
+            or publication != score.get("reviewPublication")
+            or provenance != score.get("provenance")
+            or provenance.get("sourceEdition") != book_id
+            or provenance.get("sourceKeyVerified") is not False
+            or source_url != publication.get("musicXmlUrl")
+        ):
+            raise SystemExit(f"{song['id']} {book_id}: invalid published draft provenance")
+        for field in ("musicXmlUrl", "sourceUrl", "evidenceUrl"):
+            url = publication.get(field, "")
+            if not isinstance(url, str) or not url.startswith("/review-publications/"):
+                raise SystemExit(f"{song['id']} {book_id}: invalid published draft {field}")
+            retained = root / "public" / url.lstrip("/")
+            if retained.resolve().parent != (root / "public/review-publications").resolve():
+                raise SystemExit(f"{song['id']} {book_id}: invalid published draft {field}")
+            if not retained.is_file():
+                raise SystemExit(f"{song['id']} {book_id}: missing published draft {field} {retained}")
+            if field == "musicXmlUrl" and hashlib.sha256(retained.read_bytes()).hexdigest() != provenance.get("sourceSha256"):
+                raise SystemExit(f"{song['id']} {book_id}: published draft MusicXML checksum drift")
+    elif not isinstance(source_url, str) or not source_url.startswith("draft://"):
+        raise SystemExit(f"{song['id']} {book_id}: incomplete draft score asset")
+    transposition = asset.get("transposition", {})
+    playback_quarantined = (asset.get("playbackValidation") or {}).get("status") == "quarantined"
+    if playback_quarantined and (transposition.get("available") or transposition.get("manualKeyAllowed")):
+        raise SystemExit(f"{song['id']} {book_id}: quarantined draft advertises transposition capability")
+    if transposition.get("hasPitchedEvents") and not transposition.get("available") and not transposition.get("manualKeyAllowed") and not playback_quarantined:
+        raise SystemExit(f"{song['id']} {book_id}: pitched draft is neither transposable nor marked for source-key entry")
+    coverage = song.get("sourceCoverageByBook", {}).get(book_id, {})
+    if coverage.get("draftScoreRef") != ref or coverage.get("draftScoreStatus") != "needs-human-review":
+        raise SystemExit(f"{song['id']} {book_id}: draft score coverage marker drift")
+    return ref
+
+
 def main() -> int:
     data = json.loads(CORPUS.read_text(encoding="utf-8"))
     coverage_data = json.loads(COVERAGE.read_text(encoding="utf-8"))
@@ -319,27 +372,7 @@ def main() -> int:
             if transposition.get("hasPitchedEvents") and not transposition.get("available") and not transposition.get("manualKeyAllowed"):
                 raise SystemExit(f"{song['id']} {book_id}: pitched reference is neither transposable nor marked for source-key entry")
         for book_id, score in song.get("draftScoreByBook", {}).items():
-            if score.get("provenance", {}).get("kind") != "omr-draft" or score.get("provenance", {}).get("reviewRequired") is not True:
-                raise SystemExit(f"{song['id']} {book_id}: draft score has invalid provenance")
-            ref = score.get("scoreRef", "")
-            if not ref.startswith("/draft-scores/"):
-                raise SystemExit(f"{song['id']} {book_id}: invalid draft scoreRef {ref!r}")
-            path = ROOT / "public" / ref.lstrip("/")
-            if not path.exists():
-                raise SystemExit(f"{song['id']} {book_id}: missing draft score asset {path}")
-            asset = json.loads(path.read_text(encoding="utf-8"))
-            if not asset.get("sourceUrl", "").startswith("draft://") or not asset.get("parts") or not any(part.get("events") for part in asset["parts"]):
-                raise SystemExit(f"{song['id']} {book_id}: incomplete draft score asset")
-            transposition = asset.get("transposition", {})
-            playback_quarantined = (asset.get("playbackValidation") or {}).get("status") == "quarantined"
-            if playback_quarantined and (transposition.get("available") or transposition.get("manualKeyAllowed")):
-                raise SystemExit(f"{song['id']} {book_id}: quarantined draft advertises transposition capability")
-            if transposition.get("hasPitchedEvents") and not transposition.get("available") and not transposition.get("manualKeyAllowed") and not playback_quarantined:
-                raise SystemExit(f"{song['id']} {book_id}: pitched draft is neither transposable nor marked for source-key entry")
-            coverage = song.get("sourceCoverageByBook", {}).get(book_id, {})
-            if coverage.get("draftScoreRef") != ref or coverage.get("draftScoreStatus") != "needs-human-review":
-                raise SystemExit(f"{song['id']} {book_id}: draft score coverage marker drift")
-            seen_draft_refs.add(ref)
+            seen_draft_refs.add(validate_draft_score(song, book_id, score))
     coverage = data["coverage"]["byBook"]
     expected_edition_records = sum(book.get("records", 0) for book in coverage.values())
     if coverage_data.get("summary", {}).get("editionRecords") != expected_edition_records:
