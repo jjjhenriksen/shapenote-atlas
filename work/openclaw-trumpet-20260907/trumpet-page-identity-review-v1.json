@@ -1,0 +1,210 @@
+{
+  "schema": "shape-note-atlas/trumpet-page-identity-review/v1",
+  "reviewed_on": "2026-09-07",
+  "source_pdf": "work/luna-program-20260904/source_only/retained-sources/trumpet-composite-vol-1-5.pdf",
+  "source_url": "https://www.singthetrumpet.com/the-trumpet-composite-vol-1-5.pdf",
+  "source_sha256": "e96803eef77b5897ef1a43efb6ea08c88a842f11049e31bd490c050abec74f38",
+  "predecessor_map": "work/luna-program-20260904/source_only/trumpet-page-map-20260904.json",
+  "predecessor_sha256": "2996c6d3e78e3771ce4622934b03e1d19b8fcb035896ca6fdb7ea1a13a735340",
+  "preserved_mapped_records_sha256": "1638b46a18b13baf8ca86b1e0ee457e93f4f2c92656e07033c6f61e2c113c35d",
+  "summary": {
+    "previously_mapped_preserved": 95,
+    "previously_unresolved_reviewed": 10,
+    "literal_title_matches": 4,
+    "catalogue_title_corrections": 3,
+    "prose_only_pages": 3,
+    "uninspected_target_leaves": 0,
+    "notation_scores_created": 0
+  },
+  "policy": {
+    "supplemental_only": true,
+    "prior_map_modified": false,
+    "canonical_records_modified": false,
+    "no_notation_lyrics_mode_or_shapes_inferred": true,
+    "page_identity_does_not_establish_complete_tune_coverage": true,
+    "prose_records_retained_for_explicit_catalogue_cleanup": true
+  },
+  "reviewed_records": [
+    {
+      "record_id": "trumpet p116 — Chris",
+      "catalogue_title": "Chris",
+      "pdf_leaf": 116,
+      "printed_page": "69",
+      "literal_headings": [
+        "JOSHUA."
+      ],
+      "content_kind": "notation",
+      "resolution": "catalogue-title-correction",
+      "source_title": "JOSHUA",
+      "observation": "The catalogue title Chris occurs within the printed composer credit Chris Ballinger, 2005, not the tune heading.",
+      "review_method": "direct visual inspection of retained page render",
+      "render_path": "work/openclaw-trumpet-20260907/renders/leaf-116.png",
+      "render_sha256": "6c88fb97b6e6f3d47330440b30acf75ccd9a692811d065f023a74a140d140849",
+      "notation_imported": false,
+      "canonical_record_changed": false
+    },
+    {
+      "record_id": "trumpet p125 — Thouper fect Lamb ofGod",
+      "catalogue_title": "Thouper fect Lamb ofGod",
+      "pdf_leaf": 125,
+      "printed_page": "78",
+      "literal_headings": [
+        "LAMB OF GOD.",
+        "ALLEGHENY. S.M."
+      ],
+      "content_kind": "notation",
+      "resolution": "catalogue-title-correction",
+      "source_title": "LAMB OF GOD",
+      "observation": "The catalogue fragment Thouper fect Lamb ofGod corresponds to words under the upper LAMB OF GOD score. ALLEGHENY is a separate lower score; retain both page headings.",
+      "review_method": "direct visual inspection of retained page render",
+      "render_path": "work/openclaw-trumpet-20260907/renders/leaf-125.png",
+      "render_sha256": "e85eaa973dd1c580762f9f1a7a86d959b95c6521b2149e9b973e5f30f0e03c3f",
+      "notation_imported": false,
+      "canonical_record_changed": false
+    },
+    {
+      "record_id": "trumpet p139 — Three",
+      "catalogue_title": "Three",
+      "pdf_leaf": 139,
+      "printed_page": "vi",
+      "literal_headings": [
+        "Three Amigos"
+      ],
+      "content_kind": "prose",
+      "resolution": "not-a-notation-page",
+      "source_title": null,
+      "observation": "Prose article; Three is a truncated article heading, not a tune heading.",
+      "review_method": "direct visual inspection of retained page render",
+      "render_path": "work/openclaw-trumpet-20260907/renders/leaf-139.png",
+      "render_sha256": "2376543e36f795f6258feca4c2297934fbc3634d060d616b9cf7e8508c465f16",
+      "notation_imported": false,
+      "canonical_record_changed": false
+    },
+    {
+      "record_id": "trumpet p187 — By Thomas B",
+      "catalogue_title": "By Thomas B",
+      "pdf_leaf": 187,
+      "printed_page": "iv",
+      "literal_headings": [
+        "Mr. Jeff Sheppard and a Brief Untrue History of the Rocking Chair Convention"
+      ],
+      "content_kind": "prose",
+      "resolution": "not-a-notation-page",
+      "source_title": null,
+      "observation": "Prose article. By Thomas B is a fragment of the byline By Thomas B. Malone, Boston Massachusetts.",
+      "review_method": "direct visual inspection of retained page render",
+      "render_path": "work/openclaw-trumpet-20260907/renders/leaf-187.png",
+      "render_sha256": "547342e11d23fd147d20ccf4dcc42e3a4cf42e3fecbde65c4d1cb4bdf835f5ed",
+      "notation_imported": false,
+      "canonical_record_changed": false
+    },
+    {
+      "record_id": "trumpet p20 — Lincoln Street",
+      "catalogue_title": "Lincoln Street",
+      "pdf_leaf": 20,
+      "printed_page": "12",
+      "literal_headings": [
+        "Lincoln Street P.M."
+      ],
+      "content_kind": "notation",
+      "resolution": "literal-title-match",
+      "source_title": "Lincoln Street",
+      "observation": "Heading above opening notation. This leaf ends without completing the tune; page identity is not full-tune coverage.",
+      "review_method": "direct visual inspection of retained page render",
+      "render_path": "work/openclaw-trumpet-20260907/renders/leaf-20.png",
+      "render_sha256": "cf7ae85444f36344cab1f05016903295b63928c2a2d92c5214a4c0dbbdf3d6a2",
+      "notation_imported": false,
+      "canonical_record_changed": false
+    },
+    {
+      "record_id": "trumpet p265 — Sacred b aLLs Town",
+      "catalogue_title": "Sacred b aLLs Town",
+      "pdf_leaf": 265,
+      "printed_page": "iv",
+      "literal_headings": [
+        "Old Paths: Nehemiah Shumway"
+      ],
+      "content_kind": "prose",
+      "resolution": "not-a-notation-page",
+      "source_title": null,
+      "observation": "Prose article. Sacred and Ballstown appear in article text, not as a tune heading.",
+      "review_method": "direct visual inspection of retained page render",
+      "render_path": "work/openclaw-trumpet-20260907/renders/leaf-265.png",
+      "render_sha256": "73365399084e4b2faa54ace340f9fb1d8b95f96b3c60dcc17592ee26168f52f7",
+      "notation_imported": false,
+      "canonical_record_changed": false
+    },
+    {
+      "record_id": "trumpet p42 — EUCLID",
+      "catalogue_title": "EUCLID",
+      "pdf_leaf": 42,
+      "printed_page": "25",
+      "literal_headings": [
+        "EUCLID. C.M."
+      ],
+      "content_kind": "notation",
+      "resolution": "literal-title-match",
+      "source_title": "EUCLID",
+      "observation": "EUCLID begins below a continuation system belonging to another tune. Map only the lower titled score.",
+      "review_method": "direct visual inspection of retained page render",
+      "render_path": "work/openclaw-trumpet-20260907/renders/leaf-42.png",
+      "render_sha256": "61403b63183aff6877a30a222f87d9a62fdf788147b8775da367fea1d8b72fd6",
+      "notation_imported": false,
+      "canonical_record_changed": false
+    },
+    {
+      "record_id": "trumpet p45 — C Major New Canada",
+      "catalogue_title": "C Major New Canada",
+      "pdf_leaf": 45,
+      "printed_page": "28",
+      "literal_headings": [
+        "New Canada. C.M."
+      ],
+      "content_kind": "notation",
+      "resolution": "catalogue-title-correction",
+      "source_title": "New Canada",
+      "observation": "C Major is separately printed at upper left; it is not part of the centered title.",
+      "review_method": "direct visual inspection of retained page render",
+      "render_path": "work/openclaw-trumpet-20260907/renders/leaf-45.png",
+      "render_sha256": "e1438974cf85a4590231504e9811887bcdc2e8bdbec9f384280c042d2dbbebc4",
+      "notation_imported": false,
+      "canonical_record_changed": false
+    },
+    {
+      "record_id": "trumpet p47 — TRAV’LER’S REST - SAMSON",
+      "catalogue_title": "TRAV’LER’S REST - SAMSON",
+      "pdf_leaf": 47,
+      "printed_page": "30",
+      "literal_headings": [
+        "TRAV’LER’S REST - SAMSON. C.M."
+      ],
+      "content_kind": "notation",
+      "resolution": "literal-title-match",
+      "source_title": "TRAV’LER’S REST - SAMSON",
+      "observation": "Centered literal heading, ignoring the terminal punctuation and meter label only.",
+      "review_method": "direct visual inspection of retained page render",
+      "render_path": "work/openclaw-trumpet-20260907/renders/leaf-47.png",
+      "render_sha256": "5e39ba2a5346a8af7fb5c427f2b79fea174ecd73df359fea30032319968edc05",
+      "notation_imported": false,
+      "canonical_record_changed": false
+    },
+    {
+      "record_id": "trumpet p74 — ASHLEY",
+      "catalogue_title": "ASHLEY",
+      "pdf_leaf": 74,
+      "printed_page": "43",
+      "literal_headings": [
+        "ASHLEY. L.M."
+      ],
+      "content_kind": "notation",
+      "resolution": "literal-title-match",
+      "source_title": "ASHLEY",
+      "observation": "ASHLEY begins below a continuation system belonging to another tune. Map only the lower titled score.",
+      "review_method": "direct visual inspection of retained page render",
+      "render_path": "work/openclaw-trumpet-20260907/renders/leaf-74.png",
+      "render_sha256": "d4855ac255d1d7cf25b6e3fb0fffedf3754ad9ed9b2f79a32296b832bcb311ce",
+      "notation_imported": false,
+      "canonical_record_changed": false
+    }
+  ]
+}
