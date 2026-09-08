@@ -1,0 +1,1719 @@
+{
+  "version": 2,
+  "title": "Something New",
+  "bookId": "shenandoah",
+  "recordId": "shenandoah 10 — Something New",
+  "candidate": "shenandoah-something-new-first-system-candidate-v2.musicxml",
+  "candidateSha256": "908aae8b06a0f1a7517e91437709794933dd590618d3b99ca82bbe164629ab7a",
+  "sourcePath": "work/luna-program-20260904/source_only/retained-sources/shenandoah-010-something-new.jpg",
+  "sourceSha256": "36ccec1996b58e05135b7f9cdaeff7a9a57bfe3994ecc13171903f7a1895655c",
+  "sourcePrintedPage": "10",
+  "directVisualReview": true,
+  "reviewDate": "2026-09-07",
+  "coverage": "complete first printed system: 7 measures across four voices",
+  "reviewRequired": true,
+  "safeToPromote": false,
+  "printedKeyLabel": "B♭ Major.",
+  "mode": "unknown",
+  "keySignatureFifths": -2,
+  "coordinateSystem": {
+    "origin": "top-left",
+    "imagePath": "work/luna-program-20260904/source_only/retained-sources/shenandoah-010-something-new.jpg",
+    "imageSha256": "36ccec1996b58e05135b7f9cdaeff7a9a57bfe3994ecc13171903f7a1895655c",
+    "reviewDisplayDimensions": [
+      1654,
+      1157
+    ],
+    "actualImageDimensions": [
+      1654,
+      1157
+    ],
+    "conversion": "Multiply display coordinates by actual/display dimensions.",
+    "firstSystemBarlinesX": [
+      150,
+      277,
+      515,
+      777,
+      1005,
+      1172,
+      1397,
+      1641
+    ]
+  },
+  "voiceObservations": [
+    {
+      "part": "P1",
+      "clef": "G",
+      "clefLine": 2,
+      "noteCenter": [
+        224,
+        144
+      ],
+      "staffBottomY": 168,
+      "staffLineSpacing": 12.2,
+      "step": "B",
+      "octave": 4,
+      "alter": -1,
+      "restDurationQuarter": 1.5,
+      "noteOnsetQuarter": 1.5,
+      "noteDurationQuarter": 1.5
+    },
+    {
+      "part": "P2",
+      "clef": "G",
+      "clefLine": 2,
+      "noteCenter": [
+        224,
+        287
+      ],
+      "staffBottomY": 293,
+      "staffLineSpacing": 12.2,
+      "step": "F",
+      "octave": 4,
+      "alter": 0,
+      "restDurationQuarter": 1.5,
+      "noteOnsetQuarter": 1.5,
+      "noteDurationQuarter": 1.5
+    },
+    {
+      "part": "P3",
+      "clef": "G",
+      "clefLine": 2,
+      "noteCenter": [
+        224,
+        404
+      ],
+      "staffBottomY": 410,
+      "staffLineSpacing": 12.2,
+      "step": "F",
+      "octave": 4,
+      "alter": 0,
+      "restDurationQuarter": 1.5,
+      "noteOnsetQuarter": 1.5,
+      "noteDurationQuarter": 1.5
+    },
+    {
+      "part": "P4",
+      "clef": "F",
+      "clefLine": 4,
+      "noteCenter": [
+        224,
+        474
+      ],
+      "staffBottomY": 530,
+      "staffLineSpacing": 12.2,
+      "step": "B",
+      "octave": 3,
+      "alter": -1,
+      "restDurationQuarter": 1.5,
+      "noteOnsetQuarter": 1.5,
+      "noteDurationQuarter": 1.5
+    }
+  ],
+  "limitations": [
+    "Only the full first printed system is included; all later systems are omitted, not silence.",
+    "Lyrics and notehead shapes remain omitted pending direct underlay/glyph review.",
+    "Printed key label is retained as evidence; MusicXML mode remains unset.",
+    "Printed clefs are literal; no unprinted octave transposition is applied.",
+    "Retained source filename links this page to the book; exact-edition provenance is not newly certified.",
+    "No final barline, repeat, or unseen navigation is invented at the excerpt boundary.",
+    "Human-review-required draft, not an exact-edition verified score."
+  ],
+  "predecessorPath": "work/openclaw-openings-20260907/shenandoah-something-new-opening-candidate-v1.musicxml",
+  "predecessorSha256": "52a8487ca471fe68ac4262e568c06ced1ec832f7c75500fd7fdc5bd5cddf4a10",
+  "predecessorEvidencePath": "work/openclaw-openings-20260907/shenandoah-something-new-evidence-v1.json",
+  "predecessorEvidenceSha256": "9586b844dc4f3e034032224021a4f431bcecb43cb63c8d154730fa0110ad2feb",
+  "completeMeasuresPerPart": 7,
+  "pitchedNotes": 111,
+  "addedPitchedNotes": 107,
+  "sourceReviewMethod": "Direct inspection of retained full-page image; manual staff-position and duration reading, not OMR.",
+  "curveObservations": [
+    {
+      "measure": 5,
+      "firstNote": 1,
+      "lastNote": 2,
+      "kind": "tie",
+      "parts": [
+        "P1",
+        "P2",
+        "P3",
+        "P4"
+      ],
+      "observation": "Printed curve joins equal pitches; dotted quarter tied to quarter, followed by separate eighth."
+    }
+  ],
+  "measureObservations": [
+    {
+      "part": "P1",
+      "measure": 2,
+      "xRange": [
+        277,
+        515
+      ],
+      "staffBottomY": 168,
+      "staffLineSpacing": 12.2,
+      "notes": [
+        {
+          "noteIndex": 1,
+          "noteCenter": [
+            311,
+            132
+          ],
+          "observedPitch": "D5",
+          "observedType": "quarter",
+          "observedDot": false,
+          "onsetQuarter": 0.0,
+          "durationQuarter": 1.0
+        },
+        {
+          "noteIndex": 2,
+          "noteCenter": [
+            365,
+            132
+          ],
+          "observedPitch": "D5",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 1.0,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 3,
+          "noteCenter": [
+            408,
+            132
+          ],
+          "observedPitch": "D5",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 1.5,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 4,
+          "noteCenter": [
+            447,
+            138
+          ],
+          "observedPitch": "C5",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 2.0,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 5,
+          "noteCenter": [
+            486,
+            144
+          ],
+          "observedPitch": "Bb4",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 2.5,
+          "durationQuarter": 0.5
+        }
+      ]
+    },
+    {
+      "part": "P1",
+      "measure": 3,
+      "xRange": [
+        515,
+        777
+      ],
+      "staffBottomY": 168,
+      "staffLineSpacing": 12.2,
+      "notes": [
+        {
+          "noteIndex": 1,
+          "noteCenter": [
+            555,
+            132
+          ],
+          "observedPitch": "D5",
+          "observedType": "quarter",
+          "observedDot": false,
+          "onsetQuarter": 0.0,
+          "durationQuarter": 1.0
+        },
+        {
+          "noteIndex": 2,
+          "noteCenter": [
+            607,
+            132
+          ],
+          "observedPitch": "D5",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 1.0,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 3,
+          "noteCenter": [
+            642,
+            132
+          ],
+          "observedPitch": "D5",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 1.5,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 4,
+          "noteCenter": [
+            694,
+            119
+          ],
+          "observedPitch": "F5",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 2.0,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 5,
+          "noteCenter": [
+            746,
+            113
+          ],
+          "observedPitch": "G5",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 2.5,
+          "durationQuarter": 0.5
+        }
+      ]
+    },
+    {
+      "part": "P1",
+      "measure": 4,
+      "xRange": [
+        777,
+        1005
+      ],
+      "staffBottomY": 168,
+      "staffLineSpacing": 12.2,
+      "notes": [
+        {
+          "noteIndex": 1,
+          "noteCenter": [
+            818,
+            119
+          ],
+          "observedPitch": "F5",
+          "observedType": "quarter",
+          "observedDot": false,
+          "onsetQuarter": 0.0,
+          "durationQuarter": 1.0
+        },
+        {
+          "noteIndex": 2,
+          "noteCenter": [
+            873,
+            119
+          ],
+          "observedPitch": "F5",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 1.0,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 3,
+          "noteCenter": [
+            910,
+            132
+          ],
+          "observedPitch": "D5",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 1.5,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 4,
+          "noteCenter": [
+            950,
+            138
+          ],
+          "observedPitch": "C5",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 2.0,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 5,
+          "noteCenter": [
+            987,
+            144
+          ],
+          "observedPitch": "Bb4",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 2.5,
+          "durationQuarter": 0.5
+        }
+      ]
+    },
+    {
+      "part": "P1",
+      "measure": 5,
+      "xRange": [
+        1005,
+        1172
+      ],
+      "staffBottomY": 168,
+      "staffLineSpacing": 12.2,
+      "notes": [
+        {
+          "noteIndex": 1,
+          "noteCenter": [
+            1027,
+            138
+          ],
+          "observedPitch": "C5",
+          "observedType": "quarter",
+          "observedDot": true,
+          "onsetQuarter": 0.0,
+          "durationQuarter": 1.5
+        },
+        {
+          "noteIndex": 2,
+          "noteCenter": [
+            1093,
+            138
+          ],
+          "observedPitch": "C5",
+          "observedType": "quarter",
+          "observedDot": false,
+          "onsetQuarter": 1.5,
+          "durationQuarter": 1.0
+        },
+        {
+          "noteIndex": 3,
+          "noteCenter": [
+            1143,
+            119
+          ],
+          "observedPitch": "F5",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 2.5,
+          "durationQuarter": 0.5
+        }
+      ]
+    },
+    {
+      "part": "P1",
+      "measure": 6,
+      "xRange": [
+        1172,
+        1397
+      ],
+      "staffBottomY": 168,
+      "staffLineSpacing": 12.2,
+      "notes": [
+        {
+          "noteIndex": 1,
+          "noteCenter": [
+            1209,
+            132
+          ],
+          "observedPitch": "D5",
+          "observedType": "quarter",
+          "observedDot": false,
+          "onsetQuarter": 0.0,
+          "durationQuarter": 1.0
+        },
+        {
+          "noteIndex": 2,
+          "noteCenter": [
+            1266,
+            144
+          ],
+          "observedPitch": "Bb4",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 1.0,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 3,
+          "noteCenter": [
+            1309,
+            132
+          ],
+          "observedPitch": "D5",
+          "observedType": "quarter",
+          "observedDot": false,
+          "onsetQuarter": 1.5,
+          "durationQuarter": 1.0
+        },
+        {
+          "noteIndex": 4,
+          "noteCenter": [
+            1370,
+            144
+          ],
+          "observedPitch": "Bb4",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 2.5,
+          "durationQuarter": 0.5
+        }
+      ]
+    },
+    {
+      "part": "P1",
+      "measure": 7,
+      "xRange": [
+        1397,
+        1641
+      ],
+      "staffBottomY": 168,
+      "staffLineSpacing": 12.2,
+      "notes": [
+        {
+          "noteIndex": 1,
+          "noteCenter": [
+            1445,
+            156
+          ],
+          "observedPitch": "G4",
+          "observedType": "quarter",
+          "observedDot": false,
+          "onsetQuarter": 0.0,
+          "durationQuarter": 1.0
+        },
+        {
+          "noteIndex": 2,
+          "noteCenter": [
+            1500,
+            156
+          ],
+          "observedPitch": "G4",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 1.0,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 3,
+          "noteCenter": [
+            1537,
+            144
+          ],
+          "observedPitch": "Bb4",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 1.5,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 4,
+          "noteCenter": [
+            1574,
+            138
+          ],
+          "observedPitch": "C5",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 2.0,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 5,
+          "noteCenter": [
+            1613,
+            132
+          ],
+          "observedPitch": "D5",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 2.5,
+          "durationQuarter": 0.5
+        }
+      ]
+    },
+    {
+      "part": "P2",
+      "measure": 2,
+      "xRange": [
+        277,
+        515
+      ],
+      "staffBottomY": 293,
+      "staffLineSpacing": 12.2,
+      "notes": [
+        {
+          "noteIndex": 1,
+          "noteCenter": [
+            311,
+            299
+          ],
+          "observedPitch": "D4",
+          "observedType": "quarter",
+          "observedDot": false,
+          "onsetQuarter": 0.0,
+          "durationQuarter": 1.0
+        },
+        {
+          "noteIndex": 2,
+          "noteCenter": [
+            365,
+            299
+          ],
+          "observedPitch": "D4",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 1.0,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 3,
+          "noteCenter": [
+            408,
+            299
+          ],
+          "observedPitch": "D4",
+          "observedType": "quarter",
+          "observedDot": false,
+          "onsetQuarter": 1.5,
+          "durationQuarter": 1.0
+        },
+        {
+          "noteIndex": 4,
+          "noteCenter": [
+            488,
+            287
+          ],
+          "observedPitch": "F4",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 2.5,
+          "durationQuarter": 0.5
+        }
+      ]
+    },
+    {
+      "part": "P2",
+      "measure": 3,
+      "xRange": [
+        515,
+        777
+      ],
+      "staffBottomY": 293,
+      "staffLineSpacing": 12.2,
+      "notes": [
+        {
+          "noteIndex": 1,
+          "noteCenter": [
+            555,
+            269
+          ],
+          "observedPitch": "Bb4",
+          "observedType": "quarter",
+          "observedDot": false,
+          "onsetQuarter": 0.0,
+          "durationQuarter": 1.0
+        },
+        {
+          "noteIndex": 2,
+          "noteCenter": [
+            608,
+            269
+          ],
+          "observedPitch": "Bb4",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 1.0,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 3,
+          "noteCenter": [
+            654,
+            269
+          ],
+          "observedPitch": "Bb4",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 1.5,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 4,
+          "noteCenter": [
+            695,
+            275
+          ],
+          "observedPitch": "A4",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 2.0,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 5,
+          "noteCenter": [
+            745,
+            269
+          ],
+          "observedPitch": "Bb4",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 2.5,
+          "durationQuarter": 0.5
+        }
+      ]
+    },
+    {
+      "part": "P2",
+      "measure": 4,
+      "xRange": [
+        777,
+        1005
+      ],
+      "staffBottomY": 293,
+      "staffLineSpacing": 12.2,
+      "notes": [
+        {
+          "noteIndex": 1,
+          "noteCenter": [
+            818,
+            287
+          ],
+          "observedPitch": "F4",
+          "observedType": "quarter",
+          "observedDot": false,
+          "onsetQuarter": 0.0,
+          "durationQuarter": 1.0
+        },
+        {
+          "noteIndex": 2,
+          "noteCenter": [
+            874,
+            287
+          ],
+          "observedPitch": "F4",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 1.0,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 3,
+          "noteCenter": [
+            910,
+            281
+          ],
+          "observedPitch": "G4",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 1.5,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 4,
+          "noteCenter": [
+            950,
+            275
+          ],
+          "observedPitch": "A4",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 2.0,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 5,
+          "noteCenter": [
+            987,
+            269
+          ],
+          "observedPitch": "Bb4",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 2.5,
+          "durationQuarter": 0.5
+        }
+      ]
+    },
+    {
+      "part": "P2",
+      "measure": 5,
+      "xRange": [
+        1005,
+        1172
+      ],
+      "staffBottomY": 293,
+      "staffLineSpacing": 12.2,
+      "notes": [
+        {
+          "noteIndex": 1,
+          "noteCenter": [
+            1027,
+            275
+          ],
+          "observedPitch": "A4",
+          "observedType": "quarter",
+          "observedDot": true,
+          "onsetQuarter": 0.0,
+          "durationQuarter": 1.5
+        },
+        {
+          "noteIndex": 2,
+          "noteCenter": [
+            1093,
+            275
+          ],
+          "observedPitch": "A4",
+          "observedType": "quarter",
+          "observedDot": false,
+          "onsetQuarter": 1.5,
+          "durationQuarter": 1.0
+        },
+        {
+          "noteIndex": 3,
+          "noteCenter": [
+            1143,
+            287
+          ],
+          "observedPitch": "F4",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 2.5,
+          "durationQuarter": 0.5
+        }
+      ]
+    },
+    {
+      "part": "P2",
+      "measure": 6,
+      "xRange": [
+        1172,
+        1397
+      ],
+      "staffBottomY": 293,
+      "staffLineSpacing": 12.2,
+      "notes": [
+        {
+          "noteIndex": 1,
+          "noteCenter": [
+            1209,
+            287
+          ],
+          "observedPitch": "F4",
+          "observedType": "quarter",
+          "observedDot": false,
+          "onsetQuarter": 0.0,
+          "durationQuarter": 1.0
+        },
+        {
+          "noteIndex": 2,
+          "noteCenter": [
+            1266,
+            287
+          ],
+          "observedPitch": "F4",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 1.0,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 3,
+          "noteCenter": [
+            1309,
+            287
+          ],
+          "observedPitch": "F4",
+          "observedType": "quarter",
+          "observedDot": false,
+          "onsetQuarter": 1.5,
+          "durationQuarter": 1.0
+        },
+        {
+          "noteIndex": 4,
+          "noteCenter": [
+            1370,
+            287
+          ],
+          "observedPitch": "F4",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 2.5,
+          "durationQuarter": 0.5
+        }
+      ]
+    },
+    {
+      "part": "P2",
+      "measure": 7,
+      "xRange": [
+        1397,
+        1641
+      ],
+      "staffBottomY": 293,
+      "staffLineSpacing": 12.2,
+      "notes": [
+        {
+          "noteIndex": 1,
+          "noteCenter": [
+            1445,
+            269
+          ],
+          "observedPitch": "Bb4",
+          "observedType": "quarter",
+          "observedDot": false,
+          "onsetQuarter": 0.0,
+          "durationQuarter": 1.0
+        },
+        {
+          "noteIndex": 2,
+          "noteCenter": [
+            1500,
+            269
+          ],
+          "observedPitch": "Bb4",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 1.0,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 3,
+          "noteCenter": [
+            1537,
+            281
+          ],
+          "observedPitch": "G4",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 1.5,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 4,
+          "noteCenter": [
+            1574,
+            287
+          ],
+          "observedPitch": "F4",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 2.0,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 5,
+          "noteCenter": [
+            1613,
+            269
+          ],
+          "observedPitch": "Bb4",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 2.5,
+          "durationQuarter": 0.5
+        }
+      ]
+    },
+    {
+      "part": "P3",
+      "measure": 2,
+      "xRange": [
+        277,
+        515
+      ],
+      "staffBottomY": 410,
+      "staffLineSpacing": 12.2,
+      "notes": [
+        {
+          "noteIndex": 1,
+          "noteCenter": [
+            311,
+            386
+          ],
+          "observedPitch": "Bb4",
+          "observedType": "quarter",
+          "observedDot": false,
+          "onsetQuarter": 0.0,
+          "durationQuarter": 1.0
+        },
+        {
+          "noteIndex": 2,
+          "noteCenter": [
+            367,
+            386
+          ],
+          "observedPitch": "Bb4",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 1.0,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 3,
+          "noteCenter": [
+            411,
+            386
+          ],
+          "observedPitch": "Bb4",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 1.5,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 4,
+          "noteCenter": [
+            447,
+            380
+          ],
+          "observedPitch": "C5",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 2.0,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 5,
+          "noteCenter": [
+            486,
+            374
+          ],
+          "observedPitch": "D5",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 2.5,
+          "durationQuarter": 0.5
+        }
+      ]
+    },
+    {
+      "part": "P3",
+      "measure": 3,
+      "xRange": [
+        515,
+        777
+      ],
+      "staffBottomY": 410,
+      "staffLineSpacing": 12.2,
+      "notes": [
+        {
+          "noteIndex": 1,
+          "noteCenter": [
+            555,
+            398
+          ],
+          "observedPitch": "G4",
+          "observedType": "quarter",
+          "observedDot": false,
+          "onsetQuarter": 0.0,
+          "durationQuarter": 1.0
+        },
+        {
+          "noteIndex": 2,
+          "noteCenter": [
+            608,
+            398
+          ],
+          "observedPitch": "G4",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 1.0,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 3,
+          "noteCenter": [
+            651,
+            398
+          ],
+          "observedPitch": "G4",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 1.5,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 4,
+          "noteCenter": [
+            695,
+            404
+          ],
+          "observedPitch": "F4",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 2.0,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 5,
+          "noteCenter": [
+            746,
+            398
+          ],
+          "observedPitch": "G4",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 2.5,
+          "durationQuarter": 0.5
+        }
+      ]
+    },
+    {
+      "part": "P3",
+      "measure": 4,
+      "xRange": [
+        777,
+        1005
+      ],
+      "staffBottomY": 410,
+      "staffLineSpacing": 12.2,
+      "notes": [
+        {
+          "noteIndex": 1,
+          "noteCenter": [
+            818,
+            386
+          ],
+          "observedPitch": "Bb4",
+          "observedType": "quarter",
+          "observedDot": false,
+          "onsetQuarter": 0.0,
+          "durationQuarter": 1.0
+        },
+        {
+          "noteIndex": 2,
+          "noteCenter": [
+            874,
+            386
+          ],
+          "observedPitch": "Bb4",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 1.0,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 3,
+          "noteCenter": [
+            914,
+            386
+          ],
+          "observedPitch": "Bb4",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 1.5,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 4,
+          "noteCenter": [
+            950,
+            380
+          ],
+          "observedPitch": "C5",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 2.0,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 5,
+          "noteCenter": [
+            988,
+            374
+          ],
+          "observedPitch": "D5",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 2.5,
+          "durationQuarter": 0.5
+        }
+      ]
+    },
+    {
+      "part": "P3",
+      "measure": 5,
+      "xRange": [
+        1005,
+        1172
+      ],
+      "staffBottomY": 410,
+      "staffLineSpacing": 12.2,
+      "notes": [
+        {
+          "noteIndex": 1,
+          "noteCenter": [
+            1027,
+            380
+          ],
+          "observedPitch": "C5",
+          "observedType": "quarter",
+          "observedDot": true,
+          "onsetQuarter": 0.0,
+          "durationQuarter": 1.5
+        },
+        {
+          "noteIndex": 2,
+          "noteCenter": [
+            1093,
+            380
+          ],
+          "observedPitch": "C5",
+          "observedType": "quarter",
+          "observedDot": false,
+          "onsetQuarter": 1.5,
+          "durationQuarter": 1.0
+        },
+        {
+          "noteIndex": 3,
+          "noteCenter": [
+            1143,
+            374
+          ],
+          "observedPitch": "D5",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 2.5,
+          "durationQuarter": 0.5
+        }
+      ]
+    },
+    {
+      "part": "P3",
+      "measure": 6,
+      "xRange": [
+        1172,
+        1397
+      ],
+      "staffBottomY": 410,
+      "staffLineSpacing": 12.2,
+      "notes": [
+        {
+          "noteIndex": 1,
+          "noteCenter": [
+            1209,
+            362
+          ],
+          "observedPitch": "F5",
+          "observedType": "quarter",
+          "observedDot": false,
+          "onsetQuarter": 0.0,
+          "durationQuarter": 1.0
+        },
+        {
+          "noteIndex": 2,
+          "noteCenter": [
+            1266,
+            374
+          ],
+          "observedPitch": "D5",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 1.0,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 3,
+          "noteCenter": [
+            1309,
+            362
+          ],
+          "observedPitch": "F5",
+          "observedType": "quarter",
+          "observedDot": false,
+          "onsetQuarter": 1.5,
+          "durationQuarter": 1.0
+        },
+        {
+          "noteIndex": 4,
+          "noteCenter": [
+            1370,
+            362
+          ],
+          "observedPitch": "F5",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 2.5,
+          "durationQuarter": 0.5
+        }
+      ]
+    },
+    {
+      "part": "P3",
+      "measure": 7,
+      "xRange": [
+        1397,
+        1641
+      ],
+      "staffBottomY": 410,
+      "staffLineSpacing": 12.2,
+      "notes": [
+        {
+          "noteIndex": 1,
+          "noteCenter": [
+            1445,
+            374
+          ],
+          "observedPitch": "D5",
+          "observedType": "quarter",
+          "observedDot": false,
+          "onsetQuarter": 0.0,
+          "durationQuarter": 1.0
+        },
+        {
+          "noteIndex": 2,
+          "noteCenter": [
+            1500,
+            374
+          ],
+          "observedPitch": "D5",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 1.0,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 3,
+          "noteCenter": [
+            1537,
+            380
+          ],
+          "observedPitch": "C5",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 1.5,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 4,
+          "noteCenter": [
+            1574,
+            386
+          ],
+          "observedPitch": "Bb4",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 2.0,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 5,
+          "noteCenter": [
+            1613,
+            398
+          ],
+          "observedPitch": "G4",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 2.5,
+          "durationQuarter": 0.5
+        }
+      ]
+    },
+    {
+      "part": "P4",
+      "measure": 2,
+      "xRange": [
+        277,
+        515
+      ],
+      "staffBottomY": 530,
+      "staffLineSpacing": 12.2,
+      "notes": [
+        {
+          "noteIndex": 1,
+          "noteCenter": [
+            311,
+            493
+          ],
+          "observedPitch": "F3",
+          "observedType": "quarter",
+          "observedDot": false,
+          "onsetQuarter": 0.0,
+          "durationQuarter": 1.0
+        },
+        {
+          "noteIndex": 2,
+          "noteCenter": [
+            367,
+            493
+          ],
+          "observedPitch": "F3",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 1.0,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 3,
+          "noteCenter": [
+            411,
+            493
+          ],
+          "observedPitch": "F3",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 1.5,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 4,
+          "noteCenter": [
+            447,
+            487
+          ],
+          "observedPitch": "G3",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 2.0,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 5,
+          "noteCenter": [
+            486,
+            475
+          ],
+          "observedPitch": "Bb3",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 2.5,
+          "durationQuarter": 0.5
+        }
+      ]
+    },
+    {
+      "part": "P4",
+      "measure": 3,
+      "xRange": [
+        515,
+        777
+      ],
+      "staffBottomY": 530,
+      "staffLineSpacing": 12.2,
+      "notes": [
+        {
+          "noteIndex": 1,
+          "noteCenter": [
+            555,
+            487
+          ],
+          "observedPitch": "G3",
+          "observedType": "quarter",
+          "observedDot": false,
+          "onsetQuarter": 0.0,
+          "durationQuarter": 1.0
+        },
+        {
+          "noteIndex": 2,
+          "noteCenter": [
+            608,
+            487
+          ],
+          "observedPitch": "G3",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 1.0,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 3,
+          "noteCenter": [
+            651,
+            487
+          ],
+          "observedPitch": "G3",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 1.5,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 4,
+          "noteCenter": [
+            695,
+            493
+          ],
+          "observedPitch": "F3",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 2.0,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 5,
+          "noteCenter": [
+            746,
+            505
+          ],
+          "observedPitch": "D3",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 2.5,
+          "durationQuarter": 0.5
+        }
+      ]
+    },
+    {
+      "part": "P4",
+      "measure": 4,
+      "xRange": [
+        777,
+        1005
+      ],
+      "staffBottomY": 530,
+      "staffLineSpacing": 12.2,
+      "notes": [
+        {
+          "noteIndex": 1,
+          "noteCenter": [
+            818,
+            493
+          ],
+          "observedPitch": "F3",
+          "observedType": "quarter",
+          "observedDot": false,
+          "onsetQuarter": 0.0,
+          "durationQuarter": 1.0
+        },
+        {
+          "noteIndex": 2,
+          "noteCenter": [
+            874,
+            493
+          ],
+          "observedPitch": "F3",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 1.0,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 3,
+          "noteCenter": [
+            914,
+            475
+          ],
+          "observedPitch": "Bb3",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 1.5,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 4,
+          "noteCenter": [
+            950,
+            481
+          ],
+          "observedPitch": "A3",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 2.0,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 5,
+          "noteCenter": [
+            988,
+            487
+          ],
+          "observedPitch": "G3",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 2.5,
+          "durationQuarter": 0.5
+        }
+      ]
+    },
+    {
+      "part": "P4",
+      "measure": 5,
+      "xRange": [
+        1005,
+        1172
+      ],
+      "staffBottomY": 530,
+      "staffLineSpacing": 12.2,
+      "notes": [
+        {
+          "noteIndex": 1,
+          "noteCenter": [
+            1027,
+            493
+          ],
+          "observedPitch": "F3",
+          "observedType": "quarter",
+          "observedDot": true,
+          "onsetQuarter": 0.0,
+          "durationQuarter": 1.5
+        },
+        {
+          "noteIndex": 2,
+          "noteCenter": [
+            1093,
+            493
+          ],
+          "observedPitch": "F3",
+          "observedType": "quarter",
+          "observedDot": false,
+          "onsetQuarter": 1.5,
+          "durationQuarter": 1.0
+        },
+        {
+          "noteIndex": 3,
+          "noteCenter": [
+            1143,
+            493
+          ],
+          "observedPitch": "F3",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 2.5,
+          "durationQuarter": 0.5
+        }
+      ]
+    },
+    {
+      "part": "P4",
+      "measure": 6,
+      "xRange": [
+        1172,
+        1397
+      ],
+      "staffBottomY": 530,
+      "staffLineSpacing": 12.2,
+      "notes": [
+        {
+          "noteIndex": 1,
+          "noteCenter": [
+            1209,
+            475
+          ],
+          "observedPitch": "Bb3",
+          "observedType": "quarter",
+          "observedDot": false,
+          "onsetQuarter": 0.0,
+          "durationQuarter": 1.0
+        },
+        {
+          "noteIndex": 2,
+          "noteCenter": [
+            1266,
+            493
+          ],
+          "observedPitch": "F3",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 1.0,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 3,
+          "noteCenter": [
+            1309,
+            475
+          ],
+          "observedPitch": "Bb3",
+          "observedType": "quarter",
+          "observedDot": false,
+          "onsetQuarter": 1.5,
+          "durationQuarter": 1.0
+        },
+        {
+          "noteIndex": 4,
+          "noteCenter": [
+            1370,
+            493
+          ],
+          "observedPitch": "F3",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 2.5,
+          "durationQuarter": 0.5
+        }
+      ]
+    },
+    {
+      "part": "P4",
+      "measure": 7,
+      "xRange": [
+        1397,
+        1641
+      ],
+      "staffBottomY": 530,
+      "staffLineSpacing": 12.2,
+      "notes": [
+        {
+          "noteIndex": 1,
+          "noteCenter": [
+            1445,
+            487
+          ],
+          "observedPitch": "G3",
+          "observedType": "quarter",
+          "observedDot": false,
+          "onsetQuarter": 0.0,
+          "durationQuarter": 1.0
+        },
+        {
+          "noteIndex": 2,
+          "noteCenter": [
+            1500,
+            487
+          ],
+          "observedPitch": "G3",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 1.0,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 3,
+          "noteCenter": [
+            1537,
+            487
+          ],
+          "observedPitch": "G3",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 1.5,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 4,
+          "noteCenter": [
+            1574,
+            493
+          ],
+          "observedPitch": "F3",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 2.0,
+          "durationQuarter": 0.5
+        },
+        {
+          "noteIndex": 5,
+          "noteCenter": [
+            1613,
+            505
+          ],
+          "observedPitch": "D3",
+          "observedType": "eighth",
+          "observedDot": false,
+          "onsetQuarter": 2.5,
+          "durationQuarter": 0.5
+        }
+      ]
+    }
+  ]
+}
