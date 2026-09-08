@@ -70,3 +70,39 @@ Afton v25 and Zion's Dove v21 are now attached to their live corpus records as p
 Validation: three publication tests passed, plus 19 playback/discovery/key tests and the Vite 7.3.6 production build in an isolated checkout with locked dependencies. Browser checks on desktop and 390px mobile passed for playback, pause/stop, manual-key transposition, byte-matched editable downloads, source/evidence HTTP links, correction context, and expandable known gaps. No browser errors or warnings in the final check. GitHub Issues is enabled; no correction was submitted during testing.
 
 The existing full data validator remains unavailable in the isolated clone because `work/source-transcriptions/2025/clean-source-candidates.json` is a local-only dependency. This is focused draft-publication proof, not an all-application or all-book certification. The shared checkout's unreadable `index.html` was not replaced; isolated runtime proof used the same tracked base plus the exact changed files.
+
+## Second delivery cycle — 2026-09-07
+
+Completed three bounded handoff batches and a catalogue integration, with one Git owner:
+
+| Result | Commit | Boundary |
+| --- | --- | --- |
+| All ten unresolved Trumpet leaves visually reviewed: seven notation identities, three prose pages; 95 earlier mappings preserved | `3636def` | Page identity, not notation transcription |
+| Five Social Harp headings resolved: 101, 103, 104, 105, 107; additive mapping 67 → 72, unresolved 154 → 149 | `69b5839` | Original map and 221/222 discrepancy preserved; renders remain local |
+| Thirteen SH2025 corrections published for practice and human correction | `6f7c40f` | Existing structured scores preserved; explicit Score version selector; no verified-edition promotion |
+| Trumpet catalogue titles corrected and prose records visibly labeled; ten reviewed page links and identities integrated | `cc3f606` | Stable IDs, raw text, score mappings and coverage counts preserved |
+
+SH2025 publications: 118 Heavenly Meeting v2, 50t Devotion v10, 55 Converse v2, 169 God's Helping Hand v1, 537 Portsmouth v2, 544 Youthful Blessings v1, 41 Evening Hymn v2, 415 Endless Praise v3, 525 Imandra v2, 545 Somers v3, 557 New Farewell v2, 563 Suffield v2, and 575 Lisbon v1. There are now **15 pinned human-correctable publications**, including Afton and Zion's Dove. Each new publication includes candidate MXL, original MXL, retained scan, evidence and limitations. Pitch-derived shapes remain review-only; New Farewell's missing lyrics and D.C./linear-witness boundary are explicit. Unknown keys are not filled from catalogue metadata.
+
+The publisher now supports unchanged compressed MXL and verifies complete source part structure except the documented lyric/notehead/mode additions. All thirteen source note streams, durations, ties, repeats and endings were preserved. Suffield's unreadable raw file was checked against an exact-hash retained-bundle copy without replacing the original. New tests run using tracked publication assets without requiring local lane files.
+
+### Current verification receipts
+
+- Four publication tests passed in both source checkout and fresh isolated checkout: actual pitch streams, raw-part preservation, all download hashes, regeneration without local sources, idempotency, and reject-before-write behavior for hash changes and rehashed pitch corruption.
+- One catalogue overlay test passed; independent full-corpus comparison confirmed exactly ten target records changed and all unrelated songs, IDs, score fields and count summaries remained unchanged.
+- Both source identity package verifiers passed. These establish integrity and coverage, not a substitute for the recorded direct visual reviews.
+- Locked Vite 7.3.6 production build and all 19 discovery/key/playback JS tests passed after the final UI changes in `/private/tmp/atlas-objectives-runtime-20260907`.
+- Browser: all thirteen correction drafts selected, played and stopped; all 52 local download/evidence links returned success. Devotion pause/resume controls and stopping playback on version switch passed. The existing score stays selectable.
+- Desktop and 390px mobile correction controls rendered and switched successfully; no browser errors or warnings were reported during publication checks. Horizontal overflow remains in the score rendering on mobile; the correction panel itself fits. Browser plugin absent; Playwright CLI used at `http://127.0.0.1:5187/`.
+- Trumpet browser check confirms corrected JOSHUA discovery/detail title and stable old-ID deep link to PDF leaf 116. Prose records are retained as articles, not removed from historical inventories.
+- Full evidence-dependent aggregate verification and public deployment were not claimed. Shared checkout filesystem errors persist; no services were repaired.
+
+### Next bounded work (supersedes the completed first batches above)
+
+1. Social Harp: select the next five unresolved headings after 101/103/104/105/107, incorporating the additive supplement rather than redoing it.
+2. Kentucky Harmony and Shenandoah Harmony: first complete opening measure across every printed voice, then publish correctable partial drafts once event timing and source linkage pass.
+3. Continue Afton P1 m8/P3 m12 and Zion after x502 as new versions; existing publications should remain available throughout.
+4. Devotion/Portsmouth: remaining lyric work improves published drafts; it no longer blocks access to the current corrections.
+5. Recheck the bounded SH1991/322, /80b, Cooper/116 source endpoints and Southern Harmony 12 witness fidelity when advancing those books.
+
+The all-eleven-book mission remains open. Draft publication does not reduce the 3,047 missing exact mappings or certify the thirteen SH2025 correction records. The three Trumpet prose records remain in historical counts pending a separately defined inventory migration; they must not be described as three newly completed scores.
