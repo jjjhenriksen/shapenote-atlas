@@ -1,0 +1,337 @@
+{
+  "schema": "shape-note-atlas/socialharp-page-map-supplement/v3",
+  "review_date": "2026-09-07",
+  "baseline": {
+    "path": "work/luna-program-20260904/source_only/socialharp-page-map-20260904.json",
+    "sha256": "8b30106fb48d2467d70063d684ac144887b02e3cfec4470da103dc13d2c90963",
+    "summary": {
+      "catalogue_records": 221,
+      "uniquely_mapped_records": 67,
+      "unresolved_records": 154
+    }
+  },
+  "previous_supplements": [
+    {
+      "path": "work/openclaw-socialharp-20260907/socialharp-page-map-supplement-v1.json",
+      "sha256": "c4c80ad0606d474367854fc37fb8ba9d6893535df63155e09c4e8f711f6c72d8"
+    },
+    {
+      "path": "work/openclaw-socialharp-next-20260907/socialharp-page-map-supplement-v2.json",
+      "sha256": "dce4d99b6c3b47bcf0278d97f57845583aff3c428e0aff3072e759bf891e45e8"
+    }
+  ],
+  "source": {
+    "path": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+    "sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331"
+  },
+  "policy": {
+    "supplement_only": true,
+    "original_mapping_unchanged": true,
+    "previous_supplements_unchanged": true,
+    "notation_imported": false,
+    "lyrics_or_notes_inferred": false,
+    "catalogue_discrepancy": "221 corpus records versus 222 historical count remains unresolved; page-identity review does not settle inventory."
+  },
+  "summary": {
+    "reviewed_records": 10,
+    "resolved_source_identities": 10,
+    "distinct_reviewed_pdf_leaves": 8,
+    "previous_combined_mapped": 77,
+    "combined_mapped": 87,
+    "previous_combined_unresolved": 144,
+    "combined_unresolved": 134,
+    "catalogue_records_unchanged": 221
+  },
+  "records": [
+    {
+      "record_id": "socialharp 115 — THE SAINT'S DELIGHT",
+      "song_no": "115",
+      "catalogue_title": "THE SAINT'S DELIGHT",
+      "literal_heading": "THE SAINT'S DELIGHT.",
+      "pdf_leaf_1_based": 115,
+      "printed_page": "115",
+      "page_region": "top",
+      "heading_bbox_px": [
+        375,
+        48,
+        797,
+        82
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-third-20260907/renders/leaf-115.png",
+      "render_sha256": "a0fc908ba37cc020a6c1ac7e9b20a9b6f227c8896c01b71c98e9cf0a53bdb07e",
+      "review_method": "Direct visual inspection of full PDF leaf rendered by Poppler at scale-to 1800; heading, printed page and tune region read independently.",
+      "observations": "Heading centered above the opening system; printed page at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 116 — REPENTANCE",
+      "song_no": "116",
+      "catalogue_title": "REPENTANCE",
+      "literal_heading": "REPENTANCE.",
+      "pdf_leaf_1_based": 116,
+      "printed_page": "116",
+      "page_region": "top",
+      "heading_bbox_px": [
+        445,
+        40,
+        702,
+        78
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-third-20260907/renders/leaf-116.png",
+      "render_sha256": "fdb8d9610a09d4dc0c807d0c07bb5b575c516e87b735a805dff2fae12f5c8173",
+      "review_method": "Direct visual inspection of full PDF leaf rendered by Poppler at scale-to 1800; heading, printed page and tune region read independently.",
+      "observations": "Opening heading at upper left-center; printed page at upper left. A separately printed REPENTANCE. Concluded. heading occurs at upper left of leaf 117.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 117 — PILGRIM",
+      "song_no": "117",
+      "catalogue_title": "PILGRIM",
+      "literal_heading": "PILGRIM.",
+      "pdf_leaf_1_based": 117,
+      "printed_page": "117",
+      "page_region": "upper-right",
+      "heading_bbox_px": [
+        1120,
+        46,
+        1292,
+        83
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-third-20260907/renders/leaf-117.png",
+      "render_sha256": "6a88eb1bc13329d32b563774f54c351a6198f45c8d77b65755642ed3201010f2",
+      "review_method": "Direct visual inspection of full PDF leaf rendered by Poppler at scale-to 1800; heading, printed page and tune region read independently.",
+      "observations": "Pilgrim starts to the right of Repentance's conclusion and continues in the lower system. Printed page at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 118b — SWEET HEAVEN",
+      "song_no": "118b",
+      "catalogue_title": "SWEET HEAVEN",
+      "literal_heading": "SWEET HEAVEN.",
+      "pdf_leaf_1_based": 118,
+      "printed_page": "118",
+      "page_region": "bottom",
+      "heading_bbox_px": [
+        475,
+        636,
+        790,
+        678
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-third-20260907/renders/leaf-118.png",
+      "render_sha256": "a27bf14a3e636d24d90d93fd45e31f894bc7450e4c7fa9081ca8f3be2c2148a8",
+      "review_method": "Direct visual inspection of full PDF leaf rendered by Poppler at scale-to 1800; heading, printed page and tune region read independently.",
+      "observations": "Lower tune; the printed page number is 118, without the catalogue b suffix. WINDHAM. occupies the upper section.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 118t — WINDHAM",
+      "song_no": "118t",
+      "catalogue_title": "WINDHAM",
+      "literal_heading": "WINDHAM.",
+      "pdf_leaf_1_based": 118,
+      "printed_page": "118",
+      "page_region": "top",
+      "heading_bbox_px": [
+        459,
+        36,
+        662,
+        75
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-third-20260907/renders/leaf-118.png",
+      "render_sha256": "a27bf14a3e636d24d90d93fd45e31f894bc7450e4c7fa9081ca8f3be2c2148a8",
+      "review_method": "Direct visual inspection of full PDF leaf rendered by Poppler at scale-to 1800; heading, printed page and tune region read independently.",
+      "observations": "Upper tune; the printed page number is 118, without the catalogue t suffix. SWEET HEAVEN. occupies the lower section.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 119 — WEBSTER",
+      "song_no": "119",
+      "catalogue_title": "WEBSTER",
+      "literal_heading": "WEBSTER.",
+      "pdf_leaf_1_based": 119,
+      "printed_page": "119",
+      "page_region": "below-section-heading",
+      "heading_bbox_px": [
+        496,
+        469,
+        685,
+        508
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-third-20260907/renders/leaf-119.png",
+      "render_sha256": "d637f1bfe3fb150a320190988a442e7314b1d95a99ad11a43adb1ec90452eae2",
+      "review_method": "Direct visual inspection of full PDF leaf rendered by Poppler at scale-to 1800; heading, printed page and tune region read independently.",
+      "observations": "WEBSTER. appears beneath PART III.; printed page 119 is at the lower right, not in the top margin.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 120b — ABBEVILLE",
+      "song_no": "120b",
+      "catalogue_title": "ABBEVILLE",
+      "literal_heading": "ABBEVILLE.",
+      "pdf_leaf_1_based": 120,
+      "printed_page": "120",
+      "page_region": "bottom",
+      "heading_bbox_px": [
+        396,
+        607,
+        620,
+        647
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-third-20260907/renders/leaf-120.png",
+      "render_sha256": "fa443496b8ed282944abda199b339d25e719aee3246476c21f6848a345e66f27",
+      "review_method": "Direct visual inspection of full PDF leaf rendered by Poppler at scale-to 1800; heading, printed page and tune region read independently.",
+      "observations": "Lower tune; the printed page number is 120, without the catalogue b suffix. CORINTH. occupies the upper section.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 120t — CORINTH",
+      "song_no": "120t",
+      "catalogue_title": "CORINTH",
+      "literal_heading": "CORINTH.",
+      "pdf_leaf_1_based": 120,
+      "printed_page": "120",
+      "page_region": "top",
+      "heading_bbox_px": [
+        376,
+        46,
+        555,
+        85
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-third-20260907/renders/leaf-120.png",
+      "render_sha256": "fa443496b8ed282944abda199b339d25e719aee3246476c21f6848a345e66f27",
+      "review_method": "Direct visual inspection of full PDF leaf rendered by Poppler at scale-to 1800; heading, printed page and tune region read independently.",
+      "observations": "Upper tune; the printed page number is 120, without the catalogue t suffix. ABBEVILLE. occupies the lower section.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 121 — PRIMROSE HILL",
+      "song_no": "121",
+      "catalogue_title": "PRIMROSE HILL",
+      "literal_heading": "PRIMROSE HILL.",
+      "pdf_leaf_1_based": 121,
+      "printed_page": "121",
+      "page_region": "top",
+      "heading_bbox_px": [
+        517,
+        46,
+        821,
+        81
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-third-20260907/renders/leaf-121.png",
+      "render_sha256": "c413ebf4a1b222f9d5156751efddcd65d6cac057524a295adf4d1d6faaf93086",
+      "review_method": "Direct visual inspection of full PDF leaf rendered by Poppler at scale-to 1800; heading, printed page and tune region read independently.",
+      "observations": "Heading above the opening system; printed page at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 123 — PLENARY",
+      "song_no": "123",
+      "catalogue_title": "PLENARY",
+      "literal_heading": "PLENARY.",
+      "pdf_leaf_1_based": 123,
+      "printed_page": "123",
+      "page_region": "top",
+      "heading_bbox_px": [
+        489,
+        25,
+        677,
+        63
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-third-20260907/renders/leaf-123.png",
+      "render_sha256": "e71ef210e58be01c4fb74e9a93240dea4aad28b2dfb16cff8ba69164e155c42a",
+      "review_method": "Direct visual inspection of full PDF leaf rendered by Poppler at scale-to 1800; heading, printed page and tune region read independently.",
+      "observations": "Heading above the opening system; printed page at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    }
+  ]
+}
