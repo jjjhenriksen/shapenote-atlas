@@ -1,0 +1,19 @@
+{
+  "candidateSha256": "23f6b29246f5e5763a54bfcbd871052af26e363b245b38623017d385282cdab1",
+  "sourceSha256": "86c05b5b9441859f740ded45efad776a093bd2926a2c79bc15e75e2b978b8338",
+  "exportedXmlAndAtlasParsersAccept": true,
+  "playbackDurationFailures": 0,
+  "parts": 4,
+  "completeMeasuresPerPart": 4,
+  "completeWrittenMeasures": 16,
+  "pitchedNotes": 60,
+  "explicitNoteheads": 60,
+  "rests": 0,
+  "lyrics": 0,
+  "allWrittenBarsFourQuarters": true,
+  "independentStaffCoordinatePitchParity": true,
+  "sourceBytesPreserved": true,
+  "canonicalDataChangedByThisPackage": false,
+  "newSourceScansPublished": false,
+  "safeToPromote": false
+}
