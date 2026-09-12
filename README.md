@@ -1,80 +1,279 @@
 # The Shape-Note Atlas
 
-A lightweight, source-faithful Sacred Harp lookup workspace. It keeps the existing corpus dashboard as the metadata source of truth, then adds complete MusicXML scores and browser playback only where an exact score mapping is available.
+**A searchable, source-faithful reader and practice space for shape-note and
+Sacred Harp music.**
 
-## Local source policy
+<p align="center">
+  <img src="Assets/ShapeNoteAtlas.svg" alt="Shape-Note Atlas four-shape mark" width="120">
+</p>
 
-- Corpus records come from `/Users/jacquelinehenriksen/sh-corpus-scripts/dashboard/data.js`.
-- Score enrichment comes from `/Users/jacquelinehenriksen/sh-corpus-scripts/rag_web_metadata.csv`, the local `.cache/rag_metadata` MusicXML cache, and the checked-in `public/shapenote-score-manifest.json` produced from the authoritative [Shape Note Music Files index](https://shapenote.net/music.htm).
-- Run `python3 scripts/fetch_shapenote_scores.py` when refreshing the public MusicXML mappings. Raw downloads stay under ignored `work/`; the manifest records each source URL and exact book/page or tune-title mapping.
-- `scripts/build_data.py` refuses to build if the corpus metadata sources are missing.
-- Records without an exact structured MusicXML mapping remain searchable and source-linked. Where a book publishes a PDF or page-image scan, the detail view presents that source notation and clearly disables transposition/playback for it. A parsed score from another edition may appear as a transposable reference witness, but it is labeled as such and never substituted for the selected edition. Local OMR drafts are exposed separately as playable/transposable review work product, never as verified notation. No notation is fabricated. When a structured witness has pitches but omits its key signature, the app offers an explicit source-key chooser; the user must select the key printed in the linked source before transposition is enabled, and that choice remains separate from source metadata.
-- `public/source-coverage.json` is the generated edition-specific coverage ledger. Every book/page record is classified as `structured-score`, `source-reference`, `transcription-blocked`, `metadata-only`, or `mapping-gap`, with its next safe action and recorded source URLs.
-- If the metadata export lacks a row but the canonical corpus record already has a source-page or PDF URL, the builder retains that link as a `source-reference` and queues it for structured transcription; only records with neither metadata nor a source URL remain `mapping-gap`.
-- `public/transcription-queue.json` is the generated work queue for every non-structured edition record. It carries a stable edition/page key, priority, authoritative source URLs, key/meter metadata where known, 1991/2025 reconciliation context, and the next safe acquisition or transcription action. Its records are validated to exactly match the non-structured coverage ledger.
-- Run `python3 scripts/index_2025_source_images.py` to refresh confirmed direct 2025 page-scan URLs. The generated `public/source-image-manifest.json` is used only to show authoritative scan evidence and to seed transcription work; it never promotes an image into a transposable score.
-- Retained transcription audits under `work/source-transcriptions/` are folded into that ledger. A blocked witness remains visible as blocked until a clean authorized source is acquired; the dashboard never treats a watermarked or other-edition witness as a transposable score.
-- Retained source-page recording URLs are indexed by `scripts/extract_source_recordings.py` and exposed as source playback for the six audited 2025 pages (254–259). The official 88-song 2025 debut-singing collection is indexed by `scripts/index_2025_debut_recordings.py` and merged into the same source-witness path. These recordings are explicitly labeled non-transposable until structured notation is verified.
-- Audiveris first-pass outputs under `work/omr/` are draft material only. `scripts/audit_omr_drafts.py` records their checksums, part/measure counts, and review warnings; the build publishes isolated `public/draft-scores/` assets so drafts can be auditioned and transposed during human review without entering verified score coverage.
-- `npm run retain-source-images` retains the current 2025 source scans that still need transcription under ignored `work/source-images/`, reusing the eight already-retained originals and recording URL/checksum provenance in `work/source-images/manifest.json`. `npm run prepare-transcription-images` then creates immutable-source, versioned `normalized-v2` and `suppressed-v2` layers under `work/transcription-images/working/` for every local source-page image. v2 retains the complete source frame; the suppressed layer is a visual aid only. The eight named 2025 `working/2025/*-cleaned-v1.png` copies remain inventoried as AI-edited, human-review-only images and are fail-closed for OMR. `npm run build-image-review-queue` produces `public/image-review-queue.json`; `npm run validate-image-review-queue` checks coverage, source hashes, working hashes, and fail-closed status. Audiveris outputs remain review-only and never replace the original scans or canonical draft queue.
-- `python3 scripts/run_cleaned_omr.py --record <song-or-source-stem>` runs bounded draft OMR against the deterministic `normalized-v2` layer by default. Results are written to a separate `cleaned-v2` ledger and are joined into the human queue without becoming canonical notation; the suppressed-v2 and unsafe AI-edited layers remain explicitly non-authoritative.
-- `public/human-review-queue.json` and `work/omr/human-review-queue.md` pair each local OMR draft with its source page/image, rendered draft, checksum, review checklist, and remaining 2025 backlog. Run `npm run build-review-queue` after changing drafts.
-- `public/source-comparison-ledger.json` records explicit source-versus-candidate comparisons without authorizing promotion. Add auditable records under `work/source-transcriptions/2025/*-comparison.json`, then run `npm run build-source-comparison-ledger`; local witness checksums are verified and every record remains fail-closed.
-- `public/image-review-queue.json` and `work/source-images/image-review-queue.md` track every current 2025 record that still lacks exact or reference structured notation, with immutable originals plus normalized-v2 and suppressed-v2 review layers. Run `npm run retain-source-images`, `npm run prepare-transcription-images`, and `npm run build-image-review-queue`; validate with `npm run validate-image-review-queue`. Working layers never become authoritative notation automatically.
-- `npm run index-clean-source-candidates` checks the local crosswalk for public composer/source PDFs and downloads candidates under `work/source-transcriptions/2025/clean-source-candidates/`. These are clean comparison aids, not 2025-edition scores: each record remains explicitly unverified until it is compared note-for-note against the authorized 2025 engraving.
-- The atlas carries those comparison leads onto each affected tune record and shows them in the draft/missing-score detail view as `Comparison sources`; the public PDF link is available for review, but the candidate remains excluded from verified score coverage until edition comparison is complete.
-- `npm run validate-source-candidates` verifies each downloaded candidate's PDF signature, checksum, and fail-closed edition status.
-- `npm run validate-playback` checks every bundled structured score for finite timing, valid pitches, and at least one schedulable event wherever the asset is marked playable.
-- `npm run validate-playback` checks every bundled structured score for finite timing, valid pitches, and at least one schedulable event wherever the asset is marked playable.
-- `npm run run-clean-source-omr` runs Audiveris on single-page clean candidates and records isolated review drafts in `work/omr/clean-source-candidates/`; multi-page PDFs are intentionally skipped by default, with `--max-pages 2` available for short candidates.
-- `npm run extract-composite-candidates` extracts only unambiguous score pages from retained multi-page candidates for isolated review; the composite source and page number remain recorded.
-- `npm run build-candidate-reconciliation` compares candidate OMR structure with the existing 2025 scan draft to prioritize human review. It is triage evidence only: every record remains `safeToPromote: false` until direct edition comparison is complete.
-- `public/edition-2025-additions.json` records the publisher's 113-song 2025 additions list. The review queue uses it to separate new 2025 material from retained or revised records; it never treats editorial status as notation evidence.
-- The 1991/2025 change register is represented as explicit edition-pair relations, including records that must remain separate because their page titles or text changed. Relation metadata includes each edition's source page and independent score availability. Shared records may expose an explicitly labeled transposable witness from the other edition for practice; it never becomes the selected edition's engraving.
-- The current 2025 display set is reconciled to the authoritative 590-song Fasola index. The superseded local 414b export record remains under `legacyEditionRecords`; the hallucinated 264b record is discarded. Current 414b is Parting Friend, current 414t is Farewell Brethren, and current 484t is Millbrook. The current set has 14 exact 2025 MusicXML scores, 486 explicitly labeled transposable reference witnesses, and 121 records still awaiting verified structured notation. All 121 now have isolated OMR review assets: 98 include a source or detected draft key, while 23 expose a separate source-key chooser before transposition is enabled. Structured scores and review drafts with missing encoded keys are marked `manualKeyAllowed` in their asset metadata and use the same explicit chooser rather than an invented default. Of those 121, 89 are on the publisher's 113-song additions list and 32 are not new in 2025 but still need an edition-specific score; the corrected/additional records remain unverified until edition-specific structured scores are approved.
-- MusicXML preserves the complete pitch/rhythm event streams and available parts, including duration type, dots, accidentals, clef, voice, staff, ties, and encoded notehead/shape fields when present. When a source score omits notehead names but records a major key, the UI derives the standard Sacred Harp four-shape sequence from exact pitch spelling and keeps the linked shape-source PDF as the authority; otherwise it leaves shapes unavailable rather than guessing.
-- Shape-preserving source PDFs are linked from the matching [Shape Note Music Files](https://shapenote.net/music.htm) entries. That source also provides four-shape-aware `.mus` files, while the PDF is the visual reference for source comparison.
-- The score view wraps the complete song into vertical four-measure systems; playback schedules the complete selected source, not a four-measure excerpt.
-- For browser-level audio proof, run `npm run dev` and open `/audio-harness.html`. This isolated test page wraps `AudioContext` before loading the app and reports the actual oscillator frequencies and start/stop calls; it is instrumentation only and is not part of the dashboard UI.
+![The Shape-Note Atlas reader](docs/images/atlas-reader.png)
 
-## Current notation audit
+The Atlas brings tune lookup, source links, structured MusicXML, four-shape
+rendering, and browser playback into one small workspace. It keeps the whole
+catalogue visible even when a tune does not yet have structured notation.
 
-The local corpus indexes 3,547 tune records across eleven books. The Sacred Harp 2025 display set contains 590 current edition records. Complete-score MusicXML is currently available where the local cache or public Shape Note Music Files source validates it: 950 song records backed by 1,156 lazy score assets across Sacred Harp 1991, Sacred Harp Cooper, Southern Harmony, Christian Harmony, and 14 exact 2025 mappings. A further 486 current 2025 records have explicitly labeled transposable reference witnesses from shared 1991 records or other sources; these remain separate from exact 2025 coverage. Every remaining edition record now has either a retained source-page/PDF reference or an explicit blocked status in the acquisition queue; the app does not substitute a different edition or synthesize missing notation.
+> **The governing rule:** a matching title is not proof of an edition match,
+> and a playable draft is not a verified printed score.
 
-## Run it
+## What you can do
+
+- Search by tune number, title, first line, or source metadata.
+- Browse eleven books/editions, with edition identity kept explicit.
+- Filter by score availability, key, mode, vocal part, and transposability.
+- Read complete structured scores as vertical four-measure systems.
+- Practice selected parts with tempo, pause/resume, stop, and bounded loops.
+- Follow encoded repeats when the source supports them; otherwise stay in
+  written order.
+- Transpose when the source key is established or explicitly entered.
+- Open the source scan, PDF, recording, or MusicXML witness from the tune.
+- Download and correct published review drafts without overwriting the source.
+
+## The eleven books
+
+The current corpus includes:
+
+1. Sacred Harp 1991
+2. Sacred Harp 2025
+3. Cooper Book 2012
+4. The Christian Harmony
+5. The Shenandoah Harmony
+6. The Southern Harmony
+7. A Supplement to the Kentucky Harmony
+8. The Social Harp
+9. The Minnesota Harmony
+10. Sacred Harp Tunes
+11. The Trumpet
+
+Coverage changes as generated data is refreshed. For current counts, read the
+`generatedAt` and `coverage` fields in [`public/corpus.json`](public/corpus.json)
+and [`public/source-coverage.json`](public/source-coverage.json), rather than
+relying on a stale number in prose.
+
+## Use the reader
+
+### Find a tune
+
+1. Choose an edition from **Tune book**.
+2. Search for a page number, title, first line, or source.
+3. Use the filters to narrow the list.
+4. Select a result to open its detail pane.
+
+The **Library**, **Practice**, and **Sources** views use the same catalogue.
+The **Link to this tune** link preserves the selected book and tune in the URL,
+so a specific record can be shared directly.
+
+### Understand the labels
+
+The Atlas keeps useful evidence visible without flattening it into one green
+checkmark:
+
+| Label | What it means |
+| --- | --- |
+| **Catalogued score** | Structured notation is attached to the selected edition. |
+| **Alternate reference** | A score exists for another edition or source; it is labeled and never substituted. |
+| **Review draft only** | A versioned transcription or OMR result is available for comparison and, where safe, practice. |
+| **Source scan / source reference** | The source page, scan, or recording is available, but no admitted structured score is attached. |
+| **Transcription blocked** | The next safe action is to acquire or resolve source evidence. |
+| **Metadata only / source mapping gap** | The catalogue record exists without a usable structured-source path. |
+
+These states answer different questions: *Is this the record? Is there
+structured notation? Can I practice it? Has the exact printed edition been
+reviewed?* The Atlas does not pretend those are the same question.
+
+### Practice and transpose
+
+For a structured score, select the parts you want, choose written order or an
+encoded repeat plan, set a tempo from 40–220 BPM, and choose one to eight loops.
+Playback stops when the selected parts, score version, source key, or target key
+changes. A short score can also stop automatically at its actual end.
+
+Transposition requires key evidence. If the source key is unknown, enter the
+key printed on the linked source page. The entered key stays separate from
+catalogue metadata; the Atlas never borrows a key from another edition just to
+unlock a control.
+
+The shape legend distinguishes:
+
+- **Source** — the notehead shape is encoded by the witness.
+- **Derived** — a four-shape label is calculated from an established key and
+  exact pitch spelling.
+- **Unavailable** — the source does not establish the shape or key.
+
+The linked shape-source PDF remains the authority for printed glyphs. Missing
+lyrics, shapes, mode, repeats, endings, or verse numbers stay visibly
+unavailable instead of being guessed.
+
+## What the Atlas is not
+
+The Atlas is not a replacement for the printed book or its authoritative scan.
+It is not a claim that every tune already has a complete exact-edition score.
+Alternate-edition scores, OMR output, source recordings, and comparison PDFs
+are valuable evidence and practice aids, but they do not close an edition's
+mapping gap by themselves.
+
+Published review drafts are deliberately human-correctable: download the
+editable MusicXML, compare it with the untouched source, and use the linked
+GitHub correction form when needed. Every draft carries a version, evidence,
+hashes, and limitations. `safeToPromote` remains false until the required
+source-review gate is satisfied.
+
+## Run it locally
+
+### Browser
 
 ```sh
-npm install
-npm run prepare-data
+npm ci --ignore-scripts --no-audit --no-fund
 npm run dev
 ```
 
-For a deployment check:
+Open the local URL printed by Vite. The development server binds to
+`127.0.0.1`.
+
+For a production-like static preview:
 
 ```sh
 npm run build
 npm run preview
 ```
 
-## Open it as a Mac app
+The committed `public/` bundle is enough to browse when you only need the
+existing generated data. Regenerating that data requires the local source
+checkout described below.
 
-The packaged app is in `outputs/The Shape-Note Atlas.app`. Double-click it in Finder to open the atlas in its own window. It bundles the production dashboard and starts a private local service for the score assets, so no separate browser tab or development server is required.
+### macOS app
 
-The Mac wrapper uses a SwiftUI window shell with a hidden title bar, so the dashboard header is the only visible app chrome while standard window controls remain available. The reader itself remains the same browser-compatible score surface, so the app and hosted dashboard share one source of truth.
-
-## Reproducible verification
-
-Run `npm run verify-all` from the project root for the aggregate fail-closed verification receipt. It checks generated-artifact integrity, stale source inputs, unsafe missing-mode defaults, promotion safety, queue contradictions, data, playback, transposition, shape-review, image, source-candidate, source-health, startup smoke, and production-build checks. It writes machine-readable and human-readable receipts to `work/verification/` and also prints the JSON receipt.
-
-Source-health verification is offline by default: it reuses the existing report and checks retained local evidence without making network requests. Remote checking requires both `--source-health-online` and a positive hard cap, for example `--source-health-online --source-health-max-urls 25`; an unbounded online run is rejected. Use `--no-write` to validate the existing report without regenerating it. The command returns a nonzero result when a required check fails, when review-only material is marked safe to promote, when generated data is stale, or when a parser can silently turn missing MusicXML mode into major. `--allow-missing-optional` keeps an unavailable optional worker visible under receipt `limitations` while allowing `overallStatus: passed` and `complete: true` when every required check passes; without it, an unavailable optional worker is a required blocker.
-The bundle also includes a generated macOS icon from `Assets/ShapeNoteAtlas.svg`, so Finder and the Dock use the same four-shape mark.
-
-To rebuild the app after source changes:
+The SwiftUI wrapper bundles the browser build and a private local score-asset
+service:
 
 ```sh
-./script/build_and_run.sh
+bash script/build_and_run.sh
 ```
 
-The script rebuilds the dashboard, stages the native app bundle, and opens it. If macOS shows a first-launch security prompt, Control-click the app, choose **Open**, and confirm once.
+The result is `outputs/The Shape-Note Atlas.app`. To run the package/startup
+check without opening it:
 
-The lookup index is served as `public/corpus.json`, separate from the small application JavaScript, and complete scores are served as lazy-loaded assets under `public/scores/`. Static hosting can cache the index and only fetch a full song when it is selected.
+```sh
+bash script/build_and_run.sh --verify
+```
+
+The startup check does not prove native-window interaction or public
+deployment.
+
+## For maintainers
+
+### Source-dependent data refresh
+
+The corpus builder reads the established local source checkout:
+
+```text
+/Users/jacquelinehenriksen/sh-corpus-scripts
+```
+
+It expects the dashboard corpus, metadata export, edition-change register, and
+local MusicXML cache. The builder refuses to create a partial bundle when its
+required metadata inputs are missing.
+
+After installing dependencies, the normal refresh path is:
+
+```sh
+python3 scripts/verify_dependencies.py
+python3 scripts/fetch_shapenote_scores.py   # only when score mappings need refresh
+npm run prepare-data
+```
+
+`prepare-data` rebuilds the corpus index and candidate reconciliation. Source
+images, recordings, OMR, comparison PDFs, and review queues have separate
+commands because each has a different evidence boundary. Do not run those
+generators against missing or unverified inputs; read
+[`docs/OPENCLAW_HANDOFF.md`](docs/OPENCLAW_HANDOFF.md) first.
+
+### Generated data map
+
+| File | Role |
+| --- | --- |
+| `public/corpus.json` | Application index, edition metadata, score previews, and lazy asset references. |
+| `public/scores/` | Full structured score assets. |
+| `public/draft-scores/` | Isolated review and published-draft assets. |
+| `public/source-coverage.json` | Edition-scoped coverage state and next safe action. |
+| `public/transcription-queue.json` | Records without an exact structured score. |
+| `public/human-review-queue.json` | Drafts, dispositions, evidence, and correction metadata. |
+| `public/image-review-queue.json` | Immutable source images and review-only working layers. |
+| `public/source-comparison-ledger.json` | Source-versus-candidate comparisons; never automatic promotion. |
+| `public/shared-edition-reconciliation.json` | Explicit relationships and differences between editions. |
+| `public/source-health.json` | Network/evidence/retention observations with offline and cached states preserved. |
+| `public/shapenote-score-manifest.json` | Hash-checked mappings from the Shape Note Music Files index. |
+
+The `work/` tree contains retained sources, downloaded inputs, OMR output, and
+verification receipts. Much of it is intentionally local-only or ignored. A
+Git clone alone is not a complete source-dependent validation environment.
+
+### Verification
+
+Run focused validators after changing the corresponding layer:
+
+```sh
+python3 scripts/validate_data.py
+python3 scripts/validate_playback.py
+python3 scripts/validate_transposition.py
+```
+
+Then run the fail-closed aggregate check:
+
+```sh
+npm run verify-all
+```
+
+It checks generated-artifact integrity, stale inputs, unsafe mode defaults,
+promotion safety, queue consistency, data, playback, transposition, shape and
+image review, source candidates, source health, browser smoke when available,
+the production build, and startup.
+
+Useful bounded options:
+
+```sh
+npm run verify-all -- --no-build
+npm run verify-all -- --no-write
+npm run verify-all -- --skip-source-health-collection
+npm run verify-all -- --allow-missing-optional
+npm run verify-all -- --source-health-online --source-health-max-urls 25
+```
+
+Online source-health checks require an explicit positive URL cap. Offline mode
+validates the existing report without claiming a fresh network sweep. Receipts
+are written to `work/verification/` unless `--no-write` is used.
+
+For browser-level audio proof, run `npm run dev` and open
+[`/audio-harness.html`](http://127.0.0.1:5173/audio-harness.html). Follow the
+[browser smoke plan](scripts/browser-smoke-test-plan.md) and capture a fresh
+receipt for the tested commit. Do not relabel an older receipt after changing
+the application.
+
+### Contribution guardrails
+
+- Start with `git status`; preserve unrelated work and cloud-backed duplicates.
+- Verify the intended edition and source hashes before transcribing.
+- Compare actual exported MusicXML, not only a sidecar JSON report.
+- Preserve pitch, timing, parts, clefs, voice/staff, ties, repeats, endings,
+  lyrics, and notehead geometry when the source establishes them.
+- Keep source notehead evidence separate from pitch-derived shape labels.
+- Leave unsupported semantics unavailable; do not fill them with plausible text.
+- Issue a new version for every correction and retain superseded artifacts.
+- Keep `safeToPromote: false` until direct source review authorizes promotion.
+- Stage only the reviewed batch.
+- Report source review, focused tests, browser proof, build state, and
+  deployment separately.
+
+## Documentation map
+
+- **[Atlas guide](docs/ATLAS_GUIDE.md)** — reader workflow, data model, and
+  maintainer procedures.
+- **[OpenClaw handoff](docs/OPENCLAW_HANDOFF.md)** — current continuation state,
+  retained evidence, active source lanes, and non-negotiable rules.
+- **[Program status](docs/OPENCLAW_PROGRAM_STATUS.md)** — dated progress notes
+  and historical verification receipts.
+- **[Browser smoke plan](scripts/browser-smoke-test-plan.md)** — required audio
+  and interaction cases.
+
+The Atlas is intentionally skeptical of convenient certainty. That is how a
+tune catalogue stays useful instead of becoming a polished set of guesses.
