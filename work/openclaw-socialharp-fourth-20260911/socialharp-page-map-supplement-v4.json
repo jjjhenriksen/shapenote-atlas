@@ -1,0 +1,196 @@
+{
+  "schema": "shape-note-atlas/socialharp-page-map-supplement/v4",
+  "review_date": "2026-09-11",
+  "baseline": {
+    "path": "work/luna-program-20260904/source_only/socialharp-page-map-20260904.json",
+    "sha256": "8b30106fb48d2467d70063d684ac144887b02e3cfec4470da103dc13d2c90963",
+    "summary": {
+      "catalogue_records": 221,
+      "uniquely_mapped_records": 67,
+      "unresolved_records": 154
+    }
+  },
+  "previous_supplements": [
+    {
+      "path": "work/openclaw-socialharp-20260907/socialharp-page-map-supplement-v1.json",
+      "sha256": "c4c80ad0606d474367854fc37fb8ba9d6893535df63155e09c4e8f711f6c72d8"
+    },
+    {
+      "path": "work/openclaw-socialharp-next-20260907/socialharp-page-map-supplement-v2.json",
+      "sha256": "dce4d99b6c3b47bcf0278d97f57845583aff3c428e0aff3072e759bf891e45e8"
+    },
+    {
+      "path": "work/openclaw-socialharp-third-20260907/socialharp-page-map-supplement-v3.json",
+      "sha256": "b63db5100de59964fc15b0c17b8267d870a216ca9be5d3f54701eb4a410762ae"
+    }
+  ],
+  "source": {
+    "path": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+    "sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331"
+  },
+  "policy": {
+    "supplement_only": true,
+    "original_mapping_unchanged": true,
+    "previous_supplements_unchanged": true,
+    "notation_imported": false,
+    "lyrics_or_notes_inferred": false,
+    "catalogue_discrepancy": "221 corpus records versus 222 historical count remains unresolved; page-identity review does not settle inventory."
+  },
+  "summary": {
+    "reviewed_records": 5,
+    "resolved_source_identities": 5,
+    "distinct_reviewed_pdf_leaves": 5,
+    "previous_combined_mapped": 87,
+    "combined_mapped": 92,
+    "previous_combined_unresolved": 134,
+    "combined_unresolved": 129,
+    "catalogue_records_unchanged": 221
+  },
+  "records": [
+    {
+      "record_id": "socialharp 125 — ANIMATION",
+      "song_no": "125",
+      "catalogue_title": "ANIMATION",
+      "literal_heading": "ANIMATION.",
+      "pdf_leaf_1_based": 125,
+      "printed_page": "125",
+      "page_region": "top",
+      "heading_bbox_px": [
+        450,
+        30,
+        680,
+        70
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-fourth-20260911/renders/leaf-125.png",
+      "render_sha256": "1c49d87450d1fc3cfd5b842b9502b556f232273829fbc803c4c10d6289a8458d",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening heading above the first system; printed page 125 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 127 — OLNEY",
+      "song_no": "127",
+      "catalogue_title": "OLNEY",
+      "literal_heading": "OLNEY.",
+      "pdf_leaf_1_based": 127,
+      "printed_page": "127",
+      "page_region": "top",
+      "heading_bbox_px": [
+        510,
+        30,
+        650,
+        73
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-fourth-20260911/renders/leaf-127.png",
+      "render_sha256": "825d81b4d72dbeb05706c3b828d4e998d3dea824e250c8ec0c73f8c2dd54e7ec",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening heading above the first system; printed page 127 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 129 — MEAR",
+      "song_no": "129",
+      "catalogue_title": "MEAR",
+      "literal_heading": "MEAR.",
+      "pdf_leaf_1_based": 129,
+      "printed_page": "129",
+      "page_region": "bottom",
+      "heading_bbox_px": [
+        510,
+        612,
+        640,
+        657
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-fourth-20260911/renders/leaf-129.png",
+      "render_sha256": "eb6c452dfe0b7f69c0529b0abfe2d0ef3b4c9f814a198c735b15e1a082d82d9d",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Mear opens in the lower half, below HARMONY. Concluded.; printed page 129 at upper right belongs to the shared leaf.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 131 — NEWBERRY",
+      "song_no": "131",
+      "catalogue_title": "NEWBERRY",
+      "literal_heading": "NEWBERRY.",
+      "pdf_leaf_1_based": 131,
+      "printed_page": "131",
+      "page_region": "top",
+      "heading_bbox_px": [
+        440,
+        45,
+        667,
+        85
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-fourth-20260911/renders/leaf-131.png",
+      "render_sha256": "5026aff2e46a1ebeb6a7dba1d37c4e35328cf60e93ce3f86ec5ed89ae1f3d76f",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening heading above the first system; printed page 131 at upper right. Lower area includes a short final system and additional text.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 133 — MERCY'S FREE",
+      "song_no": "133",
+      "catalogue_title": "MERCY'S FREE",
+      "literal_heading": "MERCY’S FREE.",
+      "pdf_leaf_1_based": 133,
+      "printed_page": "133",
+      "page_region": "top",
+      "heading_bbox_px": [
+        510,
+        38,
+        809,
+        80
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-fourth-20260911/renders/leaf-133.png",
+      "render_sha256": "8b88551b0927da1614615874a14dba5289fb0e776a9a245be0104c5765275d11",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening heading above the first system; printed page 133 at upper right. Curved printed apostrophe retained in the literal heading.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    }
+  ]
+}
