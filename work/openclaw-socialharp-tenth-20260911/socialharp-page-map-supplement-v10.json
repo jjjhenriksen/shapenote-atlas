@@ -1,0 +1,366 @@
+{
+  "schema": "shape-note-atlas/socialharp-page-map-supplement/v10",
+  "review_date": "2026-09-11",
+  "baseline": {
+    "path": "work/luna-program-20260904/source_only/socialharp-page-map-20260904.json",
+    "sha256": "8b30106fb48d2467d70063d684ac144887b02e3cfec4470da103dc13d2c90963",
+    "summary": {
+      "catalogue_records": 221,
+      "uniquely_mapped_records": 67,
+      "unresolved_records": 154
+    }
+  },
+  "previous_supplements": [
+    {
+      "path": "work/openclaw-socialharp-20260907/socialharp-page-map-supplement-v1.json",
+      "sha256": "c4c80ad0606d474367854fc37fb8ba9d6893535df63155e09c4e8f711f6c72d8"
+    },
+    {
+      "path": "work/openclaw-socialharp-next-20260907/socialharp-page-map-supplement-v2.json",
+      "sha256": "dce4d99b6c3b47bcf0278d97f57845583aff3c428e0aff3072e759bf891e45e8"
+    },
+    {
+      "path": "work/openclaw-socialharp-third-20260907/socialharp-page-map-supplement-v3.json",
+      "sha256": "b63db5100de59964fc15b0c17b8267d870a216ca9be5d3f54701eb4a410762ae"
+    },
+    {
+      "path": "work/openclaw-socialharp-fourth-20260911/socialharp-page-map-supplement-v4.json",
+      "sha256": "b5b7ccb12c6a520abb2a66e2b30eb933501cd74a25bb5c9e0679e8eba202b405"
+    },
+    {
+      "path": "work/openclaw-socialharp-fifth-20260911/socialharp-page-map-supplement-v5.json",
+      "sha256": "2b91a3144806dc559aeda1d9f08c96eb9739fd0cc06844f9ee064c5d9f8d3b9d"
+    },
+    {
+      "path": "work/openclaw-socialharp-sixth-20260911/socialharp-page-map-supplement-v6.json",
+      "sha256": "75567840aa707c331485af34638d0601f6fa434365a1fccf5e7f5110cbcf0843"
+    },
+    {
+      "path": "work/openclaw-socialharp-seventh-20260911/socialharp-page-map-supplement-v7.json",
+      "sha256": "4c18c6aa6a0c5534172cf157875c6b8870ec631a75336ec3895e44cb1f89ef63"
+    },
+    {
+      "path": "work/openclaw-socialharp-eighth-20260911/socialharp-page-map-supplement-v8.json",
+      "sha256": "acff9bb979828a2b18ae12d19cda4b6717bf21e51e7d722fa9e4243467cc5f4b"
+    },
+    {
+      "path": "work/openclaw-socialharp-ninth-20260911/socialharp-page-map-supplement-v9.json",
+      "sha256": "e290a1005193a30c44bea702803ae6cab51d08fe3696ea93cca43a69986f7124"
+    }
+  ],
+  "source": {
+    "path": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+    "sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331"
+  },
+  "policy": {
+    "supplement_only": true,
+    "original_mapping_unchanged": true,
+    "previous_supplements_unchanged": true,
+    "notation_imported": false,
+    "lyrics_or_notes_inferred": false,
+    "catalogue_discrepancy": "221 corpus records versus 222 historical count remains unresolved; page-identity review does not settle inventory.",
+    "renders_local_only": true
+  },
+  "summary": {
+    "reviewed_records": 10,
+    "resolved_source_identities": 10,
+    "distinct_reviewed_pdf_leaves": 10,
+    "previous_combined_mapped": 127,
+    "combined_mapped": 137,
+    "previous_combined_unresolved": 94,
+    "combined_unresolved": 84,
+    "catalogue_records_unchanged": 221
+  },
+  "records": [
+    {
+      "record_id": "socialharp 190t — ORTONVILLE",
+      "song_no": "190t",
+      "catalogue_title": "ORTONVILLE",
+      "literal_heading": "ORTONVILLE.",
+      "pdf_leaf_1_based": 190,
+      "printed_page": "190",
+      "page_region": "top",
+      "heading_bbox_px": [
+        450,
+        31,
+        705,
+        80
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-tenth-20260911/renders/leaf-190.png",
+      "render_sha256": "9b669ff3ad742f61de6809ebc82a7f82b2b52c82b486e9e722e8895c373a2695",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Upper opening above New Britain; printed page 190 at upper left identifies the shared leaf.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 191 — HOLY MANNA",
+      "song_no": "191",
+      "catalogue_title": "HOLY MANNA",
+      "literal_heading": "HOLY MANNA.",
+      "pdf_leaf_1_based": 191,
+      "printed_page": "191",
+      "page_region": "top",
+      "heading_bbox_px": [
+        312,
+        43,
+        592,
+        91
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-tenth-20260911/renders/leaf-191.png",
+      "render_sha256": "810e83c88958151186dbcc30e95bd47894c1d44a4819c2c7ef9c20e19f4935de",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 191 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 192 — ALLDRIDGE",
+      "song_no": "192",
+      "catalogue_title": "ALLDRIDGE",
+      "literal_heading": "ALLDRIDGE.",
+      "pdf_leaf_1_based": 192,
+      "printed_page": "192",
+      "page_region": "top",
+      "heading_bbox_px": [
+        450,
+        30,
+        685,
+        77
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-tenth-20260911/renders/leaf-192.png",
+      "render_sha256": "a5421f3e03f4c39728ad85c4dc1f7cd3fb5af9c46921c6e009cc208f2b9b928e",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 192 at upper left.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 193 — HARTWELL",
+      "song_no": "193",
+      "catalogue_title": "HARTWELL",
+      "literal_heading": "HARTWELL.",
+      "pdf_leaf_1_based": 193,
+      "printed_page": "193",
+      "page_region": "top",
+      "heading_bbox_px": [
+        432,
+        37,
+        666,
+        85
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-tenth-20260911/renders/leaf-193.png",
+      "render_sha256": "c9b9df9dd11d20c768b08b771b2fc96555479ef946bf2f9277338a09b774972b",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 193 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 195 — THE VOICE OF NATURE",
+      "song_no": "195",
+      "catalogue_title": "THE VOICE OF NATURE",
+      "literal_heading": "THE VOICE OF NATURE.",
+      "pdf_leaf_1_based": 195,
+      "printed_page": "195",
+      "page_region": "top",
+      "heading_bbox_px": [
+        409,
+        19,
+        889,
+        66
+      ],
+      "render_dimensions_px": [
+        1800,
+        1154
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-tenth-20260911/renders/leaf-195.png",
+      "render_sha256": "cfe710d3128ef9db3c85b5483e5d2fa5e10494630ef8ea74f94747c3081ea2dc",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 195 at upper right. This full-leaf render is slightly taller than adjacent leaves; dimensions are recorded independently.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 196 — DESIRE FOR PIETY",
+      "song_no": "196",
+      "catalogue_title": "DESIRE FOR PIETY",
+      "literal_heading": "DESIRE FOR PIETY.",
+      "pdf_leaf_1_based": 196,
+      "printed_page": "196",
+      "page_region": "bottom",
+      "heading_bbox_px": [
+        320,
+        627,
+        697,
+        676
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-tenth-20260911/renders/leaf-196.png",
+      "render_sha256": "43bc3d351ab91f385b6f469e851ec51ca24a40b73c013ecd80d7dfac1afd1a63",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Lower opening below THE VOICE OF NATURE. Concluded.; printed page 196 at upper left.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 197 — MINDORA",
+      "song_no": "197",
+      "catalogue_title": "MINDORA",
+      "literal_heading": "MINDORA.",
+      "pdf_leaf_1_based": 197,
+      "printed_page": "197",
+      "page_region": "top",
+      "heading_bbox_px": [
+        394,
+        29,
+        589,
+        79
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-tenth-20260911/renders/leaf-197.png",
+      "render_sha256": "fc7d8c0b554a0d7a51946d8c64330501f6c0c89b1a836b1f0ed82664a62d1c04",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 197 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 199 — BIRTH OF CHRIST",
+      "song_no": "199",
+      "catalogue_title": "BIRTH OF CHRIST",
+      "literal_heading": "BIRTH OF CHRIST.",
+      "pdf_leaf_1_based": 199,
+      "printed_page": "199",
+      "page_region": "top",
+      "heading_bbox_px": [
+        400,
+        33,
+        753,
+        82
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-tenth-20260911/renders/leaf-199.png",
+      "render_sha256": "5795d53c0519a1f5b9a4fa2be3deaf004d0c9070cb2927c181f6a290e4475c87",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 199 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 201 — VANDERVER",
+      "song_no": "201",
+      "catalogue_title": "VANDERVER",
+      "literal_heading": "VANDERVER.",
+      "pdf_leaf_1_based": 201,
+      "printed_page": "201",
+      "page_region": "top",
+      "heading_bbox_px": [
+        448,
+        37,
+        702,
+        87
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-tenth-20260911/renders/leaf-201.png",
+      "render_sha256": "2fb741ba1dacd9da3aa4c047be155ad46adcfab92c706c4e17f8d8411d57347b",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 201 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 203 — COME, TELL ME OF YOUR SHIP",
+      "song_no": "203",
+      "catalogue_title": "COME, TELL ME OF YOUR SHIP",
+      "literal_heading": "COME, TELL ME OF YOUR SHIP.",
+      "pdf_leaf_1_based": 203,
+      "printed_page": "203",
+      "page_region": "top",
+      "heading_bbox_px": [
+        321,
+        39,
+        926,
+        87
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-tenth-20260911/renders/leaf-203.png",
+      "render_sha256": "d2b0adb7cd8b090f0074933c4b21b6bd7dbe89808497f5de40b178e1942206c7",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; heading includes the comma after COME; printed page 203 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    }
+  ]
+}
