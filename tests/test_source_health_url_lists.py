@@ -104,12 +104,18 @@ class UrlInventoryTests(unittest.TestCase):
         self.assertEqual(len(book_urls), 10)
         self.assertTrue(song_urls.isdisjoint(book_urls))
 
-    def test_inventory_declarations_match_current_collector(self):
-        declarations = health.inventory_declarations(health.inventory_sources())
-        self.assertEqual(declarations['corpusSongUrls'], 7600)
-        self.assertEqual(declarations['fullManifestUrls'], 7619)
-        self.assertEqual(declarations['bookCount'], 11)
-        self.assertEqual(declarations['bookUrlCounts']['ch7'], 683)
+    def test_inventory_declarations_separate_shared_songs_book_assets_and_manifests(self):
+        inventory = {
+            'https://example.org/song-a': {'books': {'ch7'}, 'references': {'corpus:song-a'}},
+            'https://example.org/shared-song': {'books': {'sh1991', 'sh2025'}, 'references': {'corpus:shared-song'}},
+            'https://example.org/book': {'books': {'ch7'}, 'references': {'corpus:book:ch7'}},
+            'https://example.org/retained': {'books': {'ch7'}, 'references': {'existing-books-retention:ch7/10'}},
+        }
+        declarations = health.inventory_declarations(inventory)
+        self.assertEqual(declarations['corpusSongUrls'], 2)
+        self.assertEqual(declarations['fullManifestUrls'], 4)
+        self.assertEqual(declarations['bookCount'], 3)
+        self.assertEqual(declarations['bookUrlCounts'], {'ch7': 3, 'sh1991': 1, 'sh2025': 1})
 
     def test_stale_inventory_declarations_are_rejected(self):
         fixture = {

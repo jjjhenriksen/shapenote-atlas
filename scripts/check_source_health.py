@@ -405,6 +405,13 @@ def previous_network(item: dict[str, Any] | None) -> dict[str, Any]:
     }
 
 
+def needs_resumed_check(item: dict[str, Any] | None) -> bool:
+    """Check new/unattempted URLs and retry errors even after cache carry-forward."""
+    if not item or item.get("status") in {"not-checked-budget", "not-checked-offline", "network-error"}:
+        return True
+    return item.get("status") == "cached" and item.get("networkStatus", item.get("cachedStatus")) == "network-error"
+
+
 def host_name(url: str) -> str:
     return (urlsplit(url).hostname or "").lower() or "<invalid-host>"
 
@@ -462,14 +469,14 @@ def main() -> int:
     parser.add_argument("--per-host-concurrency", type=int, default=2, help="maximum simultaneous requests to one host")
     parser.add_argument("--max-seconds", type=float, default=0.0, help="total live-check budget; 0 means no additional deadline")
     parser.add_argument("--max-urls", type=int, default=0, help="optional bounded online check; remaining URLs are not-checked-budget")
-    parser.add_argument("--resume", action="store_true", help="reuse prior current network results and retry only prior budget/offline/error records")
+    parser.add_argument("--resume", action="store_true", help="reuse prior network results, check new URLs, and retry budget/offline/error records")
     args = parser.parse_args()
 
     checked_at = utc_now()
     inventory = inventory_sources()
     previous = previous_by_url()
     urls = sorted(inventory)
-    online_urls = [] if args.offline else ([(url) for url in urls if not args.resume or previous.get(url, {}).get("status") in {"not-checked-budget", "not-checked-offline", "network-error"}])
+    online_urls = [] if args.offline else [url for url in urls if not args.resume or needs_resumed_check(previous.get(url))]
     if args.max_urls > 0:
         online_urls = online_urls[: args.max_urls]
     network_results: dict[str, dict[str, Any]] = {}
