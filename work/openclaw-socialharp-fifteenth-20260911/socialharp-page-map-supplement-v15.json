@@ -1,0 +1,386 @@
+{
+  "schema": "shape-note-atlas/socialharp-page-map-supplement/v15",
+  "review_date": "2026-09-11",
+  "baseline": {
+    "path": "work/luna-program-20260904/source_only/socialharp-page-map-20260904.json",
+    "sha256": "8b30106fb48d2467d70063d684ac144887b02e3cfec4470da103dc13d2c90963",
+    "summary": {
+      "catalogue_records": 221,
+      "uniquely_mapped_records": 67,
+      "unresolved_records": 154
+    }
+  },
+  "previous_supplements": [
+    {
+      "path": "work/openclaw-socialharp-20260907/socialharp-page-map-supplement-v1.json",
+      "sha256": "c4c80ad0606d474367854fc37fb8ba9d6893535df63155e09c4e8f711f6c72d8"
+    },
+    {
+      "path": "work/openclaw-socialharp-next-20260907/socialharp-page-map-supplement-v2.json",
+      "sha256": "dce4d99b6c3b47bcf0278d97f57845583aff3c428e0aff3072e759bf891e45e8"
+    },
+    {
+      "path": "work/openclaw-socialharp-third-20260907/socialharp-page-map-supplement-v3.json",
+      "sha256": "b63db5100de59964fc15b0c17b8267d870a216ca9be5d3f54701eb4a410762ae"
+    },
+    {
+      "path": "work/openclaw-socialharp-fourth-20260911/socialharp-page-map-supplement-v4.json",
+      "sha256": "b5b7ccb12c6a520abb2a66e2b30eb933501cd74a25bb5c9e0679e8eba202b405"
+    },
+    {
+      "path": "work/openclaw-socialharp-fifth-20260911/socialharp-page-map-supplement-v5.json",
+      "sha256": "2b91a3144806dc559aeda1d9f08c96eb9739fd0cc06844f9ee064c5d9f8d3b9d"
+    },
+    {
+      "path": "work/openclaw-socialharp-sixth-20260911/socialharp-page-map-supplement-v6.json",
+      "sha256": "75567840aa707c331485af34638d0601f6fa434365a1fccf5e7f5110cbcf0843"
+    },
+    {
+      "path": "work/openclaw-socialharp-seventh-20260911/socialharp-page-map-supplement-v7.json",
+      "sha256": "4c18c6aa6a0c5534172cf157875c6b8870ec631a75336ec3895e44cb1f89ef63"
+    },
+    {
+      "path": "work/openclaw-socialharp-eighth-20260911/socialharp-page-map-supplement-v8.json",
+      "sha256": "acff9bb979828a2b18ae12d19cda4b6717bf21e51e7d722fa9e4243467cc5f4b"
+    },
+    {
+      "path": "work/openclaw-socialharp-ninth-20260911/socialharp-page-map-supplement-v9.json",
+      "sha256": "e290a1005193a30c44bea702803ae6cab51d08fe3696ea93cca43a69986f7124"
+    },
+    {
+      "path": "work/openclaw-socialharp-tenth-20260911/socialharp-page-map-supplement-v10.json",
+      "sha256": "5ac7335e7575b616d853ff049ea3fa5c6578def509f0009b42122b1adef3d50f"
+    },
+    {
+      "path": "work/openclaw-socialharp-eleventh-20260911/socialharp-page-map-supplement-v11.json",
+      "sha256": "4ba135de666f208cf0a49d4916d2a444c5143a107bc79aeba4b9347893a23118"
+    },
+    {
+      "path": "work/openclaw-socialharp-twelfth-20260911/socialharp-page-map-supplement-v12.json",
+      "sha256": "2f2cf64de373613ad3a2ec38710995f1037dcd97651120cb52f849698ea04e9d"
+    },
+    {
+      "path": "work/openclaw-socialharp-thirteenth-20260911/socialharp-page-map-supplement-v13.json",
+      "sha256": "19dfd706e77fd5a074202769d31cc4dbabf9973d7b0c07b75104ab0e17e70089"
+    },
+    {
+      "path": "work/openclaw-socialharp-fourteenth-20260911/socialharp-page-map-supplement-v14.json",
+      "sha256": "19fc5336591606accba8d4842f8dbe5b34bb678ccd12c49db5ff5d7725d17e7e"
+    }
+  ],
+  "source": {
+    "path": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+    "sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331"
+  },
+  "policy": {
+    "supplement_only": true,
+    "original_mapping_unchanged": true,
+    "previous_supplements_unchanged": true,
+    "notation_imported": false,
+    "lyrics_or_notes_inferred": false,
+    "catalogue_discrepancy": "221 corpus records versus 222 historical count remains unresolved; page-identity review does not settle inventory.",
+    "renders_local_only": true
+  },
+  "summary": {
+    "reviewed_records": 10,
+    "resolved_source_identities": 10,
+    "distinct_reviewed_pdf_leaves": 9,
+    "previous_combined_mapped": 177,
+    "combined_mapped": 187,
+    "previous_combined_unresolved": 44,
+    "combined_unresolved": 34,
+    "catalogue_records_unchanged": 221
+  },
+  "records": [
+    {
+      "record_id": "socialharp 37 — THE TRAVELLER",
+      "song_no": "37",
+      "catalogue_title": "THE TRAVELLER",
+      "literal_heading": "THE TRAVELLER.",
+      "pdf_leaf_1_based": 37,
+      "printed_page": "37",
+      "page_region": "top",
+      "heading_bbox_px": [
+        382,
+        33,
+        724,
+        85
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-fifteenth-20260911/renders/leaf-37.png",
+      "render_sha256": "2360c04f41215933fc75f4f668bc13704035d2d8a32d8227bcc1ca6f896818ca",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 37 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 38b — HUNTINGTON",
+      "song_no": "38b",
+      "catalogue_title": "HUNTINGTON",
+      "literal_heading": "HUNTINGTON.",
+      "pdf_leaf_1_based": 38,
+      "printed_page": "38",
+      "page_region": "bottom",
+      "heading_bbox_px": [
+        541,
+        574,
+        812,
+        625
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-fifteenth-20260911/renders/leaf-38.png",
+      "render_sha256": "ace60c1b4e0de7f02fc64d18c6290d21bda6b76d4baf1ec04dfca0896865a002",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Lower opening below Middlebury; printed page 38 at upper left identifies their shared leaf.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 38t — MIDDLEBURY",
+      "song_no": "38t",
+      "catalogue_title": "MIDDLEBURY",
+      "literal_heading": "MIDDLEBURY.",
+      "pdf_leaf_1_based": 38,
+      "printed_page": "38",
+      "page_region": "top",
+      "heading_bbox_px": [
+        542,
+        23,
+        808,
+        75
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-fifteenth-20260911/renders/leaf-38.png",
+      "render_sha256": "ace60c1b4e0de7f02fc64d18c6290d21bda6b76d4baf1ec04dfca0896865a002",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Upper opening above Huntington; printed page 38 at upper left identifies their shared leaf.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 41 — CONFIDENCE",
+      "song_no": "41",
+      "catalogue_title": "CONFIDENCE",
+      "literal_heading": "CONFIDENCE.",
+      "pdf_leaf_1_based": 41,
+      "printed_page": "41",
+      "page_region": "top",
+      "heading_bbox_px": [
+        444,
+        41,
+        699,
+        92
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-fifteenth-20260911/renders/leaf-41.png",
+      "render_sha256": "6ff01cb513adc88f2dd7c59189d5f1258d304096ae9f6b5dad6f5bef17971ebe",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 41 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 42 — RELIGION IS A FORTUNE",
+      "song_no": "42",
+      "catalogue_title": "RELIGION IS A FORTUNE",
+      "literal_heading": "RELIGION IS A FORTUNE.",
+      "pdf_leaf_1_based": 42,
+      "printed_page": "42",
+      "page_region": "top",
+      "heading_bbox_px": [
+        494,
+        36,
+        978,
+        87
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-fifteenth-20260911/renders/leaf-42.png",
+      "render_sha256": "a33e9e904ff5a4aceb55ed18f496ab0919f9946f6bc4be7bfc9cc05c1cb84fe8",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 42 at upper left.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 43 — KINGWOOD",
+      "song_no": "43",
+      "catalogue_title": "KINGWOOD",
+      "literal_heading": "KINGWOOD.",
+      "pdf_leaf_1_based": 43,
+      "printed_page": "43",
+      "page_region": "top",
+      "heading_bbox_px": [
+        491,
+        24,
+        720,
+        75
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-fifteenth-20260911/renders/leaf-43.png",
+      "render_sha256": "dc34a24a8a04c744954cef7d047b9903e6530f31dd926860cda4c8e554ba97cf",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 43 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 45 — NEW INDIAN SONG",
+      "song_no": "45",
+      "catalogue_title": "NEW INDIAN SONG",
+      "literal_heading": "NEW INDIAN SONG.",
+      "pdf_leaf_1_based": 45,
+      "printed_page": "45",
+      "page_region": "top",
+      "heading_bbox_px": [
+        381,
+        21,
+        757,
+        72
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-fifteenth-20260911/renders/leaf-45.png",
+      "render_sha256": "e8522a00bea4893bc5fd7af91ae276f25c1e36262d96e7673188bf169967f272",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 45 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 47 — BETTER DAY",
+      "song_no": "47",
+      "catalogue_title": "BETTER DAY",
+      "literal_heading": "BETTER DAY.",
+      "pdf_leaf_1_based": 47,
+      "printed_page": "47",
+      "page_region": "top",
+      "heading_bbox_px": [
+        422,
+        24,
+        689,
+        75
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-fifteenth-20260911/renders/leaf-47.png",
+      "render_sha256": "4d8d599a2451a5022481015e451f9ef0a1d384cef5d316ff85b32b24aa6744b1",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 47 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 49 — MARSHFIELD",
+      "song_no": "49",
+      "catalogue_title": "MARSHFIELD",
+      "literal_heading": "MARSHFIELD.",
+      "pdf_leaf_1_based": 49,
+      "printed_page": "49",
+      "page_region": "top",
+      "heading_bbox_px": [
+        410,
+        32,
+        675,
+        82
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-fifteenth-20260911/renders/leaf-49.png",
+      "render_sha256": "fde07c8e50756162d1920da1928776f04d43a6f25a2cf999d6b3e9621ef75d5e",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 49 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 51 — COLDWATER",
+      "song_no": "51",
+      "catalogue_title": "COLDWATER",
+      "literal_heading": "COLDWATER.",
+      "pdf_leaf_1_based": 51,
+      "printed_page": "51",
+      "page_region": "top",
+      "heading_bbox_px": [
+        519,
+        28,
+        774,
+        80
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-fifteenth-20260911/renders/leaf-51.png",
+      "render_sha256": "2fda9dd06525e85fb7c2c3de58c62a2cebac34c7794cd6fe6bbf353acbcdc6d0",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 51 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    }
+  ]
+}
