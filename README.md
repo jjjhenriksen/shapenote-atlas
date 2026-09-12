@@ -269,6 +269,9 @@ the application.
 
 ## Documentation map
 
+- **[Hosted Atlas docs](https://shapenote.jacquelinehenriksen.com/atlas/docs/)** — a
+  nineteen-page reference library grouped into Start here, Use the reader,
+  Evidence, Maintain, and Reference.
 - **[Atlas guide](docs/ATLAS_GUIDE.md)** — reader workflow, data model, and
   maintainer procedures.
 - **[OpenClaw handoff](docs/OPENCLAW_HANDOFF.md)** — current continuation state,
