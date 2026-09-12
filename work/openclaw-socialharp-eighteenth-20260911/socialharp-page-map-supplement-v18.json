@@ -1,0 +1,398 @@
+{
+  "schema": "shape-note-atlas/socialharp-page-map-supplement/v18",
+  "review_date": "2026-09-11",
+  "baseline": {
+    "path": "work/luna-program-20260904/source_only/socialharp-page-map-20260904.json",
+    "sha256": "8b30106fb48d2467d70063d684ac144887b02e3cfec4470da103dc13d2c90963",
+    "summary": {
+      "catalogue_records": 221,
+      "uniquely_mapped_records": 67,
+      "unresolved_records": 154
+    }
+  },
+  "previous_supplements": [
+    {
+      "path": "work/openclaw-socialharp-20260907/socialharp-page-map-supplement-v1.json",
+      "sha256": "c4c80ad0606d474367854fc37fb8ba9d6893535df63155e09c4e8f711f6c72d8"
+    },
+    {
+      "path": "work/openclaw-socialharp-next-20260907/socialharp-page-map-supplement-v2.json",
+      "sha256": "dce4d99b6c3b47bcf0278d97f57845583aff3c428e0aff3072e759bf891e45e8"
+    },
+    {
+      "path": "work/openclaw-socialharp-third-20260907/socialharp-page-map-supplement-v3.json",
+      "sha256": "b63db5100de59964fc15b0c17b8267d870a216ca9be5d3f54701eb4a410762ae"
+    },
+    {
+      "path": "work/openclaw-socialharp-fourth-20260911/socialharp-page-map-supplement-v4.json",
+      "sha256": "b5b7ccb12c6a520abb2a66e2b30eb933501cd74a25bb5c9e0679e8eba202b405"
+    },
+    {
+      "path": "work/openclaw-socialharp-fifth-20260911/socialharp-page-map-supplement-v5.json",
+      "sha256": "2b91a3144806dc559aeda1d9f08c96eb9739fd0cc06844f9ee064c5d9f8d3b9d"
+    },
+    {
+      "path": "work/openclaw-socialharp-sixth-20260911/socialharp-page-map-supplement-v6.json",
+      "sha256": "75567840aa707c331485af34638d0601f6fa434365a1fccf5e7f5110cbcf0843"
+    },
+    {
+      "path": "work/openclaw-socialharp-seventh-20260911/socialharp-page-map-supplement-v7.json",
+      "sha256": "4c18c6aa6a0c5534172cf157875c6b8870ec631a75336ec3895e44cb1f89ef63"
+    },
+    {
+      "path": "work/openclaw-socialharp-eighth-20260911/socialharp-page-map-supplement-v8.json",
+      "sha256": "acff9bb979828a2b18ae12d19cda4b6717bf21e51e7d722fa9e4243467cc5f4b"
+    },
+    {
+      "path": "work/openclaw-socialharp-ninth-20260911/socialharp-page-map-supplement-v9.json",
+      "sha256": "e290a1005193a30c44bea702803ae6cab51d08fe3696ea93cca43a69986f7124"
+    },
+    {
+      "path": "work/openclaw-socialharp-tenth-20260911/socialharp-page-map-supplement-v10.json",
+      "sha256": "5ac7335e7575b616d853ff049ea3fa5c6578def509f0009b42122b1adef3d50f"
+    },
+    {
+      "path": "work/openclaw-socialharp-eleventh-20260911/socialharp-page-map-supplement-v11.json",
+      "sha256": "4ba135de666f208cf0a49d4916d2a444c5143a107bc79aeba4b9347893a23118"
+    },
+    {
+      "path": "work/openclaw-socialharp-twelfth-20260911/socialharp-page-map-supplement-v12.json",
+      "sha256": "2f2cf64de373613ad3a2ec38710995f1037dcd97651120cb52f849698ea04e9d"
+    },
+    {
+      "path": "work/openclaw-socialharp-thirteenth-20260911/socialharp-page-map-supplement-v13.json",
+      "sha256": "19dfd706e77fd5a074202769d31cc4dbabf9973d7b0c07b75104ab0e17e70089"
+    },
+    {
+      "path": "work/openclaw-socialharp-fourteenth-20260911/socialharp-page-map-supplement-v14.json",
+      "sha256": "19fc5336591606accba8d4842f8dbe5b34bb678ccd12c49db5ff5d7725d17e7e"
+    },
+    {
+      "path": "work/openclaw-socialharp-fifteenth-20260911/socialharp-page-map-supplement-v15.json",
+      "sha256": "c3c1c54ca9a83365cc6e57563d94f1259ba38c8f794de12e622897e23806c49c"
+    },
+    {
+      "path": "work/openclaw-socialharp-sixteenth-20260911/socialharp-page-map-supplement-v16.json",
+      "sha256": "c566bef7e725835e3b0b73b5374e2947460e1c6ecd930dec92d67109fc230092"
+    },
+    {
+      "path": "work/openclaw-socialharp-seventeenth-20260911/socialharp-page-map-supplement-v17.json",
+      "sha256": "7e3b074833655fdb01413a0d11abbd6196f5bb0648195d86983673403d488f96"
+    }
+  ],
+  "source": {
+    "path": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+    "sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331"
+  },
+  "policy": {
+    "supplement_only": true,
+    "original_mapping_unchanged": true,
+    "previous_supplements_unchanged": true,
+    "notation_imported": false,
+    "lyrics_or_notes_inferred": false,
+    "catalogue_discrepancy": "221 corpus records versus 222 historical count remains unresolved; page-identity review does not settle inventory.",
+    "renders_local_only": true
+  },
+  "summary": {
+    "reviewed_records": 10,
+    "resolved_source_identities": 10,
+    "distinct_reviewed_pdf_leaves": 9,
+    "previous_combined_mapped": 207,
+    "combined_mapped": 217,
+    "previous_combined_unresolved": 14,
+    "combined_unresolved": 4,
+    "catalogue_records_unchanged": 221
+  },
+  "records": [
+    {
+      "record_id": "socialharp 76t — LIVERPOOL",
+      "song_no": "76t",
+      "catalogue_title": "LIVERPOOL",
+      "literal_heading": "LIVERPOOL.",
+      "pdf_leaf_1_based": 76,
+      "printed_page": "76",
+      "page_region": "top",
+      "heading_bbox_px": [
+        530,
+        0,
+        762,
+        48
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-eighteenth-20260911/renders/leaf-76.png",
+      "render_sha256": "3b6db95f33a4cbb34c1f68d451dbe75cb0725c892d18f02aa6e5981aa8c379d5",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Upper opening above Soft Music; printed page 76 at upper left identifies their shared leaf. This render is byte-identical to the seventeenth batch leaf reviewed for Soft Music.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 77 — FLORENCE",
+      "song_no": "77",
+      "catalogue_title": "FLORENCE",
+      "literal_heading": "FLORENCE.",
+      "pdf_leaf_1_based": 77,
+      "printed_page": "77",
+      "page_region": "top",
+      "heading_bbox_px": [
+        498,
+        2,
+        718,
+        49
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-eighteenth-20260911/renders/leaf-77.png",
+      "render_sha256": "df9c1d3970e5e9a44fa796ed1ee97d28121c054ad1ab216737a964ed25530e58",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 77 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 79b — HAPPY LAND",
+      "song_no": "79b",
+      "catalogue_title": "HAPPY LAND",
+      "literal_heading": "HAPPY LAND.",
+      "pdf_leaf_1_based": 79,
+      "printed_page": "79",
+      "page_region": "bottom",
+      "heading_bbox_px": [
+        488,
+        538,
+        763,
+        586
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-eighteenth-20260911/renders/leaf-79.png",
+      "render_sha256": "4c66557acfb621be6565867bdeafdae9247856e08cd901ee6f5b889c7ff6bce3",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Lower opening below Done with the World; printed page 79 at upper right identifies their shared leaf.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 79t — DONE WITH THE WORLD",
+      "song_no": "79t",
+      "catalogue_title": "DONE WITH THE WORLD",
+      "literal_heading": "DONE WITH THE WORLD.",
+      "pdf_leaf_1_based": 79,
+      "printed_page": "79",
+      "page_region": "top",
+      "heading_bbox_px": [
+        492,
+        33,
+        985,
+        83
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-eighteenth-20260911/renders/leaf-79.png",
+      "render_sha256": "4c66557acfb621be6565867bdeafdae9247856e08cd901ee6f5b889c7ff6bce3",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Upper opening above Happy Land; printed page 79 at upper right identifies their shared leaf.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 81 — THE CHRISTIAN'S COMFORT",
+      "song_no": "81",
+      "catalogue_title": "THE CHRISTIAN'S COMFORT",
+      "literal_heading": "THE CHRISTIAN’S COMFORT.",
+      "pdf_leaf_1_based": 81,
+      "printed_page": "81",
+      "page_region": "top",
+      "heading_bbox_px": [
+        363,
+        26,
+        905,
+        77
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-eighteenth-20260911/renders/leaf-81.png",
+      "render_sha256": "fff13b16426e147fd01c41658bf1edbdb57b932d05dd7d426e578eeea86868ad",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 81 at upper right. The heading contains the possessive apostrophe.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 83 — RAYMOND",
+      "song_no": "83",
+      "catalogue_title": "RAYMOND",
+      "literal_heading": "RAYMOND.",
+      "pdf_leaf_1_based": 83,
+      "printed_page": "83",
+      "page_region": "top",
+      "heading_bbox_px": [
+        421,
+        43,
+        632,
+        91
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-eighteenth-20260911/renders/leaf-83.png",
+      "render_sha256": "c742bcd1a7242cd822670975e532132e4870aa5e0211abdca5298c3d783abc39",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 83 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 85 — EXHILARATION",
+      "song_no": "85",
+      "catalogue_title": "EXHILARATION",
+      "literal_heading": "EXHILARATION.",
+      "pdf_leaf_1_based": 85,
+      "printed_page": "85",
+      "page_region": "top",
+      "heading_bbox_px": [
+        521,
+        41,
+        838,
+        91
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-eighteenth-20260911/renders/leaf-85.png",
+      "render_sha256": "a1836382652f13fce41cdf99409dbc538a242acbdcedcd292f81caa881c17b26",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 85 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 87 — MUSGROVE",
+      "song_no": "87",
+      "catalogue_title": "MUSGROVE",
+      "literal_heading": "MUSGROVE.",
+      "pdf_leaf_1_based": 87,
+      "printed_page": "87",
+      "page_region": "top",
+      "heading_bbox_px": [
+        446,
+        49,
+        674,
+        99
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-eighteenth-20260911/renders/leaf-87.png",
+      "render_sha256": "fbba47308f1060a00092d513fe1afc2b7ff451189703a3aabad261fca420513a",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 87 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 89 — BALLSTOWN",
+      "song_no": "89",
+      "catalogue_title": "BALLSTOWN",
+      "literal_heading": "BALLSTOWN.",
+      "pdf_leaf_1_based": 89,
+      "printed_page": "89",
+      "page_region": "top",
+      "heading_bbox_px": [
+        491,
+        51,
+        744,
+        99
+      ],
+      "render_dimensions_px": [
+        1800,
+        1151
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-eighteenth-20260911/renders/leaf-89.png",
+      "render_sha256": "abf0a59aa9a8d3d1ac7c4d6c293346461bb2ea3ac4dafb10a56ac2f903dd2352",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 89 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 91 — OCEAN",
+      "song_no": "91",
+      "catalogue_title": "OCEAN",
+      "literal_heading": "OCEAN.",
+      "pdf_leaf_1_based": 91,
+      "printed_page": "91",
+      "page_region": "bottom",
+      "heading_bbox_px": [
+        489,
+        559,
+        642,
+        609
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-eighteenth-20260911/renders/leaf-91.png",
+      "render_sha256": "75ad8b30e2ade4ab0824508ecd4800642f4f6a2d0f9531587fecb9ede6e203f6",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Lower opening below MURILLO’S LESSON. Concluded.; printed page 91 at upper right identifies this shared leaf, not a new Murillo’s Lesson opening.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    }
+  ]
+}
