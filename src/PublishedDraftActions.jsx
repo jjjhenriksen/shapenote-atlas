@@ -22,7 +22,7 @@ export function PublishedDraftActions({ draft, song, bookLabel, assetUrl }) {
     <div className="shape-review-draft-actions">
       <a href={assetUrl(publication.musicXmlUrl)} download>Download editable MusicXML</a>
       {publication.originalMusicXmlUrl && <a href={assetUrl(publication.originalMusicXmlUrl)} download>Download original witness</a>}
-      {publication.sourceUrl && <a href={assetUrl(publication.sourceUrl)} target="_blank" rel="noreferrer noopener">Compare source</a>}
+      {publication.sourceUrl && <a href={assetUrl(publication.sourceUrl)} target="_blank" rel="noreferrer noopener">{publication.sourcePublicationPolicy === "external-link-only" ? "Open source PDF" : "Compare source"}</a>}
       <a href={correctionUrl} target="_blank" rel="noreferrer noopener">Suggest a correction on GitHub</a>
       {publication.evidenceUrl && <a href={assetUrl(publication.evidenceUrl)} target="_blank" rel="noreferrer noopener">Review notes</a>}
     </div>

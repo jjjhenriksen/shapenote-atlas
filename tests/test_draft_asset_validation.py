@@ -11,6 +11,7 @@ import unittest
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 from validate_data import validate_draft_score
+from review_publications import external_source_receipt, json_bytes
 
 
 class DraftAssetValidationTest(unittest.TestCase):
@@ -116,6 +117,81 @@ class DraftAssetValidationTest(unittest.TestCase):
             self.validate()
         self.asset["transposition"]["manualKeyAllowed"] = False
         self.assertEqual(self.validate(), self.ref)
+
+
+    def use_external_source(self):
+        publication = self.asset["reviewPublication"]
+        source_sha = hashlib.sha256((self.downloads / "source.jpg").read_bytes()).hexdigest()
+        receipt = external_source_receipt(
+            self.song["id"], "ch7", publication["version"], "https://example.org/source.pdf",
+            source_sha, self.asset["provenance"]["sourceSha256"],
+            hashlib.sha256((self.downloads / "evidence.json").read_bytes()).hexdigest(),
+        )
+        payload = json_bytes(receipt)
+        self.receipt_path = self.downloads / "source-verification.json"
+        self.receipt_path.write_bytes(payload)
+        publication.update({
+            "sourcePublicationPolicy": "external-link-only", "sourceUrl": receipt["sourceUrl"],
+            "sourceSha256": source_sha, "sourceVerificationUrl": "/review-publications/source-verification.json",
+            "sourceVerificationSha256": hashlib.sha256(payload).hexdigest(),
+        })
+        self.preview["reviewPublication"] = copy.deepcopy(publication)
+        (self.downloads / "source.jpg").unlink()
+
+    def test_external_source_validates_prior_proof_without_retained_source_copy(self):
+        self.use_external_source()
+        self.assertEqual(self.validate(), self.ref)
+        self.assertFalse((self.downloads / "source.jpg").exists())
+
+    def test_external_source_rejects_scheme_policy_or_source_identity_drift(self):
+        self.use_external_source()
+        original = copy.deepcopy(self.asset["reviewPublication"])
+        for patch in ({"sourceUrl": "javascript:alert(1)"},
+                      {"sourceUrl": "http://example.org/source.pdf"},
+                      {"sourceUrl": "https://example.org/different.pdf"},
+                      {"sourceSha256": "0" * 64},
+                      {"sourcePublicationPolicy": "external"},
+                      {"sourcePublicationPolicy": "copy"},
+                      {"sourceVerificationSha256": "0" * 64},
+                      {"sourceVerificationUrl": "/review-publications/../private.json"}):
+            with self.subTest(patch=patch):
+                changed = {**copy.deepcopy(original), **patch}
+                self.asset["reviewPublication"] = changed
+                self.preview["reviewPublication"] = copy.deepcopy(changed)
+                with self.assertRaises(SystemExit):
+                    self.validate()
+
+    def test_external_source_rejects_missing_or_rehashed_incorrect_receipt(self):
+        self.use_external_source()
+        original = self.receipt_path.read_bytes()
+        self.receipt_path.unlink()
+        with self.assertRaisesRegex(SystemExit, "missing published draft sourceVerificationUrl"):
+            self.validate()
+        for field in ("sourceSha256", "musicXmlSha256", "evidenceSha256", "songId", "bookId"):
+            with self.subTest(field=field):
+                receipt = json.loads(original)
+                receipt[field] = "changed"
+                payload = json_bytes(receipt)
+                self.receipt_path.write_bytes(payload)
+                self.asset["reviewPublication"]["sourceVerificationSha256"] = hashlib.sha256(payload).hexdigest()
+                self.preview["reviewPublication"] = copy.deepcopy(self.asset["reviewPublication"])
+                with self.assertRaisesRegex(SystemExit, "invalid external source verification"):
+                    self.validate()
+        # Even a rehashed receipt cannot claim a remote verification we did not do.
+        receipt = json.loads(original)
+        receipt["verification"]["remoteContentVerified"] = True
+        payload = json_bytes(receipt)
+        self.receipt_path.write_bytes(payload)
+        self.asset["reviewPublication"]["sourceVerificationSha256"] = hashlib.sha256(payload).hexdigest()
+        self.preview["reviewPublication"] = copy.deepcopy(self.asset["reviewPublication"])
+        with self.assertRaisesRegex(SystemExit, "invalid external source verification"):
+            self.validate()
+
+    def test_external_source_receipt_binds_current_evidence_bytes(self):
+        self.use_external_source()
+        (self.downloads / "evidence.json").write_bytes(b'{"changed":true}')
+        with self.assertRaisesRegex(SystemExit, "invalid external source verification"):
+            self.validate()
 
 
 if __name__ == "__main__":

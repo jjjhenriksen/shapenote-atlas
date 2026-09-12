@@ -14,6 +14,7 @@ from review_dispositions import (
     published_review_disposition,
     transcription_disposition,
 )
+from review_publications import external_source_receipt
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -59,7 +60,12 @@ def validate_draft_score(song: dict, book_id: str, score: dict, root: Path = ROO
             or source_url != publication.get("musicXmlUrl")
         ):
             raise SystemExit(f"{song['id']} {book_id}: invalid published draft provenance")
-        for field in ("musicXmlUrl", "sourceUrl", "evidenceUrl"):
+        source_policy = publication.get("sourcePublicationPolicy", "copy")
+        if source_policy not in ("copy", "external-link-only"):
+            raise SystemExit(f"{song['id']} {book_id}: invalid source publication policy")
+        fields = ("musicXmlUrl", "evidenceUrl", "sourceVerificationUrl") if source_policy == "external-link-only" else ("musicXmlUrl", "sourceUrl", "evidenceUrl")
+        retained_assets = {}
+        for field in fields:
             url = publication.get(field, "")
             if not isinstance(url, str) or not url.startswith("/review-publications/"):
                 raise SystemExit(f"{song['id']} {book_id}: invalid published draft {field}")
@@ -68,8 +74,22 @@ def validate_draft_score(song: dict, book_id: str, score: dict, root: Path = ROO
                 raise SystemExit(f"{song['id']} {book_id}: invalid published draft {field}")
             if not retained.is_file():
                 raise SystemExit(f"{song['id']} {book_id}: missing published draft {field} {retained}")
+            retained_assets[field] = retained
             if field == "musicXmlUrl" and hashlib.sha256(retained.read_bytes()).hexdigest() != provenance.get("sourceSha256"):
                 raise SystemExit(f"{song['id']} {book_id}: published draft MusicXML checksum drift")
+        if source_policy == "external-link-only":
+            try:
+                receipt_payload = retained_assets["sourceVerificationUrl"].read_bytes()
+                expected = external_source_receipt(
+                    song["id"], book_id, publication.get("version"), publication.get("sourceUrl"),
+                    publication.get("sourceSha256"), provenance.get("sourceSha256"),
+                    hashlib.sha256(retained_assets["evidenceUrl"].read_bytes()).hexdigest(),
+                )
+                if (hashlib.sha256(receipt_payload).hexdigest() != publication.get("sourceVerificationSha256")
+                        or json.loads(receipt_payload) != expected):
+                    raise ValueError("source verification receipt drift")
+            except (ValueError, TypeError) as error:
+                raise SystemExit(f"{song['id']} {book_id}: invalid external source verification: {error}") from error
     elif not isinstance(source_url, str) or not source_url.startswith("draft://"):
         raise SystemExit(f"{song['id']} {book_id}: incomplete draft score asset")
     transposition = asset.get("transposition", {})

@@ -4,6 +4,13 @@
 Run directly for a targeted update; build_data also runs this after regeneration.
 The manifest, not candidate filenames or historical safeToPromote flags, authorizes
 review publication. Original candidate bytes and all other corpus rows are retained.
+
+Sources default to the existing copied, hash-checked publication asset. Opt in
+to source ``publicationPolicy: external-link-only`` with a pinned ``path``,
+``sha256`` and absolute HTTPS ``url`` to retain only a verification receipt.
+Initial publication still requires the exact private source bytes. Subsequent
+regeneration may reuse the matching prior receipt, which does not verify the
+current remote content/availability or independently reread absent source bytes.
 """
 from __future__ import annotations
 
@@ -12,7 +19,9 @@ import hashlib
 import io
 import json
 from pathlib import Path
+import re
 import tempfile
+from urllib.parse import urlsplit
 import zipfile
 from xml.etree import ElementTree as ET
 
@@ -55,6 +64,43 @@ def json_bytes(value: object) -> bytes:
     return json.dumps(value, ensure_ascii=False, separators=(",", ":")).encode()
 
 
+def external_source_receipt(song_id: str, book_id: str, version: str,
+                            source_url: str, source_sha: str,
+                            music_xml_sha: str, evidence_sha: str) -> dict:
+    """Describe initial retained-byte proof, never a fresh remote/source read.
+
+The receipt is retained publicly instead of the private source bytes. A clean
+checkout can validate its binding to the pinned candidate, evidence and source
+identity; that is not independent revalidation of the absent source or URL.
+"""
+    if not isinstance(source_url, str) or any(c.isspace() or ord(c) < 32 or ord(c) == 127 for c in source_url) or "\\" in source_url:
+        raise ValueError("External source URL must be an absolute HTTPS URL without credentials")
+    try:
+        parsed = urlsplit(source_url)
+        valid = (parsed.scheme == "https" and parsed.hostname
+                 and parsed.username is None and parsed.password is None)
+        parsed.port  # Reject malformed port syntax, even though no request is made.
+    except ValueError:
+        valid = False
+    if not valid:
+        raise ValueError("External source URL must be an absolute HTTPS URL without credentials")
+    for digest in (source_sha, music_xml_sha, evidence_sha):
+        if not isinstance(digest, str) or not re.fullmatch(r"[0-9a-f]{64}", digest):
+            raise ValueError("External source receipt requires pinned SHA-256 digests")
+    return {
+        "schemaVersion": 1, "publicationPolicy": "external-link-only",
+        "songId": song_id, "bookId": book_id, "version": version,
+        "sourceUrl": source_url, "sourceSha256": source_sha,
+        "musicXmlSha256": music_xml_sha, "evidenceSha256": evidence_sha,
+        "verification": {
+            "method": "local-retained-source-sha256",
+            "scope": "retained-bytes-at-initial-publication",
+            "remoteContentVerified": False, "remoteAvailabilityVerified": False,
+            "sourceCopyPublished": False,
+        },
+    }
+
+
 def publish(root: Path = ROOT, public: Path | None = None, manifest: Path | None = None) -> list[str]:
     from build_data import (parse_score, prepare_score_for_playback,
                             build_draft_playback_validation, _add_transposition_capability)
@@ -75,12 +121,46 @@ def publish(root: Path = ROOT, public: Path | None = None, manifest: Path | None
         stem = entry["slug"] + "-" + entry["version"]
         urls = {}
         inputs = {}
+        source_policy = entry["source"].get("publicationPolicy", "copy")
+        if source_policy not in ("copy", "external-link-only"):
+            raise ValueError(f"Unsupported source publication policy: {source_policy!r}")
+        if source_policy == "copy" and "url" in entry["source"]:
+            raise ValueError("A source URL requires explicit external-link-only publication policy")
+        external_metadata = {}
         fields = [("musicXml", "musicXmlUrl"), ("source", "sourceUrl"), ("evidence", "evidenceUrl")]
         if "originalMusicXml" in entry:
             fields.append(("originalMusicXml", "originalMusicXmlUrl"))
         for field, url_field in fields:
             spec = entry[field]
             path = root / spec["path"]
+            if field == "source" and source_policy == "external-link-only":
+                receipt = external_source_receipt(
+                    entry["songId"], book, entry["version"], spec.get("url"), spec["sha256"],
+                    entry["musicXml"]["sha256"], entry["evidence"]["sha256"],
+                )
+                receipt_payload = json_bytes(receipt)
+                receipt_name = stem + "-source-verification.json"
+                if path.exists():
+                    if hashlib.sha256(path.read_bytes()).hexdigest() != spec["sha256"]:
+                        raise ValueError(f"Pinned publication input changed: {path}")
+                else:
+                    # Do not mint a new source-verification claim from manifest
+                    # metadata alone. Only a matching prior receipt can support
+                    # regeneration after the private source leaves a checkout.
+                    packaged = root / "public/review-publications" / receipt_name
+                    retained = packaged if packaged.exists() else public / "review-publications" / receipt_name
+                    if not retained.is_file():
+                        raise ValueError(f"External source requires retained bytes or a prior verification receipt: {path}")
+                    if retained.read_bytes() != receipt_payload:
+                        raise ValueError(f"External source verification receipt changed: {retained}")
+                urls[url_field] = spec["url"]
+                external_metadata = {
+                    "sourcePublicationPolicy": source_policy, "sourceSha256": spec["sha256"],
+                    "sourceVerificationUrl": "/review-publications/" + receipt_name,
+                    "sourceVerificationSha256": hashlib.sha256(receipt_payload).hexdigest(),
+                }
+                pending_assets[public / "review-publications" / receipt_name] = receipt_payload
+                continue
             name = stem + "-" + field + path.suffix
             packaged = root / "public" / "review-publications" / name
             retained = path if path.exists() else packaged if packaged.exists() else public / "review-publications" / name
@@ -91,7 +171,7 @@ def publish(root: Path = ROOT, public: Path | None = None, manifest: Path | None
             name = stem + "-" + field + path.suffix
             urls[url_field] = "/review-publications/" + name
             pending_assets[public / "review-publications" / name] = payload
-        metadata = {**urls, "version": entry["version"], "completeness": entry["completeness"],
+        metadata = {**urls, **external_metadata, "version": entry["version"], "completeness": entry["completeness"],
                     "limitations": entry["limitations"]}
         xml = inputs["musicXml"]
         if "originalMusicXml" in inputs:
