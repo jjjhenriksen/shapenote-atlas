@@ -48,3 +48,65 @@ test('discovery facets stay source-safe and use record-declared parts', () => {
  assert.ok(matchesDiscovery(scored, 'sh1991', 'all', false, { part }));
  assert.equal(isTransposable(scored, 'sh1991'), true);
 });
+
+test('unknown-key published drafts require manual input and are not transposable filter matches', () => {
+ for (const [book, id] of [
+  ['kentucky', 'kentucky 10 — New-Salem'],
+  ['shenandoah', 'shenandoah 10 — Something New'],
+ ]) {
+  const song = corpus.songs.find(s => s.id === id);
+  assert.ok(song, id);
+  const draft = song.draftScoreByBook[book];
+  assert.equal(draft.keyEvidence.status, 'unknown', id);
+  assert.equal(draft.transposition.manualKeyAllowed, true, id);
+  assert.equal(notationKind(song, book), 'draft', id);
+  assert.equal(isTransposable(song, book), false, id);
+  assert.equal(matchesDiscovery(song, book, 'draft', false, { transposable: true }), false, id);
+  assert.equal(matchesDiscovery(song, book, 'draft'), true, id);
+ }
+});
+
+test('validated exact and reference witnesses remain transposable without changing their classification', () => {
+ const song = corpus.songs.find(s => s.id === 'sh 564 — Zion');
+ assert.ok(song);
+ for (const [book, kind, field] of [
+  ['sh1991', 'exact', 'scoreByBook'],
+  ['sh2025', 'reference', 'referenceScoreByBook'],
+ ]) {
+  const score = song[field][book];
+  assert.equal(score.keyEvidence.status, 'source-verified', book);
+  assert.equal(score.transposition.available, true, book);
+  assert.ok(score.parts.every(part => part.events.length === 0), 'preview does not contain full pitched events');
+  assert.equal(notationKind(song, book), kind, book);
+  assert.equal(matchesDiscovery(song, book, kind, false, { transposable: true }), true, book);
+ }
+});
+
+test('quarantined draft stays excluded even when it has an observed source key', () => {
+ const song = corpus.songs.find(s => s.id === 'sh 453 (sh2025) — Newbury');
+ assert.ok(song);
+ const draft = song.draftScoreByBook.sh2025;
+ assert.equal(draft.keyEvidence.status, 'source-observed');
+ assert.ok(draft.keySignature);
+ assert.equal(draft.playbackValidation.status, 'quarantined');
+ assert.equal(isTransposable(song, 'sh2025'), false);
+ assert.equal(matchesDiscovery(song, 'sh2025', 'draft'), true);
+ for (const validation of [{ status: 'quarantined' }, { safeToApply: false }]) {
+  const stale = { draftScoreByBook: { sh2025: { ...draft, transposition: { ...draft.transposition, available: true }, playbackValidation: validation } } };
+  assert.equal(isTransposable(stale, 'sh2025'), false);
+ }
+});
+
+test('transposable filter does not infer capability from keys, evidence, metadata, or other assets', () => {
+ for (const capability of [undefined, { available: false }, { available: 'true' }, { manualKeyAllowed: true }]) {
+  const witness = { keySignature: 'G major', keyEvidence: { status: 'source-verified' }, transposition: capability };
+  const song = {
+   referenceScoreByBook: { sh2025: witness },
+   draftScoreByBook: { sh2025: { transposition: { available: true } } },
+   scoreByBook: { sh1991: { transposition: { available: true } } },
+   metadataByBook: { sh2025: { keySignature: 'A minor', keyEvidence: { status: 'source-verified' } } },
+  };
+  assert.equal(isTransposable(song, 'sh2025'), false);
+ }
+ assert.equal(isTransposable({ metadataByBook: { sh2025: { keySignature: 'A minor' } } }, 'sh2025'), false);
+});

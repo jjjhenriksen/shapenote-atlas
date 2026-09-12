@@ -1,3 +1,5 @@
+import { resolvePlaybackQuarantine } from './practice.js';
+
 // Availability describes the selected edition's existing asset, never a promotion.
 export function notationKind(song, bookId) {
   if (song.scoreByBook?.[bookId]) return 'exact';
@@ -23,7 +25,10 @@ export function availableParts(song, bookId) {
 
 export function isTransposable(song, bookId) {
   const score = song.scoreByBook?.[bookId] || song.referenceScoreByBook?.[bookId] || song.draftScoreByBook?.[bookId];
-  return Boolean(score?.transposition?.available || score?.keySignature || score?.keyEvidence);
+  // Previews omit events, so use the source asset's validated capability.
+  // Key evidence may explicitly be unknown; metadata or manual-key support
+  // must not turn that witness into an immediately transposable result.
+  return score?.transposition?.available === true && !resolvePlaybackQuarantine(score).quarantined;
 }
 
 export function matchesDiscovery(song, bookId, availability = 'all', additionsOnly = false, facets = {}) {
