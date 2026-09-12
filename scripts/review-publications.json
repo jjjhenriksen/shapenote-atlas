@@ -6,24 +6,24 @@
       "slug": "mnharmony-afton",
       "songId": "mnharmony afton — Afton",
       "bookId": "mnharmony",
-      "version": "v25",
+      "version": "v26",
       "completeness": "complete",
       "limitations": [
         "Full-song notation draft, not a certified edition transcription.",
-        "Some lyric syllable alignment and melismas remain unresolved, especially measure 8 Treble 1.",
+        "Lyric underlay remains incomplete in measure 4 across P1–P3, measure 8 Treble 1, and parts of Treble 2; multi-note spans and inherited syllabic labels still need source review.",
         "Mode is unknown; supply a source key for transposition."
       ],
       "musicXml": {
-        "path": "work/openclaw-afton-20260907/afton-full-song-candidate-v25.musicxml",
-        "sha256": "7db156b17f9bb126415c0816bf9919fa4c43e4c738bbb7e597d2a9ea87b0d444"
+        "path": "work/openclaw-afton-v26-20260911/afton-full-song-candidate-v26.musicxml",
+        "sha256": "168d501730ef27027bc8e304f34a9c8d450794399aefac3212fe0141d8cc7d2b"
       },
       "source": {
         "path": "work/luna-program-20260904/source_only/retained-sources/mnharmony-afton.pdf",
         "sha256": "6ba40c10dbdfa9b93e16f67ae34619254c88004367d802f07a6eddd156047192"
       },
       "evidence": {
-        "path": "work/openclaw-afton-20260907/afton-v25-review.json",
-        "sha256": "23c9116d597de0a7f218081cf79e5999bdebcdc6f8389e2fe3e726145b75aa32"
+        "path": "work/openclaw-afton-v26-20260911/afton-v26-review.json",
+        "sha256": "387463d0fbfed78f49526d54a803da26adbae4e5f2443d9d0db0c481101df48f"
       }
     },
     {
