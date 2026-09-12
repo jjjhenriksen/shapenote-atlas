@@ -1,0 +1,374 @@
+{
+  "schema": "shape-note-atlas/socialharp-page-map-supplement/v12",
+  "review_date": "2026-09-11",
+  "baseline": {
+    "path": "work/luna-program-20260904/source_only/socialharp-page-map-20260904.json",
+    "sha256": "8b30106fb48d2467d70063d684ac144887b02e3cfec4470da103dc13d2c90963",
+    "summary": {
+      "catalogue_records": 221,
+      "uniquely_mapped_records": 67,
+      "unresolved_records": 154
+    }
+  },
+  "previous_supplements": [
+    {
+      "path": "work/openclaw-socialharp-20260907/socialharp-page-map-supplement-v1.json",
+      "sha256": "c4c80ad0606d474367854fc37fb8ba9d6893535df63155e09c4e8f711f6c72d8"
+    },
+    {
+      "path": "work/openclaw-socialharp-next-20260907/socialharp-page-map-supplement-v2.json",
+      "sha256": "dce4d99b6c3b47bcf0278d97f57845583aff3c428e0aff3072e759bf891e45e8"
+    },
+    {
+      "path": "work/openclaw-socialharp-third-20260907/socialharp-page-map-supplement-v3.json",
+      "sha256": "b63db5100de59964fc15b0c17b8267d870a216ca9be5d3f54701eb4a410762ae"
+    },
+    {
+      "path": "work/openclaw-socialharp-fourth-20260911/socialharp-page-map-supplement-v4.json",
+      "sha256": "b5b7ccb12c6a520abb2a66e2b30eb933501cd74a25bb5c9e0679e8eba202b405"
+    },
+    {
+      "path": "work/openclaw-socialharp-fifth-20260911/socialharp-page-map-supplement-v5.json",
+      "sha256": "2b91a3144806dc559aeda1d9f08c96eb9739fd0cc06844f9ee064c5d9f8d3b9d"
+    },
+    {
+      "path": "work/openclaw-socialharp-sixth-20260911/socialharp-page-map-supplement-v6.json",
+      "sha256": "75567840aa707c331485af34638d0601f6fa434365a1fccf5e7f5110cbcf0843"
+    },
+    {
+      "path": "work/openclaw-socialharp-seventh-20260911/socialharp-page-map-supplement-v7.json",
+      "sha256": "4c18c6aa6a0c5534172cf157875c6b8870ec631a75336ec3895e44cb1f89ef63"
+    },
+    {
+      "path": "work/openclaw-socialharp-eighth-20260911/socialharp-page-map-supplement-v8.json",
+      "sha256": "acff9bb979828a2b18ae12d19cda4b6717bf21e51e7d722fa9e4243467cc5f4b"
+    },
+    {
+      "path": "work/openclaw-socialharp-ninth-20260911/socialharp-page-map-supplement-v9.json",
+      "sha256": "e290a1005193a30c44bea702803ae6cab51d08fe3696ea93cca43a69986f7124"
+    },
+    {
+      "path": "work/openclaw-socialharp-tenth-20260911/socialharp-page-map-supplement-v10.json",
+      "sha256": "5ac7335e7575b616d853ff049ea3fa5c6578def509f0009b42122b1adef3d50f"
+    },
+    {
+      "path": "work/openclaw-socialharp-eleventh-20260911/socialharp-page-map-supplement-v11.json",
+      "sha256": "4ba135de666f208cf0a49d4916d2a444c5143a107bc79aeba4b9347893a23118"
+    }
+  ],
+  "source": {
+    "path": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+    "sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331"
+  },
+  "policy": {
+    "supplement_only": true,
+    "original_mapping_unchanged": true,
+    "previous_supplements_unchanged": true,
+    "notation_imported": false,
+    "lyrics_or_notes_inferred": false,
+    "catalogue_discrepancy": "221 corpus records versus 222 historical count remains unresolved; page-identity review does not settle inventory.",
+    "renders_local_only": true
+  },
+  "summary": {
+    "reviewed_records": 10,
+    "resolved_source_identities": 10,
+    "distinct_reviewed_pdf_leaves": 9,
+    "previous_combined_mapped": 147,
+    "combined_mapped": 157,
+    "previous_combined_unresolved": 74,
+    "combined_unresolved": 64,
+    "catalogue_records_unchanged": 221
+  },
+  "records": [
+    {
+      "record_id": "socialharp 211 — THE TRUMPET",
+      "song_no": "211",
+      "catalogue_title": "THE TRUMPET",
+      "literal_heading": "THE TRUMPET.",
+      "pdf_leaf_1_based": 211,
+      "printed_page": "211",
+      "page_region": "top",
+      "heading_bbox_px": [
+        437,
+        14,
+        734,
+        65
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-twelfth-20260911/renders/leaf-211.png",
+      "render_sha256": "7250097f7ac790ba813a55610dffa1319be6acc0b4f324f1e2cb75850d32b4c3",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 211 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 213 — NEBRASKA",
+      "song_no": "213",
+      "catalogue_title": "NEBRASKA",
+      "literal_heading": "NEBRASKA.",
+      "pdf_leaf_1_based": 213,
+      "printed_page": "213",
+      "page_region": "top",
+      "heading_bbox_px": [
+        393,
+        24,
+        619,
+        75
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-twelfth-20260911/renders/leaf-213.png",
+      "render_sha256": "47349af51a352db9c8d2b735176391383b93d29e9dd19ec1812dee55391cdc64",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 213 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 215 — EXPRESSION",
+      "song_no": "215",
+      "catalogue_title": "EXPRESSION",
+      "literal_heading": "EXPRESSION.",
+      "pdf_leaf_1_based": 215,
+      "printed_page": "215",
+      "page_region": "top",
+      "heading_bbox_px": [
+        387,
+        29,
+        637,
+        79
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-twelfth-20260911/renders/leaf-215.png",
+      "render_sha256": "2dd126430e254c583796d166b112f791b94de757e44d029535282e446b9575e2",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 215 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 218b — BANGOR",
+      "song_no": "218b",
+      "catalogue_title": "BANGOR",
+      "literal_heading": "BANGOR.",
+      "pdf_leaf_1_based": 218,
+      "printed_page": "218",
+      "page_region": "bottom",
+      "heading_bbox_px": [
+        452,
+        587,
+        626,
+        636
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-twelfth-20260911/renders/leaf-218.png",
+      "render_sha256": "d345a3040b5429cc206b9dbbb15054e8539cda3a3a3e9f0d8176008cf486154e",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Lower opening below Blackburn; printed page 218 at upper left identifies their shared leaf.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 218t — BLACKBURN",
+      "song_no": "218t",
+      "catalogue_title": "BLACKBURN",
+      "literal_heading": "BLACKBURN.",
+      "pdf_leaf_1_based": 218,
+      "printed_page": "218",
+      "page_region": "top",
+      "heading_bbox_px": [
+        520,
+        36,
+        768,
+        87
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-twelfth-20260911/renders/leaf-218.png",
+      "render_sha256": "d345a3040b5429cc206b9dbbb15054e8539cda3a3a3e9f0d8176008cf486154e",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Upper opening above Bangor; printed page 218 at upper left identifies their shared leaf.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 219 — BAPTISMAL ANTHEM",
+      "song_no": "219",
+      "catalogue_title": "BAPTISMAL ANTHEM",
+      "literal_heading": "BAPTISMAL ANTHEM.",
+      "pdf_leaf_1_based": 219,
+      "printed_page": "219",
+      "page_region": "bottom",
+      "heading_bbox_px": [
+        392,
+        510,
+        807,
+        560
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-twelfth-20260911/renders/leaf-219.png",
+      "render_sha256": "8d133d38b11b9846a335d3802fb84ab6989c47c3211df9bc46bf2ef0132c151f",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening below PART VI.; printed page 219 beneath the final staff at lower right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 227 — EAGLE GROVE",
+      "song_no": "227",
+      "catalogue_title": "EAGLE GROVE",
+      "literal_heading": "EAGLE GROVE.",
+      "pdf_leaf_1_based": 227,
+      "printed_page": "227",
+      "page_region": "top",
+      "heading_bbox_px": [
+        436,
+        27,
+        722,
+        78
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-twelfth-20260911/renders/leaf-227.png",
+      "render_sha256": "31adc48e01e947d9acbf4fe23c43d4091fb1f1c62e8b204e7ec4b9001d162a28",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 227 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 229 — EASTER ANTHEM",
+      "song_no": "229",
+      "catalogue_title": "EASTER ANTHEM",
+      "literal_heading": "EASTER ANTHEM.",
+      "pdf_leaf_1_based": 229,
+      "printed_page": "229",
+      "page_region": "top",
+      "heading_bbox_px": [
+        417,
+        43,
+        760,
+        94
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-twelfth-20260911/renders/leaf-229.png",
+      "render_sha256": "ffcbedb8c17216dea883da993d202fc113ffd59b90d03b61c21b04d51fdbc65b",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 229 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 233 — THE ROCK",
+      "song_no": "233",
+      "catalogue_title": "THE ROCK",
+      "literal_heading": "THE ROCK.",
+      "pdf_leaf_1_based": 233,
+      "printed_page": "233",
+      "page_region": "bottom",
+      "heading_bbox_px": [
+        461,
+        633,
+        678,
+        684
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-twelfth-20260911/renders/leaf-233.png",
+      "render_sha256": "16441b6c4791845da1dd4c10ed02c663bb1dc089f38de1aec5624a358be2a13f",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Lower opening below EASTER ANTHEM. Concluded.; printed page 233 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 235 — SOUTH UNION",
+      "song_no": "235",
+      "catalogue_title": "SOUTH UNION",
+      "literal_heading": "SOUTH UNION.",
+      "pdf_leaf_1_based": 235,
+      "printed_page": "235",
+      "page_region": "top",
+      "heading_bbox_px": [
+        459,
+        28,
+        740,
+        78
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-twelfth-20260911/renders/leaf-235.png",
+      "render_sha256": "54a35f0c8a0c444892863e388ba381ccbc678458b0b2207c95360932f68e771a",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 235 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    }
+  ]
+}
