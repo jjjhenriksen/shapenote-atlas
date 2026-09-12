@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { getDocsConfig } from "./docs-content.jsx";
+import atlasReaderImage from "../docs/images/atlas-reader.png";
 import "./docs.css";
 
 const BASE_URL = import.meta.env.BASE_URL || "/";
@@ -31,7 +32,7 @@ const routes = {
   glossary: `${DOCS_ROOT}glossary/`,
 };
 
-const { pages, groups } = getDocsConfig(routes, { guideUrl: GUIDE_URL, repositoryUrl: REPOSITORY_URL, imageUrl: `${BASE_URL}docs/images/atlas-reader.png` });
+const { pages, groups } = getDocsConfig(routes, { guideUrl: GUIDE_URL, repositoryUrl: REPOSITORY_URL, imageUrl: atlasReaderImage });
 const pageOrder = groups.flatMap((group) => group.keys);
 
 function useStoredTheme() {
