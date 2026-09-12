@@ -10,6 +10,10 @@ export default defineConfig({
       input: {
         atlas: resolve(process.cwd(), "index.html"),
         docs: resolve(process.cwd(), "docs/index.html"),
+        docsGettingStarted: resolve(process.cwd(), "docs/getting-started/index.html"),
+        docsReader: resolve(process.cwd(), "docs/reader/index.html"),
+        docsEvidence: resolve(process.cwd(), "docs/evidence/index.html"),
+        docsMaintainer: resolve(process.cwd(), "docs/maintainer/index.html"),
       },
     },
   },
