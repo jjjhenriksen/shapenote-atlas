@@ -1,0 +1,390 @@
+{
+  "schema": "shape-note-atlas/socialharp-page-map-supplement/v16",
+  "review_date": "2026-09-11",
+  "baseline": {
+    "path": "work/luna-program-20260904/source_only/socialharp-page-map-20260904.json",
+    "sha256": "8b30106fb48d2467d70063d684ac144887b02e3cfec4470da103dc13d2c90963",
+    "summary": {
+      "catalogue_records": 221,
+      "uniquely_mapped_records": 67,
+      "unresolved_records": 154
+    }
+  },
+  "previous_supplements": [
+    {
+      "path": "work/openclaw-socialharp-20260907/socialharp-page-map-supplement-v1.json",
+      "sha256": "c4c80ad0606d474367854fc37fb8ba9d6893535df63155e09c4e8f711f6c72d8"
+    },
+    {
+      "path": "work/openclaw-socialharp-next-20260907/socialharp-page-map-supplement-v2.json",
+      "sha256": "dce4d99b6c3b47bcf0278d97f57845583aff3c428e0aff3072e759bf891e45e8"
+    },
+    {
+      "path": "work/openclaw-socialharp-third-20260907/socialharp-page-map-supplement-v3.json",
+      "sha256": "b63db5100de59964fc15b0c17b8267d870a216ca9be5d3f54701eb4a410762ae"
+    },
+    {
+      "path": "work/openclaw-socialharp-fourth-20260911/socialharp-page-map-supplement-v4.json",
+      "sha256": "b5b7ccb12c6a520abb2a66e2b30eb933501cd74a25bb5c9e0679e8eba202b405"
+    },
+    {
+      "path": "work/openclaw-socialharp-fifth-20260911/socialharp-page-map-supplement-v5.json",
+      "sha256": "2b91a3144806dc559aeda1d9f08c96eb9739fd0cc06844f9ee064c5d9f8d3b9d"
+    },
+    {
+      "path": "work/openclaw-socialharp-sixth-20260911/socialharp-page-map-supplement-v6.json",
+      "sha256": "75567840aa707c331485af34638d0601f6fa434365a1fccf5e7f5110cbcf0843"
+    },
+    {
+      "path": "work/openclaw-socialharp-seventh-20260911/socialharp-page-map-supplement-v7.json",
+      "sha256": "4c18c6aa6a0c5534172cf157875c6b8870ec631a75336ec3895e44cb1f89ef63"
+    },
+    {
+      "path": "work/openclaw-socialharp-eighth-20260911/socialharp-page-map-supplement-v8.json",
+      "sha256": "acff9bb979828a2b18ae12d19cda4b6717bf21e51e7d722fa9e4243467cc5f4b"
+    },
+    {
+      "path": "work/openclaw-socialharp-ninth-20260911/socialharp-page-map-supplement-v9.json",
+      "sha256": "e290a1005193a30c44bea702803ae6cab51d08fe3696ea93cca43a69986f7124"
+    },
+    {
+      "path": "work/openclaw-socialharp-tenth-20260911/socialharp-page-map-supplement-v10.json",
+      "sha256": "5ac7335e7575b616d853ff049ea3fa5c6578def509f0009b42122b1adef3d50f"
+    },
+    {
+      "path": "work/openclaw-socialharp-eleventh-20260911/socialharp-page-map-supplement-v11.json",
+      "sha256": "4ba135de666f208cf0a49d4916d2a444c5143a107bc79aeba4b9347893a23118"
+    },
+    {
+      "path": "work/openclaw-socialharp-twelfth-20260911/socialharp-page-map-supplement-v12.json",
+      "sha256": "2f2cf64de373613ad3a2ec38710995f1037dcd97651120cb52f849698ea04e9d"
+    },
+    {
+      "path": "work/openclaw-socialharp-thirteenth-20260911/socialharp-page-map-supplement-v13.json",
+      "sha256": "19dfd706e77fd5a074202769d31cc4dbabf9973d7b0c07b75104ab0e17e70089"
+    },
+    {
+      "path": "work/openclaw-socialharp-fourteenth-20260911/socialharp-page-map-supplement-v14.json",
+      "sha256": "19fc5336591606accba8d4842f8dbe5b34bb678ccd12c49db5ff5d7725d17e7e"
+    },
+    {
+      "path": "work/openclaw-socialharp-fifteenth-20260911/socialharp-page-map-supplement-v15.json",
+      "sha256": "c3c1c54ca9a83365cc6e57563d94f1259ba38c8f794de12e622897e23806c49c"
+    }
+  ],
+  "source": {
+    "path": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+    "sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331"
+  },
+  "policy": {
+    "supplement_only": true,
+    "original_mapping_unchanged": true,
+    "previous_supplements_unchanged": true,
+    "notation_imported": false,
+    "lyrics_or_notes_inferred": false,
+    "catalogue_discrepancy": "221 corpus records versus 222 historical count remains unresolved; page-identity review does not settle inventory.",
+    "renders_local_only": true
+  },
+  "summary": {
+    "reviewed_records": 10,
+    "resolved_source_identities": 10,
+    "distinct_reviewed_pdf_leaves": 7,
+    "previous_combined_mapped": 187,
+    "combined_mapped": 197,
+    "previous_combined_unresolved": 34,
+    "combined_unresolved": 24,
+    "catalogue_records_unchanged": 221
+  },
+  "records": [
+    {
+      "record_id": "socialharp 52b — CARTER",
+      "song_no": "52b",
+      "catalogue_title": "CARTER",
+      "literal_heading": "CARTER.",
+      "pdf_leaf_1_based": 52,
+      "printed_page": "52",
+      "page_region": "bottom",
+      "heading_bbox_px": [
+        495,
+        600,
+        670,
+        650
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-sixteenth-20260911/renders/leaf-52.png",
+      "render_sha256": "6b433b91ff2df998e4f1af69960b8362d58d945d56f994a727053f2d4db8f816",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently. Recovered renders reproduced byte-for-byte from pinned retained PDF.",
+      "observations": "Lower opening below Hebbord; printed page 52 at upper left identifies their shared leaf.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 52t — HEBBORD",
+      "song_no": "52t",
+      "catalogue_title": "HEBBORD",
+      "literal_heading": "HEBBORD.",
+      "pdf_leaf_1_based": 52,
+      "printed_page": "52",
+      "page_region": "top",
+      "heading_bbox_px": [
+        495,
+        30,
+        695,
+        80
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-sixteenth-20260911/renders/leaf-52.png",
+      "render_sha256": "6b433b91ff2df998e4f1af69960b8362d58d945d56f994a727053f2d4db8f816",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently. Recovered renders reproduced byte-for-byte from pinned retained PDF.",
+      "observations": "Upper opening above Carter; printed page 52 at upper left identifies their shared leaf.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 53 — PALMS OF VICTORY",
+      "song_no": "53",
+      "catalogue_title": "PALMS OF VICTORY",
+      "literal_heading": "PALMS OF VICTORY.",
+      "pdf_leaf_1_based": 53,
+      "printed_page": "53",
+      "page_region": "top",
+      "heading_bbox_px": [
+        455,
+        25,
+        850,
+        80
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-sixteenth-20260911/renders/leaf-53.png",
+      "render_sha256": "c3cab1a513642bb04452ae3bfcc36b8262c70f960ffbfcfb4a3605bacad585ca",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently. Recovered renders reproduced byte-for-byte from pinned retained PDF.",
+      "observations": "Opening above first system; printed page 53 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 54b — AMERICA",
+      "song_no": "54b",
+      "catalogue_title": "AMERICA",
+      "literal_heading": "AMERICA.",
+      "pdf_leaf_1_based": 54,
+      "printed_page": "54",
+      "page_region": "bottom",
+      "heading_bbox_px": [
+        535,
+        483,
+        730,
+        530
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-sixteenth-20260911/renders/leaf-54.png",
+      "render_sha256": "700a9744aba179f2aeecf76c180cfdf2e58bf80cfe5c92d4ef285c2cf2ba8517",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently. Recovered renders reproduced byte-for-byte from pinned retained PDF.",
+      "observations": "Lower opening below Fairfield; printed page 54 at upper left identifies their shared leaf.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 54t — FAIRFIELD",
+      "song_no": "54t",
+      "catalogue_title": "FAIRFIELD",
+      "literal_heading": "FAIRFIELD.",
+      "pdf_leaf_1_based": 54,
+      "printed_page": "54",
+      "page_region": "top",
+      "heading_bbox_px": [
+        535,
+        18,
+        762,
+        70
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-sixteenth-20260911/renders/leaf-54.png",
+      "render_sha256": "700a9744aba179f2aeecf76c180cfdf2e58bf80cfe5c92d4ef285c2cf2ba8517",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently. Recovered renders reproduced byte-for-byte from pinned retained PDF.",
+      "observations": "Upper opening above America; printed page 54 at upper left identifies their shared leaf.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 55b — IDUMEA",
+      "song_no": "55b",
+      "catalogue_title": "IDUMEA",
+      "literal_heading": "IDUMEA.",
+      "pdf_leaf_1_based": 55,
+      "printed_page": "55",
+      "page_region": "bottom",
+      "heading_bbox_px": [
+        480,
+        622,
+        653,
+        670
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-sixteenth-20260911/renders/leaf-55.png",
+      "render_sha256": "1c4e87827b781d8b1066be2c98713fc1192bc24ccada99ea3d3e09390b9852c9",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently. Recovered renders reproduced byte-for-byte from pinned retained PDF.",
+      "observations": "Lower opening below Supplication; printed page 55 at upper right identifies their shared leaf.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 55t — SUPPLICATION",
+      "song_no": "55t",
+      "catalogue_title": "SUPPLICATION",
+      "literal_heading": "SUPPLICATION.",
+      "pdf_leaf_1_based": 55,
+      "printed_page": "55",
+      "page_region": "top",
+      "heading_bbox_px": [
+        475,
+        30,
+        770,
+        82
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-sixteenth-20260911/renders/leaf-55.png",
+      "render_sha256": "1c4e87827b781d8b1066be2c98713fc1192bc24ccada99ea3d3e09390b9852c9",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently. Recovered renders reproduced byte-for-byte from pinned retained PDF.",
+      "observations": "Upper opening above Idumea; printed page 55 at upper right identifies their shared leaf.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 57 — JEFFERSON",
+      "song_no": "57",
+      "catalogue_title": "JEFFERSON",
+      "literal_heading": "JEFFERSON.",
+      "pdf_leaf_1_based": 57,
+      "printed_page": "57",
+      "page_region": "top",
+      "heading_bbox_px": [
+        505,
+        34,
+        740,
+        86
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-sixteenth-20260911/renders/leaf-57.png",
+      "render_sha256": "898e0b14c2331469fd54a50d79f8bff09f9e33245f337481c279e1775a73df9d",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently. Recovered renders reproduced byte-for-byte from pinned retained PDF.",
+      "observations": "Opening above first system; printed page 57 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 58 — FAMILY BIBLE",
+      "song_no": "58",
+      "catalogue_title": "FAMILY BIBLE",
+      "literal_heading": "FAMILY BIBLE.",
+      "pdf_leaf_1_based": 58,
+      "printed_page": "58",
+      "page_region": "top",
+      "heading_bbox_px": [
+        535,
+        33,
+        833,
+        84
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-sixteenth-20260911/renders/leaf-58.png",
+      "render_sha256": "c59d325249934f085a43010d596c8776a93daa0b01fce36c30bade8a84bff813",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently. Recovered renders reproduced byte-for-byte from pinned retained PDF.",
+      "observations": "Opening above first system; printed page 58 at upper left. The next leaf has its separate continuation above King of Peace.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 59 — KING OF PEACE",
+      "song_no": "59",
+      "catalogue_title": "KING OF PEACE",
+      "literal_heading": "KING OF PEACE.",
+      "pdf_leaf_1_based": 59,
+      "printed_page": "59",
+      "page_region": "bottom",
+      "heading_bbox_px": [
+        345,
+        641,
+        669,
+        690
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-sixteenth-20260911/renders/leaf-59.png",
+      "render_sha256": "3de7ce8165bb71bec15eee15d283c80b64e524bbe5ffca66786e816372c3d5af",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently. Recovered renders reproduced byte-for-byte from pinned retained PDF.",
+      "observations": "Lower opening below FAMILY BIBLE. Concluded.; printed page 59 at upper right identifies the shared leaf, not a new Family Bible opening.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    }
+  ]
+}
