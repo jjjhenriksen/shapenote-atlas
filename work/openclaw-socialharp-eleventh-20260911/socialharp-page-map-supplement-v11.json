@@ -1,0 +1,370 @@
+{
+  "schema": "shape-note-atlas/socialharp-page-map-supplement/v11",
+  "review_date": "2026-09-11",
+  "baseline": {
+    "path": "work/luna-program-20260904/source_only/socialharp-page-map-20260904.json",
+    "sha256": "8b30106fb48d2467d70063d684ac144887b02e3cfec4470da103dc13d2c90963",
+    "summary": {
+      "catalogue_records": 221,
+      "uniquely_mapped_records": 67,
+      "unresolved_records": 154
+    }
+  },
+  "previous_supplements": [
+    {
+      "path": "work/openclaw-socialharp-20260907/socialharp-page-map-supplement-v1.json",
+      "sha256": "c4c80ad0606d474367854fc37fb8ba9d6893535df63155e09c4e8f711f6c72d8"
+    },
+    {
+      "path": "work/openclaw-socialharp-next-20260907/socialharp-page-map-supplement-v2.json",
+      "sha256": "dce4d99b6c3b47bcf0278d97f57845583aff3c428e0aff3072e759bf891e45e8"
+    },
+    {
+      "path": "work/openclaw-socialharp-third-20260907/socialharp-page-map-supplement-v3.json",
+      "sha256": "b63db5100de59964fc15b0c17b8267d870a216ca9be5d3f54701eb4a410762ae"
+    },
+    {
+      "path": "work/openclaw-socialharp-fourth-20260911/socialharp-page-map-supplement-v4.json",
+      "sha256": "b5b7ccb12c6a520abb2a66e2b30eb933501cd74a25bb5c9e0679e8eba202b405"
+    },
+    {
+      "path": "work/openclaw-socialharp-fifth-20260911/socialharp-page-map-supplement-v5.json",
+      "sha256": "2b91a3144806dc559aeda1d9f08c96eb9739fd0cc06844f9ee064c5d9f8d3b9d"
+    },
+    {
+      "path": "work/openclaw-socialharp-sixth-20260911/socialharp-page-map-supplement-v6.json",
+      "sha256": "75567840aa707c331485af34638d0601f6fa434365a1fccf5e7f5110cbcf0843"
+    },
+    {
+      "path": "work/openclaw-socialharp-seventh-20260911/socialharp-page-map-supplement-v7.json",
+      "sha256": "4c18c6aa6a0c5534172cf157875c6b8870ec631a75336ec3895e44cb1f89ef63"
+    },
+    {
+      "path": "work/openclaw-socialharp-eighth-20260911/socialharp-page-map-supplement-v8.json",
+      "sha256": "acff9bb979828a2b18ae12d19cda4b6717bf21e51e7d722fa9e4243467cc5f4b"
+    },
+    {
+      "path": "work/openclaw-socialharp-ninth-20260911/socialharp-page-map-supplement-v9.json",
+      "sha256": "e290a1005193a30c44bea702803ae6cab51d08fe3696ea93cca43a69986f7124"
+    },
+    {
+      "path": "work/openclaw-socialharp-tenth-20260911/socialharp-page-map-supplement-v10.json",
+      "sha256": "5ac7335e7575b616d853ff049ea3fa5c6578def509f0009b42122b1adef3d50f"
+    }
+  ],
+  "source": {
+    "path": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+    "sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331"
+  },
+  "policy": {
+    "supplement_only": true,
+    "original_mapping_unchanged": true,
+    "previous_supplements_unchanged": true,
+    "notation_imported": false,
+    "lyrics_or_notes_inferred": false,
+    "catalogue_discrepancy": "221 corpus records versus 222 historical count remains unresolved; page-identity review does not settle inventory.",
+    "renders_local_only": true
+  },
+  "summary": {
+    "reviewed_records": 10,
+    "resolved_source_identities": 10,
+    "distinct_reviewed_pdf_leaves": 7,
+    "previous_combined_mapped": 137,
+    "combined_mapped": 147,
+    "previous_combined_unresolved": 84,
+    "combined_unresolved": 74,
+    "catalogue_records_unchanged": 221
+  },
+  "records": [
+    {
+      "record_id": "socialharp 204b — BOUND FOR CANAAN",
+      "song_no": "204b",
+      "catalogue_title": "BOUND FOR CANAAN",
+      "literal_heading": "BOUND FOR CANAAN.",
+      "pdf_leaf_1_based": 204,
+      "printed_page": "204",
+      "page_region": "bottom",
+      "heading_bbox_px": [
+        1263,
+        554,
+        1681,
+        604
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-eleventh-20260911/renders/leaf-204.png",
+      "render_sha256": "5ae2d2fbf5da18fab5ac4c0323591647d9fa65a6e2f64fa593aa4352b26d8e66",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening at lower right beside Bellevue's concluding system, not across the entire lower half; printed page 204 at upper left.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 204t — BELLEVUE",
+      "song_no": "204t",
+      "catalogue_title": "BELLEVUE",
+      "literal_heading": "BELLEVUE.",
+      "pdf_leaf_1_based": 204,
+      "printed_page": "204",
+      "page_region": "top",
+      "heading_bbox_px": [
+        381,
+        30,
+        600,
+        80
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-eleventh-20260911/renders/leaf-204.png",
+      "render_sha256": "5ae2d2fbf5da18fab5ac4c0323591647d9fa65a6e2f64fa593aa4352b26d8e66",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Upper opening continues into lower left; Bound for Canaan begins to its lower right; printed page 204 at upper left.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 205 — PISGAH",
+      "song_no": "205",
+      "catalogue_title": "PISGAH",
+      "literal_heading": "PISGAH.",
+      "pdf_leaf_1_based": 205,
+      "printed_page": "205",
+      "page_region": "bottom",
+      "heading_bbox_px": [
+        298,
+        516,
+        459,
+        566
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-eleventh-20260911/renders/leaf-205.png",
+      "render_sha256": "3e6fcc0cf8b32b4a1e4bff3a1ddda0d8a5ff69f2c52c73061120896e41c0491e",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Lower opening below BOUND FOR CANAAN. Concluded.; printed page 205 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 207 — HALLELUJAH",
+      "song_no": "207",
+      "catalogue_title": "HALLELUJAH",
+      "literal_heading": "HALLELUJAH.",
+      "pdf_leaf_1_based": 207,
+      "printed_page": "207",
+      "page_region": "top",
+      "heading_bbox_px": [
+        382,
+        35,
+        657,
+        85
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-eleventh-20260911/renders/leaf-207.png",
+      "render_sha256": "a995f935608ee85e38a0a11e48c15bbac7c3e48cd78d132548a3eef7d948e2d0",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 207 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 208b — HEBRON",
+      "song_no": "208b",
+      "catalogue_title": "HEBRON",
+      "literal_heading": "HEBRON.",
+      "pdf_leaf_1_based": 208,
+      "printed_page": "208",
+      "page_region": "bottom",
+      "heading_bbox_px": [
+        505,
+        551,
+        681,
+        602
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-eleventh-20260911/renders/leaf-208.png",
+      "render_sha256": "dd8016b57ae044b5006155fd86aad4509c5f11c724895642e76964911a84b04f",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Lower opening below Bereavement; printed page 208 at upper left identifies their shared leaf.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 208t — BEREAVEMENT",
+      "song_no": "208t",
+      "catalogue_title": "BEREAVEMENT",
+      "literal_heading": "BEREAVEMENT.",
+      "pdf_leaf_1_based": 208,
+      "printed_page": "208",
+      "page_region": "top",
+      "heading_bbox_px": [
+        487,
+        27,
+        788,
+        75
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-eleventh-20260911/renders/leaf-208.png",
+      "render_sha256": "dd8016b57ae044b5006155fd86aad4509c5f11c724895642e76964911a84b04f",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Upper opening above Hebron; printed page 208 at upper left identifies their shared leaf.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 209 — FEW DAYS",
+      "song_no": "209",
+      "catalogue_title": "FEW DAYS",
+      "literal_heading": "FEW DAYS.",
+      "pdf_leaf_1_based": 209,
+      "printed_page": "209",
+      "page_region": "top",
+      "heading_bbox_px": [
+        457,
+        17,
+        679,
+        67
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-eleventh-20260911/renders/leaf-209.png",
+      "render_sha256": "2412d110d031acb00e63565b9160b825bdf6d9986fae718b6596ec7708aa1d14",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 209 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 20b — HEAVENLY KING",
+      "song_no": "20b",
+      "catalogue_title": "HEAVENLY KING",
+      "literal_heading": "HEAVENLY KING.",
+      "pdf_leaf_1_based": 20,
+      "printed_page": "20",
+      "page_region": "bottom",
+      "heading_bbox_px": [
+        501,
+        581,
+        844,
+        634
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-eleventh-20260911/renders/leaf-20.png",
+      "render_sha256": "c4062dc809b7fa44fa1214dcbd5f8882683a5a7b0bcc2c5e72efc874ce943224",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Lower opening below Go On; printed page 20 at upper left identifies their shared leaf.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 20t — GO ON",
+      "song_no": "20t",
+      "catalogue_title": "GO ON",
+      "literal_heading": "GO ON.",
+      "pdf_leaf_1_based": 20,
+      "printed_page": "20",
+      "page_region": "top",
+      "heading_bbox_px": [
+        496,
+        34,
+        641,
+        83
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-eleventh-20260911/renders/leaf-20.png",
+      "render_sha256": "c4062dc809b7fa44fa1214dcbd5f8882683a5a7b0bcc2c5e72efc874ce943224",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Upper opening above Heavenly King; printed page 20 at upper left identifies their shared leaf.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 21 — RIVER OF JORDAN",
+      "song_no": "21",
+      "catalogue_title": "RIVER OF JORDAN",
+      "literal_heading": "RIVER OF JORDAN.",
+      "pdf_leaf_1_based": 21,
+      "printed_page": "21",
+      "page_region": "top",
+      "heading_bbox_px": [
+        489,
+        34,
+        854,
+        86
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-eleventh-20260911/renders/leaf-21.png",
+      "render_sha256": "813d4fa4eab0d642454ef00a677e7b89c495f92a1bf713ce3fdcd5f919426b2c",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 21 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    }
+  ]
+}
