@@ -1,0 +1,362 @@
+{
+  "schema": "shape-note-atlas/socialharp-page-map-supplement/v9",
+  "review_date": "2026-09-11",
+  "baseline": {
+    "path": "work/luna-program-20260904/source_only/socialharp-page-map-20260904.json",
+    "sha256": "8b30106fb48d2467d70063d684ac144887b02e3cfec4470da103dc13d2c90963",
+    "summary": {
+      "catalogue_records": 221,
+      "uniquely_mapped_records": 67,
+      "unresolved_records": 154
+    }
+  },
+  "previous_supplements": [
+    {
+      "path": "work/openclaw-socialharp-20260907/socialharp-page-map-supplement-v1.json",
+      "sha256": "c4c80ad0606d474367854fc37fb8ba9d6893535df63155e09c4e8f711f6c72d8"
+    },
+    {
+      "path": "work/openclaw-socialharp-next-20260907/socialharp-page-map-supplement-v2.json",
+      "sha256": "dce4d99b6c3b47bcf0278d97f57845583aff3c428e0aff3072e759bf891e45e8"
+    },
+    {
+      "path": "work/openclaw-socialharp-third-20260907/socialharp-page-map-supplement-v3.json",
+      "sha256": "b63db5100de59964fc15b0c17b8267d870a216ca9be5d3f54701eb4a410762ae"
+    },
+    {
+      "path": "work/openclaw-socialharp-fourth-20260911/socialharp-page-map-supplement-v4.json",
+      "sha256": "b5b7ccb12c6a520abb2a66e2b30eb933501cd74a25bb5c9e0679e8eba202b405"
+    },
+    {
+      "path": "work/openclaw-socialharp-fifth-20260911/socialharp-page-map-supplement-v5.json",
+      "sha256": "2b91a3144806dc559aeda1d9f08c96eb9739fd0cc06844f9ee064c5d9f8d3b9d"
+    },
+    {
+      "path": "work/openclaw-socialharp-sixth-20260911/socialharp-page-map-supplement-v6.json",
+      "sha256": "75567840aa707c331485af34638d0601f6fa434365a1fccf5e7f5110cbcf0843"
+    },
+    {
+      "path": "work/openclaw-socialharp-seventh-20260911/socialharp-page-map-supplement-v7.json",
+      "sha256": "4c18c6aa6a0c5534172cf157875c6b8870ec631a75336ec3895e44cb1f89ef63"
+    },
+    {
+      "path": "work/openclaw-socialharp-eighth-20260911/socialharp-page-map-supplement-v8.json",
+      "sha256": "acff9bb979828a2b18ae12d19cda4b6717bf21e51e7d722fa9e4243467cc5f4b"
+    }
+  ],
+  "source": {
+    "path": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+    "sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331"
+  },
+  "policy": {
+    "supplement_only": true,
+    "original_mapping_unchanged": true,
+    "previous_supplements_unchanged": true,
+    "notation_imported": false,
+    "lyrics_or_notes_inferred": false,
+    "catalogue_discrepancy": "221 corpus records versus 222 historical count remains unresolved; page-identity review does not settle inventory.",
+    "renders_local_only": true
+  },
+  "summary": {
+    "reviewed_records": 10,
+    "resolved_source_identities": 10,
+    "distinct_reviewed_pdf_leaves": 9,
+    "previous_combined_mapped": 117,
+    "combined_mapped": 127,
+    "previous_combined_unresolved": 104,
+    "combined_unresolved": 94,
+    "catalogue_records_unchanged": 221
+  },
+  "records": [
+    {
+      "record_id": "socialharp 179 — NEW TOPIA",
+      "song_no": "179",
+      "catalogue_title": "NEW TOPIA",
+      "literal_heading": "NEW TOPIA.",
+      "pdf_leaf_1_based": 179,
+      "printed_page": "179",
+      "page_region": "top",
+      "heading_bbox_px": [
+        420,
+        25,
+        663,
+        75
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-ninth-20260911/renders/leaf-179.png",
+      "render_sha256": "e1bc81c7bc31b0db148e2ef1140ee4d8b0b471dfd06381c41040ed40b09c2032",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 179 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 180 — DELIGHT",
+      "song_no": "180",
+      "catalogue_title": "DELIGHT",
+      "literal_heading": "DELIGHT.",
+      "pdf_leaf_1_based": 180,
+      "printed_page": "180",
+      "page_region": "bottom",
+      "heading_bbox_px": [
+        432,
+        575,
+        622,
+        625
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-ninth-20260911/renders/leaf-180.png",
+      "render_sha256": "1060a769e1a866bf61ba4e6dc5bd79763fd84070ed23f97df7e1559b85b83777",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening below NEW TOPIA. Concluded.; printed page 180 at upper left.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 183 — WILKES",
+      "song_no": "183",
+      "catalogue_title": "WILKES",
+      "literal_heading": "WILKES.",
+      "pdf_leaf_1_based": 183,
+      "printed_page": "183",
+      "page_region": "top",
+      "heading_bbox_px": [
+        420,
+        25,
+        587,
+        73
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-ninth-20260911/renders/leaf-183.png",
+      "render_sha256": "f68411e8e7cc1b1cd91f0e2fe248f89bdd461ff85a5eff1767295ae7090ab9eb",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 183 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 185 — SUFFIELD",
+      "song_no": "185",
+      "catalogue_title": "SUFFIELD",
+      "literal_heading": "SUFFIELD.",
+      "pdf_leaf_1_based": 185,
+      "printed_page": "185",
+      "page_region": "top",
+      "heading_bbox_px": [
+        392,
+        30,
+        596,
+        81
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-ninth-20260911/renders/leaf-185.png",
+      "render_sha256": "b7da8862974ceefc9b9cab310ef881c48ab7f50a8bf618f3fa88af55a2c17be2",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 185 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 187 — NINETY-THIRD PSALM",
+      "song_no": "187",
+      "catalogue_title": "NINETY-THIRD PSALM",
+      "literal_heading": "NINETY-THIRD PSALM.",
+      "pdf_leaf_1_based": 187,
+      "printed_page": "187",
+      "page_region": "bottom",
+      "heading_bbox_px": [
+        326,
+        453,
+        769,
+        505
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-ninth-20260911/renders/leaf-187.png",
+      "render_sha256": "608c0a09d3cb84e48b1a78dc34655b791b6d6c03bb8d09e20ddd01ffc3984a00",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening below PART V.; printed page (187) beneath the lower-right stanza.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 189 — PITY ME",
+      "song_no": "189",
+      "catalogue_title": "PITY ME",
+      "literal_heading": "PITY ME.",
+      "pdf_leaf_1_based": 189,
+      "printed_page": "189",
+      "page_region": "top",
+      "heading_bbox_px": [
+        470,
+        26,
+        655,
+        76
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-ninth-20260911/renders/leaf-189.png",
+      "render_sha256": "3f140f26df692a663306640d109a8b13ea6f3377d35f8b765240e964d2120b50",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 189 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 18b — THE CROSS",
+      "song_no": "18b",
+      "catalogue_title": "THE CROSS",
+      "literal_heading": "THE CROSS.",
+      "pdf_leaf_1_based": 18,
+      "printed_page": "18",
+      "page_region": "bottom",
+      "heading_bbox_px": [
+        517,
+        598,
+        744,
+        650
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-ninth-20260911/renders/leaf-18.png",
+      "render_sha256": "505b2d548ee0038a3b6928b2ee6f4440535859bbac4793383d180e7bef45f806",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Lower opening below Glorious News; printed page 18 at upper left identifies the shared leaf.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 18t — GLORIOUS NEWS",
+      "song_no": "18t",
+      "catalogue_title": "GLORIOUS NEWS",
+      "literal_heading": "GLORIOUS NEWS.",
+      "pdf_leaf_1_based": 18,
+      "printed_page": "18",
+      "page_region": "top",
+      "heading_bbox_px": [
+        515,
+        40,
+        842,
+        87
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-ninth-20260911/renders/leaf-18.png",
+      "render_sha256": "505b2d548ee0038a3b6928b2ee6f4440535859bbac4793383d180e7bef45f806",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Upper opening above The Cross; printed page 18 at upper left identifies the shared leaf.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 19 — MANDAVILLE",
+      "song_no": "19",
+      "catalogue_title": "MANDAVILLE",
+      "literal_heading": "MANDAVILLE.",
+      "pdf_leaf_1_based": 19,
+      "printed_page": "19",
+      "page_region": "top",
+      "heading_bbox_px": [
+        500,
+        35,
+        773,
+        86
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-ninth-20260911/renders/leaf-19.png",
+      "render_sha256": "daace199b828d829bd1aac4ff85fa614d6bee1b1e3b1849f06624c28ea7a859b",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 19 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 190b — NEW BRITAIN",
+      "song_no": "190b",
+      "catalogue_title": "NEW BRITAIN",
+      "literal_heading": "NEW BRITAIN.",
+      "pdf_leaf_1_based": 190,
+      "printed_page": "190",
+      "page_region": "bottom",
+      "heading_bbox_px": [
+        431,
+        531,
+        717,
+        581
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-ninth-20260911/renders/leaf-190.png",
+      "render_sha256": "9b669ff3ad742f61de6809ebc82a7f82b2b52c82b486e9e722e8895c373a2695",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Lower opening below Ortonville; printed page 190 at upper left identifies the shared leaf.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    }
+  ]
+}
