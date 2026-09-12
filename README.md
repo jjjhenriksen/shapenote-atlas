@@ -13,6 +13,9 @@ The Atlas brings tune lookup, source links, structured MusicXML, four-shape
 rendering, and browser playback into one small workspace. It keeps the whole
 catalogue visible even when a tune does not yet have structured notation.
 
+**Read the hosted [Atlas documentation](https://shapenote.jacquelinehenriksen.com/atlas/docs/)**
+for the reader workflow, evidence states, and maintainer reference.
+
 > **The governing rule:** a matching title is not proof of an edition match,
 > and a playable draft is not a verified printed score.
 
