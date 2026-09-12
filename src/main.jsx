@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import "./styles.css";
 import { matchesDiscovery, resolveTuneLink, tuneUrl } from "./discovery.js";
 import { barlinesForMeasure, lyricForEvent, scoreSemanticSummary } from "./agent_11_score_semantics.js";
-import { buildPracticeSchedule, guardedAudioAction, resolvePlaybackQuarantine, scheduleWithCleanup, sessionIsCurrent, shouldCompleteSession } from "./practice.js";
+import { buildPracticeSchedule, canApplyPlaybackPlan, resolveRepeatPlayback, guardedAudioAction, resolvePlaybackQuarantine, scheduleWithCleanup, sessionIsCurrent, shouldCompleteSession } from "./practice.js";
 import { summarizeSourceHealth } from "./sourceHealthPresentation.js";
 import { resolveKeyContext } from "./keyResolution.js";
 import { PublishedDraftActions } from "./PublishedDraftActions.jsx";
@@ -465,7 +465,7 @@ function reviewEventsForPart(part, reviewDraft) {
   };
 }
 
-function ScorePreview({ score, transpose, complete, sourceKey, targetKey, shapeSourceUrl, keyEvidence, sourceTimeSignature, reviewDraft }) {
+function ScorePreview({ score, playback, transpose, complete, sourceKey, targetKey, shapeSourceUrl, keyEvidence, sourceTimeSignature, reviewDraft }) {
   const partRows = score?.parts || [];
   const partReviews = partRows.map((part) => reviewEventsForPart(part, reviewDraft));
   const reviewSuppressed = partReviews.reduce((total, review) => total + review.suppressed, 0);
@@ -529,7 +529,7 @@ function ScorePreview({ score, transpose, complete, sourceKey, targetKey, shapeS
       : `${measureStarts.length ? `${measureStarts.length} measures · ` : ""}${score?.reviewPublication?.completeness === "partial" ? "partial-tune view" : "full-song view"}`
     : "loading full song";
   const displayedTimeSignature = score?.timeSignature || sourceTimeSignature || "time not encoded";
-  const semantic = scoreSemanticSummary(score);
+  const semantic = scoreSemanticSummary({ ...score, playback });
   return <div className="score-frame">
     <div className="score-caption"><span>{complete ? `${shapeCaption} · ${measureCaption}` : `MusicXML source preview · ${measureCaption}`}</span><span>{displayedKey} · {displayedTimeSignature}</span></div>
     <div className="score-scroll" role="region" aria-label="Score notation; scroll horizontally to view all notes" tabIndex={0}>
@@ -638,6 +638,7 @@ function App() {
   const [paused, setPaused] = useState(false);
   const [tempo, setTempo] = useState(88);
   const [loopCount, setLoopCount] = useState(1);
+  const [followRepeats, setFollowRepeats] = useState(false);
   const [playbackProgress, setPlaybackProgress] = useState(0);
   const [playbackNotice, setPlaybackNotice] = useState("");
   const [toast, setToast] = useState("");
@@ -678,8 +679,8 @@ function App() {
   const toastTimerRef = useRef(null);
   const [sourceHealth, setSourceHealth] = useState(null);
   useEffect(() => {
-    if (playing) stopAudio("Playback stopped because practice settings changed.");
-  }, [tempo, loopCount]);
+    if (audioRef.current.session && !audioRef.current.session.cancelled) stopAudio("Playback stopped because practice settings changed.");
+  }, [tempo, loopCount, followRepeats]);
 
   useEffect(() => {
     let cancelled = false;
@@ -850,7 +851,9 @@ function App() {
   const playbackQuarantined = quarantine.quarantined;
   const playbackAllowed = assetLoaded && !playbackQuarantined;
   const canTranspose = Boolean(!playbackQuarantined && scoreLoaded && hasPitchedEvents && parseKey(sourceKeyValue));
-  const practiceTimingAvailable = activeScorePreview?.playback?.status !== "encoded" || activeScorePreview?.playback?.safeToApply === true && activeScorePreview?.playback?.measureSequence?.length > 0 && activeScorePreview?.playback?.measureSequence?.every((measure) => activeScorePreview.playback.measureStarts?.[String(measure)] !== null && activeScorePreview.playback.measureStarts?.[String(measure)] !== undefined && activeScorePreview.playback.measureDurations?.[String(measure)] !== null && activeScorePreview.playback.measureDurations?.[String(measure)] !== undefined);
+  const repeatPlayback = resolveRepeatPlayback(selectedScore);
+  const repeatsAvailable = canApplyPlaybackPlan(repeatPlayback);
+  const practicePlayback = followRepeats && repeatsAvailable ? repeatPlayback : null;
   const scoreBadgeLabel = canTranspose
     ? referenceScoreActive ? "Transposable reference" : draftScoreActive ? "Transposable draft" : "Transposable score"
     : referenceScoreActive ? "Structured reference" : draftScoreActive ? "Review draft" : "Structured score";
@@ -883,6 +886,7 @@ function App() {
   useEffect(() => {
     let cancelled = false;
     setFullScore(null);
+    setFollowRepeats(false);
     setScoreLoadError(false);
     if (!scoreRef) return () => { cancelled = true; };
     fetch(scoreRequestRef)
@@ -965,7 +969,7 @@ function App() {
     master.gain.setValueAtTime(0.78, now);
     master.connect(context.destination);
     audioRef.current.master = master;
-    const practiceSchedule = buildPracticeSchedule(parts, selectedScore.playback, boundedLoops);
+    const practiceSchedule = buildPracticeSchedule(parts, practicePlayback, boundedLoops);
     const expandedParts = parts.map((part) => ({ ...part, events: practiceSchedule.events.filter((event) => event.partName === part.name) }));
     const scoreDuration = practiceSchedule.duration;
     audioRef.current.nodes = nodes;
@@ -1053,6 +1057,7 @@ function App() {
   }
 
   function togglePart(name) {
+    stopAudio("Playback stopped because the selected parts changed.");
     setActiveParts((current) => current.includes(name) ? current.filter((part) => part !== name) : [...current, name]);
   }
 
@@ -1148,9 +1153,9 @@ function App() {
             {draftScoreActive && !publishedDraft && <ShapeReviewDraftPanel reviewItem={reviewDraft} ambiguous={reviewDraftAmbiguous} />}
             <div className="parts-heading"><span className="section-label">Available parts</span><span className="parts-count">{activeParts.length} of {selectedScore.parts.length} selected</span></div>
             <div className="part-toggles" role="group" aria-label="Available parts">{selectedScore.parts.map((part, partIndex) => <button key={part.name} className={`part-toggle ${activeParts.includes(part.name) ? "selected" : ""}`} aria-pressed={activeParts.includes(part.name)} disabled={playing} onClick={() => togglePart(part.name)}><span className="part-clef">{partClefGlyph(part, partIndex)}</span><span>{part.name}</span><span className="part-check"><Icon name="check" size={13} /></span></button>)}</div>
-            <ScorePreview score={selectedScore} transpose={signedTranspose} complete={assetLoaded} sourceKey={shapeSourceKey} targetKey={targetKey} shapeSourceUrl={shapeSourcePdfUrl(activeScorePreview)} keyEvidence={resolvedKey.evidence} sourceTimeSignature={reviewSourceTimeSignature} reviewDraft={draftScoreActive} />
+            <ScorePreview score={selectedScore} playback={practicePlayback} transpose={signedTranspose} complete={assetLoaded} sourceKey={shapeSourceKey} targetKey={targetKey} shapeSourceUrl={shapeSourcePdfUrl(activeScorePreview)} keyEvidence={resolvedKey.evidence} sourceTimeSignature={reviewSourceTimeSignature} reviewDraft={draftScoreActive} />
             {(!sourceKeyValue || resolvedKey.evidence?.status === "entered") && <div className="source-key-picker"><div><span className="section-label">{sourceKeyValue ? "Entered source key" : "Source key required"}</span><p>{sourceKeyValue ? "Change this if the key printed in the source differs." : "Choose the key printed in this source to unlock pitch-accurate transposition."}</p></div><label className="key-select-wrap"><span className="sr-only">Source key</span><select aria-label="Source key" value={enteredSourceKey} onChange={(event) => setEnteredSourceKey(event.target.value)}><option value="">Choose source key…</option>{["major", "minor"].flatMap((mode) => KEY_NAMES.map((key) => <option key={`${key}:${mode}`} value={`${key}:${mode}`}>{key} {mode}</option>))}</select><span className="select-chevron">⌄</span></label></div>}
-            <div className="transport-row"><div className="playback-controls"><button className="primary-button" onClick={playing ? () => stopAudio() : scoreLoadError ? () => setScoreLoadAttempt((attempt) => attempt + 1) : playAvailableParts} disabled={scoreLoadError ? false : !playbackAllowed || !activeParts.length}>{playing ? <Icon name="stop" size={14} /> : <Icon name="play" size={15} />}{playing ? "Stop" : scoreError ? "Retry loading" : playbackQuarantined ? "Playback unavailable" : scoreLoaded ? "Play song" : "Loading…"}</button>{playing && <button className="secondary-button" onClick={togglePause}><Icon name="pause" size={14} />{paused ? "Resume" : "Pause"}</button>}</div><div className="practice-options"><label>Tempo <input aria-label="Tempo BPM" type="number" min="40" max="220" value={tempo} onChange={(event) => setTempo(Math.max(40, Math.min(220, Number(event.target.value) || 88)))} /> BPM</label><label>Loops <select aria-label="Playback loops" value={loopCount} onChange={(event) => setLoopCount(Number(event.target.value))}>{[1,2,3,4,5,6,7,8].map((count) => <option key={count} value={count}>{count}</option>)}</select></label></div><div className="transpose-controls"><button className="secondary-button" title="Transpose down one semitone" aria-label="Transpose down one semitone" onClick={() => nudgeTranspose(-1)} disabled={!canTranspose}><Icon name="arrowDown" size={16} />Down</button><label className="key-select-wrap"><span className="sr-only">Target key</span><select aria-label="Target key" value={targetKey} onChange={(event) => { stopAudio("Playback stopped because the target key changed."); setTargetKey(event.target.value); }} disabled={!canTranspose}><option value="">{sourceKeyName}</option>{KEY_NAMES.filter((key) => key !== sourceKeyName.split(" ")[0]).map((key) => <option key={key} value={key}>{key} {sourceMode}</option>)}</select><span className="select-chevron">⌄</span></label><button className="secondary-button" title="Transpose up one semitone" aria-label="Transpose up one semitone" onClick={() => nudgeTranspose(1)} disabled={!canTranspose}><Icon name="arrowUp" size={16} />Up</button></div></div><div className="practice-progress" aria-label={`Playback progress ${Math.round(playbackProgress * 100)} percent`}><span style={{ width: `${playbackProgress * 100}%` }} /></div>
+            <div className="transport-row"><div className="playback-controls"><button className="primary-button" onClick={playing ? () => stopAudio() : scoreLoadError ? () => setScoreLoadAttempt((attempt) => attempt + 1) : playAvailableParts} disabled={scoreLoadError ? false : !playbackAllowed || !activeParts.length}>{playing ? <Icon name="stop" size={14} /> : <Icon name="play" size={15} />}{playing ? "Stop" : scoreError ? "Retry loading" : playbackQuarantined ? "Playback unavailable" : scoreLoaded ? "Play song" : "Loading…"}</button>{playing && <button className="secondary-button" onClick={togglePause}><Icon name="pause" size={14} />{paused ? "Resume" : "Pause"}</button>}</div><div className="practice-options"><label>Order <select aria-label="Playback order" value={followRepeats && repeatsAvailable ? "repeats" : "written"} onChange={(event) => setFollowRepeats(event.target.value === "repeats")}><option value="written">Written order</option><option value="repeats" disabled={!repeatsAvailable}>Follow encoded repeats</option></select></label><label>Tempo <input aria-label="Tempo BPM" type="number" min="40" max="220" value={tempo} onChange={(event) => setTempo(Math.max(40, Math.min(220, Number(event.target.value) || 88)))} /> BPM</label><label>Loops <select aria-label="Playback loops" value={loopCount} onChange={(event) => setLoopCount(Number(event.target.value))}>{[1,2,3,4,5,6,7,8].map((count) => <option key={count} value={count}>{count}</option>)}</select></label></div><div className="transpose-controls"><button className="secondary-button" title="Transpose down one semitone" aria-label="Transpose down one semitone" onClick={() => nudgeTranspose(-1)} disabled={!canTranspose}><Icon name="arrowDown" size={16} />Down</button><label className="key-select-wrap"><span className="sr-only">Target key</span><select aria-label="Target key" value={targetKey} onChange={(event) => { stopAudio("Playback stopped because the target key changed."); setTargetKey(event.target.value); }} disabled={!canTranspose}><option value="">{sourceKeyName}</option>{KEY_NAMES.filter((key) => key !== sourceKeyName.split(" ")[0]).map((key) => <option key={key} value={key}>{key} {sourceMode}</option>)}</select><span className="select-chevron">⌄</span></label><button className="secondary-button" title="Transpose up one semitone" aria-label="Transpose up one semitone" onClick={() => nudgeTranspose(1)} disabled={!canTranspose}><Icon name="arrowUp" size={16} />Up</button></div></div><div className="practice-progress" aria-label={`Playback progress ${Math.round(playbackProgress * 100)} percent`}><span style={{ width: `${playbackProgress * 100}%` }} /></div>
             {scoreRef && !scoreLoaded && !scoreLoadError && <div className="sr-only" role="status" aria-live="polite">Loading the structured score…</div>}
             {scoreLoadError && <div className="score-load-error" role="alert"><Icon name="info" size={16} /><span>The full score could not be loaded. Check the local server, then retry.</span></div>}
             {signedTranspose !== 0 && <div className="transposition-note" role="status" aria-live="polite" aria-atomic="true"><span>Transposed {signedTranspose > 0 ? "+" : "−"}{Math.abs(signedTranspose)} semitone{Math.abs(signedTranspose) === 1 ? "" : "s"} from {sourceKeyName}</span></div>}
@@ -1159,7 +1164,7 @@ function App() {
           </> : <><div className="missing-score"><Icon name="info" size={23} /><div><h3>No transposable score file for this record</h3><p>The atlas preserves the exact source link or scan instead of synthesizing notation where structured score data is absent.</p>{selectedCoverage && <p className="edition-note"><strong>{coverageLabel(selectedCoverage)}.</strong> {coverageNextStep(selectedCoverage)}</p>}{selectedCoverage?.editionStatus === "added-in-2025" && <p className="edition-note"><strong>New in 2025.</strong> This page is on the publisher's additions list and has no verified 2025 MusicXML yet. <a href={selectedCoverage.editionEvidenceUrl} target="_blank" rel="noreferrer noopener">View the source list <Icon name="external" size={13} /></a></p>}{reviewDraft && <p className="edition-note"><strong>{reviewDisposition(reviewDraft, reviewDraftAmbiguous).label}.</strong> {reviewDisposition(reviewDraft, reviewDraftAmbiguous).summary} {reviewDraft.draftSummary.parts} parts, {Object.values(reviewDraft.draftSummary.measuresByPart)[0] || "unknown"} measures per part. It is not playable or transposable because the source comparison is not promotion-safe. <a href={assetUrl("/human-review-queue.json")} target="_blank" rel="noreferrer noopener">View disposition evidence <Icon name="external" size={13} /></a></p>}{alternateEdition && <p className="edition-note">A verified {alternateEdition === "sh1991" ? "1991" : "2025"}-edition score is available for this shared tune, but it is not being mislabeled as a {bookId === "sh2025" ? "2025" : "1991"} score.</p>}{alternateEdition && <button className="text-button" onClick={() => { setBookId(alternateEdition); setSelectedId(selectedSong.id); }}>Open the verified {alternateEdition === "sh1991" ? "1991" : "2025"} score</button>}</div></div><ShapeReviewDraftPanel reviewItem={reviewDraft} ambiguous={reviewDraftAmbiguous} /><CleanSourceCandidates coverage={selectedCoverage} /><SourceNotation song={selectedSong} bookId={bookId} /><SourceComparisonPanel song={selectedSong} bookId={bookId} coverage={selectedCoverage} /><SourceRecording song={selectedSong} coverage={selectedCoverage} /></>}
           <div className="source-strip"><div><span className="section-label">Source</span><span>{selectedMetadata?.sourceUrl ? `${book.label}, page ${selectedSong.songNo}` : "Local corpus record"}</span></div><div className="source-actions">{sourceUrls.map((url) => <a key={url} href={url} target="_blank" rel="noreferrer noopener" aria-label={`Open source record at ${sourceDestinationLabel(url)}`}>Open source record <Icon name="external" size={16} /></a>)}{activeScorePreview && shapeSourcePdfUrl(activeScorePreview) && <a href={shapeSourcePdfUrl(activeScorePreview)} target="_blank" rel="noreferrer noopener">Open shape-source PDF <Icon name="external" size={16} /></a>}</div></div>
           <div className="source-health-card" aria-label="Source health"><div><span className="section-label">Source health</span><strong>{selectedHealthSummary}</strong></div><span className="source-health-retention">{selectedHealthPresentation.retentionLabel}</span></div>
-          {!practiceTimingAvailable && <p className="practice-fallback-note" role="status">Repeat timing is unavailable for this source; practice playback stays in one-pass source order.</p>}
+          {repeatPlayback?.status === "blocked" && <p className="practice-fallback-note" role="status">Repeat playback is unavailable: {repeatPlayback.reason} Practice uses written order.</p>}
           {playbackQuarantined && <p className="practice-fallback-note" role="alert"><strong>Playback unavailable.</strong> {quarantine.reason}</p>}
           <div className="detail-footer"><ShapeLegend /></div>
         </> : <div className="missing-score"><Icon name="info" size={23} /><div><h3>Select a tune to begin</h3><p>Search the local atlas by page, title, or first line.</p></div></div>}

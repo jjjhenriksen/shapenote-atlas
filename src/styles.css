@@ -260,6 +260,7 @@ select option { color: #1a1a18; background: #f3eddf; }
 .practice-options { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
 .practice-options label { display:flex; align-items:center; gap:5px; color:var(--muted); font-size:.82rem; }
 .practice-options input, .practice-options select { width:62px; border:1px solid var(--line); border-radius:6px; background:var(--pine); color:var(--ink); padding:6px; }
+.practice-options select[aria-label="Playback order"] { width: auto; max-width: 100%; }
 .practice-progress { height:4px; width:100%; margin-top:10px; border-radius:99px; background:var(--line); overflow:hidden; }
 .practice-progress span { display:block; height:100%; background:var(--brass); transition:width .1s linear; }
 .semantic-summary { color:var(--muted); }
