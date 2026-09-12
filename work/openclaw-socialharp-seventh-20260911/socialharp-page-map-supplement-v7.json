@@ -1,0 +1,208 @@
+{
+  "schema": "shape-note-atlas/socialharp-page-map-supplement/v7",
+  "review_date": "2026-09-11",
+  "baseline": {
+    "path": "work/luna-program-20260904/source_only/socialharp-page-map-20260904.json",
+    "sha256": "8b30106fb48d2467d70063d684ac144887b02e3cfec4470da103dc13d2c90963",
+    "summary": {
+      "catalogue_records": 221,
+      "uniquely_mapped_records": 67,
+      "unresolved_records": 154
+    }
+  },
+  "previous_supplements": [
+    {
+      "path": "work/openclaw-socialharp-20260907/socialharp-page-map-supplement-v1.json",
+      "sha256": "c4c80ad0606d474367854fc37fb8ba9d6893535df63155e09c4e8f711f6c72d8"
+    },
+    {
+      "path": "work/openclaw-socialharp-next-20260907/socialharp-page-map-supplement-v2.json",
+      "sha256": "dce4d99b6c3b47bcf0278d97f57845583aff3c428e0aff3072e759bf891e45e8"
+    },
+    {
+      "path": "work/openclaw-socialharp-third-20260907/socialharp-page-map-supplement-v3.json",
+      "sha256": "b63db5100de59964fc15b0c17b8267d870a216ca9be5d3f54701eb4a410762ae"
+    },
+    {
+      "path": "work/openclaw-socialharp-fourth-20260911/socialharp-page-map-supplement-v4.json",
+      "sha256": "b5b7ccb12c6a520abb2a66e2b30eb933501cd74a25bb5c9e0679e8eba202b405"
+    },
+    {
+      "path": "work/openclaw-socialharp-fifth-20260911/socialharp-page-map-supplement-v5.json",
+      "sha256": "2b91a3144806dc559aeda1d9f08c96eb9739fd0cc06844f9ee064c5d9f8d3b9d"
+    },
+    {
+      "path": "work/openclaw-socialharp-sixth-20260911/socialharp-page-map-supplement-v6.json",
+      "sha256": "75567840aa707c331485af34638d0601f6fa434365a1fccf5e7f5110cbcf0843"
+    }
+  ],
+  "source": {
+    "path": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+    "sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331"
+  },
+  "policy": {
+    "supplement_only": true,
+    "original_mapping_unchanged": true,
+    "previous_supplements_unchanged": true,
+    "notation_imported": false,
+    "lyrics_or_notes_inferred": false,
+    "catalogue_discrepancy": "221 corpus records versus 222 historical count remains unresolved; page-identity review does not settle inventory."
+  },
+  "summary": {
+    "reviewed_records": 5,
+    "resolved_source_identities": 5,
+    "distinct_reviewed_pdf_leaves": 5,
+    "previous_combined_mapped": 102,
+    "combined_mapped": 107,
+    "previous_combined_unresolved": 119,
+    "combined_unresolved": 114,
+    "catalogue_records_unchanged": 221
+  },
+  "records": [
+    {
+      "record_id": "socialharp 153 — ALBERT",
+      "song_no": "153",
+      "catalogue_title": "ALBERT",
+      "literal_heading": "ALBERT.",
+      "pdf_leaf_1_based": 153,
+      "printed_page": "153",
+      "page_region": "top",
+      "heading_bbox_px": [
+        464,
+        29,
+        633,
+        74
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-seventh-20260911/renders/leaf-153.png",
+      "render_sha256": "9ed71dcf65add815ced2618ca978681d4b8f4241c355d74a425aa0b4985e5a88",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 153 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 154 — THE DRUNKARD'S BURIAL",
+      "song_no": "154",
+      "catalogue_title": "THE DRUNKARD'S BURIAL",
+      "literal_heading": "THE DRUNKARD’S BURIAL.",
+      "pdf_leaf_1_based": 154,
+      "printed_page": "154",
+      "page_region": "top",
+      "heading_bbox_px": [
+        496,
+        23,
+        1004,
+        65
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-seventh-20260911/renders/leaf-154.png",
+      "render_sha256": "e38f274dc7a96f8b2130120ed79aa2942e654aee680e6fe0d2e8f49224acc89e",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 154 at upper left.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 155 — WAKE UP",
+      "song_no": "155",
+      "catalogue_title": "WAKE UP",
+      "literal_heading": "WAKE UP.",
+      "pdf_leaf_1_based": 155,
+      "printed_page": "155",
+      "page_region": "top-right",
+      "heading_bbox_px": [
+        1068,
+        40,
+        1274,
+        83
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-seventh-20260911/renders/leaf-155.png",
+      "render_sha256": "e35f34e60d5310ef1d58e046836e1d0ee08b8e0a14b4933283e9239e9736a226",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening at upper right beside DRUNKARD’S BURIAL. Concluded. on the left; printed page 155 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 157 — THE INQUIRER",
+      "song_no": "157",
+      "catalogue_title": "THE INQUIRER",
+      "literal_heading": "THE INQUIRER.",
+      "pdf_leaf_1_based": 157,
+      "printed_page": "157",
+      "page_region": "top",
+      "heading_bbox_px": [
+        431,
+        28,
+        728,
+        77
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-seventh-20260911/renders/leaf-157.png",
+      "render_sha256": "525ba9fd4ded941a9fd2b2109447eb2cd941aeadd4eb0455d0533881a080f844",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 157 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 159 — BUONAPARTE",
+      "song_no": "159",
+      "catalogue_title": "BUONAPARTE",
+      "literal_heading": "BUONAPARTE.",
+      "pdf_leaf_1_based": 159,
+      "printed_page": "159",
+      "page_region": "bottom",
+      "heading_bbox_px": [
+        465,
+        529,
+        736,
+        571
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-seventh-20260911/renders/leaf-159.png",
+      "render_sha256": "d590a93201dbb5be1eb417c1656e0c41dbef232d903190e28ef11a85f5e911fd",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening below PART IV. division heading; printed page (159) at bottom beneath the final staff.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    }
+  ]
+}
