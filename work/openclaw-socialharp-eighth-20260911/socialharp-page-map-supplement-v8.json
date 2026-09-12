@@ -1,0 +1,358 @@
+{
+  "schema": "shape-note-atlas/socialharp-page-map-supplement/v8",
+  "review_date": "2026-09-11",
+  "baseline": {
+    "path": "work/luna-program-20260904/source_only/socialharp-page-map-20260904.json",
+    "sha256": "8b30106fb48d2467d70063d684ac144887b02e3cfec4470da103dc13d2c90963",
+    "summary": {
+      "catalogue_records": 221,
+      "uniquely_mapped_records": 67,
+      "unresolved_records": 154
+    }
+  },
+  "previous_supplements": [
+    {
+      "path": "work/openclaw-socialharp-20260907/socialharp-page-map-supplement-v1.json",
+      "sha256": "c4c80ad0606d474367854fc37fb8ba9d6893535df63155e09c4e8f711f6c72d8"
+    },
+    {
+      "path": "work/openclaw-socialharp-next-20260907/socialharp-page-map-supplement-v2.json",
+      "sha256": "dce4d99b6c3b47bcf0278d97f57845583aff3c428e0aff3072e759bf891e45e8"
+    },
+    {
+      "path": "work/openclaw-socialharp-third-20260907/socialharp-page-map-supplement-v3.json",
+      "sha256": "b63db5100de59964fc15b0c17b8267d870a216ca9be5d3f54701eb4a410762ae"
+    },
+    {
+      "path": "work/openclaw-socialharp-fourth-20260911/socialharp-page-map-supplement-v4.json",
+      "sha256": "b5b7ccb12c6a520abb2a66e2b30eb933501cd74a25bb5c9e0679e8eba202b405"
+    },
+    {
+      "path": "work/openclaw-socialharp-fifth-20260911/socialharp-page-map-supplement-v5.json",
+      "sha256": "2b91a3144806dc559aeda1d9f08c96eb9739fd0cc06844f9ee064c5d9f8d3b9d"
+    },
+    {
+      "path": "work/openclaw-socialharp-sixth-20260911/socialharp-page-map-supplement-v6.json",
+      "sha256": "75567840aa707c331485af34638d0601f6fa434365a1fccf5e7f5110cbcf0843"
+    },
+    {
+      "path": "work/openclaw-socialharp-seventh-20260911/socialharp-page-map-supplement-v7.json",
+      "sha256": "4c18c6aa6a0c5534172cf157875c6b8870ec631a75336ec3895e44cb1f89ef63"
+    }
+  ],
+  "source": {
+    "path": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+    "sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331"
+  },
+  "policy": {
+    "supplement_only": true,
+    "original_mapping_unchanged": true,
+    "previous_supplements_unchanged": true,
+    "notation_imported": false,
+    "lyrics_or_notes_inferred": false,
+    "catalogue_discrepancy": "221 corpus records versus 222 historical count remains unresolved; page-identity review does not settle inventory.",
+    "renders_local_only": true
+  },
+  "summary": {
+    "reviewed_records": 10,
+    "resolved_source_identities": 10,
+    "distinct_reviewed_pdf_leaves": 9,
+    "previous_combined_mapped": 107,
+    "combined_mapped": 117,
+    "previous_combined_unresolved": 114,
+    "combined_unresolved": 104,
+    "catalogue_records_unchanged": 221
+  },
+  "records": [
+    {
+      "record_id": "socialharp 162 — PLEASANT HILL",
+      "song_no": "162",
+      "catalogue_title": "PLEASANT HILL",
+      "literal_heading": "PLEASANT HILL.",
+      "pdf_leaf_1_based": 162,
+      "printed_page": "162",
+      "page_region": "top",
+      "heading_bbox_px": [
+        480,
+        33,
+        800,
+        80
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-eighth-20260911/renders/leaf-162.png",
+      "render_sha256": "bea453e111cc716f0e3459bcaaa3c643372ac71b0c5f0d0a3e9cd8df0a8ca78d",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 162 at upper left.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 163 — THE LONE PILGRIM",
+      "song_no": "163",
+      "catalogue_title": "THE LONE PILGRIM",
+      "literal_heading": "THE LONE PILGRIM.",
+      "pdf_leaf_1_based": 163,
+      "printed_page": "163",
+      "page_region": "top",
+      "heading_bbox_px": [
+        460,
+        22,
+        850,
+        73
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-eighth-20260911/renders/leaf-163.png",
+      "render_sha256": "dc9a95ff892468bf49779c3e026cfb7f8e7c097bd91a2acdac082ff81bcf0d2a",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 163 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 165 — NAVIGATION",
+      "song_no": "165",
+      "catalogue_title": "NAVIGATION",
+      "literal_heading": "NAVIGATION.",
+      "pdf_leaf_1_based": 165,
+      "printed_page": "165",
+      "page_region": "top",
+      "heading_bbox_px": [
+        425,
+        24,
+        686,
+        76
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-eighth-20260911/renders/leaf-165.png",
+      "render_sha256": "4f7e37061ee5020bcaf4b7fffb5480ebea56ba78f598a268f08e6f3e3421bb9d",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 165 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 167 — WAR DEPARTMENT",
+      "song_no": "167",
+      "catalogue_title": "WAR DEPARTMENT",
+      "literal_heading": "WAR DEPARTMENT.",
+      "pdf_leaf_1_based": 167,
+      "printed_page": "167",
+      "page_region": "top",
+      "heading_bbox_px": [
+        447,
+        27,
+        830,
+        79
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-eighth-20260911/renders/leaf-167.png",
+      "render_sha256": "bd812fd7ec51b992658176a827b23250115c847ee4fef98d9d9f1f276cec529b",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 167 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 169 — EVENING SHADE",
+      "song_no": "169",
+      "catalogue_title": "EVENING SHADE",
+      "literal_heading": "EVENING SHADE.",
+      "pdf_leaf_1_based": 169,
+      "printed_page": "169",
+      "page_region": "top",
+      "heading_bbox_px": [
+        408,
+        38,
+        747,
+        87
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-eighth-20260911/renders/leaf-169.png",
+      "render_sha256": "549594ddf646d65edbe1a036cc8cd11ad47c67760d4b8bc9b5f898dd2918e0d1",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 169 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 17 — OLD HUNDRED",
+      "song_no": "17",
+      "catalogue_title": "OLD HUNDRED",
+      "literal_heading": "OLD HUNDRED.",
+      "pdf_leaf_1_based": 17,
+      "printed_page": "17",
+      "page_region": "bottom",
+      "heading_bbox_px": [
+        476,
+        513,
+        776,
+        560
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-eighth-20260911/renders/leaf-17.png",
+      "render_sha256": "b0174fb1d051dbb343758791b977587bd12157faf9fdf310b474bc8dd4d0b462",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening below THE SOCIAL HARP. and PART I.; printed page (17) at bottom right below the final staff.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 171 — SONS OF SORROW",
+      "song_no": "171",
+      "catalogue_title": "SONS OF SORROW",
+      "literal_heading": "SONS OF SORROW.",
+      "pdf_leaf_1_based": 171,
+      "printed_page": "171",
+      "page_region": "top",
+      "heading_bbox_px": [
+        400,
+        37,
+        746,
+        87
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-eighth-20260911/renders/leaf-171.png",
+      "render_sha256": "f1341a95a27e6a48d06b45660bded357a54dd598b241c017c3dd924cf7f3b154",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 171 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 173 — GREENWICH",
+      "song_no": "173",
+      "catalogue_title": "GREENWICH",
+      "literal_heading": "GREENWICH.",
+      "pdf_leaf_1_based": 173,
+      "printed_page": "173",
+      "page_region": "bottom",
+      "heading_bbox_px": [
+        491,
+        516,
+        738,
+        566
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-eighth-20260911/renders/leaf-173.png",
+      "render_sha256": "dfcda69f64e73b295b163cf596f06d9a335fd2cce7ae4ec7eae3a5911c57b738",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening below MOUNT VERNON. Concluded.; printed page 173 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 175b — KEDRON",
+      "song_no": "175b",
+      "catalogue_title": "KEDRON",
+      "literal_heading": "KEDRON.",
+      "pdf_leaf_1_based": 175,
+      "printed_page": "175",
+      "page_region": "bottom",
+      "heading_bbox_px": [
+        421,
+        608,
+        603,
+        662
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-eighth-20260911/renders/leaf-175.png",
+      "render_sha256": "2b1682770e100cc36f1568418844ba2e6e578a93c034919f44396dc803984f75",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Kedron opens in lower half below Detroit; printed page 175 at upper right identifies their shared leaf.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 175t — DETROIT",
+      "song_no": "175t",
+      "catalogue_title": "DETROIT",
+      "literal_heading": "DETROIT.",
+      "pdf_leaf_1_based": 175,
+      "printed_page": "175",
+      "page_region": "top",
+      "heading_bbox_px": [
+        419,
+        32,
+        604,
+        83
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-eighth-20260911/renders/leaf-175.png",
+      "render_sha256": "2b1682770e100cc36f1568418844ba2e6e578a93c034919f44396dc803984f75",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Detroit opens in upper half above Kedron; printed page 175 at upper right identifies their shared leaf.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    }
+  ]
+}
