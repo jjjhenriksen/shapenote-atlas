@@ -1,6 +1,6 @@
 # Shape-Note Atlas: OpenClaw handoff
 
-Current continuation: [2026-09-07 program status and next batches](OPENCLAW_PROGRAM_STATUS.md).
+Current continuation: [program status and next batches (updated 2026-09-11)](OPENCLAW_PROGRAM_STATUS.md).
 
 Prepared 2026-09-06 for Jacqueline. This is a continuation brief, not a completion claim. Read this document before editing or assigning work.
 

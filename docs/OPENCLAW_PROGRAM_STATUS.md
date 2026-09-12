@@ -1,6 +1,8 @@
-# Atlas program continuation — 2026-09-07
+# Atlas program continuation — updated 2026-09-11
 
 Companion to the full [OpenClaw handoff](OPENCLAW_HANDOFF.md), not a replacement for its source rules or an all-book completion claim.
+
+Latest: [2026-09-11 source-identity continuation](#2026-09-11-source-identity-continuation). Earlier dated receipts below remain historical.
 
 ## Goal and delivery loop
 
@@ -181,3 +183,53 @@ Reproduce aggregate validation in an isolated checkout after restoring v4 eviden
 6. Keep Sacred Harp Tunes and other zero-exact-mapping books in the all-eleven-book plan; select another retained source for a useful first draft as capacity allows.
 
 The 3,047 missing exact mappings and thirteen SH2025 correction records remain open. Full written-notation draft publication is useful delivery, not a completed exact-edition audit. No background automation or public deployment was established by this cycle.
+
+
+## 2026-09-11 source-identity continuation
+
+Resumed from this tracked continuation. The requested `OPENCLAW_BACKLOG.md`
+was not found on GitHub main or in the established local checkout; no replacement
+was invented and no claim is made to have read or updated that missing file.
+A fresh GitHub clone was used to preserve the original cloud-backed checkout and
+its unrelated files. The retained PDF and baseline were restored only after
+matching the hashes pinned by the existing v3 supplement.
+
+| Atomic batch | Commit | Result |
+| --- | --- | --- |
+| [Fourth Social Harp supplement](../work/openclaw-socialharp-fourth-20260911/README.md) | `f274ed4` | 125 Animation, 127 Olney, 129 Mear, 131 Newberry, 133 Mercy's Free; 87 → 92 reviewed |
+| [Fifth Social Harp supplement](../work/openclaw-socialharp-fifth-20260911/README.md) | `5866fb6` | 134 The Harvest Field, 135 The Blooming Wilderness, 137 Zion's Walls, 139 Crumbly, 141 Slabtown; 92 → 97 reviewed |
+
+Ten full-leaf renders were directly inspected and retained with heading
+coordinates and SHA-256 receipts. Mear opens below `HARMONY. Concluded.` on
+leaf 129; the continuation heading is not its identity. Page 134's printed number
+is at upper left. Both package verifiers passed: exact next-five selection,
+predecessor hashes, disjoint identities, source linkage, dimensions/coordinates,
+and coverage arithmetic. Source identity is not notation certification.
+
+Public data and application files remain byte-for-byte unchanged from `c944f3c`.
+No aggregate/browser/build check was needed for these evidence-only additions;
+the September 7 aggregate receipt is not relabeled as September 11 proof.
+The 221/222 catalogue discrepancy, 3,047 missing exact mappings, thirteen SH2025
+correction records and 17 existing pinned publications are unchanged.
+
+### Next work across the eleven-book program
+
+- **Social Harp:** 97 reviewed / 124 unresolved. Start at **143 Bowman**;
+  subtract all five supplements from the original unresolved array.
+- **Kentucky and Shenandoah:** observe lyric/shape evidence and explicit printed
+  key labels in new versions of New Salem and Something New. New Salem's repeat
+  navigation remains a separate playback task; their full written drafts exist.
+- **Minnesota:** Afton P1 m8 / P3 m12 source review remains open.
+- **Christian Harmony:** continue Zion's Dove after x502 with source-backed XML.
+- **Sacred Harp 2025:** Devotion/Portsmouth lyric alignment remains open.
+- **Southern Harmony:** obtain an identifiable printed page-12 witness;
+  the derivative PDF's classification is already complete.
+- **Sacred Harp 1991 and Cooper 2012:** preserve dated endpoint findings;
+  advance exact-source availability without borrowing another edition.
+- **Trumpet:** page identities are not notation; select a retained notation page
+  for a useful first source-backed draft.
+- **Sacred Harp Tunes:** remains in scope with no exact structured mapping;
+  select an identifiable retained source before drafting.
+
+No new notation, lyric underlay, mode, shapes, score promotion, deployment or
+background execution was delivered in this source-identity cycle.
