@@ -1,0 +1,378 @@
+{
+  "schema": "shape-note-atlas/socialharp-page-map-supplement/v13",
+  "review_date": "2026-09-11",
+  "baseline": {
+    "path": "work/luna-program-20260904/source_only/socialharp-page-map-20260904.json",
+    "sha256": "8b30106fb48d2467d70063d684ac144887b02e3cfec4470da103dc13d2c90963",
+    "summary": {
+      "catalogue_records": 221,
+      "uniquely_mapped_records": 67,
+      "unresolved_records": 154
+    }
+  },
+  "previous_supplements": [
+    {
+      "path": "work/openclaw-socialharp-20260907/socialharp-page-map-supplement-v1.json",
+      "sha256": "c4c80ad0606d474367854fc37fb8ba9d6893535df63155e09c4e8f711f6c72d8"
+    },
+    {
+      "path": "work/openclaw-socialharp-next-20260907/socialharp-page-map-supplement-v2.json",
+      "sha256": "dce4d99b6c3b47bcf0278d97f57845583aff3c428e0aff3072e759bf891e45e8"
+    },
+    {
+      "path": "work/openclaw-socialharp-third-20260907/socialharp-page-map-supplement-v3.json",
+      "sha256": "b63db5100de59964fc15b0c17b8267d870a216ca9be5d3f54701eb4a410762ae"
+    },
+    {
+      "path": "work/openclaw-socialharp-fourth-20260911/socialharp-page-map-supplement-v4.json",
+      "sha256": "b5b7ccb12c6a520abb2a66e2b30eb933501cd74a25bb5c9e0679e8eba202b405"
+    },
+    {
+      "path": "work/openclaw-socialharp-fifth-20260911/socialharp-page-map-supplement-v5.json",
+      "sha256": "2b91a3144806dc559aeda1d9f08c96eb9739fd0cc06844f9ee064c5d9f8d3b9d"
+    },
+    {
+      "path": "work/openclaw-socialharp-sixth-20260911/socialharp-page-map-supplement-v6.json",
+      "sha256": "75567840aa707c331485af34638d0601f6fa434365a1fccf5e7f5110cbcf0843"
+    },
+    {
+      "path": "work/openclaw-socialharp-seventh-20260911/socialharp-page-map-supplement-v7.json",
+      "sha256": "4c18c6aa6a0c5534172cf157875c6b8870ec631a75336ec3895e44cb1f89ef63"
+    },
+    {
+      "path": "work/openclaw-socialharp-eighth-20260911/socialharp-page-map-supplement-v8.json",
+      "sha256": "acff9bb979828a2b18ae12d19cda4b6717bf21e51e7d722fa9e4243467cc5f4b"
+    },
+    {
+      "path": "work/openclaw-socialharp-ninth-20260911/socialharp-page-map-supplement-v9.json",
+      "sha256": "e290a1005193a30c44bea702803ae6cab51d08fe3696ea93cca43a69986f7124"
+    },
+    {
+      "path": "work/openclaw-socialharp-tenth-20260911/socialharp-page-map-supplement-v10.json",
+      "sha256": "5ac7335e7575b616d853ff049ea3fa5c6578def509f0009b42122b1adef3d50f"
+    },
+    {
+      "path": "work/openclaw-socialharp-eleventh-20260911/socialharp-page-map-supplement-v11.json",
+      "sha256": "4ba135de666f208cf0a49d4916d2a444c5143a107bc79aeba4b9347893a23118"
+    },
+    {
+      "path": "work/openclaw-socialharp-twelfth-20260911/socialharp-page-map-supplement-v12.json",
+      "sha256": "2f2cf64de373613ad3a2ec38710995f1037dcd97651120cb52f849698ea04e9d"
+    }
+  ],
+  "source": {
+    "path": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+    "sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331"
+  },
+  "policy": {
+    "supplement_only": true,
+    "original_mapping_unchanged": true,
+    "previous_supplements_unchanged": true,
+    "notation_imported": false,
+    "lyrics_or_notes_inferred": false,
+    "catalogue_discrepancy": "221 corpus records versus 222 historical count remains unresolved; page-identity review does not settle inventory.",
+    "renders_local_only": true
+  },
+  "summary": {
+    "reviewed_records": 10,
+    "resolved_source_identities": 10,
+    "distinct_reviewed_pdf_leaves": 8,
+    "previous_combined_mapped": 157,
+    "combined_mapped": 167,
+    "previous_combined_unresolved": 64,
+    "combined_unresolved": 54,
+    "catalogue_records_unchanged": 221
+  },
+  "records": [
+    {
+      "record_id": "socialharp 237 — DAVID'S LAMENTATION",
+      "song_no": "237",
+      "catalogue_title": "DAVID'S LAMENTATION",
+      "literal_heading": "DAVID’S LAMENTATION.",
+      "pdf_leaf_1_based": 237,
+      "printed_page": "237",
+      "page_region": "top",
+      "heading_bbox_px": [
+        398,
+        35,
+        857,
+        85
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-thirteenth-20260911/renders/leaf-237.png",
+      "render_sha256": "dbf519a3d043d8a25dd517f8fe446876721cb46cdcf50b42e22d7a1a18be909e",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 237 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 238 — DUNLAP'S CREEK",
+      "song_no": "238",
+      "catalogue_title": "DUNLAP'S CREEK",
+      "literal_heading": "DUNLAP’S CREEK.",
+      "pdf_leaf_1_based": 238,
+      "printed_page": "238",
+      "page_region": "bottom",
+      "heading_bbox_px": [
+        470,
+        629,
+        814,
+        680
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-thirteenth-20260911/renders/leaf-238.png",
+      "render_sha256": "8413e052fe784bce838455f32b3462771f67343e89cc60bd9c873909db1991c3",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Lower opening below DAVID’S LAMENTATION. Concluded.; printed page 238 at upper left.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 239 — CREATION",
+      "song_no": "239",
+      "catalogue_title": "CREATION",
+      "literal_heading": "CREATION.",
+      "pdf_leaf_1_based": 239,
+      "printed_page": "239",
+      "page_region": "top",
+      "heading_bbox_px": [
+        484,
+        23,
+        696,
+        74
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-thirteenth-20260911/renders/leaf-239.png",
+      "render_sha256": "cbf7560f4d816b4a40dc2f363b51e742f69a31ed4c273c8df3456aa625a70050",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 239 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 23b — HEAVENLY DOVE",
+      "song_no": "23b",
+      "catalogue_title": "HEAVENLY DOVE",
+      "literal_heading": "HEAVENLY DOVE.",
+      "pdf_leaf_1_based": 23,
+      "printed_page": "23",
+      "page_region": "bottom",
+      "heading_bbox_px": [
+        496,
+        604,
+        839,
+        655
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-thirteenth-20260911/renders/leaf-23.png",
+      "render_sha256": "248322c28308e15f64bdf67158222d0a5be381d2552cd26a10855fe4c1a29d3f",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Lower opening below Separation New; printed page 23 at upper right identifies their shared leaf.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 23t — SEPARATION NEW",
+      "song_no": "23t",
+      "catalogue_title": "SEPARATION NEW",
+      "literal_heading": "SEPARATION NEW.",
+      "pdf_leaf_1_based": 23,
+      "printed_page": "23",
+      "page_region": "top",
+      "heading_bbox_px": [
+        490,
+        29,
+        853,
+        79
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-thirteenth-20260911/renders/leaf-23.png",
+      "render_sha256": "248322c28308e15f64bdf67158222d0a5be381d2552cd26a10855fe4c1a29d3f",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Upper opening above Heavenly Dove; printed page 23 at upper right identifies their shared leaf.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 241 — ROSE OF SHARON",
+      "song_no": "241",
+      "catalogue_title": "ROSE OF SHARON",
+      "literal_heading": "ROSE OF SHARON.",
+      "pdf_leaf_1_based": 241,
+      "printed_page": "241",
+      "page_region": "top",
+      "heading_bbox_px": [
+        474,
+        45,
+        818,
+        97
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-thirteenth-20260911/renders/leaf-241.png",
+      "render_sha256": "00143a953f1d40b652abca9e25e9595f0083099ab9e34006a6e946563ab77026",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 241 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 249 — DEEP SPRING",
+      "song_no": "249",
+      "catalogue_title": "DEEP SPRING",
+      "literal_heading": "DEEP SPRING.",
+      "pdf_leaf_1_based": 249,
+      "printed_page": "249",
+      "page_region": "top",
+      "heading_bbox_px": [
+        449,
+        19,
+        723,
+        69
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-thirteenth-20260911/renders/leaf-249.png",
+      "render_sha256": "900a852c3117eaedd9d234646d536a2ed44b35c8425732ab71c8df1541948d17",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 249 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 24b — PRIMROSE",
+      "song_no": "24b",
+      "catalogue_title": "PRIMROSE",
+      "literal_heading": "PRIMROSE.",
+      "pdf_leaf_1_based": 24,
+      "printed_page": "24",
+      "page_region": "bottom",
+      "heading_bbox_px": [
+        539,
+        641,
+        746,
+        690
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-thirteenth-20260911/renders/leaf-24.png",
+      "render_sha256": "409cafb4c581790985448fca75701802a222fe5fdc1cb97d127202f57f382c0e",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Lower opening below Ninety-Fifth; printed page 24 at upper left identifies their shared leaf.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 24t — NINETY-FIFTH",
+      "song_no": "24t",
+      "catalogue_title": "NINETY-FIFTH",
+      "literal_heading": "NINETY-FIFTH.",
+      "pdf_leaf_1_based": 24,
+      "printed_page": "24",
+      "page_region": "top",
+      "heading_bbox_px": [
+        528,
+        30,
+        816,
+        80
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-thirteenth-20260911/renders/leaf-24.png",
+      "render_sha256": "409cafb4c581790985448fca75701802a222fe5fdc1cb97d127202f57f382c0e",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Upper opening above Primrose; printed page 24 at upper left identifies their shared leaf.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 25 — LOOK OUT",
+      "song_no": "25",
+      "catalogue_title": "LOOK OUT",
+      "literal_heading": "LOOK OUT.",
+      "pdf_leaf_1_based": 25,
+      "printed_page": "25",
+      "page_region": "top",
+      "heading_bbox_px": [
+        505,
+        30,
+        718,
+        81
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-thirteenth-20260911/renders/leaf-25.png",
+      "render_sha256": "d2733497564d8368f9489884a307851251b6f59df0c4c33b6175a2fe1ed09659",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 25 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    }
+  ]
+}
