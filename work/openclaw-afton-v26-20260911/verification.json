@@ -1,0 +1,14 @@
+{
+  "candidateSha256": "168d501730ef27027bc8e304f34a9c8d450794399aefac3212fe0141d8cc7d2b",
+  "sourceSha256": "6ba40c10dbdfa9b93e16f67ae34619254c88004367d802f07a6eddd156047192",
+  "exportedXmlAndAtlasParsersAccept": true,
+  "playbackDurationFailures": 0,
+  "all68WrittenMeasuresHaveEightDivisions": true,
+  "exactV25StructureAfterReversingDeclaredChanges": true,
+  "allPriorSourceAndPublishedCandidateHashesPreserved": true,
+  "pitchedNotes": 251,
+  "explicitNoteheads": 251,
+  "rests": 12,
+  "lyrics": 150,
+  "safeToPromote": false
+}

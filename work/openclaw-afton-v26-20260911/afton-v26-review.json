@@ -1,0 +1,238 @@
+{
+  "date": "2026-09-11",
+  "status": "isolated-review-candidate",
+  "safeToPromote": false,
+  "canonical_promotion": false,
+  "source": {
+    "path": "public/review-publications/mnharmony-afton-v25-source.pdf",
+    "sha256": "6ba40c10dbdfa9b93e16f67ae34619254c88004367d802f07a6eddd156047192",
+    "inspectedPages": [
+      1,
+      2
+    ],
+    "notationPage": 1,
+    "page2Disposition": "Empty stave print artifact: four clefs and key signatures but no notes, text underlay, or later music. Page 1 already ends at the final double barline."
+  },
+  "supersedes": {
+    "path": "work/openclaw-afton-20260907/afton-full-song-candidate-v25.musicxml",
+    "sha256": "7db156b17f9bb126415c0816bf9919fa4c43e4c738bbb7e597d2a9ea87b0d444",
+    "publishedCopy": "public/review-publications/mnharmony-afton-v25-musicXml.musicxml"
+  },
+  "candidate": {
+    "path": "work/openclaw-afton-v26-20260911/afton-full-song-candidate-v26.musicxml",
+    "sha256": "168d501730ef27027bc8e304f34a9c8d450794399aefac3212fe0141d8cc7d2b"
+  },
+  "correctedLyricAnchors": [
+    {
+      "part": "P3",
+      "measure": 12,
+      "oldNoteIndex": 3,
+      "noteIndex": 5,
+      "text": "dis",
+      "syllabic": "begin",
+      "onsetDivisions": 6,
+      "followingAnchor": {
+        "part": "P3",
+        "measure": 13,
+        "noteIndex": 1,
+        "text": "play,",
+        "syllabic": "end"
+      }
+    }
+  ],
+  "metadataCorrection": {
+    "field": "work/work-title",
+    "old": "Afton — first system source-review candidate (v16 measured second-system)",
+    "new": "Afton — full-song source-review candidate (v26)",
+    "reason": "The inherited v16 title said first system despite the complete 17-measure event stream. The new candidate is explicitly labeled v26 and remains a source-review candidate."
+  },
+  "directObservations": [
+    {
+      "part": "P3",
+      "measure": 12,
+      "sourcePage": 1,
+      "dpi": 600,
+      "cropRectangle": [
+        2150,
+        3700,
+        970,
+        620
+      ],
+      "noteheadCentersCropXApprox": [
+        184,
+        370,
+        550,
+        646,
+        738,
+        829
+      ],
+      "wordBoundsPdfPoints": {
+        "glory": [
+          276.719003,
+          494.273202,
+          298.6285,
+          503.463399
+        ],
+        "to": [
+          306.598855,
+          494.273202,
+          314.708423,
+          503.463399
+        ],
+        "dis-": [
+          335.998718,
+          494.273202,
+          351.7615,
+          503.463399
+        ]
+      },
+      "observation": "The separate printed monosyllable dis- is beneath the final beamed eighth-note pair (D5 then B4), with its center aligned to the D5 onset, n5. It is not beneath the preceding A4/B4 pair at n3/n4. The direct multi-voice crop confirms the final pair and the next-bar play, boundary. Move only dis from n3 to n5; retain existing glory/to and next-bar play, without claiming their melisma extents."
+    },
+    {
+      "part": "P3",
+      "measure": 13,
+      "sourcePage": 1,
+      "dpi": 400,
+      "cropRectangle": [
+        1420,
+        1870,
+        1100,
+        1060
+      ],
+      "observation": "Printed play, begins under the following dotted-half A4 at m13 n1; the existing end-syllable anchor remains unchanged. No slur, tie, melisma extension, or alternate ending is added."
+    },
+    {
+      "part": "P1",
+      "measure": 8,
+      "sourcePage": 1,
+      "dpi": 600,
+      "cropRectangle": [
+        5130,
+        630,
+        725,
+        525
+      ],
+      "noteheadCentersCropXApprox": [
+        97,
+        247,
+        322,
+        397,
+        547
+      ],
+      "wordBoundsPdfPoints": {
+        "ripened": [
+          624.237834,
+          127.193349,
+          655.747969,
+          136.383545
+        ],
+        "harvest": [
+          658.558347,
+          127.193349,
+          688.759145,
+          136.383545
+        ]
+      },
+      "observation": "The source prints one unhyphenated text run, ripened harvest, beneath five notes. It does not individually mark syllable boundaries or extenders. No syllabic expansion, exact note anchoring, or lyric extension is manufactured; all five P1 m8 lyric fields remain absent."
+    },
+    {
+      "part": "P4",
+      "measures": "1-17",
+      "sourcePage": 1,
+      "observation": "Neither printed system has a bass lyric line. Its absent lyrics are unprinted source content, not a missing transcription of one of the treble lines."
+    }
+  ],
+  "inspectionReproduction": {
+    "tool": "Poppler pdftoppm and pdftotext -bbox-layout; no image generation",
+    "localOnlyDirectory": "work/openclaw-afton-v26-20260911/local-only",
+    "publicationPolicy": "Do not commit source renders or text extracts. Compare the already-published, hash-pinned source PDF; no additional scan bytes are part of this package."
+  },
+  "remainingSourceSemanticGaps": [
+    {
+      "id": "p1-m4-printed-underlay",
+      "scope": "P1 m4 n1-n5",
+      "observedPrintedText": "vides the sun and",
+      "currentXml": "No lyrics in m4; m3 n4 pro is a begin syllable.",
+      "required": "Establish exact onset/span for the visible continuation and encode it in a new version; no lyric count can call this whole song complete."
+    },
+    {
+      "id": "p2-m4-printed-underlay",
+      "scope": "P2 m4 n1-n5",
+      "observedPrintedText": "wonder, joy and",
+      "currentXml": "No lyrics in m4.",
+      "required": "Establish word/syllable onsets against this printed voice, including the unhyphenated wonder, and the final beamed pair."
+    },
+    {
+      "id": "p3-m4-printed-underlay",
+      "scope": "P3 m4 n1-n6",
+      "observedPrintedText": "we but see thy",
+      "currentXml": "No lyrics in m4.",
+      "required": "Establish voice-specific placement and multi-note spans; do not copy the five-note P1/P2 alignment."
+    },
+    {
+      "id": "p1-m8-unmarked-syllable-boundaries",
+      "scope": "P1 m8 n1-n5",
+      "observedPrintedText": "ripened harvest",
+      "currentXml": "All five lyrics remain absent.",
+      "required": "An authoritative syllable-to-note reading of the unhyphenated text run is still required; the observed source alone does not establish the exact split."
+    },
+    {
+      "id": "p3-m12-melisma-extent",
+      "scope": "P3 m12 n1-n6 through m13 n1",
+      "observedPrintedText": "glory to dis- / play,",
+      "currentXml": "glory at n1; to at n2; dis now at n5; play, at next measure n1; no extenders.",
+      "required": "Audit glory/to and the unmarked multi-note spans separately. The corrected dis onset does not certify a complete melisma model."
+    },
+    {
+      "id": "p2-second-system-spans",
+      "scope": "P2 m12, m15, m16",
+      "observedPrintedText": "grace upon the / chorus join, and / make the theme their",
+      "currentXml": "Existing word anchors and split upon are inherited unchanged.",
+      "required": "Directly audit each existing onset against the compact printed text, especially chorus across the m15 rhythm and theme/their across m16. No certification from whole-word presence."
+    },
+    {
+      "id": "existing-syllabic-serialization",
+      "scope": "P1 m6,m7,m16; P2 m2,m3,m6,m7,m10,m11,m12,m14; P3 m2,m11,m15,m16",
+      "observedPrintedText": "Several source words are unhyphenated; explicit al- / though appears across P3 m15/m16.",
+      "currentXml": "Inherited split forms include tender, proceeds, safely; subject, starry, furnishes, noblest, redeemed, combine, upon, solemn; changing, below, cannot. P3 m11 be/low are separate single labels; P3 m15 we is begin and al- includes a literal hyphen.",
+      "required": "Review word-versus-syllable serialization and exact source alignment. This version does not silently repair earlier labels or infer verse numbers."
+    },
+    {
+      "id": "remaining-multi-note-spans",
+      "scope": "P1 m3,m11,m12,m16; P2 m3,m7,m8,m11,m12,m16; P3 m3,m8,m11,m12,m16",
+      "currentXml": "There are pitched events without separate lyrics and no lyric extend elements.",
+      "required": "Audit the actual printed underlay before marking continuations. An absent lyric on a melismatic note is not automatically an omission, and a beam does not establish a lyric extender."
+    },
+    {
+      "id": "source-tonal-identity-and-global-review",
+      "scope": "whole tune",
+      "observedPrintedText": "One-sharp signature; AFTON; Charlie Obert, 1999; no printed major/minor word.",
+      "currentXml": "One-sharp signature preserved; mode absent. All 251 pitches/shapes remain inherited.",
+      "required": "Keep mode unknown. Complete independent exact-source pitch, rhythm, shape, underlay, and source-edition review before any verified-edition promotion; preservation checks alone are not a fresh 251-note source audit."
+    }
+  ],
+  "verification": {
+    "pitchedNotes": 251,
+    "explicitNoteheads": 251,
+    "rests": 12,
+    "lyricAnchors": 150,
+    "parts": 4,
+    "measuresPerPart": 17,
+    "allMeasuresEightDivisions": true,
+    "sourceAndBothV25CopiesHashChecked": true,
+    "exportedMusicXmlAndAtlasParsersAccept": true,
+    "playbackDurationFailures": 0,
+    "exactV25StructureAfterReversingOneLyricMoveAndTitleUpdate": true,
+    "newLyrics": 0,
+    "addedExtenders": 0,
+    "inventedVerses": 0,
+    "canonicalDataChanged": false,
+    "newSourceScansPublished": false
+  },
+  "limitations": [
+    "Full written notation extent, not a certified edition transcription.",
+    "P3 m12 dis- onset is corrected; P1 m8 and the three m4 underlay gaps remain unencoded.",
+    "Other lyric syllabic/extension semantics and complete source comparison remain open.",
+    "Mode remains unknown."
+  ]
+}
