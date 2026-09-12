@@ -58,6 +58,25 @@ FIXTURE_XML = """<?xml version="1.0" encoding="UTF-8"?>
 
 
 class MusicXMLParserTests(unittest.TestCase):
+    def test_literal_notehead_fill_is_preserved_without_mode_inference(self):
+        xml = FIXTURE_XML.replace('<mode>major</mode>', '')
+        xml = xml.replace('<duration>1</duration><voice>1</voice><type>quarter</type>',
+                          '<duration>1</duration><voice>1</voice><type>quarter</type><notehead filled="no">triangle</notehead>', 1)
+        xml = xml.replace('<pitch><step>E</step><octave>4</octave></pitch>',
+                          '<pitch><step>E</step><octave>4</octave></pitch><notehead filled="yes">normal</notehead>')
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            path = Path(temporary_directory) / 'glyphs.mxl'
+            with zipfile.ZipFile(path, 'w') as archive:
+                archive.writestr('score.xml', xml)
+            score = parse_score('fixture://literal-glyphs', source_path=path)
+        events = score['parts'][0]['events']
+        self.assertEqual((events[0]['notehead'], events[0]['noteheadFilled']), ('triangle', False))
+        self.assertEqual((events[1]['notehead'], events[1]['noteheadFilled']), ('normal', True))
+        self.assertNotIn('shape', events[1])
+        self.assertNotIn('noteheadFilled', events[2])
+        self.assertEqual(score['keySignature'], '')
+        self.assertEqual([e['onset'] for e in events], [0.0, 0.0, 1.0, 0.0, 0.0, 2.0])
+
     def test_chord_notes_share_anchor_onset_per_voice(self):
         with tempfile.TemporaryDirectory() as temporary_directory:
             archive_path = Path(temporary_directory) / "fixture.mxl"

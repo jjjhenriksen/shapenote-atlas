@@ -7,6 +7,7 @@ import { buildPracticeSchedule, canApplyPlaybackPlan, resolveRepeatPlayback, gua
 import { summarizeSourceHealth } from "./sourceHealthPresentation.js";
 import { resolveKeyContext } from "./keyResolution.js";
 import { PublishedDraftActions } from "./PublishedDraftActions.jsx";
+import { sourceNoteheadEvidence, noteheadFilled } from "./noteheadEvidence.js";
 
 const PUBLIC_BASE = import.meta.env.BASE_URL || "/";
 
@@ -21,7 +22,6 @@ const ROOT_PITCH = { C: 0, "B#": 0, "C#": 1, Db: 1, D: 2, "D#": 3, Eb: 3, E: 4, 
 const STEP_SEMITONES = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 };
 const STEP_DIATONIC = { C: 0, D: 1, E: 2, F: 3, G: 4, A: 5, B: 6 };
 const SACRED_HARP_MAJOR_SHAPES = ["fa", "sol", "la", "fa", "sol", "la", "mi"];
-const SHAPE_NAMES = new Set(["fa", "sol", "la", "mi"]);
 const DIATONIC_STEPS = ["C", "D", "E", "F", "G", "A", "B"];
 
 function Icon({ name, size = 18 }) {
@@ -236,7 +236,8 @@ function tonicStepFromKey(key) {
 }
 
 function shapeForEvent(event, sourceKey) {
-  if (SHAPE_NAMES.has(event.shape)) return { name: event.shape, kind: "source" };
+  const encoded = sourceNoteheadEvidence(event);
+  if (encoded) return encoded;
   if (!sourceKey || !event.step) return { name: "", kind: "unavailable" };
   const parsed = parseKey(sourceKey);
   if (!parsed) return { name: "", kind: "unavailable" };
@@ -510,18 +511,18 @@ function ScorePreview({ score, playback, transpose, complete, sourceKey, targetK
     return stats;
   }, { source: 0, derived: 0, unavailable: 0 });
   const shapeCaption = shapeStats.unavailable === 0
-    ? shapeStats.derived > 0 ? "Sacred Harp four-shape rendering" : "Source-encoded shape-note rendering"
-    : "Pitch/rhythm rendering · shapes unavailable";
+    ? shapeStats.derived > 0 ? "Derived four-shape rendering" : "Source-encoded notehead rendering"
+    : "Pitch/rhythm rendering · notehead evidence incomplete";
   const displayedKey = targetKey ? keyLabel(`${targetKey} ${keyMode(sourceKey) || "major"}`) : keyLabel(sourceKey);
-  const shapeNote = keyEvidence?.status === "omr-detected"
-    ? "Shapes derived from an OMR-detected key; verify the key against the source before promotion."
-    : keyEvidence?.status === "source-observed"
-      ? "Shapes derived from the key observed in the source page; human verification is still required."
-    : shapeStats.derived > 0
-      ? "Shapes derived from the recorded source key; the linked PDF remains authoritative."
+  const shapeNote = shapeStats.derived > 0
+    ? keyEvidence?.status === "omr-detected"
+      ? "Some shapes are derived from an OMR-detected key; verify the key against the source before promotion."
+      : keyEvidence?.status === "source-observed"
+        ? "Some shapes are derived from the key observed in the source page; human verification is still required."
+        : "Some shapes are derived from the recorded source key; the linked source remains authoritative."
       : shapeStats.source > 0
-        ? "Shapes preserved from the source score."
-        : "Shapes unavailable in the source; pitches and rhythms are preserved.";
+        ? "Encoded noteheads are preserved without inferring a key or mode."
+        : "Notehead evidence is unavailable; pitches and rhythms are preserved.";
   const sourceMeasureCount = Number(score?.sourceMeasureCount);
   const measureCaption = complete
     ? sourceMeasureCount && sourceMeasureCount !== measureStarts.length
@@ -560,13 +561,13 @@ function ScorePreview({ score, playback, transpose, complete, sourceKey, targetK
                 const diatonic = 7 * (notation.octave - 4) + STEP_DIATONIC[notation.step];
                 const relative = diatonic - staffBottom[staff];
                 const y = base + 16 - relative * 2;
-                const filled = !["whole", "half"].includes(String(event.type || "quarter").toLowerCase());
+                const filled = noteheadFilled(event);
                 const stemmed = !["whole"].includes(String(event.type || "quarter").toLowerCase());
                 const flags = { eighth: 1, "16th": 2, "32nd": 3, "64th": 4 }[String(event.type || "").toLowerCase()] || 0;
                 const accidental = accidentalGlyph(notation.accidental);
                 const shape = shapeForEvent(event, sourceKey);
                 return <g key={`${part.name}-${eventIndex}`} className="score-note">
-                  <title>{shape.name ? `${shape.name} shape note` : "Shape note unavailable"}</title>
+                  <title>{shape.name ? `${shape.name} notehead` : "Notehead evidence unavailable"}</title>
                   {accidental && <text x={x - 14} y={y + 4} className="accidental">{accidental}</text>}
                   <Notehead shape={shape.name || "round"} filled={filled} x={x} y={y} />
                   {stemmed && <line x1={x + 4.5} y1={y} x2={x + 4.5} y2={y - 14} />}

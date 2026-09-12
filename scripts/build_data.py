@@ -750,11 +750,14 @@ def parse_score(url: str, source_path: Path | None = None) -> dict[str, Any] | N
                         )
                     if event.get("notehead", "").lower() in shape_names:
                         event["shape"] = event["notehead"].lower()
+                    notehead = next((child for child in item if local_name(child.tag) == "notehead"), None)
+                    if notehead is not None and notehead.attrib.get("filled") in {"yes", "no"}:
+                        event["noteheadFilled"] = notehead.attrib["filled"] == "yes"
                     for tie in (child for child in item if local_name(child.tag) == "tie"):
                         tie_type = tie.attrib.get("type", "")
                         if tie_type in {"start", "stop"}:
                             event[f"tie{tie_type.title()}"] = True
-                    event = {key: value for key, value in event.items() if value not in ("", 0, False, None) or key in {"onset", "beats", "measure", "rest", "staff", "dots"}}
+                    event = {key: value for key, value in event.items() if value not in ("", 0, False, None) or key in {"onset", "beats", "measure", "rest", "staff", "dots", "noteheadFilled"}}
                     events.append(event)
                     previous_note = (stream, note_onset)
                     measure_max_cursor = max(measure_max_cursor, note_onset + beats)
