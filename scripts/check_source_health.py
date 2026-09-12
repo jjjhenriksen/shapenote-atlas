@@ -17,6 +17,7 @@ import socket
 import subprocess
 import sys
 import time
+from collections import deque
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -417,48 +418,73 @@ def host_name(url: str) -> str:
 
 
 def check_network_urls(urls: list[str], timeout: float, workers: int, per_host: int, max_seconds: float) -> tuple[dict[str, dict[str, Any]], set[str], dict[str, int]]:
-    """Check a bounded URL set with a per-host semaphore and total deadline."""
-    import threading
+    """Dispatch fairly across hosts without occupying workers on host locks."""
+    workers, per_host = max(1, workers), max(1, per_host)
+    pending: dict[str, deque[str]] = {}
+    for url in urls:
+        pending.setdefault(host_name(url), deque()).append(url)
+    hosts = deque(pending)
+    active = {host: 0 for host in pending}
 
-    host_locks: dict[str, threading.BoundedSemaphore] = {}
-    lock = threading.Lock()
     def check_one(url: str) -> dict[str, Any]:
-        host = host_name(url)
-        with lock:
-            semaphore = host_locks.setdefault(host, threading.BoundedSemaphore(max(1, per_host)))
-        with semaphore:
-            result = request_url(url, timeout)
-            result["host"] = host
-            return result
+        result = request_url(url, timeout)
+        result["host"] = host_name(url)
+        return result
 
     results: dict[str, dict[str, Any]] = {}
     started = time.monotonic()
     futures: dict[concurrent.futures.Future[dict[str, Any]], str] = {}
-    executor = concurrent.futures.ThreadPoolExecutor(max_workers=max(1, workers))
+    deadline = None if max_seconds <= 0 else started + max_seconds
+    executor = concurrent.futures.ThreadPoolExecutor(max_workers=workers)
     try:
-        for url in urls:
-            futures[executor.submit(check_one, url)] = url
-        try:
-            remaining = None if max_seconds <= 0 else max(0.0, max_seconds - (time.monotonic() - started))
-            for future in concurrent.futures.as_completed(futures, timeout=remaining):
-                url = futures[future]
+        while hosts or futures:
+            if deadline is not None and time.monotonic() >= deadline:
+                break
+            while hosts and len(futures) < workers:
+                # A full rotation with no eligible host means the active
+                # requests must finish before more work can be dispatched.
+                dispatched = False
+                for _ in range(len(hosts)):
+                    host = hosts.popleft()
+                    if active[host] < per_host:
+                        if deadline is not None and time.monotonic() >= deadline:
+                            hosts.appendleft(host)
+                            break
+                        url = pending[host].popleft()
+                        futures[executor.submit(check_one, url)] = url
+                        active[host] += 1
+                        dispatched = True
+                    if pending[host]:
+                        hosts.append(host)
+                    if dispatched:
+                        break
+                if not dispatched:
+                    break
+            if not futures:
+                break
+            remaining = None if deadline is None else max(0.0, deadline - time.monotonic())
+            completed, _ = concurrent.futures.wait(
+                futures, timeout=remaining, return_when=concurrent.futures.FIRST_COMPLETED
+            )
+            if not completed:
+                break
+            for future in completed:
+                url = futures.pop(future)
+                active[host_name(url)] -= 1
                 try:
                     results[url] = future.result()
                 except Exception as exc:  # pragma: no cover - defensive worker isolation
                     results[url] = {"status": "network-error", "httpStatus": None, "finalUrl": url, "contentType": "", "method": "unknown", "redirects": [], "error": str(exc), "host": host_name(url)}
-        except concurrent.futures.TimeoutError:
-            pass
-        for future, url in futures.items():
-            if url not in results:
-                future.cancel()
     finally:
+        for future in futures:
+            future.cancel()
         # Do not make a bounded run wait for a slow host after the deadline.
         executor.shutdown(wait=False, cancel_futures=True)
     checked_hosts = {}
     for url, result in results.items():
         host = result.get("host", host_name(url))
         checked_hosts[host] = checked_hosts.get(host, 0) + 1
-    return results, set(futures_by_url for futures_by_url in results), checked_hosts
+    return results, set(results), checked_hosts
 
 
 def main() -> int:
