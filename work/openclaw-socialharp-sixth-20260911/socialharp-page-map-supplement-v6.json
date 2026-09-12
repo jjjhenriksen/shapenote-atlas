@@ -1,0 +1,204 @@
+{
+  "schema": "shape-note-atlas/socialharp-page-map-supplement/v6",
+  "review_date": "2026-09-11",
+  "baseline": {
+    "path": "work/luna-program-20260904/source_only/socialharp-page-map-20260904.json",
+    "sha256": "8b30106fb48d2467d70063d684ac144887b02e3cfec4470da103dc13d2c90963",
+    "summary": {
+      "catalogue_records": 221,
+      "uniquely_mapped_records": 67,
+      "unresolved_records": 154
+    }
+  },
+  "previous_supplements": [
+    {
+      "path": "work/openclaw-socialharp-20260907/socialharp-page-map-supplement-v1.json",
+      "sha256": "c4c80ad0606d474367854fc37fb8ba9d6893535df63155e09c4e8f711f6c72d8"
+    },
+    {
+      "path": "work/openclaw-socialharp-next-20260907/socialharp-page-map-supplement-v2.json",
+      "sha256": "dce4d99b6c3b47bcf0278d97f57845583aff3c428e0aff3072e759bf891e45e8"
+    },
+    {
+      "path": "work/openclaw-socialharp-third-20260907/socialharp-page-map-supplement-v3.json",
+      "sha256": "b63db5100de59964fc15b0c17b8267d870a216ca9be5d3f54701eb4a410762ae"
+    },
+    {
+      "path": "work/openclaw-socialharp-fourth-20260911/socialharp-page-map-supplement-v4.json",
+      "sha256": "b5b7ccb12c6a520abb2a66e2b30eb933501cd74a25bb5c9e0679e8eba202b405"
+    },
+    {
+      "path": "work/openclaw-socialharp-fifth-20260911/socialharp-page-map-supplement-v5.json",
+      "sha256": "2b91a3144806dc559aeda1d9f08c96eb9739fd0cc06844f9ee064c5d9f8d3b9d"
+    }
+  ],
+  "source": {
+    "path": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+    "sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331"
+  },
+  "policy": {
+    "supplement_only": true,
+    "original_mapping_unchanged": true,
+    "previous_supplements_unchanged": true,
+    "notation_imported": false,
+    "lyrics_or_notes_inferred": false,
+    "catalogue_discrepancy": "221 corpus records versus 222 historical count remains unresolved; page-identity review does not settle inventory."
+  },
+  "summary": {
+    "reviewed_records": 5,
+    "resolved_source_identities": 5,
+    "distinct_reviewed_pdf_leaves": 5,
+    "previous_combined_mapped": 97,
+    "combined_mapped": 102,
+    "previous_combined_unresolved": 124,
+    "combined_unresolved": 119,
+    "catalogue_records_unchanged": 221
+  },
+  "records": [
+    {
+      "record_id": "socialharp 143 — BOWMAN",
+      "song_no": "143",
+      "catalogue_title": "BOWMAN",
+      "literal_heading": "BOWMAN.",
+      "pdf_leaf_1_based": 143,
+      "printed_page": "143",
+      "page_region": "bottom",
+      "heading_bbox_px": [
+        428,
+        602,
+        618,
+        649
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-sixth-20260911/renders/leaf-143.png",
+      "render_sha256": "9b1c2b0525ef157fef5bd1d87dbecb4b40a24560412126e4dbb7446591d90547",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening in lower half below FATHER LAND. Concluded.; printed page 143 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 145 — ROLL, JORDAN",
+      "song_no": "145",
+      "catalogue_title": "ROLL, JORDAN",
+      "literal_heading": "ROLL JORDAN.",
+      "pdf_leaf_1_based": 145,
+      "printed_page": "145",
+      "page_region": "top",
+      "heading_bbox_px": [
+        376,
+        25,
+        651,
+        72
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-sixth-20260911/renders/leaf-145.png",
+      "render_sha256": "f1ed24ad6aada8617a8c1717976acd5d97fb1ee99f3d66ce66a9cd855aa7f340",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Printed heading omits the comma in catalogue ROLL, JORDAN; words match. Printed page 145 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 146 — BONNIE DOON",
+      "song_no": "146",
+      "catalogue_title": "BONNIE DOON",
+      "literal_heading": "BONNIE DOON.",
+      "pdf_leaf_1_based": 146,
+      "printed_page": "146",
+      "page_region": "top",
+      "heading_bbox_px": [
+        482,
+        36,
+        756,
+        79
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-sixth-20260911/renders/leaf-146.png",
+      "render_sha256": "23d7c22b9c59f4dcc54834561f0c26ccfc79d0079dd21b5349996da391197510",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening heading above first system; printed page 146 at upper left.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 149 — SABBATH SUMMONS",
+      "song_no": "149",
+      "catalogue_title": "SABBATH SUMMONS",
+      "literal_heading": "SABBATH SUMMONS.",
+      "pdf_leaf_1_based": 149,
+      "printed_page": "149",
+      "page_region": "top",
+      "heading_bbox_px": [
+        408,
+        37,
+        794,
+        80
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-sixth-20260911/renders/leaf-149.png",
+      "render_sha256": "f1b501aba8b6a5d0bfa5a14a86241b932351c936059c17aee136c98eddefeedb",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening heading above first system; printed page 149 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 152 — BENTON",
+      "song_no": "152",
+      "catalogue_title": "BENTON",
+      "literal_heading": "BENTON.",
+      "pdf_leaf_1_based": 152,
+      "printed_page": "152",
+      "page_region": "top",
+      "heading_bbox_px": [
+        485,
+        20,
+        654,
+        62
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-sixth-20260911/renders/leaf-152.png",
+      "render_sha256": "a9cbdbf2ba14d449aae5242567d7ce97694b75dada6aa2d04f6468bfa0c81a99",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening heading above first system; printed page 152 at upper left.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    }
+  ]
+}
