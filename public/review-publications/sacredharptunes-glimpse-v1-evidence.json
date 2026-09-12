@@ -1,0 +1,1159 @@
+{
+  "version": 1,
+  "title": "A Glimpse of Thee",
+  "bookId": "sacredharptunes",
+  "recordId": "sacredharptunes a-glimpse-of-thee \u2014 A Glimpse of Thee L.M.",
+  "candidate": "sacredharptunes-glimpse-opening-candidate-v1.musicxml",
+  "candidateSha256": "23f6b29246f5e5763a54bfcbd871052af26e363b245b38623017d385282cdab1",
+  "sourcePath": "work/luna-program-20260904/source_only/retained-sources/sacredharptunes-a-glimpse-of-thee-jesse_325.pdf",
+  "sourceSha256": "86c05b5b9441859f740ded45efad776a093bd2926a2c79bc15e75e2b978b8338",
+  "sourceUrl": "https://media.sacredharptunes.com/jesse_325.pdf",
+  "sourceLandingPage": "https://www.sacredharptunes.com/author/jesse/a-glimpse-of-thee/",
+  "sourcePdfPage": 1,
+  "sourcePrintedPage": null,
+  "directVisualReview": true,
+  "reviewDate": "2026-09-11",
+  "status": "isolated-review-candidate",
+  "coverage": "First four complete opening measures across all four printed voices",
+  "completeMeasuresPerPart": 4,
+  "pitchedNotes": 60,
+  "explicitNoteheads": 60,
+  "reviewRequired": true,
+  "safeToPromote": false,
+  "canonical_promotion": false,
+  "mode": "unknown",
+  "keySignatureFifths": 1,
+  "sourceIdentity": {
+    "printedTitle": "A GLIMPSE OF THEE. L.M.D.",
+    "printedTextAttribution": "Isaac Watts, 1707",
+    "printedMusicAttribution": "Jesse Pearlman Karlsberg, 2009",
+    "catalogueTitle": "A Glimpse of Thee L.M.",
+    "discrepancy": "Printed source meter suffix L.M.D. differs from catalogue L.M.; no catalogue change by this package."
+  },
+  "coordinateSystem": {
+    "origin": "top-left of exact 400-DPI Poppler crop",
+    "dimensions": [
+      1510,
+      1110
+    ],
+    "cropRectangle": [
+      250,
+      540,
+      1510,
+      1110
+    ],
+    "sourcePagePoints": [
+      792,
+      612
+    ],
+    "renderDpi": 400,
+    "image": "renders/source-opening-400dpi.png",
+    "renderSha256": "9fd7e6c47edcee74a29d5307879877f9456187809b5c92638851c70bcf0493ff",
+    "barBoundariesX": [
+      220,
+      532,
+      878,
+      1086,
+      1437
+    ],
+    "noteCenterAccuracy": "Approximate manually observed centers; up to one pixel vertical rounding. Triangle glyph y is its printed staff position, not its asymmetric visual centroid.",
+    "reproductionCommand": "pdftoppm -f 1 -l 1 -r 400 -x 250 -y 540 -W 1510 -H 1110 -png -singlefile work/luna-program-20260904/source_only/retained-sources/sacredharptunes-a-glimpse-of-thee-jesse_325.pdf work/openclaw-sacredharptunes-glimpse-20260911/renders/source-opening-400dpi"
+  },
+  "voiceObservations": [
+    {
+      "part": "P1",
+      "clef": "G",
+      "clefLine": 2,
+      "staffBottomY": 187,
+      "staffLineSpacing": 26.5
+    },
+    {
+      "part": "P2",
+      "clef": "G",
+      "clefLine": 2,
+      "staffBottomY": 485,
+      "staffLineSpacing": 26.5
+    },
+    {
+      "part": "P3",
+      "clef": "G",
+      "clefLine": 2,
+      "staffBottomY": 781,
+      "staffLineSpacing": 26.5
+    },
+    {
+      "part": "P4",
+      "clef": "F",
+      "clefLine": 4,
+      "staffBottomY": 1078,
+      "staffLineSpacing": 26.5
+    }
+  ],
+  "measureObservations": [
+    {
+      "part": "P1",
+      "measure": 1,
+      "xRange": [
+        220,
+        532
+      ],
+      "staffBottomY": 187,
+      "staffLineSpacing": 26.5,
+      "notes": [
+        {
+          "noteIndex": 1,
+          "observedPitch": "D5",
+          "noteCenter": [
+            270,
+            108
+          ],
+          "onsetQuarter": 0.0,
+          "durationQuarter": 2.0,
+          "observedType": "half",
+          "observedDot": false,
+          "observedNotehead": "normal",
+          "observedFilled": false
+        },
+        {
+          "noteIndex": 2,
+          "observedPitch": "B4",
+          "noteCenter": [
+            390,
+            134
+          ],
+          "onsetQuarter": 2.0,
+          "durationQuarter": 1.0,
+          "observedType": "quarter",
+          "observedDot": false,
+          "observedNotehead": "square",
+          "observedFilled": true
+        },
+        {
+          "noteIndex": 3,
+          "observedPitch": "G4",
+          "noteCenter": [
+            462,
+            161
+          ],
+          "onsetQuarter": 3.0,
+          "durationQuarter": 1.0,
+          "observedType": "quarter",
+          "observedDot": false,
+          "observedNotehead": "triangle",
+          "observedFilled": true
+        }
+      ]
+    },
+    {
+      "part": "P1",
+      "measure": 2,
+      "xRange": [
+        532,
+        878
+      ],
+      "staffBottomY": 187,
+      "staffLineSpacing": 26.5,
+      "notes": [
+        {
+          "noteIndex": 1,
+          "observedPitch": "B4",
+          "noteCenter": [
+            575,
+            134
+          ],
+          "onsetQuarter": 0.0,
+          "durationQuarter": 1.0,
+          "observedType": "quarter",
+          "observedDot": false,
+          "observedNotehead": "square",
+          "observedFilled": true
+        },
+        {
+          "noteIndex": 2,
+          "observedPitch": "D5",
+          "noteCenter": [
+            654,
+            108
+          ],
+          "onsetQuarter": 1.0,
+          "durationQuarter": 1.0,
+          "observedType": "quarter",
+          "observedDot": false,
+          "observedNotehead": "normal",
+          "observedFilled": true
+        },
+        {
+          "noteIndex": 3,
+          "observedPitch": "B4",
+          "noteCenter": [
+            731,
+            134
+          ],
+          "onsetQuarter": 2.0,
+          "durationQuarter": 1.0,
+          "observedType": "quarter",
+          "observedDot": false,
+          "observedNotehead": "square",
+          "observedFilled": true
+        },
+        {
+          "noteIndex": 4,
+          "observedPitch": "A4",
+          "noteCenter": [
+            807,
+            147
+          ],
+          "onsetQuarter": 3.0,
+          "durationQuarter": 1.0,
+          "observedType": "quarter",
+          "observedDot": false,
+          "observedNotehead": "normal",
+          "observedFilled": true
+        }
+      ]
+    },
+    {
+      "part": "P1",
+      "measure": 3,
+      "xRange": [
+        878,
+        1086
+      ],
+      "staffBottomY": 187,
+      "staffLineSpacing": 26.5,
+      "notes": [
+        {
+          "noteIndex": 1,
+          "observedPitch": "G4",
+          "noteCenter": [
+            922,
+            161
+          ],
+          "onsetQuarter": 0.0,
+          "durationQuarter": 3.0,
+          "observedType": "half",
+          "observedDot": true,
+          "observedNotehead": "triangle",
+          "observedFilled": false
+        },
+        {
+          "noteIndex": 2,
+          "observedPitch": "G4",
+          "noteCenter": [
+            1030,
+            161
+          ],
+          "onsetQuarter": 3.0,
+          "durationQuarter": 1.0,
+          "observedType": "quarter",
+          "observedDot": false,
+          "observedNotehead": "triangle",
+          "observedFilled": true
+        }
+      ]
+    },
+    {
+      "part": "P1",
+      "measure": 4,
+      "xRange": [
+        1086,
+        1437
+      ],
+      "staffBottomY": 187,
+      "staffLineSpacing": 26.5,
+      "notes": [
+        {
+          "noteIndex": 1,
+          "observedPitch": "B4",
+          "noteCenter": [
+            1132,
+            134
+          ],
+          "onsetQuarter": 0.0,
+          "durationQuarter": 1.0,
+          "observedType": "quarter",
+          "observedDot": false,
+          "observedNotehead": "square",
+          "observedFilled": true
+        },
+        {
+          "noteIndex": 2,
+          "observedPitch": "D5",
+          "noteCenter": [
+            1195,
+            108
+          ],
+          "onsetQuarter": 1.0,
+          "durationQuarter": 1.0,
+          "observedType": "quarter",
+          "observedDot": false,
+          "observedNotehead": "normal",
+          "observedFilled": true
+        },
+        {
+          "noteIndex": 3,
+          "observedPitch": "D5",
+          "noteCenter": [
+            1260,
+            108
+          ],
+          "onsetQuarter": 2.0,
+          "durationQuarter": 0.5,
+          "observedType": "eighth",
+          "observedDot": false,
+          "observedNotehead": "normal",
+          "observedFilled": true
+        },
+        {
+          "noteIndex": 4,
+          "observedPitch": "C5",
+          "noteCenter": [
+            1303,
+            121
+          ],
+          "onsetQuarter": 2.5,
+          "durationQuarter": 0.5,
+          "observedType": "eighth",
+          "observedDot": false,
+          "observedNotehead": "triangle",
+          "observedFilled": true
+        },
+        {
+          "noteIndex": 5,
+          "observedPitch": "B4",
+          "noteCenter": [
+            1349,
+            134
+          ],
+          "onsetQuarter": 3.0,
+          "durationQuarter": 0.5,
+          "observedType": "eighth",
+          "observedDot": false,
+          "observedNotehead": "square",
+          "observedFilled": true
+        },
+        {
+          "noteIndex": 6,
+          "observedPitch": "A4",
+          "noteCenter": [
+            1395,
+            147
+          ],
+          "onsetQuarter": 3.5,
+          "durationQuarter": 0.5,
+          "observedType": "eighth",
+          "observedDot": false,
+          "observedNotehead": "normal",
+          "observedFilled": true
+        }
+      ]
+    },
+    {
+      "part": "P2",
+      "measure": 1,
+      "xRange": [
+        220,
+        532
+      ],
+      "staffBottomY": 485,
+      "staffLineSpacing": 26.5,
+      "notes": [
+        {
+          "noteIndex": 1,
+          "observedPitch": "G4",
+          "noteCenter": [
+            270,
+            458
+          ],
+          "onsetQuarter": 0.0,
+          "durationQuarter": 2.0,
+          "observedType": "half",
+          "observedDot": false,
+          "observedNotehead": "triangle",
+          "observedFilled": false
+        },
+        {
+          "noteIndex": 2,
+          "observedPitch": "D4",
+          "noteCenter": [
+            390,
+            498
+          ],
+          "onsetQuarter": 2.0,
+          "durationQuarter": 1.0,
+          "observedType": "quarter",
+          "observedDot": false,
+          "observedNotehead": "normal",
+          "observedFilled": true
+        },
+        {
+          "noteIndex": 3,
+          "observedPitch": "E4",
+          "noteCenter": [
+            462,
+            485
+          ],
+          "onsetQuarter": 3.0,
+          "durationQuarter": 1.0,
+          "observedType": "quarter",
+          "observedDot": false,
+          "observedNotehead": "square",
+          "observedFilled": true
+        }
+      ]
+    },
+    {
+      "part": "P2",
+      "measure": 2,
+      "xRange": [
+        532,
+        878
+      ],
+      "staffBottomY": 485,
+      "staffLineSpacing": 26.5,
+      "notes": [
+        {
+          "noteIndex": 1,
+          "observedPitch": "G4",
+          "noteCenter": [
+            575,
+            458
+          ],
+          "onsetQuarter": 0.0,
+          "durationQuarter": 1.0,
+          "observedType": "quarter",
+          "observedDot": false,
+          "observedNotehead": "triangle",
+          "observedFilled": true
+        },
+        {
+          "noteIndex": 2,
+          "observedPitch": "F#4",
+          "noteCenter": [
+            654,
+            471
+          ],
+          "onsetQuarter": 1.0,
+          "durationQuarter": 1.0,
+          "observedType": "quarter",
+          "observedDot": false,
+          "observedNotehead": "diamond",
+          "observedFilled": true
+        },
+        {
+          "noteIndex": 3,
+          "observedPitch": "G4",
+          "noteCenter": [
+            731,
+            458
+          ],
+          "onsetQuarter": 2.0,
+          "durationQuarter": 1.0,
+          "observedType": "quarter",
+          "observedDot": false,
+          "observedNotehead": "triangle",
+          "observedFilled": true
+        },
+        {
+          "noteIndex": 4,
+          "observedPitch": "D4",
+          "noteCenter": [
+            807,
+            498
+          ],
+          "onsetQuarter": 3.0,
+          "durationQuarter": 1.0,
+          "observedType": "quarter",
+          "observedDot": false,
+          "observedNotehead": "normal",
+          "observedFilled": true
+        }
+      ]
+    },
+    {
+      "part": "P2",
+      "measure": 3,
+      "xRange": [
+        878,
+        1086
+      ],
+      "staffBottomY": 485,
+      "staffLineSpacing": 26.5,
+      "notes": [
+        {
+          "noteIndex": 1,
+          "observedPitch": "D4",
+          "noteCenter": [
+            922,
+            498
+          ],
+          "onsetQuarter": 0.0,
+          "durationQuarter": 3.0,
+          "observedType": "half",
+          "observedDot": true,
+          "observedNotehead": "normal",
+          "observedFilled": false
+        },
+        {
+          "noteIndex": 2,
+          "observedPitch": "E4",
+          "noteCenter": [
+            1030,
+            485
+          ],
+          "onsetQuarter": 3.0,
+          "durationQuarter": 1.0,
+          "observedType": "quarter",
+          "observedDot": false,
+          "observedNotehead": "square",
+          "observedFilled": true
+        }
+      ]
+    },
+    {
+      "part": "P2",
+      "measure": 4,
+      "xRange": [
+        1086,
+        1437
+      ],
+      "staffBottomY": 485,
+      "staffLineSpacing": 26.5,
+      "notes": [
+        {
+          "noteIndex": 1,
+          "observedPitch": "G4",
+          "noteCenter": [
+            1132,
+            458
+          ],
+          "onsetQuarter": 0.0,
+          "durationQuarter": 1.0,
+          "observedType": "quarter",
+          "observedDot": false,
+          "observedNotehead": "triangle",
+          "observedFilled": true
+        },
+        {
+          "noteIndex": 2,
+          "observedPitch": "G4",
+          "noteCenter": [
+            1195,
+            458
+          ],
+          "onsetQuarter": 1.0,
+          "durationQuarter": 1.0,
+          "observedType": "quarter",
+          "observedDot": false,
+          "observedNotehead": "triangle",
+          "observedFilled": true
+        },
+        {
+          "noteIndex": 3,
+          "observedPitch": "G4",
+          "noteCenter": [
+            1260,
+            458
+          ],
+          "onsetQuarter": 2.0,
+          "durationQuarter": 0.5,
+          "observedType": "eighth",
+          "observedDot": false,
+          "observedNotehead": "triangle",
+          "observedFilled": true
+        },
+        {
+          "noteIndex": 4,
+          "observedPitch": "F#4",
+          "noteCenter": [
+            1303,
+            471
+          ],
+          "onsetQuarter": 2.5,
+          "durationQuarter": 0.5,
+          "observedType": "eighth",
+          "observedDot": false,
+          "observedNotehead": "diamond",
+          "observedFilled": true
+        },
+        {
+          "noteIndex": 5,
+          "observedPitch": "E4",
+          "noteCenter": [
+            1349,
+            485
+          ],
+          "onsetQuarter": 3.0,
+          "durationQuarter": 0.5,
+          "observedType": "eighth",
+          "observedDot": false,
+          "observedNotehead": "square",
+          "observedFilled": true
+        },
+        {
+          "noteIndex": 6,
+          "observedPitch": "D4",
+          "noteCenter": [
+            1395,
+            498
+          ],
+          "onsetQuarter": 3.5,
+          "durationQuarter": 0.5,
+          "observedType": "eighth",
+          "observedDot": false,
+          "observedNotehead": "normal",
+          "observedFilled": true
+        }
+      ]
+    },
+    {
+      "part": "P3",
+      "measure": 1,
+      "xRange": [
+        220,
+        532
+      ],
+      "staffBottomY": 781,
+      "staffLineSpacing": 26.5,
+      "notes": [
+        {
+          "noteIndex": 1,
+          "observedPitch": "G4",
+          "noteCenter": [
+            270,
+            755
+          ],
+          "onsetQuarter": 0.0,
+          "durationQuarter": 2.0,
+          "observedType": "half",
+          "observedDot": false,
+          "observedNotehead": "triangle",
+          "observedFilled": false
+        },
+        {
+          "noteIndex": 2,
+          "observedPitch": "D5",
+          "noteCenter": [
+            390,
+            702
+          ],
+          "onsetQuarter": 2.0,
+          "durationQuarter": 1.0,
+          "observedType": "quarter",
+          "observedDot": false,
+          "observedNotehead": "normal",
+          "observedFilled": true
+        },
+        {
+          "noteIndex": 3,
+          "observedPitch": "C5",
+          "noteCenter": [
+            462,
+            715
+          ],
+          "onsetQuarter": 3.0,
+          "durationQuarter": 1.0,
+          "observedType": "quarter",
+          "observedDot": false,
+          "observedNotehead": "triangle",
+          "observedFilled": true
+        }
+      ]
+    },
+    {
+      "part": "P3",
+      "measure": 2,
+      "xRange": [
+        532,
+        878
+      ],
+      "staffBottomY": 781,
+      "staffLineSpacing": 26.5,
+      "notes": [
+        {
+          "noteIndex": 1,
+          "observedPitch": "B4",
+          "noteCenter": [
+            575,
+            728
+          ],
+          "onsetQuarter": 0.0,
+          "durationQuarter": 1.0,
+          "observedType": "quarter",
+          "observedDot": false,
+          "observedNotehead": "square",
+          "observedFilled": true
+        },
+        {
+          "noteIndex": 2,
+          "observedPitch": "A4",
+          "noteCenter": [
+            654,
+            742
+          ],
+          "onsetQuarter": 1.0,
+          "durationQuarter": 1.0,
+          "observedType": "quarter",
+          "observedDot": false,
+          "observedNotehead": "normal",
+          "observedFilled": true
+        },
+        {
+          "noteIndex": 3,
+          "observedPitch": "G4",
+          "noteCenter": [
+            731,
+            755
+          ],
+          "onsetQuarter": 2.0,
+          "durationQuarter": 1.0,
+          "observedType": "quarter",
+          "observedDot": false,
+          "observedNotehead": "triangle",
+          "observedFilled": true
+        },
+        {
+          "noteIndex": 4,
+          "observedPitch": "A4",
+          "noteCenter": [
+            807,
+            742
+          ],
+          "onsetQuarter": 3.0,
+          "durationQuarter": 1.0,
+          "observedType": "quarter",
+          "observedDot": false,
+          "observedNotehead": "normal",
+          "observedFilled": true
+        }
+      ]
+    },
+    {
+      "part": "P3",
+      "measure": 3,
+      "xRange": [
+        878,
+        1086
+      ],
+      "staffBottomY": 781,
+      "staffLineSpacing": 26.5,
+      "notes": [
+        {
+          "noteIndex": 1,
+          "observedPitch": "B4",
+          "noteCenter": [
+            922,
+            728
+          ],
+          "onsetQuarter": 0.0,
+          "durationQuarter": 3.0,
+          "observedType": "half",
+          "observedDot": true,
+          "observedNotehead": "square",
+          "observedFilled": false
+        },
+        {
+          "noteIndex": 2,
+          "observedPitch": "C5",
+          "noteCenter": [
+            1030,
+            715
+          ],
+          "onsetQuarter": 3.0,
+          "durationQuarter": 1.0,
+          "observedType": "quarter",
+          "observedDot": false,
+          "observedNotehead": "triangle",
+          "observedFilled": true
+        }
+      ]
+    },
+    {
+      "part": "P3",
+      "measure": 4,
+      "xRange": [
+        1086,
+        1437
+      ],
+      "staffBottomY": 781,
+      "staffLineSpacing": 26.5,
+      "notes": [
+        {
+          "noteIndex": 1,
+          "observedPitch": "B4",
+          "noteCenter": [
+            1132,
+            728
+          ],
+          "onsetQuarter": 0.0,
+          "durationQuarter": 1.0,
+          "observedType": "quarter",
+          "observedDot": false,
+          "observedNotehead": "square",
+          "observedFilled": true
+        },
+        {
+          "noteIndex": 2,
+          "observedPitch": "B4",
+          "noteCenter": [
+            1195,
+            728
+          ],
+          "onsetQuarter": 1.0,
+          "durationQuarter": 1.0,
+          "observedType": "quarter",
+          "observedDot": false,
+          "observedNotehead": "square",
+          "observedFilled": true
+        },
+        {
+          "noteIndex": 3,
+          "observedPitch": "G4",
+          "noteCenter": [
+            1260,
+            755
+          ],
+          "onsetQuarter": 2.0,
+          "durationQuarter": 0.5,
+          "observedType": "eighth",
+          "observedDot": false,
+          "observedNotehead": "triangle",
+          "observedFilled": true
+        },
+        {
+          "noteIndex": 4,
+          "observedPitch": "A4",
+          "noteCenter": [
+            1303,
+            742
+          ],
+          "onsetQuarter": 2.5,
+          "durationQuarter": 0.5,
+          "observedType": "eighth",
+          "observedDot": false,
+          "observedNotehead": "normal",
+          "observedFilled": true
+        },
+        {
+          "noteIndex": 5,
+          "observedPitch": "B4",
+          "noteCenter": [
+            1349,
+            728
+          ],
+          "onsetQuarter": 3.0,
+          "durationQuarter": 0.5,
+          "observedType": "eighth",
+          "observedDot": false,
+          "observedNotehead": "square",
+          "observedFilled": true
+        },
+        {
+          "noteIndex": 6,
+          "observedPitch": "C5",
+          "noteCenter": [
+            1395,
+            715
+          ],
+          "onsetQuarter": 3.5,
+          "durationQuarter": 0.5,
+          "observedType": "eighth",
+          "observedDot": false,
+          "observedNotehead": "triangle",
+          "observedFilled": true
+        }
+      ]
+    },
+    {
+      "part": "P4",
+      "measure": 1,
+      "xRange": [
+        220,
+        532
+      ],
+      "staffBottomY": 1078,
+      "staffLineSpacing": 26.5,
+      "notes": [
+        {
+          "noteIndex": 1,
+          "observedPitch": "G3",
+          "noteCenter": [
+            270,
+            985
+          ],
+          "onsetQuarter": 0.0,
+          "durationQuarter": 2.0,
+          "observedType": "half",
+          "observedDot": false,
+          "observedNotehead": "triangle",
+          "observedFilled": false
+        },
+        {
+          "noteIndex": 2,
+          "observedPitch": "G3",
+          "noteCenter": [
+            390,
+            985
+          ],
+          "onsetQuarter": 2.0,
+          "durationQuarter": 1.0,
+          "observedType": "quarter",
+          "observedDot": false,
+          "observedNotehead": "triangle",
+          "observedFilled": true
+        },
+        {
+          "noteIndex": 3,
+          "observedPitch": "G3",
+          "noteCenter": [
+            462,
+            985
+          ],
+          "onsetQuarter": 3.0,
+          "durationQuarter": 1.0,
+          "observedType": "quarter",
+          "observedDot": false,
+          "observedNotehead": "triangle",
+          "observedFilled": true
+        }
+      ]
+    },
+    {
+      "part": "P4",
+      "measure": 2,
+      "xRange": [
+        532,
+        878
+      ],
+      "staffBottomY": 1078,
+      "staffLineSpacing": 26.5,
+      "notes": [
+        {
+          "noteIndex": 1,
+          "observedPitch": "E3",
+          "noteCenter": [
+            575,
+            1012
+          ],
+          "onsetQuarter": 0.0,
+          "durationQuarter": 1.0,
+          "observedType": "quarter",
+          "observedDot": false,
+          "observedNotehead": "square",
+          "observedFilled": true
+        },
+        {
+          "noteIndex": 2,
+          "observedPitch": "D3",
+          "noteCenter": [
+            654,
+            1025
+          ],
+          "onsetQuarter": 1.0,
+          "durationQuarter": 1.0,
+          "observedType": "quarter",
+          "observedDot": false,
+          "observedNotehead": "normal",
+          "observedFilled": true
+        },
+        {
+          "noteIndex": 3,
+          "observedPitch": "G3",
+          "noteCenter": [
+            731,
+            985
+          ],
+          "onsetQuarter": 2.0,
+          "durationQuarter": 1.0,
+          "observedType": "quarter",
+          "observedDot": false,
+          "observedNotehead": "triangle",
+          "observedFilled": true
+        },
+        {
+          "noteIndex": 4,
+          "observedPitch": "A3",
+          "noteCenter": [
+            807,
+            972
+          ],
+          "onsetQuarter": 3.0,
+          "durationQuarter": 1.0,
+          "observedType": "quarter",
+          "observedDot": false,
+          "observedNotehead": "normal",
+          "observedFilled": true
+        }
+      ]
+    },
+    {
+      "part": "P4",
+      "measure": 3,
+      "xRange": [
+        878,
+        1086
+      ],
+      "staffBottomY": 1078,
+      "staffLineSpacing": 26.5,
+      "notes": [
+        {
+          "noteIndex": 1,
+          "observedPitch": "D3",
+          "noteCenter": [
+            922,
+            1025
+          ],
+          "onsetQuarter": 0.0,
+          "durationQuarter": 3.0,
+          "observedType": "half",
+          "observedDot": true,
+          "observedNotehead": "normal",
+          "observedFilled": false
+        },
+        {
+          "noteIndex": 2,
+          "observedPitch": "G3",
+          "noteCenter": [
+            1030,
+            985
+          ],
+          "onsetQuarter": 3.0,
+          "durationQuarter": 1.0,
+          "observedType": "quarter",
+          "observedDot": false,
+          "observedNotehead": "triangle",
+          "observedFilled": true
+        }
+      ]
+    },
+    {
+      "part": "P4",
+      "measure": 4,
+      "xRange": [
+        1086,
+        1437
+      ],
+      "staffBottomY": 1078,
+      "staffLineSpacing": 26.5,
+      "notes": [
+        {
+          "noteIndex": 1,
+          "observedPitch": "E3",
+          "noteCenter": [
+            1132,
+            1012
+          ],
+          "onsetQuarter": 0.0,
+          "durationQuarter": 1.0,
+          "observedType": "quarter",
+          "observedDot": false,
+          "observedNotehead": "square",
+          "observedFilled": true
+        },
+        {
+          "noteIndex": 2,
+          "observedPitch": "D3",
+          "noteCenter": [
+            1195,
+            1025
+          ],
+          "onsetQuarter": 1.0,
+          "durationQuarter": 1.0,
+          "observedType": "quarter",
+          "observedDot": false,
+          "observedNotehead": "normal",
+          "observedFilled": true
+        },
+        {
+          "noteIndex": 3,
+          "observedPitch": "G3",
+          "noteCenter": [
+            1260,
+            985
+          ],
+          "onsetQuarter": 2.0,
+          "durationQuarter": 0.5,
+          "observedType": "eighth",
+          "observedDot": false,
+          "observedNotehead": "triangle",
+          "observedFilled": true
+        },
+        {
+          "noteIndex": 4,
+          "observedPitch": "F#3",
+          "noteCenter": [
+            1303,
+            998
+          ],
+          "onsetQuarter": 2.5,
+          "durationQuarter": 0.5,
+          "observedType": "eighth",
+          "observedDot": false,
+          "observedNotehead": "diamond",
+          "observedFilled": true
+        },
+        {
+          "noteIndex": 5,
+          "observedPitch": "E3",
+          "noteCenter": [
+            1349,
+            1012
+          ],
+          "onsetQuarter": 3.0,
+          "durationQuarter": 0.5,
+          "observedType": "eighth",
+          "observedDot": false,
+          "observedNotehead": "square",
+          "observedFilled": true
+        },
+        {
+          "noteIndex": 6,
+          "observedPitch": "F#3",
+          "noteCenter": [
+            1395,
+            998
+          ],
+          "onsetQuarter": 3.5,
+          "durationQuarter": 0.5,
+          "observedType": "eighth",
+          "observedDot": false,
+          "observedNotehead": "diamond",
+          "observedFilled": true
+        }
+      ]
+    }
+  ],
+  "glyphObservations": "All 60 noteheads are directly legible: open/filled normal ovals, triangles, squares, or diamonds. Stem orientation is not treated as a different shape. All four m4 voices show two paired eighth-note beams.",
+  "verification": {
+    "candidateSha256": "23f6b29246f5e5763a54bfcbd871052af26e363b245b38623017d385282cdab1",
+    "sourceSha256": "86c05b5b9441859f740ded45efad776a093bd2926a2c79bc15e75e2b978b8338",
+    "exportedXmlAndAtlasParsersAccept": true,
+    "playbackDurationFailures": 0,
+    "parts": 4,
+    "completeMeasuresPerPart": 4,
+    "completeWrittenMeasures": 16,
+    "pitchedNotes": 60,
+    "explicitNoteheads": 60,
+    "rests": 0,
+    "lyrics": 0,
+    "allWrittenBarsFourQuarters": true,
+    "independentStaffCoordinatePitchParity": true,
+    "sourceBytesPreserved": true,
+    "canonicalDataChangedByThisPackage": false,
+    "newSourceScansPublished": false,
+    "safeToPromote": false
+  },
+  "limitations": [
+    "Only the first four printed measures in all four voices are encoded; the remaining tune is omitted, not silence.",
+    "Lyrics, including the page's printed verse numbers and multi-line underlay, remain unencoded pending voice-specific review.",
+    "The repeat and first/second endings occur later on the page and are outside this excerpt; no terminal final barline is invented.",
+    "One-sharp signature is preserved, including written F-sharps; mode remains unknown and printed treble clefs receive no unprinted octave adjustment.",
+    "Source title is A GLIMPSE OF THEE. L.M.D.; the catalogue record says A Glimpse of Thee L.M. The stable catalogue identity is referenced, not silently relabeled.",
+    "Direct visual observations support a correctable opening draft, not a complete tune or verified-edition claim.",
+    "The copyrighted source PDF and all new renders remain local-only. Use the original external source URL for public comparison; do not publish a new source copy."
+  ],
+  "publicationPolicy": {
+    "newSourceScanPublication": false,
+    "publicSourceComparison": "Original external source URL only; retained PDF/renders remain ignored local evidence."
+  }
+}

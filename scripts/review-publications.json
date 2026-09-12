@@ -506,6 +506,34 @@
         "path": "work/openclaw-openings-v3-20260907/shenandoah-something-new-evidence-v3.json",
         "sha256": "906f5f321db014a1264bcfddef0755ebdc3069b05b6ce9fb1a48afcea1d5b466"
       }
+    },
+    {
+      "slug": "sacredharptunes-glimpse",
+      "songId": "sacredharptunes a-glimpse-of-thee — A Glimpse of Thee L.M.",
+      "bookId": "sacredharptunes",
+      "version": "v1",
+      "completeness": "partial",
+      "limitations": [
+        "Only the first four measures in all four voices are transcribed; the rest of the tune is omitted, not silence.",
+        "Lyrics, later repeats and numbered endings are not yet transcribed.",
+        "Printed meter is L.M.D.; the catalogue label L.M. is preserved pending separate reconciliation.",
+        "Mode is unknown; supply a source key for transposition.",
+        "Source comparison uses the original external PDF; no retained source scan is distributed with this draft."
+      ],
+      "musicXml": {
+        "path": "work/openclaw-sacredharptunes-glimpse-20260911/sacredharptunes-glimpse-opening-candidate-v1.musicxml",
+        "sha256": "23f6b29246f5e5763a54bfcbd871052af26e363b245b38623017d385282cdab1"
+      },
+      "source": {
+        "path": "work/luna-program-20260904/source_only/retained-sources/sacredharptunes-a-glimpse-of-thee-jesse_325.pdf",
+        "sha256": "86c05b5b9441859f740ded45efad776a093bd2926a2c79bc15e75e2b978b8338",
+        "publicationPolicy": "external-link-only",
+        "url": "https://media.sacredharptunes.com/jesse_325.pdf"
+      },
+      "evidence": {
+        "path": "work/openclaw-sacredharptunes-glimpse-20260911/sacredharptunes-glimpse-evidence-v1.json",
+        "sha256": "14a5578a11fa077f7d26f624a25650784deaf21b6a07169b3d1dc93e18e89208"
+      }
     }
   ]
 }
