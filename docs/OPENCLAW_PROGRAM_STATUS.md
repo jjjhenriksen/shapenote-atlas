@@ -214,8 +214,8 @@ correction records and 17 existing pinned publications are unchanged.
 
 ### Next work across the eleven-book program
 
-- **Social Harp:** 97 reviewed / 124 unresolved. Start at **143 Bowman**;
-  subtract all five supplements from the original unresolved array.
+- **Social Harp:** 107 reviewed / 114 unresolved. Start at **162 Pleasant Hill**;
+  subtract all seven supplements from the original unresolved array.
 - **Kentucky and Shenandoah:** observe lyric/shape evidence and explicit printed
   key labels in new versions of New Salem and Something New. New Salem's repeat
   navigation remains a separate playback task; their full written drafts exist.
@@ -233,3 +233,28 @@ correction records and 17 existing pinned publications are unchanged.
 
 No new notation, lyric underlay, mode, shapes, score promotion, deployment or
 background execution was delivered in this source-identity cycle.
+
+
+### Autonomous continuation — 2026-09-11
+
+Two further atomic source-identity batches were directly reviewed and pushed:
+
+| Batch | Commit | Result |
+| --- | --- | --- |
+| [Sixth supplement](../work/openclaw-socialharp-sixth-20260911/README.md) | `76e75cd` | Bowman, Roll Jordan, Bonnie Doon, Sabbath Summons, Benton; 97 → 102 reviewed |
+| [Seventh supplement](../work/openclaw-socialharp-seventh-20260911/README.md) | `79cca74` | Albert, The Drunkard’s Burial, Wake Up, The Inquirer, Buonaparte; 102 → 107 reviewed |
+
+Bowman opens below Father Land’s continuation; Wake Up opens to the right of
+Drunkard’s Burial’s continuation. The literal Roll Jordan heading omits the
+catalogue comma, accepted by a record-specific check rather than broad title
+normalization. Buonaparte follows the PART IV division heading and has its
+printed page number beneath the final staff. Ten full-leaf renders are retained
+with source hashes and heading coordinates.
+
+Both package integrity verifiers passed. Combined count: **107 reviewed / 114
+unresolved**, next **162 Pleasant Hill**. All earlier supplements and the
+baseline are hash-preserved. Public/application files and canonical scores
+remain unchanged from `5f6965d`; no new aggregate or browser proof is claimed.
+The other ten books’ next tasks above, existing publications and exact-edition
+coverage boundaries remain unchanged. This checkpoint establishes no background
+scheduler or unattended execution after the active session ends.
