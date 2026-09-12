@@ -1,0 +1,228 @@
+{
+  "schema": "shape-note-atlas/socialharp-page-map-supplement/v19",
+  "review_date": "2026-09-11",
+  "baseline": {
+    "path": "work/luna-program-20260904/source_only/socialharp-page-map-20260904.json",
+    "sha256": "8b30106fb48d2467d70063d684ac144887b02e3cfec4470da103dc13d2c90963",
+    "summary": {
+      "catalogue_records": 221,
+      "uniquely_mapped_records": 67,
+      "unresolved_records": 154
+    }
+  },
+  "previous_supplements": [
+    {
+      "path": "work/openclaw-socialharp-20260907/socialharp-page-map-supplement-v1.json",
+      "sha256": "c4c80ad0606d474367854fc37fb8ba9d6893535df63155e09c4e8f711f6c72d8"
+    },
+    {
+      "path": "work/openclaw-socialharp-next-20260907/socialharp-page-map-supplement-v2.json",
+      "sha256": "dce4d99b6c3b47bcf0278d97f57845583aff3c428e0aff3072e759bf891e45e8"
+    },
+    {
+      "path": "work/openclaw-socialharp-third-20260907/socialharp-page-map-supplement-v3.json",
+      "sha256": "b63db5100de59964fc15b0c17b8267d870a216ca9be5d3f54701eb4a410762ae"
+    },
+    {
+      "path": "work/openclaw-socialharp-fourth-20260911/socialharp-page-map-supplement-v4.json",
+      "sha256": "b5b7ccb12c6a520abb2a66e2b30eb933501cd74a25bb5c9e0679e8eba202b405"
+    },
+    {
+      "path": "work/openclaw-socialharp-fifth-20260911/socialharp-page-map-supplement-v5.json",
+      "sha256": "2b91a3144806dc559aeda1d9f08c96eb9739fd0cc06844f9ee064c5d9f8d3b9d"
+    },
+    {
+      "path": "work/openclaw-socialharp-sixth-20260911/socialharp-page-map-supplement-v6.json",
+      "sha256": "75567840aa707c331485af34638d0601f6fa434365a1fccf5e7f5110cbcf0843"
+    },
+    {
+      "path": "work/openclaw-socialharp-seventh-20260911/socialharp-page-map-supplement-v7.json",
+      "sha256": "4c18c6aa6a0c5534172cf157875c6b8870ec631a75336ec3895e44cb1f89ef63"
+    },
+    {
+      "path": "work/openclaw-socialharp-eighth-20260911/socialharp-page-map-supplement-v8.json",
+      "sha256": "acff9bb979828a2b18ae12d19cda4b6717bf21e51e7d722fa9e4243467cc5f4b"
+    },
+    {
+      "path": "work/openclaw-socialharp-ninth-20260911/socialharp-page-map-supplement-v9.json",
+      "sha256": "e290a1005193a30c44bea702803ae6cab51d08fe3696ea93cca43a69986f7124"
+    },
+    {
+      "path": "work/openclaw-socialharp-tenth-20260911/socialharp-page-map-supplement-v10.json",
+      "sha256": "5ac7335e7575b616d853ff049ea3fa5c6578def509f0009b42122b1adef3d50f"
+    },
+    {
+      "path": "work/openclaw-socialharp-eleventh-20260911/socialharp-page-map-supplement-v11.json",
+      "sha256": "4ba135de666f208cf0a49d4916d2a444c5143a107bc79aeba4b9347893a23118"
+    },
+    {
+      "path": "work/openclaw-socialharp-twelfth-20260911/socialharp-page-map-supplement-v12.json",
+      "sha256": "2f2cf64de373613ad3a2ec38710995f1037dcd97651120cb52f849698ea04e9d"
+    },
+    {
+      "path": "work/openclaw-socialharp-thirteenth-20260911/socialharp-page-map-supplement-v13.json",
+      "sha256": "19dfd706e77fd5a074202769d31cc4dbabf9973d7b0c07b75104ab0e17e70089"
+    },
+    {
+      "path": "work/openclaw-socialharp-fourteenth-20260911/socialharp-page-map-supplement-v14.json",
+      "sha256": "19fc5336591606accba8d4842f8dbe5b34bb678ccd12c49db5ff5d7725d17e7e"
+    },
+    {
+      "path": "work/openclaw-socialharp-fifteenth-20260911/socialharp-page-map-supplement-v15.json",
+      "sha256": "c3c1c54ca9a83365cc6e57563d94f1259ba38c8f794de12e622897e23806c49c"
+    },
+    {
+      "path": "work/openclaw-socialharp-sixteenth-20260911/socialharp-page-map-supplement-v16.json",
+      "sha256": "c566bef7e725835e3b0b73b5374e2947460e1c6ecd930dec92d67109fc230092"
+    },
+    {
+      "path": "work/openclaw-socialharp-seventeenth-20260911/socialharp-page-map-supplement-v17.json",
+      "sha256": "7e3b074833655fdb01413a0d11abbd6196f5bb0648195d86983673403d488f96"
+    },
+    {
+      "path": "work/openclaw-socialharp-eighteenth-20260911/socialharp-page-map-supplement-v18.json",
+      "sha256": "6d9ed88c3d632cf0ffb59c08a73c561d17a2ebf4fd9d464931e225cc068433f4"
+    }
+  ],
+  "source": {
+    "path": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+    "sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331"
+  },
+  "policy": {
+    "supplement_only": true,
+    "original_mapping_unchanged": true,
+    "previous_supplements_unchanged": true,
+    "notation_imported": false,
+    "lyrics_or_notes_inferred": false,
+    "catalogue_discrepancy": "221 corpus records versus 222 historical count remains unresolved; page-identity review does not settle inventory.",
+    "renders_local_only": true
+  },
+  "summary": {
+    "reviewed_records": 4,
+    "resolved_source_identities": 4,
+    "distinct_reviewed_pdf_leaves": 4,
+    "previous_combined_mapped": 217,
+    "combined_mapped": 221,
+    "previous_combined_unresolved": 4,
+    "combined_unresolved": 0,
+    "catalogue_records_unchanged": 221
+  },
+  "records": [
+    {
+      "record_id": "socialharp 93 — PLEYEL'S HYMN SECOND",
+      "song_no": "93",
+      "catalogue_title": "PLEYEL'S HYMN SECOND",
+      "literal_heading": "PLEYEL’S HYMN SECOND.",
+      "pdf_leaf_1_based": 93,
+      "printed_page": "93",
+      "page_region": "top",
+      "heading_bbox_px": [
+        504,
+        39,
+        986,
+        89
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-nineteenth-20260911/renders/leaf-93.png",
+      "render_sha256": "38921b1f476b2da195ddffafb5823f037afc0b7ffca35e657449226ca08de8e5",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 93 at upper right. SECOND is part of the literal heading; the possessive apostrophe is retained.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 95 — BELLEVUE",
+      "song_no": "95",
+      "catalogue_title": "BELLEVUE",
+      "literal_heading": "BELLEVUE.",
+      "pdf_leaf_1_based": 95,
+      "printed_page": "95",
+      "page_region": "bottom",
+      "heading_bbox_px": [
+        504,
+        588,
+        727,
+        637
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-nineteenth-20260911/renders/leaf-95.png",
+      "render_sha256": "8253e5de90788deec4130b844973f80630740a70cc108d1f4115ebdf20df1fee",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Lower opening below NEVER PART. Concluded.; printed page 95 at upper right identifies the shared leaf, not a new Never Part opening.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 97 — THE LONESOME DOVE",
+      "song_no": "97",
+      "catalogue_title": "THE LONESOME DOVE",
+      "literal_heading": "THE LONESOME DOVE.",
+      "pdf_leaf_1_based": 97,
+      "printed_page": "97",
+      "page_region": "top",
+      "heading_bbox_px": [
+        513,
+        49,
+        945,
+        100
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-nineteenth-20260911/renders/leaf-97.png",
+      "render_sha256": "a7ef12d43fcded5b8b32a37f8fa4953f0d533072a6d2707996d4e4177f8d7fe1",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 97 at upper right.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    },
+    {
+      "record_id": "socialharp 99 — O SAVE",
+      "song_no": "99",
+      "catalogue_title": "O SAVE",
+      "literal_heading": "O SAVE.",
+      "pdf_leaf_1_based": 99,
+      "printed_page": "99",
+      "page_region": "top",
+      "heading_bbox_px": [
+        452,
+        41,
+        625,
+        92
+      ],
+      "render_dimensions_px": [
+        1800,
+        1133
+      ],
+      "source_pdf": "work/luna-program-20260904/source_only/retained-sources/socialharp-1855-imslp-scan.pdf",
+      "scan_sha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+      "render": "work/openclaw-socialharp-nineteenth-20260911/renders/leaf-99.png",
+      "render_sha256": "07c4b44c0799076d96bb5fb49ffce7d1228aafb5919f93227a4e6c81a920be7d",
+      "review_method": "Direct visual inspection of unedited full-leaf Poppler render at scale-to 1800; heading, printed page and opening region read independently.",
+      "observations": "Opening above first system; printed page 99 at upper right. The literal heading begins with O and has no comma.",
+      "status": "source-page-identity-verified",
+      "notation_present": true,
+      "notation_imported": false,
+      "exact_edition_notation_verified": false
+    }
+  ]
+}
