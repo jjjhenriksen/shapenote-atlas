@@ -1,0 +1,19 @@
+{
+  "candidateSha256": "8bb4f0d2e9ba93047b19e2cfce480478a6abb481f882dc3a8bc6604c3550c80e",
+  "sourceSha256": "6ba40c10dbdfa9b93e16f67ae34619254c88004367d802f07a6eddd156047192",
+  "exportedXmlAndAtlasParsersAccept": true,
+  "playbackDurationFailures": 0,
+  "all68WrittenMeasuresHaveEightDivisions": true,
+  "exactV26StructureAfterReversingEightAdditionsAndTitleUpdate": true,
+  "sourceAndBothV26CandidateHashesPreserved": true,
+  "pitchedNotes": 251,
+  "explicitNoteheads": 251,
+  "rests": 12,
+  "lyrics": 158,
+  "newLyricAnchors": 8,
+  "newExtenders": 0,
+  "newVerseIds": 0,
+  "canonicalDataChangedByThisPackage": false,
+  "newSourceScansPublished": false,
+  "safeToPromote": false
+}
