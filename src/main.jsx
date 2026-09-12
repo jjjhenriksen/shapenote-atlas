@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./styles.css";
-import { matchesDiscovery, resolveTuneLink, tuneUrl } from "./discovery.js";
+import { matchesDiscovery, recordKey, resolveTuneLink, tuneUrl } from "./discovery.js";
 import { barlinesForMeasure, lyricForEvent, scoreSemanticSummary } from "./agent_11_score_semantics.js";
 import { buildPracticeSchedule, canApplyPlaybackPlan, resolveRepeatPlayback, guardedAudioAction, resolvePlaybackQuarantine, scheduleWithCleanup, sessionIsCurrent, shouldCompleteSession } from "./practice.js";
 import { summarizeSourceHealth } from "./sourceHealthPresentation.js";
@@ -1093,7 +1093,7 @@ function App() {
 
   const bookSongs = getBookSongs(corpus, bookId);
   const scoreError = scoreLoadError;
-  const discoveredKeys = [...new Set(bookSongs.map((song) => getExplicitSourceKey(song, bookId)).filter(Boolean).map((key) => String(key).split(/\s+/)[0]))].sort();
+  const discoveredKeys = [...new Set(bookSongs.map((song) => recordKey(song, bookId)).filter(Boolean).map((key) => key.split(' ')[0]))].sort();
   const discoveredParts = [...new Set(bookSongs.flatMap((song) => (getBookScore(song, bookId) || getBookReferenceScore(song, bookId) || getBookDraftScore(song, bookId))?.parts?.map((part) => part.name) || []).filter(Boolean))].sort();
   const resultSummary = `${formatCount(matchingResults.length)} matches · ${formatCount(bookSongs.length)} tunes`;
   function changeResultPage(nextPage) {

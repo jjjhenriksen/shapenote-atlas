@@ -10,12 +10,20 @@ export function notationKind(song, bookId) {
 
 export function recordKey(song, bookId) {
   const score = song.scoreByBook?.[bookId] || song.referenceScoreByBook?.[bookId] || song.draftScoreByBook?.[bookId] || {};
-  return score.keySignature || song.metadataByBook?.[bookId]?.keySignature || '';
+  const encoded = String(score.keySignature || song.metadataByBook?.[bookId]?.keySignature || '').trim();
+  const fifths = encoded.match(/^(-?[0-7]):(major|minor)$/i);
+  if (fifths) {
+    const roots = fifths[2].toLowerCase() === 'minor'
+      ? ['Ab', 'Eb', 'Bb', 'F', 'C', 'G', 'D', 'A', 'E', 'B', 'F#', 'C#', 'G#', 'D#', 'A#']
+      : ['Cb', 'Gb', 'Db', 'Ab', 'Eb', 'Bb', 'F', 'C', 'G', 'D', 'A', 'E', 'B', 'F#', 'C#'];
+    return `${roots[Number(fifths[1]) + 7]} ${fifths[2].toLowerCase()}`;
+  }
+  const named = encoded.match(/^([A-G])([#b]?)(?:\s+|:)(major|minor)$/i);
+  return named ? `${named[1].toUpperCase()}${named[2]} ${named[3].toLowerCase()}` : '';
 }
 
 export function recordMode(song, bookId) {
-  const key = recordKey(song, bookId);
-  return String(key).includes(':') ? String(key).split(':').pop().toLowerCase() : /\b(minor)\b/i.test(key) ? 'minor' : key ? 'major' : 'unknown';
+  return recordKey(song, bookId).split(' ')[1] || 'unknown';
 }
 
 export function availableParts(song, bookId) {
@@ -36,7 +44,7 @@ export function matchesDiscovery(song, bookId, availability = 'all', additionsOn
     && (!additionsOnly || song.metadataByBook?.[bookId]?.editionStatus === 'added-in-2025'
       || song.sourceCoverageByBook?.[bookId]?.editionStatus === 'added-in-2025')
     && (!facets.mode || recordMode(song, bookId) === facets.mode)
-    && (!facets.key || recordKey(song, bookId).toLowerCase().startsWith(facets.key.toLowerCase()))
+    && (!facets.key || recordKey(song, bookId).split(' ')[0].toLowerCase() === facets.key.toLowerCase())
     && (!facets.transposable || isTransposable(song, bookId))
     && (!facets.part || availableParts(song, bookId).includes(facets.part.toLowerCase()));
 }

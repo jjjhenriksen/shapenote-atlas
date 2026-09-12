@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { matchesDiscovery, notationKind, resolveTuneLink, tuneUrl, recordMode, availableParts, isTransposable } from '../src/discovery.js';
+import { matchesDiscovery, notationKind, resolveTuneLink, tuneUrl, recordKey, recordMode, availableParts, isTransposable } from '../src/discovery.js';
 const corpus = JSON.parse(readFileSync(new URL('../public/corpus.json', import.meta.url)));
 test('SH2025 filter partitions existing edition assets without promoting drafts', () => {
  const songs = corpus.songs.filter(s => s.books.includes('sh2025'));
@@ -109,4 +109,19 @@ test('transposable filter does not infer capability from keys, evidence, metadat
   assert.equal(isTransposable(song, 'sh2025'), false);
  }
  assert.equal(isTransposable({ metadataByBook: { sh2025: { keySignature: 'A minor' } } }, 'sh2025'), false);
+});
+
+test('key facets normalize explicit fifths and distinguish accidental spellings', () => {
+ const song = keySignature => ({ scoreByBook: { sh1991: { keySignature } } });
+ for (const [encoded, named] of [['-4:major', 'Ab major'], ['0:minor', 'A minor'], ['3:minor', 'F# minor'], ['Bb:major', 'Bb major']]) {
+  assert.equal(recordKey(song(encoded), 'sh1991'), named);
+  assert.ok(matchesDiscovery(song(encoded), 'sh1991', 'all', false, { key: named.split(' ')[0] }));
+ }
+ for (const [key, other] of [['F', 'F#'], ['B', 'Bb'], ['C', 'Cb']]) {
+  assert.equal(matchesDiscovery(song(`${other} major`), 'sh1991', 'all', false, { key }), false);
+ }
+ for (const key of ['C', '0', '1:unknown', '2:dorian', '8:major']) {
+  assert.equal(recordKey(song(key), 'sh1991'), '');
+  assert.equal(recordMode(song(key), 'sh1991'), 'unknown');
+ }
 });
