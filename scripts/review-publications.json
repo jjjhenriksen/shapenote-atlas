@@ -466,7 +466,7 @@
         "Pitch follows the written clefs; no unprinted octave adjustment is applied.",
         "Source-key transposition requires manual entry. The source label is retained in the evidence.",
         "Source identity is based on the retained page; exact-edition fidelity is not certified.",
-        "The printed final backward repeat is retained in MusicXML. App playback follows written order; repeat navigation has not been enabled for this draft."
+        "The printed final backward repeat is retained in MusicXML. Choose Follow encoded repeats to play it, or Written order for one pass through the score. Exact-edition fidelity still requires source review."
       ],
       "musicXml": {
         "path": "work/openclaw-openings-v3-20260907/kentucky-new-salem-full-notation-candidate-v3.musicxml",
