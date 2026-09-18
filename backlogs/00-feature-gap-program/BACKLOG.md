@@ -1,5 +1,7 @@
 # Sacred Harp dashboard feature-gap program
 
+> Historical packet. Use [OPENCLAW_BACKLOG.md](../../OPENCLAW_BACKLOG.md) for current scope, status and acceptance criteria. Initial lyric/repeat integration and practice controls have since been implemented; verify present code before dispatching any work below.
+
 ## Purpose
 
 This is the coordination backlog for the remaining gaps found in the

@@ -1,0 +1,17 @@
+{
+  "url": "http://127.0.0.1:5173/",
+  "title": "The Shape-Note Atlas",
+  "gaps": "Known gaps in v3\nFull written notation extent: 16 complete measures across all four printed voices; exact-edition fidelity is not certified.\nLyrics and printed notehead shapes are not yet encoded.\nPitch follows the written clefs; no unprinted octave adjustment is applied.\nSource-key transposition requires manual entry. The source label is retained in the evidence.\nSource identity is based on the retained page; exact-edition fidelity is not certified.\nThe printed final backward repeat is retained in MusicXML. Choose Follow encoded repeats to play it, or Written order for one pass through the score. Exact-edition fidelity still requires source review.",
+  "desktop": {
+    "width": 1440,
+    "height": 1000,
+    "overflow": false
+  },
+  "mobile": {
+    "width": 390,
+    "height": 844,
+    "overflow": false
+  },
+  "renderedScore": 1,
+  "overlayCount": 0
+}

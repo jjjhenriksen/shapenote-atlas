@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-09-18T23:12:22.254Z",
+  "browser": {
+    "url": "http://127.0.0.1:5173/audio-harness.html",
+    "title": "Shape-Note Atlas audio harness",
+    "contextAvailable": true,
+    "harnessErrors": [],
+    "consoleErrors": []
+  },
+  "cases": {
+    "source-verified-major": {
+      "source": {
+        "scheduled": 295,
+        "starts": 295,
+        "firstFrequency": 523.2511306011972,
+        "stops": 295,
+        "errors": []
+      },
+      "target": {
+        "scheduled": 295,
+        "starts": 295,
+        "firstFrequency": 493.8833012561241,
+        "stops": 295,
+        "errors": []
+      },
+      "ratio": 0.9438743126816935,
+      "manualStopCalls": 295,
+      "stopVisibleAfter": 0,
+      "playVisibleAfter": 1,
+      "evidence": "Selected tune: 26 \u2014 Samaria\nSacred Harp 1991 \u00b7 page 26\n26 \u2014 Samaria\nLink to this tune\nTransposable score\nSource-verified key: Ab major\nShared by 1991 / 2025\nFIRST LINE\n\nMy spirit looks to God alone\u2026\n\nAVAILABLE PARTS\n4 of 4 selected\n\ud834\udd1e\nTreble\n\ud834\udd1e\nAlto\n\ud834\udd1e\nTenor\n\ud834\udd22\nBass\nDERIVED FOUR-SHAPE RENDERING \u00b7 19 MEASURES \u00b7 FULL-SONG VIEW\nAB MAJOR \u00b7 6/8\nTreble\n\ud834\udd1e\nAlto\n\ud834\udd1e\nTenor\n\ud834\udd1e\nBass\n\ud834\udd22\nTreble\n\ud834\udd1e\nAlto\n\ud834\udd1e\nTenor\n\ud834\udd1e\nBass\n\ud834\udd22\nTreble\n\ud834\udd1e\n\u266e\nAlto\n\ud834\udd1e\nTenor\n\ud834\udd1e\nBass\n\ud834\udd22\nTreble\n\ud834\udd1e\n\u266e\nAlto\n\ud834\udd1e\nTenor\n\ud834\udd1e\nBass\n\ud834\udd22\nTreble\n\ud834\udd1e\nAlto\n\ud834\udd1e\nTenor\n\ud834\udd1e\nBass\n\ud834\udd22\n\nLyrics: Unavailable \u00b7 not encoded in source \u00b7 Repeats: Unavailable \u00b7 not encoded in source \u00b7 Endings: Unavailable \u00b7 not encoded in source \u00b7 Linear source-order playback\n\nSome shapes are derived from the recorded source key; the linked source remains authoritative. Open shape-source PDF \n\nPlay song\nOrder\nWritten order\nFollow encoded repeats\nTempo\nBPM\nLoops\n1\n2\n3\n4\n5\n6\n7\n8\nDown\nTarget key\nAb major\nC major\nDb major\nD major\nEb major\nE major\nF major\nGb major\nG major\nA major\nBb major\nB major\n\u2304\nUp\nStructured source loaded for playback. Source-verified key: Ab major.\nSOURCE\nSacred Harp 1991, page 26\nOpen source record\nOpen source record\nOpen source record\nOpen source record\nOpe"
+    },
+    "source-verified-minor": {
+      "source": {
+        "scheduled": 173,
+        "starts": 173,
+        "firstFrequency": 493.8833012561241,
+        "stops": 173,
+        "errors": []
+      },
+      "target": {
+        "scheduled": 173,
+        "starts": 173,
+        "firstFrequency": 523.2511306011972,
+        "stops": 173,
+        "errors": []
+      },
+      "ratio": 1.059463094359295,
+      "manualStopCalls": 173,
+      "stopVisibleAfter": 0,
+      "playVisibleAfter": 1,
+      "evidence": "Selected tune: 41 \u2014 Evening Hymn\nSacred Harp 2025 \u00b7 page 41\n41 \u2014 Evening Hymn\nLink to this tune\nTransposable score\nSource-verified key: B minor\nNew in 2025\n1991 / 2025 text differs\nFIRST LINE\n\nThe day is past and gone\n\nSCORE VERSION\n\nA corrected practice draft is available. The existing score is preserved.\n\nScore version\nExisting structured score\nCorrection draft v2\n\u2304\nAVAILABLE PARTS\n4 of 4 selected\n\ud834\udd1e\nVoice\n\ud834\udd1e\nVoice 2\n\ud834\udd1e\nVoice 3\n\ud834\udd22\nBass\nDERIVED FOUR-SHAPE RENDERING \u00b7 16 MEASURES \u00b7 FULL-SONG VIEW\nB MINOR \u00b7 4/4\nVoice\n\ud834\udd1e\n\u266f\nVoice 2\n\ud834\udd1e\nVoice 3\n\ud834\udd1e\n\u266f\nBass\n\ud834\udd22\nVoice\n\ud834\udd1e\nVoice 2\n\ud834\udd1e\nVoice 3\n\ud834\udd1e\nBass\n\ud834\udd22\nVoice\n\ud834\udd1e\nVoice 2\n\ud834\udd1e\nVoice 3\n\ud834\udd1e\nBass\n\ud834\udd22\nVoice\n\ud834\udd1e\n\u266f\nVoice 2\n\ud834\udd1e\nVoice 3\n\ud834\udd1e\nBass\n\ud834\udd22\n\nLyrics: Unavailable \u00b7 not encoded in source \u00b7 Repeats: Unavailable \u00b7 not encoded in source \u00b7 Endings: Unavailable \u00b7 not encoded in source \u00b7 Linear source-order playback\n\nSome shapes are derived from the recorded source key; the linked source remains authoritative. Open shape-source PDF \n\nPlay song\nOrder\nWritten order\nFollow encoded repeats\nTempo\nBPM\nLoops\n1\n2\n3\n4\n5\n6\n7\n8\nDown\nTarget key\nB minor\nC minor\nDb minor\nD minor\nEb minor\nE minor\nF minor\nGb minor\nG minor\nAb minor\nA minor\nBb minor\n\u2304\nUp\nStructured source loaded "
+    },
+    "unknown-key-entry": {
+      "source": {
+        "scheduled": 104,
+        "starts": 104,
+        "firstFrequency": 440,
+        "stops": 104,
+        "errors": []
+      },
+      "target": {
+        "scheduled": 104,
+        "starts": 104,
+        "firstFrequency": 493.8833012561241,
+        "stops": 104,
+        "errors": []
+      },
+      "ratio": 1.122462048309373,
+      "manualStopCalls": 104,
+      "stopVisibleAfter": 0,
+      "playVisibleAfter": 1,
+      "evidence": "Selected tune: 28t \u2014 Will Guide Us Till We Die (Aylesbury)\nCooper Book 2012 \u00b7 page 28t\n28t \u2014 Will Guide Us Till We Die (Aylesbury)\nLink to this tune\nStructured score\nKey unavailable\nFIRST LINE\n\nThe God we worship now\n\nAVAILABLE PARTS\n4 of 4 selected\n\ud834\udd1e\nTreble\n\ud834\udd1e\nAlto\n\ud834\udd1e\nTenor\n\ud834\udd22\nBass\nPITCH/RHYTHM RENDERING \u00b7 NOTEHEAD EVIDENCE INCOMPLETE \u00b7 13 MEASURES \u00b7 FULL-SONG VIEW\nKEY UNAVAILABLE \u00b7 4/4\nTreble\n\ud834\udd1e\n\u266e\nAlto\n\ud834\udd1e\n\u266f\nTenor\n\ud834\udd1e\n\u266f\nBass\n\ud834\udd22\nTreble\n\ud834\udd1e\nAlto\n\ud834\udd1e\n\u266f\nTenor\n\ud834\udd1e\nBass\n\ud834\udd22\nTreble\n\ud834\udd1e\nAlto\n\ud834\udd1e\n\u266f\nTenor\n\ud834\udd1e\nBass\n\ud834\udd22\nTreble\n\ud834\udd1e\nAlto\n\ud834\udd1e\nTenor\n\ud834\udd1e\nBass\n\ud834\udd22\n\nLyrics: Unavailable \u00b7 not encoded in source \u00b7 Repeats: Unavailable \u00b7 not encoded in source \u00b7 Endings: Unavailable \u00b7 not encoded in source \u00b7 Linear source-order playback\n\nNotehead evidence is unavailable; pitches and rhythms are preserved. Open shape-source PDF \n\nSOURCE KEY REQUIRED\n\nChoose the key printed in this source to unlock pitch-accurate transposition.\n\nSource key\nChoose source key\u2026\nC major\nDb major\nD major\nEb major\nE major\nF major\nGb major\nG major\nAb major\nA major\nBb major\nB major\nC minor\nDb minor\nD minor\nEb minor\nE minor\nF minor\nGb minor\nG minor\nAb minor\nA minor\nBb minor\nB minor\n\u2304\nPlay song\nOrder\nWritten order\nFollow encoded repeats\nTempo\nB"
+    },
+    "reference-witness": {
+      "source": {
+        "scheduled": 295,
+        "starts": 295,
+        "firstFrequency": 523.2511306011972,
+        "stops": 295,
+        "errors": []
+      },
+      "target": {
+        "scheduled": 295,
+        "starts": 295,
+        "firstFrequency": 493.8833012561241,
+        "stops": 295,
+        "errors": []
+      },
+      "ratio": 0.9438743126816935,
+      "manualStopCalls": 295,
+      "stopVisibleAfter": 0,
+      "playVisibleAfter": 1,
+      "evidence": "Selected tune: 26 \u2014 Samaria\nSacred Harp 2025 \u00b7 page 26\n26 \u2014 Samaria\nLink to this tune\nTransposable reference\nSource-verified witness key: Ab major\nShared by 1991 / 2025\nFIRST LINE\n\nMy spirit looks to God alone\u2026\n\nThis is a transposable reference witness from Sacred Harp 1991. It is shown for practice, but it is not being presented as the Sacred Harp 2025 engraving.\nAVAILABLE PARTS\n4 of 4 selected\n\ud834\udd1e\nTreble\n\ud834\udd1e\nAlto\n\ud834\udd1e\nTenor\n\ud834\udd22\nBass\nDERIVED FOUR-SHAPE RENDERING \u00b7 19 MEASURES \u00b7 FULL-SONG VIEW\nAB MAJOR \u00b7 6/8\nTreble\n\ud834\udd1e\nAlto\n\ud834\udd1e\nTenor\n\ud834\udd1e\nBass\n\ud834\udd22\nTreble\n\ud834\udd1e\nAlto\n\ud834\udd1e\nTenor\n\ud834\udd1e\nBass\n\ud834\udd22\nTreble\n\ud834\udd1e\n\u266e\nAlto\n\ud834\udd1e\nTenor\n\ud834\udd1e\nBass\n\ud834\udd22\nTreble\n\ud834\udd1e\n\u266e\nAlto\n\ud834\udd1e\nTenor\n\ud834\udd1e\nBass\n\ud834\udd22\nTreble\n\ud834\udd1e\nAlto\n\ud834\udd1e\nTenor\n\ud834\udd1e\nBass\n\ud834\udd22\n\nLyrics: Unavailable \u00b7 not encoded in source \u00b7 Repeats: Unavailable \u00b7 not encoded in source \u00b7 Endings: Unavailable \u00b7 not encoded in source \u00b7 Linear source-order playback\n\nSome shapes are derived from the recorded source key; the linked source remains authoritative. Open shape-source PDF \n\nPlay song\nOrder\nWritten order\nFollow encoded repeats\nTempo\nBPM\nLoops\n1\n2\n3\n4\n5\n6\n7\n8\nDown\nTarget key\nAb major\nC major\nDb major\nD major\nEb major\nE major\nF major\nGb major\nG major\nA major\nBb major\nB major\n\u2304\nUp\nStructured sour"
+    },
+    "review-draft": {
+      "source": {
+        "scheduled": 39,
+        "starts": 39,
+        "firstFrequency": 587.3295358348151,
+        "stops": 39,
+        "errors": []
+      },
+      "target": {
+        "scheduled": 39,
+        "starts": 39,
+        "firstFrequency": 783.9908719634985,
+        "stops": 39,
+        "errors": []
+      },
+      "ratio": 1.3348398541700341,
+      "manualStopCalls": 39,
+      "stopVisibleAfter": 0,
+      "playVisibleAfter": 1,
+      "evidence": "Selected tune: 80t \u2014 Troubles Over\nSacred Harp 2025 \u00b7 page 80t\n80t \u2014 Troubles Over\nLink to this tune\nTransposable draft\nSource-observed key: G minor\nNew in 2025\n1991 / 2025 text differs\nFIRST LINE\n\nFarewell, conflicting hopes and fears\n\nReview only. This draft is downloadable for checking against the untouched page, but it is not authoritative notation. It is playable and transposable only as isolated review material, but it is not the Sacred Harp 2025 engraving and does not count as verified coverage. View disposition evidence \nSOURCE COMPARISON\nOpen the untouched page image\nReview aid \u00b7 not transposable\nAVAILABLE PARTS\n4 of 4 selected\n\ud834\udd1e\nTreble\n\ud834\udd1e\nAlto\n\ud834\udd1e\nTenor\n\ud834\udd1e\nBass\nDERIVED FOUR-SHAPE RENDERING \u00b7 13 MEASURES \u00b7 FULL-SONG VIEW\nG MINOR \u00b7 2/4\nTreble\n\ud834\udd1e\nAlto\n\ud834\udd1e\nTenor\n\ud834\udd1e\nBass\n\ud834\udd1e\nTreble\n\ud834\udd1e\nAlto\n\ud834\udd1e\nTenor\n\ud834\udd1e\nBass\n\ud834\udd1e\nTreble\n\ud834\udd1e\nAlto\n\ud834\udd1e\nTenor\n\ud834\udd1e\nBass\n\ud834\udd1e\nTreble\n\ud834\udd1e\nAlto\n\ud834\udd1e\nTenor\n\ud834\udd1e\nBass\n\ud834\udd1e\n\nLyrics: Unavailable \u00b7 not encoded in source \u00b7 Repeats: Unavailable \u00b7 not encoded in source \u00b7 Endings: Unavailable \u00b7 not encoded in source \u00b7 Linear source-order playback\n\n42 ambiguous OMR notes across 18 onset collisions are hidden in this review view; the raw draft remains preserved.\n\nSome shapes are der"
+    },
+    "partial-parts": {
+      "source": {
+        "scheduled": 223,
+        "starts": 223,
+        "firstFrequency": 523.2511306011972,
+        "stops": 223,
+        "errors": []
+      },
+      "target": {
+        "scheduled": 223,
+        "starts": 223,
+        "firstFrequency": 523.2511306011972,
+        "stops": 223,
+        "errors": []
+      },
+      "ratio": 1,
+      "manualStopCalls": 223,
+      "stopVisibleAfter": 0,
+      "playVisibleAfter": 1,
+      "evidence": "Selected tune: 26 \u2014 Samaria\nSacred Harp 1991 \u00b7 page 26\n26 \u2014 Samaria\nLink to this tune\nTransposable score\nSource-verified key: Ab major\nShared by 1991 / 2025\nFIRST LINE\n\nMy spirit looks to God alone\u2026\n\nAVAILABLE PARTS\n4 of 4 selected\n\ud834\udd1e\nTreble\n\ud834\udd1e\nAlto\n\ud834\udd1e\nTenor\n\ud834\udd22\nBass\nDERIVED FOUR-SHAPE RENDERING \u00b7 19 MEASURES \u00b7 FULL-SONG VIEW\nAB MAJOR \u00b7 6/8\nTreble\n\ud834\udd1e\nAlto\n\ud834\udd1e\nTenor\n\ud834\udd1e\nBass\n\ud834\udd22\nTreble\n\ud834\udd1e\nAlto\n\ud834\udd1e\nTenor\n\ud834\udd1e\nBass\n\ud834\udd22\nTreble\n\ud834\udd1e\n\u266e\nAlto\n\ud834\udd1e\nTenor\n\ud834\udd1e\nBass\n\ud834\udd22\nTreble\n\ud834\udd1e\n\u266e\nAlto\n\ud834\udd1e\nTenor\n\ud834\udd1e\nBass\n\ud834\udd22\nTreble\n\ud834\udd1e\nAlto\n\ud834\udd1e\nTenor\n\ud834\udd1e\nBass\n\ud834\udd22\n\nLyrics: Unavailable \u00b7 not encoded in source \u00b7 Repeats: Unavailable \u00b7 not encoded in source \u00b7 Endings: Unavailable \u00b7 not encoded in source \u00b7 Linear source-order playback\n\nSome shapes are derived from the recorded source key; the linked source remains authoritative. Open shape-source PDF \n\nPlay song\nOrder\nWritten order\nFollow encoded repeats\nTempo\nBPM\nLoops\n1\n2\n3\n4\n5\n6\n7\n8\nDown\nTarget key\nAb major\nC major\nDb major\nD major\nEb major\nE major\nF major\nGb major\nG major\nA major\nBb major\nB major\n\u2304\nUp\nStructured source loaded for playback. Source-verified key: Ab major.\nSOURCE\nSacred Harp 1991, page 26\nOpen source record\nOpen source record\nOpen source record\nOpen source record\nOpe"
+    },
+    "target-key-change": {
+      "scheduled": 223,
+      "stopCallsFromTargetChange": 223,
+      "stopVisible": 0,
+      "playVisible": 1,
+      "notice": "Playback stopped because the target key changed."
+    },
+    "target-reset": {
+      "targetResetToSource": true,
+      "selected": "41 \u2014 Evening Hymn",
+      "targetOption": "B minor"
+    },
+    "automatic-end": {
+      "scheduled": 39,
+      "starts": 39,
+      "stops": 78,
+      "stopVisible": 0,
+      "playVisible": 1
+    }
+  },
+  "git": {
+    "head": "3fbfeeffe0d36423525d1910b2ea0e2e29b26c27"
+  },
+  "hashes": {
+    "src/main.jsx": "192c5d08b86ba3ccc107b76e55eecb5a68a7be8e70b87d179c55f2dff71e45ab",
+    "src/practice.js": "8082425cb36b758193ee1c5d29ea2c049b1060eb7fba991fd839a57c3ceae7f1",
+    "src/keyResolution.js": "6aae219aa5da212bff4a1e54d1a16e2886f8194492dcce4da96774660e1e1bc1",
+    "public/corpus.json": "2bf928a6864d082ded90b1d7912c9d24d218982d892026ac66b5b73cb1474fd4",
+    "public/audio-harness.html": "c6a6624b5ad5ed28c6191e176363ab14c28b30f5be3627651d89e25cb49a7191",
+    "public/scores/e1f782a69c5812f4bcd5418a.json": "f03b04e66ffb5356a9fae1d74d1172e1f07cfe43b14926bcaae6d436cf578e8a",
+    "public/scores/e8a639af812f0ca7c5298b2b.json": "ed86803c274b49eaf7c15ec95f07dac9777e6154eef2937e423818e02042c910",
+    "public/scores/3509deecb75016f0d85fe47d.json": "2fd6a5614def0f3558b0780dc7b2743bffefad66a25260ce6c8030a845bd3890",
+    "public/draft-scores/d70b33f990339c1c2aab49d0.json": "be45ce3bf1e3ee7b537f41753e0ee4cb075db39ac3cd5640b9f6d692e1596415",
+    "public/draft-scores/kentucky-new-salem-v3.json": "6a86c22236e2c4ddbdac3f91b8f50079881221f5f5a698c99eedb31636658d85"
+  }
+}

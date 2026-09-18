@@ -1,5 +1,7 @@
 # P1 — Represent lyrics, repeats, and numbered endings faithfully
 
+> Historical packet. Use [OPENCLAW_BACKLOG.md](../../OPENCLAW_BACKLOG.md) for current scope, status and acceptance criteria. Initial lyric/repeat integration and practice controls have since been implemented; verify present code before dispatching any work below.
+
 ## Goal
 
 Add source-faithful musical semantics that are currently absent from the

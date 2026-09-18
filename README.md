@@ -165,6 +165,8 @@ deployment.
 
 ## For maintainers
 
+Start with the [active backlog](OPENCLAW_BACKLOG.md) for current priorities, source dependencies, completion criteria, and verification requirements.
+
 ### Source-dependent data refresh
 
 The corpus builder reads the established local source checkout:

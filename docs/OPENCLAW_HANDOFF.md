@@ -1,5 +1,7 @@
 # Shape-Note Atlas: OpenClaw handoff
 
+Active work: [explicit backlog and completion criteria](../OPENCLAW_BACKLOG.md).
+
 Current continuation: [current-state audit and next work (updated 2026-09-18)](OPENCLAW_PROGRAM_STATUS.md#2026-09-18-current-state-audit).
 
 The source-lane versions and next actions below are historical. Later commits completed Social Harp page identities, published Afton v27 and A Glimpse of Thee v1, and implemented encoded-repeat playback. Read the current-state audit before resuming a lane.

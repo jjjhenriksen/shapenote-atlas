@@ -1,8 +1,10 @@
-# Sacred Harp adversarial-audit backlog
+# Historical adversarial-audit packets
 
-These are independent worker packets derived from the pasted adversarial audit. Each worker should receive the `/goal` text in its packet and work only inside that packet's ownership boundary.
+Start with the [active Atlas backlog](../OPENCLAW_BACKLOG.md). It contains the current priorities, all-eleven-book counts, exact next source tasks, completion criteria and verification requirements.
 
-## Dispatch order
+The packets below preserve the original audit and ownership notes. Their counts and implementation-status statements are historical, not a current dispatch list. Check each against the active backlog and latest code before resuming work; do not recreate functionality that is already implemented.
+
+## Original packet order (historical)
 
 | Priority | Packet | Owns |
 | --- | --- | --- |

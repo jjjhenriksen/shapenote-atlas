@@ -4,6 +4,8 @@ Companion to the full [OpenClaw handoff](OPENCLAW_HANDOFF.md), not a replacement
 
 Latest: [2026-09-18 current-state audit](#2026-09-18-current-state-audit). The September 11 continuation below predates later implementation commits; do not dispatch its old next-work list without reading the current audit.
 
+For new work, use the [active backlog](../OPENCLAW_BACKLOG.md). The final September 18 verification passed all 20 required checks at `3fbfeef`; [committed evidence](handoff/review-20260918/README.md) preserves that exact implementation receipt.
+
 ## Goal and delivery loop
 
 Advance exact-source coverage across **all eleven books**, in small independently verified commits. Afton is one lane, not the project. Keep notation, lyric alignment, provenance, playback, discovery, and validation in scope. Existing structured mappings do not prove printed-edition fidelity.
