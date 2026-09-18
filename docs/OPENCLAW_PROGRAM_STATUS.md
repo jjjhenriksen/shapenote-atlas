@@ -1,8 +1,8 @@
-# Atlas program continuation — updated 2026-09-11
+# Atlas program continuation — updated 2026-09-18
 
 Companion to the full [OpenClaw handoff](OPENCLAW_HANDOFF.md), not a replacement for its source rules or an all-book completion claim.
 
-Latest: [2026-09-11 source-identity continuation](#2026-09-11-source-identity-continuation). Earlier dated receipts below remain historical.
+Latest: [2026-09-18 current-state audit](#2026-09-18-current-state-audit). The September 11 continuation below predates later implementation commits; do not dispatch its old next-work list without reading the current audit.
 
 ## Goal and delivery loop
 
@@ -258,3 +258,52 @@ remain unchanged from `5f6965d`; no new aggregate or browser proof is claimed.
 The other ten books’ next tasks above, existing publications and exact-edition
 coverage boundaries remain unchanged. This checkpoint establishes no background
 scheduler or unattended execution after the active session ends.
+
+
+## 2026-09-18 current-state audit
+
+Established checkout: `/Users/jacquelinehenriksen/Developer/shapenote-atlas`.
+The clean starting revision `3dadb3c` matched GitHub main. Earlier cloud-backed
+checkout paths and the September 11 "next work" lists are historical.
+
+### Completed work missing from the old continuation
+
+| Area | Current evidence | Correct continuation |
+| --- | --- | --- |
+| Social Harp source identities | [Supplement 19](../work/openclaw-socialharp-nineteenth-20260911/README.md), commit `6a93cd9`; verifier freshly passes **221 mapped / 0 unresolved** | Page-identity review is complete for the existing catalogue. Do not repeat batches 8–19. The historical 221/222 inventory discrepancy and all notation work remain separate. |
+| Afton | [v27](../work/openclaw-afton-v27-20260911/README.md), published by `e9c3460`; 251 pitches, 158 lyric anchors | P3 m12 `dis` was corrected in v26. Resume the v27 gaps: P1 m8, P2 m4 unhyphenated `wonder,`, P3 m4 `see thy`, other voice-specific underlay and spans. |
+| Sacred Harp Tunes | [A Glimpse of Thee v1](../work/openclaw-sacredharptunes-glimpse-20260911/README.md), published by `97f3f02` | Four measures in all four voices, 60 pitches and directly read shapes already exist. Continue at m5 with exact prefix preservation. Retained PDF/renders remain local; source comparison is external-link-only. |
+| Repeat playback | `7027d40` implements encoded-repeat scheduling and cancellation | Validate the particular draft's encoded plan before calling its navigation complete; the engine itself no longer needs initial implementation. New Salem's publication still carries a written-order limitation. |
+| Reader and discovery | Practice controls moved before the score; literal notehead geometry/fill retained; key facets normalized from MusicXML fifths | Exercise the current UI and use current source evidence rather than the older presentation findings. |
+| Source health | Resumable checks and fair host scheduling in `d01e8c9` / `0754c87` | Existing network observations have their own dates; offline validation is not a new reachability sweep. |
+
+### Fresh counts and verification
+
+Current tracked data: **3,547 songs / 4,202 book appearances**, **1,155 structured
+mappings**, **3,047 missing mapping records**, **13 SH2025 correction records**,
+and **18 pinned human-correctable publications**. Data validation accepts **138
+review draft assets**. The all-eleven-book coverage table above is unchanged.
+No source-page identity or review publication closes an exact-edition score gap.
+
+All **1,546** prerequisites in the retained-source inventory are present.
+Locked dependency verification, all **12** reproducibility tests, all **nine**
+publication tests, data validation, and the production build passed. The first
+aggregate run passed 18 required checks and stopped at two local prerequisites:
+a missing current browser receipt and an unbuilt macOS package. The package was
+subsequently built with the established script and its package/static-preview
+startup check passed. Fresh browser evidence must be tied to its tested commit;
+the September 7 receipt is not current proof. Native-window behavior and public
+deployment remain separate verification tasks.
+
+### Next useful work, in priority order
+
+1. **Rehearsal reliability:** obtain the current browser audio receipt, including major/minor/unknown-key cases, alternate references, drafts, partial voices, cancellation and automatic completion. Inspect New Salem's repeat-plan availability before changing its publication limitation.
+2. **Finish available partial scores:** extend A Glimpse of Thee from m5 and Zion's Dove after x502. Preserve prior XML prefixes and issue new versions with exact-source evidence.
+3. **Improve lyric and shape coverage:** Afton v27 gaps above; Devotion P1 m15 and voice-specific continuation; Portsmouth interior underlay; directly observed New Salem and Something New lyrics/shapes. Unknown semantics remain unavailable.
+4. **Start useful notation from resolved sources:** Social Harp now has all 221 page identities; choose a bounded first score. Trumpet also has reviewed identities but no exact structured mapping. Preserve retained-scan publication boundaries.
+5. **Acquire exact witnesses:** obtain an identifiable printed Southern Harmony page-12 witness; retain dated SH1991/322, /80b and Cooper/116 failures without substituting another edition.
+6. **Reconcile catalogue identity separately:** Social Harp 221/222 inventory discrepancy; Glimpse printed L.M.D. versus catalogue L.M.; historical Trumpet prose records. None should be silently converted into score-completion credit.
+
+This audit changes continuation documentation only. Canonical scores, published
+candidates, retained sources and earlier evidence are unchanged. It establishes
+no background scheduler or new public deployment.

@@ -1,6 +1,8 @@
 # Shape-Note Atlas: OpenClaw handoff
 
-Current continuation: [program status and next batches (updated 2026-09-11)](OPENCLAW_PROGRAM_STATUS.md).
+Current continuation: [current-state audit and next work (updated 2026-09-18)](OPENCLAW_PROGRAM_STATUS.md#2026-09-18-current-state-audit).
+
+The source-lane versions and next actions below are historical. Later commits completed Social Harp page identities, published Afton v27 and A Glimpse of Thee v1, and implemented encoded-repeat playback. Read the current-state audit before resuming a lane.
 
 Prepared 2026-09-06 for Jacqueline. This is a continuation brief, not a completion claim. Read this document before editing or assigning work.
 
