@@ -19,6 +19,8 @@ for the reader workflow, evidence states, and maintainer reference.
 > **The governing rule:** a matching title is not proof of an edition match,
 > and a playable draft is not a verified printed score.
 
+Read the [build diary: two very long goals](docs/build-log/2026-09-18-two-long-goals.md) for the August–September development story and what those runs actually delivered.
+
 ## What you can do
 
 - Search by tune number, title, first line, or source metadata.
