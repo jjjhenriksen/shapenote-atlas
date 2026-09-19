@@ -71,6 +71,21 @@ The resulting goal covered all books and editions, source-supported implementati
 
 The saved history contains 51 goal-continuation prompts. The last visible usage counter was **1,505,835 tokens**. I am treating that as a recorded checkpoint, not a final billing total. Unlike the earlier thirty-hour run, this session did not end with a defensible claim that the whole objective was complete. It reached a verified application checkpoint and then a handoff, with source work still open.
 
+### September's goal, checkpoint by checkpoint
+
+Again, these are reported checkpoints in California time. The later goal's record shows how an initially successful integration became a more demanding verification exercise.
+
+| Checkpoint | What moved forward |
+| --- | --- |
+| **Sept. 4, 7:03–7:22 p.m.** | The URL-count explanation established what the audit was measuring. Seven Luna tasks then took responsibility for runtime, data semantics, practice and discovery, source health, and notation across all eleven books. |
+| **8:13–8:23 p.m.** | The persistent goal was created. Integration review found that quarantined scores could still reach playback, found repeat/ending problems, and caught an omitted half rest in Afton. The work became a set of concrete failures to fix. |
+| **8:51–9:03 p.m.** | All 220 “missing repeat semantics” flags turned out to be tempo instructions classified incorrectly. Another audit found that a fallback had displaced specific alternate witnesses. The unfinished-notation inventory settled on 3,047 missing mappings plus thirteen correction records. |
+| **9:19–9:52 p.m.** | Integration first passed nineteen checks, then twenty with shared-edition reconciliation included. The goal stayed active because source transcription and provenance review remained unfinished. |
+| **Sept. 5, 2:13 p.m.** | A later passing run had regenerated its own health report. The audit found a stale URL count and required verification against unchanged committed evidence. A green result needed an identifiable set of inputs. |
+| **2:39–2:52 p.m.** | Build output exposed the wrong Vite installation. The validator was strengthened, the fix pushed, and a fresh locked-dependency run passed all twenty required checks with a clean tracked checkout. |
+| **2:55–2:56 p.m.** | Afton v24's actual export matched all 251 audited noteheads. Devotion v10 retained supported anchors while removing unsupported extension metadata. Another browser run passed; the music work still had open gaps. |
+| **Sept. 6, 3:52 p.m.** | The OpenClaw handoff was pushed with the verified checkpoint, next tasks, and the local-only evidence dependencies. This was the transition to another working session, not a claim that the all-book goal had finished. |
+
 ## The build that passed with the wrong dependency
 
 One of the clearest benefits of continuing was finding a problem after the application appeared to have passed verification.
@@ -113,6 +128,27 @@ That let the earlier careful work reach the reader. The subsequent commits publi
 
 These are different kinds of progress. Completing 221 Social Harp page identities helps a reader find the source. It does not supply 221 transcribed scores. Publishing a correctable draft makes practice possible sooner. It does not erase the remaining review work.
 
+### The OpenClaw continuation has a history too
+
+The saved OpenClaw conversation adds something Git alone cannot show: the decisions between the commits. On September 7, its first response narrowed the handoff to one Afton lyric problem. I clarified that I meant orchestration of the entire project. Later that afternoon I asked it to publish useful drafts promptly wherever a human could correct the output. Those instructions changed what the next batches delivered.
+
+The timeline below combines dated OpenClaw messages with repository commits. Times are California time. Session reports describe what was checked then; they are not fresh verification of the live site today.
+
+| Checkpoint | Work and decision |
+| --- | --- |
+| **Sept. 7, 12:43–12:48 p.m. — picking up the handoff** | I asked OpenClaw to read the handoff and set a goal. It produced Afton v25 with eight source-supported lyric anchors while preserving 251 pitches and noteheads. Filesystem errors initially prevented committing. |
+| **1:16–1:19 p.m. — restoring the full scope** | I asked for orchestration and quick, atomic commits, then clarified that the goal covered the whole handoff. The response explicitly returned to all eleven books, with one coordinator responsible for Git and separate source-review tasks. |
+| **3:59–4:14 p.m. — changing the publication threshold** | I asked for prompt publication where human correction was possible. The session then reported Afton and Zion's Dove published as practice drafts, with downloads, evidence, known gaps, and correction links. Exact-edition verification stayed separate. |
+| **5:20 p.m. — delivering across books** | The next report recorded thirteen SH2025 correction publications, ten reviewed Trumpet page identities, and five Social Harp mappings. Browser checks covered all thirteen drafts and 52 download links. Score overflow on mobile was still acknowledged. |
+| **5:33–6:13 p.m. — from openings to complete written notation** | New Salem and Something New first received opening-measure drafts, then complete 16- and 15-measure notation drafts. The same cycle repaired voice-label overlap, mobile overflow, and publication validation. Its closing report recorded twenty required checks passing and Social Harp at 87 reviewed identities. Lyrics and shape review remained unfinished. |
+| **Sept. 11, 8:53–9:25 p.m. — completing a source-identity pass** | Repository commits show Social Harp progressing through successive reviewed batches to 221 mapped catalogue identities and zero unresolved identities in that catalogue. This completed the page-finding task, not 221 scores; the historical 221/222 inventory discrepancy remained separate. |
+| **9:07–9:45 p.m. — improving what readers could use** | Commits corrected and extended Afton lyrics, published the four-measure A Glimpse of Thee opening, added playback following encoded repeats, moved practice controls before the score, preserved literal notehead geometry, and improved resumable source checks. These are commit checkpoints, not a reconstruction of each task's working time. |
+| **Sept. 12, 1:13–2:24 p.m. — explaining the product** | A separate OpenClaw session first reported a clearer README and guide, then a hosted documentation route, then a nineteen-page documentation library. Its final report recorded 37 passing tests, successful deployment, checks of twenty HTML routes and their assets, and a live browser check. |
+
+There is also a limit worth preserving in this history. I asked for autonomous background continuation on September 7, but the tracked closing report did not establish a background scheduler. Two bare `/goal start` attempts in the conversation returned usage instructions. Those messages do not prove that another persistent goal was running. What the record does establish is a sequence of requested continuations, delivered batches, commits, and verification receipts.
+
+This makes the handoff more than a document at the end of the first session. It carried source decisions into later work, while my follow-up instructions changed the delivery policy. The project could make imperfect but inspectable music available, improve it in versions, and tell readers how to correct it.
+
 ## September 18: what the two goals left behind
 
 The September 18 audit found eighteen pinned human-correctable publications and 138 validated review draft assets. The application again passed twenty required checks, this time at a later implementation commit with fresh browser evidence. The audit also corrected an obsolete limitation that still described New Salem repeat playback as unavailable even though it had been implemented.
@@ -127,4 +163,4 @@ What I can point to is more concrete: a source-key choice that remains editable,
 
 ---
 
-*Written from the saved August 27–29 and September 4–5 Codex session records, the overnight improvement log, Git history, and the September 18 project audit. Dates and counts describe those checkpoints. This is a build diary, not a claim that all notation is complete or that a repository push verifies the live website. [Evidence and editorial notes](2026-09-18-two-long-goals-sources.md).*
+*Written from the saved August 27–29 and September 4–5 Codex session records, the overnight improvement log, OpenClaw continuation and documentation sessions, Git history, and the September 18 project audit. Dates and counts describe those checkpoints. This is a build diary, not a claim that all notation is complete or that a repository push verifies the live website. [Evidence and editorial notes](2026-09-18-two-long-goals-sources.md).*

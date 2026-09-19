@@ -50,6 +50,22 @@ The saved record contains 51 goal-continuation prompts. Its last visible continu
 
 The user identified the approximately thirty-hour earlier goal during preparation of this article; its numerical duration was then confirmed from the saved receipt. No exact duration has been invented for the second run.
 
+## September and OpenClaw timeline sources
+
+The September Codex coordinator's saved checkpoints are September 5 at 02:03:51, 02:22:47, 03:16:31, 03:23:25, 03:51:07, 04:03:30, 04:19:20, 04:52:37, 21:13:56, 21:39:02, 21:47:27, 21:52:16, 21:55:15, and 21:56:33 UTC. Goal creation is separately recorded at 03:13:26 UTC. The handoff publication report is September 6 at 22:52:05 UTC. The article converts these to PDT and does not imply uninterrupted execution between checkpoints.
+
+OpenClaw history was read from its stored session transcript index, not inferred from repository filenames. Only project-specific summaries are published here; raw transcripts and unrelated personal conversations are excluded.
+
+| OpenClaw record | UTC evidence and interpretation |
+| --- | --- |
+| September 7 handoff continuation | 19:43:45 request to read handoff and set a goal; 19:48:46 Afton v25 report; 20:16:03 orchestration/atomic-commit instruction; 20:19:01 full-project clarification. |
+| Publication policy and first delivery | 22:59:45 instruction to publish promptly with human correction; 23:14:54 report of `cf93b82`. |
+| Multi-book deliveries | September 8, 00:20:45 report through `30eda30`; 00:33:00 opening drafts through `7dfaacd`; 01:13:15 full written drafts and twenty checks through `c944f3c`. All are September 7 locally. |
+| Background-work boundary | September 7, 23:35:15 and September 8, 00:09:38 bare goal commands returned usage instructions. Background continuation was requested at 00:38:48; the program status explicitly says no background automation was established. No additional goal duration or completed-goal receipt is inferred. |
+| September 12 documentation session | 20:13:53 README/guide report; 20:43:44 docs-route deployment report for `0e03205`; 21:09:26 topical-route report for `8fb63e7`; 21:24:31 final nineteen-page library report, 37 tests, twenty HTML routes checked. Reported deployment run: [34719781905](https://github.com/jjjhenriksen/shapenote-site/actions/runs/34719781905). This is historical session evidence, not a new live-site check. |
+
+The September 11 timeline uses Git author timestamps with their recorded PDT offset, checked against the program status and retained packages: `f274ed4` at 20:53, `6a93cd9` at 21:25, `ab86ed8` at 21:07, `e9c3460` at 21:21, `7027d40` at 21:31, `97f3f02` at 21:32, `ec85e26` at 21:38, `07e31cf` at 21:41, and `0754c87` at 21:45. Commit times establish recorded integration milestones, not task durations. The September 12 documentation commits independently corroborate that session's implementation reports.
+
 ## Repository evidence
 
 - [Overnight improvement log](../../OVERNIGHT_LOG.md): particularly cycles 1–8, 35–38, and 69–70. Its statuses and counts are historical.
