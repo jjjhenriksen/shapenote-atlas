@@ -19,6 +19,29 @@ These are historical goal-accounting and report values, not independently recons
 
 The parallel overnight improvement task is supporting context, not a third thirty-hour goal. Its [70-cycle log](../../OVERNIGHT_LOG.md) records source filtering, accessibility, recovery from failed score loads, editable source keys, and later OMR comparisons. Avoid assigning every worker change to the coordinator personally.
 
+### Timeline checkpoint index for the earlier run
+
+The article's timeline was reconstructed from timestamped final checkpoint messages in the saved coordinator history. Times below are UTC; the article converts them to America/Los_Angeles (PDT, UTC−7). They establish when a result was reported, not individual edit times or uninterrupted activity. Supporting-worker results are attributed to the coordinated run. Counts are historical and scopes differ between rows.
+
+| UTC checkpoint | Evidence summarized in the article |
+| --- | --- |
+| Aug. 27, 18:39:08 | Goal creation receipt. |
+| Aug. 27, 19:52:11 | Seconds/milliseconds playback timer fix; browser active-state checks at 250 ms and 2.05 seconds. |
+| Aug. 27, 20:24:22 | Four-shape rendering, minor-mode handling, Northampton F-sharp minor, G-to-D transposition. |
+| Aug. 27, 20:49:39; 21:36:48 | Fourteen exact versus ten alternate-edition references; Lisbon correction; removal of unsupported 264b. |
+| Aug. 27, 22:00:24 | Six OMR review packages with scans, PDFs, hashes, counts, and checklists. |
+| Aug. 28, 04:09:10; 04:38:44 | Explicit user-entered source keys; source-link join repair and dispositions across 4,202 edition records. |
+| Aug. 28, 05:11:49 | Fifteen same-book suffix recoveries and thirty labeled cross-edition witnesses. |
+| Aug. 28, 08:18:48; 12:33:24 | Preserved originals and working-image provenance; 94 isolated drafts; candidate collision and composite-page fixes. |
+| Aug. 28, 12:38:12 | Playback validator: 1,283 assets and 283,244 events; browser key/transposition/playback check. |
+| Aug. 28, 18:17:50; 18:26:30 | Ninety missing-2025 records covered by source evidence; Trembling Spirit downgraded to mismatch. |
+| Aug. 29, 00:14:56; 00:45:50 | 26 downloadable official MXL links split into thirteen candidates and thirteen alternate-edition sources; candidate corrections still required, no promotion. |
+| Aug. 29, 06:32:46; 06:36:44 | 448 shared-edition records, Samaria/Rockbridge distinctions, and explicit minor-mode repair. |
+| Aug. 29, 11:44–11:45; 11:48:04 | Ninety evidence-backed dispositions with zero promotions; final Devotion browser smoke check. |
+| Aug. 29, 12:12:58; 12:13:04; 12:13:20 | Unknown-key review, final goal receipt, and closing report. |
+
+The creation-to-closing calendar interval is approximately 41 hours 34 minutes. It must not be substituted for the receipt's accumulated 29 hours 51 minutes 13 seconds. The candidate audit's “no observed pitch/rhythm mismatch” is a dated observation, not independent proof of exactness; subsequent September corrections remain part of the article. The timeline deliberately does not turn repeated unchanged worker-status checks into additional implementation milestones.
+
 ### Later run: Finish Shape Note Atlas
 
 Saved creation call: September 5, 2026, 03:13:26 UTC (September 4 in California). The objective covered all books/editions, source-supported implementation, runtime/UI/data failures, verification, and precise residual gaps, without invented notation or unsafe promotion.
