@@ -3,7 +3,9 @@ import { createRoot } from "react-dom/client";
 import "./styles.css";
 import { matchesDiscovery, recordKey, resolveTuneLink, tuneUrl } from "./discovery.js";
 import { barlinesForMeasure, lyricForEvent, scoreSemanticSummary } from "./agent_11_score_semantics.js";
-import { buildPracticeSchedule, canApplyPlaybackPlan, resolveRepeatPlayback, guardedAudioAction, resolvePlaybackQuarantine, scheduleWithCleanup, sessionIsCurrent, shouldCompleteSession } from "./practice.js";
+import { buildPracticeSchedule, canApplyPlaybackPlan, resolveRepeatPlayback, guardedAudioAction, resolvePlaybackQuarantine, sessionIsCurrent, shouldCompleteSession } from "./practice.js";
+import { createAudioState, stopAudioResources, disposeAudio, schedulePracticeAudio } from "./audioPlayback.js";
+import { validateCorpus } from "./corpusContract.js";
 import { summarizeSourceHealth } from "./sourceHealthPresentation.js";
 import { resolveKeyContext } from "./keyResolution.js";
 import { PublishedDraftActions } from "./PublishedDraftActions.jsx";
@@ -50,7 +52,7 @@ function normalize(value) {
 }
 
 function getBookSongs(data, bookId) {
-  return data.songs.filter((song) => song.books.includes(bookId));
+  return (data?.songs || []).filter((song) => song.books.includes(bookId));
 }
 
 function rootFromKey(key) {
@@ -589,7 +591,7 @@ function ScorePreview({ score, playback, transpose, complete, sourceKey, targetK
   </div>;
 }
 
-function App() {
+export function App() {
   const [corpus, setCorpus] = useState(null);
   const [corpusAttempt, setCorpusAttempt] = useState(0);
   const [humanReviewQueue, setHumanReviewQueue] = useState(null);
@@ -676,52 +678,72 @@ function App() {
 
   useEffect(() => { setResultPage(0); }, [bookId, query, availability, additionsOnly, modeFilter, keyFilter, partFilter, transposableOnly, sortOrder, activeSection]);
 
-  const audioRef = useRef({ context: null, master: null, nodes: [], stopTimer: null, progressTimer: null, generation: 0, session: null });
+  const audioRef = useRef(createAudioState());
   const toastTimerRef = useRef(null);
   const [sourceHealth, setSourceHealth] = useState(null);
+  const [sourceHealthAttempt, setSourceHealthAttempt] = useState(0);
+  useEffect(() => {
+    const audio = audioRef.current;
+    audio.disposed = false;
+    return () => {
+      disposeAudio(audio, window);
+      if (toastTimerRef.current !== null) window.clearTimeout(toastTimerRef.current);
+      toastTimerRef.current = null;
+    };
+  }, []);
   useEffect(() => {
     if (audioRef.current.session && !audioRef.current.session.cancelled) stopAudio("Playback stopped because practice settings changed.");
   }, [tempo, loopCount, followRepeats]);
 
   useEffect(() => {
-    let cancelled = false;
+    const controller = new AbortController();
     setCorpus(null);
-    fetch(assetUrl("/corpus.json"))
+    fetch(assetUrl("/corpus.json"), { signal: controller.signal })
       .then((response) => {
         if (!response.ok) throw new Error(`Corpus request failed: ${response.status}`);
         return response.json();
       })
-      .then((data) => { if (!cancelled) setCorpus(data); })
-      .catch(() => { if (!cancelled) setCorpus({ error: true }); });
-    return () => { cancelled = true; };
+      .then((data) => {
+        if (controller.signal.aborted) return;
+        validateCorpus(data, BOOK_ORDER);
+        setBookId((current) => data.books[current] ? current : BOOK_ORDER.find((id) => data.books[id]));
+        setCorpus(data);
+      })
+      .catch((error) => { if (!controller.signal.aborted) setCorpus({ error: error.message || "Corpus request failed" }); });
+    return () => { controller.abort(); };
   }, [corpusAttempt]);
 
   useEffect(() => {
-    let cancelled = false;
+    const controller = new AbortController();
     setHumanReviewQueueError(false);
-    fetch(assetUrl("/human-review-queue.json"))
+    fetch(assetUrl("/human-review-queue.json"), { signal: controller.signal })
       .then((response) => {
         if (!response.ok) throw new Error(`Review queue request failed: ${response.status}`);
         return response.json();
       })
-      .then((data) => { if (!cancelled) setHumanReviewQueue(data); })
+      .then((data) => { if (!controller.signal.aborted) setHumanReviewQueue(data); })
       .catch(() => {
-        if (!cancelled) {
+        if (!controller.signal.aborted) {
           setHumanReviewQueue(null);
           setHumanReviewQueueError(true);
         }
       });
-    return () => { cancelled = true; };
+    return () => { controller.abort(); };
   }, [humanReviewQueueAttempt]);
 
   useEffect(() => {
-    let cancelled = false;
-    fetch(assetUrl("/source-health.json"))
+    const controller = new AbortController();
+    setSourceHealth(null);
+    fetch(assetUrl("/source-health.json"), { signal: controller.signal })
       .then((response) => response.ok ? response.json() : Promise.reject(new Error("health unavailable")))
-      .then((data) => { if (!cancelled) setSourceHealth(data); })
-      .catch(() => { if (!cancelled) setSourceHealth({ error: true }); });
-    return () => { cancelled = true; };
-  }, []);
+      .then((data) => {
+        if (controller.signal.aborted) return;
+        if (!Array.isArray(data?.records) || data.records.some((record) => !record || typeof record.url !== "string")) throw new Error("Invalid source-health bundle");
+        setSourceHealth(data);
+      })
+      .catch(() => { if (!controller.signal.aborted) setSourceHealth({ error: true }); });
+    return () => { controller.abort(); };
+  }, [sourceHealthAttempt]);
 
   const reviewQueueReady = Boolean(humanReviewQueue) && !humanReviewQueueError;
 
@@ -840,7 +862,7 @@ function App() {
   const selectedHealthRecords = rawSelectedHealthRecords;
   const selectedHealthSummary = rawSelectedHealthRecords.length
     ? selectedHealthPresentation.text
-    : sourceHealth?.error ? "Source-health cache unavailable" : "No health record for this source URL";
+    : !sourceHealth ? "Loading source health…" : sourceHealth.error ? "Source-health cache unavailable" : "No health record for this source URL";
   const scoreRef = activeScorePreview?.scoreRef || "";
   const scoreRequestRef = assetUrl(scoreRef);
   const selectedScore = fullScore?.sourceUrl === activeScorePreview?.sourceUrl ? fullScore : activeScorePreview;
@@ -885,19 +907,19 @@ function App() {
 
 
   useEffect(() => {
-    let cancelled = false;
+    const controller = new AbortController();
     setFullScore(null);
     setFollowRepeats(false);
     setScoreLoadError(false);
-    if (!scoreRef) return () => { cancelled = true; };
-    fetch(scoreRequestRef)
+    if (!scoreRef) return () => { controller.abort(); };
+    fetch(scoreRequestRef, { signal: controller.signal })
       .then((response) => {
         if (!response.ok) throw new Error(`Score request failed: ${response.status}`);
         return response.json();
       })
-      .then((score) => { if (!cancelled) setFullScore(score); })
-      .catch(() => { if (!cancelled) { setFullScore(null); setScoreLoadError(true); } });
-    return () => { cancelled = true; };
+      .then((score) => { if (!controller.signal.aborted) setFullScore(score); })
+      .catch(() => { if (!controller.signal.aborted) { setFullScore(null); setScoreLoadError(true); } });
+    return () => { controller.abort(); };
   }, [scoreRequestRef, scoreLoadAttempt]);
 
   useEffect(() => {
@@ -908,24 +930,13 @@ function App() {
   }, [selectedId, bookId, scoreRef]);
 
   if (!corpus) return <div className="loading-screen" role="status" aria-live="polite">Loading the local atlas…</div>;
-  if (corpus.error) return <div className="loading-screen" role="alert"><Icon name="info" size={22} /><p>The local corpus bundle could not be loaded. Serve the project through its static host and try again.</p><button className="text-button" type="button" onClick={() => setCorpusAttempt((attempt) => attempt + 1)}>Retry loading</button></div>;
+  if (corpus.error) return <div className="loading-screen" role="alert"><Icon name="info" size={22} /><p>The local corpus bundle could not be loaded or is incompatible. Check the static host and refresh the bundle, then retry.</p><button className="text-button" type="button" onClick={() => setCorpusAttempt((attempt) => attempt + 1)}>Retry loading</button></div>;
 
   function stopAudio(notice = "") {
     const audio = audioRef.current;
-    if (audio.session) audio.session.cancelled = true;
-    audio.generation += 1;
-    const wasPlaying = audio.nodes.length > 0 || Boolean(audio.master) || Boolean(audio.stopTimer);
-    if (audio.stopTimer) {
-      window.clearTimeout(audio.stopTimer);
-      audio.stopTimer = null;
-    }
-    if (audio.progressTimer) { window.clearInterval(audio.progressTimer); audio.progressTimer = null; }
-    audio.nodes.forEach((node) => { try { node.stop(); } catch {} });
-    audio.nodes = [];
-    if (audio.master) {
-      try { audio.master.disconnect(); } catch {}
-      audio.master = null;
-    }
+    const wasPlaying = audio.nodes.size > 0 || Boolean(audio.master) || Boolean(audio.session);
+    stopAudioResources(audio, window);
+    if (audio.disposed) return;
     setPlaying(false);
     setPaused(false);
     setPlaybackProgress(0);
@@ -933,7 +944,7 @@ function App() {
   }
 
   async function playAvailableParts() {
-    if (!playbackAllowed || !selectedScore || !activeParts.length) return;
+    if (audioRef.current.disposed || !playbackAllowed || !selectedScore || !activeParts.length) return;
     setPlaybackNotice("");
     stopAudio();
     const generation = audioRef.current.generation;
@@ -949,75 +960,45 @@ function App() {
     audioRef.current.context = context;
     try {
       if (context.state !== "running") await context.resume();
-      if (!sessionIsCurrent(audioRef.current.session, session) || audioRef.current.generation !== generation) return;
+      if (audioRef.current.disposed || !sessionIsCurrent(audioRef.current.session, session) || audioRef.current.generation !== generation) return;
       if (context.state !== "running") {
         showToast("Audio is unavailable until the browser allows playback.");
         return;
       }
     } catch {
+      if (audioRef.current.disposed || !sessionIsCurrent(audioRef.current.session, session)) return;
       showToast("Audio could not start. Check the browser's audio permission.");
       return;
     }
     const now = context.currentTime + 0.08;
     const beatSeconds = 60 / Math.max(40, Math.min(220, tempo));
     const boundedLoops = Math.max(1, Math.min(8, Number(loopCount) || 1));
-    const nodes = [];
     const parts = selectedScore.parts.filter((part) => activeParts.includes(part.name)).map((part) => ({
       ...part,
       events: reviewEventsForPart(part, draftScoreActive).events,
     }));
-    const master = context.createGain();
-    master.gain.setValueAtTime(0.78, now);
-    master.connect(context.destination);
-    audioRef.current.master = master;
     const practiceSchedule = buildPracticeSchedule(parts, practicePlayback, boundedLoops);
-    const expandedParts = parts.map((part) => ({ ...part, events: practiceSchedule.events.filter((event) => event.partName === part.name) }));
-    const scoreDuration = practiceSchedule.duration;
-    audioRef.current.nodes = nodes;
-    try {
-      expandedParts.forEach((part, partIndex) => {
-        (part.events || []).forEach((event) => {
-          if (event.rest) return;
-          const sourceMidi = pitchToMidi(event);
-          const onset = Number(event.scheduledOnset ?? event.onset);
-          const beats = Number(event.beats);
-          if (sourceMidi === null || !Number.isFinite(sourceMidi) || !Number.isFinite(onset) || !Number.isFinite(beats) || beats <= 0) return;
-          const midi = sourceMidi + signedTranspose;
-          const [oscillator] = scheduleWithCleanup([event], () => context.createOscillator(), (node) => {
-            node.type = partIndex % 2 ? "triangle" : "sine";
-            node.frequency.value = 440 * Math.pow(2, (sourceMidi + signedTranspose - 69) / 12);
-          });
-          nodes.push(oscillator);
-          const gain = context.createGain();
-          const pan = context.createStereoPanner ? context.createStereoPanner() : null;
-          const start = Math.max(context.currentTime + 0.02, now + onset * beatSeconds);
-          const duration = Math.max(0.12, beats * beatSeconds * 0.9);
-          const noteLevel = Math.min(0.18, 0.72 / Math.max(parts.length, 1));
-          gain.gain.setValueAtTime(0, start);
-          gain.gain.linearRampToValueAtTime(noteLevel, start + 0.025);
-          gain.gain.setTargetAtTime(0, start + duration * 0.72, 0.08);
-          oscillator.connect(gain);
-          if (pan) { pan.pan.value = (partIndex - (parts.length - 1) / 2) * 0.22; gain.connect(pan); pan.connect(master); } else gain.connect(master);
-          oscillator.start(start);
-          oscillator.stop(start + duration + 0.15);
-        });
-      });
-    } catch (error) {
+    Object.assign(session, { startedAt: now, duration: practiceSchedule.duration * beatSeconds + 0.5 });
+    const schedulingFailed = (error) => {
+      if (audioRef.current.disposed) return;
       stopAudio();
       console.error("Sacred Harp audio scheduling failed", error);
       showToast("Audio could not be scheduled for this score.");
-      return;
-    }
-    if (!nodes.length) {
-      stopAudio();
-      showToast("This score has no playable pitched events.");
-      return;
-    }
-    if (audioRef.current.session !== session || audioRef.current.generation !== generation) { stopAudio(); return; }
+    };
+    try {
+      const scheduled = schedulePracticeAudio(audioRef.current, session, practiceSchedule.events, {
+        startedAt: now, beatSeconds, partNames: parts.map((part) => part.name), pitchToMidi,
+        transpose: signedTranspose, onError: schedulingFailed, timers: window,
+      });
+      if (!scheduled) {
+        if (sessionIsCurrent(audioRef.current.session, session)) {
+          stopAudio();
+          showToast("This score has no playable pitched events.");
+        }
+        return;
+      }
+    } catch (error) { schedulingFailed(error); return; }
     setPlaying(true);
-    const lastEvent = scoreDuration;
-    const playbackDurationMs = (lastEvent * beatSeconds + 0.5) * 1000;
-    Object.assign(session, { startedAt: context.currentTime, duration: lastEvent * beatSeconds });
     audioRef.current.progressTimer = window.setInterval(() => {
       const session = audioRef.current.session;
       if (!session || !sessionIsCurrent(audioRef.current.session, session) || session.generation !== audioRef.current.generation) return;
@@ -1025,11 +1006,6 @@ function App() {
       setPlaybackProgress(Math.min(1, elapsed / session.duration));
       if (shouldCompleteSession(context.currentTime, session)) stopAudio();
     }, 100);
-    audioRef.current.stopTimer = null;
-  }
-
-  function lastEventForParts(parts) {
-    return Math.max(...parts.flatMap((part) => (part.events || []).map((event) => Number(event.onset) + Number(event.beats)).filter(Number.isFinite)), 1);
   }
 
   async function togglePause() {
@@ -1042,7 +1018,7 @@ function App() {
       const stillCurrent = await guardedAudioAction(() => nextPaused ? context.suspend() : context.resume(), audioRef.current.session, session);
       if (!stillCurrent || audioRef.current.generation !== generation) return;
       setPaused(nextPaused);
-    } catch { showToast("Audio could not change pause state."); }
+    } catch { if (sessionIsCurrent(audioRef.current.session, session)) showToast("Audio could not change pause state."); }
   }
 
   function handleBookChange(nextBookId) {
@@ -1083,6 +1059,7 @@ function App() {
   }
 
   function showToast(message) {
+    if (audioRef.current.disposed) return;
     if (toastTimerRef.current) window.clearTimeout(toastTimerRef.current);
     setToast(message);
     toastTimerRef.current = window.setTimeout(() => {
@@ -1169,7 +1146,7 @@ function App() {
             {draftScoreActive && <SourceRecording song={selectedSong} coverage={selectedCoverage} />}
           </> : <><div className="missing-score"><Icon name="info" size={23} /><div><h3>No transposable score file for this record</h3><p>The atlas preserves the exact source link or scan instead of synthesizing notation where structured score data is absent.</p>{selectedCoverage && <p className="edition-note"><strong>{coverageLabel(selectedCoverage)}.</strong> {coverageNextStep(selectedCoverage)}</p>}{selectedCoverage?.editionStatus === "added-in-2025" && <p className="edition-note"><strong>New in 2025.</strong> This page is on the publisher's additions list and has no verified 2025 MusicXML yet. <a href={selectedCoverage.editionEvidenceUrl} target="_blank" rel="noreferrer noopener">View the source list <Icon name="external" size={13} /></a></p>}{reviewDraft && <p className="edition-note"><strong>{reviewDisposition(reviewDraft, reviewDraftAmbiguous).label}.</strong> {reviewDisposition(reviewDraft, reviewDraftAmbiguous).summary} {reviewDraft.draftSummary.parts} parts, {Object.values(reviewDraft.draftSummary.measuresByPart)[0] || "unknown"} measures per part. It is not playable or transposable because the source comparison is not promotion-safe. <a href={assetUrl("/human-review-queue.json")} target="_blank" rel="noreferrer noopener">View disposition evidence <Icon name="external" size={13} /></a></p>}{alternateEdition && <p className="edition-note">A verified {alternateEdition === "sh1991" ? "1991" : "2025"}-edition score is available for this shared tune, but it is not being mislabeled as a {bookId === "sh2025" ? "2025" : "1991"} score.</p>}{alternateEdition && <button className="text-button" onClick={() => { setBookId(alternateEdition); setSelectedId(selectedSong.id); }}>Open the verified {alternateEdition === "sh1991" ? "1991" : "2025"} score</button>}</div></div><ShapeReviewDraftPanel reviewItem={reviewDraft} ambiguous={reviewDraftAmbiguous} /><CleanSourceCandidates coverage={selectedCoverage} /><SourceNotation song={selectedSong} bookId={bookId} /><SourceComparisonPanel song={selectedSong} bookId={bookId} coverage={selectedCoverage} /><SourceRecording song={selectedSong} coverage={selectedCoverage} /></>}
           <div className="source-strip"><div><span className="section-label">Source</span><span>{selectedMetadata?.sourceUrl ? `${book.label}, page ${selectedSong.songNo}` : "Local corpus record"}</span></div><div className="source-actions">{sourceUrls.map((url) => <a key={url} href={url} target="_blank" rel="noreferrer noopener" aria-label={`Open source record at ${sourceDestinationLabel(url)}`}>Open source record <Icon name="external" size={16} /></a>)}{activeScorePreview && shapeSourcePdfUrl(activeScorePreview) && <a href={shapeSourcePdfUrl(activeScorePreview)} target="_blank" rel="noreferrer noopener">Open shape-source PDF <Icon name="external" size={16} /></a>}</div></div>
-          <div className="source-health-card" aria-label="Source health"><div><span className="section-label">Source health</span><strong>{selectedHealthSummary}</strong></div><span className="source-health-retention">{selectedHealthPresentation.retentionLabel}</span></div>
+          <div className="source-health-card" aria-label="Source health" aria-busy={!sourceHealth}><div><span className="section-label">Source health</span><strong role="status" aria-live="polite">{selectedHealthSummary}</strong>{sourceHealth?.error && <button className="text-button" type="button" onClick={() => setSourceHealthAttempt((attempt) => attempt + 1)}>Retry source health</button>}</div><span className="source-health-retention">{selectedHealthPresentation.retentionLabel}</span></div>
           {repeatPlayback?.status === "blocked" && <p className="practice-fallback-note" role="status">Repeat playback is unavailable: {repeatPlayback.reason} Practice uses written order.</p>}
           {playbackQuarantined && <p className="practice-fallback-note" role="alert"><strong>Playback unavailable.</strong> {quarantine.reason}</p>}
           <div className="detail-footer"><ShapeLegend /></div>
@@ -1181,4 +1158,10 @@ function App() {
   </div>;
 }
 
-createRoot(document.getElementById("root")).render(<App />);
+export function mountAtlas(element) {
+  const root = createRoot(element);
+  root.render(<App />);
+  return root;
+}
+
+export const atlasRoot = mountAtlas(document.getElementById("root"));

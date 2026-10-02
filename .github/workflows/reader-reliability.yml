@@ -1,0 +1,28 @@
+name: Reader reliability
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: npm test
+      - run: npm run validate-playback && npm run validate-transposition
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:browser -- --workers=2
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: reader-browser-evidence
+          path: work/browser-tests
+          if-no-files-found: ignore

@@ -36,12 +36,16 @@
     "dev": "vite --host 127.0.0.1",
     "build": "vite build",
     "preview": "vite preview --host 127.0.0.1",
-    "verify-startup": "python3 scripts/verify_startup.py"
+    "verify-startup": "python3 scripts/verify_startup.py",
+    "test": "node --test tests/*.mjs",
+    "test:browser": "playwright test"
   },
   "dependencies": {
-    "vite": "7.3.6",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "vite": "7.3.6"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@playwright/test": "1.62.1"
+  }
 }
