@@ -27,7 +27,10 @@ export function buildPracticeSchedule(parts, playback, loops = 1) {
     playback.measureSequence.forEach((measure) => { const key = String(measure); const base = Number(starts[key]); const duration = Number(durations[key]); if (!Number.isFinite(base) || !Number.isFinite(duration) || duration <= 0) return; (byMeasure.get(key) || []).forEach((event) => { events.push({ ...event, onset: offset + Number(event.onset) - base }); }); offset += duration; });
     return { ...part, events };
   });
-  const duration = Math.max(...expanded.flatMap((part) => part.events.map((event) => Number(event.onset) + Number(event.beats)).filter(Number.isFinite)), 1);
+  const duration = expanded.reduce((end, part) => part.events.reduce((latest, event) => {
+    const eventEnd = Number(event.onset) + Number(event.beats);
+    return Number.isFinite(eventEnd) ? Math.max(latest, eventEnd) : latest;
+  }, end), 1);
   const sequenceDuration = expandAllowed ? playback.measureSequence.reduce((sum, measure) => sum + Number(playback.measureDurations[String(measure)]), 0) : duration;
   const totalDuration = sequenceDuration * boundedLoops;
   return { duration: totalDuration, events: Array.from({ length: boundedLoops }, (_, loopIndex) => expanded.flatMap((part) => part.events.map((event) => ({ ...event, partName: part.name, loopIndex, scheduledOnset: Number(event.onset) + loopIndex * sequenceDuration })))).flat() };

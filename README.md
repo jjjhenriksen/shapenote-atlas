@@ -93,6 +93,11 @@ encoded repeat plan, set a tempo from 40–220 BPM, and choose one to eight loop
 Playback stops when the selected parts, score version, source key, or target key
 changes. A short score can also stop automatically at its actual end.
 
+Practice schedules audio through a half-second lookahead window and releases
+finished notes. Stop and reader unmount cancel pending playback work; unmount
+also closes the reader's audio context. A source-health load failure offers
+**Retry source health** in place, preserving the selected tune.
+
 Transposition requires key evidence. If the source key is unknown, enter the
 key printed on the linked source page. The entered key stays separate from
 catalogue metadata; the Atlas never borrows a key from another edition just to
@@ -224,6 +229,21 @@ python3 scripts/validate_data.py
 python3 scripts/validate_playback.py
 python3 scripts/validate_transposition.py
 ```
+
+The reader reliability suite runs independently of local retained-source inputs:
+
+```sh
+npm test
+npx playwright install chromium
+npm run test:browser
+```
+
+The browser suite starts the local Vite server and covers malformed-bundle
+recovery, source-health retry, streaming request cancellation, audio disposal,
+long-score scheduling, real Web Audio, and desktop/mobile interactions. To use
+an installed Chrome locally, set `ATLAS_BROWSER_CHANNEL=chrome` when running
+`npm run test:browser`. The Reader reliability CI workflow runs these checks,
+the bundled playback/transposition validators, and the production build.
 
 Then run the fail-closed aggregate check:
 
