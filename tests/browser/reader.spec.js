@@ -46,6 +46,32 @@ async function mockAudio(page, pending = false) {
   }, { pending });
 }
 
+for (const width of [1440, 375]) {
+  test(`flat transposition renders the correct octave and playback pitch at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: width === 375 ? 812 : 1000 });
+    const errors = []; page.on('pageerror', (error) => errors.push(error.message));
+    page.on('console', (message) => { if (['error', 'warning'].includes(message.type())) errors.push(message.text()); });
+    const data = fixture(1);
+    data.songs[0].scoreByBook.sh1991.parts[0].events[0].octave = 5;
+    await mockAudio(page); await intercept(page, data); await open(page);
+    await expect(page).toHaveURL(/book=sh1991&tune=a/);
+    await expect(page).toHaveTitle(/Shape-Note Atlas/);
+    await expect(page.locator('vite-error-overlay')).toHaveCount(0);
+    const note = page.locator('.score-system').first().locator('.score-part').first().locator('.score-note').first();
+    await expect(note.locator('line')).toHaveAttribute('y1', '28'); // C5 above the treble B4 line.
+    await page.getByLabel('Target key', { exact: true }).selectOption('Bb');
+    await expect(page.locator('.score-caption')).toContainText('Bb major');
+    await expect(note.locator('.accidental')).toHaveText('♭');
+    await expect(note.locator('line')).toHaveAttribute('y1', '30'); // Bb4 sits on that B4 line.
+    await page.getByRole('button', { name: 'Play song', exact: true }).click();
+    expect(await page.evaluate(() => __audio.oscillators[0].frequency.value)).toBeCloseTo(466.1637615, 5);
+    await page.getByRole('button', { name: 'Stop', exact: true }).click();
+    await page.locator('.score-frame').scrollIntoViewIfNeeded();
+    if (process.env.ATLAS_SCREENSHOTS) await page.locator('.score-frame').screenshot({ path: join(process.env.ATLAS_SCREENSHOTS, `flat-transposition-${width}.png`) });
+    expect(errors).toEqual([]);
+  });
+}
+
 for (const [name, payload] of Object.entries({ missingSongs: { books: fixture().books }, wrongSongs: { ...fixture(), songs: {} }, wrongBooks: { ...fixture(), books: [] }, missingBooks: { songs: [] } })) {
   test(`malformed corpus ${name} recovers through retry`, async ({ page }) => {
     const errors = []; page.on('pageerror', (error) => errors.push(error.message));
