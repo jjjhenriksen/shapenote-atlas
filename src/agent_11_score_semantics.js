@@ -18,7 +18,8 @@ export function barlinesForMeasure(part, measureNumber) {
 }
 
 export function semanticAvailabilityLabel(availability, field) {
-  const status = availability?.[field]?.status || "unavailable";
+  const entry = availability?.[field];
+  const status = (typeof entry === "string" ? entry : entry?.status) || "unavailable";
   if (status === "encoded") return "Source-encoded";
   if (status === "blocked") return "Unavailable · source evidence incomplete";
   return "Unavailable · not encoded in source";
@@ -54,13 +55,18 @@ export function playbackEvents(events, playback) {
 }
 
 export function scoreSemanticSummary(score) {
-  const availability = score?.availability || {};
+  const availability = {
+    ...score?.semanticAvailability,
+    ...score?.availability,
+    ...score?.semanticContract?.availability,
+  };
+  const playback = score?.playback || score?.semanticContract?.playback;
   return {
     lyrics: semanticAvailabilityLabel(availability, "lyrics"),
     repeats: semanticAvailabilityLabel(availability, "repeats"),
     numberedEndings: semanticAvailabilityLabel(availability, "numberedEndings"),
     editorialMarkings: semanticAvailabilityLabel(availability, "editorialMarkings"),
-    playback: score?.playback?.status === "encoded"
+    playback: playback?.status === "encoded" && playback?.safeToApply === true
       ? "Explicit repeat/ending playback"
       : "Linear source-order playback",
   };
