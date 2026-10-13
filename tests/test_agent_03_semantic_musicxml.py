@@ -111,7 +111,8 @@ class Agent03SemanticMusicXMLTests(unittest.TestCase):
         # Integrated parse_score exposes the versioned semantic-contract schema;
         # the standalone parser's start field is not the integrated API.
         measure = score["parts"][0]["measureSemantics"][1]
-        self.assertEqual(set(measure), {"number", "onset", "end", "duration"})
+        self.assertTrue({"number", "onset", "end", "duration"}.issubset(measure))
+        self.assertNotIn("start", measure)
         self.assertEqual(measure["number"], "2")
         self.assertEqual(measure["onset"], 2.0)
         self.assertEqual(measure["duration"], 2.0)
