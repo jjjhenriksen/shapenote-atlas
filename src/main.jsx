@@ -5,6 +5,7 @@ import { matchesDiscovery, recordKey, resolveTuneLink, tuneUrl } from "./discove
 import { barlinesForMeasure, lyricForEvent, scoreSemanticSummary } from "./agent_11_score_semantics.js";
 import { buildPracticeSchedule, canApplyPlaybackPlan, resolveRepeatPlayback, guardedAudioAction, resolvePlaybackQuarantine, sessionIsCurrent, shouldCompleteSession } from "./practice.js";
 import { createAudioState, stopAudioResources, disposeAudio, schedulePracticeAudio } from "./audioPlayback.js";
+import { scoreSystemLayout } from "./scoreLayout.js";
 import { validateCorpus } from "./corpusContract.js";
 import { summarizeSourceHealth } from "./sourceHealthPresentation.js";
 import { resolveKeyContext } from "./keyResolution.js";
@@ -433,7 +434,7 @@ function ScorePreview({ score, playback, transpose, complete, sourceKey, targetK
   const labelWidth = Math.max(32, ...partRows.map((part) => String(part.name || "").length * 6));
   const staffLeft = labelWidth + 32;
   const notesLeft = staffLeft + 20;
-  const systemHeight = 214;
+  const { staffGap, systemHeight } = scoreSystemLayout(partRows);
   const measuresPerSystem = 4;
   // Diatonic coordinates use C4 as zero. These are the bottom staff lines
   // for the clefs emitted by the MusicXML parser; tenor is not alto shifted
@@ -500,7 +501,7 @@ function ScorePreview({ score, playback, transpose, complete, sourceKey, targetK
         const systemMeasures = measureStarts.slice(systemIndex * measuresPerSystem, (systemIndex + 1) * measuresPerSystem);
         return <g key={`system-${systemIndex}`} className="score-system">
           {partRows.map((part, partIndex) => {
-            const base = systemTop + 22 + partIndex * 47;
+            const base = systemTop + 22 + partIndex * staffGap;
             const events = (partReviews[partIndex]?.events || []).filter((event) => systemForEvent(event) === systemIndex);
             const staff = partStaff(part, partIndex);
             return <g key={`${systemIndex}-${part.name}`} className="score-part">
