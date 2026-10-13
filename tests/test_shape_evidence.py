@@ -1,4 +1,9 @@
 import unittest
+import json
+import tempfile
+from pathlib import Path
+from unittest.mock import patch
+from scripts import validate_shape_evidence as shape_audit
 from collections import Counter
 
 from scripts.validate_shape_evidence import (
@@ -31,14 +36,38 @@ class ShapeEvidenceTests(unittest.TestCase):
         self.assertEqual(evidence_disposition(derived), "derived")
 
     def test_report_fixture_contract(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            public = root / "public"
+            public.mkdir()
+            assets = {
+                "encoded.json": {"parts": [{"events": [{"step": "C", "notehead": "fa"}]}]},
+                "unavailable.json": {"parts": [{"events": [{"step": "C"}]}]},
+            }
+            for name, payload in assets.items():
+                (public / name).write_text(json.dumps(payload))
+            corpus = {"songs": [{"songNo": name, "scoreByBook": {"sh1991": {"scoreRef": "/" + name}}} for name in assets]}
+            corpus_path = public / "corpus.json"
+            corpus_path.write_text(json.dumps(corpus))
+            with patch.object(shape_audit, "ROOT", root), patch.object(shape_audit, "CORPUS", corpus_path), patch.object(shape_audit, "REVIEW_MANIFESTS", []):
+                report = build_report()
+        validate_fixture_checks(report)
+        self.assertEqual(report["summary"]["safeToPromote"], 0)
+        self.assertEqual(report["summary"]["sourceVerifiedUniqueAssets"], 0)
+        self.assertEqual(report["summary"]["sourceEncodedUnverifiedUniqueAssets"], 1)
+        self.assertEqual(report["summary"]["unavailableUniqueAssets"], 1)
+
+    def test_current_corpus_remains_unpromoted_without_verification(self):
         report = build_report()
         validate_fixture_checks(report)
         self.assertEqual(report["summary"]["safeToPromote"], 0)
         self.assertEqual(report["summary"]["sourceVerifiedUniqueAssets"], 0)
-        self.assertEqual(report["summary"]["sourceEncodedUnverifiedUniqueAssets"], 9)
-        self.assertEqual(report["summary"]["unavailableUniqueAssets"], 1308)
-        self.assertEqual(report["summary"]["derivedReviewOnlyArtifacts"], 109)
-        self.assertGreater(report["summary"]["reviewArtifacts"], 0)
+        for asset in report["authoritativeAssetClassifications"]:
+            self.assertFalse(asset["safeToPromote"])
+            self.assertEqual(asset["sourceVerification"], "not-verified")
+        for manifest in shape_audit.REVIEW_MANIFESTS:
+            if not manifest.exists():
+                self.assertIn(f"missing manifest: {manifest.relative_to(shape_audit.ROOT)}", report["errors"])
 
 
 if __name__ == "__main__":
