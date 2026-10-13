@@ -15,6 +15,7 @@ final class LocalDashboardServer {
         let server = Process()
         let outputPipe = Pipe()
         let errorPipe = Pipe()
+        let errorLog = BoundedDashboardLog()
         var outputBuffer = ""
         var didComplete = false
         let pythonServer = """
@@ -34,12 +35,24 @@ final class LocalDashboardServer {
         server.standardError = errorPipe
         server.terminationHandler = { _ in
             outputPipe.fileHandleForReading.readabilityHandler = nil
-            let detail = String(data: errorPipe.fileHandleForReading.readDataToEndOfFile(), encoding: .utf8)?
-                .trimmingCharacters(in: .whitespacesAndNewlines)
+            errorPipe.fileHandleForReading.readabilityHandler = nil
+            errorLog.append(errorPipe.fileHandleForReading.readDataToEndOfFile())
+            let detail = errorLog.text.trimmingCharacters(in: .whitespacesAndNewlines)
             DispatchQueue.main.async {
                 guard !didComplete else { return }
                 didComplete = true
                 completion(.failure(LocalDashboardServerError.terminated(detail)))
+            }
+        }
+
+        // HTTP request logs must be consumed while Python is alive. Retain only
+        // a bounded diagnostic tail so request volume cannot fill a pipe or RAM.
+        errorPipe.fileHandleForReading.readabilityHandler = { handle in
+            let data = handle.availableData
+            if data.isEmpty {
+                handle.readabilityHandler = nil
+            } else {
+                errorLog.append(data)
             }
         }
 
@@ -69,6 +82,7 @@ final class LocalDashboardServer {
         } catch {
             process = nil
             outputPipe.fileHandleForReading.readabilityHandler = nil
+            errorPipe.fileHandleForReading.readabilityHandler = nil
             completion(.failure(error))
         }
     }
@@ -95,5 +109,29 @@ private enum LocalDashboardServerError: LocalizedError {
         case .invalidAddress:
             return "The local atlas service did not report a usable address."
         }
+    }
+}
+
+// FileHandle callbacks and process termination may read this concurrently.
+final class BoundedDashboardLog: @unchecked Sendable {
+    private let lock = NSLock()
+    private var tail = Data()
+    private let limit = 8192
+
+    func append(_ data: Data) {
+        lock.lock()
+        defer { lock.unlock() }
+        if data.count >= limit {
+            tail = Data(data.suffix(limit))
+        } else {
+            tail.append(data)
+            if tail.count > limit { tail = Data(tail.suffix(limit)) }
+        }
+    }
+
+    var text: String {
+        lock.lock()
+        defer { lock.unlock() }
+        return String(decoding: tail, as: UTF8.self)
     }
 }
