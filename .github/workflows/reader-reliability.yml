@@ -16,6 +16,14 @@ jobs:
           cache: npm
       - run: npm ci --ignore-scripts --no-audit --no-fund
       - run: npm test
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Clone-safe semantic and evidence fixtures
+        run: |
+          python3 -m unittest discover -s tests -p test_agent_03_semantic_musicxml.py
+          python3 -m unittest discover -s tests -p test_agent_07_additions_audit.py
+          python3 -m unittest discover -s tests -p test_shape_evidence.py
       - run: npm run validate-playback && npm run validate-transposition
       - run: npm run build
       - run: npx playwright install --with-deps chromium
