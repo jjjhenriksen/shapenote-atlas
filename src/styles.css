@@ -138,7 +138,7 @@ select option { color: #1a1a18; background: #f3eddf; }
 .part-check { margin-left: auto; width: 17px; height: 17px; display: grid; place-items: center; border: 1px solid var(--dim); color: transparent; }
 .part-toggle.selected .part-check { color: var(--pine); background: var(--teal); border-color: var(--teal); }
 .score-frame { min-width: 0; margin-top: 18px; background: var(--paper); color: var(--paper-ink); padding: 12px 12px 11px; overflow-x: auto; }
-.score-caption { display: flex; justify-content: space-between; gap: 10px; color: #766e5e; font-size: 10px; letter-spacing: .07em; text-transform: uppercase; }
+.score-caption { display: flex; justify-content: space-between; gap: 10px; color: var(--paper-ink); font-size: 10px; letter-spacing: .07em; text-transform: uppercase; }
 .score-svg { display: block; width: 100%; height: auto; min-height: 174px; margin-top: 7px; max-width: none; }
 .score-scroll { min-width: 0; margin-top: 6px; overflow-x: auto; }
 .score-scroll:focus-visible { outline: 2px solid var(--paper-ink); outline-offset: 2px; }
@@ -407,3 +407,7 @@ body[data-native-shell="true"] .atlas-header { padding-left: 82px; }
 .result-pagination button { min-height: 44px; }
 .result-pagination button:disabled { opacity: .45; cursor: default; }
 .tune-link { display: inline-block; padding: 8px 0; margin-bottom: 8px; color: var(--brass); }
+
+/* Source annotations sit on score paper in every book/theme. */
+.score-frame p.score-note, .score-frame p.score-note a { color: var(--paper-ink); }
+.score-frame p.score-note:hover { opacity: 1; }

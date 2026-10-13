@@ -108,7 +108,15 @@ class Agent03SemanticMusicXMLTests(unittest.TestCase):
         self.assertIsNotNone(score)
         self.assertEqual(score["parts"][0]["events"][0]["lyrics"][0]["text"], "Come")
         self.assertEqual(score["repeatSemantics"][0]["kind"], "repeat")
-        self.assertEqual(score["parts"][0]["measureSemantics"][1]["start"], 2.0)
+        # Integrated parse_score exposes the versioned semantic-contract schema;
+        # the standalone parser's start field is not the integrated API.
+        measure = score["parts"][0]["measureSemantics"][1]
+        self.assertTrue({"number", "onset", "end", "duration"}.issubset(measure))
+        self.assertNotIn("start", measure)
+        self.assertEqual(measure["number"], "2")
+        self.assertEqual(measure["onset"], 2.0)
+        self.assertEqual(measure["duration"], 2.0)
+        self.assertEqual(measure["end"], 4.0)
 
     def test_missing_duration_is_partial_timing_evidence(self):
         xml = FIXTURE_XML.replace("<duration>2</duration><voice>1</voice><type>half</type>", "<voice>1</voice><type>half</type>")
