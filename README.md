@@ -307,3 +307,19 @@ the application.
 
 The Atlas is intentionally skeptical of convenient certainty. That is how a
 tune catalogue stays useful instead of becoming a polished set of guesses.
+
+
+## Clone-safe pull-request checks
+
+The Reader reliability workflow runs the production build, JavaScript suite,
+playback/transposition validation, browser regressions and three self-contained
+Python fixture modules on pull requests and main. The Python modules are
+`test_agent_03_semantic_musicxml.py`, `test_agent_07_additions_audit.py` and
+`test_shape_evidence.py`; run each with `python3 -m unittest discover -s tests -p NAME`.
+They use temporary fixtures and committed public data, and fail on assertion errors.
+
+Full Python discovery includes source-archive and local-review checks that need
+retained external witnesses. Those checks are separate from this CI subset;
+an absent archive or review manifest is unavailable evidence, not a passed
+source verification. The macOS native server check is documented separately in
+[tests/native-server](tests/native-server/) when that regression harness is present.

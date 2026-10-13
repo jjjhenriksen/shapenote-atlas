@@ -1,3 +1,5 @@
+from types import SimpleNamespace
+from unittest.mock import Mock
 import tempfile
 import unittest
 import zipfile
@@ -8,7 +10,7 @@ import sys
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 
 from agent_03_semantic_musicxml import parse_source
-from build_data import parse_score
+from build_data import parse_score, locally_readable
 
 
 FIXTURE_XML = """<?xml version="1.0" encoding="UTF-8"?>
@@ -98,6 +100,17 @@ class Agent03SemanticMusicXMLTests(unittest.TestCase):
         self.assertEqual(score["semanticAvailability"]["lyrics"], "unavailable")
         self.assertEqual(score["semanticAvailability"]["repeats"], "unavailable")
         self.assertEqual(score["semanticAvailability"]["endings"], "unavailable")
+
+    def test_local_readability_supports_linux_and_blocks_mac_cloud_placeholders(self):
+        path = Mock(spec=Path)
+        path.stat.return_value = SimpleNamespace()  # Linux has no st_flags.
+        self.assertTrue(locally_readable(path))
+        path.stat.return_value = SimpleNamespace(st_flags=0x40000000)
+        self.assertFalse(locally_readable(path))
+        path.stat.return_value = SimpleNamespace(st_flags=0)
+        self.assertTrue(locally_readable(path))
+        path.stat.side_effect = FileNotFoundError()
+        self.assertFalse(locally_readable(path))
 
     def test_existing_score_parser_receives_semantic_fields_without_replacing_events(self):
         with tempfile.TemporaryDirectory() as directory:
