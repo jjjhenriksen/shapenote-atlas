@@ -589,7 +589,7 @@ def locally_readable(path: Path) -> bool:
     allowing independent records to complete.
     """
     try:
-        flags = int(path.stat().st_flags)
+        flags = int(getattr(path.stat(), "st_flags", 0))
     except OSError:
         return False
     return not bool(flags & 0x40000000)
