@@ -5,6 +5,7 @@ import { matchesDiscovery, recordKey, resolveTuneLink, tuneUrl } from "./discove
 import { barlinesForMeasure, lyricForEvent, scoreSemanticSummary } from "./agent_11_score_semantics.js";
 import { buildPracticeSchedule, canApplyPlaybackPlan, resolveRepeatPlayback, guardedAudioAction, resolvePlaybackQuarantine, sessionIsCurrent, shouldCompleteSession } from "./practice.js";
 import { createAudioState, stopAudioResources, disposeAudio, schedulePracticeAudio } from "./audioPlayback.js";
+import { STAFF_BOTTOM, CLEF_GLYPH, C_CLEF_CENTER } from "./clefNotation.js";
 import { scoreSystemLayout } from "./scoreLayout.js";
 import { validateCorpus } from "./corpusContract.js";
 import { summarizeSourceHealth } from "./sourceHealthPresentation.js";
@@ -236,7 +237,7 @@ function partStaff(part, partIndex) {
 }
 
 function partClefGlyph(part, partIndex) {
-  return partStaff(part, partIndex) === "bass" ? "𝄢" : "𝄞";
+  return CLEF_GLYPH[partStaff(part, partIndex)];
 }
 
 
@@ -439,7 +440,7 @@ function ScorePreview({ score, playback, transpose, complete, sourceKey, targetK
   // Diatonic coordinates use C4 as zero. These are the bottom staff lines
   // for the clefs emitted by the MusicXML parser; tenor is not alto shifted
   // down, which was the source of the visibly misplaced tenor notes.
-  const staffBottom = { treble: 2, alto: -4, tenor: -2, bass: -10 };
+  const staffBottom = STAFF_BOTTOM;
   const measureStarts = [];
   const seenMeasures = new Set();
   const sourceEvents = [...partRows.flatMap((part) => part.events || [])].sort((a, b) => a.onset - b.onset);
@@ -507,7 +508,7 @@ function ScorePreview({ score, playback, transpose, complete, sourceKey, targetK
             return <g key={`${systemIndex}-${part.name}`} className="score-part">
               {[0, 1, 2, 3, 4].map((line) => <line key={line} x1={staffLeft} y1={base + line * 4} x2={scoreWidth - 16} y2={base + line * 4} />)}
               <text x="8" y={base + 12} className="part-label">{part.name}</text>
-              <text x={staffLeft - 18} y={base + 14} className="clef-label">{partClefGlyph(part, partIndex)}</text>
+              <text x={staffLeft - 18} y={base + (C_CLEF_CENTER[staff] ?? 14)} dominantBaseline={C_CLEF_CENTER[staff] !== undefined ? "central" : undefined} className="clef-label">{partClefGlyph(part, partIndex)}</text>
               <line x1={staffLeft} y1={base} x2={staffLeft} y2={base + 16} className="barline" />
               {systemMeasures.slice(1).map((measure) => <line key={`${part.name}-measure-${measure.measure}`} x1={notesLeft + (measure.onset - systemStart) * pixelsPerBeat} y1={base} x2={notesLeft + (measure.onset - systemStart) * pixelsPerBeat} y2={base + 16} className={barlinesForMeasure(part, measure.measure).length ? "measure-line" : "measure-line inferred"} />)}
               {events.map((event, eventIndex) => {
