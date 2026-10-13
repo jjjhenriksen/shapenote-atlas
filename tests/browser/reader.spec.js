@@ -206,6 +206,8 @@ test('real Web Audio progresses, pauses, resumes, transposes and ends automatica
   await expect(page.getByRole('button', { name: 'Stop', exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Resume', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Play song', exact: true })).toBeVisible();
-  await expect(page.getByLabel('Playback progress 0 percent')).toBeVisible();
+  const progress = page.getByRole('progressbar', { name: 'Playback progress', exact: true });
+  await expect(progress).toBeVisible();
+  await expect(progress).toHaveAttribute('aria-valuenow', '0');
   expect(errors).toEqual([]);
 });
