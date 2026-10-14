@@ -1,3 +1,6 @@
+import { xmlText, tag } from './musicXmlText.js';
+export { xmlText } from './musicXmlText.js';
+import { lyricXml } from './scoreLyrics.js';
 // Atlas witness → MusicXML. Engraving never changes source/review authority.
 import { parseKey, pitchToMidi, transposedNotation, STEP_SEMITONES, STEP_DIATONIC, DIATONIC_STEPS } from './notation.js';
 import { sourceNoteheadEvidence, noteheadFilled } from './noteheadEvidence.js';
@@ -8,8 +11,6 @@ const HEADS = { fa: 'triangle', sol: 'normal', round: 'normal', la: 'square', mi
 const CLEFS = { treble: ['G', 2], bass: ['F', 4], alto: ['C', 3], tenor: ['C', 4] };
 const TYPES = new Set(['maxima', 'long', 'breve', 'whole', 'half', 'quarter', 'eighth', '16th', '32nd', '64th', '128th', '256th', '512th', '1024th']);
 const ACCIDENTALS = new Set(['sharp', 'flat', 'natural', 'double-sharp', 'double-flat', 'quarter-flat', 'quarter-sharp', 'three-quarters-flat', 'three-quarters-sharp']);
-export const xmlText = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;' }[char]));
-const tag = (name, value) => `<${name}>${xmlText(value)}</${name}>`;
 function ticks(value) {
   if (value === null || value === undefined || value === '' || !Number.isFinite(Number(value)) || Number(value) < 0) throw new Error('Source timing is unavailable or invalid.');
   return Math.round(Number(value) * DIVISIONS);
@@ -61,7 +62,7 @@ export function scoreMeasures(score) {
   return [...measures.values()].sort((a, b) => a.start - b.start);
 }
 
-function noteXml(event, options, chord, staff, voice) {
+function noteXml(event, lyrics, options, chord, staff, voice) {
   const { sourceKey, targetKey, transpose } = options;
   const duration = ticks(event.beats);
   if (!duration && !event.grace) throw new Error('Source note duration is unavailable or zero.');
@@ -74,7 +75,7 @@ function noteXml(event, options, chord, staff, voice) {
   const shape = shapeForScoreEvent(event, sourceKey);
   const head = !isRest && HEADS[shape.name] ? `<notehead filled="${noteheadFilled(event) ? 'yes' : 'no'}">${HEADS[shape.name]}</notehead>` : '';
   const accidental = ACCIDENTALS.has(notation.accidental) ? tag('accidental', notation.accidental) : '';
-  return `<note>${event.grace ? '<grace/>' : ''}${chord ? '<chord/>' : ''}${pitch}${event.grace ? '' : tag('duration', duration)}${tag('voice', voice)}${TYPES.has(event.type) ? tag('type', event.type) : ''}${'<dot/>'.repeat(Math.max(0, Math.min(3, Number(event.dots) || 0)))}${accidental}${head}${tag('staff', staff)}</note>`;
+  return `<note>${event.grace ? '<grace/>' : ''}${chord ? '<chord/>' : ''}${pitch}${event.grace ? '' : tag('duration', duration)}${tag('voice', voice)}${TYPES.has(event.type) ? tag('type', event.type) : ''}${'<dot/>'.repeat(Math.max(0, Math.min(3, Number(event.dots) || 0)))}${accidental}${head}${tag('staff', staff)}${lyrics.map(lyricXml).join('')}</note>`;
 }
 
 export function scoreToMusicXml(score, { sourceKey = score?.keySignature || '', targetKey = '', transpose = 0, reviewDraft = false } = {}) {
@@ -112,7 +113,8 @@ export function scoreToMusicXml(score, { sourceKey = score?.keySignature || '', 
           if (!chord && onset !== cursor) content += `<${onset > cursor ? 'forward' : 'backup'}>${tag('duration', Math.abs(onset - cursor))}</${onset > cursor ? 'forward' : 'backup'}>`;
           const staffId = String(event.staff || '1');
           if (event.clef && event.clef !== clefs.get(staffId)) { content += `<attributes>${clefXml(event.clef, staffNumber(staffId))}</attributes>`; clefs.set(staffId, event.clef); }
-          content += noteXml(event, options, chord, staffNumber(staffId), event.voice || '1');
+          const lyrics = event.lyrics || (part.lyrics || score.lyrics || []).filter((lyric) => lyric.eventIndex === index && (!lyric.partId || lyric.partId === (part.id || `P${partIndex + 1}`)));
+          content += noteXml(event, lyrics, options, chord, staffNumber(staffId), event.voice || '1');
           if (!chord) cursor = onset + (event.grace ? 0 : ticks(event.beats));
           previous = event;
         }
