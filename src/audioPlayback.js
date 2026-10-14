@@ -57,7 +57,7 @@ export function schedulePracticeAudio(audio, session, events, {
       while (cursor < queue.length && startedAt + Number(queue[cursor].scheduledOnset) * beatSeconds <= horizon) {
         const event = queue[cursor++];
         const nominalStart = startedAt + Number(event.scheduledOnset) * beatSeconds;
-        const duration = Math.max(0.12, Number(event.beats) * beatSeconds * 0.9);
+        const duration = Math.max(0.12, Number(event.beats) * beatSeconds * (event.tiedSegments > 1 ? 1 : 0.9));
         // A throttled/background tab must not burst already-finished notes.
         if (nominalStart + duration + 0.15 <= context.currentTime) continue;
         const voice = { oscillator: null, gain: null, pan: null, released: false, release(stop = false) {
@@ -82,7 +82,7 @@ export function schedulePracticeAudio(audio, session, events, {
         const noteLevel = Math.min(0.18, 0.72 / Math.max(partNames.length, 1));
         gain.gain.setValueAtTime(0, start);
         gain.gain.linearRampToValueAtTime(noteLevel, start + 0.025);
-        gain.gain.setTargetAtTime(0, start + duration * 0.72, 0.08);
+        gain.gain.setTargetAtTime(0, start + duration * (event.tiedSegments > 1 ? 0.97 : 0.72), 0.08);
         oscillator.connect(gain);
         if (pan) { pan.pan.value = (partIndex - (partNames.length - 1) / 2) * 0.22; gain.connect(pan); pan.connect(master); }
         else gain.connect(master);

@@ -46,3 +46,13 @@ Older parser records with elision markers but missing following text nodes fail
 explicitly; the adapter will not reconstruct lost source syllables. Supplying
 complete `texts` plus `elision` arrays preserves their order. Engraving is not
 proof of source transcription accuracy or safe repeat playback.
+
+## Tied audio
+
+`buildPracticeSchedule` coalesces source-encoded sound ties separately per part,
+voice, staff and written pitch. A chain needs matching start/stop flags and both
+scheduled and original-source adjacency. Each practice loop is independent;
+repeat jumps cannot turn unrelated equal pitches into a tie. Slurs and visual-only
+ties do not suppress attacks. Original witness events and repeat safety gates are
+unchanged. The audio allocator makes one oscillator/envelope for each coalesced
+chain and sustains it for the complete combined beat length.

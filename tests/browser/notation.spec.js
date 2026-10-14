@@ -60,3 +60,17 @@ test('runtime failure retries successfully; obsolete witness cannot overwrite th
  await expect(page.locator('.notation-mount')).toHaveCount(1);
  await page.evaluate(()=>notationHarness.unmount());await expect(page.locator('.notation-mount')).toHaveCount(0);
 });
+
+test('real Web Audio gives a five-beat tied chain one attack and full sustain',async({page})=>{
+ const source={sourceUrl:'https://example.invalid/tie-fixture',keySignature:'0:major',timeSignature:'4/4',transposition:{available:true},parts:[{name:'Tenor',clefs:{1:'treble'},events:[{onset:0,beats:3,measure:'1',step:'C',octave:5,type:'half',dots:1,tieStart:true},{onset:3,beats:2,measure:'2',step:'C',octave:5,type:'half',tieStop:true}]}]};
+ await page.addInitScript(()=>{
+  const Native=window.AudioContext;window.tieAttacks=[];
+  window.AudioContext=class extends Native{createOscillator(){const node=super.createOscillator();const record={};tieAttacks.push(record);const start=node.start.bind(node),stop=node.stop.bind(node);node.start=at=>{record.start=at;start(at);};node.stop=at=>{record.stop=at;stop(at);};return node;}};
+ });
+ await openScore(page,source);await page.getByLabel('Tempo BPM',{exact:true}).fill('220');
+ await page.getByRole('button',{name:'Play song',exact:true}).click();
+ await expect.poll(()=>page.evaluate(()=>tieAttacks.length)).toBe(1);
+ const attack=await page.evaluate(()=>({...tieAttacks[0]}));expect(attack.stop-attack.start).toBeCloseTo(5*60/220+0.15,5);
+ await page.waitForTimeout(1000);expect(await page.evaluate(()=>tieAttacks.length)).toBe(1);
+ await page.getByRole('button',{name:'Stop',exact:true}).click();
+});

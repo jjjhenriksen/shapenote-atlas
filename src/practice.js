@@ -1,3 +1,5 @@
+import { coalesceSourceTies } from './tiedPlayback.js';
+
 export function canApplyPlaybackPlan(playback) {
   const hasEvidence = (value) => value !== null && value !== undefined && value !== '' && Number.isFinite(Number(value));
   return playback?.status === 'encoded' && playback.safeToApply === true
@@ -15,6 +17,7 @@ export function resolveRepeatPlayback(score) {
 
 export function buildPracticeSchedule(parts, playback, loops = 1) {
   const expandAllowed = canApplyPlaybackPlan(playback);
+  const sourceOnsets = new WeakMap();
   // A deliberate written-order practice loop is not an inferred source repeat.
   // An attempted but unsafe encoded plan still falls back to one pass.
   const boundedLoops = expandAllowed || playback == null ? Math.max(1, Math.min(8, Math.floor(Number(loops) || 1))) : 1;
@@ -24,16 +27,17 @@ export function buildPracticeSchedule(parts, playback, loops = 1) {
     const starts = playback.measureStarts || {}; const durations = playback.measureDurations || {};
     const byMeasure = new Map(); sourceEvents.forEach((event) => { const key = String(event.measure); if (!byMeasure.has(key)) byMeasure.set(key, []); byMeasure.get(key).push(event); });
     let offset = 0; const events = [];
-    playback.measureSequence.forEach((measure) => { const key = String(measure); const base = Number(starts[key]); const duration = Number(durations[key]); if (!Number.isFinite(base) || !Number.isFinite(duration) || duration <= 0) return; (byMeasure.get(key) || []).forEach((event) => { events.push({ ...event, onset: offset + Number(event.onset) - base }); }); offset += duration; });
+    playback.measureSequence.forEach((measure) => { const key = String(measure); const base = Number(starts[key]); const duration = Number(durations[key]); if (!Number.isFinite(base) || !Number.isFinite(duration) || duration <= 0) return; (byMeasure.get(key) || []).forEach((event) => { const expandedEvent = { ...event, onset: offset + Number(event.onset) - base }; sourceOnsets.set(expandedEvent, Number(event.onset)); events.push(expandedEvent); }); offset += duration; });
     return { ...part, events };
   });
+  const sustained = expanded.map((part) => ({ ...part, events: coalesceSourceTies(part.events, (event) => sourceOnsets.get(event) ?? Number(event.onset)) }));
   const duration = expanded.reduce((end, part) => part.events.reduce((latest, event) => {
     const eventEnd = Number(event.onset) + Number(event.beats);
     return Number.isFinite(eventEnd) ? Math.max(latest, eventEnd) : latest;
   }, end), 1);
   const sequenceDuration = expandAllowed ? playback.measureSequence.reduce((sum, measure) => sum + Number(playback.measureDurations[String(measure)]), 0) : duration;
   const totalDuration = sequenceDuration * boundedLoops;
-  return { duration: totalDuration, events: Array.from({ length: boundedLoops }, (_, loopIndex) => expanded.flatMap((part) => part.events.map((event) => ({ ...event, partName: part.name, loopIndex, scheduledOnset: Number(event.onset) + loopIndex * sequenceDuration })))).flat() };
+  return { duration: totalDuration, events: Array.from({ length: boundedLoops }, (_, loopIndex) => sustained.flatMap((part) => part.events.map((event) => ({ ...event, partName: part.name, loopIndex, scheduledOnset: Number(event.onset) + loopIndex * sequenceDuration })))).flat() };
 }
 
 export function sessionIsCurrent(active, session) {
