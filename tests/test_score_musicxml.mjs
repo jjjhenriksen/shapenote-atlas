@@ -56,3 +56,8 @@ for (const [name, path, count] of [['Devotion', 'draft-scores/sh2025-50t-devotio
     const { xml, measureCount } = scoreToMusicXml(source); assert.equal(measureCount,count); assert.equal(parsed(xml).parts.length,source.parts.length); assert.equal(JSON.stringify(source),before);
   });
 }
+
+ test('unequal part measure clocks remain engravable without approving repeat playback', () => {
+ const source = score([], { parts: [{name:'A',events:[event({beats:2,type:'half'})],measureSemantics:[{number:'1',onset:0,end:2,duration:2,durationAvailable:true}]},{name:'B',events:[event({beats:1})],measureSemantics:[{number:'1',onset:0,end:1,duration:1,durationAvailable:true}]}],playback:{status:'blocked',safeToApply:false} });
+ const {xml}=scoreToMusicXml(source);assert.deepEqual(parsed(xml).pitches.map(p=>p[3]),['2000','1000']);assert.equal(source.playback.safeToApply,false);
+ });

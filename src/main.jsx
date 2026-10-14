@@ -2,17 +2,17 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./styles.css";
 import { matchesDiscovery, recordKey, resolveTuneLink, tuneUrl } from "./discovery.js";
-import { barlinesForMeasure, lyricForEvent, scoreSemanticSummary } from "./agent_11_score_semantics.js";
+import { scoreSemanticSummary } from "./agent_11_score_semantics.js";
 import { buildPracticeSchedule, canApplyPlaybackPlan, resolveRepeatPlayback, guardedAudioAction, resolvePlaybackQuarantine, sessionIsCurrent, shouldCompleteSession } from "./practice.js";
 import { createAudioState, stopAudioResources, disposeAudio, schedulePracticeAudio } from "./audioPlayback.js";
-import { STAFF_BOTTOM, CLEF_GLYPH, C_CLEF_CENTER } from "./clefNotation.js";
-import { scoreSystemLayout } from "./scoreLayout.js";
+import { CLEF_GLYPH } from "./clefNotation.js";
+import { ScoreEngraving } from "./ScoreEngraving.jsx";
+import { scoreMeasures, shapeForScoreEvent } from "./scoreMusicXml.js";
 import { validateCorpus } from "./corpusContract.js";
 import { summarizeSourceHealth } from "./sourceHealthPresentation.js";
 import { resolveKeyContext } from "./keyResolution.js";
 import { PublishedDraftActions } from "./PublishedDraftActions.jsx";
-import { sourceNoteheadEvidence, noteheadFilled } from "./noteheadEvidence.js";
-import { parseKey, pitchToMidi, transposedNotation, ROOT_PITCH, STEP_DIATONIC, DIATONIC_STEPS } from "./notation.js";
+import { parseKey, pitchToMidi, ROOT_PITCH } from "./notation.js";
 
 const PUBLIC_BASE = import.meta.env.BASE_URL || "/";
 
@@ -23,7 +23,6 @@ function assetUrl(path) {
 
 const BOOK_ORDER = ["sh1991", "sh2025", "shcooper2012", "ch7", "shenandoah", "southernharmony", "kentucky", "socialharp", "mnharmony", "sacredharptunes", "trumpet"];
 const KEY_NAMES = ["C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B"];
-const SACRED_HARP_MAJOR_SHAPES = ["fa", "sol", "la", "fa", "sol", "la", "mi"];
 
 function Icon({ name, size = 18 }) {
   const common = { width: size, height: size, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 1.6, strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": "true" };
@@ -208,26 +207,6 @@ function reviewQueueIsAmbiguous(queue, song, bookId) {
   return reviewQueueItems(queue, song, bookId).length > 1;
 }
 
-function tonicStepFromKey(key) {
-  return parseKey(key)?.tonicStep || "C";
-}
-
-function shapeForEvent(event, sourceKey) {
-  const encoded = sourceNoteheadEvidence(event);
-  if (encoded) return encoded;
-  if (!sourceKey || !event.step) return { name: "", kind: "unavailable" };
-  const parsed = parseKey(sourceKey);
-  if (!parsed) return { name: "", kind: "unavailable" };
-  // Minor-key Sacred Harp notation uses the relative-major four-shape
-  // spelling. For example, F# minor starts on the relative-major sixth
-  // degree, so its tonic is a la shape rather than a new invented shape set.
-  const relativeMajorStep = parsed.mode === "minor"
-    ? DIATONIC_STEPS[(STEP_DIATONIC[parsed.tonicStep] + 2) % 7]
-    : parsed.tonicStep;
-  const degree = (STEP_DIATONIC[event.step] - STEP_DIATONIC[relativeMajorStep] + 7) % 7;
-  return { name: SACRED_HARP_MAJOR_SHAPES[degree], kind: "derived" };
-}
-
 function partStaff(part, partIndex) {
   const declaredClefs = Object.values(part?.clefs || {});
   const eventClef = (part?.events || []).find((event) => event.clef)?.clef;
@@ -391,17 +370,6 @@ function ShapeReviewDraftPanel({ reviewItem, ambiguous = false }) {
   </section>;
 }
 
-function accidentalGlyph(value) {
-  return { sharp: "♯", flat: "♭", natural: "♮", "double-sharp": "𝄪", "double-flat": "𝄫", "quarter-flat": "♭" }[String(value || "").toLowerCase()] || "";
-}
-
-function Notehead({ shape, filled, x, y }) {
-  if (shape === "fa") return <path d={`M${x - 5.6} ${y - 3.8} L${x + 5.6} ${y - 3.8} L${x} ${y + 4.2} Z`} className={filled ? "notehead filled" : "notehead"} />;
-  if (shape === "la") return <rect x={x - 5.3} y={y - 3.5} width="10.6" height="7" rx="1" className={filled ? "notehead filled" : "notehead"} />;
-  if (shape === "mi") return <path d={`M${x} ${y - 5} L${x + 5} ${y} L${x} ${y + 5} L${x - 5} ${y} Z`} className={filled ? "notehead filled" : "notehead"} />;
-  return <ellipse cx={x} cy={y} rx="5.2" ry="3.5" transform={`rotate(-18 ${x} ${y})`} className={filled ? "notehead filled" : "notehead"} />;
-}
-
 function reviewEventsForPart(part, reviewDraft) {
   const events = part?.events || [];
   if (!reviewDraft) return { events, suppressed: 0, collisionGroups: 0 };
@@ -429,42 +397,11 @@ function ScorePreview({ score, playback, transpose, complete, sourceKey, targetK
   const partReviews = partRows.map((part) => reviewEventsForPart(part, reviewDraft));
   const reviewSuppressed = partReviews.reduce((total, review) => total + review.suppressed, 0);
   const reviewCollisionGroups = partReviews.reduce((total, review) => total + review.collisionGroups, 0);
-  const timelineEnd = Math.max(...partRows.flatMap((part) => (part.events || []).map((event) => event.onset + event.beats)), 1);
-  const scoreWidth = 760;
-  // Keep source voice names intact without drawing them over clefs or notes.
-  const labelWidth = Math.max(32, ...partRows.map((part) => String(part.name || "").length * 6));
-  const staffLeft = labelWidth + 32;
-  const notesLeft = staffLeft + 20;
-  const { staffGap, systemHeight } = scoreSystemLayout(partRows);
-  const measuresPerSystem = 4;
-  // Diatonic coordinates use C4 as zero. These are the bottom staff lines
-  // for the clefs emitted by the MusicXML parser; tenor is not alto shifted
-  // down, which was the source of the visibly misplaced tenor notes.
-  const staffBottom = STAFF_BOTTOM;
-  const measureStarts = [];
-  const seenMeasures = new Set();
-  const sourceEvents = [...partRows.flatMap((part) => part.events || [])].sort((a, b) => a.onset - b.onset);
-  for (const event of sourceEvents) {
-    // MusicXML exports with multiple voices often revisit the same measure
-    // after a backup. Keep one timeline entry per source measure so the
-    // complete-song renderer does not duplicate barlines or React keys.
-    const measureKey = String(event.measure || "");
-    if (measureKey && !seenMeasures.has(measureKey)) {
-      measureStarts.push({ measure: event.measure, onset: event.onset });
-      seenMeasures.add(measureKey);
-    }
-  }
-  const systemCount = Math.max(1, Math.ceil(measureStarts.length / measuresPerSystem));
-  const scoreHeight = systemCount * systemHeight;
-  const systemForEvent = (event) => {
-    const measureIndex = measureStarts.findIndex((measure) => String(measure.measure) === String(event.measure));
-    if (measureIndex >= 0) return Math.floor(measureIndex / measuresPerSystem);
-    const preceding = measureStarts.reduce((index, measure, indexValue) => measure.onset <= event.onset ? indexValue : index, 0);
-    return Math.min(Math.floor(preceding / measuresPerSystem), systemCount - 1);
-  };
+  let measureCount = 0;
+  try { measureCount = scoreMeasures(score).length; } catch { /* Engraver exposes source timing failure. */ }
   const noteEvents = partReviews.flatMap((review) => review.events).filter((event) => !event.rest && event.step);
   const shapeStats = noteEvents.reduce((stats, event) => {
-    const shape = shapeForEvent(event, sourceKey);
+    const shape = shapeForScoreEvent(event, sourceKey);
     stats[shape.kind] += 1;
     return stats;
   }, { source: 0, derived: 0, unavailable: 0 });
@@ -483,64 +420,15 @@ function ScorePreview({ score, playback, transpose, complete, sourceKey, targetK
         : "Notehead evidence is unavailable; pitches and rhythms are preserved.";
   const sourceMeasureCount = Number(score?.sourceMeasureCount);
   const measureCaption = complete
-    ? sourceMeasureCount && sourceMeasureCount !== measureStarts.length
-      ? `${measureStarts.length} detected / ${sourceMeasureCount} source measures · draft view`
-      : `${measureStarts.length ? `${measureStarts.length} measures · ` : ""}${score?.reviewPublication?.completeness === "partial" ? "partial-tune view" : "full-song view"}`
+    ? sourceMeasureCount && sourceMeasureCount !== measureCount
+      ? `${measureCount} detected / ${sourceMeasureCount} source measures · draft view`
+      : `${measureCount ? `${measureCount} measures · ` : ""}${score?.reviewPublication?.completeness === "partial" ? "partial-tune view" : "full-song view"}`
     : "loading full song";
   const displayedTimeSignature = score?.timeSignature || sourceTimeSignature || "time not encoded";
   const semantic = scoreSemanticSummary({ ...score, playback });
   return <div className="score-frame">
     <div className="score-caption"><span>{complete ? `${shapeCaption} · ${measureCaption}` : `MusicXML source preview · ${measureCaption}`}</span><span>{displayedKey} · {displayedTimeSignature}</span></div>
-    <div className="score-scroll" role="region" aria-label="Score notation; scroll horizontally to view all notes" tabIndex={0}>
-    <svg className="score-svg" style={{ width: "100%" }} viewBox={`0 0 ${scoreWidth} ${scoreHeight}`} role="img" aria-label={`${complete ? "Full" : "Preview of"} available source score with ${partRows.length} available parts`}>
-      <rect x="0" y="0" width={scoreWidth} height={scoreHeight} fill="transparent" />
-      {Array.from({ length: systemCount }, (_, systemIndex) => {
-        const systemTop = systemIndex * systemHeight;
-        const systemStart = measureStarts[systemIndex * measuresPerSystem]?.onset || 0;
-        const systemEnd = measureStarts[(systemIndex + 1) * measuresPerSystem]?.onset || timelineEnd;
-        const pixelsPerBeat = (scoreWidth - notesLeft - 16) / Math.max(systemEnd - systemStart, 1);
-        const systemMeasures = measureStarts.slice(systemIndex * measuresPerSystem, (systemIndex + 1) * measuresPerSystem);
-        return <g key={`system-${systemIndex}`} className="score-system">
-          {partRows.map((part, partIndex) => {
-            const base = systemTop + 22 + partIndex * staffGap;
-            const events = (partReviews[partIndex]?.events || []).filter((event) => systemForEvent(event) === systemIndex);
-            const staff = partStaff(part, partIndex);
-            return <g key={`${systemIndex}-${part.name}`} className="score-part">
-              {[0, 1, 2, 3, 4].map((line) => <line key={line} x1={staffLeft} y1={base + line * 4} x2={scoreWidth - 16} y2={base + line * 4} />)}
-              <text x="8" y={base + 12} className="part-label">{part.name}</text>
-              <text x={staffLeft - 18} y={base + (C_CLEF_CENTER[staff] ?? 14)} dominantBaseline={C_CLEF_CENTER[staff] !== undefined ? "central" : undefined} className="clef-label">{partClefGlyph(part, partIndex)}</text>
-              <line x1={staffLeft} y1={base} x2={staffLeft} y2={base + 16} className="barline" />
-              {systemMeasures.slice(1).map((measure) => <line key={`${part.name}-measure-${measure.measure}`} x1={notesLeft + (measure.onset - systemStart) * pixelsPerBeat} y1={base} x2={notesLeft + (measure.onset - systemStart) * pixelsPerBeat} y2={base + 16} className={barlinesForMeasure(part, measure.measure).length ? "measure-line" : "measure-line inferred"} />)}
-              {events.map((event, eventIndex) => {
-                const x = notesLeft + Math.max(0, event.onset - systemStart) * pixelsPerBeat;
-                const midi = pitchToMidi(event);
-                if (midi === null) return <path key={`${part.name}-${eventIndex}`} d={`M${x - 3} ${base + 8} q3 -6 6 0 q-3 6 -6 0`} className="rest-mark" />;
-                const notation = transposedNotation(event, sourceKey, targetKey, transpose);
-                const diatonic = 7 * (notation.octave - 4) + STEP_DIATONIC[notation.step];
-                const relative = diatonic - staffBottom[staff];
-                const y = base + 16 - relative * 2;
-                const filled = noteheadFilled(event);
-                const stemmed = !["whole"].includes(String(event.type || "quarter").toLowerCase());
-                const flags = { eighth: 1, "16th": 2, "32nd": 3, "64th": 4 }[String(event.type || "").toLowerCase()] || 0;
-                const accidental = accidentalGlyph(notation.accidental);
-                const shape = shapeForEvent(event, sourceKey);
-                return <g key={`${part.name}-${eventIndex}`} className="score-note">
-                  <title>{shape.name ? `${shape.name} notehead` : "Notehead evidence unavailable"}</title>
-                  {accidental && <text x={x - 14} y={y + 4} className="accidental">{accidental}</text>}
-                  <Notehead shape={shape.name || "round"} filled={filled} x={x} y={y} />
-                  {stemmed && <line x1={x + 4.5} y1={y} x2={x + 4.5} y2={y - 14} />}
-                  {flags > 0 && <path d={`M${x + 4.5} ${y - 14} q8 3 5 8${flags > 1 ? ` q8 3 5 8` : ""}`} className="flag" />}
-                  {event.dots > 0 && <circle cx={x + (stemmed ? 11 : 8)} cy={y} r="1.4" className="duration-dot" />}
-                </g>;
-              })}
-              <line x1={scoreWidth - 16} y1={base} x2={scoreWidth - 16} y2={base + 16} className="barline" />
-            </g>;
-          })}
-          {systemIndex < systemCount - 1 && <line x1="0" y1={systemTop + systemHeight - 8} x2={scoreWidth} y2={systemTop + systemHeight - 8} className="system-divider" />}
-        </g>;
-      })}
-    </svg>
-    </div>
+    <ScoreEngraving score={score} sourceKey={sourceKey} targetKey={targetKey} transpose={transpose} reviewDraft={reviewDraft} />
     <p className="score-note semantic-summary">Lyrics: {semantic.lyrics} · Repeats: {semantic.repeats} · Endings: {semantic.numberedEndings} · {semantic.playback}</p>
     {reviewSuppressed > 0 && <p className="score-note">{reviewSuppressed} ambiguous OMR notes across {reviewCollisionGroups} onset collisions are hidden in this review view; the raw draft remains preserved.</p>}
     <p className="score-note">{shapeNote}{score?.playbackTransform?.finalChordRemoved && <> Final chord omitted from playback and transposition; source evidence is preserved.</>}{shapeSourceUrl && <> {" "}<a href={shapeSourceUrl} target="_blank" rel="noreferrer noopener">Open shape-source PDF <Icon name="external" size={13} /></a></>}</p>

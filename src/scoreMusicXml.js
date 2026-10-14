@@ -48,8 +48,7 @@ export function scoreMeasures(score) {
       const start = ticks(measure.onset);
       const end = measure.durationAvailable && measure.duration != null ? start + ticks(measure.duration) : ticks(measure.end);
       const previous = measures.get(key);
-      if (previous && (previous.start !== start || previous.end !== end)) throw new Error('Source parts disagree on measure timing.');
-      measures.set(key, { number: key, start, end });
+      measures.set(key, { number: key, start: Math.min(previous?.start ?? start, start), end: Math.max(previous?.end ?? end, end) });
     }
   }
   const events = (score.parts || []).flatMap((part) => part.events || []);
@@ -99,7 +98,13 @@ export function scoreToMusicXml(score, { sourceKey = score?.keySignature || '', 
       if (!event.rest) stats[shapeForScoreEvent(event, sourceKey).kind]++;
       return true;
     });
-    const music = measures.map((measure, measureIndex) => {
+    const music = measures.map((sharedMeasure, measureIndex) => {
+      // Unequal OMR/source part timing is not permission to expand repeats,
+      // but does not prevent engraving each part's actual encoded rhythm.
+      const local = part.measureSemantics?.find((item) => String(item.number) === sharedMeasure.number);
+      const localStart = local ? ticks(local.onset) : sharedMeasure.start;
+      const localEnd = local ? (local.durationAvailable && local.duration != null ? localStart + ticks(local.duration) : ticks(local.end)) : sharedMeasure.end;
+      const measure = { ...sharedMeasure, start: localStart, end: localEnd };
       const events = indexed.filter(({ event }) => String(event.measure ?? '1') === measure.number);
       const lines = measureBarlines(part, measure.number);
       const time = String(score.timeSignature || '').match(/^(\d+(?:\+\d+)*)\/(\d+)$/);

@@ -57,12 +57,15 @@ for (const width of [1440, 375]) {
     await expect(page).toHaveURL(/book=sh1991&tune=a/);
     await expect(page).toHaveTitle(/Shape-Note Atlas/);
     await expect(page.locator('vite-error-overlay')).toHaveCount(0);
-    const note = page.locator('.score-system').first().locator('.score-part').first().locator('.score-note').first();
-    await expect(note.locator('line')).toHaveAttribute('y1', '28'); // C5 above the treble B4 line.
+    await expect(page.locator('.score-engraving')).toHaveAttribute('data-render-state', 'ready');
+    const note = page.locator('.score-engraving .staffline').first().locator('.vf-notehead').first();
+    const sourceY = await note.evaluate((node) => node.getBBox().y);
     await page.getByLabel('Target key', { exact: true }).selectOption('Bb');
     await expect(page.locator('.score-caption')).toContainText('Bb major');
-    await expect(note.locator('.accidental')).toHaveText('♭');
-    await expect(note.locator('line')).toHaveAttribute('y1', '30'); // Bb4 sits on that B4 line.
+    // OSMD owns SVG geometry now. Bb4 must move down one diatonic step from
+    // C5; the pure MusicXML contract separately checks exact Bb4 spelling.
+    await expect.poll(() => note.evaluate((node) => node.getBBox().y)).toBeGreaterThan(sourceY);
+    expect(await note.evaluate((node) => node.getBBox().y) - sourceY).toBeLessThan(15);
     await page.getByRole('button', { name: 'Play song', exact: true }).click();
     expect(await page.evaluate(() => __audio.oscillators[0].frequency.value)).toBeCloseTo(466.1637615, 5);
     await page.getByRole('button', { name: 'Stop', exact: true }).click();

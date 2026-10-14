@@ -411,3 +411,13 @@ body[data-native-shell="true"] .atlas-header { padding-left: 82px; }
 /* Source annotations sit on score paper in every book/theme. */
 .score-frame p.score-note, .score-frame p.score-note a { color: var(--paper-ink); }
 .score-frame p.score-note:hover { opacity: 1; }
+
+/* OSMD owns note/staff geometry, including lyrics and cross-system ties. Keep
+   readable engraving inside the existing keyboard-scrollable paper region. */
+.score-engraving { min-width: 640px; min-height: 174px; }
+.score-engraving .score-svg { min-width: 0; min-height: 0; margin: 0; width: 100%; }
+.notation-mount { max-width: none; }
+.notation-status { color: var(--paper-ink); font-size: 14px; line-height: 1.5; }
+.notation-status p { margin: 8px 0; }
+.notation-status button { min-height: 44px; padding: 8px 12px; color: var(--paper-ink); border: 1px solid currentColor; background: transparent; }
+.notation-status button:focus-visible { outline: 2px solid var(--paper-ink); outline-offset: 3px; }
