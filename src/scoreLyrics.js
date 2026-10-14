@@ -11,4 +11,3 @@ export function lyricXml(lyric) {
     ? `<extend${['start', 'continue', 'stop'].includes(lyric.extend?.type) ? ` type="${lyric.extend.type}"` : ''}/>` : '';
   return `<lyric number="${xmlText(lyric.number || lyric.verse || '1')}"${lyric.name ? ` name="${xmlText(lyric.name)}"` : ''}>${syllabic}${text}${extend}${lyric.endLine ? '<end-line/>' : ''}${lyric.endParagraph ? '<end-paragraph/>' : ''}</lyric>`;
 }
-

@@ -107,7 +107,9 @@ test('Something New has no encoded repeat but permits deliberate written-order p
  assert.equal(canApplyPlaybackPlan(resolveRepeatPlayback(score)), false);
  const result = buildPracticeSchedule(score.parts, null, 2);
  assert.equal(result.duration, 90);
- assert.equal(result.events.filter((event) => !event.rest).length, 470);
+ assert.equal(result.events.filter((event) => !event.rest).length, 452); // Nine source tie continuations coalesce per pass.
+ const sourceBeats = score.parts.flatMap(part => part.events).filter(event => !event.rest).reduce((sum,event) => sum + Number(event.beats),0);
+ assert.equal(result.events.filter(event => !event.rest).reduce((sum,event) => sum + Number(event.beats),0),sourceBeats*2);
 });
 
 test('unsupported navigation and blocked plans cannot enable source repeat playback', () => {
