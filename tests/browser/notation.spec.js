@@ -12,6 +12,11 @@ async function openScore(page, score) {
  await page.goto('/?book=sh1991&tune=notation');
  await expect(page.locator('.score-engraving')).toHaveAttribute('data-render-state','ready');
 }
+async function attachScore(page, name) {
+ const path = test.info().outputPath(`${name}.png`);
+ await page.locator('.score-frame').screenshot({path});
+ await test.info().attach(name, {path, contentType:'image/png'});
+}
 const lyricOverlap = (page) => page.locator('.score-engraving').evaluate(element => {
  const labels=[...element.querySelectorAll('.lyrics')].map(node=>({text:node.textContent,box:node.getBoundingClientRect()}));
  return labels.flatMap((a,i)=>labels.slice(i+1).filter(b=>Math.abs(a.box.y-b.box.y)<2 && Math.min(a.box.right,b.box.right)-Math.max(a.box.x,b.box.x)>0.5).map(b=>[a.text,b.text]));
@@ -27,7 +32,7 @@ for (const width of [1440,390,320]) {
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   await page.getByRole('region',{name:/Score notation/}).focus();await expect(page.getByRole('region',{name:/Score notation/})).toBeFocused();
   expect(errors).toEqual([]);await expect(page.locator('vite-error-overlay')).toHaveCount(0);
-  await test.info().attach(`devotion-${width}`,{body:await page.locator('.score-frame').screenshot(),contentType:'image/png'});
+  await attachScore(page, `devotion-${width}`);
   if(process.env.ATLAS_SCREENSHOTS)await page.locator('.score-frame').screenshot({path:join(process.env.ATLAS_SCREENSHOTS,`devotion-notation-${width}.png`)});
  });
 }
@@ -36,14 +41,14 @@ test('New Salem repeat engraving preserves the no-lyrics availability warning',a
  await expect(page.locator('.semantic-summary')).toContainText('Repeats: Source-encoded');
  await expect(page.locator('.semantic-summary')).toContainText('Lyrics: Unavailable');
  await expect(page.locator('.score-engraving .lyrics')).toHaveCount(0);
- await test.info().attach('new-salem',{body:await page.locator('.score-frame').screenshot(),contentType:'image/png'});
+ await attachScore(page, 'new-salem');
  if(process.env.ATLAS_SCREENSHOTS)await page.locator('.score-frame').screenshot({path:join(process.env.ATLAS_SCREENSHOTS,'new-salem-notation.png')});
 });
 test('Salem ties include cross-system arcs and untied control has fewer rendered curves',async({page})=>{
  const source=load('scores/a44b1cd022a09f20bdb403a3.json');await openScore(page,source);
  const curves=()=>page.locator('.score-engraving svg path').evaluateAll(nodes=>nodes.filter(node=>/C|Q/.test(node.getAttribute('d')||'')).length);
  const before=await curves();
- await test.info().attach('salem-ties',{body:await page.locator('.score-frame').screenshot(),contentType:'image/png'});
+ await attachScore(page, 'salem-ties');
  if(process.env.ATLAS_SCREENSHOTS)await page.locator('.score-frame').screenshot({path:join(process.env.ATLAS_SCREENSHOTS,'salem-ties.png')});
  const control=structuredClone(source);for(const part of control.parts)for(const event of part.events){delete event.tieStart;delete event.tieStop;event.editorialMarkings=(event.editorialMarkings||[]).filter(mark=>mark.kind!=='tied');}
  await page.evaluate(async(score)=>{const main=await import('/src/main.jsx');main.atlasRoot.unmount();const {mountHarness}=await import('/tests/browser/engraving-harness.jsx');window.notationHarness=await mountHarness(document.getElementById('root'),score);},control);
