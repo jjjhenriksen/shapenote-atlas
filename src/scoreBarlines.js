@@ -15,4 +15,3 @@ export function barlineXml(line) {
     ? `<repeat direction="${line.repeat.direction}"${line.repeat.times ? ` times="${xmlText(line.repeat.times)}"` : ''}/>` : '';
   return `<barline location="${location}">${style}${ending}${repeat}</barline>`;
 }
-
