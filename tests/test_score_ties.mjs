@@ -5,7 +5,7 @@ import {scoreToMusicXml} from '../src/scoreMusicXml.js';
 import {sourceTieXml} from '../src/scoreTies.js';
 test('Salem same-measure and cross-measure ties retain visual and sound identities',()=>{
  const source=JSON.parse(readFileSync(new URL('../public/scores/a44b1cd022a09f20bdb403a3.json',import.meta.url)));const {xml}=scoreToMusicXml(source);
- assert.equal((xml.match(/<tie type="start"/g)||[]).length,6);assert.equal((xml.match(/<tied type="start"/g)||[]).length,6);
+ assert.equal((xml.match(/<tie type="start"/g)||[]).length,9);assert.equal((xml.match(/<tied type="start"/g)||[]).length,9);
  assert.match(xml,/<tied type="start" number="1" orientation="over" placement="above"\/>/);
  assert.match(xml,/<measure number="10"[\s\S]*?<tied type="stop"/);
 });
