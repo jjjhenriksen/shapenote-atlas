@@ -1,3 +1,4 @@
+import { sourceTieXml } from './scoreTies.js';
 import { measureBarlines, barlineXml } from './scoreBarlines.js';
 import { xmlText, tag } from './musicXmlText.js';
 export { xmlText } from './musicXmlText.js';
@@ -75,8 +76,9 @@ function noteXml(event, lyrics, options, chord, staff, voice) {
   const pitch = isRest ? '<rest/>' : `<pitch>${tag('step', notation.step)}${alter ? tag('alter', alter) : ''}${tag('octave', notation.octave)}</pitch>`;
   const shape = shapeForScoreEvent(event, sourceKey);
   const head = !isRest && HEADS[shape.name] ? `<notehead filled="${noteheadFilled(event) ? 'yes' : 'no'}">${HEADS[shape.name]}</notehead>` : '';
+  const ties = sourceTieXml(event);
   const accidental = ACCIDENTALS.has(notation.accidental) ? tag('accidental', notation.accidental) : '';
-  return `<note>${event.grace ? '<grace/>' : ''}${chord ? '<chord/>' : ''}${pitch}${event.grace ? '' : tag('duration', duration)}${tag('voice', voice)}${TYPES.has(event.type) ? tag('type', event.type) : ''}${'<dot/>'.repeat(Math.max(0, Math.min(3, Number(event.dots) || 0)))}${accidental}${head}${tag('staff', staff)}${lyrics.map(lyricXml).join('')}</note>`;
+  return `<note>${event.grace ? '<grace/>' : ''}${chord ? '<chord/>' : ''}${pitch}${event.grace ? '' : tag('duration', duration)}${ties.sound}${tag('voice', voice)}${TYPES.has(event.type) ? tag('type', event.type) : ''}${'<dot/>'.repeat(Math.max(0, Math.min(3, Number(event.dots) || 0)))}${accidental}${head}${tag('staff', staff)}${ties.notations ? `<notations>${ties.notations}</notations>` : ''}${lyrics.map(lyricXml).join('')}</note>`;
 }
 
 export function scoreToMusicXml(score, { sourceKey = score?.keySignature || '', targetKey = '', transpose = 0, reviewDraft = false } = {}) {
