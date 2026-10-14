@@ -1,3 +1,4 @@
+import { measureBarlines, barlineXml } from './scoreBarlines.js';
 import { xmlText, tag } from './musicXmlText.js';
 export { xmlText } from './musicXmlText.js';
 import { lyricXml } from './scoreLyrics.js';
@@ -98,6 +99,7 @@ export function scoreToMusicXml(score, { sourceKey = score?.keySignature || '', 
     });
     const music = measures.map((measure, measureIndex) => {
       const events = indexed.filter(({ event }) => String(event.measure ?? '1') === measure.number);
+      const lines = measureBarlines(part, measure.number);
       const time = String(score.timeSignature || '').match(/^(\d+(?:\+\d+)*)\/(\d+)$/);
       const attributes = measureIndex === 0 ? `<attributes>${tag('divisions', DIVISIONS)}${keyXml(sourceKey, targetKey, transpose)}${time ? `<time>${tag('beats', time[1])}${tag('beat-type', time[2])}</time>` : ''}${tag('staves', staffIds.length)}${staffIds.map((id) => clefXml(clefs.get(id), staffNumber(id))).join('')}</attributes>` : '';
       const streams = new Map();
@@ -121,7 +123,7 @@ export function scoreToMusicXml(score, { sourceKey = score?.keySignature || '', 
       }
       // Preserve empty measures/trailing silence without adding fabricated notes.
       if (cursor < measure.end - measure.start) content += `<forward>${tag('duration', measure.end - measure.start - cursor)}</forward>`;
-      return `<measure number="${xmlText(measure.number)}" implicit="yes">${attributes}${content}</measure>`;
+      return `<measure number="${xmlText(measure.number)}" implicit="yes">${attributes}${lines.filter((line) => line.location === 'left').map(barlineXml).join('')}${content}${lines.filter((line) => line.location !== 'left').map(barlineXml).join('')}</measure>`;
     }).join('');
     return `<part id="P${partIndex + 1}">${music}</part>`;
   });
