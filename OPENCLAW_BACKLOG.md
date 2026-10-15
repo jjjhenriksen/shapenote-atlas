@@ -79,9 +79,14 @@ commits must not relabel those receipts as newly executed runtime tests.
 
 ### ATLAS-01 — P1 — Repair New Salem's garbled first line
 
-**Status:** open. **Record:** `kentucky 10 — New-Salem`.
+**Status:** implemented on `fix/source-metadata-16-55`, pending PR review. **Record:** `kentucky 10 — New-Salem`.
 
-**Problem:** both the search result and tune detail currently show
+Source inspection on 2026-10-14 establishes “O thou in whose presence my soul takes delight,”.
+See `public/catalogue-source-corrections.json` for hash/region receipts and
+`scripts/catalogue_source_corrections.py` for the regeneration-safe scoped overlay.
+Original catalogue fields are preserved under `catalogueCorrection`; score lyrics remain unavailable.
+
+**Problem:** both the search result and tune detail previously showed
 `fort in will in on in` as the first line. This is an extraction fragment, not an
 acceptable verified lyric incipit.
 
@@ -91,15 +96,15 @@ acceptable verified lyric incipit.
 `/Users/jacquelinehenriksen/sh-corpus-scripts/dashboard/data.js` and
 `rag_web_metadata.csv` before choosing the smallest durable correction point.
 
-- [ ] Read the exact printed lyric opening and record source page, coordinates,
+- [x] Read the exact printed lyric opening and record source page, coordinates,
   hash, and transcription. Do not substitute a remembered lyric or another edition.
-- [ ] Repair the authoritative upstream value or add a documented, source-backed
+- [x] Repair the authoritative upstream value or add a documented, source-backed
   generator override; an edit only to generated `public/corpus.json` is insufficient.
-- [ ] Retain the raw extraction/provenance and stable record ID. Do not claim that
+- [x] Retain the raw extraction/provenance and stable record ID. Do not claim that
   fixing a catalogue first line completes note-level lyric underlay.
-- [ ] Regenerate only with complete verified inputs, or use the established scoped
+- [x] Regenerate only with complete verified inputs, or use the established scoped
   overlay approach. Prove unrelated records and musical data remain unchanged.
-- [ ] Verify search by the corrected first line and the displayed result/detail
+- [x] Verify search by the corrected first line and the displayed result/detail
   text on desktop and mobile. Run data/discovery checks and relevant aggregate checks.
 
 **Done when:** the source-backed incipit survives regeneration and matches in
@@ -273,9 +278,9 @@ current, record-specific blocker. A dated 404 is not proof of permanent impossib
 - [ ] Social Harp: reconcile all 221 current records with the historical 222 count
   using the printed index/contents and reviewed page map. Identify the exact missing,
   duplicated or differently counted item; do not invent a 222nd record.
-- [ ] A Glimpse of Thee: compare printed `L.M.D.` with catalogue `L.M.` and trace the
-  upstream metadata source. Make a source-backed, regeneration-safe metadata correction
-  while preserving stable IDs and the existing four-measure score.
+- [x] A Glimpse of Thee: compared printed `L.M.D.` with catalogue `L.M.` and traced the
+  upstream metadata source. Implemented the source-backed, regeneration-safe metadata
+  correction on `fix/source-metadata-16-55`; stable IDs and the four-measure score are preserved.
 - [ ] Trumpet: define the classification/count migration for the three prose records.
   Preserve provenance, stable references and deep links; update joins/coverage deliberately.
 
