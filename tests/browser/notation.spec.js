@@ -5,7 +5,7 @@ const load = (path) => JSON.parse(readFileSync(new URL(`../../public/${path}`, i
 const books = load('corpus.json').books;
 async function openScore(page, score) {
  const full = { ...score, scoreRef: '/notation-source.json' };
- await page.route('**/corpus.json', route => route.fulfill({json:{ books, songs:[{id:'notation',title:'Notation fixture',songNo:'1',books:['sh1991'],metadataByBook:{sh1991:{}},scoreByBook:{sh1991:full}}]}}));
+ await page.route('**/reader-data/catalogue.json', route => route.fulfill({json:{ books, songs:[{id:'notation',title:'Notation fixture',songNo:'1',books:['sh1991'],metadataByBook:{sh1991:{}},scoreByBook:{sh1991:full}}]}}));
  await page.route('**/notation-source.json',route=>route.fulfill({json:full}));
  await page.route('**/human-review-queue.json',route=>route.fulfill({json:{reviewNow:[]}}));
  await page.route('**/source-health.json',route=>route.fulfill({json:{records:[]}}));

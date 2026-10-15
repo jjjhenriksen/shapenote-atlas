@@ -11,3 +11,6 @@ work-shapenote-music.htm
 outputs/
 __pycache__/
 *.py[cod]
+
+# Derived catalogue and per-tune evidence, regenerated before dev/build.
+public/reader-data/
