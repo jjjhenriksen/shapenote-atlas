@@ -1,0 +1,1026 @@
+{
+  "schemaVersion": 1,
+  "experiment": "sh1991-v1",
+  "datasetSha256": "a37a835d7a5a7f93d6dbd7d0ed58dd72c87e88e7f89a6878f7c70ec147f0c6e8",
+  "datasetFrozenAt": "2026-10-15T22:20:23.917864+00:00",
+  "seed": "atlas-sh1991-pitch-rhythm-v1",
+  "sourceCorpusSha256": "0cb8ea7527213774e366c842e2f48a6c0b6626b78e8c706df37b86b09511ddc6",
+  "splits": {
+    "train": 24,
+    "validation": 8,
+    "test": 8
+  },
+  "engine": {
+    "name": "Audiveris",
+    "version": "5.11.0",
+    "sourceCommit": "9e1e55cd2746037d059345881c53e6a6754bffbd",
+    "retainedInstallIdentity": {
+      "launcherSha256": "868f4b0b70873b92ffaafda7e13317494cd0eff9bb28a5d29b9e9ab4aef0c567",
+      "librarySetSha256": "fb300ad554bd7e9686597f35544c20d72eb0611edda2d79c7553b39548e305a7",
+      "libraryCount": 55
+    },
+    "runtime": "task-local Temurin JDK 25.0.4.1+1, macOS arm64; local CPU",
+    "initialRunFingerprintCaveat": "Raw, enlargement and training staff receipts predate per-run library fingerprints; retained output hashes and reevaluated metrics verified. Held-out staff receipts include per-run engine identity."
+  },
+  "evaluators": {
+    "sh1991_pilot.py": "625481f42eb6e6a367b829de94fbaa42810b28a831cf55a2435d8463f7e022de",
+    "sh1991_staff_probe.py": "42b6ae69a495d253ca1faeb4de024e42d4e0ec811234279f2ba9b2477febdce3"
+  },
+  "raw": {
+    "summary": {
+      "train": {
+        "pages": 24,
+        "exports": 24,
+        "counts": {
+          "referenceEvents": 6368,
+          "observedEvents": 4667,
+          "referencePitched": 5990,
+          "observedPitched": 4124,
+          "deletions": 2113,
+          "pitchMatches": 3064,
+          "durationMatches": 3255,
+          "onsetMatches": 1640,
+          "insertions": 412
+        },
+        "candidatePitchRecall": 0.5115191986644407,
+        "candidatePitchPrecision": 0.7429679922405431,
+        "candidateDurationRecall": 0.5111494974874372,
+        "candidateOnsetRecall": 0.25753768844221103
+      },
+      "validation": {
+        "pages": 8,
+        "exports": 8,
+        "counts": {
+          "referenceEvents": 1693,
+          "observedEvents": 1130,
+          "referencePitched": 1605,
+          "observedPitched": 1058,
+          "insertions": 5,
+          "pitchMatches": 914,
+          "durationMatches": 932,
+          "onsetMatches": 412,
+          "deletions": 568
+        },
+        "candidatePitchRecall": 0.5694704049844237,
+        "candidatePitchPrecision": 0.8638941398865785,
+        "candidateDurationRecall": 0.5505020673360898,
+        "candidateOnsetRecall": 0.24335499113998818
+      },
+      "test": {
+        "pages": 8,
+        "exports": 8,
+        "counts": {
+          "referenceEvents": 1542,
+          "observedEvents": 1200,
+          "referencePitched": 1495,
+          "observedPitched": 1156,
+          "pitchMatches": 930,
+          "durationMatches": 898,
+          "onsetMatches": 450,
+          "deletions": 357,
+          "insertions": 15
+        },
+        "candidatePitchRecall": 0.6220735785953178,
+        "candidatePitchPrecision": 0.8044982698961938,
+        "candidateDurationRecall": 0.582360570687419,
+        "candidateOnsetRecall": 0.2918287937743191
+      },
+      "all": {
+        "pages": 40,
+        "exports": 40,
+        "counts": {
+          "referenceEvents": 9603,
+          "observedEvents": 6997,
+          "referencePitched": 9090,
+          "observedPitched": 6338,
+          "deletions": 3038,
+          "pitchMatches": 4908,
+          "durationMatches": 5085,
+          "onsetMatches": 2502,
+          "insertions": 432
+        },
+        "candidatePitchRecall": 0.5399339933993399,
+        "candidatePitchPrecision": 0.7743767750078889,
+        "candidateDurationRecall": 0.5295220243673852,
+        "candidateOnsetRecall": 0.260543580131209
+      }
+    },
+    "exactWrittenEventPages": 0,
+    "partCountMatchPages": 39,
+    "measureCountMatchPages": 4
+  },
+  "enlargementTrainingProbe": {
+    "pageIds": [
+      "26",
+      "83t",
+      "68b",
+      "72b",
+      "89"
+    ],
+    "summary": {
+      "pages": 5,
+      "exports": 5,
+      "counts": {
+        "referenceEvents": 1001,
+        "observedEvents": 647,
+        "referencePitched": 965,
+        "observedPitched": 616,
+        "pitchMatches": 532,
+        "durationMatches": 571,
+        "onsetMatches": 244,
+        "deletions": 355,
+        "insertions": 1
+      },
+      "candidatePitchRecall": 0.5512953367875648,
+      "candidatePitchPrecision": 0.8636363636363636,
+      "candidateDurationRecall": 0.5704295704295704,
+      "candidateOnsetRecall": 0.24375624375624375
+    },
+    "decision": {
+      "cohort": [
+        "26",
+        "68b",
+        "72b",
+        "83t",
+        "89"
+      ],
+      "raw": {
+        "pitchRecall": 0.5792746113989637,
+        "durationRecall": 0.5854145854145855,
+        "exports": 5
+      },
+      "grayscale2x": {
+        "pitchRecall": 0.5512953367875648,
+        "durationRecall": 0.5704295704295704,
+        "exports": 5
+      },
+      "passesPredeclaredTrainingRule": false
+    }
+  },
+  "staffIsolation": {
+    "train": {
+      "design": {
+        "method": "audiveris-staff-geometry-full-width-4-interline-margin-v1",
+        "frozenAt": "2026-10-15T22:31:34.021849+00:00",
+        "phase": "train",
+        "parentDatasetSha256": "a37a835d7a5a7f93d6dbd7d0ed58dd72c87e88e7f89a6878f7c70ec147f0c6e8",
+        "pageIds": [
+          "26",
+          "83t",
+          "68b",
+          "72b",
+          "89"
+        ],
+        "pillowVersion": "10.4.0",
+        "geometry": "raw Audiveris OMR staff detection; full x extent; vertical four-interline margins clamped at adjacent staff midpoints; 64 white pixels between systems",
+        "pixelChanges": "none within crops; RGB copy/paste only, no deskew, scale, threshold, staff removal, or head replacement",
+        "metadataAssistance": "reference part count and top-to-bottom part order; not fully autonomous transcription",
+        "selectionRule": {
+          "pitchRecallGainAtLeast": 0.02,
+          "durationRecallLossAtMost": 0.01,
+          "noFewerExportedPages": true
+        },
+        "heldOutRule": "evaluate unchanged method on test only if train rule passes; no tuning on held-out results"
+      },
+      "decision": {
+        "phase": "train",
+        "pages": 5,
+        "rawPitchRecall": 0.5792746113989637,
+        "probePitchRecall": 0.6248704663212435,
+        "rawDurationRecall": 0.5854145854145855,
+        "probeDurationRecall": 0.6193806193806194,
+        "completeExportedPages": 5,
+        "rawExportedPages": 5,
+        "probeCounts": {
+          "referenceEvents": 1001,
+          "observedEvents": 778,
+          "referencePitched": 965,
+          "observedPitched": 752,
+          "deletions": 230,
+          "pitchMatches": 603,
+          "durationMatches": 620,
+          "onsetMatches": 197,
+          "insertions": 7
+        },
+        "rawCounts": {
+          "referenceEvents": 1001,
+          "observedEvents": 709,
+          "referencePitched": 965,
+          "observedPitched": 684,
+          "deletions": 294,
+          "pitchMatches": 559,
+          "durationMatches": 586,
+          "onsetMatches": 286,
+          "insertions": 2
+        },
+        "candidateReferencesOnly": true,
+        "modelFineTuned": false,
+        "passesTrainingRule": true
+      },
+      "partImages": 20,
+      "summary": {
+        "pages": 20,
+        "exports": 20,
+        "counts": {
+          "referenceEvents": 1001,
+          "observedEvents": 778,
+          "referencePitched": 965,
+          "observedPitched": 752,
+          "deletions": 230,
+          "pitchMatches": 603,
+          "durationMatches": 620,
+          "onsetMatches": 197,
+          "insertions": 7
+        },
+        "candidatePitchRecall": 0.6248704663212435,
+        "candidatePitchPrecision": 0.8018617021276596,
+        "candidateDurationRecall": 0.6193806193806194,
+        "candidateOnsetRecall": 0.1968031968031968
+      },
+      "exactPartImages": 0,
+      "partCountMatches": 20
+    },
+    "test": {
+      "design": {
+        "method": "audiveris-staff-geometry-full-width-4-interline-margin-v1",
+        "frozenAt": "2026-10-15T22:33:21.265913+00:00",
+        "phase": "test",
+        "parentDatasetSha256": "a37a835d7a5a7f93d6dbd7d0ed58dd72c87e88e7f89a6878f7c70ec147f0c6e8",
+        "pageIds": [
+          "30t",
+          "81b",
+          "168",
+          "231",
+          "209",
+          "350",
+          "411",
+          "416"
+        ],
+        "pillowVersion": "10.4.0",
+        "geometry": "raw Audiveris OMR staff detection; full x extent; vertical four-interline margins clamped at adjacent staff midpoints; 64 white pixels between systems",
+        "pixelChanges": "none within crops; RGB copy/paste only, no deskew, scale, threshold, staff removal, or head replacement",
+        "metadataAssistance": "reference part count and top-to-bottom part order; not fully autonomous transcription",
+        "selectionRule": {
+          "pitchRecallGainAtLeast": 0.02,
+          "durationRecallLossAtMost": 0.01,
+          "noFewerExportedPages": true
+        },
+        "heldOutRule": "evaluate unchanged method on test only if train rule passes; no tuning on held-out results"
+      },
+      "decision": {
+        "phase": "test",
+        "pages": 8,
+        "rawPitchRecall": 0.6220735785953178,
+        "probePitchRecall": 0.6341137123745819,
+        "rawDurationRecall": 0.582360570687419,
+        "probeDurationRecall": 0.6037613488975356,
+        "completeExportedPages": 8,
+        "rawExportedPages": 8,
+        "probeCounts": {
+          "referenceEvents": 1542,
+          "observedEvents": 1206,
+          "referencePitched": 1495,
+          "observedPitched": 1163,
+          "pitchMatches": 948,
+          "durationMatches": 931,
+          "onsetMatches": 264,
+          "deletions": 349,
+          "insertions": 13
+        },
+        "rawCounts": {
+          "referenceEvents": 1542,
+          "observedEvents": 1200,
+          "referencePitched": 1495,
+          "observedPitched": 1156,
+          "pitchMatches": 930,
+          "durationMatches": 898,
+          "onsetMatches": 450,
+          "deletions": 357,
+          "insertions": 15
+        },
+        "candidateReferencesOnly": true,
+        "modelFineTuned": false,
+        "passesTrainingRule": false
+      },
+      "partImages": 31,
+      "summary": {
+        "pages": 31,
+        "exports": 31,
+        "counts": {
+          "referenceEvents": 1542,
+          "observedEvents": 1206,
+          "referencePitched": 1495,
+          "observedPitched": 1163,
+          "pitchMatches": 948,
+          "durationMatches": 931,
+          "onsetMatches": 264,
+          "deletions": 349,
+          "insertions": 13
+        },
+        "candidatePitchRecall": 0.6341137123745819,
+        "candidatePitchPrecision": 0.8151332760103182,
+        "candidateDurationRecall": 0.6037613488975356,
+        "candidateOnsetRecall": 0.17120622568093385
+      },
+      "exactPartImages": 0,
+      "partCountMatches": 31
+    }
+  },
+  "records": [
+    {
+      "songId": "sh 26 — Samaria",
+      "songNo": "26",
+      "title": "Samaria",
+      "group": "1059d5778fc372c92ebe",
+      "split": "train",
+      "edition": "sh1991",
+      "pairingStatus": "candidate-needs-independent-event-review",
+      "image": {
+        "url": "https://sh1991.sacredharpbremen.org/wp-content/uploads/songs/001-099/026-Samaria/26-Samaria.jpg",
+        "sha256": "6428dbe9bd54c9f2b7b64978ea2fa7b96e9bb3c47a33e9aa37c58e39c596e4ca"
+      },
+      "label": {
+        "url": "https://shapenote.net/musicxml/26a.mxl",
+        "sha256": "310966b0ecbc6d6a2a99bc3601c2e3aade4665098bf36ce043245c5e1c2ef3e6"
+      }
+    },
+    {
+      "songId": "sh 83t — Vale of Sorrow",
+      "songNo": "83t",
+      "title": "Vale of Sorrow",
+      "group": "9f26e80592c2071573e0",
+      "split": "train",
+      "edition": "sh1991",
+      "pairingStatus": "candidate-needs-independent-event-review",
+      "image": {
+        "url": "https://sh1991.sacredharpbremen.org/wp-content/uploads/songs/001-099/083t-Vale-of-Sorrow/83t-Vale-of-Sorrow.jpg",
+        "sha256": "349dc6271e65ce2e0d125d585e01760676261842f4ee89441da896315de4460f"
+      },
+      "label": {
+        "url": "https://shapenote.net/musicxml/83ta.mxl",
+        "sha256": "ede48e23549d464a4a1c79cccfd8dfde582458ea7e7b27e4cbc1650720418a12"
+      }
+    },
+    {
+      "songId": "sh 68b — Ortonville",
+      "songNo": "68b",
+      "title": "Ortonville",
+      "group": "698b3d09abef9a7f5e72",
+      "split": "train",
+      "edition": "sh1991",
+      "pairingStatus": "candidate-needs-independent-event-review",
+      "image": {
+        "url": "https://sh1991.sacredharpbremen.org/wp-content/uploads/songs/001-099/068b-Ortonville/68b-Ortonville.jpg",
+        "sha256": "e22668cdaf8e19ac9f031304c996f020fb754bfeb91ad4a65b697c5f541a4f67"
+      },
+      "label": {
+        "url": "https://shapenote.net/musicxml/68b.mxl",
+        "sha256": "122b967c617b6c1342507791c422a7cc32b0a128ebe0d15fa51e2d69cfe76f20"
+      }
+    },
+    {
+      "songId": "sh 72b — Bellevue",
+      "songNo": "72b",
+      "title": "Bellevue",
+      "group": "d0a40809345417003f98",
+      "split": "train",
+      "edition": "sh1991",
+      "pairingStatus": "candidate-needs-independent-event-review",
+      "image": {
+        "url": "https://sh1991.sacredharpbremen.org/wp-content/uploads/songs/001-099/072b-Bellevue/72b-Bellevue.jpg",
+        "sha256": "5a5860540f168ad67912f2dd85c7b604f819d38186b81810d36841930f8b686f"
+      },
+      "label": {
+        "url": "https://shapenote.net/musicxml/72b.mxl",
+        "sha256": "e7e2fd5adebc4fa529bd8f06f19a1641bdbae9350bbf729e058d7a8a95778989"
+      }
+    },
+    {
+      "songId": "sh 30t — Love Divine",
+      "songNo": "30t",
+      "title": "Love Divine",
+      "group": "a03684fa7378fd79b7d5",
+      "split": "test",
+      "edition": "sh1991",
+      "pairingStatus": "candidate-needs-independent-event-review",
+      "image": {
+        "url": "https://sh1991.sacredharpbremen.org/wp-content/uploads/songs/001-099/030t-Love-Divine/30t-Love-Divine.jpg",
+        "sha256": "9273435d220767c3e95e5f53ad77918acd660b9e7400ba126be694ca00d298a1"
+      },
+      "label": {
+        "url": "https://shapenote.net/musicxml/30t.mxl",
+        "sha256": "b48351898b24157073847a39f76ec1f2f905ed3cdacba943fff9b169022e8c7c"
+      }
+    },
+    {
+      "songId": "sh 81b (sh1991) — Cookham",
+      "songNo": "81b",
+      "title": "Cookham",
+      "group": "2b2bf34a60485bf39463",
+      "split": "test",
+      "edition": "sh1991",
+      "pairingStatus": "candidate-needs-independent-event-review",
+      "image": {
+        "url": "https://sh1991.sacredharpbremen.org/wp-content/uploads/songs/001-099/081b-Cookham/81b-Cookham.jpg",
+        "sha256": "5614a79f74a8d536b2f3108bc97db96fa0475e7cc48e2984cf0494064e0b0e25"
+      },
+      "label": {
+        "url": "https://shapenote.net/musicxml/81b.mxl",
+        "sha256": "c08654cd8900577701c17d5642a650801f9da91c14ac693ef2a097d24dda2f4f"
+      }
+    },
+    {
+      "songId": "sh 89 — The Church’s Desolation",
+      "songNo": "89",
+      "title": "The Church’s Desolation",
+      "group": "bbcd4e225c57af087dc9",
+      "split": "train",
+      "edition": "sh1991",
+      "pairingStatus": "candidate-needs-independent-event-review",
+      "image": {
+        "url": "https://sh1991.sacredharpbremen.org/wp-content/uploads/songs/001-099/089-The-Churchs-Desolation/89-The-Churchs-Desolation.jpg",
+        "sha256": "841248caaa3a8fa644cc8f15f2482f5156653a58323acc8e12c45e9950869d24"
+      },
+      "label": {
+        "url": "https://shapenote.net/musicxml/89.mxl",
+        "sha256": "4516c6e7a3f8128fa255fb9b12dea3972cb480174aa8222faef59f3e637c9dd2"
+      }
+    },
+    {
+      "songId": "sh 32b — Distress",
+      "songNo": "32b",
+      "title": "Distress",
+      "group": "e36d4b7f21a0d40a6b2f",
+      "split": "train",
+      "edition": "sh1991",
+      "pairingStatus": "candidate-needs-independent-event-review",
+      "image": {
+        "url": "https://sh1991.sacredharpbremen.org/wp-content/uploads/songs/001-099/032b-Distress/32b-Distress.jpg",
+        "sha256": "7c38b1ad5fb1ab03f382f5574fc9dc84bea6c5583317e926009ff0f0816cce79"
+      },
+      "label": {
+        "url": "https://shapenote.net/musicxml/32ba.mxl",
+        "sha256": "4320679bb75698c6f41a2ef8c29af476e24f41e72445e09158892440141f2fb2"
+      }
+    },
+    {
+      "songId": "sh 115 (sh1991) — Edmonds",
+      "songNo": "115",
+      "title": "Edmonds",
+      "group": "b4657dbb91c6767433c1",
+      "split": "validation",
+      "edition": "sh1991",
+      "pairingStatus": "candidate-needs-independent-event-review",
+      "image": {
+        "url": "https://sh1991.sacredharpbremen.org/wp-content/uploads/songs/100-199/115-Edmonds/115-Edmonds.jpg",
+        "sha256": "8504aa14d83c7511bb07fcd7c968118026001d1143bbaade83b84f143150fc9e"
+      },
+      "label": {
+        "url": "https://shapenote.net/musicxml/115a.mxl",
+        "sha256": "56a49854e7c057287043fed1f2cdeb83c61e964789c02d7ac54f3f14cfa8f7f3"
+      }
+    },
+    {
+      "songId": "sh 116 (sh1991) — Union",
+      "songNo": "116",
+      "title": "Union",
+      "group": "81a79ecd063e20fda8a0",
+      "split": "validation",
+      "edition": "sh1991",
+      "pairingStatus": "candidate-needs-independent-event-review",
+      "image": {
+        "url": "https://sh1991.sacredharpbremen.org/wp-content/uploads/songs/100-199/116-Union/116-Union.jpg",
+        "sha256": "9d039c6cac10757123979ceb6e2b0cdd71cc9543d0148f79cd9efcc718074af1"
+      },
+      "label": {
+        "url": "https://shapenote.net/musicxml/116a.mxl",
+        "sha256": "1ea61384575369fbaf824f505a27aef5d789bcbc2a9faac89714b19d481444b5"
+      }
+    },
+    {
+      "songId": "sh 170 — Exhilaration",
+      "songNo": "170",
+      "title": "Exhilaration",
+      "group": "28a797de80e502fffa6b",
+      "split": "train",
+      "edition": "sh1991",
+      "pairingStatus": "candidate-needs-independent-event-review",
+      "image": {
+        "url": "https://sh1991.sacredharpbremen.org/wp-content/uploads/songs/100-199/170-Exhilaration/170-Exhilaration.jpg",
+        "sha256": "51d261076b75d503968d90c7fecd0ed3ad920b350dbe56e5249faf9204bb0d8f"
+      },
+      "label": {
+        "url": "https://shapenote.net/musicxml/170.mxl",
+        "sha256": "20d67aeb7ef508075cb22e5c8ef3d14dcb1f24e5e90aadff1e43171c7d5d33c8"
+      }
+    },
+    {
+      "songId": "sh 168 — Cowper",
+      "songNo": "168",
+      "title": "Cowper",
+      "group": "a44b255c24556445c987",
+      "split": "test",
+      "edition": "sh1991",
+      "pairingStatus": "candidate-needs-independent-event-review",
+      "image": {
+        "url": "https://sh1991.sacredharpbremen.org/wp-content/uploads/songs/100-199/168-Cowper/168-Cowper.jpg",
+        "sha256": "05ef1e35cb6e2b5f0623a2a6ba151650d2574fa5fa9827647e76f0d031a15186"
+      },
+      "label": {
+        "url": "https://shapenote.net/musicxml/168a.mxl",
+        "sha256": "82ab5c033a6ce2a979c37181d8e07a6a8a72833069c32255bcc2872f684ae804"
+      }
+    },
+    {
+      "songId": "sh 136 — Morality",
+      "songNo": "136",
+      "title": "Morality",
+      "group": "afa0136e4f6b4e6aa993",
+      "split": "train",
+      "edition": "sh1991",
+      "pairingStatus": "candidate-needs-independent-event-review",
+      "image": {
+        "url": "https://sh1991.sacredharpbremen.org/wp-content/uploads/songs/100-199/136-Morality/136-Morality.jpg",
+        "sha256": "0ecc79579566395981c7fe4acb96b3cc72d0e1bdf1c38a8aff7da9be03b607cc"
+      },
+      "label": {
+        "url": "https://shapenote.net/musicxml/136.mxl",
+        "sha256": "034b1335c593e947627289eac3632c48b8efe0beeb756f2516cfadc8e0ae4a1d"
+      }
+    },
+    {
+      "songId": "sh 111b — To Die No More",
+      "songNo": "111b",
+      "title": "To Die No More",
+      "group": "1a9599f4fca649024d2d",
+      "split": "train",
+      "edition": "sh1991",
+      "pairingStatus": "candidate-needs-independent-event-review",
+      "image": {
+        "url": "https://sh1991.sacredharpbremen.org/wp-content/uploads/songs/100-199/111b-To-Die-No-More/111b-To-Die-No-More.jpg",
+        "sha256": "23b010a0f77afddef3871946b1dcd870d5331d6211881d738980f38306883547"
+      },
+      "label": {
+        "url": "https://shapenote.net/musicxml/111b.mxl",
+        "sha256": "5d45802b731b8f23cc71a1e5062632762978d70b05cae7e941076088269330c9"
+      }
+    },
+    {
+      "songId": "sh 129 — Heavenly Armor",
+      "songNo": "129",
+      "title": "Heavenly Armor",
+      "group": "a6626a79a5e24a3fc1e8",
+      "split": "train",
+      "edition": "sh1991",
+      "pairingStatus": "candidate-needs-independent-event-review",
+      "image": {
+        "url": "https://sh1991.sacredharpbremen.org/wp-content/uploads/songs/100-199/129-Heavenly-Armor/129-Heavenly-Armor.jpg",
+        "sha256": "4936c2dfc4c10b8bdab7978d49bba376731bf5803120dc9ce2632f0cce09662f"
+      },
+      "label": {
+        "url": "https://shapenote.net/musicxml/129.mxl",
+        "sha256": "d679c9bd90a7c9aa5cf9c8236c18cf4d6843b174aa36a9c197a9d351742f0b0e"
+      }
+    },
+    {
+      "songId": "sh 119 — Heaven’s My Home",
+      "songNo": "119",
+      "title": "Heaven’s My Home",
+      "group": "49eaa0bd77ab897ca837",
+      "split": "train",
+      "edition": "sh1991",
+      "pairingStatus": "candidate-needs-independent-event-review",
+      "image": {
+        "url": "https://sh1991.sacredharpbremen.org/wp-content/uploads/songs/100-199/119-Heavens-My-Home/119-Heavens-My-Home.jpg",
+        "sha256": "d1f08f0b66a65edfa652b1cfe720bbedfcbdce505eb40933572249bbf1899e6f"
+      },
+      "label": {
+        "url": "https://shapenote.net/musicxml/119.mxl",
+        "sha256": "0ba0ca6d9ca3467b162bc0b67e0e5f47d11b54b44c6b0b90669fff2df9108dae"
+      }
+    },
+    {
+      "songId": "sh 236 — Easter Anthem",
+      "songNo": "236",
+      "title": "Easter Anthem",
+      "group": "6c87ffbadd6c7dccdabc",
+      "split": "train",
+      "edition": "sh1991",
+      "pairingStatus": "candidate-needs-independent-event-review",
+      "image": {
+        "url": "https://sh1991.sacredharpbremen.org/wp-content/uploads/songs/200-299/236-Easter-Anthem/236-Easter-Anthem.jpg",
+        "sha256": "2ca549ccd21d564b096366fe75ddfc436174856942acbb0f5782fafb7f32d758"
+      },
+      "label": {
+        "url": "https://shapenote.net/musicxml/236.mxl",
+        "sha256": "09144358f5551c3e8732fc0beb57e641b93abcfb29213d33d2d5c5cf59ca5968"
+      }
+    },
+    {
+      "songId": "sh 231 (sh1991) — Thou Art Passing Away",
+      "songNo": "231",
+      "title": "Thou Art Passing Away",
+      "group": "f622d072847eac4fb199",
+      "split": "test",
+      "edition": "sh1991",
+      "pairingStatus": "candidate-needs-independent-event-review",
+      "image": {
+        "url": "https://sh1991.sacredharpbremen.org/wp-content/uploads/songs/200-299/231-Thou-Art-Passing-Away/231-Thou-Art-Passing-Away.jpg",
+        "sha256": "33d373929dbeef12e846c18e67e5703b6a6fb747b402dc1716ac82d10f1fd250"
+      },
+      "label": {
+        "url": "https://shapenote.net/musicxml/231.mxl",
+        "sha256": "679d57ae7cce39627ac2691b7ea10ba77da29b60ae0688f22f77813615df5409"
+      }
+    },
+    {
+      "songId": "sh 234 — Reverential Anthem",
+      "songNo": "234",
+      "title": "Reverential Anthem",
+      "group": "a7455b390fa6a8516339",
+      "split": "train",
+      "edition": "sh1991",
+      "pairingStatus": "candidate-needs-independent-event-review",
+      "image": {
+        "url": "https://sh1991.sacredharpbremen.org/wp-content/uploads/songs/200-299/234-Reverential-Anthem/234-Reverential-Anthem.jpg",
+        "sha256": "27747d2aa4b3da2bae6dc2b13d508860781d1b331967e584b93f22c23cfd5f46"
+      },
+      "label": {
+        "url": "https://shapenote.net/musicxml/234.mxl",
+        "sha256": "f480174a93683d10893521f121338ce25ff785f4f48656351bce3f4f3a36acac"
+      }
+    },
+    {
+      "songId": "sh 220 — Mount Zion",
+      "songNo": "220",
+      "title": "Mount Zion (First)",
+      "group": "8d6eb35bcd3bbcaf3160",
+      "split": "train",
+      "edition": "sh1991",
+      "pairingStatus": "candidate-needs-independent-event-review",
+      "image": {
+        "url": "https://sh1991.sacredharpbremen.org/wp-content/uploads/songs/200-299/220-Mount-Zion-First/220-Mount-Zion-First.jpg",
+        "sha256": "4469310059153abcb809d67aee2fea920ad077c2a9ab59e3d10f23da88f6695d"
+      },
+      "label": {
+        "url": "https://shapenote.net/musicxml/220.mxl",
+        "sha256": "b83be1231ddf9a9b43e837ebefd0455389fe2f542f4bf581b39d7287d443f9ff"
+      }
+    },
+    {
+      "songId": "sh 200 — Edom",
+      "songNo": "200",
+      "title": "Edom",
+      "group": "c227b69d6bf4522aa8f9",
+      "split": "train",
+      "edition": "sh1991",
+      "pairingStatus": "candidate-needs-independent-event-review",
+      "image": {
+        "url": "https://sh1991.sacredharpbremen.org/wp-content/uploads/songs/200-299/200-Edom/200-Edom.jpg",
+        "sha256": "b264398d007878be87f7058e24de370940ab07d32dbfe00928305ef1267b1c85"
+      },
+      "label": {
+        "url": "https://shapenote.net/musicxml/200.mxl",
+        "sha256": "775a9715fcaeb67e6223b9e0cf6b381e8a57f3e5e123f2fbc4f906aa7a0cd641"
+      }
+    },
+    {
+      "songId": "sh 209 — Evening Shade",
+      "songNo": "209",
+      "title": "Evening Shade",
+      "group": "59e7f5828c092139f87a",
+      "split": "test",
+      "edition": "sh1991",
+      "pairingStatus": "candidate-needs-independent-event-review",
+      "image": {
+        "url": "https://sh1991.sacredharpbremen.org/wp-content/uploads/songs/200-299/209-Evening-Shade/209-Evening-Shade.jpg",
+        "sha256": "a1659ae6ae3992b94300c28dcfd7a43e6ba5ab4bf043005945c1b53b0522efa3"
+      },
+      "label": {
+        "url": "https://shapenote.net/musicxml/209a.mxl",
+        "sha256": "91b606de4fc5d3b467c6140934831fd4eda1f54f9d33e47e41e0668a48e7efc8"
+      }
+    },
+    {
+      "songId": "sh 292 — Behold the Savior",
+      "songNo": "292",
+      "title": "Behold the Savior",
+      "group": "26a526910291eb9ce4ff",
+      "split": "train",
+      "edition": "sh1991",
+      "pairingStatus": "candidate-needs-independent-event-review",
+      "image": {
+        "url": "https://sh1991.sacredharpbremen.org/wp-content/uploads/songs/200-299/292-Behold-the-Savior/292-Behold-the-Savior.jpg",
+        "sha256": "5da01b7b0949200ad7cc3b8a116f59bd1684ca6bb47db0f889a533664e4f97f7"
+      },
+      "label": {
+        "url": "https://shapenote.net/musicxml/292.mxl",
+        "sha256": "71cbfae59a6fe8e0ae0a8e3358a1363b9c1bf4133c967f1e44130446700e942b"
+      }
+    },
+    {
+      "songId": "sh 225t — Reynolds",
+      "songNo": "225t",
+      "title": "Reynolds",
+      "group": "147897fd531cad3dfa4b",
+      "split": "validation",
+      "edition": "sh1991",
+      "pairingStatus": "candidate-needs-independent-event-review",
+      "image": {
+        "url": "https://sh1991.sacredharpbremen.org/wp-content/uploads/songs/200-299/225t-Reynolds/225t-Reynolds.jpg",
+        "sha256": "5594c35d87c5e1fcd4798920d8d59c01d632bd2d6ee77729b74c72019fdf4450"
+      },
+      "label": {
+        "url": "https://shapenote.net/musicxml/225t.mxl",
+        "sha256": "90a3613b15ad64a793f6870d8781d9aa6f973f1d96a8b2020e5e027ec30f2675"
+      }
+    },
+    {
+      "songId": "sh 308 — Parting Friends (Second)",
+      "songNo": "308",
+      "title": "Parting Friends (Second)",
+      "group": "8a0ac66fd62667161da1",
+      "split": "validation",
+      "edition": "sh1991",
+      "pairingStatus": "candidate-needs-independent-event-review",
+      "image": {
+        "url": "https://sh1991.sacredharpbremen.org/wp-content/uploads/songs/300-399/308-Parting-Friends-Second/308-Parting-Friends-Second.jpg",
+        "sha256": "af0635d706e172da01476892a8b3dacc60f93a75d9869234bb3d1d63f6d8a3f0"
+      },
+      "label": {
+        "url": "https://shapenote.net/musicxml/308a.mxl",
+        "sha256": "35e0ec7b5ac888f2b4507824b20eba4d63e4a3d302b40447b6ddc1a9ef715dc6"
+      }
+    },
+    {
+      "songId": "sh 399t — The Dying Friend",
+      "songNo": "399t",
+      "title": "The Dying Friend",
+      "group": "847ffab1742c517dccd0",
+      "split": "train",
+      "edition": "sh1991",
+      "pairingStatus": "candidate-needs-independent-event-review",
+      "image": {
+        "url": "https://sh1991.sacredharpbremen.org/wp-content/uploads/songs/300-399/399t-The-Dying-Friend/399t-The-Dying-Friend.jpg",
+        "sha256": "a889546126a3be904f0d75b9b9a91e750148c15e0587e267ab6a06b6831b6b77"
+      },
+      "label": {
+        "url": "https://shapenote.net/musicxml/399ta.mxl",
+        "sha256": "fbcf627176ea123c0d53cbdc09d885937a8a78c1640727d40d83b2c8ac279bb6"
+      }
+    },
+    {
+      "songId": "sh 350 — Nativity",
+      "songNo": "350",
+      "title": "Nativity",
+      "group": "3f3214dd12a194d60be2",
+      "split": "test",
+      "edition": "sh1991",
+      "pairingStatus": "candidate-needs-independent-event-review",
+      "image": {
+        "url": "https://sh1991.sacredharpbremen.org/wp-content/uploads/songs/300-399/350-Nativity/350-Nativity.jpg",
+        "sha256": "d8345ea974026daa4a0ae06a5b66037dc68ce896316d4c1c67461ff1ae11dd8c"
+      },
+      "label": {
+        "url": "https://shapenote.net/musicxml/350.mxl",
+        "sha256": "bb7e919daebe32ef9bb847c51e5aa1df84fd354cd3aa6eaf7c9f14c3ba7f8637"
+      }
+    },
+    {
+      "songId": "sh 325 — Soldier of the Cross",
+      "songNo": "325",
+      "title": "Soldier of the Cross",
+      "group": "f80cb0e9c05f020974bb",
+      "split": "validation",
+      "edition": "sh1991",
+      "pairingStatus": "candidate-needs-independent-event-review",
+      "image": {
+        "url": "https://sh1991.sacredharpbremen.org/wp-content/uploads/songs/300-399/325-Soldier-of-the-Cross/325-Soldier-of-the-Cross.jpg",
+        "sha256": "bedf6d507c7c3daea6af96db2a9bc070464bd38dbf56e95a46aea3e0f6b0c5ed"
+      },
+      "label": {
+        "url": "https://shapenote.net/musicxml/325.mxl",
+        "sha256": "fcd0b1101649a21bb5eb4f829238193501c8d68d61fed2dea159fcc22a7a24f4"
+      }
+    },
+    {
+      "songId": "sh 393 (sh1991) — Alexander",
+      "songNo": "393",
+      "title": "Alexander",
+      "group": "47c10517ad5cf5d1400b",
+      "split": "train",
+      "edition": "sh1991",
+      "pairingStatus": "candidate-needs-independent-event-review",
+      "image": {
+        "url": "https://sh1991.sacredharpbremen.org/wp-content/uploads/songs/300-399/393-Alexander/393-Alexander.jpg",
+        "sha256": "cb8f7875486f61ac73de8e3f6f3fec3244d49b9d57ec9f03a2582282c3d1af0f"
+      },
+      "label": {
+        "url": "https://shapenote.net/musicxml/393.mxl",
+        "sha256": "b341261534a0ffc58ddddc95caede3b2da5933434985a685fe0d03cc38c624a7"
+      }
+    },
+    {
+      "songId": "sh 377 — Eternal Praise",
+      "songNo": "377",
+      "title": "Eternal Praise",
+      "group": "25415694895dff4d61ea",
+      "split": "validation",
+      "edition": "sh1991",
+      "pairingStatus": "candidate-needs-independent-event-review",
+      "image": {
+        "url": "https://sh1991.sacredharpbremen.org/wp-content/uploads/songs/300-399/377-Eternal-Praise/377-Eternal-Praise.jpg",
+        "sha256": "c426e940781d09b1a8368501102b92f04f825f38b4d0be068e8dddeed8ad6646"
+      },
+      "label": {
+        "url": "https://shapenote.net/musicxml/377a.mxl",
+        "sha256": "89e39364d1566511c7eb636ba1a9621949c06edc675326a26a095e393a6a6a51"
+      }
+    },
+    {
+      "songId": "sh 300 — Calvary",
+      "songNo": "300",
+      "title": "Calvary",
+      "group": "e60bafb4ce228a991e5c",
+      "split": "validation",
+      "edition": "sh1991",
+      "pairingStatus": "candidate-needs-independent-event-review",
+      "image": {
+        "url": "https://sh1991.sacredharpbremen.org/wp-content/uploads/songs/300-399/300-Calvary/300-Calvary.jpg",
+        "sha256": "7f7c63fd729e5a73c4d994b4cc389cdb329f745182c0d973e9fb7950593889b2"
+      },
+      "label": {
+        "url": "https://shapenote.net/musicxml/300a.mxl",
+        "sha256": "1b6beff560d34d96eccd636fbe89ed01e84ac7a359b2eabdce974e88fcf764f3"
+      }
+    },
+    {
+      "songId": "sh 396 — Notes Almost Divine",
+      "songNo": "396",
+      "title": "Notes Almost Divine",
+      "group": "6184b07306b01457f7ae",
+      "split": "train",
+      "edition": "sh1991",
+      "pairingStatus": "candidate-needs-independent-event-review",
+      "image": {
+        "url": "https://sh1991.sacredharpbremen.org/wp-content/uploads/songs/300-399/396-Notes-Almost-Divine/396-Notes-Almost-Divine.jpg",
+        "sha256": "ea490134d3ed5a3256a08acc69e72d163aea7a6ac0f8c6040b6aceaf29e142d8"
+      },
+      "label": {
+        "url": "https://shapenote.net/musicxml/396a.mxl",
+        "sha256": "a155b0b8cb7df8909452724bdf5d24768f4a33be2b40f01afe8ccc4371e4411e"
+      }
+    },
+    {
+      "songId": "sh 487 (sh1991) — Soldier’s Delight",
+      "songNo": "487",
+      "title": "Soldier’s Delight",
+      "group": "eed60e01fc5e6e9da9b8",
+      "split": "train",
+      "edition": "sh1991",
+      "pairingStatus": "candidate-needs-independent-event-review",
+      "image": {
+        "url": "https://sh1991.sacredharpbremen.org/wp-content/uploads/songs/400-499/487-Soldiers-Delight/487-Soldiers-Delight.jpg",
+        "sha256": "64d6342c57a83a0258083acd7642afd6292eaf8c6b5457e5e52b0ed22dac18c8"
+      },
+      "label": {
+        "url": "https://shapenote.net/musicxml/487a.mxl",
+        "sha256": "4e65005457c41c4ae207ee2aab8f527a52589058fc7c73d721c498ebd4c522fe"
+      }
+    },
+    {
+      "songId": "sh 411 — Morning Prayer",
+      "songNo": "411",
+      "title": "Morning Prayer",
+      "group": "afad60c973b977026386",
+      "split": "test",
+      "edition": "sh1991",
+      "pairingStatus": "candidate-needs-independent-event-review",
+      "image": {
+        "url": "https://sh1991.sacredharpbremen.org/wp-content/uploads/songs/400-499/411-Morning-Prayer/411-Morning-Prayer.jpg",
+        "sha256": "b03d524faf499d62012946f22662ba75e3e045e28ee9b799da6e58a3744f2619"
+      },
+      "label": {
+        "url": "https://shapenote.net/musicxml/411a.mxl",
+        "sha256": "fbcc72f98c31035704e665cdcf006a667af0486f0411255a33102c96bf8f6b82"
+      }
+    },
+    {
+      "songId": "sh 475 — A Thankful Heart",
+      "songNo": "475",
+      "title": "A Thankful Heart",
+      "group": "4bb2a749c337eff122bc",
+      "split": "train",
+      "edition": "sh1991",
+      "pairingStatus": "candidate-needs-independent-event-review",
+      "image": {
+        "url": "https://sh1991.sacredharpbremen.org/wp-content/uploads/songs/400-499/475-A-Thankful-Heart/475-A-Thankful-Heart.jpg",
+        "sha256": "9fc4f699d020df7dae1f042e12c3548d6128b94a19795224b860a9f97a3b02fa"
+      },
+      "label": {
+        "url": "https://shapenote.net/musicxml/475.mxl",
+        "sha256": "0fef36a7218442a4c678ad21fbbb56e17cdab3e2a54ca28085136f5c23455965"
+      }
+    },
+    {
+      "songId": "sh 494 (sh1991) — Big Creek",
+      "songNo": "494",
+      "title": "Big Creek",
+      "group": "4cb0e66de8ac853d44b8",
+      "split": "validation",
+      "edition": "sh1991",
+      "pairingStatus": "candidate-needs-independent-event-review",
+      "image": {
+        "url": "https://sh1991.sacredharpbremen.org/wp-content/uploads/songs/400-499/494-Big-Creek/494-Big-Creek.jpg",
+        "sha256": "6d60a8948e5bbed7b994c64a8738ecb113a2607e7a551bd9ac51c32c11794908"
+      },
+      "label": {
+        "url": "https://shapenote.net/musicxml/494.mxl",
+        "sha256": "115e9ed1da8906372d9f403f2da5073f7f494fd751dcc3cf62149c9550772f33"
+      }
+    },
+    {
+      "songId": "sh 418 — Rees",
+      "songNo": "418",
+      "title": "Reese",
+      "group": "ee7e7f56715833f54e38",
+      "split": "train",
+      "edition": "sh1991",
+      "pairingStatus": "candidate-needs-independent-event-review",
+      "image": {
+        "url": "https://sh1991.sacredharpbremen.org/wp-content/uploads/songs/400-499/418-Reese/418-Reese.jpg",
+        "sha256": "e2936ea2ee53f8819fccf879fc74058138acb57afbee7df1f4c05870271c355d"
+      },
+      "label": {
+        "url": "https://shapenote.net/musicxml/418.mxl",
+        "sha256": "0225e6de492d4058e5f72fb3a3e9d118cd59d59618245a4bc2dd7e1d5949d0c8"
+      }
+    },
+    {
+      "songId": "sh 416 — The Christian’s Nightly Song",
+      "songNo": "416",
+      "title": "The Christian’s Nightly Song",
+      "group": "c2664b32fd3fed54eb5a",
+      "split": "test",
+      "edition": "sh1991",
+      "pairingStatus": "candidate-needs-independent-event-review",
+      "image": {
+        "url": "https://sh1991.sacredharpbremen.org/wp-content/uploads/songs/400-499/416-The-Christians-Nightly-Song/416-The-Christians-Nightly-Song.jpg",
+        "sha256": "aded41e0acfbba79afd1b22818deb07cc667307cafa7394eea569b35daae4951"
+      },
+      "label": {
+        "url": "https://shapenote.net/musicxml/416a.mxl",
+        "sha256": "9bd9ad790a92db644e8ff399b36996b240f9847b950493c902b2d9d3ce7bed72"
+      }
+    },
+    {
+      "songId": "sh 547 — Granville",
+      "songNo": "547",
+      "title": "Granville",
+      "group": "6aa8fa489744a210c09e",
+      "split": "train",
+      "edition": "sh1991",
+      "pairingStatus": "candidate-needs-independent-event-review",
+      "image": {
+        "url": "https://sh1991.sacredharpbremen.org/wp-content/uploads/songs/500-599/547-Granville/547-Granville.jpg",
+        "sha256": "77127c8cd5084b4915bb9ee9eb023936109f45fa1eaff2759bee02af92c773c1"
+      },
+      "label": {
+        "url": "https://shapenote.net/musicxml/547a.mxl",
+        "sha256": "23201780a78830b03af3cc2a034b8747331ca0e31597ecaacb83e4687b44bcef"
+      }
+    },
+    {
+      "songId": "sh 434 — Fillmore",
+      "songNo": "434",
+      "title": "Fillmore",
+      "group": "37b7372168fcf7e08c61",
+      "split": "train",
+      "edition": "sh1991",
+      "pairingStatus": "candidate-needs-independent-event-review",
+      "image": {
+        "url": "https://sh1991.sacredharpbremen.org/wp-content/uploads/songs/400-499/434-Fillmore/434-Fillmore.jpg",
+        "sha256": "7ca25d9fc570247d46c4be6d4fd58d6d49fe83578717305c3929c8e328dfd1c2"
+      },
+      "label": {
+        "url": "https://shapenote.net/musicxml/434.mxl",
+        "sha256": "222ffd3105fdb1bd4df78e452b207627c4ec13df0d21189209782b8010ebe6ca"
+      }
+    }
+  ],
+  "sourceBytesIncluded": false,
+  "modelFineTuned": false,
+  "trainingEligiblePages": 0,
+  "sourceCertifiedPages": 0,
+  "humanCorrectionMinutes": null,
+  "limitations": [
+    "Unreviewed candidate labels, not ground truth",
+    "SH1991 four-shape only, one scan family",
+    "Known groups isolated; unrecognized near-duplicates still require independent audit",
+    "Ordered-part edit alignment; pitch spelling/octave exact; duration rational quarter notes; onset uses written measure ordinal",
+    "Grace notes skipped; unpitched notes rejected; no repeat unfolding or tie merging",
+    "No literal notehead/fill, lyric, source-certified voice/staff, tie/slur/repeat fidelity score",
+    "No human usability/correction-time measurement or source-obscuration/edition controls",
+    "Staff probe uses reference part-count/order metadata; not autonomous page parsing"
+  ]
+}
