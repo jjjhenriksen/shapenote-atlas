@@ -438,11 +438,16 @@ function ScorePreview({ score, playback, transpose, complete, sourceKey, targetK
 export function App() {
   const [corpus, setCorpus] = useState(null);
   const [corpusAttempt, setCorpusAttempt] = useState(0);
+  const [tuneDetail, setTuneDetail] = useState(null);
+  const [detailError, setDetailError] = useState(false);
+  const [detailAttempt, setDetailAttempt] = useState(0);
   const [humanReviewQueue, setHumanReviewQueue] = useState(null);
   const [humanReviewQueueError, setHumanReviewQueueError] = useState(false);
   const [humanReviewQueueAttempt, setHumanReviewQueueAttempt] = useState(0);
   const [bookId, setBookId] = useState(() => {
     try {
+      const linkedBook = new URLSearchParams(window.location.search).get("book");
+      if (BOOK_ORDER.includes(linkedBook)) return linkedBook;
       const saved = window.localStorage.getItem("sh-corpus-dashboard-book");
       return BOOK_ORDER.includes(saved) ? saved : "sh1991";
     } catch {
@@ -468,6 +473,8 @@ export function App() {
   const [linkNotice, setLinkNotice] = useState("");
   const [selectedId, setSelectedId] = useState(() => {
     try {
+      const linkedTune = new URLSearchParams(window.location.search).get("tune");
+      if (linkedTune) return linkedTune;
       const savedBook = window.localStorage.getItem("sh-corpus-dashboard-book");
       const savedSelections = JSON.parse(window.localStorage.getItem("sh-corpus-dashboard-selected-tunes") || "{}");
       return BOOK_ORDER.includes(savedBook) && savedSelections && typeof savedSelections === "object" && typeof savedSelections[savedBook] === "string"
@@ -552,7 +559,7 @@ export function App() {
   useEffect(() => {
     const controller = new AbortController();
     setCorpus(null);
-    fetch(assetUrl("/corpus.json"), { signal: controller.signal })
+    fetch(assetUrl("/reader-data/catalogue.json"), { signal: controller.signal })
       .then((response) => {
         if (!response.ok) throw new Error(`Corpus request failed: ${response.status}`);
         return response.json();
@@ -560,6 +567,12 @@ export function App() {
       .then((data) => {
         if (controller.signal.aborted) return;
         validateCorpus(data, BOOK_ORDER);
+        if (data.readerDataVersion != null && (data.readerDataVersion !== 1
+          || !Array.isArray(data.reviewQueue?.reviewNow)
+          || data.reviewQueue.reviewNow.some((item) => !item || typeof item.queueId !== "string" || typeof item.status !== "string")
+          || data.songs.some((song) => !/^\/reader-data\/[a-f0-9]{64}\.json$/.test(song.detailRef)))) {
+          throw new Error("Incompatible reader catalogue");
+        }
         setBookId((current) => data.books[current] ? current : BOOK_ORDER.find((id) => data.books[id]));
         setCorpus(data);
       })
@@ -570,6 +583,11 @@ export function App() {
   useEffect(() => {
     const controller = new AbortController();
     setHumanReviewQueueError(false);
+    if (!corpus || corpus.error) return;
+    if (corpus.readerDataVersion === 1) {
+      setHumanReviewQueue(corpus.reviewQueue);
+      return;
+    }
     fetch(assetUrl("/human-review-queue.json"), { signal: controller.signal })
       .then((response) => {
         if (!response.ok) throw new Error(`Review queue request failed: ${response.status}`);
@@ -583,11 +601,12 @@ export function App() {
         }
       });
     return () => { controller.abort(); };
-  }, [humanReviewQueueAttempt]);
+  }, [humanReviewQueueAttempt, corpus]);
 
   useEffect(() => {
     const controller = new AbortController();
     setSourceHealth(null);
+    if (!corpus || corpus.error || corpus.readerDataVersion === 1) return;
     fetch(assetUrl("/source-health.json"), { signal: controller.signal })
       .then((response) => response.ok ? response.json() : Promise.reject(new Error("health unavailable")))
       .then((data) => {
@@ -597,7 +616,7 @@ export function App() {
       })
       .catch(() => { if (!controller.signal.aborted) setSourceHealth({ error: true }); });
     return () => { controller.abort(); };
-  }, [sourceHealthAttempt]);
+  }, [sourceHealthAttempt, corpus]);
 
   const reviewQueueReady = Boolean(humanReviewQueue) && !humanReviewQueueError;
 
@@ -657,7 +676,35 @@ export function App() {
       // The visual theme still applies when storage is unavailable.
     }
   }, [book, bookId, mode]);
-  const selectedSong = corpus?.songs ? corpus.songs.find((song) => song.id === selectedId && song.books.includes(bookId)) || getBookSongs(corpus, bookId)[0] : undefined;
+  const catalogueSong = corpus?.songs ? corpus.songs.find((song) => song.id === selectedId && song.books.includes(bookId)) || getBookSongs(corpus, bookId)[0] : undefined;
+
+  const detailRef = catalogueSong?.detailRef;
+  const currentDetail = tuneDetail && tuneDetail.ref === detailRef ? tuneDetail.data : null;
+  const detailReady = !detailRef || Boolean(currentDetail);
+  const selectedSong = currentDetail?.song || catalogueSong;
+  useEffect(() => {
+    if (!detailRef) return;
+    const controller = new AbortController();
+    setTuneDetail(null);
+    setDetailError(false);
+    fetch(assetUrl(detailRef), { signal: controller.signal })
+      .then((response) => {
+        if (!response.ok) throw new Error('Tune detail unavailable');
+        return response.json();
+      })
+      .then((data) => {
+        validateCorpus({ books: corpus.books, songs: [data.song] }, BOOK_ORDER);
+        if (data.song.id !== catalogueSong.id || data.song.books.length !== catalogueSong.books.length
+          || !catalogueSong.books.every((book) => data.song.books.includes(book))
+          || !Array.isArray(data.reviewQueue?.reviewNow)
+          || data.reviewQueue.reviewNow.some((item) => !item || typeof item.queueId !== "string" || typeof item.status !== "string")
+          || !Array.isArray(data.sourceHealth?.records)
+          || data.sourceHealth.records.some((item) => !item || typeof item.url !== "string")) throw new Error('Incompatible tune detail');
+        if (!controller.signal.aborted) setTuneDetail({ ref: detailRef, data });
+      })
+      .catch(() => { if (!controller.signal.aborted) setDetailError(true); });
+    return () => controller.abort();
+  }, [detailRef, detailAttempt]);
 
   useEffect(() => {
     if (!selectedSong) return;
@@ -670,12 +717,14 @@ export function App() {
     }
   }, [bookId, selectedSong?.id]);
 
-  const reviewDraft = reviewQueueItem(humanReviewQueue, selectedSong, bookId);
-  const reviewDraftAmbiguous = reviewQueueIsAmbiguous(humanReviewQueue, selectedSong, bookId);
+  const selectedReviewQueue = currentDetail?.reviewQueue || humanReviewQueue;
+  const selectedSourceHealth = detailRef ? currentDetail?.sourceHealth : sourceHealth;
+  const reviewDraft = reviewQueueItem(selectedReviewQueue, selectedSong, bookId);
+  const reviewDraftAmbiguous = reviewQueueIsAmbiguous(selectedReviewQueue, selectedSong, bookId);
   const rejectedDraft = reviewDraftAmbiguous || isRejectedReviewItem(reviewDraft);
-  const selectedScorePreview = getBookScore(selectedSong, bookId);
-  const selectedReferenceScore = getBookReferenceScore(selectedSong, bookId);
-  const availableDraft = getBookDraftScore(selectedSong, bookId);
+  const selectedScorePreview = detailReady ? getBookScore(selectedSong, bookId) : null;
+  const selectedReferenceScore = detailReady ? getBookReferenceScore(selectedSong, bookId) : null;
+  const availableDraft = detailReady ? getBookDraftScore(selectedSong, bookId) : null;
   // Pinned publications are a separate reviewed artifact, not the old OMR queue item.
   const publishedDraft = availableDraft?.reviewPublication ? availableDraft : null;
   const selectedDraftScore = publishedDraft || (!reviewQueueReady || rejectedDraft ? null : availableDraft);
@@ -710,13 +759,13 @@ export function App() {
   const transpose = targetKey ? ((ROOT_PITCH[targetKey] - rootFromKey(sourceKeyValue)) + 12) % 12 : 0;
   const signedTranspose = transpose > 6 ? transpose - 12 : transpose;
   const sourceUrls = [...new Set([...(selectedMetadata?.sourceUrl ? [selectedMetadata.sourceUrl] : []), ...(selectedMetadata?.sourceUrls || []), ...(selectedSong?.urls || [])])].slice(0, 6);
-  const healthByUrl = useMemo(() => new Map((sourceHealth?.records || []).map((record) => [record.url, record])), [sourceHealth]);
+  const healthByUrl = useMemo(() => new Map((selectedSourceHealth?.records || []).map((record) => [record.url, record])), [selectedSourceHealth]);
   const rawSelectedHealthRecords = sourceUrls.map((url) => healthByUrl.get(url)).filter(Boolean);
   const selectedHealthPresentation = summarizeSourceHealth(rawSelectedHealthRecords);
   const selectedHealthRecords = rawSelectedHealthRecords;
   const selectedHealthSummary = rawSelectedHealthRecords.length
     ? selectedHealthPresentation.text
-    : !sourceHealth ? "Loading source health…" : sourceHealth.error ? "Source-health cache unavailable" : "No health record for this source URL";
+    : !selectedSourceHealth ? "Loading source health…" : selectedSourceHealth.error ? "Source-health cache unavailable" : "No health record for this source URL";
   const scoreRef = activeScorePreview?.scoreRef || "";
   const scoreRequestRef = assetUrl(scoreRef);
   const selectedScore = fullScore?.sourceUrl === activeScorePreview?.sourceUrl ? fullScore : activeScorePreview;
@@ -979,6 +1028,10 @@ export function App() {
           <div className="sr-only" role="status" aria-live="polite" aria-atomic="true">Selected tune: {selectedSong.songNo} — {selectedSong.title}</div>
           <div className="detail-header"><div><div className="detail-overline">{book.label} · page {selectedSong.songNo}</div><h2>{selectedSong.songNo} — {selectedSong.title}</h2></div><button className="icon-button" aria-label="Show source preservation note" onClick={() => showToast("Source links and score data are preserved locally.")}><Icon name="info" size={20} /></button></div>
           <a className="tune-link" href={tuneUrl(window.location.href, bookId, selectedSong.id)}>Link to this tune</a>
+          {!detailReady ? <div className="source-coverage-note" role={detailError ? "alert" : "status"}>
+            <p>{detailError ? "Tune evidence could not be loaded. Playback remains unavailable." : "Loading tune evidence…"}</p>
+            {detailError && <button className="text-button" onClick={() => setDetailAttempt((attempt) => attempt + 1)}>Retry tune evidence</button>}
+          </div> : <>
           <div className="detail-tags">{selectedScore ? <span className={`tag ${canTranspose ? referenceScoreActive ? "reference-tag" : draftScoreActive ? "draft-tag" : "available" : "unavailable"}`}><Icon name={canTranspose ? "check" : "info"} size={14} />{scoreBadgeLabel}</span> : selectedCoverage?.status === "transcription-blocked" ? <span className="tag unavailable"><Icon name="info" size={14} />Transcription blocked</span> : sourcePdfUrl(selectedSong) || sourcePageUrl(selectedSong, bookId) ? <span className="tag available"><Icon name="check" size={14} />Source scan</span> : selectedCoverage?.status === "source-reference" ? <span className="tag available"><Icon name="check" size={14} />Source reference</span> : <span className="tag unavailable"><Icon name="info" size={14} />Metadata only</span>}{(selectedScore || sourceKeyValue || draftScoreActive) && <span className="tag key-tag">{sourceKeyValue ? sourceKeyLabel : "Key unavailable"}</span>}{bookId === "sh2025" && selectedMetadata?.editionStatus === "added-in-2025" && <span className="tag edition-new-tag">New in 2025</span>}{editionReconciliation && <span className="tag edition-tag">{editionReconciliation.status === "change-flagged" ? "1991 / 2025 text differs" : "Shared by 1991 / 2025"}</span>}</div>
           {selectedSong.sourceIdentityReview && <div className="source-coverage-note"><Icon name="info" size={18} /><span><strong>{selectedSong.sourceIdentityReview.contentKind === "prose" ? "Article, not a notation page." : "Source page identified."}</strong> Printed page {selectedSong.sourceIdentityReview.printedPage}; PDF leaf {selectedSong.sourceIdentityReview.pdfLeaf}. {selectedSong.sourceIdentityReview.observation} <a href={selectedSong.sourceIdentityReview.sourceUrl} target="_blank" rel="noreferrer noopener">Open reviewed source page</a></span></div>}
           <div className="first-line"><span className="section-label">First line</span><p>{selectedSong.rawFirstLine || "No first line recorded in the local source."}</p></div>
@@ -1000,10 +1053,11 @@ export function App() {
             {draftScoreActive && <SourceRecording song={selectedSong} coverage={selectedCoverage} />}
           </> : <><div className="missing-score"><Icon name="info" size={23} /><div><h3>No transposable score file for this record</h3><p>The atlas preserves the exact source link or scan instead of synthesizing notation where structured score data is absent.</p>{selectedCoverage && <p className="edition-note"><strong>{coverageLabel(selectedCoverage)}.</strong> {coverageNextStep(selectedCoverage)}</p>}{selectedCoverage?.editionStatus === "added-in-2025" && <p className="edition-note"><strong>New in 2025.</strong> This page is on the publisher's additions list and has no verified 2025 MusicXML yet. <a href={selectedCoverage.editionEvidenceUrl} target="_blank" rel="noreferrer noopener">View the source list <Icon name="external" size={13} /></a></p>}{reviewDraft && <p className="edition-note"><strong>{reviewDisposition(reviewDraft, reviewDraftAmbiguous).label}.</strong> {reviewDisposition(reviewDraft, reviewDraftAmbiguous).summary} {reviewDraft.draftSummary.parts} parts, {Object.values(reviewDraft.draftSummary.measuresByPart)[0] || "unknown"} measures per part. It is not playable or transposable because the source comparison is not promotion-safe. <a href={assetUrl("/human-review-queue.json")} target="_blank" rel="noreferrer noopener">View disposition evidence <Icon name="external" size={13} /></a></p>}{alternateEdition && <p className="edition-note">A verified {alternateEdition === "sh1991" ? "1991" : "2025"}-edition score is available for this shared tune, but it is not being mislabeled as a {bookId === "sh2025" ? "2025" : "1991"} score.</p>}{alternateEdition && <button className="text-button" onClick={() => { setBookId(alternateEdition); setSelectedId(selectedSong.id); }}>Open the verified {alternateEdition === "sh1991" ? "1991" : "2025"} score</button>}</div></div><ShapeReviewDraftPanel reviewItem={reviewDraft} ambiguous={reviewDraftAmbiguous} /><CleanSourceCandidates coverage={selectedCoverage} /><SourceNotation song={selectedSong} bookId={bookId} /><SourceComparisonPanel song={selectedSong} bookId={bookId} coverage={selectedCoverage} /><SourceRecording song={selectedSong} coverage={selectedCoverage} /></>}
           <div className="source-strip"><div><span className="section-label">Source</span><span>{selectedMetadata?.sourceUrl ? `${book.label}, page ${selectedSong.songNo}` : "Local corpus record"}</span></div><div className="source-actions">{sourceUrls.map((url) => <a key={url} href={url} target="_blank" rel="noreferrer noopener" aria-label={`Open source record at ${sourceDestinationLabel(url)}`}>Open source record <Icon name="external" size={16} /></a>)}{activeScorePreview && shapeSourcePdfUrl(activeScorePreview) && <a href={shapeSourcePdfUrl(activeScorePreview)} target="_blank" rel="noreferrer noopener">Open shape-source PDF <Icon name="external" size={16} /></a>}</div></div>
-          <div className="source-health-card" aria-label="Source health" aria-busy={!sourceHealth}><div><span className="section-label">Source health</span><strong role="status" aria-live="polite">{selectedHealthSummary}</strong>{sourceHealth?.error && <button className="text-button" type="button" onClick={() => setSourceHealthAttempt((attempt) => attempt + 1)}>Retry source health</button>}</div><span className="source-health-retention">{selectedHealthPresentation.retentionLabel}</span></div>
+          <div className="source-health-card" aria-label="Source health" aria-busy={!selectedSourceHealth}><div><span className="section-label">Source health</span><strong role="status" aria-live="polite">{selectedHealthSummary}</strong>{selectedSourceHealth?.error && <button className="text-button" type="button" onClick={() => setSourceHealthAttempt((attempt) => attempt + 1)}>Retry source health</button>}</div><span className="source-health-retention">{selectedHealthPresentation.retentionLabel}</span></div>
           {repeatPlayback?.status === "blocked" && <p className="practice-fallback-note" role="status">Repeat playback is unavailable: {repeatPlayback.reason} Practice uses written order.</p>}
           {playbackQuarantined && <p className="practice-fallback-note" role="alert"><strong>Playback unavailable.</strong> {quarantine.reason}</p>}
           <div className="detail-footer"><ShapeLegend /></div>
+          </>}
         </> : <div className="missing-score"><Icon name="info" size={23} /><div><h3>Select a tune to begin</h3><p>Search the local atlas by page, title, or first line.</p></div></div>}
       </section>
     </main>

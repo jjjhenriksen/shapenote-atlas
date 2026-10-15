@@ -10,7 +10,7 @@ function fixture(length = 4) {
   return { books: { sh1991: committed.books.sh1991 }, songs, coverage: { byBook: {} } };
 }
 async function intercept(page, data = fixture()) {
-  await page.route('**/corpus.json', (route) => route.fulfill({ json: data }));
+  await page.route('**/reader-data/catalogue.json', (route) => route.fulfill({ json: data }));
   await page.route('**/human-review-queue.json', (route) => route.fulfill({ json: { reviewNow: [] } }));
   await page.route('**/source-health.json', (route) => route.fulfill({ json: { records: [{ url: 'https://example.invalid/a', status: 'reachable' }] } }));
   await page.route('**/fixture-*.json', (route) => { const id = /fixture-(.).json/.exec(route.request().url())[1]; return route.fulfill({ json: data.songs.find((song) => song.id === id).scoreByBook.sh1991 }); });
@@ -79,7 +79,7 @@ for (const [name, payload] of Object.entries({ missingSongs: { books: fixture().
   test(`malformed corpus ${name} recovers through retry`, async ({ page }) => {
     const errors = []; page.on('pageerror', (error) => errors.push(error.message));
     await intercept(page); let calls = 0;
-    await page.route('**/corpus.json', (route) => route.fulfill({ json: ++calls === 1 ? payload : fixture() }));
+    await page.route('**/reader-data/catalogue.json', (route) => route.fulfill({ json: ++calls === 1 ? payload : fixture() }));
     await page.goto('/?book=sh1991&tune=a');
     await expect(page.getByRole('alert')).toContainText('incompatible');
     await page.getByRole('button', { name: 'Retry loading', exact: true }).click();
@@ -181,17 +181,17 @@ test('rapid score navigation cancels streaming bodies and retry commits only cur
   } finally { for (const response of responses.values()) response.destroy(); await new Promise((resolve) => server.close(resolve)); }
 });
 
-test('unmount aborts pending corpus, review queue and health downloads', async ({ page }) => {
+test('unmount aborts the pending catalogue before evidence requests start', async ({ page }) => {
   await page.addInitScript(() => {
     const original = window.fetch; window.__requests = [];
     window.fetch = (url, options) => {
-      if (!/\/(corpus|human-review-queue|source-health)\.json$/.test(url)) return original(url, options);
+      if (!/\/(reader-data\/catalogue|human-review-queue|source-health)\.json$/.test(url)) return original(url, options);
       const item = { url, aborted: false }; __requests.push(item);
       return new Promise((resolve, reject) => options?.signal?.addEventListener('abort', () => { item.aborted = true; reject(new DOMException('Aborted', 'AbortError')); }));
     };
   });
   await page.goto('/');
-  await expect.poll(() => page.evaluate(() => __requests.length)).toBe(3);
+  await expect.poll(() => page.evaluate(() => __requests.length)).toBe(1);
   await unmount(page);
   expect(await page.evaluate(() => __requests.every((item) => item.aborted))).toBe(true);
 });

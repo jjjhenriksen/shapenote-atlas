@@ -245,6 +245,31 @@ an installed Chrome locally, set `ATLAS_BROWSER_CHANNEL=chrome` when running
 `npm run test:browser`. The Reader reliability CI workflow runs these checks,
 the bundled playback/transposition validators, and the production build.
 
+### Reader data budget
+
+`npm run dev` and `npm run build` generate `public/reader-data/` from the
+canonical corpus, review queue, and source-health bundles. The reader opens a
+compact complete catalogue (maximum **4,000,000 decoded UTF-8 bytes**), then
+fetches only the selected tune's content-addressed detail (maximum
+**1,000,000 decoded bytes**). Full records and edition-scoped provenance are
+preserved in those lazy details; canonical bundles and musical assets remain
+unchanged. The requested score is a separate existing lazy asset and is not
+included in this catalogue/evidence budget. Generated reader assets are ignored
+by Git; run `npm run build-reader-data` after changing canonical data during an
+already-running development session. Build fails rather than exceeding either
+budget.
+
+`npm test` checks every record's discovery facets and lossless detail evidence.
+The cold-load browser cases disable cache and emulate 1.6 Mbps download,
+150 ms latency, and 4× CPU slowdown at desktop/mobile sizes. Measurements attach
+to the test output; they are local lab observations, not production timings.
+For production-bundle measurements, build first, stop any dev server on 5173,
+and run:
+
+```sh
+ATLAS_BROWSER_PREVIEW=1 npm run test:browser -- --grep 'cold catalogue'
+```
+
 Then run the fail-closed aggregate check:
 
 ```sh
