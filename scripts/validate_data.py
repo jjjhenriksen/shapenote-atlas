@@ -280,7 +280,7 @@ def main() -> int:
         (record.get("songId"), record.get("bookId")): record
         for record in coverage_data.get("records", [])
     }
-    allowed_statuses = {"structured-score", "source-reference", "metadata-only", "transcription-blocked", "mapping-gap"}
+    allowed_statuses = {"structured-score", "source-reference", "metadata-only", "transcription-blocked", "mapping-gap", "non-notation"}
     seen_refs: set[str] = set()
     seen_draft_refs: set[str] = set()
     expected_queue: set[tuple[str, str]] = set()
@@ -296,6 +296,8 @@ def main() -> int:
                     raise SystemExit(f"{song['id']} {book_id}: missing 2025 edition status evidence")
             if coverage.get("status") not in allowed_statuses:
                 raise SystemExit(f"{song['id']} {book_id}: invalid source coverage status")
+            if (coverage.get("contentKind") == "prose") != (coverage.get("status") == "non-notation"):
+                raise SystemExit(f"{song['id']} {book_id}: prose must be classified as non-notation")
             manifest_score_audit = coverage.get("manifestScoreAudit")
             if manifest_score_audit:
                 audit_status = manifest_score_audit.get("status")
@@ -352,7 +354,14 @@ def main() -> int:
                 if not candidate.get("pdfUrl", "").startswith("https://"):
                     raise SystemExit(f"{song['id']} {book_id}: source candidate is missing a public PDF URL: {candidate_key}")
                 corpus_candidate_keys.add(candidate_key)
-            if coverage.get("status") != "structured-score":
+            if coverage.get("status") == "non-notation":
+                if (coverage.get("contentKind") != "prose"
+                        or coverage.get("sourceIdentityReview", {}).get("contentKind") != "prose"
+                        or coverage.get("nextAction") != "preserve-prose-reference"
+                        or any(song.get(key, {}).get(book_id) for key in
+                               ("scoreByBook", "referenceScoreByBook", "draftScoreByBook"))):
+                    raise SystemExit(f"{song['id']} {book_id}: invalid non-notation classification")
+            elif coverage.get("status") != "structured-score":
                 expected_queue.add((song["id"], book_id))
             for track in coverage.get("recordingTracks", []):
                 if not track.get("url", "").startswith("https://") or not track.get("url", "").lower().endswith(".mp3"):
@@ -445,6 +454,16 @@ def main() -> int:
     expected_edition_records = sum(book.get("records", 0) for book in coverage.values())
     if coverage_data.get("summary", {}).get("editionRecords") != expected_edition_records:
         raise SystemExit("source coverage edition-record count does not match corpus coverage")
+    prose_records = sum(row.get("contentKind") == "prose" for row in coverage_records.values())
+    if (coverage_data.get("summary", {}).get("proseRecords") != prose_records
+            or coverage_data.get("summary", {}).get("notationRecords") != expected_edition_records - prose_records):
+        raise SystemExit("source coverage prose/notation counts do not match edition records")
+    for book_id, counts in coverage.items():
+        book_prose = sum(row.get("bookId") == book_id and row.get("contentKind") == "prose"
+                         for row in coverage_records.values())
+        if book_prose and (counts.get("proseRecords") != book_prose
+                           or counts.get("tuneRecords") != counts["records"] - book_prose):
+            raise SystemExit(f"{book_id}: prose/notation inventory counts drift")
     expected_reference_witnesses = sum(
         1
         for song in data["songs"]
@@ -473,7 +492,7 @@ def main() -> int:
     if actual_queue != expected_queue or len(queue_records) != len(actual_queue):
         raise SystemExit("transcription queue does not exactly match non-structured coverage records")
     for record in queue_records:
-        if record.get("status") not in allowed_statuses - {"structured-score"}:
+        if record.get("status") not in allowed_statuses - {"structured-score", "non-notation"}:
             raise SystemExit(f"invalid transcription queue status: {record.get('status')!r}")
         if not record.get("queueId") or not record.get("nextAction"):
             raise SystemExit("incomplete transcription queue record")

@@ -281,8 +281,10 @@ current, record-specific blocker. A dated 404 is not proof of permanent impossib
 - [x] A Glimpse of Thee: compared printed `L.M.D.` with catalogue `L.M.` and traced the
   upstream metadata source. Implemented the source-backed, regeneration-safe metadata
   correction on `fix/source-metadata-16-55`; stable IDs and the four-measure score are preserved.
-- [ ] Trumpet: define the classification/count migration for the three prose records.
-  Preserve provenance, stable references and deep links; update joins/coverage deliberately.
+- [x] Trumpet: separate the three source-reviewed prose records from notation work:
+  105 catalogue appearances = 102 tune records + 3 articles. Stable IDs, source
+  provenance, raw text, search and deep links remain intact. See
+  [classification and count semantics](docs/evidence/trumpet-prose-56.md).
 
 **Done per discrepancy:** documented source resolution, reproducible metadata handling,
 consistent counts and unaffected unrelated records. Inventory cleanup is never
@@ -332,8 +334,8 @@ Do not label the existing package/static-preview check as native UI proof.
 | Social Harp | 221 | 0 | 221 | ATLAS-07 / ATLAS-10; notation and inventory, not repeated page mapping |
 | Minnesota Harmony | 87 | 0 | 87 | ATLAS-04; Afton v27 underlay and remaining source-backed drafts |
 | Sacred Harp Tunes | 427 | 0 | 427 | ATLAS-02; Glimpse m5 onward, then further exact witnesses |
-| Trumpet | 105 | 0 | 105 | ATLAS-08 / ATLAS-10; notation and prose classification |
-| **Total** | **4,202** | **1,155** | **3,047** | **All eleven books remain in scope** |
+| Trumpet | 105 | 0 | 102 | ATLAS-08; 102 tunes plus 3 preserved prose articles |
+| **Total** | **4,202** | **1,155** | **3,044** | **All eleven books remain in scope; 3 prose appearances are not notation gaps** |
 
 **Done for each record:** exact-source acquisition/transcription, all supported
 semantics reviewed, provenance and source/candidate hashes retained, and the
