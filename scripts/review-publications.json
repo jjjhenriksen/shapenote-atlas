@@ -516,7 +516,7 @@
       "limitations": [
         "Only the first four measures in all four voices are transcribed; the rest of the tune is omitted, not silence.",
         "Lyrics, later repeats and numbered endings are not yet transcribed.",
-        "Printed meter is L.M.D.; the catalogue label L.M. is preserved pending separate reconciliation.",
+        "Printed meter L.M.D. is reflected in catalogue metadata; the stable record ID retains its historical L.M. suffix.",
         "Mode is unknown; supply a source key for transposition.",
         "Source comparison uses the original external PDF; no retained source scan is distributed with this draft."
       ],

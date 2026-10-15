@@ -2466,6 +2466,8 @@ def main() -> int:
     publish(PROJECT_ROOT, OUTPUT.parent)
     from trumpet_catalogue_review import publish as publish_trumpet_identities
     publish_trumpet_identities(PROJECT_ROOT, OUTPUT.parent)
+    from catalogue_source_corrections import publish as publish_catalogue_corrections
+    publish_catalogue_corrections(PROJECT_ROOT)
     print(f"Built {OUTPUT} with {len(songs)} songs and {local_scores} full-song MusicXML scores.")
     return 0
 

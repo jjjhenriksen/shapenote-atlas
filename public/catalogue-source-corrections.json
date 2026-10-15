@@ -1,0 +1,38 @@
+{
+  "reviewedAt": "2026-10-14",
+  "method": "Direct visual inspection of hash-verified PDFs. Coordinates normalized to page, origin top-left.",
+  "upstreamTrace": {
+    "dashboard": "/Users/jacquelinehenriksen/sh-corpus-scripts/dashboard/data.js retains both original catalogue labels",
+    "metadataCsv": "rag_web_metadata.csv has no kentucky/10 or sacredharptunes/a-glimpse-of-thee row; use record-scoped generator overlay, not another tune or edition."
+  },
+  "records": {
+    "kentucky 10 — New-Salem": {
+      "sourceUrl": "https://www.shapenote.net/berkley/010%20New%20Salem.pdf",
+      "sha256": "f4ba7e2ead70aa38bfc626f017b4a4e060487f95eaeda05f1b67f98f78db8251",
+      "pdfPage": 1,
+      "printedPage": "10",
+      "region": [
+        0.15,
+        0.155,
+        0.94,
+        0.18
+      ],
+      "observation": "Verse 1, first system: O thou in whose presence my soul takes delight,",
+      "transcriptionPolicy": "Join printed syllables pre-sence and de-light; stop at the first printed comma. Other verses remain untranscribed."
+    },
+    "sacredharptunes a-glimpse-of-thee — A Glimpse of Thee L.M.": {
+      "sourceUrl": "https://media.sacredharptunes.com/jesse_325.pdf",
+      "sha256": "86c05b5b9441859f740ded45efad776a093bd2926a2c79bc15e75e2b978b8338",
+      "pdfPage": 1,
+      "region": [
+        0.86,
+        0.04,
+        0.95,
+        0.10
+      ],
+      "observation": "Title header prints L.M.D.",
+      "publicationPolicy": "external-link-only",
+      "scope": "Meter only; existing four-measure score is unchanged."
+    }
+  }
+}
