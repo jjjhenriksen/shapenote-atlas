@@ -28,7 +28,7 @@ test('all eleven books partition completely and preserve their score mapping cou
  assert.equal(Object.keys(corpus.books).length, 11);
  for (const book of Object.keys(corpus.books)) {
   const songs = corpus.songs.filter(s => s.books.includes(book));
-  const groups = ['exact','reference','draft','source-only'].map(kind => songs.filter(s => matchesDiscovery(s,book,kind,false)));
+  const groups = ['exact','reference','draft','source-only','prose'].map(kind => songs.filter(s => matchesDiscovery(s,book,kind,false)));
   assert.equal(groups.reduce((total, group) => total + group.length, 0), songs.length, book);
   assert.equal(groups[0].length, corpus.coverage.byBook[book].localScoreRecords, book);
   if (book !== 'sh2025') assert.equal(songs.filter(s => matchesDiscovery(s,book,'all',true)).length,0,book);
@@ -123,5 +123,18 @@ test('key facets normalize explicit fifths and distinguish accidental spellings'
  for (const key of ['C', '0', '1:unknown', '2:dorian', '8:major']) {
   assert.equal(recordKey(song(key), 'sh1991'), '');
   assert.equal(recordMode(song(key), 'sh1991'), 'unknown');
+ }
+});
+
+test('Trumpet prose remains linkable but is not missing notation', () => {
+ const songs = corpus.songs.filter(s => s.books.includes('trumpet'));
+ const prose = songs.filter(s => matchesDiscovery(s, 'trumpet', 'prose'));
+ assert.equal(songs.length, 105);
+ assert.equal(prose.length, 3);
+ assert.equal(songs.filter(s => matchesDiscovery(s, 'trumpet', 'source-only')).length, 102);
+ for (const song of prose) {
+  assert.equal(matchesDiscovery(song, 'trumpet', 'all'), true);
+  assert.equal(isTransposable(song, 'trumpet'), false);
+  assert.deepEqual(resolveTuneLink(tuneUrl('http://localhost/atlas/', 'trumpet', song.id), corpus), {bookId: 'trumpet', songId: song.id});
  }
 });

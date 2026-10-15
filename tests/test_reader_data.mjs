@@ -31,7 +31,7 @@ test('compact catalogue preserves every edition/facet, review gate, and full laz
       assert.deepEqual(compact.books, original.books);
       for (const book of original.books) {
         for (const fn of [notationKind, recordKey, availableParts, isTransposable]) assert.deepEqual(fn(compact, book), fn(original, book), `${original.id}/${book}/${fn.name}`);
-        for (const kind of ['all', 'exact', 'reference', 'draft', 'source-only']) {
+        for (const kind of ['all', 'exact', 'reference', 'draft', 'source-only', 'prose']) {
           assert.equal(matchesDiscovery(compact, book, kind, true), matchesDiscovery(original, book, kind, true));
         }
       }

@@ -204,13 +204,14 @@ class Agent10ReproducibleValidationTests(unittest.TestCase):
         self.assertIsInstance(corpus.get("songs"), list)
         self.assertGreater(len(corpus["songs"]), 0)
         coverage_summary = coverage["summary"]
-        for key in ("editionRecords", "structuredScores", "transposableReferenceWitnesses", "sourceReferences", "metadataOnly", "mappingGaps"):
+        for key in ("editionRecords", "notationRecords", "proseRecords", "structuredScores", "transposableReferenceWitnesses", "sourceReferences", "metadataOnly", "mappingGaps"):
             self.assertIsInstance(coverage_summary.get(key), int)
             self.assertGreaterEqual(coverage_summary[key], 0)
         self.assertEqual(
             coverage_summary["editionRecords"],
-            coverage_summary["structuredScores"] + coverage_summary["sourceReferences"] + transcription["summary"]["byStatus"].get("transcription-blocked", 0),
+            coverage_summary["structuredScores"] + coverage_summary["sourceReferences"] + coverage_summary["proseRecords"] + transcription["summary"]["byStatus"].get("transcription-blocked", 0),
         )
+        self.assertEqual(coverage_summary["notationRecords"] + coverage_summary["proseRecords"], coverage_summary["editionRecords"])
         self.assertEqual(transcription["summary"]["total"], sum(transcription["summary"]["byBook"].values()))
         self.assertEqual(transcription["summary"]["total"], sum(transcription["summary"]["byStatus"].values()))
         self.assertGreaterEqual(review["summary"]["optionalReviewItems"], 0)

@@ -2,6 +2,7 @@ import { resolvePlaybackQuarantine } from './practice.js';
 
 // Availability describes the selected edition's existing asset, never a promotion.
 export function notationKind(song, bookId) {
+  if (song.sourceCoverageByBook?.[bookId]?.contentKind === 'prose') return 'prose';
   if (song.scoreByBook?.[bookId]) return 'exact';
   if (song.referenceScoreByBook?.[bookId]) return 'reference';
   if (song.draftScoreByBook?.[bookId]) return 'draft';

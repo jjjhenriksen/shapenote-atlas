@@ -11,7 +11,7 @@ const mapValues = (object, project) => Object.fromEntries(Object.entries(object 
 export function catalogueSong(song) {
   const record = pick(song, ['id', 'songNo', 'title', 'books', 'rawFirstLine', 'textKey', 'urls']);
   record.metadataByBook = mapValues(song.metadataByBook, (value) => pick(value, ['composer', 'lyricist', 'keySignature', 'editionStatus', 'sourceUrl', 'sourceUrls']));
-  record.sourceCoverageByBook = mapValues(song.sourceCoverageByBook, (value) => pick(value, ['status', 'nextAction', 'editionStatus', 'sourceUrls', 'editionEvidenceUrl', 'sourceImageUrl']));
+  record.sourceCoverageByBook = mapValues(song.sourceCoverageByBook, (value) => pick(value, ['status', 'contentKind', 'nextAction', 'editionStatus', 'sourceUrls', 'editionEvidenceUrl', 'sourceImageUrl']));
   for (const key of ['scoreByBook', 'referenceScoreByBook', 'draftScoreByBook']) {
     if (!song[key]) continue;
     record[key] = mapValues(song[key], (score) => ({
