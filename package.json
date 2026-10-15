@@ -40,6 +40,7 @@
     "test": "node --test tests/*.mjs",
     "test:browser": "playwright test",
     "build-reader-data": "node scripts/build_reader_data.mjs",
+    "benchmark:reader": "node scripts/benchmark_reader.mjs",
     "predev": "npm run build-reader-data",
     "prebuild": "npm run build-reader-data"
   },

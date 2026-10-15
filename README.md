@@ -318,6 +318,8 @@ the application.
 
 ## Documentation map
 
+- **[Reader startup benchmark](docs/READER_BENCHMARK.md)** — reproducible
+  before/after production builds, cold-cache browser samples and raw timing evidence.
 - **[Hosted Atlas docs](https://shapenote.jacquelinehenriksen.com/atlas/docs/)** — a
   nineteen-page reference library grouped into Start here, Use the reader,
   Evidence, Maintain, and Reference.
