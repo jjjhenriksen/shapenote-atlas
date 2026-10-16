@@ -26,6 +26,7 @@ jobs:
           python3 -m unittest discover -s tests -p test_shape_evidence.py
           python3 -m unittest discover -s tests -p test_trumpet_catalogue_review.py
           python3 -m unittest discover -s tests -p test_sh1991_pilot.py
+          python3 -m unittest discover -s tests -p test_sh1991_head_audit.py
           python3 -m unittest discover -s tests -p test_agent_10_reproducible_validation.py
       - run: npm run validate-playback && npm run validate-transposition
       - run: npm run build

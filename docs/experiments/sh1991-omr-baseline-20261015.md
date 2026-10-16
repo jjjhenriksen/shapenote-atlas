@@ -15,6 +15,8 @@ We tested two inexpensive ways to make the input easier without changing the pri
 
 Next recommendation: a shape-aware symbol recognizer with a shared system/barline alignment layer, preserving the original scan as the authority. First independently review a small paired subset and establish training-use permission; existing XML is a starting point, not sufficient gold data. Do not replace shape heads with ovals and then claim literal-shape recovery. No fine-tuned model was trained in this experiment.
 
+Follow-up: the [210-head source-literal audit](sh1991-head-shape-audit-20261015.md) specifically singles out triangle-head retention/fill, while round/square/diamond locations fare much better in that small sample. This sharpens the next investigation; it is not a causal or learned-model result.
+
 ## Cohort and provenance
 
 The existing corpus has 552 retained SH1991 MusicXML mappings. Their retained hashes were checked. Live catalogue lookup found paired printable PDFs, but those re-engravings are **not** the original edition scans. Original images were acquired separately from `sh1991.sacredharpbremen.org`.
