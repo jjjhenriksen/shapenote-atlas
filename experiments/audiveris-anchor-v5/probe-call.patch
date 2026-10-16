@@ -1,0 +1,10 @@
+--- a/app/src/main/java/org/audiveris/omr/sheet/note/NoteHeadsBuilder.java
++++ b/app/src/main/java/org/audiveris/omr/sheet/note/NoteHeadsBuilder.java
+@@ -376,6 +376,7 @@
+             watch.start("Staff #" + staff.getId() + " catalog");
+             final int pointSize = staff.getHeadPointSize();
+             catalog = TemplateFactory.getInstance().getCatalog(family, pointSize);
++            ForcedTemplateProbe.run(sheet, staff, catalog, distances);
+ 
+             final List<HeadInter> ch = new ArrayList<>(); // Created Heads, for this staff
+ 
