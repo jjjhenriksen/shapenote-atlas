@@ -28,6 +28,13 @@ score agreement and graph localization from retained outputs, and writes the
 requested report plus the local gate decision. Numeric results should match;
 `analysisScriptSha256` identifies the analysis implementation, not the engine.
 
+For the subsequent [stage-survival trace](../../docs/experiments/sh1991-fa-survival-20261015.md),
+also from the existing artifacts and without recognition:
+
+```sh
+python3 scripts/sh1991_fa_survival.py --output /tmp/fa-survival-replay.json
+```
+
 Original per-image receipts record the exact executable, constants, input,
 output, command and engine fingerprint. `sh1991_pilot.py baseline` can reuse
 them only for identical input/label/engine/command values; changed constants
