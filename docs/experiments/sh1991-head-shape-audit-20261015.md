@@ -2,6 +2,10 @@
 
 Date: 2026-10-15. Follow-up to the [40-image baseline](sh1991-omr-baseline-20261015.md), advancing [#471](https://github.com/jjjhenriksen/shapenote-atlas/issues/471).
 
+Follow-up experiment: the [opt-in fa-template v1](sh1991-fa-template-v1-20261015.md)
+recovers many more triangle heads but fails fill, other-head, and score-level
+gates. It is a rejected training-only prototype, not a production fix.
+
 ## Finding and next decision
 
 **The strong association is with triangular heads, not non-round heads generally.** In a source-literal audit of 210 printed noteheads on three training scans, the retained Audiveris graph contains heads at 10 of 62 triangle locations. All 148 round/square/diamond locations have retained heads after two explicitly documented coordinate-offset adjudications.

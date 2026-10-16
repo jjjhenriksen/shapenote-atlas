@@ -1,0 +1,2 @@
+# Frozen diff contains upstream CRLF and mandatory blank-context prefixes.
+fa-heads.patch -text -whitespace

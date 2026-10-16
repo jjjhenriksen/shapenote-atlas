@@ -355,7 +355,7 @@ def scale_decision(work):
     write(work / 'preprocessing-probe-decision.json', decision); print(json.dumps(decision))
 
 
-def run(work, executable, jobs, timeout, arm='raw', record_ids=None):
+def run(work, executable, jobs, timeout, arm='raw', record_ids=None, engine_constants=None):
     work = work.resolve()
     dataset = load(work / 'dataset.json'); dataset_hash = digest((work / 'dataset.json').read_bytes())
     if any(r['pairingStatus'] != 'candidate-needs-independent-event-review' for r in dataset['records']):
@@ -379,14 +379,18 @@ def run(work, executable, jobs, timeout, arm='raw', record_ids=None):
         directory = work / output_name / row['songNo']; directory.mkdir(exist_ok=True, parents=True)
         receipt = directory / 'run.json'; source = working_image(work, row, arm); target = ROOT / row['label']['path']
         if digest(target.read_bytes()) != row['label']['sha256']: raise ValueError('label hash changed')
+        command = [str(executable), '-batch', '-export']
+        for constant in engine_constants or []:
+            command.extend(['-constant', constant])
+        command.extend(['-output', str(directory.resolve()), str(source.resolve())])
         if receipt.exists():
             prior = load(receipt)
             if prior['datasetSha256'] != dataset_hash: raise ValueError('stale run receipt')
             if prior['inputSha256'] != digest(source.read_bytes()) or prior['labelSha256'] != row['label']['sha256']: raise ValueError('cached input drift')
             if prior.get('engineIdentity') and prior['engineIdentity'] != identity: raise ValueError('cached engine drift')
+            if prior['command'] != command: raise ValueError('cached command changed; use a new experiment directory')
             if prior.get('output') and prior['outputSha256'] != digest((ROOT / prior['output']).read_bytes()): raise ValueError('cached output drift')
             return prior
-        command = [str(executable), '-batch', '-export', '-output', str(directory.resolve()), str(source.resolve())]
         started = time.monotonic(); timed_out = False
         with (directory / 'audiveris.log').open('w') as log:
             process = subprocess.Popen(command, stdout=log, stderr=subprocess.STDOUT, start_new_session=True)
@@ -439,10 +443,11 @@ if __name__ == '__main__':
     sub = parser.add_subparsers(dest='command', required=True); sub.add_parser('prepare')
     sub.add_parser('prepare-scale-probe'); sub.add_parser('summarize-scale-probe')
     runner = sub.add_parser('baseline'); runner.add_argument('--audiveris', type=Path, required=True); runner.add_argument('--jobs', type=int, default=2); runner.add_argument('--timeout', type=int, default=120); runner.add_argument('--arm', choices=['raw','grayscale-2x'], default='raw'); runner.add_argument('--record', action='append')
+    runner.add_argument('--constant', action='append', help='Audiveris application constant key=value; part of the immutable command receipt')
     checker = sub.add_parser('verify'); checker.add_argument('--arm', choices=['raw', 'grayscale-2x'], default='raw')
     args = parser.parse_args(); args.work = args.work.resolve(); args.work.mkdir(parents=True, exist_ok=True)
     if args.command == 'prepare': prepare(args.work)
     elif args.command == 'prepare-scale-probe': scale_design(args.work)
     elif args.command == 'summarize-scale-probe': scale_decision(args.work)
     elif args.command == 'verify': verify(args.work, args.arm)
-    else: run(args.work, args.audiveris, args.jobs, args.timeout, args.arm, args.record)
+    else: run(args.work, args.audiveris, args.jobs, args.timeout, args.arm, args.record, args.constant)

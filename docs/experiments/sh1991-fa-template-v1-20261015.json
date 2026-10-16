@@ -1,0 +1,208 @@
+{
+  "schemaVersion": 1,
+  "experiment": "Audiveris Sacred Harp fa templates v1",
+  "protocol": {
+    "version": 1,
+    "frozenAt": "2026-10-16T00:43:49.893744+00:00",
+    "upstreamCommit": "9e1e55cd2746037d059345881c53e6a6754bffbd",
+    "method": "Opt-in four logical fa head templates: two orientations x two fill states, SMuFL Bravura glyphs E0BF/E0C0/E0C8/E0C9; pitched semantics and explicit MusicXML fa/fill; no source-image modification or learned training",
+    "trainingProbe": [
+      "26",
+      "83t",
+      "68b",
+      "72b",
+      "89"
+    ],
+    "headAuditTrainingScans": [
+      "26",
+      "68b",
+      "89"
+    ],
+    "parentDatasetSha256": "a37a835d7a5a7f93d6dbd7d0ed58dd72c87e88e7f89a6878f7c70ec147f0c6e8",
+    "headAuditSha256": "61a74e6d83a9301a11ac6c21d133bae45a39649effe395f0c3999f7433e473de",
+    "selectionRule": {
+      "offControlWrittenEventsIdenticalToOriginal": true,
+      "triangleRetainedRecallGainAtLeast": 0.25,
+      "fillCorrectAmongRetainedTrianglesAtLeast": 0.8,
+      "nonTriangleHeadRetentionAtLeast": 0.98,
+      "candidatePitchRecallGainAtLeast": 0.02,
+      "candidatePitchPrecisionLossAtMost": 0.02,
+      "candidateDurationRecallLossAtMost": 0.01,
+      "candidateOnsetRecallLossAtMost": 0.01,
+      "noFewerExports": true
+    },
+    "heldOutPolicy": "Only if all training gates pass, freeze the engine patch and constants and evaluate unchanged on the eight existing test images. No held-out tuning. Further post-result changes create a new version and invalidate a fresh-held-out claim.",
+    "limitations": "Repeated training probe already diagnosed by the prior audit; candidate XML labels not independently certified; source-head observations single AI review; head-stage false-positive rate not fully annotated",
+    "sourcePolicy": "Original scans, baseline source/build, original outputs and issued evidence immutable. No uploads, paid compute, model training or promotion."
+  },
+  "protocolSha256": "fcb44d5a4d0af656cb980ac2d22c0a595bfdaf9cd8caee023a98ed8bb8923d58",
+  "engine": {
+    "frozenAt": "2026-10-16T00:49:57.403034+00:00",
+    "upstreamCommit": "9e1e55cd2746037d059345881c53e6a6754bffbd",
+    "patchSha256": "6b4da0347123a4780a7960ae89bba2971bf2621f85fdfbca376bc9ab31562721",
+    "engineIdentity": {
+      "launcherSha256": "868f4b0b70873b92ffaafda7e13317494cd0eff9bb28a5d29b9e9ab4aef0c567",
+      "librarySetSha256": "ed0202e5127cad0ccc496e86fb335e0312183b443aecd9b5fc61e832fc46de3a",
+      "libraryCount": 55
+    },
+    "focusedJavaTests": {
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "receiptSha256": "b9a2c6e930c8b213619dee77ba486c7ef43570bba8386681b58b9d5622413dc5"
+    },
+    "flags": "faHeads true/false; batch CLI constant persistence forced false; head-template diagnostic dump enabled",
+    "modelFineTuned": false,
+    "inputPixelsChanged": false
+  },
+  "decision": {
+    "checks": {
+      "offControlWrittenEventsIdentical": true,
+      "triangleRecovery": true,
+      "triangleFill": false,
+      "otherHeadRetention": false,
+      "candidatePitchRecall": false,
+      "candidatePitchPrecision": false,
+      "candidateDuration": false,
+      "candidateOnset": false,
+      "exportCount": true
+    },
+    "passesAllTrainingGates": false,
+    "offControlByImage": {
+      "26": true,
+      "83t": true,
+      "68b": true,
+      "72b": true,
+      "89": true
+    }
+  },
+  "arms": {
+    "off": {
+      "summary": {
+        "pages": 5,
+        "exports": 5,
+        "counts": {
+          "referenceEvents": 1001,
+          "observedEvents": 709,
+          "referencePitched": 965,
+          "observedPitched": 684,
+          "deletions": 294,
+          "pitchMatches": 559,
+          "durationMatches": 586,
+          "onsetMatches": 286,
+          "insertions": 2
+        },
+        "candidatePitchRecall": 0.5792746113989637,
+        "candidatePitchPrecision": 0.8172514619883041,
+        "candidateDurationRecall": 0.5854145854145855,
+        "candidateOnsetRecall": 0.2857142857142857
+      },
+      "headAudit": {
+        "triangle": {
+          "observed": 62,
+          "retained": 10,
+          "retainedRecall": 0.16129032258064516,
+          "correctFill": 1,
+          "fillCorrectAmongRetained": 0.1,
+          "faLabelsAmongRetained": 0,
+          "correctStaff": 10
+        },
+        "other": {
+          "observed": 148,
+          "retained": 148,
+          "retainedRecall": 1.0,
+          "correctFill": 148,
+          "fillCorrectAmongRetained": 1.0,
+          "faLabelsAmongRetained": 0,
+          "correctStaff": 148
+        },
+        "triangle-filled": {
+          "observed": 44,
+          "retained": 9,
+          "correctFill": 0
+        },
+        "triangle-open": {
+          "observed": 18,
+          "retained": 1,
+          "correctFill": 1
+        },
+        "unmatchedGraphNodesInWindows": 8,
+        "unmatchedGraphNodeCaveat": "Interior x=[270,1030) avoids source-window boundary heads; unmatched nodes are candidates for false-positive review, not certified false positives."
+      },
+      "pages": [
+        {"songNo": "26", "status": "exported", "exitCode": 0, "outputSha256": "ab7170d4b277dd3df736b2e02ea396308a81a3ee6d24162790532780ecf5e863", "metrics": {"counts": {"referenceEvents": 307, "observedEvents": 231, "referencePitched": 295, "observedPitched": 229, "deletions": 76, "pitchMatches": 164, "durationMatches": 162, "onsetMatches": 44}, "partCountMatch": true, "measureCountsMatch": false, "exactWrittenEvents": false}},
+        {"songNo": "83t", "status": "exported", "exitCode": 0, "outputSha256": "f0e083f1e65d22683b2094fe544a0db8b3fb5ba7ce357407afc0e78e6659fbc8", "metrics": {"counts": {"referenceEvents": 177, "observedEvents": 139, "referencePitched": 165, "observedPitched": 126, "deletions": 39, "pitchMatches": 115, "durationMatches": 115, "onsetMatches": 3, "insertions": 1}, "partCountMatch": true, "measureCountsMatch": false, "exactWrittenEvents": false}},
+        {"songNo": "68b", "status": "exported", "exitCode": 0, "outputSha256": "589cc0d463686a18c0a2b08e6db55449d9aa9cf64f51c85cc3bbc1904934a537", "metrics": {"counts": {"referenceEvents": 142, "observedEvents": 97, "referencePitched": 138, "observedPitched": 93, "pitchMatches": 89, "durationMatches": 95, "onsetMatches": 90, "deletions": 45}, "partCountMatch": true, "measureCountsMatch": true, "exactWrittenEvents": false}},
+        {"songNo": "72b", "status": "exported", "exitCode": 0, "outputSha256": "7b09edcad34a3568b92c533b0cdcefd79ae838e87f2dcc5a0e19db22eb03a51f", "metrics": {"counts": {"referenceEvents": 185, "observedEvents": 104, "referencePitched": 177, "observedPitched": 98, "pitchMatches": 59, "durationMatches": 82, "onsetMatches": 46, "deletions": 82, "insertions": 1}, "partCountMatch": true, "measureCountsMatch": false, "exactWrittenEvents": false}},
+        {"songNo": "89", "status": "exported", "exitCode": 0, "outputSha256": "6a46b711522bc19014979e38852f4ab3706e3dc5f102763c4dfe0eceeb70cc3d", "metrics": {"counts": {"referenceEvents": 190, "observedEvents": 138, "referencePitched": 190, "observedPitched": 138, "deletions": 52, "pitchMatches": 132, "durationMatches": 132, "onsetMatches": 103}, "partCountMatch": true, "measureCountsMatch": true, "exactWrittenEvents": false}}
+      ]
+    },
+    "on": {
+      "summary": {
+        "pages": 5,
+        "exports": 5,
+        "counts": {
+          "referenceEvents": 1001,
+          "observedEvents": 352,
+          "referencePitched": 965,
+          "observedPitched": 332,
+          "deletions": 651,
+          "pitchMatches": 157,
+          "durationMatches": 221,
+          "onsetMatches": 15,
+          "insertions": 2
+        },
+        "candidatePitchRecall": 0.16269430051813472,
+        "candidatePitchPrecision": 0.47289156626506024,
+        "candidateDurationRecall": 0.22077922077922077,
+        "candidateOnsetRecall": 0.014985014985014986
+      },
+      "headAudit": {
+        "triangle": {
+          "observed": 62,
+          "retained": 58,
+          "retainedRecall": 0.9354838709677419,
+          "correctFill": 43,
+          "fillCorrectAmongRetained": 0.7413793103448276,
+          "faLabelsAmongRetained": 58,
+          "correctStaff": 58
+        },
+        "other": {
+          "observed": 148,
+          "retained": 143,
+          "retainedRecall": 0.9662162162162162,
+          "correctFill": 134,
+          "fillCorrectAmongRetained": 0.9370629370629371,
+          "faLabelsAmongRetained": 40,
+          "correctStaff": 143
+        },
+        "triangle-filled": {
+          "observed": 44,
+          "retained": 42,
+          "correctFill": 42
+        },
+        "triangle-open": {
+          "observed": 18,
+          "retained": 16,
+          "correctFill": 1
+        },
+        "unmatchedGraphNodesInWindows": 239,
+        "unmatchedGraphNodeCaveat": "Interior x=[270,1030) avoids source-window boundary heads; unmatched nodes are candidates for false-positive review, not certified false positives."
+      },
+      "pages": [
+        {"songNo": "26", "status": "exported", "exitCode": 0, "outputSha256": "d18c4f187c049ce07578e75efc210e5f1579ba1c84351768fee69b9ea63511ec", "metrics": {"counts": {"referenceEvents": 307, "observedEvents": 51, "referencePitched": 295, "observedPitched": 49, "deletions": 256, "pitchMatches": 29, "durationMatches": 30, "onsetMatches": 0}, "partCountMatch": true, "measureCountsMatch": false, "exactWrittenEvents": false}},
+        {"songNo": "83t", "status": "exported", "exitCode": 0, "outputSha256": "b05a18f904cae1419a420245312e43d92e27be0be9610eba162fc48b0a1bc0a2", "metrics": {"counts": {"referenceEvents": 177, "observedEvents": 51, "referencePitched": 165, "observedPitched": 43, "deletions": 126, "pitchMatches": 22, "durationMatches": 25, "onsetMatches": 1}, "partCountMatch": true, "measureCountsMatch": false, "exactWrittenEvents": false}},
+        {"songNo": "68b", "status": "exported", "exitCode": 0, "outputSha256": "44b6ad9ecbacaaa4b07b3ef3d881be9bdf3da082d5f58a7d4e29f19c6ff99395", "metrics": {"counts": {"referenceEvents": 142, "observedEvents": 38, "referencePitched": 138, "observedPitched": 34, "pitchMatches": 17, "durationMatches": 29, "onsetMatches": 4, "deletions": 104}, "partCountMatch": true, "measureCountsMatch": false, "exactWrittenEvents": false}},
+        {"songNo": "72b", "status": "exported", "exitCode": 0, "outputSha256": "69413a27b2c17718330f01bb5f96642e7da8b3d16f4be77d4b7cd9db3c418138", "metrics": {"counts": {"referenceEvents": 185, "observedEvents": 71, "referencePitched": 177, "observedPitched": 65, "pitchMatches": 28, "durationMatches": 49, "onsetMatches": 4, "deletions": 114}, "partCountMatch": true, "measureCountsMatch": false, "exactWrittenEvents": false}},
+        {"songNo": "89", "status": "exported", "exitCode": 0, "outputSha256": "d305d22d89d07502ad41018c482542b0c45870202d15822f7eaffabb6bc213d6", "metrics": {"counts": {"referenceEvents": 190, "observedEvents": 141, "referencePitched": 190, "observedPitched": 141, "pitchMatches": 61, "durationMatches": 88, "onsetMatches": 6, "deletions": 51, "insertions": 2}, "partCountMatch": true, "measureCountsMatch": false, "exactWrittenEvents": false}}
+      ]
+    }
+  },
+  "analysisScriptSha256": "58d9d2ac6ff8eb22daf9d79ccd0ca71e226e4ebb86d063b986e71d402ee8162c",
+  "sourcePixelsChanged": false,
+  "sourceCertified": false,
+  "safeToPromote": false,
+  "modelFineTuned": false,
+  "heldOutRun": false,
+  "interpretation": "Training-only input-independent template intervention; head observations single AI review, score comparisons against unreviewed candidate labels. A passed training rule is not source certification or production acceptance."
+}
