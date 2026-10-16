@@ -1,15 +1,20 @@
 """Clone-safe failure-mode tests; source accuracy is not inferred from fixtures."""
 from collections import Counter
 import copy
+import json
 from pathlib import Path
 import sys
+import tempfile
 import unittest
+from unittest.mock import patch
 from xml.etree import ElementTree as ET
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'scripts'))
 import omr_score_audit as audit
 import omr_source_repair as repair
 import sh1991_symbol_classifier as classifier
+import sh2025_accuracy_test as study
+import sh1991_agent_correction as archive
 
 
 def note(step='C', duration=1, kind='quarter', extra='', voice=1):
@@ -51,6 +56,12 @@ class StructureTest(unittest.TestCase):
         result = audit.inspect(score(note(duration=5)))
         self.assertEqual(result['findingCounts']['overfull-voice'], 1)
         self.assertEqual(result['findingCounts']['symbol-duration-conflict'], 1)
+
+    def test_missing_meter_is_unavailable_not_a_clean_rhythm_pass(self):
+        xml = score()
+        attrs = xml.find('.//attributes')
+        attrs.remove(attrs.find('time'))
+        self.assertEqual(audit.inspect(xml)['findingCounts']['meter-unavailable'], 1)
 
     def test_short_pickup_is_review_not_fabricated_rest(self):
         xml = score(note())
@@ -153,6 +164,32 @@ class RepairTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'source attribute map'):
             repair.repair(score(), obs, [[None, 0]])
 
+    def test_explicit_orphan_counted_not_silently_discarded(self):
+        original = score(note('E'), note())
+        mapping = {'mapping': [[1]], 'orphanDraftMeasures': [[0]]}
+        fixed, result = repair.repair(original, observations(), mapping)
+        self.assertEqual(result['summary']['beforeEvents'], 2)
+        self.assertEqual(result['summary']['beforeErrors'], 1)
+        self.assertEqual(result['summary']['errorsRemoved'], 1)
+        self.assertEqual(len(result['orphanMeasureXml']), 1)
+        self.assertEqual(len(fixed.findall('./part/measure')), 1)
+
+    def test_orphan_cannot_also_map_to_source(self):
+        with self.assertRaises(ValueError):
+            audit.measure_map(observations(), [1], {'mapping': [[0]], 'orphanDraftMeasures': [[0]]})
+
+    def test_source_header_restores_key_clef_meter_without_pitch_inference(self):
+        obs = observations()
+        obs['headers'] = [{'fifths': 3, 'beats': '4', 'beatType': '4', 'clef': {'sign': 'F', 'line': 4}}]
+        original = score()
+        original.find('.//attributes').remove(original.find('.//time'))
+        fixed, result = repair.repair(original, obs)
+        self.assertEqual(fixed.findtext('.//attributes/key/fifths'), '3')
+        self.assertEqual(fixed.findtext('.//attributes/time/beats'), '4')
+        self.assertEqual(fixed.findtext('.//attributes/clef/sign'), 'F')
+        self.assertNotIn('meter-unavailable', result['afterStructure'])
+        self.assertTrue(result['changes'][0]['originalOpeningAttributes'])
+
     def test_source_ties_not_guessed_from_adjacent_same_pitch(self):
         obs = observations([['C5', '1'], ['C5', '1']])
         obs['ties'] = []
@@ -190,6 +227,29 @@ class ClassifierSplitTest(unittest.TestCase):
                      [{'id': '1', 'songNo': 'a', 'sourceSha256': 'a'}, {'id': '1', 'songNo': 'b', 'sourceSha256': 'b'}]]:
             with self.assertRaises(ValueError):
                 list(classifier.grouped_folds(rows))
+
+
+class FrozenStudyTest(unittest.TestCase):
+    def test_changed_implementation_invalidates_original_test(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            work = Path(tmp)
+            (work/'penn-test').mkdir()
+            (work/'penn-test/protocol.json').write_text(json.dumps({
+                'codeSha256': {'scripts/omr_score_audit.py': 'incorrect-sha'}}))
+            with self.assertRaisesRegex(ValueError, 'Frozen study code drift'):
+                study.check(work)
+
+    def test_failed_recognition_receipt_is_retained_without_retry(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            work = Path(tmp)
+            (work/'penn-test').mkdir()
+            protocol = work/'penn-test/protocol.json'
+            protocol.write_text('{}')
+            receipt = {'protocolSha256': archive.digest(protocol), 'status': 'recognition-failed', 'failedPages': 1}
+            (work/'penn-test/recognition.json').write_text(json.dumps(receipt))
+            with patch.object(study, 'check', return_value={}), patch.object(study.subprocess, 'Popen') as launch:
+                self.assertEqual(study.recognize(work), receipt)
+                launch.assert_not_called()
 
 
 if __name__ == '__main__':

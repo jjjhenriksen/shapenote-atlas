@@ -126,15 +126,54 @@ def write_source_ties(root, expected):
                     ET.SubElement(notations, 'tied', type=kind)
 
 
+def source_header(measure, header, divisions):
+    """Opening attributes must be observed from source, never guessed from notes."""
+    fifths, beats, beat_type = header['fifths'], header['beats'], header['beatType']
+    if type(fifths) is not int or not -7 <= fifths <= 7 or Fraction(beats) <= 0 or Fraction(beat_type) <= 0:
+        raise ValueError('Unsupported source header')
+    clef = header['clef']
+    if clef['sign'] not in {'G', 'F', 'C'} or type(clef['line']) is not int or not 1 <= clef['line'] <= 5:
+        raise ValueError('Unsupported source clef')
+    original = [ET.tostring(a, encoding='unicode') for a in measure.findall('attributes')]
+    attributes = measure.find('attributes')
+    if attributes is None:
+        attributes = ET.Element('attributes')
+        measure.insert(0, attributes)
+    for node in measure.findall('attributes'):
+        for child in list(node):
+            if child.tag in {'divisions', 'key', 'time', 'clef'}:
+                node.remove(child)
+    declaration = ET.Element('divisions')
+    declaration.text = str(divisions)
+    attributes.insert(0, declaration)
+    key = ET.Element('key')
+    ET.SubElement(key, 'fifths').text = str(fifths)
+    attributes.insert(1, key)
+    time = ET.Element('time')
+    ET.SubElement(time, 'beats').text = str(beats)
+    ET.SubElement(time, 'beat-type').text = str(beat_type)
+    attributes.insert(2, time)
+    node = ET.Element('clef')
+    ET.SubElement(node, 'sign').text = clef['sign']
+    ET.SubElement(node, 'line').text = str(clef['line'])
+    attributes.append(node)
+    return original
+
+
 def repair(root, observations, mapping=None):
     audit.validate_observations(observations)
     before = audit.inspect(root)
+    mapping_spec = mapping
     mapping = audit.measure_map(observations, before['measureCounts'], mapping)
+    orphans = audit.orphan_indices(mapping_spec, len(mapping))
     corrected = copy.deepcopy(root)
     source = {(s['part'], s['measure']): s for s in observations['segments']}
     changes = []
+    orphan_xml = []
     for pi, part in enumerate(corrected.findall('part')):
         original = part.findall('measure')
+        orphan_xml.extend({'part': pi, 'draftMeasure': i, 'originalMeasureXml': ET.tostring(original[i], encoding='unicode')}
+                          for i in orphans[pi])
         inherited, division_at = Fraction(1), []
         for measure in original:
             if measure.find('attributes/divisions') is not None:
@@ -183,6 +222,10 @@ def repair(root, observations, mapping=None):
             if removed:
                 record['sourceUnsupportedMarkingsRemoved'] = removed
             measure.set('number', str(mi+1))
+            if mi == 0 and 'headers' in observations:
+                if len(observations['headers']) != len(mapping):
+                    raise ValueError('Source header part coverage differs')
+                record['originalOpeningAttributes'] = source_header(measure, observations['headers'][pi], divisions)
             if old_index is None or len(record) > 5:
                 changes.append(record)
             part.append(measure)
@@ -197,7 +240,8 @@ def repair(root, observations, mapping=None):
                       for p in corrected.findall('part')] if source_ties is not None else None
     write_source_ties(corrected, source_ties)
     after = audit.inspect(corrected)
-    result = audit.evaluate(observations, before, after, mapping)
+    result = audit.evaluate(observations, before, after, mapping_spec)
+    result['orphanMeasureXml'] = orphan_xml
     if source_ties is not None:
         g = Counter(source_ties)
         b, a = audit.score_ties(root, mapping), audit.score_ties(corrected)
@@ -236,7 +280,7 @@ def run(score, observation_path, out, map_path=None):
         if (map_data['sourceObservationsSha256'] != archive.digest(observation_path)
                 or map_data['draftSha256'] != archive.digest(score)):
             raise ValueError('Measure map evidence binding drift')
-        mapping = map_data['mapping']
+        mapping = map_data if 'orphanDraftMeasures' in map_data else map_data['mapping']
     root = audit.read(score)
     corrected, result = repair(root, observations, mapping)
     raw = score.read_bytes()

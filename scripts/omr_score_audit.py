@@ -128,6 +128,8 @@ def inspect(root):
                          staff=staff, voice=voice, extent=str(extent), capacity=str(capacity),
                          partialHint=measure.get('implicit') == 'yes' or mi in (0, len(measures)-1)
                          or measure.find('barline/repeat') is not None)
+            if capacity is None:
+                flag('meter-unavailable')
             rows.append({**location, 'number': measure.get('number'), 'events': events,
                          'capacity': str(capacity) if capacity is not None else None,
                          'markings': {tag: sum(len(list(n)) for n in measure.iter(tag)) for tag in MARKINGS}})
@@ -154,18 +156,30 @@ def source_events(segment):
 
 def measure_map(observations, actual_counts, mapping=None):
     expected = observations['expectedMeasuresPerPart']
+    orphans = orphan_indices(mapping, len(expected))
+    if isinstance(mapping, dict):
+        mapping = mapping['mapping']
     if mapping is None:
         if expected != actual_counts:
             raise ValueError('Source/draft measure grids differ; explicit reviewed measure map required')
         mapping = [list(range(n)) for n in expected]
     if len(mapping) != len(expected) or len(actual_counts) != len(expected):
         raise ValueError('Part coverage differs from source')
-    for count, actual, row in zip(expected, actual_counts, mapping):
+    for count, actual, row, extra in zip(expected, actual_counts, mapping, orphans):
         present = [x for x in row if x is not None]
         if (len(row) != count or any(type(x) is not int for x in present)
-                or present != sorted(set(present)) or set(present) != set(range(actual))):
-            raise ValueError('Map must account for every draft measure once, in order; null is source-only')
+                or any(type(x) is not int for x in extra) or len(extra) != len(set(extra))
+                or present != sorted(set(present)) or set(present) & set(extra)
+                or set(present) | set(extra) != set(range(actual))):
+            raise ValueError('Map must account for every draft measure once: ordered source map or explicit orphan; null is source-only')
     return mapping
+
+
+def orphan_indices(mapping, part_count):
+    result = mapping.get('orphanDraftMeasures', [[] for _ in range(part_count)]) if isinstance(mapping, dict) else [[] for _ in range(part_count)]
+    if len(result) != part_count or any(not isinstance(row, list) for row in result):
+        raise ValueError('Orphan map part coverage differs')
+    return result
 
 
 def validate_observations(observations):
@@ -213,7 +227,7 @@ def score_ties(root, mapping=None):
         for mi, measure in enumerate(part.findall('measure')):
             for ni, note in enumerate(measure.findall('note')):
                 for tie in note.findall('tie'):
-                    result[(pi, inverse[mi] if inverse is not None else mi, ni, tie.get('type'))] += 1
+                    result[(pi, inverse.get(mi, -mi-1) if inverse is not None else mi, ni, tie.get('type'))] += 1
     return result
 
 
@@ -225,6 +239,7 @@ def errors(gold, candidate):
 
 def evaluate(observations, before, after, mapping=None):
     validate_observations(observations)
+    orphans = orphan_indices(mapping, len(observations['expectedMeasuresPerPart']))
     mapping = measure_map(observations, before['measureCounts'], mapping)
     if after['measureCounts'] != observations['expectedMeasuresPerPart']:
         raise ValueError('Corrected score must cover the complete source measure grid')
@@ -248,7 +263,18 @@ def evaluate(observations, before, after, mapping=None):
                      'beforeUnsupportedMarkings': sum(old['markings'].get(k, 0) for k in s.get('absentMarkings', [])),
                      'afterUnsupportedMarkings': sum(new['markings'].get(k, 0) for k in s.get('absentMarkings', []))})
     total_keys = [k for k in rows[0] if k not in {'part', 'measure', 'draftMeasure'}]
-    return {'summary': {k: sum(r[k] for r in rows) for k in total_keys}, 'segments': rows,
+    summary = {k: sum(r[k] for r in rows) for k in total_keys}
+    orphan_rows = []
+    for pi, indices in enumerate(orphans):
+        for mi in indices:
+            row = b[(pi, mi)]
+            count = len(row['events'])
+            orphan_rows.append({'part': pi, 'draftMeasure': mi, 'beforeEvents': count,
+                                'extraEventsRemoved': count, 'candidateMarkings': row['markings']})
+            summary['beforeEvents'] += count
+            summary['beforeErrors'] += count
+            summary['errorsRemoved'] += count
+    return {'summary': summary, 'segments': rows, 'orphanDraftMeasures': orphan_rows,
             'checkedStaffMeasures': len(rows), 'independentSourceGold': observations.get('independent') is True,
             'interpretation': 'Agreement with provisional source observations used by repair; not independent accuracy.',
             'unmeasured': ['lyrics', 'literal shape/fill', 'repeat playback', 'unobserved markings'],
