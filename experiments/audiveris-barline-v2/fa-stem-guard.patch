@@ -1,0 +1,48 @@
+diff --git a/app/src/main/java/org/audiveris/omr/sig/SIGraph.java b/app/src/main/java/org/audiveris/omr/sig/SIGraph.java
+index eb54e64..c933018 100644
+--- a/app/src/main/java/org/audiveris/omr/sig/SIGraph.java
++++ b/app/src/main/java/org/audiveris/omr/sig/SIGraph.java
+@@ -1213,6 +1213,24 @@ public class SIGraph
+     //------------------//
+     // reduceExclusions //
+     //------------------//
++    // Training-only, default-off experiment. Never freezes all bars or changes the column rule.
++    static Inter selectWeaker (Inter source, Inter target, boolean guard)
++    {
++        if (guard) {
++            if (source instanceof org.audiveris.omr.sig.inter.BarlineInter && isFaOnlyStem(target)) return target;
++            if (target instanceof org.audiveris.omr.sig.inter.BarlineInter && isFaOnlyStem(source)) return source;
++        }
++        return source.getBestGrade() < target.getBestGrade() ? source : target;
++    }
++
++    private static boolean isFaOnlyStem (Inter inter)
++    {
++        if (!(inter instanceof org.audiveris.omr.sig.inter.StemInter)) return false;
++        var heads = ((org.audiveris.omr.sig.inter.StemInter) inter).getHeads();
++        return !heads.isEmpty() && heads.stream().allMatch(
++            head -> org.audiveris.omr.glyph.ShapeSet.HeadsFa.contains(head.getShape()));
++    }
++
+     /**
+      * Reduce the provided exclusions as much as possible by removing the source or
+      * target vertex of lower contextual grade.
+@@ -1262,7 +1280,17 @@ public class SIGraph
+                 final double scp = source.getBestGrade();
+                 final Inter target = getEdgeTarget(bestRel);
+                 final double tcp = target.getBestGrade();
+-                final Inter weaker = (scp < tcp) ? source : target;
++                final Inter weaker = selectWeaker(source, target, Boolean.getBoolean("atlas.faStemBarGuard"));
++                if (Boolean.getBoolean("atlas.barTrace") &&
++                    (source instanceof org.audiveris.omr.sig.inter.BarlineInter || target instanceof org.audiveris.omr.sig.inter.BarlineInter)) {
++                    System.out.println("BARCONFLICT|source=" + source + "|sourceGrade=" + scp
++                        + "|target=" + target + "|targetGrade=" + tcp + "|removed=" + weaker
++                        + "|sourceBounds=" + source.getBounds() + "|targetBounds=" + target.getBounds()
++                        + "|stemHeads=" + (source instanceof org.audiveris.omr.sig.inter.StemInter
++                            ? ((org.audiveris.omr.sig.inter.StemInter) source).getHeads()
++                            : target instanceof org.audiveris.omr.sig.inter.StemInter
++                            ? ((org.audiveris.omr.sig.inter.StemInter) target).getHeads() : "none"));
++                }
+ 
+                 if (weaker.isVip()) {
+                     logger.info(
