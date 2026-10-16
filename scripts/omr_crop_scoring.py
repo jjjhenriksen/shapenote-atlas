@@ -9,10 +9,13 @@ from __future__ import annotations
 
 import omr_measure_classifier as previous
 
-RECIPE = {'version': 1, 'baseRecipe': previous.RECIPE,
-          'arms': ['raw-ssd', 'gradient-half', 'class-top3', 'contrast-normalized'],
+RECIPE = {'version': 2, 'baseRecipe': previous.RECIPE,
+          'arms': ['raw-ssd', 'gradient-half', 'class-top3', 'contrast-normalized',
+                   'contrast-tenth', 'contrast-quarter', 'low-margin-contrast'],
           'gradientMix': .5, 'classTopK': 3,
           'contrastMinimumStd': 1., 'selectiveMinimumRelativeMargin': .08,
+          'contrastBlendWeights': [.1, .25],
+          'contrastFallback': {'rawMarginBelow': .08, 'contrastMarginAtLeast': .2},
           'selection': 'No net all-target loss on any consumed cohort; maximize total correct, arm order breaks ties; otherwise retain raw-ssd.',
           'deployment': 'shadow-only; no new training source or score writes'}
 
@@ -74,7 +77,17 @@ def predict(pixels, bank):
     contrast = np.mean((bank['normalized']-normalized)**2, axis=1)
     # Both raw and gradient normalization are label-independent fixed choices.
     mix = RECIPE['gradientMix']
-    return {'raw-ssd': rank(raw, bank),
+    results = {'raw-ssd': rank(raw, bank),
             'gradient-half': rank((1-mix)*raw/65025+mix*grad/260100, bank),
             'class-top3': rank(raw, bank, top_k=RECIPE['classTopK']),
             'contrast-normalized': rank(contrast, bank)}
+    for name, weight in zip(('contrast-tenth', 'contrast-quarter'), RECIPE['contrastBlendWeights']):
+        results[name] = rank((1-weight)*raw/65025+weight*contrast/4, bank)
+    raw_result, alternative = results['raw-ssd'], results['contrast-normalized']
+    fallback = RECIPE['contrastFallback']
+    use_alternative = (raw_result['relativeMargin'] is not None and alternative['relativeMargin'] is not None
+                       and raw_result['relativeMargin'] < fallback['rawMarginBelow']
+                       and alternative['relativeMargin'] >= fallback['contrastMarginAtLeast'])
+    results['low-margin-contrast'] = dict(alternative if use_alternative else raw_result,
+                                         decision='contrast-fallback' if use_alternative else 'raw-ssd')
+    return results

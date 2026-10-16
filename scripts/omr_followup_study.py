@@ -15,7 +15,7 @@ import omr_terminal_grid as terminal
 import omr_measure_study as prior
 
 ROOT, WORK = prior.ROOT, prior.WORK
-OUT = WORK/'terminal-loop-v1'
+OUT = WORK/'terminal-loop-v2'
 
 
 def protocol():
