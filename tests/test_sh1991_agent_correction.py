@@ -163,6 +163,7 @@ class CorrectionTest(unittest.TestCase):
             candidate = work/'candidate'
             candidate.mkdir(parents=True)
             raw = base/'raw.mxl'; raw.write_bytes(archive())
+            original_bytes = raw.read_bytes()
             source = base/'scan.jpg'; source.write_bytes(b'local source bytes')
             card = base/'crop.png'; card.write_bytes(b'local crop bytes')
             row = {'songNo':'1', 'title':'Fixture',
@@ -200,7 +201,7 @@ class CorrectionTest(unittest.TestCase):
                 source.write_bytes(b'changed source')
                 with self.assertRaisesRegex(ValueError,'hash drift'):
                     loop.verify(work,out)
-            self.assertEqual(raw.read_bytes(), archive())
+            self.assertEqual(raw.read_bytes(), original_bytes)
 
 
 if __name__ == '__main__':
