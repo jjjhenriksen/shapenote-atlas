@@ -281,9 +281,21 @@ def evaluate(observations, before, after, mapping=None):
             'safeToPromote': False, 'sourceCertified': False}
 
 
-if __name__ == '__main__':
+def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('score', type=Path)
     parser.add_argument('--output', type=Path, required=True)
-    args = parser.parse_args()
-    archive.immutable(args.output, archive.json_bytes(inspect(read(args.score))))
+    parser.add_argument('--grid-manifest', type=Path,
+                        help='Optional hash-bound source/graph/bands manifest for image-grid alignment')
+    args = parser.parse_args(argv)
+    report = inspect(read(args.score))
+    if args.grid_manifest:
+        import omr_grid_alignment
+        alignment = omr_grid_alignment.run(args.grid_manifest, args.score,
+                                          args.output.parent/(args.output.stem+'-grid'))
+        report['gridAlignment'] = alignment
+    archive.immutable(args.output, archive.json_bytes(report))
+
+
+if __name__ == '__main__':
+    main()

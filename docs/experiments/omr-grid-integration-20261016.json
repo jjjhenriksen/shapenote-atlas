@@ -1,0 +1,162 @@
+{
+  "date": "2026-10-16",
+  "scope": "Native Audiveris graph / shared image grid integration on two consumed development pages, not fresh validation.",
+  "records": [
+    {
+      "cohort": "penn",
+      "cohortStatus": "consumed-development",
+      "sourceSha256": "eeb1cc8d883f0f856aa193fdd74c47b5b4bea38b63b9f36934938eae93983244",
+      "graphSha256": "c28c57b3d887be569cc70946e3ec939c46e385f77278a0134e239e9d82d78fe0",
+      "scoreSha256": "17e08ccc2a677ee0860c34def260da8fe0ff3abcfa47a6ce7b17f5d5626277b2",
+      "boundaryComparison": {
+        "image": 11,
+        "draft": 8,
+        "matched": 8,
+        "pairs": [
+          [
+            219.5,
+            220.0
+          ],
+          [
+            309.5,
+            310.0
+          ],
+          [
+            551.5,
+            552.0
+          ],
+          [
+            705.5,
+            705.0
+          ],
+          [
+            906.0,
+            906.0
+          ],
+          [
+            1016.5,
+            1017.0
+          ],
+          [
+            1147.5,
+            1148.0
+          ],
+          [
+            1238.5,
+            1238.0
+          ]
+        ]
+      },
+      "findingCounts": {
+        "image-boundary-missing-in-draft": 3,
+        "split-draft-measure-proposal": 6,
+        "special-stack-review": 1
+      },
+      "missingImageBoundaryX": [
+        420.5,
+        641.5,
+        815.5
+      ],
+      "proposedSpans": 12,
+      "evidenceSha256": {
+        "work/model-pilot/sh1991-v1/grid-integration-v2/penn/manifest.json": "432bda1dc73e2ddf5d478a8b9775cebf30d0b7ab26de6ac321be4a09f8bd62c9",
+        "work/model-pilot/sh1991-v1/grid-integration-v2/penn/audit.json": "f74feca7248ce45ef935d926fa9594dd5fcb079d7c372380443fec5166d75470",
+        "work/model-pilot/sh1991-v1/grid-integration-v2/penn/audit-grid/protocol.json": "0f88a552448f87e1d3bf459b58196f4f8434296ae1da24633e817b9fe113fcde",
+        "work/model-pilot/sh1991-v1/grid-integration-v2/penn/audit-grid/alignment.json": "08ddcde862c2b4780eac32cfc04427e4bde0d8b81544d67d8c56d975173ebddf"
+      }
+    },
+    {
+      "cohort": "303",
+      "cohortStatus": "consumed-development",
+      "sourceSha256": "f80734eafd2bca291fc4853b47115550daed27601e9d11f244500962a2abf32f",
+      "graphSha256": "d205989667a2121a75e8cf8f6e40af2c94821f65ccdcbce0ed9f9a65f1315091",
+      "scoreSha256": "0a75f8028ddce6f1da3f09ef185caba084c45af21e0e9682a6127adce9b0955e",
+      "boundaryComparison": {
+        "image": 16,
+        "draft": 15,
+        "matched": 15,
+        "pairs": [
+          [
+            233.75,
+            234.0
+          ],
+          [
+            340.0,
+            341.0
+          ],
+          [
+            429.0,
+            429.0
+          ],
+          [
+            519.5,
+            520.0
+          ],
+          [
+            608.0,
+            608.0
+          ],
+          [
+            698.0,
+            698.0
+          ],
+          [
+            851.5,
+            852.0
+          ],
+          [
+            909.5,
+            910.0
+          ],
+          [
+            997.0,
+            997.0
+          ],
+          [
+            1102.0,
+            1102.0
+          ],
+          [
+            1190.25,
+            1191.0
+          ],
+          [
+            1295.0,
+            1296.0
+          ],
+          [
+            1401.5,
+            1402.0
+          ],
+          [
+            1489.5,
+            1490.0
+          ],
+          [
+            1546.5,
+            1547.0
+          ]
+        ]
+      },
+      "findingCounts": {
+        "image-boundary-missing-in-draft": 1,
+        "split-draft-measure-proposal": 2
+      },
+      "missingImageBoundaryX": [
+        802.5
+      ],
+      "proposedSpans": 17,
+      "evidenceSha256": {
+        "work/model-pilot/sh1991-v1/grid-integration-v2/303/manifest.json": "3d0e2b962fe269a2aabaebc410bd55ace93add0a3620e36e9106a707da911d93",
+        "work/model-pilot/sh1991-v1/grid-integration-v2/303/audit.json": "9d75e2e946aec4343df2e95f8af774a340f8f606ae4b63c836ab7ad2980907ce",
+        "work/model-pilot/sh1991-v1/grid-integration-v2/303/audit-grid/protocol.json": "95acb8207740b008eda493227f9e15bd2ed3868e06fa661ced567605b82c3907",
+        "work/model-pilot/sh1991-v1/grid-integration-v2/303/audit-grid/alignment.json": "79797bc6910c507e24ea135b81ee03618bc58a4201a8a19784b02fa0fb091e6d"
+      }
+    }
+  ],
+  "recognitionRerun": false,
+  "scoreChanged": false,
+  "wholeScoresAccepted": 0,
+  "safeToPromote": false,
+  "historicalRun": "grid-integration-v1 retained. v2 canonicalizes native shared joins differing by <=1 pixel; no source labels or image detector settings changed."
+}
