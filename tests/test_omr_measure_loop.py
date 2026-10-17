@@ -161,6 +161,19 @@ class WorklistRunnerTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 worklist.run(manifest, score, root/'out')
 
+    def test_shared_ranker_drift_rejected_on_completed_worklist(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d); manifest, score = self.fixture(root)
+            worklist.run(manifest, score, root/'out')
+            digest = worklist.archive.digest
+            def changed(path):
+                if Path(path) == Path(worklist.classifier.ranking.__file__):
+                    return 'changed-ranker'
+                return digest(path)
+            with patch.object(worklist.archive, 'digest', side_effect=changed):
+                with self.assertRaisesRegex(ValueError, 'Immutable artifact differs'):
+                    worklist.run(manifest, score, root/'out')
+
 
 class FrozenProtocolTests(unittest.TestCase):
     def test_changed_input_or_code_rejected(self):

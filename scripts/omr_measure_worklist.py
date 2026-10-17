@@ -86,7 +86,8 @@ def run(manifest_path, score_path, out, bank=None, model_binding=None):
         p = Path(manifest[name]['path'])
         return p if p.is_absolute() else manifest_path.parent/p
     protocol = {'alignmentSha256': archive.digest(out/'grid/alignment.json'),
-                'codeSha256': {Path(p).name: archive.digest(p) for p in (__file__, classifier.__file__)},
+                'codeSha256': {Path(p).name: archive.digest(p)
+                               for p in (__file__, classifier.__file__, classifier.ranking.__file__)},
                 'modelBinding': model_binding, 'classifierRecipe': classifier.RECIPE,
                 'classificationRequested': bank is not None}
     if bank is not None and not model_binding:

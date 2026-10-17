@@ -23,7 +23,9 @@ would be a model change, not a refactor.
 
 - Five dependency-free ranking fixtures check exact witnesses, ordering, class
   minima, the low-distance margin floor, threshold equality and abstention.
-- All 76 OMR fixtures and 105 SH1991 fixtures pass with Pillow 11.3.0 / NumPy 2.0.2.
+- All 77 OMR fixtures and 105 SH1991 fixtures pass with Pillow 11.3.0 / NumPy 2.0.2.
+- A worklist integration fixture rejects shared-ranker code drift even when a
+  completed worklist exists.
 - A read-only regression comparison against the saved consumed-development
   report checks **890 prediction records across seven page-held-out cohorts**
   and every applicable population. All eight output fields match exactly:
@@ -50,7 +52,8 @@ authorized study needs a new versioned protocol/output directory and must keep
 already-consumed pages in development, not relabel them fresh held-out data.
 
 The shared helper is now included in `omr_measure_study.current_protocol()`'s
-input hashes; follow-up and localization protocols inherit that binding.
+input hashes; follow-up and localization protocols inherit that binding. The
+standalone measure worklist also binds the helper directly.
 Changing the helper therefore cannot silently reuse a frozen future run.
 
 This refactor adds no production recognition route, source certification,
