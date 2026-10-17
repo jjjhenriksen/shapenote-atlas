@@ -1,0 +1,1946 @@
+{
+  "date": "2026-10-17",
+  "development": {
+    "SH2025/219": {
+      "arms": {
+        "holes-all": {
+          "0.35": {
+            "sourceStrata": {
+              "round/filled": {
+                "matched": 0,
+                "sourceHeads": 12
+              },
+              "square/filled": {
+                "matched": 0,
+                "sourceHeads": 10
+              },
+              "triangle/filled": {
+                "matched": 0,
+                "sourceHeads": 11
+              }
+            },
+            "summary": {
+              "candidatePredictions": 1,
+              "correctLiteralAmongMatchedKnown": null,
+              "correctLiteralAtAutomaticCenters": 0,
+              "correctLiteralPerKnownSourceHead": 0.0,
+              "exportedEventAccuracy": null,
+              "geometricPrecision": 0.0,
+              "geometricRecall": 0.0,
+              "independentSourceGold": false,
+              "knownLiteralTargets": 33,
+              "matched": 0,
+              "measuredHumanEdits": null,
+              "measuredHumanMinutes": null,
+              "missedSourceHeads": 33,
+              "pitchRhythmAccuracy": null,
+              "predictionAbstentions": 0,
+              "sourceHeads": 33,
+              "unmatchedPredictions": 1
+            }
+          },
+          "0.5": {
+            "sourceStrata": {
+              "round/filled": {
+                "matched": 0,
+                "sourceHeads": 12
+              },
+              "square/filled": {
+                "matched": 0,
+                "sourceHeads": 10
+              },
+              "triangle/filled": {
+                "matched": 0,
+                "sourceHeads": 11
+              }
+            },
+            "summary": {
+              "candidatePredictions": 1,
+              "correctLiteralAmongMatchedKnown": null,
+              "correctLiteralAtAutomaticCenters": 0,
+              "correctLiteralPerKnownSourceHead": 0.0,
+              "exportedEventAccuracy": null,
+              "geometricPrecision": 0.0,
+              "geometricRecall": 0.0,
+              "independentSourceGold": false,
+              "knownLiteralTargets": 33,
+              "matched": 0,
+              "measuredHumanEdits": null,
+              "measuredHumanMinutes": null,
+              "missedSourceHeads": 33,
+              "pitchRhythmAccuracy": null,
+              "predictionAbstentions": 0,
+              "sourceHeads": 33,
+              "unmatchedPredictions": 1
+            }
+          },
+          "0.75": {
+            "sourceStrata": {
+              "round/filled": {
+                "matched": 0,
+                "sourceHeads": 12
+              },
+              "square/filled": {
+                "matched": 0,
+                "sourceHeads": 10
+              },
+              "triangle/filled": {
+                "matched": 0,
+                "sourceHeads": 11
+              }
+            },
+            "summary": {
+              "candidatePredictions": 1,
+              "correctLiteralAmongMatchedKnown": null,
+              "correctLiteralAtAutomaticCenters": 0,
+              "correctLiteralPerKnownSourceHead": 0.0,
+              "exportedEventAccuracy": null,
+              "geometricPrecision": 0.0,
+              "geometricRecall": 0.0,
+              "independentSourceGold": false,
+              "knownLiteralTargets": 33,
+              "matched": 0,
+              "measuredHumanEdits": null,
+              "measuredHumanMinutes": null,
+              "missedSourceHeads": 33,
+              "pitchRhythmAccuracy": null,
+              "predictionAbstentions": 0,
+              "sourceHeads": 33,
+              "unmatchedPredictions": 1
+            }
+          }
+        },
+        "native": {
+          "0.35": {
+            "sourceStrata": {
+              "round/filled": {
+                "matched": 12,
+                "sourceHeads": 12
+              },
+              "square/filled": {
+                "matched": 4,
+                "sourceHeads": 10
+              },
+              "triangle/filled": {
+                "matched": 11,
+                "sourceHeads": 11
+              }
+            },
+            "summary": {
+              "candidatePredictions": 33,
+              "correctLiteralAmongMatchedKnown": 1.0,
+              "correctLiteralAtAutomaticCenters": 27,
+              "correctLiteralPerKnownSourceHead": 0.8181818181818182,
+              "exportedEventAccuracy": null,
+              "geometricPrecision": 0.8181818181818182,
+              "geometricRecall": 0.8181818181818182,
+              "independentSourceGold": false,
+              "knownLiteralTargets": 33,
+              "matched": 27,
+              "measuredHumanEdits": null,
+              "measuredHumanMinutes": null,
+              "missedSourceHeads": 6,
+              "pitchRhythmAccuracy": null,
+              "predictionAbstentions": 0,
+              "sourceHeads": 33,
+              "unmatchedPredictions": 6
+            }
+          },
+          "0.5": {
+            "sourceStrata": {
+              "round/filled": {
+                "matched": 12,
+                "sourceHeads": 12
+              },
+              "square/filled": {
+                "matched": 4,
+                "sourceHeads": 10
+              },
+              "triangle/filled": {
+                "matched": 11,
+                "sourceHeads": 11
+              }
+            },
+            "summary": {
+              "candidatePredictions": 33,
+              "correctLiteralAmongMatchedKnown": 1.0,
+              "correctLiteralAtAutomaticCenters": 27,
+              "correctLiteralPerKnownSourceHead": 0.8181818181818182,
+              "exportedEventAccuracy": null,
+              "geometricPrecision": 0.8181818181818182,
+              "geometricRecall": 0.8181818181818182,
+              "independentSourceGold": false,
+              "knownLiteralTargets": 33,
+              "matched": 27,
+              "measuredHumanEdits": null,
+              "measuredHumanMinutes": null,
+              "missedSourceHeads": 6,
+              "pitchRhythmAccuracy": null,
+              "predictionAbstentions": 0,
+              "sourceHeads": 33,
+              "unmatchedPredictions": 6
+            }
+          },
+          "0.75": {
+            "sourceStrata": {
+              "round/filled": {
+                "matched": 12,
+                "sourceHeads": 12
+              },
+              "square/filled": {
+                "matched": 4,
+                "sourceHeads": 10
+              },
+              "triangle/filled": {
+                "matched": 11,
+                "sourceHeads": 11
+              }
+            },
+            "summary": {
+              "candidatePredictions": 33,
+              "correctLiteralAmongMatchedKnown": 1.0,
+              "correctLiteralAtAutomaticCenters": 27,
+              "correctLiteralPerKnownSourceHead": 0.8181818181818182,
+              "exportedEventAccuracy": null,
+              "geometricPrecision": 0.8181818181818182,
+              "geometricRecall": 0.8181818181818182,
+              "independentSourceGold": false,
+              "knownLiteralTargets": 33,
+              "matched": 27,
+              "measuredHumanEdits": null,
+              "measuredHumanMinutes": null,
+              "missedSourceHeads": 6,
+              "pitchRhythmAccuracy": null,
+              "predictionAbstentions": 0,
+              "sourceHeads": 33,
+              "unmatchedPredictions": 6
+            }
+          }
+        },
+        "native-plus-old-squares": {
+          "0.35": {
+            "sourceStrata": {
+              "round/filled": {
+                "matched": 12,
+                "sourceHeads": 12
+              },
+              "square/filled": {
+                "matched": 10,
+                "sourceHeads": 10
+              },
+              "triangle/filled": {
+                "matched": 11,
+                "sourceHeads": 11
+              }
+            },
+            "summary": {
+              "candidatePredictions": 39,
+              "correctLiteralAmongMatchedKnown": 1.0,
+              "correctLiteralAtAutomaticCenters": 33,
+              "correctLiteralPerKnownSourceHead": 1.0,
+              "exportedEventAccuracy": null,
+              "geometricPrecision": 0.8461538461538461,
+              "geometricRecall": 1.0,
+              "independentSourceGold": false,
+              "knownLiteralTargets": 33,
+              "matched": 33,
+              "measuredHumanEdits": null,
+              "measuredHumanMinutes": null,
+              "missedSourceHeads": 0,
+              "pitchRhythmAccuracy": null,
+              "predictionAbstentions": 0,
+              "sourceHeads": 33,
+              "unmatchedPredictions": 6
+            }
+          },
+          "0.5": {
+            "sourceStrata": {
+              "round/filled": {
+                "matched": 12,
+                "sourceHeads": 12
+              },
+              "square/filled": {
+                "matched": 10,
+                "sourceHeads": 10
+              },
+              "triangle/filled": {
+                "matched": 11,
+                "sourceHeads": 11
+              }
+            },
+            "summary": {
+              "candidatePredictions": 39,
+              "correctLiteralAmongMatchedKnown": 1.0,
+              "correctLiteralAtAutomaticCenters": 33,
+              "correctLiteralPerKnownSourceHead": 1.0,
+              "exportedEventAccuracy": null,
+              "geometricPrecision": 0.8461538461538461,
+              "geometricRecall": 1.0,
+              "independentSourceGold": false,
+              "knownLiteralTargets": 33,
+              "matched": 33,
+              "measuredHumanEdits": null,
+              "measuredHumanMinutes": null,
+              "missedSourceHeads": 0,
+              "pitchRhythmAccuracy": null,
+              "predictionAbstentions": 0,
+              "sourceHeads": 33,
+              "unmatchedPredictions": 6
+            }
+          },
+          "0.75": {
+            "sourceStrata": {
+              "round/filled": {
+                "matched": 12,
+                "sourceHeads": 12
+              },
+              "square/filled": {
+                "matched": 10,
+                "sourceHeads": 10
+              },
+              "triangle/filled": {
+                "matched": 11,
+                "sourceHeads": 11
+              }
+            },
+            "summary": {
+              "candidatePredictions": 39,
+              "correctLiteralAmongMatchedKnown": 1.0,
+              "correctLiteralAtAutomaticCenters": 33,
+              "correctLiteralPerKnownSourceHead": 1.0,
+              "exportedEventAccuracy": null,
+              "geometricPrecision": 0.8461538461538461,
+              "geometricRecall": 1.0,
+              "independentSourceGold": false,
+              "knownLiteralTargets": 33,
+              "matched": 33,
+              "measuredHumanEdits": null,
+              "measuredHumanMinutes": null,
+              "missedSourceHeads": 0,
+              "pitchRhythmAccuracy": null,
+              "predictionAbstentions": 0,
+              "sourceHeads": 33,
+              "unmatchedPredictions": 6
+            }
+          }
+        },
+        "native-plus-topology": {
+          "0.35": {
+            "sourceStrata": {
+              "round/filled": {
+                "matched": 12,
+                "sourceHeads": 12
+              },
+              "square/filled": {
+                "matched": 10,
+                "sourceHeads": 10
+              },
+              "triangle/filled": {
+                "matched": 11,
+                "sourceHeads": 11
+              }
+            },
+            "summary": {
+              "candidatePredictions": 39,
+              "correctLiteralAmongMatchedKnown": 1.0,
+              "correctLiteralAtAutomaticCenters": 33,
+              "correctLiteralPerKnownSourceHead": 1.0,
+              "exportedEventAccuracy": null,
+              "geometricPrecision": 0.8461538461538461,
+              "geometricRecall": 1.0,
+              "independentSourceGold": false,
+              "knownLiteralTargets": 33,
+              "matched": 33,
+              "measuredHumanEdits": null,
+              "measuredHumanMinutes": null,
+              "missedSourceHeads": 0,
+              "pitchRhythmAccuracy": null,
+              "predictionAbstentions": 0,
+              "sourceHeads": 33,
+              "unmatchedPredictions": 6
+            }
+          },
+          "0.5": {
+            "sourceStrata": {
+              "round/filled": {
+                "matched": 12,
+                "sourceHeads": 12
+              },
+              "square/filled": {
+                "matched": 10,
+                "sourceHeads": 10
+              },
+              "triangle/filled": {
+                "matched": 11,
+                "sourceHeads": 11
+              }
+            },
+            "summary": {
+              "candidatePredictions": 39,
+              "correctLiteralAmongMatchedKnown": 1.0,
+              "correctLiteralAtAutomaticCenters": 33,
+              "correctLiteralPerKnownSourceHead": 1.0,
+              "exportedEventAccuracy": null,
+              "geometricPrecision": 0.8461538461538461,
+              "geometricRecall": 1.0,
+              "independentSourceGold": false,
+              "knownLiteralTargets": 33,
+              "matched": 33,
+              "measuredHumanEdits": null,
+              "measuredHumanMinutes": null,
+              "missedSourceHeads": 0,
+              "pitchRhythmAccuracy": null,
+              "predictionAbstentions": 0,
+              "sourceHeads": 33,
+              "unmatchedPredictions": 6
+            }
+          },
+          "0.75": {
+            "sourceStrata": {
+              "round/filled": {
+                "matched": 12,
+                "sourceHeads": 12
+              },
+              "square/filled": {
+                "matched": 10,
+                "sourceHeads": 10
+              },
+              "triangle/filled": {
+                "matched": 11,
+                "sourceHeads": 11
+              }
+            },
+            "summary": {
+              "candidatePredictions": 39,
+              "correctLiteralAmongMatchedKnown": 1.0,
+              "correctLiteralAtAutomaticCenters": 33,
+              "correctLiteralPerKnownSourceHead": 1.0,
+              "exportedEventAccuracy": null,
+              "geometricPrecision": 0.8461538461538461,
+              "geometricRecall": 1.0,
+              "independentSourceGold": false,
+              "knownLiteralTargets": 33,
+              "matched": 33,
+              "measuredHumanEdits": null,
+              "measuredHumanMinutes": null,
+              "missedSourceHeads": 0,
+              "pitchRhythmAccuracy": null,
+              "predictionAbstentions": 0,
+              "sourceHeads": 33,
+              "unmatchedPredictions": 6
+            }
+          }
+        },
+        "topology-selected": {
+          "0.35": {
+            "sourceStrata": {
+              "round/filled": {
+                "matched": 0,
+                "sourceHeads": 12
+              },
+              "square/filled": {
+                "matched": 10,
+                "sourceHeads": 10
+              },
+              "triangle/filled": {
+                "matched": 0,
+                "sourceHeads": 11
+              }
+            },
+            "summary": {
+              "candidatePredictions": 10,
+              "correctLiteralAmongMatchedKnown": 1.0,
+              "correctLiteralAtAutomaticCenters": 10,
+              "correctLiteralPerKnownSourceHead": 0.30303030303030304,
+              "exportedEventAccuracy": null,
+              "geometricPrecision": 1.0,
+              "geometricRecall": 0.30303030303030304,
+              "independentSourceGold": false,
+              "knownLiteralTargets": 33,
+              "matched": 10,
+              "measuredHumanEdits": null,
+              "measuredHumanMinutes": null,
+              "missedSourceHeads": 23,
+              "pitchRhythmAccuracy": null,
+              "predictionAbstentions": 0,
+              "sourceHeads": 33,
+              "unmatchedPredictions": 0
+            }
+          },
+          "0.5": {
+            "sourceStrata": {
+              "round/filled": {
+                "matched": 0,
+                "sourceHeads": 12
+              },
+              "square/filled": {
+                "matched": 10,
+                "sourceHeads": 10
+              },
+              "triangle/filled": {
+                "matched": 0,
+                "sourceHeads": 11
+              }
+            },
+            "summary": {
+              "candidatePredictions": 10,
+              "correctLiteralAmongMatchedKnown": 1.0,
+              "correctLiteralAtAutomaticCenters": 10,
+              "correctLiteralPerKnownSourceHead": 0.30303030303030304,
+              "exportedEventAccuracy": null,
+              "geometricPrecision": 1.0,
+              "geometricRecall": 0.30303030303030304,
+              "independentSourceGold": false,
+              "knownLiteralTargets": 33,
+              "matched": 10,
+              "measuredHumanEdits": null,
+              "measuredHumanMinutes": null,
+              "missedSourceHeads": 23,
+              "pitchRhythmAccuracy": null,
+              "predictionAbstentions": 0,
+              "sourceHeads": 33,
+              "unmatchedPredictions": 0
+            }
+          },
+          "0.75": {
+            "sourceStrata": {
+              "round/filled": {
+                "matched": 0,
+                "sourceHeads": 12
+              },
+              "square/filled": {
+                "matched": 10,
+                "sourceHeads": 10
+              },
+              "triangle/filled": {
+                "matched": 0,
+                "sourceHeads": 11
+              }
+            },
+            "summary": {
+              "candidatePredictions": 10,
+              "correctLiteralAmongMatchedKnown": 1.0,
+              "correctLiteralAtAutomaticCenters": 10,
+              "correctLiteralPerKnownSourceHead": 0.30303030303030304,
+              "exportedEventAccuracy": null,
+              "geometricPrecision": 1.0,
+              "geometricRecall": 0.30303030303030304,
+              "independentSourceGold": false,
+              "knownLiteralTargets": 33,
+              "matched": 10,
+              "measuredHumanEdits": null,
+              "measuredHumanMinutes": null,
+              "missedSourceHeads": 23,
+              "pitchRhythmAccuracy": null,
+              "predictionAbstentions": 0,
+              "sourceHeads": 33,
+              "unmatchedPredictions": 0
+            }
+          }
+        }
+      },
+      "candidateStages": {
+        "guardedDenseCores": 22,
+        "holes": 1,
+        "selected": 10,
+        "suppressed": 4,
+        "vetoes": 27
+      },
+      "sourceByClass": {
+        "round/filled": 12,
+        "square/filled": 10,
+        "triangle/filled": 11
+      },
+      "sourceHeads": 33
+    },
+    "SH2025/531": {
+      "arms": {
+        "holes-all": {
+          "0.35": {
+            "sourceStrata": {
+              "diamond/open": {
+                "matched": 1,
+                "sourceHeads": 1
+              },
+              "round/open": {
+                "matched": 11,
+                "sourceHeads": 11
+              },
+              "square/open": {
+                "matched": 10,
+                "sourceHeads": 10
+              },
+              "triangle/open": {
+                "matched": 6,
+                "sourceHeads": 7
+              }
+            },
+            "summary": {
+              "candidatePredictions": 30,
+              "correctLiteralAmongMatchedKnown": 1.0,
+              "correctLiteralAtAutomaticCenters": 28,
+              "correctLiteralPerKnownSourceHead": 0.9655172413793104,
+              "exportedEventAccuracy": null,
+              "geometricPrecision": 0.9333333333333333,
+              "geometricRecall": 0.9655172413793104,
+              "independentSourceGold": false,
+              "knownLiteralTargets": 29,
+              "matched": 28,
+              "measuredHumanEdits": null,
+              "measuredHumanMinutes": null,
+              "missedSourceHeads": 1,
+              "pitchRhythmAccuracy": null,
+              "predictionAbstentions": 0,
+              "sourceHeads": 29,
+              "unmatchedPredictions": 2
+            }
+          },
+          "0.5": {
+            "sourceStrata": {
+              "diamond/open": {
+                "matched": 1,
+                "sourceHeads": 1
+              },
+              "round/open": {
+                "matched": 11,
+                "sourceHeads": 11
+              },
+              "square/open": {
+                "matched": 10,
+                "sourceHeads": 10
+              },
+              "triangle/open": {
+                "matched": 7,
+                "sourceHeads": 7
+              }
+            },
+            "summary": {
+              "candidatePredictions": 30,
+              "correctLiteralAmongMatchedKnown": 1.0,
+              "correctLiteralAtAutomaticCenters": 29,
+              "correctLiteralPerKnownSourceHead": 1.0,
+              "exportedEventAccuracy": null,
+              "geometricPrecision": 0.9666666666666667,
+              "geometricRecall": 1.0,
+              "independentSourceGold": false,
+              "knownLiteralTargets": 29,
+              "matched": 29,
+              "measuredHumanEdits": null,
+              "measuredHumanMinutes": null,
+              "missedSourceHeads": 0,
+              "pitchRhythmAccuracy": null,
+              "predictionAbstentions": 0,
+              "sourceHeads": 29,
+              "unmatchedPredictions": 1
+            }
+          },
+          "0.75": {
+            "sourceStrata": {
+              "diamond/open": {
+                "matched": 1,
+                "sourceHeads": 1
+              },
+              "round/open": {
+                "matched": 11,
+                "sourceHeads": 11
+              },
+              "square/open": {
+                "matched": 10,
+                "sourceHeads": 10
+              },
+              "triangle/open": {
+                "matched": 7,
+                "sourceHeads": 7
+              }
+            },
+            "summary": {
+              "candidatePredictions": 30,
+              "correctLiteralAmongMatchedKnown": 1.0,
+              "correctLiteralAtAutomaticCenters": 29,
+              "correctLiteralPerKnownSourceHead": 1.0,
+              "exportedEventAccuracy": null,
+              "geometricPrecision": 0.9666666666666667,
+              "geometricRecall": 1.0,
+              "independentSourceGold": false,
+              "knownLiteralTargets": 29,
+              "matched": 29,
+              "measuredHumanEdits": null,
+              "measuredHumanMinutes": null,
+              "missedSourceHeads": 0,
+              "pitchRhythmAccuracy": null,
+              "predictionAbstentions": 0,
+              "sourceHeads": 29,
+              "unmatchedPredictions": 1
+            }
+          }
+        },
+        "native": {
+          "0.35": {
+            "sourceStrata": {
+              "diamond/open": {
+                "matched": 1,
+                "sourceHeads": 1
+              },
+              "round/open": {
+                "matched": 10,
+                "sourceHeads": 11
+              },
+              "square/open": {
+                "matched": 1,
+                "sourceHeads": 10
+              },
+              "triangle/open": {
+                "matched": 2,
+                "sourceHeads": 7
+              }
+            },
+            "summary": {
+              "candidatePredictions": 19,
+              "correctLiteralAmongMatchedKnown": 0.9285714285714286,
+              "correctLiteralAtAutomaticCenters": 13,
+              "correctLiteralPerKnownSourceHead": 0.4482758620689655,
+              "exportedEventAccuracy": null,
+              "geometricPrecision": 0.7368421052631579,
+              "geometricRecall": 0.4827586206896552,
+              "independentSourceGold": false,
+              "knownLiteralTargets": 29,
+              "matched": 14,
+              "measuredHumanEdits": null,
+              "measuredHumanMinutes": null,
+              "missedSourceHeads": 15,
+              "pitchRhythmAccuracy": null,
+              "predictionAbstentions": 0,
+              "sourceHeads": 29,
+              "unmatchedPredictions": 5
+            }
+          },
+          "0.5": {
+            "sourceStrata": {
+              "diamond/open": {
+                "matched": 1,
+                "sourceHeads": 1
+              },
+              "round/open": {
+                "matched": 10,
+                "sourceHeads": 11
+              },
+              "square/open": {
+                "matched": 1,
+                "sourceHeads": 10
+              },
+              "triangle/open": {
+                "matched": 2,
+                "sourceHeads": 7
+              }
+            },
+            "summary": {
+              "candidatePredictions": 19,
+              "correctLiteralAmongMatchedKnown": 0.9285714285714286,
+              "correctLiteralAtAutomaticCenters": 13,
+              "correctLiteralPerKnownSourceHead": 0.4482758620689655,
+              "exportedEventAccuracy": null,
+              "geometricPrecision": 0.7368421052631579,
+              "geometricRecall": 0.4827586206896552,
+              "independentSourceGold": false,
+              "knownLiteralTargets": 29,
+              "matched": 14,
+              "measuredHumanEdits": null,
+              "measuredHumanMinutes": null,
+              "missedSourceHeads": 15,
+              "pitchRhythmAccuracy": null,
+              "predictionAbstentions": 0,
+              "sourceHeads": 29,
+              "unmatchedPredictions": 5
+            }
+          },
+          "0.75": {
+            "sourceStrata": {
+              "diamond/open": {
+                "matched": 1,
+                "sourceHeads": 1
+              },
+              "round/open": {
+                "matched": 10,
+                "sourceHeads": 11
+              },
+              "square/open": {
+                "matched": 2,
+                "sourceHeads": 10
+              },
+              "triangle/open": {
+                "matched": 3,
+                "sourceHeads": 7
+              }
+            },
+            "summary": {
+              "candidatePredictions": 19,
+              "correctLiteralAmongMatchedKnown": 0.875,
+              "correctLiteralAtAutomaticCenters": 14,
+              "correctLiteralPerKnownSourceHead": 0.4827586206896552,
+              "exportedEventAccuracy": null,
+              "geometricPrecision": 0.8421052631578947,
+              "geometricRecall": 0.5517241379310345,
+              "independentSourceGold": false,
+              "knownLiteralTargets": 29,
+              "matched": 16,
+              "measuredHumanEdits": null,
+              "measuredHumanMinutes": null,
+              "missedSourceHeads": 13,
+              "pitchRhythmAccuracy": null,
+              "predictionAbstentions": 0,
+              "sourceHeads": 29,
+              "unmatchedPredictions": 3
+            }
+          }
+        },
+        "native-plus-old-squares": {
+          "0.35": {
+            "sourceStrata": {
+              "diamond/open": {
+                "matched": 1,
+                "sourceHeads": 1
+              },
+              "round/open": {
+                "matched": 10,
+                "sourceHeads": 11
+              },
+              "square/open": {
+                "matched": 1,
+                "sourceHeads": 10
+              },
+              "triangle/open": {
+                "matched": 2,
+                "sourceHeads": 7
+              }
+            },
+            "summary": {
+              "candidatePredictions": 21,
+              "correctLiteralAmongMatchedKnown": 0.9285714285714286,
+              "correctLiteralAtAutomaticCenters": 13,
+              "correctLiteralPerKnownSourceHead": 0.4482758620689655,
+              "exportedEventAccuracy": null,
+              "geometricPrecision": 0.6666666666666666,
+              "geometricRecall": 0.4827586206896552,
+              "independentSourceGold": false,
+              "knownLiteralTargets": 29,
+              "matched": 14,
+              "measuredHumanEdits": null,
+              "measuredHumanMinutes": null,
+              "missedSourceHeads": 15,
+              "pitchRhythmAccuracy": null,
+              "predictionAbstentions": 0,
+              "sourceHeads": 29,
+              "unmatchedPredictions": 7
+            }
+          },
+          "0.5": {
+            "sourceStrata": {
+              "diamond/open": {
+                "matched": 1,
+                "sourceHeads": 1
+              },
+              "round/open": {
+                "matched": 10,
+                "sourceHeads": 11
+              },
+              "square/open": {
+                "matched": 1,
+                "sourceHeads": 10
+              },
+              "triangle/open": {
+                "matched": 2,
+                "sourceHeads": 7
+              }
+            },
+            "summary": {
+              "candidatePredictions": 21,
+              "correctLiteralAmongMatchedKnown": 0.9285714285714286,
+              "correctLiteralAtAutomaticCenters": 13,
+              "correctLiteralPerKnownSourceHead": 0.4482758620689655,
+              "exportedEventAccuracy": null,
+              "geometricPrecision": 0.6666666666666666,
+              "geometricRecall": 0.4827586206896552,
+              "independentSourceGold": false,
+              "knownLiteralTargets": 29,
+              "matched": 14,
+              "measuredHumanEdits": null,
+              "measuredHumanMinutes": null,
+              "missedSourceHeads": 15,
+              "pitchRhythmAccuracy": null,
+              "predictionAbstentions": 0,
+              "sourceHeads": 29,
+              "unmatchedPredictions": 7
+            }
+          },
+          "0.75": {
+            "sourceStrata": {
+              "diamond/open": {
+                "matched": 1,
+                "sourceHeads": 1
+              },
+              "round/open": {
+                "matched": 10,
+                "sourceHeads": 11
+              },
+              "square/open": {
+                "matched": 2,
+                "sourceHeads": 10
+              },
+              "triangle/open": {
+                "matched": 3,
+                "sourceHeads": 7
+              }
+            },
+            "summary": {
+              "candidatePredictions": 21,
+              "correctLiteralAmongMatchedKnown": 0.875,
+              "correctLiteralAtAutomaticCenters": 14,
+              "correctLiteralPerKnownSourceHead": 0.4827586206896552,
+              "exportedEventAccuracy": null,
+              "geometricPrecision": 0.7619047619047619,
+              "geometricRecall": 0.5517241379310345,
+              "independentSourceGold": false,
+              "knownLiteralTargets": 29,
+              "matched": 16,
+              "measuredHumanEdits": null,
+              "measuredHumanMinutes": null,
+              "missedSourceHeads": 13,
+              "pitchRhythmAccuracy": null,
+              "predictionAbstentions": 0,
+              "sourceHeads": 29,
+              "unmatchedPredictions": 5
+            }
+          }
+        },
+        "native-plus-topology": {
+          "0.35": {
+            "sourceStrata": {
+              "diamond/open": {
+                "matched": 1,
+                "sourceHeads": 1
+              },
+              "round/open": {
+                "matched": 10,
+                "sourceHeads": 11
+              },
+              "square/open": {
+                "matched": 9,
+                "sourceHeads": 10
+              },
+              "triangle/open": {
+                "matched": 6,
+                "sourceHeads": 7
+              }
+            },
+            "summary": {
+              "candidatePredictions": 31,
+              "correctLiteralAmongMatchedKnown": 0.9615384615384616,
+              "correctLiteralAtAutomaticCenters": 25,
+              "correctLiteralPerKnownSourceHead": 0.8620689655172413,
+              "exportedEventAccuracy": null,
+              "geometricPrecision": 0.8387096774193549,
+              "geometricRecall": 0.896551724137931,
+              "independentSourceGold": false,
+              "knownLiteralTargets": 29,
+              "matched": 26,
+              "measuredHumanEdits": null,
+              "measuredHumanMinutes": null,
+              "missedSourceHeads": 3,
+              "pitchRhythmAccuracy": null,
+              "predictionAbstentions": 0,
+              "sourceHeads": 29,
+              "unmatchedPredictions": 5
+            }
+          },
+          "0.5": {
+            "sourceStrata": {
+              "diamond/open": {
+                "matched": 1,
+                "sourceHeads": 1
+              },
+              "round/open": {
+                "matched": 10,
+                "sourceHeads": 11
+              },
+              "square/open": {
+                "matched": 9,
+                "sourceHeads": 10
+              },
+              "triangle/open": {
+                "matched": 6,
+                "sourceHeads": 7
+              }
+            },
+            "summary": {
+              "candidatePredictions": 31,
+              "correctLiteralAmongMatchedKnown": 0.9615384615384616,
+              "correctLiteralAtAutomaticCenters": 25,
+              "correctLiteralPerKnownSourceHead": 0.8620689655172413,
+              "exportedEventAccuracy": null,
+              "geometricPrecision": 0.8387096774193549,
+              "geometricRecall": 0.896551724137931,
+              "independentSourceGold": false,
+              "knownLiteralTargets": 29,
+              "matched": 26,
+              "measuredHumanEdits": null,
+              "measuredHumanMinutes": null,
+              "missedSourceHeads": 3,
+              "pitchRhythmAccuracy": null,
+              "predictionAbstentions": 0,
+              "sourceHeads": 29,
+              "unmatchedPredictions": 5
+            }
+          },
+          "0.75": {
+            "sourceStrata": {
+              "diamond/open": {
+                "matched": 1,
+                "sourceHeads": 1
+              },
+              "round/open": {
+                "matched": 10,
+                "sourceHeads": 11
+              },
+              "square/open": {
+                "matched": 10,
+                "sourceHeads": 10
+              },
+              "triangle/open": {
+                "matched": 7,
+                "sourceHeads": 7
+              }
+            },
+            "summary": {
+              "candidatePredictions": 31,
+              "correctLiteralAmongMatchedKnown": 0.9285714285714286,
+              "correctLiteralAtAutomaticCenters": 26,
+              "correctLiteralPerKnownSourceHead": 0.896551724137931,
+              "exportedEventAccuracy": null,
+              "geometricPrecision": 0.9032258064516129,
+              "geometricRecall": 0.9655172413793104,
+              "independentSourceGold": false,
+              "knownLiteralTargets": 29,
+              "matched": 28,
+              "measuredHumanEdits": null,
+              "measuredHumanMinutes": null,
+              "missedSourceHeads": 1,
+              "pitchRhythmAccuracy": null,
+              "predictionAbstentions": 0,
+              "sourceHeads": 29,
+              "unmatchedPredictions": 3
+            }
+          }
+        },
+        "topology-selected": {
+          "0.35": {
+            "sourceStrata": {
+              "diamond/open": {
+                "matched": 1,
+                "sourceHeads": 1
+              },
+              "round/open": {
+                "matched": 10,
+                "sourceHeads": 11
+              },
+              "square/open": {
+                "matched": 10,
+                "sourceHeads": 10
+              },
+              "triangle/open": {
+                "matched": 6,
+                "sourceHeads": 7
+              }
+            },
+            "summary": {
+              "candidatePredictions": 28,
+              "correctLiteralAmongMatchedKnown": 1.0,
+              "correctLiteralAtAutomaticCenters": 27,
+              "correctLiteralPerKnownSourceHead": 0.9310344827586207,
+              "exportedEventAccuracy": null,
+              "geometricPrecision": 0.9642857142857143,
+              "geometricRecall": 0.9310344827586207,
+              "independentSourceGold": false,
+              "knownLiteralTargets": 29,
+              "matched": 27,
+              "measuredHumanEdits": null,
+              "measuredHumanMinutes": null,
+              "missedSourceHeads": 2,
+              "pitchRhythmAccuracy": null,
+              "predictionAbstentions": 0,
+              "sourceHeads": 29,
+              "unmatchedPredictions": 1
+            }
+          },
+          "0.5": {
+            "sourceStrata": {
+              "diamond/open": {
+                "matched": 1,
+                "sourceHeads": 1
+              },
+              "round/open": {
+                "matched": 10,
+                "sourceHeads": 11
+              },
+              "square/open": {
+                "matched": 10,
+                "sourceHeads": 10
+              },
+              "triangle/open": {
+                "matched": 7,
+                "sourceHeads": 7
+              }
+            },
+            "summary": {
+              "candidatePredictions": 28,
+              "correctLiteralAmongMatchedKnown": 1.0,
+              "correctLiteralAtAutomaticCenters": 28,
+              "correctLiteralPerKnownSourceHead": 0.9655172413793104,
+              "exportedEventAccuracy": null,
+              "geometricPrecision": 1.0,
+              "geometricRecall": 0.9655172413793104,
+              "independentSourceGold": false,
+              "knownLiteralTargets": 29,
+              "matched": 28,
+              "measuredHumanEdits": null,
+              "measuredHumanMinutes": null,
+              "missedSourceHeads": 1,
+              "pitchRhythmAccuracy": null,
+              "predictionAbstentions": 0,
+              "sourceHeads": 29,
+              "unmatchedPredictions": 0
+            }
+          },
+          "0.75": {
+            "sourceStrata": {
+              "diamond/open": {
+                "matched": 1,
+                "sourceHeads": 1
+              },
+              "round/open": {
+                "matched": 10,
+                "sourceHeads": 11
+              },
+              "square/open": {
+                "matched": 10,
+                "sourceHeads": 10
+              },
+              "triangle/open": {
+                "matched": 7,
+                "sourceHeads": 7
+              }
+            },
+            "summary": {
+              "candidatePredictions": 28,
+              "correctLiteralAmongMatchedKnown": 1.0,
+              "correctLiteralAtAutomaticCenters": 28,
+              "correctLiteralPerKnownSourceHead": 0.9655172413793104,
+              "exportedEventAccuracy": null,
+              "geometricPrecision": 1.0,
+              "geometricRecall": 0.9655172413793104,
+              "independentSourceGold": false,
+              "knownLiteralTargets": 29,
+              "matched": 28,
+              "measuredHumanEdits": null,
+              "measuredHumanMinutes": null,
+              "missedSourceHeads": 1,
+              "pitchRhythmAccuracy": null,
+              "predictionAbstentions": 0,
+              "sourceHeads": 29,
+              "unmatchedPredictions": 0
+            }
+          }
+        }
+      },
+      "candidateStages": {
+        "guardedDenseCores": 0,
+        "holes": 30,
+        "selected": 28,
+        "suppressed": 16,
+        "vetoes": 20
+      },
+      "sourceByClass": {
+        "diamond/open": 1,
+        "round/open": 11,
+        "square/open": 10,
+        "triangle/open": 7
+      },
+      "sourceHeads": 29
+    }
+  },
+  "developmentHistory": "One source geometry diagnostic; development v1 retained; synthetic test revealed same-line fragments incorrectly vetoed as staff cells, fixed before development v2 and source freeze. v1/v2 aggregate results unchanged.",
+  "evidenceSha256": {
+    "development": {
+      "protocol.json": "4d8841bb72d4d1506bb4d435f963e72d6eed87bee818b440b2e4d004054a71f6",
+      "receipt.json": "b7cd8536dd655d92c6073c4c45f17e46cd420aa42249d8149e0306c10fece066",
+      "report.json": "27c3e81f8c4b81584ae26d54ef54d45664c61c84821c54309cfb89af7b34e263"
+    },
+    "transfer": {
+      "inference-lock.json": "54af8bba8b130ab651a730b5428fdac9ad5310da8fcd900968e3ab23f77c5f75",
+      "protocol.json": "c56f62a52e26739989174df6467f1de2974e2844ea148f1f305cb110803dd6dc",
+      "receipt.json": "55bd645717f2ad6f68cff5049a80f2a062d53d9c6c09b011840fadc60796d4b6",
+      "recognition.json": "20da09bc1b467a340828a621169ed917e05eed1a489310f704fca22460da1bfa",
+      "report.json": "31a6d6ad88d3ee89d7094e04a84100bc4a2592a7deb34dcace57691539c96726",
+      "source-observations.json": "433fbcd32d870498631816dbc9e70d9c9a1d789dde6ff920fb7d2742d91bc12a",
+      "started.json": "1e54161ceedc2a063624eda42a831b8bf86e9ea904a02fbf63cccca671a401a7"
+    }
+  },
+  "limits": [
+    "Source-only same-agent provisional readings, not independent gold",
+    "Supplied complete staff windows; not full-page localization",
+    "Native-priority suppresses useful additions and retains native mistakes on Clayton",
+    "Filled-square positive recovery still only measured on consumed 219",
+    "No score repair, model recipe change, exported-event accuracy, admission or deployment"
+  ],
+  "localValidation": {
+    "completedReplay": "Both retained reports verified unchanged without another recognition",
+    "newTopologyFixturesPassed": 14,
+    "omrFixturesPassed": 113,
+    "sh1991FixturesPassed": 105
+  },
+  "phase": "consumed development followed by seventh-original-source frozen transfer",
+  "primaryArm": "native-plus-topology",
+  "safeToPromote": false,
+  "sourceCertified": false,
+  "transfer": {
+    "arms": {
+      "holes-all": {
+        "0.35": {
+          "sourceStrata": {
+            "diamond/filled": {
+              "matched": 0,
+              "sourceHeads": 1
+            },
+            "diamond/open": {
+              "matched": 1,
+              "sourceHeads": 1
+            },
+            "round/open": {
+              "matched": 9,
+              "sourceHeads": 10
+            },
+            "square/open": {
+              "matched": 7,
+              "sourceHeads": 7
+            },
+            "triangle/filled": {
+              "matched": 0,
+              "sourceHeads": 1
+            },
+            "triangle/open": {
+              "matched": 12,
+              "sourceHeads": 12
+            }
+          },
+          "summary": {
+            "candidatePredictions": 33,
+            "correctLiteralAmongMatchedKnown": 1.0,
+            "correctLiteralAtAutomaticCenters": 29,
+            "correctLiteralPerKnownSourceHead": 0.90625,
+            "exportedEventAccuracy": null,
+            "geometricPrecision": 0.8787878787878788,
+            "geometricRecall": 0.90625,
+            "independentSourceGold": false,
+            "knownLiteralTargets": 32,
+            "matched": 29,
+            "measuredHumanEdits": null,
+            "measuredHumanMinutes": null,
+            "missedSourceHeads": 3,
+            "pitchRhythmAccuracy": null,
+            "predictionAbstentions": 0,
+            "sourceHeads": 32,
+            "unmatchedPredictions": 4
+          }
+        },
+        "0.5": {
+          "sourceStrata": {
+            "diamond/filled": {
+              "matched": 0,
+              "sourceHeads": 1
+            },
+            "diamond/open": {
+              "matched": 1,
+              "sourceHeads": 1
+            },
+            "round/open": {
+              "matched": 9,
+              "sourceHeads": 10
+            },
+            "square/open": {
+              "matched": 7,
+              "sourceHeads": 7
+            },
+            "triangle/filled": {
+              "matched": 0,
+              "sourceHeads": 1
+            },
+            "triangle/open": {
+              "matched": 12,
+              "sourceHeads": 12
+            }
+          },
+          "summary": {
+            "candidatePredictions": 33,
+            "correctLiteralAmongMatchedKnown": 1.0,
+            "correctLiteralAtAutomaticCenters": 29,
+            "correctLiteralPerKnownSourceHead": 0.90625,
+            "exportedEventAccuracy": null,
+            "geometricPrecision": 0.8787878787878788,
+            "geometricRecall": 0.90625,
+            "independentSourceGold": false,
+            "knownLiteralTargets": 32,
+            "matched": 29,
+            "measuredHumanEdits": null,
+            "measuredHumanMinutes": null,
+            "missedSourceHeads": 3,
+            "pitchRhythmAccuracy": null,
+            "predictionAbstentions": 0,
+            "sourceHeads": 32,
+            "unmatchedPredictions": 4
+          }
+        },
+        "0.75": {
+          "sourceStrata": {
+            "diamond/filled": {
+              "matched": 0,
+              "sourceHeads": 1
+            },
+            "diamond/open": {
+              "matched": 1,
+              "sourceHeads": 1
+            },
+            "round/open": {
+              "matched": 9,
+              "sourceHeads": 10
+            },
+            "square/open": {
+              "matched": 7,
+              "sourceHeads": 7
+            },
+            "triangle/filled": {
+              "matched": 0,
+              "sourceHeads": 1
+            },
+            "triangle/open": {
+              "matched": 12,
+              "sourceHeads": 12
+            }
+          },
+          "summary": {
+            "candidatePredictions": 33,
+            "correctLiteralAmongMatchedKnown": 1.0,
+            "correctLiteralAtAutomaticCenters": 29,
+            "correctLiteralPerKnownSourceHead": 0.90625,
+            "exportedEventAccuracy": null,
+            "geometricPrecision": 0.8787878787878788,
+            "geometricRecall": 0.90625,
+            "independentSourceGold": false,
+            "knownLiteralTargets": 32,
+            "matched": 29,
+            "measuredHumanEdits": null,
+            "measuredHumanMinutes": null,
+            "missedSourceHeads": 3,
+            "pitchRhythmAccuracy": null,
+            "predictionAbstentions": 0,
+            "sourceHeads": 32,
+            "unmatchedPredictions": 4
+          }
+        }
+      },
+      "native": {
+        "0.35": {
+          "sourceStrata": {
+            "diamond/filled": {
+              "matched": 1,
+              "sourceHeads": 1
+            },
+            "diamond/open": {
+              "matched": 1,
+              "sourceHeads": 1
+            },
+            "round/open": {
+              "matched": 8,
+              "sourceHeads": 10
+            },
+            "square/open": {
+              "matched": 2,
+              "sourceHeads": 7
+            },
+            "triangle/filled": {
+              "matched": 1,
+              "sourceHeads": 1
+            },
+            "triangle/open": {
+              "matched": 7,
+              "sourceHeads": 12
+            }
+          },
+          "summary": {
+            "candidatePredictions": 25,
+            "correctLiteralAmongMatchedKnown": 1.0,
+            "correctLiteralAtAutomaticCenters": 20,
+            "correctLiteralPerKnownSourceHead": 0.625,
+            "exportedEventAccuracy": null,
+            "geometricPrecision": 0.8,
+            "geometricRecall": 0.625,
+            "independentSourceGold": false,
+            "knownLiteralTargets": 32,
+            "matched": 20,
+            "measuredHumanEdits": null,
+            "measuredHumanMinutes": null,
+            "missedSourceHeads": 12,
+            "pitchRhythmAccuracy": null,
+            "predictionAbstentions": 0,
+            "sourceHeads": 32,
+            "unmatchedPredictions": 5
+          }
+        },
+        "0.5": {
+          "sourceStrata": {
+            "diamond/filled": {
+              "matched": 1,
+              "sourceHeads": 1
+            },
+            "diamond/open": {
+              "matched": 1,
+              "sourceHeads": 1
+            },
+            "round/open": {
+              "matched": 8,
+              "sourceHeads": 10
+            },
+            "square/open": {
+              "matched": 2,
+              "sourceHeads": 7
+            },
+            "triangle/filled": {
+              "matched": 1,
+              "sourceHeads": 1
+            },
+            "triangle/open": {
+              "matched": 7,
+              "sourceHeads": 12
+            }
+          },
+          "summary": {
+            "candidatePredictions": 25,
+            "correctLiteralAmongMatchedKnown": 1.0,
+            "correctLiteralAtAutomaticCenters": 20,
+            "correctLiteralPerKnownSourceHead": 0.625,
+            "exportedEventAccuracy": null,
+            "geometricPrecision": 0.8,
+            "geometricRecall": 0.625,
+            "independentSourceGold": false,
+            "knownLiteralTargets": 32,
+            "matched": 20,
+            "measuredHumanEdits": null,
+            "measuredHumanMinutes": null,
+            "missedSourceHeads": 12,
+            "pitchRhythmAccuracy": null,
+            "predictionAbstentions": 0,
+            "sourceHeads": 32,
+            "unmatchedPredictions": 5
+          }
+        },
+        "0.75": {
+          "sourceStrata": {
+            "diamond/filled": {
+              "matched": 1,
+              "sourceHeads": 1
+            },
+            "diamond/open": {
+              "matched": 1,
+              "sourceHeads": 1
+            },
+            "round/open": {
+              "matched": 8,
+              "sourceHeads": 10
+            },
+            "square/open": {
+              "matched": 2,
+              "sourceHeads": 7
+            },
+            "triangle/filled": {
+              "matched": 1,
+              "sourceHeads": 1
+            },
+            "triangle/open": {
+              "matched": 7,
+              "sourceHeads": 12
+            }
+          },
+          "summary": {
+            "candidatePredictions": 25,
+            "correctLiteralAmongMatchedKnown": 1.0,
+            "correctLiteralAtAutomaticCenters": 20,
+            "correctLiteralPerKnownSourceHead": 0.625,
+            "exportedEventAccuracy": null,
+            "geometricPrecision": 0.8,
+            "geometricRecall": 0.625,
+            "independentSourceGold": false,
+            "knownLiteralTargets": 32,
+            "matched": 20,
+            "measuredHumanEdits": null,
+            "measuredHumanMinutes": null,
+            "missedSourceHeads": 12,
+            "pitchRhythmAccuracy": null,
+            "predictionAbstentions": 0,
+            "sourceHeads": 32,
+            "unmatchedPredictions": 5
+          }
+        }
+      },
+      "native-plus-old-squares": {
+        "0.35": {
+          "sourceStrata": {
+            "diamond/filled": {
+              "matched": 1,
+              "sourceHeads": 1
+            },
+            "diamond/open": {
+              "matched": 1,
+              "sourceHeads": 1
+            },
+            "round/open": {
+              "matched": 8,
+              "sourceHeads": 10
+            },
+            "square/open": {
+              "matched": 2,
+              "sourceHeads": 7
+            },
+            "triangle/filled": {
+              "matched": 1,
+              "sourceHeads": 1
+            },
+            "triangle/open": {
+              "matched": 7,
+              "sourceHeads": 12
+            }
+          },
+          "summary": {
+            "candidatePredictions": 28,
+            "correctLiteralAmongMatchedKnown": 1.0,
+            "correctLiteralAtAutomaticCenters": 20,
+            "correctLiteralPerKnownSourceHead": 0.625,
+            "exportedEventAccuracy": null,
+            "geometricPrecision": 0.7142857142857143,
+            "geometricRecall": 0.625,
+            "independentSourceGold": false,
+            "knownLiteralTargets": 32,
+            "matched": 20,
+            "measuredHumanEdits": null,
+            "measuredHumanMinutes": null,
+            "missedSourceHeads": 12,
+            "pitchRhythmAccuracy": null,
+            "predictionAbstentions": 0,
+            "sourceHeads": 32,
+            "unmatchedPredictions": 8
+          }
+        },
+        "0.5": {
+          "sourceStrata": {
+            "diamond/filled": {
+              "matched": 1,
+              "sourceHeads": 1
+            },
+            "diamond/open": {
+              "matched": 1,
+              "sourceHeads": 1
+            },
+            "round/open": {
+              "matched": 8,
+              "sourceHeads": 10
+            },
+            "square/open": {
+              "matched": 2,
+              "sourceHeads": 7
+            },
+            "triangle/filled": {
+              "matched": 1,
+              "sourceHeads": 1
+            },
+            "triangle/open": {
+              "matched": 7,
+              "sourceHeads": 12
+            }
+          },
+          "summary": {
+            "candidatePredictions": 28,
+            "correctLiteralAmongMatchedKnown": 1.0,
+            "correctLiteralAtAutomaticCenters": 20,
+            "correctLiteralPerKnownSourceHead": 0.625,
+            "exportedEventAccuracy": null,
+            "geometricPrecision": 0.7142857142857143,
+            "geometricRecall": 0.625,
+            "independentSourceGold": false,
+            "knownLiteralTargets": 32,
+            "matched": 20,
+            "measuredHumanEdits": null,
+            "measuredHumanMinutes": null,
+            "missedSourceHeads": 12,
+            "pitchRhythmAccuracy": null,
+            "predictionAbstentions": 0,
+            "sourceHeads": 32,
+            "unmatchedPredictions": 8
+          }
+        },
+        "0.75": {
+          "sourceStrata": {
+            "diamond/filled": {
+              "matched": 1,
+              "sourceHeads": 1
+            },
+            "diamond/open": {
+              "matched": 1,
+              "sourceHeads": 1
+            },
+            "round/open": {
+              "matched": 8,
+              "sourceHeads": 10
+            },
+            "square/open": {
+              "matched": 2,
+              "sourceHeads": 7
+            },
+            "triangle/filled": {
+              "matched": 1,
+              "sourceHeads": 1
+            },
+            "triangle/open": {
+              "matched": 7,
+              "sourceHeads": 12
+            }
+          },
+          "summary": {
+            "candidatePredictions": 28,
+            "correctLiteralAmongMatchedKnown": 1.0,
+            "correctLiteralAtAutomaticCenters": 20,
+            "correctLiteralPerKnownSourceHead": 0.625,
+            "exportedEventAccuracy": null,
+            "geometricPrecision": 0.7142857142857143,
+            "geometricRecall": 0.625,
+            "independentSourceGold": false,
+            "knownLiteralTargets": 32,
+            "matched": 20,
+            "measuredHumanEdits": null,
+            "measuredHumanMinutes": null,
+            "missedSourceHeads": 12,
+            "pitchRhythmAccuracy": null,
+            "predictionAbstentions": 0,
+            "sourceHeads": 32,
+            "unmatchedPredictions": 8
+          }
+        }
+      },
+      "native-plus-topology": {
+        "0.35": {
+          "sourceStrata": {
+            "diamond/filled": {
+              "matched": 1,
+              "sourceHeads": 1
+            },
+            "diamond/open": {
+              "matched": 1,
+              "sourceHeads": 1
+            },
+            "round/open": {
+              "matched": 8,
+              "sourceHeads": 10
+            },
+            "square/open": {
+              "matched": 7,
+              "sourceHeads": 7
+            },
+            "triangle/filled": {
+              "matched": 1,
+              "sourceHeads": 1
+            },
+            "triangle/open": {
+              "matched": 12,
+              "sourceHeads": 12
+            }
+          },
+          "summary": {
+            "candidatePredictions": 35,
+            "correctLiteralAmongMatchedKnown": 1.0,
+            "correctLiteralAtAutomaticCenters": 30,
+            "correctLiteralPerKnownSourceHead": 0.9375,
+            "exportedEventAccuracy": null,
+            "geometricPrecision": 0.8571428571428571,
+            "geometricRecall": 0.9375,
+            "independentSourceGold": false,
+            "knownLiteralTargets": 32,
+            "matched": 30,
+            "measuredHumanEdits": null,
+            "measuredHumanMinutes": null,
+            "missedSourceHeads": 2,
+            "pitchRhythmAccuracy": null,
+            "predictionAbstentions": 0,
+            "sourceHeads": 32,
+            "unmatchedPredictions": 5
+          }
+        },
+        "0.5": {
+          "sourceStrata": {
+            "diamond/filled": {
+              "matched": 1,
+              "sourceHeads": 1
+            },
+            "diamond/open": {
+              "matched": 1,
+              "sourceHeads": 1
+            },
+            "round/open": {
+              "matched": 8,
+              "sourceHeads": 10
+            },
+            "square/open": {
+              "matched": 7,
+              "sourceHeads": 7
+            },
+            "triangle/filled": {
+              "matched": 1,
+              "sourceHeads": 1
+            },
+            "triangle/open": {
+              "matched": 12,
+              "sourceHeads": 12
+            }
+          },
+          "summary": {
+            "candidatePredictions": 35,
+            "correctLiteralAmongMatchedKnown": 1.0,
+            "correctLiteralAtAutomaticCenters": 30,
+            "correctLiteralPerKnownSourceHead": 0.9375,
+            "exportedEventAccuracy": null,
+            "geometricPrecision": 0.8571428571428571,
+            "geometricRecall": 0.9375,
+            "independentSourceGold": false,
+            "knownLiteralTargets": 32,
+            "matched": 30,
+            "measuredHumanEdits": null,
+            "measuredHumanMinutes": null,
+            "missedSourceHeads": 2,
+            "pitchRhythmAccuracy": null,
+            "predictionAbstentions": 0,
+            "sourceHeads": 32,
+            "unmatchedPredictions": 5
+          }
+        },
+        "0.75": {
+          "sourceStrata": {
+            "diamond/filled": {
+              "matched": 1,
+              "sourceHeads": 1
+            },
+            "diamond/open": {
+              "matched": 1,
+              "sourceHeads": 1
+            },
+            "round/open": {
+              "matched": 8,
+              "sourceHeads": 10
+            },
+            "square/open": {
+              "matched": 7,
+              "sourceHeads": 7
+            },
+            "triangle/filled": {
+              "matched": 1,
+              "sourceHeads": 1
+            },
+            "triangle/open": {
+              "matched": 12,
+              "sourceHeads": 12
+            }
+          },
+          "summary": {
+            "candidatePredictions": 35,
+            "correctLiteralAmongMatchedKnown": 1.0,
+            "correctLiteralAtAutomaticCenters": 30,
+            "correctLiteralPerKnownSourceHead": 0.9375,
+            "exportedEventAccuracy": null,
+            "geometricPrecision": 0.8571428571428571,
+            "geometricRecall": 0.9375,
+            "independentSourceGold": false,
+            "knownLiteralTargets": 32,
+            "matched": 30,
+            "measuredHumanEdits": null,
+            "measuredHumanMinutes": null,
+            "missedSourceHeads": 2,
+            "pitchRhythmAccuracy": null,
+            "predictionAbstentions": 0,
+            "sourceHeads": 32,
+            "unmatchedPredictions": 5
+          }
+        }
+      },
+      "topology-selected": {
+        "0.35": {
+          "sourceStrata": {
+            "diamond/filled": {
+              "matched": 0,
+              "sourceHeads": 1
+            },
+            "diamond/open": {
+              "matched": 1,
+              "sourceHeads": 1
+            },
+            "round/open": {
+              "matched": 8,
+              "sourceHeads": 10
+            },
+            "square/open": {
+              "matched": 7,
+              "sourceHeads": 7
+            },
+            "triangle/filled": {
+              "matched": 0,
+              "sourceHeads": 1
+            },
+            "triangle/open": {
+              "matched": 12,
+              "sourceHeads": 12
+            }
+          },
+          "summary": {
+            "candidatePredictions": 28,
+            "correctLiteralAmongMatchedKnown": 1.0,
+            "correctLiteralAtAutomaticCenters": 28,
+            "correctLiteralPerKnownSourceHead": 0.875,
+            "exportedEventAccuracy": null,
+            "geometricPrecision": 1.0,
+            "geometricRecall": 0.875,
+            "independentSourceGold": false,
+            "knownLiteralTargets": 32,
+            "matched": 28,
+            "measuredHumanEdits": null,
+            "measuredHumanMinutes": null,
+            "missedSourceHeads": 4,
+            "pitchRhythmAccuracy": null,
+            "predictionAbstentions": 0,
+            "sourceHeads": 32,
+            "unmatchedPredictions": 0
+          }
+        },
+        "0.5": {
+          "sourceStrata": {
+            "diamond/filled": {
+              "matched": 0,
+              "sourceHeads": 1
+            },
+            "diamond/open": {
+              "matched": 1,
+              "sourceHeads": 1
+            },
+            "round/open": {
+              "matched": 8,
+              "sourceHeads": 10
+            },
+            "square/open": {
+              "matched": 7,
+              "sourceHeads": 7
+            },
+            "triangle/filled": {
+              "matched": 0,
+              "sourceHeads": 1
+            },
+            "triangle/open": {
+              "matched": 12,
+              "sourceHeads": 12
+            }
+          },
+          "summary": {
+            "candidatePredictions": 28,
+            "correctLiteralAmongMatchedKnown": 1.0,
+            "correctLiteralAtAutomaticCenters": 28,
+            "correctLiteralPerKnownSourceHead": 0.875,
+            "exportedEventAccuracy": null,
+            "geometricPrecision": 1.0,
+            "geometricRecall": 0.875,
+            "independentSourceGold": false,
+            "knownLiteralTargets": 32,
+            "matched": 28,
+            "measuredHumanEdits": null,
+            "measuredHumanMinutes": null,
+            "missedSourceHeads": 4,
+            "pitchRhythmAccuracy": null,
+            "predictionAbstentions": 0,
+            "sourceHeads": 32,
+            "unmatchedPredictions": 0
+          }
+        },
+        "0.75": {
+          "sourceStrata": {
+            "diamond/filled": {
+              "matched": 0,
+              "sourceHeads": 1
+            },
+            "diamond/open": {
+              "matched": 1,
+              "sourceHeads": 1
+            },
+            "round/open": {
+              "matched": 8,
+              "sourceHeads": 10
+            },
+            "square/open": {
+              "matched": 7,
+              "sourceHeads": 7
+            },
+            "triangle/filled": {
+              "matched": 0,
+              "sourceHeads": 1
+            },
+            "triangle/open": {
+              "matched": 12,
+              "sourceHeads": 12
+            }
+          },
+          "summary": {
+            "candidatePredictions": 28,
+            "correctLiteralAmongMatchedKnown": 1.0,
+            "correctLiteralAtAutomaticCenters": 28,
+            "correctLiteralPerKnownSourceHead": 0.875,
+            "exportedEventAccuracy": null,
+            "geometricPrecision": 1.0,
+            "geometricRecall": 0.875,
+            "independentSourceGold": false,
+            "knownLiteralTargets": 32,
+            "matched": 28,
+            "measuredHumanEdits": null,
+            "measuredHumanMinutes": null,
+            "missedSourceHeads": 4,
+            "pitchRhythmAccuracy": null,
+            "predictionAbstentions": 0,
+            "sourceHeads": 32,
+            "unmatchedPredictions": 0
+          }
+        }
+      }
+    },
+    "candidateStages": {
+      "guardedDenseCores": 1,
+      "holes": 33,
+      "selected": 28,
+      "suppressed": 18,
+      "vetoes": 10
+    },
+    "recognitionStatus": "graph-ready",
+    "source": "SH2025/469",
+    "sourceByClass": {
+      "diamond/filled": 1,
+      "diamond/open": 1,
+      "round/open": 10,
+      "square/open": 7,
+      "triangle/filled": 1,
+      "triangle/open": 12
+    },
+    "sourceHeads": 32
+  },
+  "transferFailureModes": [
+    "No hole proposal for one round/open source head",
+    "One correctly labeled round/open hole excluded by unchanged selective margin gate"
+  ],
+  "wholeScoresAccepted": 0
+}
