@@ -1,0 +1,2 @@
+# Research diffs retain upstream CRLF and required blank-context prefixes.
+*.patch -text -whitespace

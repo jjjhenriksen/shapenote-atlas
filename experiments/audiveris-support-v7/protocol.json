@@ -1,0 +1,30 @@
+{
+  "study": "support-v7",
+  "frozenAt": "2026-10-16T05:57:06.622738+00:00",
+  "upstream": "9e1e55cd2746037d059345881c53e6a6754bffbd",
+  "trainingProbe": [
+    "26",
+    "83t",
+    "68b",
+    "72b",
+    "89"
+  ],
+  "pointsSha256": "1061fe75cae9b18a680df33f7c703505ade78ac03e91deed1fe425644b7a462e",
+  "benchmarkSha256": "49e0c7f4671feed9946336b7bf3c5287ef03c89bee3479f1272771db16226e7f",
+  "parentV6ReportSha256": "41d4fc3bf01225d77cff82eb002e1bee5eef1f938af84c2f8e184efd35a76049",
+  "intervention": "Default-off atlas.faSupport vetoes logical fa template proposals with less than half their expected foreground pixels having non-neutralized in-bounds observations. Majority-support criterion fixed before run, no threshold sweep. No ordinary-head veto or bar change. V6 native-hole rule fixed on.",
+  "rationale": "V5 shows heavy neutralization while V4 source review found source-empty retained centers; V6 improves triangle fill to54/60 but further increases retained unmatched heads and reference insertions. Test minimum observable fa foreground coverage rather than tune distance threshold.",
+  "comparison": "Same binary fa-off reference, V6-equivalent fa-on/support-off, fa-on/support-on. Same read-only FASUPPORT7 logging across arms at 234 frozen benchmark +21 frozen review centers.",
+  "selectionRule": {
+    "offControlWrittenEventsIdenticalToOriginal": true,
+    "triangleRetainedRecallGainAtLeast": 0.25,
+    "fillCorrectAmongRetainedTrianglesAtLeast": 0.8,
+    "nonTriangleHeadRetentionAtLeast": 0.98,
+    "candidatePitchRecallGainAtLeast": 0.02,
+    "candidatePitchPrecisionLossAtMost": 0.02,
+    "candidateDurationRecallLossAtMost": 0.01,
+    "candidateOnsetRecallLossAtMost": 0.01,
+    "noFewerExports": true
+  },
+  "heldOutRun": false
+}

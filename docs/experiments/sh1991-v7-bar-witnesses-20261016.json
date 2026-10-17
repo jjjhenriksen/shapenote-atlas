@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "method": "Exact system, staff and physical-glyph identity of retained final barline nodes; geometry changes reported separately. Synthetic nodes without glyph excluded. No source review or musical no-regression certification.",
+  "sourceCertified": false,
+  "rows": [
+    {"songNo": "26", "controlPhysicalWitnesses": 81, "candidatePhysicalWitnesses": 81, "lost": [], "gained": [], "matchedBoxesChanged": [], "v3LostControlWitnesses": [], "v3LostNowRestored": []},
+    {"songNo": "83t", "controlPhysicalWitnesses": 69, "candidatePhysicalWitnesses": 69, "lost": [], "gained": [], "matchedBoxesChanged": [], "v3LostControlWitnesses": [], "v3LostNowRestored": []},
+    {"songNo": "68b", "controlPhysicalWitnesses": 81, "candidatePhysicalWitnesses": 83, "lost": [], "gained": [{"system": "1", "staff": "1", "glyph": "9", "id": "10", "box": {"x": "392", "y": "128", "w": "3", "h": "54"}}, {"system": "1", "staff": "3", "glyph": "122", "id": "123", "box": {"x": "1393", "y": "366", "w": "4", "h": "54"}}], "matchedBoxesChanged": [], "v3LostControlWitnesses": [], "v3LostNowRestored": []},
+    {"songNo": "72b", "controlPhysicalWitnesses": 72, "candidatePhysicalWitnesses": 73, "lost": [], "gained": [{"system": "1", "staff": "4", "glyph": "133", "id": "134", "box": {"x": "327", "y": "516", "w": "3", "h": "54"}}], "matchedBoxesChanged": [], "v3LostControlWitnesses": [], "v3LostNowRestored": []},
+    {"songNo": "89", "controlPhysicalWitnesses": 84, "candidatePhysicalWitnesses": 84, "lost": [], "gained": [], "matchedBoxesChanged": [], "v3LostControlWitnesses": [], "v3LostNowRestored": []}
+  ],
+  "evidenceSha256": {
+    "work/model-pilot/sh1991-v1/fa-discrimination-v3/control/baseline/26/53b436f96702820dd9ca230fd097e36202a974f8a5315da30ee951b355e2b8cc.omr": "e19cfd0d5aa71a90cbf6dec89208225e8d6184b6dbde7616195bb2727173d306",
+    "work/model-pilot/sh1991-v1/fa-discrimination-v3/candidate/baseline/26/53b436f96702820dd9ca230fd097e36202a974f8a5315da30ee951b355e2b8cc.omr": "48daa0dff7c855ad258f3a052c8cc1b085a2e205dff4fb078b45fdc7f0e0acea",
+    "work/model-pilot/sh1991-v1/support-v7/candidate/baseline/26/53b436f96702820dd9ca230fd097e36202a974f8a5315da30ee951b355e2b8cc.omr": "6eada38d7ab0d0d19a09600a904544e388406ee69bfc1029a5a091c5c97254ff",
+    "work/model-pilot/sh1991-v1/fa-discrimination-v3/control/baseline/83t/8eb970d92282a4ac4e7e9e8aad001461be38cf1c5f54b15f9f338d948462a128.omr": "aad5d9143a045a9a828eb7dfff58f7af6b0be3204a92400b876559301aad4b61",
+    "work/model-pilot/sh1991-v1/fa-discrimination-v3/candidate/baseline/83t/8eb970d92282a4ac4e7e9e8aad001461be38cf1c5f54b15f9f338d948462a128.omr": "048848e867864634799285ffc0c8aadb823f30c6aab2321387fd55b20660a0d6",
+    "work/model-pilot/sh1991-v1/support-v7/candidate/baseline/83t/8eb970d92282a4ac4e7e9e8aad001461be38cf1c5f54b15f9f338d948462a128.omr": "d9e999f9550e4611f7035c16712d7f291c076efd781f7eae4ea40c25adb29141",
+    "work/model-pilot/sh1991-v1/fa-discrimination-v3/control/baseline/68b/41b0d7a45dbd87a8b7d540271de0f90403bac2178ff7bd11cf1306946eee18d1.omr": "a59247abcb6218b05b410042464d3ecdf6c1ec50c8493958a37fb07db8973d29",
+    "work/model-pilot/sh1991-v1/fa-discrimination-v3/candidate/baseline/68b/41b0d7a45dbd87a8b7d540271de0f90403bac2178ff7bd11cf1306946eee18d1.omr": "7ac21af95d0afedf330bf36d0ccb94e89800410d6332f2ad08b1e338803bd795",
+    "work/model-pilot/sh1991-v1/support-v7/candidate/baseline/68b/41b0d7a45dbd87a8b7d540271de0f90403bac2178ff7bd11cf1306946eee18d1.omr": "955cbf600cbd5a669ef34f7bd5ed1fdf92921bfcad704e211177ded64608a03a",
+    "work/model-pilot/sh1991-v1/fa-discrimination-v3/control/baseline/72b/e56ad281ce5b9e1c68d1ab2abdf2685ed35fccfa935042bfb0197e2a41f5fe31.omr": "30b20947f2e44017c6de76776e8b95d0dee1730cf80b778745fa541875b00111",
+    "work/model-pilot/sh1991-v1/fa-discrimination-v3/candidate/baseline/72b/e56ad281ce5b9e1c68d1ab2abdf2685ed35fccfa935042bfb0197e2a41f5fe31.omr": "7b9f6c2c657b07af119366515242e5b93c7bf8e273fa49d1af2ff68d04188cc9",
+    "work/model-pilot/sh1991-v1/support-v7/candidate/baseline/72b/e56ad281ce5b9e1c68d1ab2abdf2685ed35fccfa935042bfb0197e2a41f5fe31.omr": "dc2211fee14a2925be0e6f2eeb9cb56addf7d9276816d9c354049b9d166ab214",
+    "work/model-pilot/sh1991-v1/fa-discrimination-v3/control/baseline/89/df274897d0fda4859f8fc71a720a4db909acccd91e4afdb4b35f651a3385d006.omr": "05cf1a44fb74e58f231470ebef18f4aa00681def2daabc1c950d14b2c43f95dd",
+    "work/model-pilot/sh1991-v1/fa-discrimination-v3/candidate/baseline/89/df274897d0fda4859f8fc71a720a4db909acccd91e4afdb4b35f651a3385d006.omr": "ba8b6341367d4b61809d8dad49f83504cd0d0ce1fc8ad632df6a16ca7be587f8",
+    "work/model-pilot/sh1991-v1/support-v7/candidate/baseline/89/df274897d0fda4859f8fc71a720a4db909acccd91e4afdb4b35f651a3385d006.omr": "c3a593fcb3ca6116b8ff90b4caaca908c1ebc9cf540a5abb5838aa2f125dc297"
+  },
+  "analysisScriptSha256": "0ecea6ea4738a53cf636213bee01740e1ad31209547f0c5a1e737f82d579575b"
+}

@@ -1,0 +1,49 @@
+diff --git a/app/src/main/java/org/audiveris/omr/sig/inter/BarlineInter.java b/app/src/main/java/org/audiveris/omr/sig/inter/BarlineInter.java
+index 1c9277a..aec8fb2 100644
+--- a/app/src/main/java/org/audiveris/omr/sig/inter/BarlineInter.java
++++ b/app/src/main/java/org/audiveris/omr/sig/inter/BarlineInter.java
+@@ -366,6 +366,11 @@ public class BarlineInter
+             return;
+         }
+ 
++        if (Boolean.getBoolean("atlas.barTrace")) {
++            System.out.println("BARREMOVE|" + getId() + "|" + getBounds()
++                + "|glyph=" + (getGlyph() == null ? 0 : getGlyph().getId())
++                + "|" + java.util.Arrays.toString(Thread.currentThread().getStackTrace()));
++        }
+         if (staff != null) {
+             staff.removeBarline(this);
+         }
+diff --git a/app/src/main/java/org/audiveris/omr/step/OmrStep.java b/app/src/main/java/org/audiveris/omr/step/OmrStep.java
+index 91e0a27..f0696c7 100644
+--- a/app/src/main/java/org/audiveris/omr/step/OmrStep.java
++++ b/app/src/main/java/org/audiveris/omr/step/OmrStep.java
+@@ -135,7 +135,28 @@ public enum OmrStep
+     public void doit (Sheet sheet)
+         throws StepException
+     {
++        traceBars(sheet, "ENTER");
+         helper.doit(sheet);
++        traceBars(sheet, "EXIT");
++    }
++
++    private void traceBars (Sheet sheet, String phase)
++    {
++        if (!Boolean.getBoolean("atlas.barTrace")) return;
++        for (var system : sheet.getSystems()) {
++            int count = 0;
++            for (var inter : system.getSig().vertexSet()) {
++                if (inter instanceof org.audiveris.omr.sig.inter.BarlineInter) {
++                    var b = inter.getBounds();
++                    System.out.println("BARTRACE|" + name() + "|" + phase + "|" + system.getId()
++                        + "|" + inter.getId() + "|" + (inter.getStaff() == null ? 0 : inter.getStaff().getId())
++                        + "|" + (inter.getGlyph() == null ? 0 : inter.getGlyph().getId())
++                        + "|" + b.x + "|" + b.y + "|" + b.width + "|" + b.height + "|" + inter.getGrade());
++                    count++;
++                }
++            }
++            System.out.println("BARCOUNT|" + name() + "|" + phase + "|" + system.getId() + "|" + count);
++        }
+     }
+ 
+     //----------------//

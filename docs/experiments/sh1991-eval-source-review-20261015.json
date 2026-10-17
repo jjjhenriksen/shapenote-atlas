@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "selectionSha256": "bda47a7e5f934327f43005424b474600d64ec320f99a69ab95cf44c6975af10d",
+  "reviewer": "Single AI visual review of the two source-only contact sheets, 2026-10-15 America/Los_Angeles; no independent human certification.",
+  "method": "Judge the bracketed source location, not engine shape or score XML. Head means source-head footprint overlap, not a unique correct detection. Non_head means no notehead at that location, not proof of a distinct spurious exported event.",
+  "sourceCertified": false,
+  "sourceContacts": [
+    {"path": "work/model-pilot/sh1991-v1/eval-diagnostics-v4/source-review-1.png", "sha256": "46fc0a3e99a432acad600593c27f862e97a1413e2ebf8ce549323f539ca98407"},
+    {"path": "work/model-pilot/sh1991-v1/eval-diagnostics-v4/source-review-2.png", "sha256": "6593fdb1b87a5d5b229a1b72c7bc8bbe2c639c76cafa9c31ddb90e07434ee746"}
+  ],
+  "rows": [
+    {"id": "candidate/26/3311", "label": "head", "note": "Center overlaps a genuine filled triangular head; unmatched does not imply a distinct false note."},
+    {"id": "candidate/26/3183", "label": "head", "note": "Center overlaps a genuine filled triangular head; unmatched does not imply a distinct false note."},
+    {"id": "candidate/26/3869", "label": "non_head", "note": "No notehead at the marked center; nearby genuine heads/stems may explain displaced or duplicate proposals."},
+    {"id": "candidate/26/5079", "label": "non_head", "note": "No notehead at the marked center; nearby genuine heads/stems may explain displaced or duplicate proposals."},
+    {"id": "candidate/26/6790", "label": "non_head", "note": "No notehead at the marked center; nearby genuine heads/stems may explain displaced or duplicate proposals."},
+    {"id": "candidate/26/6882", "label": "non_head", "note": "Marked center is at a flag tail beside a stem, not a notehead."},
+    {"id": "candidate/26/8544", "label": "non_head", "note": "Marked center is at a curved flag/stem fragment, not a notehead."},
+    {"id": "candidate/68b/1321", "label": "non_head", "note": "No notehead at the marked center; nearby genuine heads/stems may explain displaced or duplicate proposals."},
+    {"id": "candidate/68b/1339", "label": "non_head", "note": "No notehead at the marked center; nearby genuine heads/stems may explain displaced or duplicate proposals."},
+    {"id": "candidate/68b/1973", "label": "non_head", "note": "No notehead at the marked center; nearby genuine heads/stems may explain displaced or duplicate proposals."},
+    {"id": "candidate/68b/1768", "label": "non_head", "note": "No notehead at the marked center; nearby genuine heads/stems may explain displaced or duplicate proposals."},
+    {"id": "candidate/68b/2723", "label": "non_head", "note": "No notehead at the marked center; nearby genuine heads/stems may explain displaced or duplicate proposals."},
+    {"id": "candidate/68b/3096", "label": "non_head", "note": "No notehead at the marked center; nearby genuine heads/stems may explain displaced or duplicate proposals."},
+    {"id": "candidate/68b/3776", "label": "non_head", "note": "No notehead at the marked center; nearby genuine heads/stems may explain displaced or duplicate proposals."},
+    {"id": "candidate/68b/3817", "label": "non_head", "note": "No notehead at the marked center; nearby genuine heads/stems may explain displaced or duplicate proposals."},
+    {"id": "candidate/89/1287", "label": "non_head", "note": "No notehead at the marked center; nearby genuine heads/stems may explain displaced or duplicate proposals."},
+    {"id": "candidate/89/1673", "label": "non_head", "note": "No notehead at the marked center; nearby genuine heads/stems may explain displaced or duplicate proposals."},
+    {"id": "candidate/89/1852", "label": "non_head", "note": "No notehead at the marked center; nearby genuine heads/stems may explain displaced or duplicate proposals."},
+    {"id": "candidate/89/1930", "label": "non_head", "note": "No notehead at the marked center; nearby genuine heads/stems may explain displaced or duplicate proposals."},
+    {"id": "candidate/89/3268", "label": "non_head", "note": "No notehead at the marked center; nearby genuine heads/stems may explain displaced or duplicate proposals."},
+    {"id": "candidate/89/3038", "label": "non_head", "note": "No notehead at the marked center; nearby genuine heads/stems may explain displaced or duplicate proposals."}
+  ]
+}
