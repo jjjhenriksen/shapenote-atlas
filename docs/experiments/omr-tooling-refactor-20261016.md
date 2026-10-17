@@ -35,6 +35,19 @@ would be a model change, not a refactor.
 - No study runner, recognition process, reserved-page evaluation, source edit,
   archive regeneration or protocol rewrite is part of this refactor.
 
+## Existing browser-check race
+
+The final shared CI run reproduced an intermittent mobile prose-search failure
+also seen on an earlier PR: clearing search and selecting source-only records
+left zero matches. The test selects an already-visible article, so its heading
+assertion does not synchronize the mobile animation-frame focus handoff.
+
+The fixture now waits for that existing focus handoff before clearing search,
+and verifies the input is empty before changing the notation filter. No product
+UI, search/filter logic, fixed sleep, automatic retry or weaker assertion is
+introduced. Local Chrome runs are diagnostic; the full shared Chromium suite
+remains the landing gate.
+
 ## Frozen runs remain historical
 
 The complete pre-refactor implementation is retained in Git at
