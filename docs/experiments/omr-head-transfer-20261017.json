@@ -1,0 +1,606 @@
+{
+  "arms": {
+    "image-only-all-cores": {
+      "0.35": {
+        "sourceStrata": {
+          "diamond/open": {
+            "matched": 0,
+            "sourceHeads": 1
+          },
+          "round/open": {
+            "matched": 0,
+            "sourceHeads": 11
+          },
+          "square/open": {
+            "matched": 0,
+            "sourceHeads": 10
+          },
+          "triangle/open": {
+            "matched": 0,
+            "sourceHeads": 7
+          }
+        },
+        "summary": {
+          "candidatePredictions": 2,
+          "correctLiteralAmongMatchedKnown": null,
+          "correctLiteralAtAutomaticCenters": 0,
+          "correctLiteralPerKnownSourceHead": 0.0,
+          "exportedEventAccuracy": null,
+          "geometricPrecision": 0.0,
+          "geometricRecall": 0.0,
+          "independentSourceGold": false,
+          "knownLiteralTargets": 29,
+          "matched": 0,
+          "measuredHumanEdits": null,
+          "measuredHumanMinutes": null,
+          "missedSourceHeads": 29,
+          "pitchRhythmAccuracy": null,
+          "predictionAbstentions": 0,
+          "sourceHeads": 29,
+          "unmatchedPredictions": 2
+        }
+      },
+      "0.5": {
+        "sourceStrata": {
+          "diamond/open": {
+            "matched": 0,
+            "sourceHeads": 1
+          },
+          "round/open": {
+            "matched": 0,
+            "sourceHeads": 11
+          },
+          "square/open": {
+            "matched": 0,
+            "sourceHeads": 10
+          },
+          "triangle/open": {
+            "matched": 0,
+            "sourceHeads": 7
+          }
+        },
+        "summary": {
+          "candidatePredictions": 2,
+          "correctLiteralAmongMatchedKnown": null,
+          "correctLiteralAtAutomaticCenters": 0,
+          "correctLiteralPerKnownSourceHead": 0.0,
+          "exportedEventAccuracy": null,
+          "geometricPrecision": 0.0,
+          "geometricRecall": 0.0,
+          "independentSourceGold": false,
+          "knownLiteralTargets": 29,
+          "matched": 0,
+          "measuredHumanEdits": null,
+          "measuredHumanMinutes": null,
+          "missedSourceHeads": 29,
+          "pitchRhythmAccuracy": null,
+          "predictionAbstentions": 0,
+          "sourceHeads": 29,
+          "unmatchedPredictions": 2
+        }
+      },
+      "0.75": {
+        "sourceStrata": {
+          "diamond/open": {
+            "matched": 0,
+            "sourceHeads": 1
+          },
+          "round/open": {
+            "matched": 0,
+            "sourceHeads": 11
+          },
+          "square/open": {
+            "matched": 0,
+            "sourceHeads": 10
+          },
+          "triangle/open": {
+            "matched": 0,
+            "sourceHeads": 7
+          }
+        },
+        "summary": {
+          "candidatePredictions": 2,
+          "correctLiteralAmongMatchedKnown": null,
+          "correctLiteralAtAutomaticCenters": 0,
+          "correctLiteralPerKnownSourceHead": 0.0,
+          "exportedEventAccuracy": null,
+          "geometricPrecision": 0.0,
+          "geometricRecall": 0.0,
+          "independentSourceGold": false,
+          "knownLiteralTargets": 29,
+          "matched": 0,
+          "measuredHumanEdits": null,
+          "measuredHumanMinutes": null,
+          "missedSourceHeads": 29,
+          "pitchRhythmAccuracy": null,
+          "predictionAbstentions": 0,
+          "sourceHeads": 29,
+          "unmatchedPredictions": 2
+        }
+      }
+    },
+    "image-only-selective-squares": {
+      "0.35": {
+        "sourceStrata": {
+          "diamond/open": {
+            "matched": 0,
+            "sourceHeads": 1
+          },
+          "round/open": {
+            "matched": 0,
+            "sourceHeads": 11
+          },
+          "square/open": {
+            "matched": 0,
+            "sourceHeads": 10
+          },
+          "triangle/open": {
+            "matched": 0,
+            "sourceHeads": 7
+          }
+        },
+        "summary": {
+          "candidatePredictions": 2,
+          "correctLiteralAmongMatchedKnown": null,
+          "correctLiteralAtAutomaticCenters": 0,
+          "correctLiteralPerKnownSourceHead": 0.0,
+          "exportedEventAccuracy": null,
+          "geometricPrecision": 0.0,
+          "geometricRecall": 0.0,
+          "independentSourceGold": false,
+          "knownLiteralTargets": 29,
+          "matched": 0,
+          "measuredHumanEdits": null,
+          "measuredHumanMinutes": null,
+          "missedSourceHeads": 29,
+          "pitchRhythmAccuracy": null,
+          "predictionAbstentions": 0,
+          "sourceHeads": 29,
+          "unmatchedPredictions": 2
+        }
+      },
+      "0.5": {
+        "sourceStrata": {
+          "diamond/open": {
+            "matched": 0,
+            "sourceHeads": 1
+          },
+          "round/open": {
+            "matched": 0,
+            "sourceHeads": 11
+          },
+          "square/open": {
+            "matched": 0,
+            "sourceHeads": 10
+          },
+          "triangle/open": {
+            "matched": 0,
+            "sourceHeads": 7
+          }
+        },
+        "summary": {
+          "candidatePredictions": 2,
+          "correctLiteralAmongMatchedKnown": null,
+          "correctLiteralAtAutomaticCenters": 0,
+          "correctLiteralPerKnownSourceHead": 0.0,
+          "exportedEventAccuracy": null,
+          "geometricPrecision": 0.0,
+          "geometricRecall": 0.0,
+          "independentSourceGold": false,
+          "knownLiteralTargets": 29,
+          "matched": 0,
+          "measuredHumanEdits": null,
+          "measuredHumanMinutes": null,
+          "missedSourceHeads": 29,
+          "pitchRhythmAccuracy": null,
+          "predictionAbstentions": 0,
+          "sourceHeads": 29,
+          "unmatchedPredictions": 2
+        }
+      },
+      "0.75": {
+        "sourceStrata": {
+          "diamond/open": {
+            "matched": 0,
+            "sourceHeads": 1
+          },
+          "round/open": {
+            "matched": 0,
+            "sourceHeads": 11
+          },
+          "square/open": {
+            "matched": 0,
+            "sourceHeads": 10
+          },
+          "triangle/open": {
+            "matched": 0,
+            "sourceHeads": 7
+          }
+        },
+        "summary": {
+          "candidatePredictions": 2,
+          "correctLiteralAmongMatchedKnown": null,
+          "correctLiteralAtAutomaticCenters": 0,
+          "correctLiteralPerKnownSourceHead": 0.0,
+          "exportedEventAccuracy": null,
+          "geometricPrecision": 0.0,
+          "geometricRecall": 0.0,
+          "independentSourceGold": false,
+          "knownLiteralTargets": 29,
+          "matched": 0,
+          "measuredHumanEdits": null,
+          "measuredHumanMinutes": null,
+          "missedSourceHeads": 29,
+          "pitchRhythmAccuracy": null,
+          "predictionAbstentions": 0,
+          "sourceHeads": 29,
+          "unmatchedPredictions": 2
+        }
+      }
+    },
+    "native": {
+      "0.35": {
+        "sourceStrata": {
+          "diamond/open": {
+            "matched": 1,
+            "sourceHeads": 1
+          },
+          "round/open": {
+            "matched": 10,
+            "sourceHeads": 11
+          },
+          "square/open": {
+            "matched": 1,
+            "sourceHeads": 10
+          },
+          "triangle/open": {
+            "matched": 2,
+            "sourceHeads": 7
+          }
+        },
+        "summary": {
+          "candidatePredictions": 19,
+          "correctLiteralAmongMatchedKnown": 0.9285714285714286,
+          "correctLiteralAtAutomaticCenters": 13,
+          "correctLiteralPerKnownSourceHead": 0.4482758620689655,
+          "exportedEventAccuracy": null,
+          "geometricPrecision": 0.7368421052631579,
+          "geometricRecall": 0.4827586206896552,
+          "independentSourceGold": false,
+          "knownLiteralTargets": 29,
+          "matched": 14,
+          "measuredHumanEdits": null,
+          "measuredHumanMinutes": null,
+          "missedSourceHeads": 15,
+          "pitchRhythmAccuracy": null,
+          "predictionAbstentions": 0,
+          "sourceHeads": 29,
+          "unmatchedPredictions": 5
+        }
+      },
+      "0.5": {
+        "sourceStrata": {
+          "diamond/open": {
+            "matched": 1,
+            "sourceHeads": 1
+          },
+          "round/open": {
+            "matched": 10,
+            "sourceHeads": 11
+          },
+          "square/open": {
+            "matched": 1,
+            "sourceHeads": 10
+          },
+          "triangle/open": {
+            "matched": 2,
+            "sourceHeads": 7
+          }
+        },
+        "summary": {
+          "candidatePredictions": 19,
+          "correctLiteralAmongMatchedKnown": 0.9285714285714286,
+          "correctLiteralAtAutomaticCenters": 13,
+          "correctLiteralPerKnownSourceHead": 0.4482758620689655,
+          "exportedEventAccuracy": null,
+          "geometricPrecision": 0.7368421052631579,
+          "geometricRecall": 0.4827586206896552,
+          "independentSourceGold": false,
+          "knownLiteralTargets": 29,
+          "matched": 14,
+          "measuredHumanEdits": null,
+          "measuredHumanMinutes": null,
+          "missedSourceHeads": 15,
+          "pitchRhythmAccuracy": null,
+          "predictionAbstentions": 0,
+          "sourceHeads": 29,
+          "unmatchedPredictions": 5
+        }
+      },
+      "0.75": {
+        "sourceStrata": {
+          "diamond/open": {
+            "matched": 1,
+            "sourceHeads": 1
+          },
+          "round/open": {
+            "matched": 10,
+            "sourceHeads": 11
+          },
+          "square/open": {
+            "matched": 2,
+            "sourceHeads": 10
+          },
+          "triangle/open": {
+            "matched": 3,
+            "sourceHeads": 7
+          }
+        },
+        "summary": {
+          "candidatePredictions": 19,
+          "correctLiteralAmongMatchedKnown": 0.875,
+          "correctLiteralAtAutomaticCenters": 14,
+          "correctLiteralPerKnownSourceHead": 0.4827586206896552,
+          "exportedEventAccuracy": null,
+          "geometricPrecision": 0.8421052631578947,
+          "geometricRecall": 0.5517241379310345,
+          "independentSourceGold": false,
+          "knownLiteralTargets": 29,
+          "matched": 16,
+          "measuredHumanEdits": null,
+          "measuredHumanMinutes": null,
+          "missedSourceHeads": 13,
+          "pitchRhythmAccuracy": null,
+          "predictionAbstentions": 0,
+          "sourceHeads": 29,
+          "unmatchedPredictions": 3
+        }
+      }
+    },
+    "native-plus-selective-squares": {
+      "0.35": {
+        "sourceStrata": {
+          "diamond/open": {
+            "matched": 1,
+            "sourceHeads": 1
+          },
+          "round/open": {
+            "matched": 10,
+            "sourceHeads": 11
+          },
+          "square/open": {
+            "matched": 1,
+            "sourceHeads": 10
+          },
+          "triangle/open": {
+            "matched": 2,
+            "sourceHeads": 7
+          }
+        },
+        "summary": {
+          "candidatePredictions": 21,
+          "correctLiteralAmongMatchedKnown": 0.9285714285714286,
+          "correctLiteralAtAutomaticCenters": 13,
+          "correctLiteralPerKnownSourceHead": 0.4482758620689655,
+          "exportedEventAccuracy": null,
+          "geometricPrecision": 0.6666666666666666,
+          "geometricRecall": 0.4827586206896552,
+          "independentSourceGold": false,
+          "knownLiteralTargets": 29,
+          "matched": 14,
+          "measuredHumanEdits": null,
+          "measuredHumanMinutes": null,
+          "missedSourceHeads": 15,
+          "pitchRhythmAccuracy": null,
+          "predictionAbstentions": 0,
+          "sourceHeads": 29,
+          "unmatchedPredictions": 7
+        }
+      },
+      "0.5": {
+        "sourceStrata": {
+          "diamond/open": {
+            "matched": 1,
+            "sourceHeads": 1
+          },
+          "round/open": {
+            "matched": 10,
+            "sourceHeads": 11
+          },
+          "square/open": {
+            "matched": 1,
+            "sourceHeads": 10
+          },
+          "triangle/open": {
+            "matched": 2,
+            "sourceHeads": 7
+          }
+        },
+        "summary": {
+          "candidatePredictions": 21,
+          "correctLiteralAmongMatchedKnown": 0.9285714285714286,
+          "correctLiteralAtAutomaticCenters": 13,
+          "correctLiteralPerKnownSourceHead": 0.4482758620689655,
+          "exportedEventAccuracy": null,
+          "geometricPrecision": 0.6666666666666666,
+          "geometricRecall": 0.4827586206896552,
+          "independentSourceGold": false,
+          "knownLiteralTargets": 29,
+          "matched": 14,
+          "measuredHumanEdits": null,
+          "measuredHumanMinutes": null,
+          "missedSourceHeads": 15,
+          "pitchRhythmAccuracy": null,
+          "predictionAbstentions": 0,
+          "sourceHeads": 29,
+          "unmatchedPredictions": 7
+        }
+      },
+      "0.75": {
+        "sourceStrata": {
+          "diamond/open": {
+            "matched": 1,
+            "sourceHeads": 1
+          },
+          "round/open": {
+            "matched": 10,
+            "sourceHeads": 11
+          },
+          "square/open": {
+            "matched": 2,
+            "sourceHeads": 10
+          },
+          "triangle/open": {
+            "matched": 3,
+            "sourceHeads": 7
+          }
+        },
+        "summary": {
+          "candidatePredictions": 21,
+          "correctLiteralAmongMatchedKnown": 0.875,
+          "correctLiteralAtAutomaticCenters": 14,
+          "correctLiteralPerKnownSourceHead": 0.4827586206896552,
+          "exportedEventAccuracy": null,
+          "geometricPrecision": 0.7619047619047619,
+          "geometricRecall": 0.5517241379310345,
+          "independentSourceGold": false,
+          "knownLiteralTargets": 29,
+          "matched": 16,
+          "measuredHumanEdits": null,
+          "measuredHumanMinutes": null,
+          "missedSourceHeads": 13,
+          "pitchRhythmAccuracy": null,
+          "predictionAbstentions": 0,
+          "sourceHeads": 29,
+          "unmatchedPredictions": 5
+        }
+      }
+    }
+  },
+  "candidateStages": {
+    "denseCoreProposals": 2,
+    "geometricVetoes": 0,
+    "selectiveSquares": 2,
+    "suppressed": 0
+  },
+  "codeSha256": {
+    "scripts/omr_exemplar_ranking.py": "4cb3106421753ad7089bb851d9a0072f7e6f0e848f17eeec2102fb0b2c891bf6",
+    "scripts/omr_head_proposal_study.py": "d1ecc00f00b28ef7b274cdd49c6e67f25d57a59960a40f8c839fdf25d280adfb",
+    "scripts/omr_head_proposals.py": "090694722ed45b47d6c0d13767b2dd4ded4fad075e2d10dc8b0876d2c62d04fb",
+    "scripts/omr_head_transfer.py": "d742e527d2aaba694a3da1301e3c4120d963d772dc40d2de3c735e8610896ccd",
+    "scripts/omr_image_geometry.py": "50f1da55c86871136840a1fbd175e2a9d9796517bc955c81ad9daa69294ddf4c",
+    "scripts/omr_localization_eval.py": "573e039a7cf8d2f0183d24535bf05b3eb82087d0e72caeb70926e20ebdc16547",
+    "scripts/omr_localization_study.py": "8be9e605fca8880910a93631b85efd075fe6e63b6ef26168da7027e12f270057",
+    "scripts/omr_measure_classifier.py": "18db5d741cc418a6a10631130a8c2444d5c674896cce6b423f6f3678923c6196",
+    "scripts/omr_training_population.py": "b0f467406326f363af7ebe002a2a3b107357816efee0b6e2795e143f09b74613",
+    "scripts/sh1991_head_audit.py": "e624b4c6532de20a570a842d2f949e048f8af95eac8cc176ac2fb46285d43dcd",
+    "scripts/sh1991_pilot.py": "46256d035712077282a02dbc934e5c018c163f0fc106fa7a56d1ba431535f12e"
+  },
+  "date": "2026-10-17",
+  "dependencyVersions": {
+    "Pillow": "11.3.0",
+    "numpy": "2.0.2"
+  },
+  "engine": {
+    "launcherSha256": "868f4b0b70873b92ffaafda7e13317494cd0eff9bb28a5d29b9e9ab4aef0c567",
+    "libraryCount": 55,
+    "librarySetSha256": "5bc93b9e441e7b8c2fea7d31b9411f453e94dc62f47606d96b860af85c63dc9d"
+  },
+  "evidenceSha256": {
+    "work/model-pilot/head-transfer-531-v1/inference-lock.json": "e073c018f6dfa7ff51d8bdff25c175eb2ee08e6ba832c4e56f79932a7d33f458",
+    "work/model-pilot/head-transfer-531-v1/post-inference-source-review.json": "f02ac34c6b29cc82ac67fe3643400badb430dc4d3b292343d508647656ff7ed1",
+    "work/model-pilot/head-transfer-531-v1/protocol.json": "fa781c94282a865f5899afa3664e97780ee1e4b8fe13d5c17314c853bb8504a9",
+    "work/model-pilot/head-transfer-531-v1/receipt.json": "925222dada4bbd4a1c8a27180939ea75f0c0945ea391172b3275bd78c9495de8",
+    "work/model-pilot/head-transfer-531-v1/recognition.json": "cd28a5b73599775277dd7688e33ab8b5b4e3042206dd47e44a3694f43496a0b0",
+    "work/model-pilot/head-transfer-531-v1/report.json": "1f75203c750640f0975262125fa0b3f6f1f044c64c222278efa372842e58e91d",
+    "work/model-pilot/head-transfer-531-v1/source-observations.json": "828d41ec4da629bdb45ac0cb5057bd06636080095ff4abb49ea5c2a893a42f9c",
+    "work/model-pilot/head-transfer-531-v1/started.json": "114a888a3a84bbc6912dad1f5868ea4089765738e6b1c6f3f3035712061415b1"
+  },
+  "exportedEventAccuracy": null,
+  "exposure": "New source census for this transfer; catalogue metadata and generic archived OMR may exist. Not a globally untouched page.",
+  "limits": [
+    "One source, four supplied staff windows, all-open census; not a population accuracy estimate.",
+    "Same-agent provisional source readings, not independent certified gold.",
+    "Filled-square positive recovery remains untested on a new filled-head source.",
+    "At 0.75 interline native and fused each match 16/29, with 14 correct literal labels; no primary-threshold change.",
+    "No score edits, admission, engine integration or deployment."
+  ],
+  "matchingRecipe": {
+    "distanceQuantization": 1000000,
+    "matching": "maximum cardinality, minimum summed Euclidean distance; no shape/fill in cost; frozen-window staff restriction",
+    "radiusInterlines": 0.5,
+    "scope": "all native graph head centers in complete supplied source windows, not exported notes",
+    "sensitivityRadii": [
+      0.35,
+      0.5,
+      0.75
+    ],
+    "version": 1
+  },
+  "measuredHumanMinutes": null,
+  "pitchRhythmAccuracy": null,
+  "postInferenceSourceReview": {
+    "independentSourceGold": false,
+    "newCandidatesReviewed": 2,
+    "observedRestsNotHeads": 2,
+    "parameterOrCensusChanges": 0
+  },
+  "primaryArm": "native-plus-selective-squares",
+  "recipe": {
+    "classifierGate": "selective square/filled only; expanded bank unchanged",
+    "coreInterlines": [
+      0.7,
+      0.6
+    ],
+    "fusion": "add-only; retain every native prediction; suppress proposals near native or earlier proposal",
+    "inkThreshold": 110,
+    "maximumResponseSpanInterlines": [
+      1.5,
+      1.2
+    ],
+    "mergeRadiusInterlines": 0.75,
+    "minimumCoreCoverage": 0.9,
+    "safeToPromote": false,
+    "scope": "consumed SH2025/219 complete windows; development only",
+    "sourceCertified": false,
+    "version": 1
+  },
+  "recognitionStatus": "graph-ready",
+  "retainedInputsSha256": {
+    "docs/experiments/sh1991-eval-review-selection-20261015.json": "bda47a7e5f934327f43005424b474600d64ec320f99a69ab95cf44c6975af10d",
+    "work/model-pilot/sh1991-v1/accuracy-tracks-v1/penn-test/protocol.json": "704e7280a168fb2135dcc5a7203bde1c3ef60387ecb983f767603bdaef5a8f60",
+    "work/model-pilot/sh1991-v1/accuracy-tracks-v1/sh2025-selection-final.json": "b15c2a30d6d8a8dfde00682174a615e5463e93ed56074003100d9d7af260456b",
+    "work/model-pilot/sh1991-v1/expanded-localization-v1/audiveris.log": "587e00ff51ace7444cba9bd38f40b6205b486d9d29933e0f0fb754244c62d6e7",
+    "work/model-pilot/sh1991-v1/expanded-localization-v1/development-protocol.json": "1d996ab73f397a719863080a811450cde06d5b58e15d2516c97b55ba76171aa8",
+    "work/model-pilot/sh1991-v1/expanded-localization-v1/inference-lock.json": "1a02ddc722774fc0e630bea201b49b449cd36aa8cceb0b596dd08993d2092f0d",
+    "work/model-pilot/sh1991-v1/expanded-localization-v1/population-manifest.json": "2c4e118394bb97a57a0063d2a4cdf908b3375d378fd6b9f1b2fe3972d30bb20d",
+    "work/model-pilot/sh1991-v1/expanded-localization-v1/raw/219-he-hath-saved-us-4c1ffc8918.mxl": "0e59850b32be6f30b99731016110e360853977869cc26e9491a5d181488cff49",
+    "work/model-pilot/sh1991-v1/expanded-localization-v1/raw/219-he-hath-saved-us-4c1ffc8918.omr": "3be2b62c8d6d1514729d8afcb117411bb23905c4b9fa282b93ab5a799c56c0be",
+    "work/model-pilot/sh1991-v1/expanded-localization-v1/recognition.json": "caed01a9cda6352eac6ac7e9b80ca9cdfb405aca7e49e2a0622048c660c50f35",
+    "work/model-pilot/sh1991-v1/expanded-localization-v1/report.json": "0d51a61865f4a1712f0a37f4ed7c004edefb2db5293576281fd1d7f05b1da593",
+    "work/model-pilot/sh1991-v1/expanded-localization-v1/source-observations.json": "d39552a7f191c803e0e2a1bb4fcb4b488f16e4b4c7c7599b87ab4ee6de8a2150",
+    "work/model-pilot/sh1991-v1/expanded-localization-v1/transfer-protocol.json": "53c6cd5734588a0f04f2af0a194785f4ca7379be44f1078f0f1f89d6880791e4",
+    "work/model-pilot/sh1991-v1/inputs/41b0d7a45dbd87a8b7d540271de0f90403bac2178ff7bd11cf1306946eee18d1.jpg": "e22668cdaf8e19ac9f031304c996f020fb754bfeb91ad4a65b697c5f541a4f67",
+    "work/model-pilot/sh1991-v1/inputs/53b436f96702820dd9ca230fd097e36202a974f8a5315da30ee951b355e2b8cc.jpg": "6428dbe9bd54c9f2b7b64978ea2fa7b96e9bb3c47a33e9aa37c58e39c596e4ca",
+    "work/model-pilot/sh1991-v1/inputs/df274897d0fda4859f8fc71a720a4db909acccd91e4afdb4b35f651a3385d006.jpg": "841248caaa3a8fa644cc8f15f2482f5156653a58323acc8e12c45e9950869d24",
+    "work/source-images/2025/184-and-jesus-crucified-bb8d27f0da.jpg": "7455b58a1b1315e6a97e89ecda6a4ea967cb8856970ebabe1bae014cae26d306",
+    "work/source-images/2025/188-ephesus-aa1817a576.jpg": "e00ae7ecf8f0158bf4035036a20817ec826cddac9ba336562c5a505b4a8b9120",
+    "work/source-images/2025/219-he-hath-saved-us-4c1ffc8918.jpg": "4be31edc6cd544b6691f2a60a919ba41a62ad8944e1fd9222d0461cd9074eb67",
+    "work/source-images/2025/501t-penn-8a2061599c.jpg": "eeb1cc8d883f0f856aa193fdd74c47b5b4bea38b63b9f36934938eae93983244",
+    "work/source-images/2025/531-clayton-c4e7caa825.jpg": "05408c3ee570a0c0b99c76dd9adc57205ae12eb56a5847b9d4ef813102262f1f",
+    "work/source-images/2025/80t-troubles-over-604fc47469.jpg": "c2ac6783ca5c0f6ce63fd3bce0eeef59c25b03cdf27d14d0df52c5c2395b7da9"
+  },
+  "safeToPromote": false,
+  "scope": "Opening system, first four written measure spans including pickup if present, entire system if fewer; all pitched heads in four complete supplied staff windows.",
+  "selectionRule": "Sixth original hash-ranked eligible source; previous five consumed. No outcome-based replacement.",
+  "source": "SH2025/531",
+  "sourceByClass": {
+    "diamond/open": 1,
+    "round/open": 11,
+    "square/open": 10,
+    "triangle/open": 7
+  },
+  "sourceCertified": false,
+  "sourceHeadCount": 29,
+  "wholeScoresAccepted": 0
+}
