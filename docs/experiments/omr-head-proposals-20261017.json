@@ -1,0 +1,501 @@
+{
+  "phase": "consumed development only; not a pre-source or held-out freeze",
+  "source": "SH2025/219",
+  "sourceHeads": 33,
+  "sourceByClass": {
+    "round/filled": 12,
+    "square/filled": 10,
+    "triangle/filled": 11
+  },
+  "candidateStages": {
+    "addedToNative": 6,
+    "classifierVetoes": 16,
+    "denseCoreProposals": 33,
+    "geometricVetoes": 0,
+    "selectiveSquares": 17,
+    "suppressedNearRetainedCenter": 11
+  },
+  "unchangedBankReplayQueries": 33,
+  "primaryArm": "native-plus-selective-squares",
+  "sourceCertified": false,
+  "safeToPromote": false,
+  "wholeScoresAccepted": 0,
+  "freshSourceAccuracy": null,
+  "pitchRhythmAccuracy": null,
+  "measuredHumanMinutes": null,
+  "arms": {
+    "image-only-all-cores": {
+      "0.35": {
+        "sourceStrata": {
+          "round/filled": {
+            "matched": 12,
+            "sourceHeads": 12
+          },
+          "square/filled": {
+            "matched": 10,
+            "sourceHeads": 10
+          },
+          "triangle/filled": {
+            "matched": 11,
+            "sourceHeads": 11
+          }
+        },
+        "summary": {
+          "candidatePredictions": 33,
+          "correctLiteralAmongMatchedKnown": 0.7575757575757576,
+          "correctLiteralAtAutomaticCenters": 25,
+          "correctLiteralPerKnownSourceHead": 0.7575757575757576,
+          "exportedEventAccuracy": null,
+          "geometricPrecision": 1.0,
+          "geometricRecall": 1.0,
+          "independentSourceGold": false,
+          "knownLiteralTargets": 33,
+          "matched": 33,
+          "measuredHumanEdits": null,
+          "measuredHumanMinutes": null,
+          "missedSourceHeads": 0,
+          "pitchRhythmAccuracy": null,
+          "predictionAbstentions": 0,
+          "sourceHeads": 33,
+          "unmatchedPredictions": 0
+        }
+      },
+      "0.5": {
+        "sourceStrata": {
+          "round/filled": {
+            "matched": 12,
+            "sourceHeads": 12
+          },
+          "square/filled": {
+            "matched": 10,
+            "sourceHeads": 10
+          },
+          "triangle/filled": {
+            "matched": 11,
+            "sourceHeads": 11
+          }
+        },
+        "summary": {
+          "candidatePredictions": 33,
+          "correctLiteralAmongMatchedKnown": 0.7575757575757576,
+          "correctLiteralAtAutomaticCenters": 25,
+          "correctLiteralPerKnownSourceHead": 0.7575757575757576,
+          "exportedEventAccuracy": null,
+          "geometricPrecision": 1.0,
+          "geometricRecall": 1.0,
+          "independentSourceGold": false,
+          "knownLiteralTargets": 33,
+          "matched": 33,
+          "measuredHumanEdits": null,
+          "measuredHumanMinutes": null,
+          "missedSourceHeads": 0,
+          "pitchRhythmAccuracy": null,
+          "predictionAbstentions": 0,
+          "sourceHeads": 33,
+          "unmatchedPredictions": 0
+        }
+      },
+      "0.75": {
+        "sourceStrata": {
+          "round/filled": {
+            "matched": 12,
+            "sourceHeads": 12
+          },
+          "square/filled": {
+            "matched": 10,
+            "sourceHeads": 10
+          },
+          "triangle/filled": {
+            "matched": 11,
+            "sourceHeads": 11
+          }
+        },
+        "summary": {
+          "candidatePredictions": 33,
+          "correctLiteralAmongMatchedKnown": 0.7575757575757576,
+          "correctLiteralAtAutomaticCenters": 25,
+          "correctLiteralPerKnownSourceHead": 0.7575757575757576,
+          "exportedEventAccuracy": null,
+          "geometricPrecision": 1.0,
+          "geometricRecall": 1.0,
+          "independentSourceGold": false,
+          "knownLiteralTargets": 33,
+          "matched": 33,
+          "measuredHumanEdits": null,
+          "measuredHumanMinutes": null,
+          "missedSourceHeads": 0,
+          "pitchRhythmAccuracy": null,
+          "predictionAbstentions": 0,
+          "sourceHeads": 33,
+          "unmatchedPredictions": 0
+        }
+      }
+    },
+    "image-only-selective-squares": {
+      "0.35": {
+        "sourceStrata": {
+          "round/filled": {
+            "matched": 0,
+            "sourceHeads": 12
+          },
+          "square/filled": {
+            "matched": 10,
+            "sourceHeads": 10
+          },
+          "triangle/filled": {
+            "matched": 7,
+            "sourceHeads": 11
+          }
+        },
+        "summary": {
+          "candidatePredictions": 17,
+          "correctLiteralAmongMatchedKnown": 0.5882352941176471,
+          "correctLiteralAtAutomaticCenters": 10,
+          "correctLiteralPerKnownSourceHead": 0.30303030303030304,
+          "exportedEventAccuracy": null,
+          "geometricPrecision": 1.0,
+          "geometricRecall": 0.5151515151515151,
+          "independentSourceGold": false,
+          "knownLiteralTargets": 33,
+          "matched": 17,
+          "measuredHumanEdits": null,
+          "measuredHumanMinutes": null,
+          "missedSourceHeads": 16,
+          "pitchRhythmAccuracy": null,
+          "predictionAbstentions": 0,
+          "sourceHeads": 33,
+          "unmatchedPredictions": 0
+        }
+      },
+      "0.5": {
+        "sourceStrata": {
+          "round/filled": {
+            "matched": 0,
+            "sourceHeads": 12
+          },
+          "square/filled": {
+            "matched": 10,
+            "sourceHeads": 10
+          },
+          "triangle/filled": {
+            "matched": 7,
+            "sourceHeads": 11
+          }
+        },
+        "summary": {
+          "candidatePredictions": 17,
+          "correctLiteralAmongMatchedKnown": 0.5882352941176471,
+          "correctLiteralAtAutomaticCenters": 10,
+          "correctLiteralPerKnownSourceHead": 0.30303030303030304,
+          "exportedEventAccuracy": null,
+          "geometricPrecision": 1.0,
+          "geometricRecall": 0.5151515151515151,
+          "independentSourceGold": false,
+          "knownLiteralTargets": 33,
+          "matched": 17,
+          "measuredHumanEdits": null,
+          "measuredHumanMinutes": null,
+          "missedSourceHeads": 16,
+          "pitchRhythmAccuracy": null,
+          "predictionAbstentions": 0,
+          "sourceHeads": 33,
+          "unmatchedPredictions": 0
+        }
+      },
+      "0.75": {
+        "sourceStrata": {
+          "round/filled": {
+            "matched": 0,
+            "sourceHeads": 12
+          },
+          "square/filled": {
+            "matched": 10,
+            "sourceHeads": 10
+          },
+          "triangle/filled": {
+            "matched": 7,
+            "sourceHeads": 11
+          }
+        },
+        "summary": {
+          "candidatePredictions": 17,
+          "correctLiteralAmongMatchedKnown": 0.5882352941176471,
+          "correctLiteralAtAutomaticCenters": 10,
+          "correctLiteralPerKnownSourceHead": 0.30303030303030304,
+          "exportedEventAccuracy": null,
+          "geometricPrecision": 1.0,
+          "geometricRecall": 0.5151515151515151,
+          "independentSourceGold": false,
+          "knownLiteralTargets": 33,
+          "matched": 17,
+          "measuredHumanEdits": null,
+          "measuredHumanMinutes": null,
+          "missedSourceHeads": 16,
+          "pitchRhythmAccuracy": null,
+          "predictionAbstentions": 0,
+          "sourceHeads": 33,
+          "unmatchedPredictions": 0
+        }
+      }
+    },
+    "native-archived": {
+      "0.35": {
+        "sourceStrata": {
+          "round/filled": {
+            "matched": 12,
+            "sourceHeads": 12
+          },
+          "square/filled": {
+            "matched": 4,
+            "sourceHeads": 10
+          },
+          "triangle/filled": {
+            "matched": 11,
+            "sourceHeads": 11
+          }
+        },
+        "summary": {
+          "candidatePredictions": 33,
+          "correctLiteralAmongMatchedKnown": 1.0,
+          "correctLiteralAtAutomaticCenters": 27,
+          "correctLiteralPerKnownSourceHead": 0.8181818181818182,
+          "exportedEventAccuracy": null,
+          "geometricPrecision": 0.8181818181818182,
+          "geometricRecall": 0.8181818181818182,
+          "independentSourceGold": false,
+          "knownLiteralTargets": 33,
+          "matched": 27,
+          "measuredHumanEdits": null,
+          "measuredHumanMinutes": null,
+          "missedSourceHeads": 6,
+          "pitchRhythmAccuracy": null,
+          "predictionAbstentions": 0,
+          "sourceHeads": 33,
+          "unmatchedPredictions": 6
+        }
+      },
+      "0.5": {
+        "sourceStrata": {
+          "round/filled": {
+            "matched": 12,
+            "sourceHeads": 12
+          },
+          "square/filled": {
+            "matched": 4,
+            "sourceHeads": 10
+          },
+          "triangle/filled": {
+            "matched": 11,
+            "sourceHeads": 11
+          }
+        },
+        "summary": {
+          "candidatePredictions": 33,
+          "correctLiteralAmongMatchedKnown": 1.0,
+          "correctLiteralAtAutomaticCenters": 27,
+          "correctLiteralPerKnownSourceHead": 0.8181818181818182,
+          "exportedEventAccuracy": null,
+          "geometricPrecision": 0.8181818181818182,
+          "geometricRecall": 0.8181818181818182,
+          "independentSourceGold": false,
+          "knownLiteralTargets": 33,
+          "matched": 27,
+          "measuredHumanEdits": null,
+          "measuredHumanMinutes": null,
+          "missedSourceHeads": 6,
+          "pitchRhythmAccuracy": null,
+          "predictionAbstentions": 0,
+          "sourceHeads": 33,
+          "unmatchedPredictions": 6
+        }
+      },
+      "0.75": {
+        "sourceStrata": {
+          "round/filled": {
+            "matched": 12,
+            "sourceHeads": 12
+          },
+          "square/filled": {
+            "matched": 4,
+            "sourceHeads": 10
+          },
+          "triangle/filled": {
+            "matched": 11,
+            "sourceHeads": 11
+          }
+        },
+        "summary": {
+          "candidatePredictions": 33,
+          "correctLiteralAmongMatchedKnown": 1.0,
+          "correctLiteralAtAutomaticCenters": 27,
+          "correctLiteralPerKnownSourceHead": 0.8181818181818182,
+          "exportedEventAccuracy": null,
+          "geometricPrecision": 0.8181818181818182,
+          "geometricRecall": 0.8181818181818182,
+          "independentSourceGold": false,
+          "knownLiteralTargets": 33,
+          "matched": 27,
+          "measuredHumanEdits": null,
+          "measuredHumanMinutes": null,
+          "missedSourceHeads": 6,
+          "pitchRhythmAccuracy": null,
+          "predictionAbstentions": 0,
+          "sourceHeads": 33,
+          "unmatchedPredictions": 6
+        }
+      }
+    },
+    "native-plus-selective-squares": {
+      "0.35": {
+        "sourceStrata": {
+          "round/filled": {
+            "matched": 12,
+            "sourceHeads": 12
+          },
+          "square/filled": {
+            "matched": 10,
+            "sourceHeads": 10
+          },
+          "triangle/filled": {
+            "matched": 11,
+            "sourceHeads": 11
+          }
+        },
+        "summary": {
+          "candidatePredictions": 39,
+          "correctLiteralAmongMatchedKnown": 1.0,
+          "correctLiteralAtAutomaticCenters": 33,
+          "correctLiteralPerKnownSourceHead": 1.0,
+          "exportedEventAccuracy": null,
+          "geometricPrecision": 0.8461538461538461,
+          "geometricRecall": 1.0,
+          "independentSourceGold": false,
+          "knownLiteralTargets": 33,
+          "matched": 33,
+          "measuredHumanEdits": null,
+          "measuredHumanMinutes": null,
+          "missedSourceHeads": 0,
+          "pitchRhythmAccuracy": null,
+          "predictionAbstentions": 0,
+          "sourceHeads": 33,
+          "unmatchedPredictions": 6
+        }
+      },
+      "0.5": {
+        "sourceStrata": {
+          "round/filled": {
+            "matched": 12,
+            "sourceHeads": 12
+          },
+          "square/filled": {
+            "matched": 10,
+            "sourceHeads": 10
+          },
+          "triangle/filled": {
+            "matched": 11,
+            "sourceHeads": 11
+          }
+        },
+        "summary": {
+          "candidatePredictions": 39,
+          "correctLiteralAmongMatchedKnown": 1.0,
+          "correctLiteralAtAutomaticCenters": 33,
+          "correctLiteralPerKnownSourceHead": 1.0,
+          "exportedEventAccuracy": null,
+          "geometricPrecision": 0.8461538461538461,
+          "geometricRecall": 1.0,
+          "independentSourceGold": false,
+          "knownLiteralTargets": 33,
+          "matched": 33,
+          "measuredHumanEdits": null,
+          "measuredHumanMinutes": null,
+          "missedSourceHeads": 0,
+          "pitchRhythmAccuracy": null,
+          "predictionAbstentions": 0,
+          "sourceHeads": 33,
+          "unmatchedPredictions": 6
+        }
+      },
+      "0.75": {
+        "sourceStrata": {
+          "round/filled": {
+            "matched": 12,
+            "sourceHeads": 12
+          },
+          "square/filled": {
+            "matched": 10,
+            "sourceHeads": 10
+          },
+          "triangle/filled": {
+            "matched": 11,
+            "sourceHeads": 11
+          }
+        },
+        "summary": {
+          "candidatePredictions": 39,
+          "correctLiteralAmongMatchedKnown": 1.0,
+          "correctLiteralAtAutomaticCenters": 33,
+          "correctLiteralPerKnownSourceHead": 1.0,
+          "exportedEventAccuracy": null,
+          "geometricPrecision": 0.8461538461538461,
+          "geometricRecall": 1.0,
+          "independentSourceGold": false,
+          "knownLiteralTargets": 33,
+          "matched": 33,
+          "measuredHumanEdits": null,
+          "measuredHumanMinutes": null,
+          "missedSourceHeads": 0,
+          "pitchRhythmAccuracy": null,
+          "predictionAbstentions": 0,
+          "sourceHeads": 33,
+          "unmatchedPredictions": 6
+        }
+      }
+    }
+  },
+  "evidenceSha256": {
+    "protocol.json": "79d2ada3ae01ff2782c47e240bf6d05aa2b009d938a49ee0cd6ff6d68c692424",
+    "report.json": "df64162c756744d2b5bac5423bc6bf4d22a0f91ee3a99f8cb1bc4ab0cb4ce81a",
+    "receipt.json": "2759810f4f571a0d204e00b84dee7f58f522d72a72590ba83ea52177c926df68"
+  },
+  "codeSha256": {
+    "scripts/omr_exemplar_ranking.py": "4cb3106421753ad7089bb851d9a0072f7e6f0e848f17eeec2102fb0b2c891bf6",
+    "scripts/omr_head_proposals.py": "090694722ed45b47d6c0d13767b2dd4ded4fad075e2d10dc8b0876d2c62d04fb",
+    "scripts/omr_image_geometry.py": "50f1da55c86871136840a1fbd175e2a9d9796517bc955c81ad9daa69294ddf4c",
+    "scripts/omr_localization_eval.py": "573e039a7cf8d2f0183d24535bf05b3eb82087d0e72caeb70926e20ebdc16547",
+    "scripts/omr_measure_classifier.py": "18db5d741cc418a6a10631130a8c2444d5c674896cce6b423f6f3678923c6196",
+    "scripts/omr_training_population.py": "b0f467406326f363af7ebe002a2a3b107357816efee0b6e2795e143f09b74613"
+  },
+  "runnerSha256": "d1ecc00f00b28ef7b274cdd49c6e67f25d57a59960a40f8c839fdf25d280adfb",
+  "retainedInputsSha256": {
+    "docs/experiments/sh1991-eval-review-selection-20261015.json": "bda47a7e5f934327f43005424b474600d64ec320f99a69ab95cf44c6975af10d",
+    "work/model-pilot/sh1991-v1/expanded-localization-v1/audiveris.log": "587e00ff51ace7444cba9bd38f40b6205b486d9d29933e0f0fb754244c62d6e7",
+    "work/model-pilot/sh1991-v1/expanded-localization-v1/development-protocol.json": "1d996ab73f397a719863080a811450cde06d5b58e15d2516c97b55ba76171aa8",
+    "work/model-pilot/sh1991-v1/expanded-localization-v1/inference-lock.json": "1a02ddc722774fc0e630bea201b49b449cd36aa8cceb0b596dd08993d2092f0d",
+    "work/model-pilot/sh1991-v1/expanded-localization-v1/population-manifest.json": "2c4e118394bb97a57a0063d2a4cdf908b3375d378fd6b9f1b2fe3972d30bb20d",
+    "work/model-pilot/sh1991-v1/expanded-localization-v1/raw/219-he-hath-saved-us-4c1ffc8918.mxl": "0e59850b32be6f30b99731016110e360853977869cc26e9491a5d181488cff49",
+    "work/model-pilot/sh1991-v1/expanded-localization-v1/raw/219-he-hath-saved-us-4c1ffc8918.omr": "3be2b62c8d6d1514729d8afcb117411bb23905c4b9fa282b93ab5a799c56c0be",
+    "work/model-pilot/sh1991-v1/expanded-localization-v1/recognition.json": "caed01a9cda6352eac6ac7e9b80ca9cdfb405aca7e49e2a0622048c660c50f35",
+    "work/model-pilot/sh1991-v1/expanded-localization-v1/report.json": "0d51a61865f4a1712f0a37f4ed7c004edefb2db5293576281fd1d7f05b1da593",
+    "work/model-pilot/sh1991-v1/expanded-localization-v1/source-observations.json": "d39552a7f191c803e0e2a1bb4fcb4b488f16e4b4c7c7599b87ab4ee6de8a2150",
+    "work/model-pilot/sh1991-v1/expanded-localization-v1/transfer-protocol.json": "53c6cd5734588a0f04f2af0a194785f4ca7379be44f1078f0f1f89d6880791e4",
+    "work/model-pilot/sh1991-v1/inputs/41b0d7a45dbd87a8b7d540271de0f90403bac2178ff7bd11cf1306946eee18d1.jpg": "e22668cdaf8e19ac9f031304c996f020fb754bfeb91ad4a65b697c5f541a4f67",
+    "work/model-pilot/sh1991-v1/inputs/53b436f96702820dd9ca230fd097e36202a974f8a5315da30ee951b355e2b8cc.jpg": "6428dbe9bd54c9f2b7b64978ea2fa7b96e9bb3c47a33e9aa37c58e39c596e4ca",
+    "work/model-pilot/sh1991-v1/inputs/df274897d0fda4859f8fc71a720a4db909acccd91e4afdb4b35f651a3385d006.jpg": "841248caaa3a8fa644cc8f15f2482f5156653a58323acc8e12c45e9950869d24",
+    "work/source-images/2025/184-and-jesus-crucified-bb8d27f0da.jpg": "7455b58a1b1315e6a97e89ecda6a4ea967cb8856970ebabe1bae014cae26d306",
+    "work/source-images/2025/188-ephesus-aa1817a576.jpg": "e00ae7ecf8f0158bf4035036a20817ec826cddac9ba336562c5a505b4a8b9120",
+    "work/source-images/2025/219-he-hath-saved-us-4c1ffc8918.jpg": "4be31edc6cd544b6691f2a60a919ba41a62ad8944e1fd9222d0461cd9074eb67",
+    "work/source-images/2025/501t-penn-8a2061599c.jpg": "eeb1cc8d883f0f856aa193fdd74c47b5b4bea38b63b9f36934938eae93983244",
+    "work/source-images/2025/80t-troubles-over-604fc47469.jpg": "c2ac6783ca5c0f6ce63fd3bce0eeef59c25b03cdf27d14d0df52c5c2395b7da9"
+  },
+  "exploration": "One unarchived initial geometry diagnostic, then immutable v1 analysis. v2 adds raw-artifact replay binding only; detector, bank, primary arm and all results unchanged. Both local runs retained.",
+  "limits": [
+    "219 was already exposed before this detector was written; consumed development, never fresh evaluation.",
+    "Same-agent provisional complete census; no independent source gold.",
+    "Supplied staff windows and detected staff spacing; no full-page detection.",
+    "All 33 source heads filled round/square/triangle; open/diamond transfer unmeasured.",
+    "Primary arm preserves six unmatched native predictions; no background-rejection gain in that arm.",
+    "Image-only centers classify 25/33 correctly despite 33 spatial matches. Selective square gate includes seven non-square heads; native-priority suppression prevents their addition here.",
+    "No source edit, recognition rerun, score mutation, admission, deployment or whole-score acceptance."
+  ]
+}
