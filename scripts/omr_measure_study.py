@@ -41,7 +41,7 @@ def current_protocol():
         if label_path.name == 'penn-symbol-observations-final.json':
             inputs.append(ROOT/prior.load(label_path)['source']['path'])
     inputs.append(ROOT/'work/source-images/2025/184-and-jesus-crucified-bb8d27f0da.jpg')
-    inputs += [Path(m.__file__) for m in (classifier, worklist, baseline, archive, geometry, prior, worklist.alignment)]
+    inputs += [Path(m.__file__) for m in (classifier, classifier.ranking, worklist, baseline, archive, geometry, prior, worklist.alignment)]
     inputs.append(Path(__file__))
     return {'recipe': classifier.RECIPE, 'pillowVersion': __version__,
             'selected': selected, 'sourcePath': str(sources[0].relative_to(ROOT)),

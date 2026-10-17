@@ -8,6 +8,8 @@ from __future__ import annotations
 
 import math
 
+import omr_exemplar_ranking as ranking
+
 RECIPE = {'version': 1, 'size': [24, 20], 'scales': [.6, .75, .9, 1., 1.15, 1.3],
           'offsets': [-1, 0, 1], 'distanceBox': [2, 2, 22, 18],
           'selectiveMinimumRelativeMargin': .08,
@@ -53,23 +55,12 @@ def predict(pixels, bank):
     if pixels.size != tuple(RECIPE['size']) or not bank:
         raise ValueError('Invalid prediction crop or empty model')
     query = pixels.convert('L').crop(RECIPE['distanceBox'])
-    classes = {}
-    for row in bank:
-        delta = ImageChops.difference(query, row['pixels'])
-        distance = ImageStat.Stat(delta).sum2[0]/(query.width*query.height)
-        key = (distance, row['id'], row['scale'], *row['offset'])
-        if row['label'] not in classes or key < classes[row['label']][0]:
-            classes[row['label']] = (key, row)
-    ranked = sorted((key, label, row) for label, (key, row) in classes.items())
-    first = ranked[0]
-    margin = ((ranked[1][0][0]-first[0][0])/max(ranked[1][0][0], 1)
-              if len(ranked) > 1 else None)
-    # Ties and a single-class model provide no discriminative confidence.
-    selected = (first[1] if margin is not None and margin >= RECIPE['selectiveMinimumRelativeMargin'] else None)
-    return {'prediction': first[1], 'selectivePrediction': selected,
-            'relativeMargin': margin, 'neighborId': first[2]['id'],
-            'scale': first[2]['scale'], 'offset': first[2]['offset'],
-            'distance': first[0][0]}
+    def scored_rows():
+        for row in bank:
+            delta = ImageChops.difference(query, row['pixels'])
+            distance = ImageStat.Stat(delta).sum2[0]/(query.width*query.height)
+            yield distance, row
+    return ranking.nearest_class(scored_rows(), minimum_relative_margin=RECIPE['selectiveMinimumRelativeMargin'])
 
 
 def metrics(rows):

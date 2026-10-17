@@ -28,7 +28,12 @@ for (const width of [1440, 390]) {
     await expect(page.locator('.result-row')).toHaveCount(1);
     await page.locator('.result-row').click();
     await expect(page.getByRole('heading', { name: 'p265 — Article: Old Paths: Nehemiah Shumway', exact: true })).toBeVisible();
+    // The article was already selected above, so its heading can be visible
+    // before mobile's scheduled focus handoff. Let that handoff finish before
+    // fill('') selects/deletes the query; otherwise it can lose keyboard focus.
+    if (width < 900) await expect(page.locator('#selected-tune-details')).toBeFocused();
     await page.getByTestId('tune-search').fill('');
+    await expect(page.getByTestId('tune-search')).toHaveValue('');
     await page.getByLabel('Notation availability').selectOption('source-only');
     await expect(page.locator('.results-summary')).toHaveText('102 matches · 102 tunes · 3 articles');
     await expect(page.locator('.result-row').filter({ hasText: 'Article:' })).toHaveCount(0);
