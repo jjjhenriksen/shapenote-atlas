@@ -8,6 +8,7 @@ from __future__ import annotations
 
 from collections import Counter
 
+import omr_exemplar_ranking as ranking
 import omr_measure_study as prior
 
 ROOT, WORK = prior.ROOT, prior.WORK
@@ -78,16 +79,7 @@ def predict(pixels, bank):
     query = np.asarray(pixels.convert('L').crop(prior.classifier.RECIPE['distanceBox']), dtype=np.int32).reshape(-1)
     delta = bank['matrix']-query
     distances = np.sum(delta*delta, axis=1, dtype=np.int64)/len(query)
-    classes = {}
-    for distance, row in zip(distances, bank['variants']):
-        key = (float(distance), row['id'], row['scale'], *row['offset'])
-        if row['label'] not in classes or key < classes[row['label']][0]:
-            classes[row['label']] = (key, row)
-    ranked = sorted((key, label, row) for label, (key, row) in classes.items())
-    first = ranked[0]
-    margin = ((ranked[1][0][0]-first[0][0])/max(ranked[1][0][0], 1) if len(ranked) > 1 else None)
-    return {'prediction': first[1],
-            'selectivePrediction': first[1] if margin is not None and margin >= prior.classifier.RECIPE['selectiveMinimumRelativeMargin'] else None,
-            'relativeMargin': margin, 'neighborId': first[2]['id'],
-            'neighborGroup': bank['groupById'][first[2]['id']],
-            'distance': first[0][0], 'scale': first[2]['scale'], 'offset': first[2]['offset']}
+    result = ranking.nearest_class(
+        zip(distances, bank['variants']),
+        minimum_relative_margin=prior.classifier.RECIPE['selectiveMinimumRelativeMargin'])
+    return dict(result, neighborGroup=bank['groupById'][result['neighborId']])
