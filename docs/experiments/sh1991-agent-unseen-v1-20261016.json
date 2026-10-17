@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "study": "agent-unseen-v1-20261016",
+  "cohort": [
+    {
+      "songNo": "144",
+      "title": "Jubilee",
+      "page": 144
+    },
+    {
+      "songNo": "204",
+      "title": "Mission",
+      "page": 204
+    },
+    {
+      "songNo": "303",
+      "title": "Heavenly Land",
+      "page": 303
+    },
+    {
+      "songNo": "492",
+      "title": "Invocation (Second)",
+      "page": 492
+    }
+  ],
+  "sourceObservationProcedure": "Before any new recognition or candidate-reference XML access, read full retained source scan; record top staff first two printed measures/segments including opening rests; pitch/rest/duration only; explicitly mark ambiguous reading and do not guess. No raw new draft read before observations frozen. No source/label XML read for selection or reference.",
+  "noveltyScope": "Outside original 40 pages and 186 conservatively excluded known source-correction pages; source hashes differ from original cohort. Not model-pretraining novelty or cross-book independence.",
+  "selectionRule": "one deterministic hash-ranked page from each of 4 page strata; exclusion by known page, previous cohort normalized title, prior JSON songNo/queueId and dedicated correction script IDs",
+  "eligibleCount": 356,
+  "correctionCommit": "a250a7617426106f52a2d8b36a5f0cb3dfdeb081",
+  "correctionSha256": "a1b283bfbfba88742ec25ed057bc765f14732f955fe54085b13cf2eb2ea3e2f2",
+  "recognizerChanged": false,
+  "referenceXmlRead": false,
+  "sourceObservationsFrozenBeforeRecognition": true,
+  "summary": {
+    "drafts": 4,
+    "blocked": 0,
+    "observedSegments": 8,
+    "mismatchingSegmentsBefore": 1,
+    "inputMatchingSegmentsAfter": 8,
+    "wholeScoresAccepted": 0,
+    "humanTasksCreated": 0
+  },
+  "renderSummary": {
+    "excerpts": 4,
+    "passed": 4
+  },
+  "scopedCyclePass": true,
+  "wholeScoreAcceptance": false,
+  "humanReviewRequired": false,
+  "safeToPromote": false,
+  "sourceCertified": false,
+  "pages": [
+    {
+      "songNo": "144",
+      "title": "Jubilee",
+      "matchingSegmentsBefore": 2,
+      "matchingSegmentsAfter": 2,
+      "segmentCount": 2,
+      "outputSha256": "e1a7aea7442956983c4b22bea6672a6ec6709a1610c6359ef4ab004cbe686e72"
+    },
+    {
+      "songNo": "204",
+      "title": "Mission",
+      "matchingSegmentsBefore": 2,
+      "matchingSegmentsAfter": 2,
+      "segmentCount": 2,
+      "outputSha256": "ccda62e9efe3187d4d83df79dd287264359469f035d6a50e1ac9fd4d3e2ff372"
+    },
+    {
+      "songNo": "303",
+      "title": "Heavenly Land",
+      "matchingSegmentsBefore": 2,
+      "matchingSegmentsAfter": 2,
+      "segmentCount": 2,
+      "outputSha256": "4a51201fc2325b0362c9df42e8e2352ab532f253cbcb870904e8723a8ded752a"
+    },
+    {
+      "songNo": "492",
+      "title": "Invocation (Second)",
+      "matchingSegmentsBefore": 1,
+      "matchingSegmentsAfter": 2,
+      "segmentCount": 2,
+      "outputSha256": "87739eec7e3fe6834742be39b1510a3c468c8eff2cc5126cd2bca4f98a4b6501"
+    }
+  ],
+  "actualCorrection": "492 Invocation (Second): restore a source-visible opening half rest (2 quarter-note units); the first F4 half note consequently starts at onset 2, not onset 0.",
+  "visualFindings": [
+    "204 Mission retains source-unsupported sf and ornament/articulation candidates; the pitch/rhythm-only check does not catch these.",
+    "303 Heavenly Land and 492 Invocation retain candidate articulation dots that require source-specific verification.",
+    "No full-tune staff/voice, shape, lyric, tie/repeat or independent source-reading acceptance is claimed."
+  ],
+  "limits": [
+    "Unseen by recorded local experiments/source-correction artifacts, not a claim of model pretraining novelty or that Jacqueline does not know the tunes.",
+    "Same SH1991 book and Bremen scan family; not cross-book generalization.",
+    "Agent observation pipeline; no independent source-reading verifier; input agreement cannot independently validate the observer.",
+    "V1 repairs only opening top-staff pitch/rhythm; whole-score acceptance cannot pass by construction."
+  ],
+  "evidenceSha256": {
+    "work/model-pilot/sh1991-v1/agent-unseen-v1-20261016/protocol.json": "f374e47f1bcb0b80b820280e6216220a700ad43cfc4d064444202fcd10b0cf6b",
+    "work/model-pilot/sh1991-v1/agent-unseen-v1-20261016/sources.json": "547588257ce3fcdea3302b466300d1b504250808c115291692baf644ad217ee4",
+    "work/model-pilot/sh1991-v1/agent-unseen-v1-20261016/source-observations.json": "bea014fdb8872f404921470e2fa1f55adc198a15dcb310e3d2015601a206c24e",
+    "work/model-pilot/sh1991-v1/agent-unseen-v1-20261016/execution.json": "6a76b480f3a832bf313acc06c6f30aa9aba25c010e7b29edefaacadbcd69a665",
+    "work/model-pilot/sh1991-v1/agent-unseen-v1-20261016/recognition-complete.json": "67990bf71f5a8f698c6acb3da7268a1e537127a55f8c409c92ce43066b143eda",
+    "work/model-pilot/sh1991-v1/agent-unseen-v1-20261016-corrected/report.json": "2bbe860ca0bdb8430d21152433b32e3c17f6fc9670ba995fbf6cf16fd36b4e5a",
+    "work/model-pilot/sh1991-v1/agent-unseen-v1-20261016-corrected/render-receipt.json": "fbb12d43697382d379930b2c1f9279e3ddcd41da9499f8514c91054c0181c5aa"
+  },
+  "implementationNote": "Initial evaluation harness chose output nested within source evidence and was rejected by the frozen preservation guard. Only the analysis adapter output location was corrected to a sibling directory. Recognition inputs, observations, engine, correction writer and renderer were unchanged; both logs and the original recognition runner retained."
+}
