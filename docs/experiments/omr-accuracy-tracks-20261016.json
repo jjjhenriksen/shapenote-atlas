@@ -1,0 +1,390 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-16",
+  "study": "Four OMR accuracy tracks + first SH2025 cross-edition test",
+  "sourceCertified": false,
+  "safeToPromote": false,
+  "wholeScoresAccepted": 0,
+  "humanTasksCreated": 0,
+  "recognizerChanged": false,
+  "rawRecognitionsRun": 1,
+  "firstFrozenImplementationCommit": "0e76706",
+  "frozenTest": {
+    "status": "failed-frozen-whole-song-repair-adapter",
+    "recognition": "exported, but 9 draft measures per part versus 12 source measures; extra leading draft measure and merged source bars",
+    "symbols": {
+      "correct": 26,
+      "samples": 48
+    },
+    "wholeSongRepairOutcome": null,
+    "reason": "Frozen one-to-one map requires every draft measure to correspond to one source measure; cannot safely represent extra leading draft measure. No invalid map or event-label edits supplied.",
+    "noCodeOrModelChangesDuringTest": true,
+    "sourceObservationsChangedAfterOutput": false,
+    "next": "Penn now consumed; extension for explicit orphan measures and source-observed opening attributes is DEVELOPMENT, not a rerun held-out claim.",
+    "initialProtocolSha256": "704e7280a168fb2135dcc5a7203bde1c3ef60387ecb983f767603bdaef5a8f60",
+    "sourceGoldIndependent": false,
+    "safeToPromote": false
+  },
+  "symbolPrototype": {
+    "recipe": {
+      "model": "1-nearest-neighbor squared grayscale distance; ID tie-break",
+      "cropHalfWidthInterlines": 0.8,
+      "cropHalfHeightInterlines": 0.65,
+      "resize": [
+        24,
+        20
+      ],
+      "resizeFilter": "bilinear",
+      "split": "leave-one-source-page-out, no crop/random split",
+      "parameterSearch": false,
+      "labels": "provisional single-agent visual labels, not source-certified gold",
+      "deployment": "shadow-only; NEVER used to alter recognizer or scores in this study"
+    },
+    "training": {
+      "sampleCount": 229,
+      "pageCount": 3,
+      "byClass": {
+        "square/filled": 58,
+        "round/filled": 42,
+        "triangle/filled": 44,
+        "diamond/filled": 8,
+        "round/open": 27,
+        "square/open": 12,
+        "triangle/open": 18,
+        "diamond/open": 1,
+        "non_head": 19
+      },
+      "correct": 176,
+      "majorityCorrect": 18,
+      "folds": [
+        {
+          "page": "26",
+          "train": 140,
+          "test": 89,
+          "correct": 61,
+          "majorityCorrect": 0,
+          "unseenClassTestExamples": 8
+        },
+        {
+          "page": "68b",
+          "train": 145,
+          "test": 84,
+          "correct": 63,
+          "majorityCorrect": 6,
+          "unseenClassTestExamples": 0
+        },
+        {
+          "page": "89",
+          "train": 173,
+          "test": 56,
+          "correct": 52,
+          "majorityCorrect": 12,
+          "unseenClassTestExamples": 1
+        }
+      ]
+    },
+    "SH2025": {
+      "samples": 48,
+      "correct": 26,
+      "confusion": {
+        "diamond/filled": {
+          "diamond/filled": 0,
+          "diamond/open": 0,
+          "non_head": 0,
+          "round/filled": 0,
+          "round/open": 0,
+          "square/filled": 0,
+          "square/open": 0,
+          "triangle/filled": 0,
+          "triangle/open": 0
+        },
+        "diamond/open": {
+          "diamond/filled": 1,
+          "diamond/open": 0,
+          "non_head": 0,
+          "round/filled": 0,
+          "round/open": 0,
+          "square/filled": 0,
+          "square/open": 0,
+          "triangle/filled": 0,
+          "triangle/open": 0
+        },
+        "non_head": {
+          "diamond/filled": 0,
+          "diamond/open": 0,
+          "non_head": 0,
+          "round/filled": 0,
+          "round/open": 0,
+          "square/filled": 0,
+          "square/open": 0,
+          "triangle/filled": 0,
+          "triangle/open": 0
+        },
+        "round/filled": {
+          "diamond/filled": 4,
+          "diamond/open": 0,
+          "non_head": 0,
+          "round/filled": 6,
+          "round/open": 0,
+          "square/filled": 2,
+          "square/open": 0,
+          "triangle/filled": 0,
+          "triangle/open": 0
+        },
+        "round/open": {
+          "diamond/filled": 0,
+          "diamond/open": 0,
+          "non_head": 2,
+          "round/filled": 0,
+          "round/open": 4,
+          "square/filled": 0,
+          "square/open": 2,
+          "triangle/filled": 1,
+          "triangle/open": 0
+        },
+        "square/filled": {
+          "diamond/filled": 0,
+          "diamond/open": 0,
+          "non_head": 0,
+          "round/filled": 7,
+          "round/open": 0,
+          "square/filled": 1,
+          "square/open": 0,
+          "triangle/filled": 0,
+          "triangle/open": 0
+        },
+        "square/open": {
+          "diamond/filled": 0,
+          "diamond/open": 0,
+          "non_head": 0,
+          "round/filled": 0,
+          "round/open": 0,
+          "square/filled": 0,
+          "square/open": 2,
+          "triangle/filled": 0,
+          "triangle/open": 0
+        },
+        "triangle/filled": {
+          "diamond/filled": 0,
+          "diamond/open": 0,
+          "non_head": 0,
+          "round/filled": 0,
+          "round/open": 0,
+          "square/filled": 0,
+          "square/open": 0,
+          "triangle/filled": 12,
+          "triangle/open": 0
+        },
+        "triangle/open": {
+          "diamond/filled": 0,
+          "diamond/open": 0,
+          "non_head": 0,
+          "round/filled": 0,
+          "round/open": 0,
+          "square/filled": 0,
+          "square/open": 0,
+          "triangle/filled": 3,
+          "triangle/open": 1
+        }
+      },
+      "limits": [
+        "Single SH2025 scan; 48 source-centered positive noteheads, not all song symbols.",
+        "No SH2025 non-head negatives; cannot measure false-positive rate or detector recall.",
+        "Provisional same-agent source labels; prior generic OMR processing disclosed."
+      ]
+    },
+    "deployed": false,
+    "interpretation": "Reject as a reliable cross-edition recognizer improvement. Keep shadow-only."
+  },
+  "developmentRepairs": {
+    "sh1991-303": {
+      "checkedStaffMeasures": 68,
+      "summary": {
+        "sourceEvents": 128,
+        "beforeEvents": 123,
+        "afterEvents": 128,
+        "beforeMatching": 83,
+        "afterMatching": 128,
+        "beforeErrors": 85,
+        "afterErrors": 0,
+        "errorsRemoved": 85,
+        "errorsIntroduced": 0,
+        "beforeUnsupportedMarkings": 29,
+        "afterUnsupportedMarkings": 0
+      },
+      "beforeStructure": {
+        "overfull-voice": 1,
+        "part-measure-count-disagreement": 1,
+        "short-measure-review": 23
+      },
+      "afterStructure": {
+        "short-measure-review": 8
+      },
+      "secondParser": {
+        "implementation": "agent_03_semantic_musicxml.parse_source",
+        "implementationSha256": "5d50e31b8c3e2a9b186565b295310c814e9a3dee7653e13a2ebc731ddf5605e3",
+        "checkedStaffMeasures": 68,
+        "passed": true,
+        "independentSourceRecognition": false
+      },
+      "evidenceSha256": {
+        "input": "0a75f8028ddce6f1da3f09ef185caba084c45af21e0e9682a6127adce9b0955e",
+        "sourceObservations": "073012187342f8aabad69965e6a987eb9a92eddd2cc426ed2d7bab259360cc8a",
+        "sourceImage": "f80734eafd2bca291fc4853b47115550daed27601e9d11f244500962a2abf32f",
+        "measureMap": "2a94e0e9a2e1e34098dbb80c98bc35d76d249aef51f3f1b813386888114ae18b",
+        "writer": "c960247c10f95ab93b76cdf7fbe4e978570a38836d748461c6948a71e5541751",
+        "evaluator": "c2a41ce4a45aaaaf539845eb970fe450b12f24a72d6ef28dbd7e19555fff06b8",
+        "correctedMxl": "cc163d2f3a304f844450f9bab9df0af50c0272238ef51a7ce5a13df691857e6f"
+      },
+      "independentSourceGold": false,
+      "wholeScoreAcceptance": false
+    },
+    "sh2025-501t": {
+      "checkedStaffMeasures": 48,
+      "summary": {
+        "sourceEvents": 120,
+        "beforeEvents": 154,
+        "afterEvents": 120,
+        "beforeMatching": 33,
+        "afterMatching": 120,
+        "beforeErrors": 208,
+        "afterErrors": 0,
+        "errorsRemoved": 208,
+        "errorsIntroduced": 0,
+        "beforeUnsupportedMarkings": 15,
+        "afterUnsupportedMarkings": 0
+      },
+      "beforeStructure": {
+        "meter-unavailable": 36
+      },
+      "afterStructure": {},
+      "secondParser": {
+        "implementation": "agent_03_semantic_musicxml.parse_source",
+        "implementationSha256": "5d50e31b8c3e2a9b186565b295310c814e9a3dee7653e13a2ebc731ddf5605e3",
+        "checkedStaffMeasures": 48,
+        "passed": true,
+        "independentSourceRecognition": false
+      },
+      "evidenceSha256": {
+        "input": "17e08ccc2a677ee0860c34def260da8fe0ff3abcfa47a6ce7b17f5d5626277b2",
+        "sourceObservations": "76a4bbc6027e776d911baa8fa95ec4e61e895118d419cb0cf4019362dd1f84a4",
+        "sourceImage": "eeb1cc8d883f0f856aa193fdd74c47b5b4bea38b63b9f36934938eae93983244",
+        "measureMap": "4d48e06cc423794e6b4ba6784a60d674acd27974e2bef1dff182fdfb03afcffe",
+        "writer": "db8e381c64141bff6608a812fc107fce7fdc9b90dc0a4e4d7649ccd7f95bc1a2",
+        "evaluator": "9b1f15bec548aad684fa913de6f3115721597bab4ccbed6078f7fc23df748fb9",
+        "correctedMxl": "93067d56f339dc04f31dcc74abc841783e13ed86403807fe01bbaa556b7bf34d"
+      },
+      "independentSourceGold": false,
+      "wholeScoreAcceptance": false,
+      "ties": {
+        "sourceEndpoints": 16,
+        "beforeMatching": 2,
+        "afterMatching": 16,
+        "errorsRemoved": 18,
+        "errorsIntroduced": 0
+      }
+    }
+  },
+  "render": {
+    "summary": {
+      "scores": 2,
+      "passed": 2
+    },
+    "records": [
+      {
+        "id": "303",
+        "measures": 17,
+        "quarterDurations": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          2,
+          1,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "durationMatch": true,
+        "errors": [],
+        "passed": true,
+        "screenshotSha256": "92ca537997ff897c3652f0398abc27306545c7da66938648f397c618964c49e2"
+      },
+      {
+        "id": "penn",
+        "measures": 12,
+        "quarterDurations": [
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "durationMatch": true,
+        "errors": [],
+        "passed": true,
+        "screenshotSha256": "14d23b761c605517de862000f1d6c37b91764bc762cbad990d5d931febad1de9"
+      }
+    ],
+    "sourceFidelityEstablished": false
+  },
+  "checks": {
+    "pythonFixtures": 105,
+    "nodeTests": 104,
+    "build": "passed",
+    "offlineScoreRenders": 2
+  },
+  "evidenceSha256": {
+    "work/model-pilot/sh1991-v1/accuracy-tracks-v1/303-source-observations.json": "073012187342f8aabad69965e6a987eb9a92eddd2cc426ed2d7bab259360cc8a",
+    "work/model-pilot/sh1991-v1/accuracy-tracks-v1/303-measure-map.json": "2a94e0e9a2e1e34098dbb80c98bc35d76d249aef51f3f1b813386888114ae18b",
+    "work/model-pilot/sh1991-v1/accuracy-tracks-v1/303-repaired-final/report.json": "da46eea6e74bdf31966900e5ace63f1d99c6ffcc8385c9fd8e2a6d1231aea7bc",
+    "work/model-pilot/sh1991-v1/accuracy-tracks-v1/303-repaired-final/repaired.mxl": "cc163d2f3a304f844450f9bab9df0af50c0272238ef51a7ce5a13df691857e6f",
+    "work/model-pilot/sh1991-v1/accuracy-tracks-v1/sh2025-selection.json": "b29c1796e9965cf3d916ed9d6b08f1cedd17a24c8d3fbbbe8090d12a2c11c5d1",
+    "work/model-pilot/sh1991-v1/accuracy-tracks-v1/sh2025-selection-final.json": "b15c2a30d6d8a8dfde00682174a615e5463e93ed56074003100d9d7af260456b",
+    "work/model-pilot/sh1991-v1/accuracy-tracks-v1/penn-source-observations.json": "4d7d102084fb2038641091ba9744a88c02c4832913acafcb306a76bf4cd237ac",
+    "work/model-pilot/sh1991-v1/accuracy-tracks-v1/penn-source-observations-final.json": "7976c047af2479eaebe86d5e82c6c17ef4b0c1924f8f8c2a98faccca8a31bcef",
+    "work/model-pilot/sh1991-v1/accuracy-tracks-v1/penn-symbol-observations.json": "b0bb8ee193ef6157b0bb7373bbc030f0356c3431b17c41797a6584b8946855c4",
+    "work/model-pilot/sh1991-v1/accuracy-tracks-v1/penn-symbol-observations-final.json": "7b14a21c932a36d04c6eec35fa4044d0f39e0ca47b6d093173d16591378deb84",
+    "work/model-pilot/sh1991-v1/accuracy-tracks-v1/symbol-study-v1/protocol.json": "b539d4d69473481122dd4c768f1dad85f382304fb4289cf836fc9e7850c6051e",
+    "work/model-pilot/sh1991-v1/accuracy-tracks-v1/symbol-study-v1/report.json": "e31dfd4f7caaf2c16aa83f6f42675a06976d4ad688b9a9ef0e7f3bbb52120f47",
+    "work/model-pilot/sh1991-v1/accuracy-tracks-v1/symbol-study-final/protocol.json": "07000f2f1bc2a64c01d006d6ed135fcd8a02257f65bd7f44528f7b64ea389dc1",
+    "work/model-pilot/sh1991-v1/accuracy-tracks-v1/symbol-study-final/report.json": "30f08bda311bf3f3b8ff7983569eceea80d4316a6ff41164acb219643cd264e0",
+    "work/model-pilot/sh1991-v1/accuracy-tracks-v1/symbol-study-final/model.json": "8af250ec710d557a8c2937a33647a44a66b059e13665cf9a236a25ff6d2a5b62",
+    "work/model-pilot/sh1991-v1/accuracy-tracks-v1/penn-test/protocol.json": "704e7280a168fb2135dcc5a7203bde1c3ef60387ecb983f767603bdaef5a8f60",
+    "work/model-pilot/sh1991-v1/accuracy-tracks-v1/penn-test/recognition.json": "8e42d4a1681378440ad0655076541403a47092a74d3a74423f8e30b0ba3fcf7a",
+    "work/model-pilot/sh1991-v1/accuracy-tracks-v1/penn-test/needs-measure-map.json": "68c0af38101ade457b3010ce0341cecb1c26ec0b428b32d355b306d119a329e6",
+    "work/model-pilot/sh1991-v1/accuracy-tracks-v1/penn-test/frozen-disposition.json": "9b1d4e3bbc895fd025ce4077f56e6e1dc177ca6dcc45beaa9b1da1d6d6f7d522",
+    "work/model-pilot/sh1991-v1/accuracy-tracks-v1/penn-test/symbols/report.json": "6085cf29cbc989690c534631e0ddbb0aa2a1092d00c34be7b37880fea31614dd",
+    "work/model-pilot/sh1991-v1/accuracy-tracks-v1/penn-source-development.json": "76a4bbc6027e776d911baa8fa95ec4e61e895118d419cb0cf4019362dd1f84a4",
+    "work/model-pilot/sh1991-v1/accuracy-tracks-v1/penn-development-map.json": "4d48e06cc423794e6b4ba6784a60d674acd27974e2bef1dff182fdfb03afcffe",
+    "work/model-pilot/sh1991-v1/accuracy-tracks-v1/penn-development-repaired/report.json": "76000ba0c6d8d655ca180f2617d5dadc8b4f917be53f82ab4b8bed33a7cfdc29",
+    "work/model-pilot/sh1991-v1/accuracy-tracks-v1/penn-development-repaired/repaired.mxl": "93067d56f339dc04f31dcc74abc841783e13ed86403807fe01bbaa556b7bf34d",
+    "work/model-pilot/sh1991-v1/accuracy-tracks-v1/render-manifest.json": "88f1e2718286d54c72cf4b9e2299ce0f2b9f6647fd52cd192a4594753c8b34f1",
+    "work/model-pilot/sh1991-v1/accuracy-tracks-v1/render-receipt.json": "51b570c5cc354ce696909ec26a3ee42e4c6081afa5b9ffae7ac17beb3de6d449",
+    "work/model-pilot/sh1991-v1/accuracy-tracks-v1/render/303.png": "92ca537997ff897c3652f0398abc27306545c7da66938648f397c618964c49e2",
+    "work/model-pilot/sh1991-v1/accuracy-tracks-v1/render/penn.png": "14d23b761c605517de862000f1d6c37b91764bc762cbad990d5d931febad1de9"
+  },
+  "limits": [
+    "Source events used for repair are also used for consistency scoring: NOT independent source accuracy.",
+    "SH2025 Penn had prior generic local processing; metadata/OCR exist; old Penn draft/reference XML not read as answer keys in this run.",
+    "Frozen first adapter failed; code was extended afterward on consumed Penn data, not counted as a held-out pass.",
+    "Error units are missing+extra complete pitch/duration/onset/staff/voice event occurrences. Replacing one wrong event can remove two error units.",
+    "Full labels, scans, model pixels, raw and repaired scores stay local/ignored. Clean-clone tests do not require them.",
+    "Lyrics, literal shape/fill and repeat semantics remain unresolved on repaired copies. Existing slurs can survive outside observed scope."
+  ]
+}
