@@ -1,0 +1,13 @@
+diff --git a/app/src/main/java/org/audiveris/omr/sheet/rhythm/MeasuresBuilder.java b/app/src/main/java/org/audiveris/omr/sheet/rhythm/MeasuresBuilder.java
+index 4f5dd1f..49ec78b 100644
+--- a/app/src/main/java/org/audiveris/omr/sheet/rhythm/MeasuresBuilder.java
++++ b/app/src/main/java/org/audiveris/omr/sheet/rhythm/MeasuresBuilder.java
+@@ -165,6 +165,8 @@ public class MeasuresBuilder
+      */
+     public void buildMeasures ()
+     {
++        BarConsensus.restore(system);
++
+         // Determine groups of BarlineInter's for each staff within system
+         for (Staff staff : system.getStaves()) {
+             staffGroupsMap.put(staff, buildGroups(staff.getBarlines()));

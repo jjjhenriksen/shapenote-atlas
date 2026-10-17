@@ -1,0 +1,909 @@
+{
+  "analysisCodeSha256": {
+    "scripts/omr_acceptance_audit.py": "74451241e283714f9cb513df84067f7925def65829b12f2a79c0de22e7e42a5c",
+    "scripts/omr_export_trace.py": "3ea9b3aad482c6485d72aa97644d9ef3e4e5142952cb77c255419c7156f46483",
+    "scripts/omr_head_proposal_study.py": "d1ecc00f00b28ef7b274cdd49c6e67f25d57a59960a40f8c839fdf25d280adfb",
+    "scripts/omr_localization_eval.py": "573e039a7cf8d2f0183d24535bf05b3eb82087d0e72caeb70926e20ebdc16547",
+    "scripts/omr_localization_study.py": "8be9e605fca8880910a93631b85efd075fe6e63b6ef26168da7027e12f270057",
+    "scripts/omr_measure_consensus_paired.py": "c7e5542be5f840b774577937a5f09eabdfc6afad457063aea2276a54851879a8",
+    "scripts/omr_measure_consensus_run.py": "cd18edb2fa56dcdbf240d761c5a15b6c1c563fb3d280feadbacc8e3c5fad5434",
+    "scripts/omr_measure_consensus_study.py": "750c2a4edb131592000c809e04fd2260d63f18f5cf992b9c92cd537f32463708",
+    "scripts/omr_score_audit.py": "26976a33434837b234c1f1b14e8d05cf6027460ccbabb314616383894d33e40c",
+    "scripts/sh1991_fa_survival.py": "113d99829d4132918dd2b7c93c4ed81c67bf08b0852ba401271bcdd7b18b7619",
+    "scripts/sh1991_head_audit.py": "e624b4c6532de20a570a842d2f949e048f8af95eac8cc176ac2fb46285d43dcd",
+    "scripts/sh1991_pilot.py": "46256d035712077282a02dbc934e5c018c163f0fc106fa7a56d1ba431535f12e"
+  },
+  "cases": {
+    "469": {
+      "off": {
+        "auditStatus": "blocked",
+        "exportedMeasures": [
+          8,
+          8,
+          8,
+          8
+        ],
+        "gates": {
+          "independentSourceVerification": {
+            "reason": "No separate blinded source-reader adjudication receipt; source independent flag alone is insufficient",
+            "status": "unavailable"
+          },
+          "literalHeads": {
+            "observedStaffMeasures": 0,
+            "requiredStaffMeasures": 68,
+            "status": "unavailable"
+          },
+          "lyrics": {
+            "observedStaffMeasures": 0,
+            "requiredStaffMeasures": 68,
+            "status": "unavailable"
+          },
+          "measureAlignment": {
+            "method": "Explicit supplied map, or index agreement on equal declared grids; not independent alignment proof",
+            "reason": null,
+            "status": "pass"
+          },
+          "observedAbsentMarkings": {
+            "reason": "Complete mapped absence observations unavailable",
+            "status": "unavailable"
+          },
+          "openingHeader": {
+            "checkedParts": 4,
+            "scope": "Opening key, clef and meter only; later changes are not verified",
+            "status": "fail"
+          },
+          "otherMarkingsAndHeaderChanges": {
+            "reason": "No complete source inventory/comparator for remaining printed markings and later attribute changes",
+            "status": "unavailable"
+          },
+          "pitchRhythm": {
+            "reason": "No complete source event inventory",
+            "status": "unavailable"
+          },
+          "repeatsEndings": {
+            "observedStaffMeasures": 0,
+            "requiredStaffMeasures": 68,
+            "status": "unavailable"
+          },
+          "slurs": {
+            "observedStaffMeasures": 0,
+            "requiredStaffMeasures": 68,
+            "status": "unavailable"
+          },
+          "sourceGrid": {
+            "actual": [
+              8,
+              8,
+              8,
+              8
+            ],
+            "expected": [
+              17,
+              17,
+              17,
+              17
+            ],
+            "status": "fail"
+          },
+          "ties": {
+            "reason": "No complete source tie inventory",
+            "status": "unavailable"
+          },
+          "unscoredGraceEvents": {
+            "count": 0,
+            "scope": "Source event schema cannot evaluate grace notes",
+            "status": "pass"
+          },
+          "visualTieNotation": {
+            "reason": "Playback ties do not verify printed tied/slur glyphs",
+            "status": "unavailable"
+          }
+        },
+        "geometricallyAlignedSourceMeasures": [
+          6,
+          6,
+          6,
+          6
+        ],
+        "loggedCollisionAbstentions": 0,
+        "loggedRestoredBars": 0,
+        "sourceBoundaries": {
+          "extra": 0,
+          "matched": 8,
+          "missed": 8,
+          "observedInternalBoundaries": 16,
+          "proposedInternalBoundaries": 8,
+          "tolerancePixels": 4
+        },
+        "sourceHeadTrace": {
+          "0.35": {
+            "geometricallyMatched": 20,
+            "sourceHeads": 32,
+            "stages": {
+              "chord": 20,
+              "chordStem": 20,
+              "exportWitness": 18,
+              "headStem": 20,
+              "measure": 20,
+              "retained": 20,
+              "sharedStem": 20,
+              "timedSlot": 18,
+              "voiceBegin": 19
+            },
+            "statusCounts": {
+              "export-witness": 18,
+              "no-timed-slot": 2,
+              "not-detected": 12
+            }
+          },
+          "0.5": {
+            "geometricallyMatched": 20,
+            "sourceHeads": 32,
+            "stages": {
+              "chord": 20,
+              "chordStem": 20,
+              "exportWitness": 18,
+              "headStem": 20,
+              "measure": 20,
+              "retained": 20,
+              "sharedStem": 20,
+              "timedSlot": 18,
+              "voiceBegin": 19
+            },
+            "statusCounts": {
+              "export-witness": 18,
+              "no-timed-slot": 2,
+              "not-detected": 12
+            }
+          },
+          "0.75": {
+            "geometricallyMatched": 20,
+            "sourceHeads": 32,
+            "stages": {
+              "chord": 20,
+              "chordStem": 20,
+              "exportWitness": 18,
+              "headStem": 20,
+              "measure": 20,
+              "retained": 20,
+              "sharedStem": 20,
+              "timedSlot": 18,
+              "voiceBegin": 19
+            },
+            "statusCounts": {
+              "export-witness": 18,
+              "no-timed-slot": 2,
+              "not-detected": 12
+            }
+          }
+        },
+        "status": "exported",
+        "structureFindings": {
+          "orphan-tie-stop": 2,
+          "overfull-voice": 4,
+          "same-voice-overlap": 1,
+          "short-measure-review": 26
+        },
+        "wholeImageHeads": 136
+      },
+      "on": {
+        "auditStatus": "blocked",
+        "exportedMeasures": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "gates": {
+          "independentSourceVerification": {
+            "reason": "No separate blinded source-reader adjudication receipt; source independent flag alone is insufficient",
+            "status": "unavailable"
+          },
+          "literalHeads": {
+            "observedStaffMeasures": 0,
+            "requiredStaffMeasures": 68,
+            "status": "unavailable"
+          },
+          "lyrics": {
+            "observedStaffMeasures": 0,
+            "requiredStaffMeasures": 68,
+            "status": "unavailable"
+          },
+          "measureAlignment": {
+            "method": "Explicit supplied map, or index agreement on equal declared grids; not independent alignment proof",
+            "reason": null,
+            "status": "pass"
+          },
+          "observedAbsentMarkings": {
+            "reason": "Complete mapped absence observations unavailable",
+            "status": "unavailable"
+          },
+          "openingHeader": {
+            "checkedParts": 4,
+            "scope": "Opening key, clef and meter only; later changes are not verified",
+            "status": "fail"
+          },
+          "otherMarkingsAndHeaderChanges": {
+            "reason": "No complete source inventory/comparator for remaining printed markings and later attribute changes",
+            "status": "unavailable"
+          },
+          "pitchRhythm": {
+            "reason": "No complete source event inventory",
+            "status": "unavailable"
+          },
+          "repeatsEndings": {
+            "observedStaffMeasures": 0,
+            "requiredStaffMeasures": 68,
+            "status": "unavailable"
+          },
+          "slurs": {
+            "observedStaffMeasures": 0,
+            "requiredStaffMeasures": 68,
+            "status": "unavailable"
+          },
+          "sourceGrid": {
+            "actual": [
+              16,
+              16,
+              16,
+              16
+            ],
+            "expected": [
+              17,
+              17,
+              17,
+              17
+            ],
+            "status": "fail"
+          },
+          "ties": {
+            "reason": "No complete source tie inventory",
+            "status": "unavailable"
+          },
+          "unscoredGraceEvents": {
+            "count": 0,
+            "scope": "Source event schema cannot evaluate grace notes",
+            "status": "pass"
+          },
+          "visualTieNotation": {
+            "reason": "Playback ties do not verify printed tied/slur glyphs",
+            "status": "unavailable"
+          }
+        },
+        "geometricallyAlignedSourceMeasures": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "loggedCollisionAbstentions": 0,
+        "loggedRestoredBars": 22,
+        "sourceBoundaries": {
+          "extra": 0,
+          "matched": 16,
+          "missed": 0,
+          "observedInternalBoundaries": 16,
+          "proposedInternalBoundaries": 16,
+          "tolerancePixels": 4
+        },
+        "sourceHeadTrace": {
+          "0.35": {
+            "geometricallyMatched": 20,
+            "sourceHeads": 32,
+            "stages": {
+              "chord": 20,
+              "chordStem": 20,
+              "exportWitness": 18,
+              "headStem": 20,
+              "measure": 20,
+              "retained": 20,
+              "sharedStem": 20,
+              "timedSlot": 18,
+              "voiceBegin": 19
+            },
+            "statusCounts": {
+              "export-witness": 18,
+              "no-timed-slot": 2,
+              "not-detected": 12
+            }
+          },
+          "0.5": {
+            "geometricallyMatched": 20,
+            "sourceHeads": 32,
+            "stages": {
+              "chord": 20,
+              "chordStem": 20,
+              "exportWitness": 18,
+              "headStem": 20,
+              "measure": 20,
+              "retained": 20,
+              "sharedStem": 20,
+              "timedSlot": 18,
+              "voiceBegin": 19
+            },
+            "statusCounts": {
+              "export-witness": 18,
+              "no-timed-slot": 2,
+              "not-detected": 12
+            }
+          },
+          "0.75": {
+            "geometricallyMatched": 20,
+            "sourceHeads": 32,
+            "stages": {
+              "chord": 20,
+              "chordStem": 20,
+              "exportWitness": 18,
+              "headStem": 20,
+              "measure": 20,
+              "retained": 20,
+              "sharedStem": 20,
+              "timedSlot": 18,
+              "voiceBegin": 19
+            },
+            "statusCounts": {
+              "export-witness": 18,
+              "no-timed-slot": 2,
+              "not-detected": 12
+            }
+          }
+        },
+        "status": "exported",
+        "structureFindings": {
+          "orphan-tie-stop": 2,
+          "same-voice-overlap": 1,
+          "short-measure-review": 62
+        },
+        "wholeImageHeads": 113
+      }
+    },
+    "501t": {
+      "off": {
+        "auditStatus": "blocked",
+        "exportedMeasures": [
+          9,
+          9,
+          9,
+          9
+        ],
+        "gates": {
+          "independentSourceVerification": {
+            "reason": "No separate blinded source-reader adjudication receipt; source independent flag alone is insufficient",
+            "status": "unavailable"
+          },
+          "literalHeads": {
+            "observedStaffMeasures": 0,
+            "requiredStaffMeasures": 48,
+            "status": "unavailable"
+          },
+          "lyrics": {
+            "observedStaffMeasures": 0,
+            "requiredStaffMeasures": 48,
+            "status": "unavailable"
+          },
+          "measureAlignment": {
+            "method": "Explicit supplied map, or index agreement on equal declared grids; not independent alignment proof",
+            "reason": null,
+            "status": "pass"
+          },
+          "observedAbsentMarkings": {
+            "families": [
+              "articulations",
+              "dynamics",
+              "ornaments"
+            ],
+            "status": "fail",
+            "unsupported": 15
+          },
+          "openingHeader": {
+            "checkedParts": 4,
+            "scope": "Opening key, clef and meter only; later changes are not verified",
+            "status": "fail"
+          },
+          "otherMarkingsAndHeaderChanges": {
+            "reason": "No complete source inventory/comparator for remaining printed markings and later attribute changes",
+            "status": "unavailable"
+          },
+          "pitchRhythm": {
+            "checkedStaffMeasures": 48,
+            "extraEventUnits": 129,
+            "matched": 25,
+            "missingEventUnits": 95,
+            "sourceEvents": 120,
+            "status": "fail"
+          },
+          "repeatsEndings": {
+            "observedStaffMeasures": 0,
+            "requiredStaffMeasures": 48,
+            "status": "unavailable"
+          },
+          "slurs": {
+            "observedStaffMeasures": 0,
+            "requiredStaffMeasures": 48,
+            "status": "unavailable"
+          },
+          "sourceGrid": {
+            "actual": [
+              9,
+              9,
+              9,
+              9
+            ],
+            "expected": [
+              12,
+              12,
+              12,
+              12
+            ],
+            "status": "fail"
+          },
+          "ties": {
+            "extraEndpoints": 4,
+            "matchedEndpoints": 2,
+            "missingEndpoints": 14,
+            "observedEndpoints": 16,
+            "scope": "Playback tie elements; visual tied notation is separately unverified",
+            "status": "fail"
+          },
+          "unscoredGraceEvents": {
+            "count": 0,
+            "scope": "Source event schema cannot evaluate grace notes",
+            "status": "pass"
+          },
+          "visualTieNotation": {
+            "reason": "Playback ties do not verify printed tied/slur glyphs",
+            "status": "unavailable"
+          }
+        },
+        "geometricallyAlignedSourceMeasures": [
+          5,
+          5,
+          5,
+          5
+        ],
+        "loggedCollisionAbstentions": 0,
+        "loggedRestoredBars": 0,
+        "sourceBoundaries": {
+          "extra": 0,
+          "matched": 8,
+          "missed": 3,
+          "observedInternalBoundaries": 11,
+          "proposedInternalBoundaries": 8,
+          "tolerancePixels": 4
+        },
+        "status": "exported",
+        "structureFindings": {
+          "meter-unavailable": 36
+        },
+        "wholeImageHeads": 151
+      },
+      "on": {
+        "auditStatus": "blocked",
+        "exportedMeasures": [
+          11,
+          11,
+          11,
+          11
+        ],
+        "gates": {
+          "independentSourceVerification": {
+            "reason": "No separate blinded source-reader adjudication receipt; source independent flag alone is insufficient",
+            "status": "unavailable"
+          },
+          "literalHeads": {
+            "observedStaffMeasures": 0,
+            "requiredStaffMeasures": 48,
+            "status": "unavailable"
+          },
+          "lyrics": {
+            "observedStaffMeasures": 0,
+            "requiredStaffMeasures": 48,
+            "status": "unavailable"
+          },
+          "measureAlignment": {
+            "method": "Explicit supplied map, or index agreement on equal declared grids; not independent alignment proof",
+            "reason": null,
+            "status": "pass"
+          },
+          "observedAbsentMarkings": {
+            "families": [
+              "articulations",
+              "dynamics",
+              "ornaments"
+            ],
+            "status": "fail",
+            "unsupported": 14
+          },
+          "openingHeader": {
+            "checkedParts": 4,
+            "scope": "Opening key, clef and meter only; later changes are not verified",
+            "status": "fail"
+          },
+          "otherMarkingsAndHeaderChanges": {
+            "reason": "No complete source inventory/comparator for remaining printed markings and later attribute changes",
+            "status": "unavailable"
+          },
+          "pitchRhythm": {
+            "checkedStaffMeasures": 48,
+            "extraEventUnits": 102,
+            "matched": 46,
+            "missingEventUnits": 74,
+            "sourceEvents": 120,
+            "status": "fail"
+          },
+          "repeatsEndings": {
+            "observedStaffMeasures": 0,
+            "requiredStaffMeasures": 48,
+            "status": "unavailable"
+          },
+          "slurs": {
+            "observedStaffMeasures": 0,
+            "requiredStaffMeasures": 48,
+            "status": "unavailable"
+          },
+          "sourceGrid": {
+            "actual": [
+              11,
+              11,
+              11,
+              11
+            ],
+            "expected": [
+              12,
+              12,
+              12,
+              12
+            ],
+            "status": "fail"
+          },
+          "ties": {
+            "extraEndpoints": 3,
+            "matchedEndpoints": 3,
+            "missingEndpoints": 13,
+            "observedEndpoints": 16,
+            "scope": "Playback tie elements; visual tied notation is separately unverified",
+            "status": "fail"
+          },
+          "unscoredGraceEvents": {
+            "count": 0,
+            "scope": "Source event schema cannot evaluate grace notes",
+            "status": "pass"
+          },
+          "visualTieNotation": {
+            "reason": "Playback ties do not verify printed tied/slur glyphs",
+            "status": "unavailable"
+          }
+        },
+        "geometricallyAlignedSourceMeasures": [
+          11,
+          11,
+          11,
+          11
+        ],
+        "loggedCollisionAbstentions": 2,
+        "loggedRestoredBars": 10,
+        "sourceBoundaries": {
+          "extra": 0,
+          "matched": 11,
+          "missed": 0,
+          "observedInternalBoundaries": 11,
+          "proposedInternalBoundaries": 11,
+          "tolerancePixels": 4
+        },
+        "status": "exported",
+        "structureFindings": {
+          "meter-unavailable": 44
+        },
+        "wholeImageHeads": 146
+      }
+    },
+    "531": {
+      "off": {
+        "exportedMeasures": [
+          8,
+          8,
+          8,
+          8
+        ],
+        "loggedCollisionAbstentions": 0,
+        "loggedRestoredBars": 0,
+        "sourceHeadTrace": {
+          "0.35": {
+            "geometricallyMatched": 14,
+            "sourceHeads": 29,
+            "stages": {
+              "chord": 14,
+              "chordStem": 14,
+              "exportWitness": 14,
+              "headStem": 14,
+              "measure": 14,
+              "retained": 14,
+              "sharedStem": 14,
+              "timedSlot": 14,
+              "voiceBegin": 14
+            },
+            "statusCounts": {
+              "export-witness": 14,
+              "not-detected": 15
+            }
+          },
+          "0.5": {
+            "geometricallyMatched": 14,
+            "sourceHeads": 29,
+            "stages": {
+              "chord": 14,
+              "chordStem": 14,
+              "exportWitness": 14,
+              "headStem": 14,
+              "measure": 14,
+              "retained": 14,
+              "sharedStem": 14,
+              "timedSlot": 14,
+              "voiceBegin": 14
+            },
+            "statusCounts": {
+              "export-witness": 14,
+              "not-detected": 15
+            }
+          },
+          "0.75": {
+            "geometricallyMatched": 16,
+            "sourceHeads": 29,
+            "stages": {
+              "chord": 16,
+              "chordStem": 16,
+              "exportWitness": 16,
+              "headStem": 16,
+              "measure": 16,
+              "retained": 16,
+              "sharedStem": 16,
+              "timedSlot": 16,
+              "voiceBegin": 16
+            },
+            "statusCounts": {
+              "export-witness": 16,
+              "not-detected": 13
+            }
+          }
+        },
+        "status": "exported",
+        "structureFindings": {
+          "meter-unavailable": 32
+        },
+        "wholeImageHeads": 130
+      },
+      "on": {
+        "exportedMeasures": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "loggedCollisionAbstentions": 0,
+        "loggedRestoredBars": 27,
+        "sourceHeadTrace": {
+          "0.35": {
+            "geometricallyMatched": 14,
+            "sourceHeads": 29,
+            "stages": {
+              "chord": 14,
+              "chordStem": 14,
+              "exportWitness": 14,
+              "headStem": 14,
+              "measure": 14,
+              "retained": 14,
+              "sharedStem": 14,
+              "timedSlot": 14,
+              "voiceBegin": 14
+            },
+            "statusCounts": {
+              "export-witness": 14,
+              "not-detected": 15
+            }
+          },
+          "0.5": {
+            "geometricallyMatched": 14,
+            "sourceHeads": 29,
+            "stages": {
+              "chord": 14,
+              "chordStem": 14,
+              "exportWitness": 14,
+              "headStem": 14,
+              "measure": 14,
+              "retained": 14,
+              "sharedStem": 14,
+              "timedSlot": 14,
+              "voiceBegin": 14
+            },
+            "statusCounts": {
+              "export-witness": 14,
+              "not-detected": 15
+            }
+          },
+          "0.75": {
+            "geometricallyMatched": 16,
+            "sourceHeads": 29,
+            "stages": {
+              "chord": 16,
+              "chordStem": 16,
+              "exportWitness": 16,
+              "headStem": 16,
+              "measure": 16,
+              "retained": 16,
+              "sharedStem": 16,
+              "timedSlot": 16,
+              "voiceBegin": 16
+            },
+            "statusCounts": {
+              "export-witness": 16,
+              "not-detected": 13
+            }
+          }
+        },
+        "status": "exported",
+        "structureFindings": {
+          "meter-unavailable": 64
+        },
+        "wholeImageHeads": 101
+      }
+    }
+  },
+  "checks": {
+    "469OpeningHeadRetentionNoRegression": true,
+    "531OpeningHeadRetentionNoRegression": true,
+    "allCandidateExports": true,
+    "allControlsSatisfyDeclaredPolicy": true,
+    "pennCompleteEventNoRegression": true,
+    "thyBoundaryGainWithoutExtras": true
+  },
+  "controlReceipt": {
+    "allArchivesExactlyMatch": true,
+    "allControlsMatch": true,
+    "controls": [
+      {
+        "acceptedByDeclaredControlPolicy": true,
+        "headerControlProof": null,
+        "matchesArchivedWrittenEvents": true,
+        "recognitionSha256": "f2065004ffcc4ed9e6561caf8eec206f26906cca75593c8ec3a7a7a211316e76",
+        "recognitionStatus": "exported",
+        "source": "469"
+      },
+      {
+        "acceptedByDeclaredControlPolicy": true,
+        "headerControlProof": null,
+        "matchesArchivedWrittenEvents": true,
+        "recognitionSha256": "cb03de958041f05b6544fe6ff0d9e066c8c95f87392facb4d3b313b6bd088ae0",
+        "recognitionStatus": "exported",
+        "source": "501t"
+      },
+      {
+        "acceptedByDeclaredControlPolicy": true,
+        "headerControlProof": null,
+        "matchesArchivedWrittenEvents": true,
+        "recognitionSha256": "7f90d3711bee45673166d8b162932b1e484c60df26edb310bc8dd78347aeb2bc",
+        "recognitionStatus": "exported",
+        "source": "531"
+      }
+    ],
+    "protocolSha256": "8efcb165c1c0e6db9bb22b3825b9e5a607911d42c0f2f55999c20155802d909f"
+  },
+  "date": "2026-10-17",
+  "developmentHistory": {
+    "engineV1": {
+      "allOffControlsMatch": true,
+      "candidatePennExport": "failed; metrics unavailable",
+      "passesDevelopmentGates": false,
+      "recognitionRuns": 6
+    },
+    "pairedV3": {
+      "allCandidateExports": true,
+      "allOffControlsExactlyMatch": true,
+      "engine": "unchanged v2 binary",
+      "headerExceptionUsed": false,
+      "recognitionRuns": 6
+    },
+    "strictV2": {
+      "allOffControlsExactlyMatch": false,
+      "candidateRuns": 0,
+      "controlPenn": "header-only orphan mismatch; stopped before activation",
+      "recognitionRuns": 3
+    }
+  },
+  "evidenceSha256": {
+    "v1/analysis-final/receipt.json": "b77dbff01b580be3a69454f4622ec98c807fdd1d723826f6594db605f481bcbc",
+    "v1/analysis-final/report.json": "4a8de21887b3226f20e735b2380fc02fd38d2541471e613c31d53444593fa5c1",
+    "v1/run/controls.json": "64e7573c0b4ce2b09c9a93d2a3a3606b77b2682546e19af5fc3856d0b414137d",
+    "v1/run/off/469/recognition.json": "b6adb9d0176aaa52d7a109d9e51b54d061627699a7a36494298656fbef8cc0dc",
+    "v1/run/off/469/started.json": "353d684dd51d62d07a9213025fdfb94332624ea1e6e6e7a69af5e00170dd0245",
+    "v1/run/off/501t/recognition.json": "d4282ed7dfaa05c4a9fdb91cafdf395e5170ac06af8eb251bec44de203563381",
+    "v1/run/off/501t/started.json": "05f071e882504a7fe9b25df2b2434558bf602782211b4524169a728cc78704f5",
+    "v1/run/off/531/recognition.json": "fa96c01bedc9dee23801bf4e2c1f3cceb473d7ab4954537f3596d309cb968ac0",
+    "v1/run/off/531/started.json": "ce5df69dc93206e19dc32d2eaa91e81ba8063b0910d7fa53ad99977037a45a4d",
+    "v1/run/on/469/recognition.json": "93ce8dadd480a691901c8cb6522f42ad73d1f40eb4d5d874534b481dc2ce2fe6",
+    "v1/run/on/469/started.json": "1ad9d8e5274a49a4f8739a52ac7045530e742261e31da16ba49fab5da062fd1f",
+    "v1/run/on/501t/recognition.json": "eedc11775a691400a606b8c6c81599281dfa948de9b727b2a6eb97ba5abb5e5f",
+    "v1/run/on/501t/started.json": "29369ae478f009f2dcdc82947f36404810bd167001eaacff13f4bbbbe5f003f9",
+    "v1/run/on/531/recognition.json": "ceabef925c8e27f712157160df3d6c0bf965c2f85562139ea68789d9badeb98a",
+    "v1/run/on/531/started.json": "eb751099ddb1882dbd5bc87926af4a24910c1474cfe928f3dd3130e60aee0080",
+    "v1/run/protocol.json": "35b1106e3c634e1a2e3bde609571c0709b454de79537adbb4e47be50741957a5",
+    "v2/run/controls.json": "a8d3d05b6bbd63ab9fcab1e4b257e0f59909541fe47319e1a70e3aa1d48750ea",
+    "v2/run/off/469/recognition.json": "e6618dda37b7aec6f6ace9cfa1069f8dbb366225b290127b355e1f20c84e3726",
+    "v2/run/off/469/started.json": "63c0a100c669b94de7c010926d4e7d51326cdb19fcee3445799a590a49273331",
+    "v2/run/off/501t/recognition.json": "13b6f97211da02eb2e97aa39c4601793c20fdd59565055b9a8dbadf78bd17712",
+    "v2/run/off/501t/started.json": "beb592e44fb3ccd16cd1298ced1a39c756ef0ce02d5e20b18ecab9d6ac40a2ed",
+    "v2/run/off/531/recognition.json": "9491383a8272ccbd71094f6f31b222cd0e0fe667fb14e9a513f91a84ac542ee5",
+    "v2/run/off/531/started.json": "d80a2e16de083444ac6adbd67b6416ae39d717db2466943f1caea51aa62152cd",
+    "v2/run/protocol.json": "06b84478715a38569a5ce26d0c213f5a88db27dfdbdc3956ca8e2c40a8209bf2",
+    "v3/analysis-final/receipt.json": "10ef302357a714a03390c924f36043bda25f1ebe731edcbc963d26a5b1e64bf8",
+    "v3/analysis-final/report.json": "8f6d6d32a777cfc3445ecafca620e3221aee6ccfa34ecbfdf1c2b367b66c56d6",
+    "v3/run/controls.json": "e88f2756bfccfb1d24a6ae72e5a143665859d896dc76e0db3d9ab7576708fc2d",
+    "v3/run/off/469/recognition.json": "f2065004ffcc4ed9e6561caf8eec206f26906cca75593c8ec3a7a7a211316e76",
+    "v3/run/off/469/started.json": "cb08f928887e00444eb0dfd379769bda97d9b12206639e4575e86f8cf894dfe4",
+    "v3/run/off/501t/recognition.json": "cb03de958041f05b6544fe6ff0d9e066c8c95f87392facb4d3b313b6bd088ae0",
+    "v3/run/off/501t/started.json": "dc0225b3935b43ad3f9c1944e7578a13ff921e38b2272a8d09644875736eb95d",
+    "v3/run/off/531/recognition.json": "7f90d3711bee45673166d8b162932b1e484c60df26edb310bc8dd78347aeb2bc",
+    "v3/run/off/531/started.json": "56ee4482ca5b57ab393f87dd9af093bd86ef29a1dc59408e9a269829f30ea01a",
+    "v3/run/on/469/recognition.json": "b2092c69f8f992de4fae1bd4bfd6e2b293f598663c843d25864c2d3c9ba22469",
+    "v3/run/on/469/started.json": "0281a5e98406325c00a8efe9fadeba7f21535d9cdd7b2723b6bfa02e3cf8afcc",
+    "v3/run/on/501t/recognition.json": "31825db28b831199addceae0e4aebf2c536da5913f3496039618b3ebe5c69367",
+    "v3/run/on/501t/started.json": "09888bec3f1716ac2374f5b8faf17613b4bc05b5347de26f671c6368afd97031",
+    "v3/run/on/531/recognition.json": "7c9bcb81b356bdbbc1d6124dce72a3c55fefba572ae0e4461f4e995f6aa8dee2",
+    "v3/run/on/531/started.json": "9e98b27b4cbd3fffd5c5e1f5ff9d0b55543842f62a5562f611cbda73cb9fa5b8",
+    "v3/run/protocol.json": "8efcb165c1c0e6db9bb22b3825b9e5a607911d42c0f2f55999c20155802d909f"
+  },
+  "experimentSourceSha256": {
+    "experiments/audiveris-measure-consensus-v1/BarConsensus.java": "30a1f5290afb7039ba1cabe8ff1eac67d561dd6b6740fd24fe4ca7b2cfc9f5f4",
+    "experiments/audiveris-measure-consensus-v1/BarConsensusTest.java": "b4df318c0b6bb79c59245fb5859e573f4da8631264b249e70f564f614133aca5",
+    "experiments/audiveris-measure-consensus-v1/hook.patch": "2595ae5331d4e0897d9f16f39ebf17410c52169c11bc08c16512e8d8a6144bb9",
+    "experiments/audiveris-measure-consensus-v2/BarConsensus.java": "e973987a0fe20da0c63b34594052467d777c6310242b2f768a0f97fdcf4a9024",
+    "experiments/audiveris-measure-consensus-v2/BarConsensusTest.java": "ff1602701a170974bf24739b457cccf58620e15fe4b242d577b4c4fe91fc83cf",
+    "experiments/audiveris-measure-consensus-v2/hook.patch": "2595ae5331d4e0897d9f16f39ebf17410c52169c11bc08c16512e8d8a6144bb9"
+  },
+  "limits": [
+    "All sources are consumed development; not a held-out or reliability result.",
+    "Thy Strength still exports 16 of 17 written regions; Penn 11 of 12. Final regions are marked cautionary.",
+    "Clayton full source grid unmeasured; 8->16 is not source-certified measure accuracy.",
+    "Full-song source-event truth is unavailable for Thy Strength/Clayton. Penn observations are provisional same-agent inputs.",
+    "Penn 127 removed/79 introduced are map-dependent error units, including orphan identity changes, not independently certified errors.",
+    "No new source-head integration, shape/fill training, header fix, reader enablement, promotion, source upload, deployment or merge."
+  ],
+  "passesBoundedAggregateDevelopmentGates": true,
+  "pennEventErrorDelta": {
+    "afterErrorUnits": 176,
+    "beforeErrorUnits": 224,
+    "errorUnitsIntroduced": 79,
+    "errorUnitsRemoved": 127,
+    "interpretation": "Map-dependent missing/extra complete-event units against consumed provisional source observations, including physical-span-keyed orphans; not independent musical mistakes."
+  },
+  "phase": "Consumed development; internal-bar pixel consensus and explicit paired controls",
+  "safeToPromote": false,
+  "schemaVersion": 1,
+  "sourceCertified": false,
+  "validation": {
+    "finalAnalysisReplayedByteIdentically": true,
+    "javaSuites": {
+      "v1": {
+        "errors": 0,
+        "failures": 0,
+        "resultSha256": "8be4131dcecf20630cae7ab6930bd4e1f4ee0d12f015e270def39c05b1180dfa",
+        "skipped": 0,
+        "tests": 9
+      },
+      "v2": {
+        "errors": 0,
+        "failures": 0,
+        "resultSha256": "d5d8c13fc55f5fb7c43f56ccd2dec1efa261e3e49b2442687321773cbcbe83d6",
+        "skipped": 0,
+        "tests": 11
+      }
+    },
+    "newPythonFixturesPassed": 13,
+    "oldExportAuditEvidenceFilesUnchanged": 8,
+    "oldTopologyEvidenceFilesUnchanged": 10,
+    "pythonOMRPassed": 145,
+    "pythonSH1991Passed": 105,
+    "pythonSkipped": 0,
+    "recognitionInvocations": 15
+  },
+  "wholeScoresAccepted": 0
+}
