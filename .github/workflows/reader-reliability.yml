@@ -30,6 +30,7 @@ jobs:
           python3 -m unittest discover -s tests -p 'test_sh1991_*.py'
           python3 -m unittest discover -s tests -p 'test_omr_grid_*.py'
           python3 -m unittest discover -s tests -p 'test_omr_image_*.py'
+          python3 -m unittest discover -s tests -p 'test_omr_measure_*.py'
           python3 -m unittest discover -s tests -p test_agent_10_reproducible_validation.py
       - run: npm run validate-playback && npm run validate-transposition
       - run: npm run build

@@ -1,0 +1,422 @@
+{
+  "date": "2026-10-16",
+  "schemaVersion": 1,
+  "recipe": {
+    "version": 1,
+    "size": [
+      24,
+      20
+    ],
+    "scales": [
+      0.6,
+      0.75,
+      0.9,
+      1.0,
+      1.15,
+      1.3
+    ],
+    "offsets": [
+      -1,
+      0,
+      1
+    ],
+    "distanceBox": [
+      2,
+      2,
+      22,
+      18
+    ],
+    "selectiveMinimumRelativeMargin": 0.08,
+    "distance": "mean squared grayscale, best exemplar variant per literal class",
+    "deployment": "shadow-only; source centers supplied; no score writes"
+  },
+  "protocolSha256": "10d5a5bbf6192a86445b372d6efbff0f6e40947429f110e83ca930183d7dbc85",
+  "training": {
+    "targets": 229,
+    "pages": 3,
+    "SH2025Added": false,
+    "labels": "Same-agent provisional source observations, not independently audited gold."
+  },
+  "consumedDevelopment": {
+    "sh1991PageBlocked": {
+      "allProposals": {
+        "targets": 229,
+        "baselineCorrect": 176,
+        "correct": 186,
+        "wrongProposals": 43,
+        "abstentions": 0,
+        "proposed": 229,
+        "accuracyAllTargets": 0.8122270742358079,
+        "proposalCoverage": 1.0,
+        "accuracyAmongProposals": 0.8122270742358079,
+        "fixed": 17,
+        "regressed": 7,
+        "oracleReviewTargets": 43,
+        "baselineOracleReviewTargets": 53,
+        "measuredHumanEdits": null,
+        "measuredHumanMinutes": null,
+        "endToEndAccuracy": null,
+        "detectorRecall": null
+      },
+      "selective": {
+        "targets": 229,
+        "baselineCorrect": 176,
+        "correct": 180,
+        "wrongProposals": 26,
+        "abstentions": 23,
+        "proposed": 206,
+        "accuracyAllTargets": 0.7860262008733624,
+        "proposalCoverage": 0.8995633187772926,
+        "accuracyAmongProposals": 0.8737864077669902,
+        "fixed": 13,
+        "regressed": 9,
+        "oracleReviewTargets": 49,
+        "baselineOracleReviewTargets": 53,
+        "measuredHumanEdits": null,
+        "measuredHumanMinutes": null,
+        "endToEndAccuracy": null,
+        "detectorRecall": null
+      },
+      "byPage": {
+        "26": {
+          "allProposals": {
+            "targets": 89,
+            "baselineCorrect": 61,
+            "correct": 70,
+            "wrongProposals": 19,
+            "abstentions": 0,
+            "proposed": 89,
+            "accuracyAllTargets": 0.7865168539325843,
+            "proposalCoverage": 1.0,
+            "accuracyAmongProposals": 0.7865168539325843,
+            "fixed": 12,
+            "regressed": 3,
+            "oracleReviewTargets": 19,
+            "baselineOracleReviewTargets": 28,
+            "measuredHumanEdits": null,
+            "measuredHumanMinutes": null,
+            "endToEndAccuracy": null,
+            "detectorRecall": null
+          },
+          "selective": {
+            "targets": 89,
+            "baselineCorrect": 61,
+            "correct": 67,
+            "wrongProposals": 9,
+            "abstentions": 13,
+            "proposed": 76,
+            "accuracyAllTargets": 0.7528089887640449,
+            "proposalCoverage": 0.8539325842696629,
+            "accuracyAmongProposals": 0.881578947368421,
+            "fixed": 10,
+            "regressed": 4,
+            "oracleReviewTargets": 22,
+            "baselineOracleReviewTargets": 28,
+            "measuredHumanEdits": null,
+            "measuredHumanMinutes": null,
+            "endToEndAccuracy": null,
+            "detectorRecall": null
+          }
+        },
+        "68b": {
+          "allProposals": {
+            "targets": 84,
+            "baselineCorrect": 63,
+            "correct": 65,
+            "wrongProposals": 19,
+            "abstentions": 0,
+            "proposed": 84,
+            "accuracyAllTargets": 0.7738095238095238,
+            "proposalCoverage": 1.0,
+            "accuracyAmongProposals": 0.7738095238095238,
+            "fixed": 5,
+            "regressed": 3,
+            "oracleReviewTargets": 19,
+            "baselineOracleReviewTargets": 21,
+            "measuredHumanEdits": null,
+            "measuredHumanMinutes": null,
+            "endToEndAccuracy": null,
+            "detectorRecall": null
+          },
+          "selective": {
+            "targets": 84,
+            "baselineCorrect": 63,
+            "correct": 62,
+            "wrongProposals": 14,
+            "abstentions": 8,
+            "proposed": 76,
+            "accuracyAllTargets": 0.7380952380952381,
+            "proposalCoverage": 0.9047619047619048,
+            "accuracyAmongProposals": 0.8157894736842105,
+            "fixed": 3,
+            "regressed": 4,
+            "oracleReviewTargets": 22,
+            "baselineOracleReviewTargets": 21,
+            "measuredHumanEdits": null,
+            "measuredHumanMinutes": null,
+            "endToEndAccuracy": null,
+            "detectorRecall": null
+          }
+        },
+        "89": {
+          "allProposals": {
+            "targets": 56,
+            "baselineCorrect": 52,
+            "correct": 51,
+            "wrongProposals": 5,
+            "abstentions": 0,
+            "proposed": 56,
+            "accuracyAllTargets": 0.9107142857142857,
+            "proposalCoverage": 1.0,
+            "accuracyAmongProposals": 0.9107142857142857,
+            "fixed": 0,
+            "regressed": 1,
+            "oracleReviewTargets": 5,
+            "baselineOracleReviewTargets": 4,
+            "measuredHumanEdits": null,
+            "measuredHumanMinutes": null,
+            "endToEndAccuracy": null,
+            "detectorRecall": null
+          },
+          "selective": {
+            "targets": 56,
+            "baselineCorrect": 52,
+            "correct": 51,
+            "wrongProposals": 3,
+            "abstentions": 2,
+            "proposed": 54,
+            "accuracyAllTargets": 0.9107142857142857,
+            "proposalCoverage": 0.9642857142857143,
+            "accuracyAmongProposals": 0.9444444444444444,
+            "fixed": 0,
+            "regressed": 1,
+            "oracleReviewTargets": 5,
+            "baselineOracleReviewTargets": 4,
+            "measuredHumanEdits": null,
+            "measuredHumanMinutes": null,
+            "endToEndAccuracy": null,
+            "detectorRecall": null
+          }
+        }
+      }
+    },
+    "penn": {
+      "allProposals": {
+        "targets": 48,
+        "baselineCorrect": 26,
+        "correct": 39,
+        "wrongProposals": 9,
+        "abstentions": 0,
+        "proposed": 48,
+        "accuracyAllTargets": 0.8125,
+        "proposalCoverage": 1.0,
+        "accuracyAmongProposals": 0.8125,
+        "fixed": 14,
+        "regressed": 1,
+        "oracleReviewTargets": 9,
+        "baselineOracleReviewTargets": 22,
+        "measuredHumanEdits": null,
+        "measuredHumanMinutes": null,
+        "endToEndAccuracy": null,
+        "detectorRecall": null
+      },
+      "selective": {
+        "targets": 48,
+        "baselineCorrect": 26,
+        "correct": 36,
+        "wrongProposals": 7,
+        "abstentions": 5,
+        "proposed": 43,
+        "accuracyAllTargets": 0.75,
+        "proposalCoverage": 0.8958333333333334,
+        "accuracyAmongProposals": 0.8372093023255814,
+        "fixed": 11,
+        "regressed": 1,
+        "oracleReviewTargets": 12,
+        "baselineOracleReviewTargets": 22,
+        "measuredHumanEdits": null,
+        "measuredHumanMinutes": null,
+        "endToEndAccuracy": null,
+        "detectorRecall": null
+      }
+    },
+    "184": {
+      "allProposals": {
+        "targets": 24,
+        "baselineCorrect": 9,
+        "correct": 23,
+        "wrongProposals": 1,
+        "abstentions": 0,
+        "proposed": 24,
+        "accuracyAllTargets": 0.9583333333333334,
+        "proposalCoverage": 1.0,
+        "accuracyAmongProposals": 0.9583333333333334,
+        "fixed": 14,
+        "regressed": 0,
+        "oracleReviewTargets": 1,
+        "baselineOracleReviewTargets": 15,
+        "measuredHumanEdits": null,
+        "measuredHumanMinutes": null,
+        "endToEndAccuracy": null,
+        "detectorRecall": null
+      },
+      "selective": {
+        "targets": 24,
+        "baselineCorrect": 9,
+        "correct": 21,
+        "wrongProposals": 0,
+        "abstentions": 3,
+        "proposed": 21,
+        "accuracyAllTargets": 0.875,
+        "proposalCoverage": 0.875,
+        "accuracyAmongProposals": 1.0,
+        "fixed": 12,
+        "regressed": 0,
+        "oracleReviewTargets": 3,
+        "baselineOracleReviewTargets": 15,
+        "measuredHumanEdits": null,
+        "measuredHumanMinutes": null,
+        "endToEndAccuracy": null,
+        "detectorRecall": null
+      }
+    }
+  },
+  "reservedSourceFirst": {
+    "songNo": "188",
+    "title": "Ephesus",
+    "selectionRule": "Third source in original hash-ranked eligible list; Penn and 184 consumed.",
+    "scope": "Opening system: first six pitched heads per staff, four staves (24); all internal boundaries.",
+    "sourceSha256": "e00ae7ecf8f0158bf4035036a20817ec826cddac9ba336562c5a505b4a8b9120",
+    "sourceExposure": "Generic archive recognition/metadata may exist. No earlier 188 XML opened as truth; new-to-this-run evaluation only.",
+    "nowConsumed": true,
+    "symbols": {
+      "allProposals": {
+        "targets": 24,
+        "baselineCorrect": 18,
+        "correct": 24,
+        "wrongProposals": 0,
+        "abstentions": 0,
+        "proposed": 24,
+        "accuracyAllTargets": 1.0,
+        "proposalCoverage": 1.0,
+        "accuracyAmongProposals": 1.0,
+        "fixed": 6,
+        "regressed": 0,
+        "oracleReviewTargets": 0,
+        "baselineOracleReviewTargets": 6,
+        "measuredHumanEdits": null,
+        "measuredHumanMinutes": null,
+        "endToEndAccuracy": null,
+        "detectorRecall": null
+      },
+      "selective": {
+        "targets": 24,
+        "baselineCorrect": 18,
+        "correct": 24,
+        "wrongProposals": 0,
+        "abstentions": 0,
+        "proposed": 24,
+        "accuracyAllTargets": 1.0,
+        "proposalCoverage": 1.0,
+        "accuracyAmongProposals": 1.0,
+        "fixed": 6,
+        "regressed": 0,
+        "oracleReviewTargets": 0,
+        "baselineOracleReviewTargets": 6,
+        "measuredHumanEdits": null,
+        "measuredHumanMinutes": null,
+        "endToEndAccuracy": null,
+        "detectorRecall": null
+      }
+    },
+    "byClass": {
+      "diamond/open": 2,
+      "round/filled": 4,
+      "round/open": 1,
+      "square/filled": 5,
+      "square/open": 2,
+      "triangle/filled": 3,
+      "triangle/open": 7
+    },
+    "boundaries": {
+      "observedInternalBoundaries": 9,
+      "proposedInternalBoundaries": 10,
+      "matched": 9,
+      "missed": 0,
+      "extra": 1,
+      "tolerancePixels": 4
+    },
+    "extraBoundaryObservation": "One extra proposal at aligned note stems, x=671, three-of-four staff support; retained, not retuned.",
+    "footprintsAssignedToProposedSpans": 24,
+    "independentSourceGold": false
+  },
+  "nativeWorklistsConsumedDevelopment": {
+    "penn": {
+      "nativeHeads": 151,
+      "counts": {
+        "localized-proposal": 120,
+        "boundary-or-band-crossing-review": 19,
+        "outside-supplied-region": 12
+      },
+      "classified": 120,
+      "selectiveProposals": 97,
+      "sourceAccuracy": null,
+      "detectorRecall": null,
+      "exportEventMap": null
+    },
+    "303": {
+      "nativeHeads": 127,
+      "counts": {
+        "localized-proposal": 122,
+        "boundary-or-band-crossing-review": 5
+      },
+      "classified": 122,
+      "selectiveProposals": 115,
+      "sourceAccuracy": null,
+      "detectorRecall": null,
+      "exportEventMap": null
+    }
+  },
+  "verification": {
+    "sh1991PythonTests": 105,
+    "existingOmrPythonTests": 31,
+    "newPythonTests": 14,
+    "nodeTests": 104,
+    "productionBuild": "pass",
+    "noSitePackages": "8 pass, 6 image/transfer tests explicitly skip",
+    "frozenInputCodeHashesVerified": 20,
+    "exactTransferReuseVerified": true
+  },
+  "evidenceSha256": {
+    "work/model-pilot/sh1991-v1/measure-loop-v1/protocol.json": "10d5a5bbf6192a86445b372d6efbff0f6e40947429f110e83ca930183d7dbc85",
+    "work/model-pilot/sh1991-v1/measure-loop-v1/development.json": "20b51d6812ff68e0cf6441ed45f1a9f1f77b3bd5015212162a69597655a35666",
+    "work/model-pilot/sh1991-v1/measure-loop-v1/transfer.json": "d3496e9c3991bcc9166b6a5f320f33eab7904c2dfdeb28e01527d94cde89f62c",
+    "work/model-pilot/sh1991-v1/measure-loop-v1/inference-lock.json": "d2ce6ad7566f69ee9ddc188f0606ccd8a19f0f77b686a8571880ef0f65a0e8a7",
+    "work/model-pilot/sh1991-v1/measure-loop-v1/source-observations.json": "1e878710d0b959cec334361bca030d385a17e5a69acf1238bbf7536725cff178",
+    "work/model-pilot/sh1991-v1/measure-classified-worklists-v1/penn/worklist.json": "846d6e78b82db437055f674eb5a358dd1df7b122042c54dd8b6fcd2aa1d6012f",
+    "work/model-pilot/sh1991-v1/measure-classified-worklists-v1/penn/protocol.json": "3dda19e146aab10a9a354b5a8c5dcb938de888ea353acfd61404ee1d181685eb",
+    "work/model-pilot/sh1991-v1/measure-classified-worklists-v1/penn/grid/protocol.json": "0f88a552448f87e1d3bf459b58196f4f8434296ae1da24633e817b9fe113fcde",
+    "work/model-pilot/sh1991-v1/measure-classified-worklists-v1/303/worklist.json": "3af2c677de19c630edd2d592f9bf7e77a86857997690955eb2d863238d177a3b",
+    "work/model-pilot/sh1991-v1/measure-classified-worklists-v1/303/protocol.json": "a7e3cbffa2be4f108f5f3536192972dcc659960084c4722670f985709d44ccbe",
+    "work/model-pilot/sh1991-v1/measure-classified-worklists-v1/303/grid/protocol.json": "95acb8207740b008eda493227f9e15bd2ed3868e06fa661ced567605b82c3907"
+  },
+  "recognitionRerun": false,
+  "recognizerChanged": false,
+  "scoreChanged": false,
+  "wholeScoresAccepted": 0,
+  "safeToPromote": false,
+  "runtimeBenchmark": null,
+  "measuredHumanEdits": null,
+  "measuredHumanMinutes": null,
+  "limits": [
+    "24 supplied positive centers on one system, no detector recall/precision.",
+    "Same-agent provisional observations, not independently certified accuracy.",
+    "Oracle review-target counts are not measured human effort or an automatic error detector.",
+    "No pitch/rhythm, exported-event mapping, score repair or corpus admission.",
+    "Filled diamond absent from reserved sample; only seven literal shape/fill classes.",
+    "Native-head proposal coverage is not true-head recall or classifier accuracy.",
+    "No MusicXML event map or automatic score correction.",
+    "Development outcomes are not pooled with reserved-source outcomes.",
+    "No fresh claim may reuse the now-exposed Ephesus source."
+  ]
+}
