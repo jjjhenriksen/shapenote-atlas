@@ -20,7 +20,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Image integration fixture dependency
-        run: python3 -m pip install Pillow==11.3.0
+        run: python3 -m pip install Pillow==11.3.0 numpy==2.0.2
       - name: Clone-safe semantic and evidence fixtures
         run: |
           python3 -m unittest discover -s tests -p test_agent_03_semantic_musicxml.py
@@ -31,6 +31,7 @@ jobs:
           python3 -m unittest discover -s tests -p 'test_omr_grid_*.py'
           python3 -m unittest discover -s tests -p 'test_omr_image_*.py'
           python3 -m unittest discover -s tests -p 'test_omr_measure_*.py'
+          python3 -m unittest discover -s tests -p 'test_omr_terminal_*.py'
           python3 -m unittest discover -s tests -p test_agent_10_reproducible_validation.py
       - run: npm run validate-playback && npm run validate-transposition
       - run: npm run build
