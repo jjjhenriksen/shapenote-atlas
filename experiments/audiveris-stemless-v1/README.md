@@ -12,6 +12,8 @@ Start from a **separate copy** of the [measure-consensus-v2 engine recipe](../au
 including its V7 prerequisites, at Audiveris commit
 `9e1e55cd2746037d059345881c53e6a6754bffbd`.
 Apply `stemless.patch` using `git apply --ignore-whitespace` (upstream has CRLF).
+The directory attribute exempts the frozen patch from whitespace lint: unified
+diff context lines must retain their leading space even when otherwise blank.
 Copy `StemlessHeadsTest.java` into
 `app/src/test/java/org/audiveris/omr/sheet/note/`.
 Never rebuild or modify an engine bound by a previous experiment.
