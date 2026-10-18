@@ -1,0 +1,243 @@
+--- a/app/src/main/java/org/audiveris/omr/glyph/Shape.java
++++ b/app/src/main/java/org/audiveris/omr/glyph/Shape.java
+@@ -393,6 +393,10 @@
+     // StemLessHeads duration 1 ---
+     //
+     WHOLE_NOTE("Hollow node head for wholes"),
++    WHOLE_NOTE_NARROW("Experimental stemless shape-note whole"),
++    WHOLE_NOTE_FA_LEFT("Experimental stemless shape-note whole"),
++    WHOLE_NOTE_FA_UP_RIGHT("Experimental stemless shape-note whole"),
++    WHOLE_NOTE_SQUARE("Experimental stemless shape-note whole"),
+     WHOLE_NOTE_SMALL("Small hollow node head for grace or cue wholes"),
+     WHOLE_NOTE_CROSS("Hollow cross shape note head for unpitched percussion wholes"),
+     WHOLE_NOTE_DIAMOND("Hollow diamond-shaped note head for unpitched percussion wholes"),
+@@ -781,6 +785,8 @@
+             return HeadMotif.triangle;
+         }
+ 
++        if (ShapeSet.HeadsSquare.contains(this)) return HeadMotif.square;
++
+         if (ShapeSet.HeadsCircle.contains(this)) {
+             return HeadMotif.circle;
+         }
+@@ -806,7 +812,7 @@
+                     BREVE_CIRCLE_X //
+                     -> Rational.TWO;
+             case WHOLE_REST, WHOLE_NOTE, WHOLE_NOTE_SMALL, WHOLE_NOTE_CROSS, WHOLE_NOTE_DIAMOND, //
+-                    WHOLE_NOTE_TRIANGLE_DOWN, WHOLE_NOTE_CIRCLE_X //
++                    WHOLE_NOTE_TRIANGLE_DOWN, WHOLE_NOTE_CIRCLE_X, WHOLE_NOTE_NARROW, WHOLE_NOTE_FA_LEFT, WHOLE_NOTE_FA_UP_RIGHT, WHOLE_NOTE_SQUARE //
+                     -> Rational.ONE;
+             case HALF_REST, NOTEHEAD_VOID, NOTEHEAD_VOID_SMALL, NOTEHEAD_CROSS_VOID, //
+                     NOTEHEAD_DIAMOND_VOID, NOTEHEAD_TRIANGLE_DOWN_VOID, NOTEHEAD_CIRCLE_X_VOID, //
+--- a/app/src/main/java/org/audiveris/omr/glyph/ShapeSet.java
++++ b/app/src/main/java/org/audiveris/omr/glyph/ShapeSet.java
+@@ -200,6 +200,7 @@
+             NOTEHEAD_BLACK,
+             NOTEHEAD_VOID,
+             WHOLE_NOTE,
++            WHOLE_NOTE_NARROW,
+             BREVE);
+ 
+     /** Heads with a small oval shape. */
+@@ -245,7 +246,13 @@
+             NOTEHEAD_FA_LEFT_FILLED,
+             NOTEHEAD_FA_UP_RIGHT_FILLED,
+             NOTEHEAD_FA_LEFT_VOID,
+-            NOTEHEAD_FA_UP_RIGHT_VOID);
++            NOTEHEAD_FA_UP_RIGHT_VOID,
++            WHOLE_NOTE_FA_LEFT,
++            WHOLE_NOTE_FA_UP_RIGHT);
++
++    public static final List<Shape> HeadsSquare = Arrays.asList(WHOLE_NOTE_SQUARE);
++
++    public static final EnumSet<Shape> AtlasStemless = EnumSet.of(WHOLE_NOTE_NARROW, WHOLE_NOTE_FA_LEFT, WHOLE_NOTE_FA_UP_RIGHT, WHOLE_NOTE_SQUARE);
+ 
+     /** Heads with a circle X shape. */
+     public static final List<Shape> HeadsCircle = Arrays.asList(
+@@ -304,6 +311,10 @@
+ 
+     /** All heads without a stem. */
+     public static final EnumSet<Shape> StemLessHeads = EnumSet.of(
++            WHOLE_NOTE_NARROW,
++            WHOLE_NOTE_FA_LEFT,
++            WHOLE_NOTE_FA_UP_RIGHT,
++            WHOLE_NOTE_SQUARE,
+             WHOLE_NOTE,
+             BREVE,
+             WHOLE_NOTE_SMALL,
+@@ -328,10 +339,15 @@
+         Heads.addAll(HeadsTriangle);
+         Heads.addAll(HeadsFa);
+         Heads.addAll(HeadsCircle);
++        Heads.addAll(HeadsSquare);
+     }
+ 
+     /** Hollow heads. */
+     public static final List<Shape> HollowHeads = Arrays.asList(
++            WHOLE_NOTE_NARROW,
++            WHOLE_NOTE_FA_LEFT,
++            WHOLE_NOTE_FA_UP_RIGHT,
++            WHOLE_NOTE_SQUARE,
+             NOTEHEAD_VOID,
+             WHOLE_NOTE,
+             BREVE,
+@@ -959,6 +975,7 @@
+             case triangle -> HeadsTriangle;
+             case fa -> HeadsFa;
+             case circle -> HeadsCircle;
++            case square -> HeadsSquare;
+         };
+     }
+ 
+@@ -1023,6 +1040,9 @@
+ 
+         if (sheet != null) {
+             final ProcessingSwitches switches = sheet.getStub().getProcessingSwitches();
++
++            if (!Boolean.getBoolean("atlas.stemlessHeads")
++                    || !switches.getValue(ProcessingSwitch.faHeads)) list.removeAll(AtlasStemless);
+ 
+             if (!switches.getValue(ProcessingSwitch.faHeads)) {
+                 list.removeAll(HeadsFa);
+@@ -1264,7 +1284,8 @@
+         diamond,
+         triangle,
+         fa,
+-        circle;
++        circle,
++        square;
+     }
+ 
+     //------//
+--- a/app/src/main/java/org/audiveris/omr/ui/symbol/BravuraSymbols.java
++++ b/app/src/main/java/org/audiveris/omr/ui/symbol/BravuraSymbols.java
+@@ -246,6 +246,10 @@
+ 
+             case VENTIDUESIMA -> ints(0xE517);
+ 
++            case WHOLE_NOTE_NARROW -> ints(0xE0A3);
++            case WHOLE_NOTE_FA_LEFT -> ints(0xE0BF);
++            case WHOLE_NOTE_FA_UP_RIGHT -> ints(0xE0C8);
++            case WHOLE_NOTE_SQUARE -> ints(0xE0B8);
+             case WHOLE_NOTE, METRO_WHOLE -> ints(0xE0A2);
+             case WHOLE_NOTE_CROSS -> ints(0xE0A7);
+             case WHOLE_NOTE_DIAMOND -> ints(0xE0D8);
+--- a/app/src/main/java/org/audiveris/omr/image/TemplateFactory.java
++++ b/app/src/main/java/org/audiveris/omr/image/TemplateFactory.java
+@@ -102,6 +102,10 @@
+             BREVE_DIAMOND,
+             BREVE_TRIANGLE_DOWN,
+             BREVE_CIRCLE_X,
++            WHOLE_NOTE_NARROW,
++            WHOLE_NOTE_FA_LEFT,
++            WHOLE_NOTE_FA_UP_RIGHT,
++            WHOLE_NOTE_SQUARE,
+             // 1
+             WHOLE_NOTE,
+             WHOLE_NOTE_SMALL,
+@@ -677,9 +681,9 @@
+                     holeSeeds.add(new Point(box.x + (box.width / 2), box.y + (box.height / 4)));
+                     holeSeeds.add(new Point(box.x + (box.width / 2), box.y + (3 * box.height / 4)));
+                 }
+-                case NOTEHEAD_FA_LEFT_VOID -> holeSeeds.add(new Point(
++                case NOTEHEAD_FA_LEFT_VOID, WHOLE_NOTE_FA_LEFT -> holeSeeds.add(new Point(
+                         box.x + box.width / 3, box.y + 2 * box.height / 3));
+-                case NOTEHEAD_FA_UP_RIGHT_VOID -> holeSeeds.add(new Point(
++                case NOTEHEAD_FA_UP_RIGHT_VOID, WHOLE_NOTE_FA_UP_RIGHT -> holeSeeds.add(new Point(
+                         box.x + 2 * box.width / 3, box.y + box.height / 3));
+                 case BREVE_CROSS -> {
+                     // 3 holes on horizontal axis
+--- a/app/src/main/java/org/audiveris/omr/score/PartwiseBuilder.java
++++ b/app/src/main/java/org/audiveris/omr/score/PartwiseBuilder.java
+@@ -2368,6 +2368,7 @@
+                         case fa -> {
+                             notehead.setValue(note.getShape() == Shape.NOTEHEAD_FA_UP_RIGHT_FILLED
+                                     || note.getShape() == Shape.NOTEHEAD_FA_UP_RIGHT_VOID
++                                    || note.getShape() == Shape.WHOLE_NOTE_FA_UP_RIGHT
+                                             ? NoteheadValue.FA_UP : NoteheadValue.FA);
+                             notehead.setFilled(ShapeSet.QuarterHeads.contains(note.getShape())
+                                     ? YesNo.YES : YesNo.NO);
+@@ -2376,6 +2377,10 @@
+                         case diamond -> notehead.setValue(NoteheadValue.DIAMOND);
+                         case triangle -> notehead.setValue(NoteheadValue.INVERTED_TRIANGLE);
+                         case circle -> notehead.setValue(NoteheadValue.CIRCLE_X);
++                        case square -> {
++                            notehead.setValue(NoteheadValue.SQUARE);
++                            notehead.setFilled(YesNo.NO);
++                        }
+                     }
+                     current.pmNote.setNotehead(notehead);
+                 }
+--- a/app/src/main/java/org/audiveris/omr/sheet/note/NoteHeadsBuilder.java
++++ b/app/src/main/java/org/audiveris/omr/sheet/note/NoteHeadsBuilder.java
+@@ -1782,6 +1782,14 @@
+             final Template template = catalog.getTemplate(shape);
+             final Rectangle slimBox = template.getSlimBoundsAt(x, y, anchor);
+ 
++            if (ShapeSet.AtlasStemless.contains(shape)) {
++                if (useSeeds || atlasPhysicalBarAreas.stream().anyMatch(a -> a.intersects(slimBox))) return null;
++                final int margin = Math.max(1, (int) Math.rint(interline * 0.25));
++                for (Glyph seed : systemSeeds) {
++                    if (StemlessGuard.stemConflict(slimBox, seed.getBounds(), margin, interline)) return null;
++                }
++            }
++
+             // Skip if frozen barline/connector is too close
+             if (barInvolved(slimBox)) {
+                 if (useSeeds) {
+--- /dev/null
++++ b/app/src/main/java/org/audiveris/omr/sheet/note/StemlessGuard.java
+@@ -0,0 +1,15 @@
++package org.audiveris.omr.sheet.note;
++
++import java.awt.Rectangle;
++
++/** Default-off stemless-family guard; no source coordinates or target counts. */
++public final class StemlessGuard {
++    private StemlessGuard () {}
++
++    public static boolean stemConflict (Rectangle head, Rectangle seed, int margin, int interline) {
++        return seed.x <= head.x + head.width + margin && seed.x + seed.width >= head.x - margin
++            && seed.y <= head.y + head.height && seed.y + seed.height >= head.y
++            && (head.y - seed.y >= interline
++                || seed.y + seed.height - head.y - head.height >= interline);
++    }
++}
+--- a/app/src/main/java/org/audiveris/omr/step/OmrStep.java
++++ b/app/src/main/java/org/audiveris/omr/step/OmrStep.java
+@@ -135,9 +135,35 @@
+     public void doit (Sheet sheet)
+         throws StepException
+     {
++        traceHeads(sheet, "ENTER");
+         traceBars(sheet, "ENTER");
+         helper.doit(sheet);
+         traceBars(sheet, "EXIT");
++        traceHeads(sheet, "EXIT");
++    }
++
++    private void traceHeads (Sheet sheet, String phase)
++    {
++        if (!Boolean.getBoolean("atlas.stemlessTrace")) return;
++        if (!(this == HEADS || this == REDUCTION || this == CHORDS || this == RHYTHMS || this == PAGE)) return;
++        for (var system : sheet.getSystems()) {
++            int count = 0;
++            for (var inter : system.getSig().vertexSet()) {
++                if (inter instanceof org.audiveris.omr.sig.inter.HeadInter head) {
++                    var b = head.getBounds();
++                    var chord = head.getChord();
++                    System.out.println("STEMTRACE|" + name() + "|" + phase + "|" + system.getId()
++                        + "|" + head.getId() + "|" + head.getShape()
++                        + "|" + (head.getStaff() == null ? 0 : head.getStaff().getId())
++                        + "|" + b.x + "|" + b.y + "|" + b.width + "|" + b.height
++                        + "|" + head.getGrade() + "|" + (chord == null ? 0 : chord.getId())
++                        + "|" + (chord == null ? "null" : chord.getDuration())
++                        + "|" + (head.getVoice() == null ? 0 : head.getVoice().getId()));
++                    count++;
++                }
++            }
++            System.out.println("STEMCOUNT|" + name() + "|" + phase + "|" + system.getId() + "|" + count);
++        }
+     }
+ 
+     private void traceBars (Sheet sheet, String phase)

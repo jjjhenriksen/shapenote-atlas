@@ -1,0 +1,410 @@
+{
+  "allDefaultOffInventoriesExactlyReplayed": true,
+  "cases": {
+    "469": {
+      "allExistingSpansExactlyPreserved": false,
+      "arms": {
+        "off": {
+          "exportedMeasuresPerPart": [
+            16,
+            16,
+            16,
+            16
+          ],
+          "newFamilyHeadsBeforeObservedMusic": 0,
+          "sourceEventAudit": {
+            "reason": "No complete source event inventory",
+            "status": "unavailable"
+          },
+          "stages": {
+            "CHORDS": {
+              "heads": 137,
+              "newFamilyHeads": 0,
+              "terminalChords": 0,
+              "terminalHeads": 0,
+              "terminalVoicedHeads": 0
+            },
+            "HEADS": {
+              "heads": 1981,
+              "newFamilyHeads": 0,
+              "terminalChords": 0,
+              "terminalHeads": 20,
+              "terminalVoicedHeads": 0
+            },
+            "PAGE": {
+              "heads": 113,
+              "newFamilyHeads": 0,
+              "terminalChords": 0,
+              "terminalHeads": 0,
+              "terminalVoicedHeads": 0
+            },
+            "REDUCTION": {
+              "heads": 137,
+              "newFamilyHeads": 0,
+              "terminalChords": 0,
+              "terminalHeads": 0,
+              "terminalVoicedHeads": 0
+            },
+            "RHYTHMS": {
+              "heads": 113,
+              "newFamilyHeads": 0,
+              "terminalChords": 0,
+              "terminalHeads": 0,
+              "terminalVoicedHeads": 0
+            }
+          },
+          "status": "exported",
+          "terminalHeadChordsPerPart": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "wholeImageNewFamilyHeads": 0
+        },
+        "on": {
+          "exportedMeasuresPerPart": [
+            17,
+            17,
+            17,
+            17
+          ],
+          "newFamilyHeadsBeforeObservedMusic": 0,
+          "sourceEventAudit": {
+            "reason": "No complete source event inventory",
+            "status": "unavailable"
+          },
+          "stages": {
+            "CHORDS": {
+              "heads": 196,
+              "newFamilyHeads": 59,
+              "terminalChords": 4,
+              "terminalHeads": 4,
+              "terminalVoicedHeads": 0
+            },
+            "HEADS": {
+              "heads": 1987,
+              "newFamilyHeads": 63,
+              "terminalChords": 0,
+              "terminalHeads": 21,
+              "terminalVoicedHeads": 0
+            },
+            "PAGE": {
+              "heads": 172,
+              "newFamilyHeads": 59,
+              "terminalChords": 4,
+              "terminalHeads": 4,
+              "terminalVoicedHeads": 4
+            },
+            "REDUCTION": {
+              "heads": 196,
+              "newFamilyHeads": 59,
+              "terminalChords": 0,
+              "terminalHeads": 4,
+              "terminalVoicedHeads": 0
+            },
+            "RHYTHMS": {
+              "heads": 172,
+              "newFamilyHeads": 59,
+              "terminalChords": 4,
+              "terminalHeads": 4,
+              "terminalVoicedHeads": 4
+            }
+          },
+          "status": "exported",
+          "terminalHeadChordsPerPart": [
+            2,
+            0,
+            1,
+            1
+          ],
+          "wholeImageNewFamilyHeads": 59
+        }
+      },
+      "existingStaffMeasureSpans": 64,
+      "unchangedStaffMeasureSpans": 25
+    },
+    "501t": {
+      "allExistingSpansExactlyPreserved": false,
+      "arms": {
+        "off": {
+          "exportedMeasuresPerPart": [
+            11,
+            11,
+            11,
+            11
+          ],
+          "newFamilyHeadsBeforeObservedMusic": 0,
+          "sourceEventAudit": {
+            "checkedStaffMeasures": 48,
+            "extraEventUnits": 102,
+            "matched": 46,
+            "missingEventUnits": 74,
+            "sourceEvents": 120,
+            "status": "fail"
+          },
+          "stages": {
+            "CHORDS": {
+              "heads": 153,
+              "newFamilyHeads": 0,
+              "terminalChords": 0,
+              "terminalHeads": 0,
+              "terminalVoicedHeads": 0
+            },
+            "HEADS": {
+              "heads": 1682,
+              "newFamilyHeads": 0,
+              "terminalChords": 0,
+              "terminalHeads": 11,
+              "terminalVoicedHeads": 0
+            },
+            "PAGE": {
+              "heads": 146,
+              "newFamilyHeads": 0,
+              "terminalChords": 0,
+              "terminalHeads": 0,
+              "terminalVoicedHeads": 0
+            },
+            "REDUCTION": {
+              "heads": 153,
+              "newFamilyHeads": 0,
+              "terminalChords": 0,
+              "terminalHeads": 0,
+              "terminalVoicedHeads": 0
+            },
+            "RHYTHMS": {
+              "heads": 146,
+              "newFamilyHeads": 0,
+              "terminalChords": 0,
+              "terminalHeads": 0,
+              "terminalVoicedHeads": 0
+            }
+          },
+          "status": "exported",
+          "terminalHeadChordsPerPart": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "terminalSourceEvents": {
+            "extra": 0,
+            "matched": 0,
+            "missing": 4,
+            "source": 4
+          },
+          "wholeImageNewFamilyHeads": 0
+        },
+        "on": {
+          "exportedMeasuresPerPart": [
+            13,
+            13,
+            13,
+            13
+          ],
+          "newFamilyHeadsBeforeObservedMusic": 2,
+          "sourceEventAudit": {
+            "checkedStaffMeasures": 48,
+            "extraEventUnits": 141,
+            "matched": 31,
+            "missingEventUnits": 89,
+            "sourceEvents": 120,
+            "status": "fail"
+          },
+          "stages": {
+            "CHORDS": {
+              "heads": 176,
+              "newFamilyHeads": 23,
+              "terminalChords": 1,
+              "terminalHeads": 1,
+              "terminalVoicedHeads": 0
+            },
+            "HEADS": {
+              "heads": 1690,
+              "newFamilyHeads": 23,
+              "terminalChords": 0,
+              "terminalHeads": 11,
+              "terminalVoicedHeads": 0
+            },
+            "PAGE": {
+              "heads": 169,
+              "newFamilyHeads": 23,
+              "terminalChords": 1,
+              "terminalHeads": 1,
+              "terminalVoicedHeads": 1
+            },
+            "REDUCTION": {
+              "heads": 176,
+              "newFamilyHeads": 23,
+              "terminalChords": 0,
+              "terminalHeads": 1,
+              "terminalVoicedHeads": 0
+            },
+            "RHYTHMS": {
+              "heads": 169,
+              "newFamilyHeads": 23,
+              "terminalChords": 1,
+              "terminalHeads": 1,
+              "terminalVoicedHeads": 1
+            }
+          },
+          "status": "exported",
+          "terminalHeadChordsPerPart": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "terminalSourceEvents": {
+            "extra": 0,
+            "matched": 1,
+            "missing": 3,
+            "source": 4
+          },
+          "wholeImageNewFamilyHeads": 23
+        }
+      },
+      "existingStaffMeasureSpans": 44,
+      "unchangedStaffMeasureSpans": 27
+    },
+    "531": {
+      "allExistingSpansExactlyPreserved": false,
+      "arms": {
+        "off": {
+          "exportedMeasuresPerPart": [
+            16,
+            16,
+            16,
+            16
+          ],
+          "stages": {
+            "CHORDS": {
+              "heads": 138,
+              "newFamilyHeads": 0,
+              "terminalChords": 1,
+              "terminalHeads": 1,
+              "terminalVoicedHeads": 0
+            },
+            "HEADS": {
+              "heads": 1818,
+              "newFamilyHeads": 0,
+              "terminalChords": 0,
+              "terminalHeads": 22,
+              "terminalVoicedHeads": 0
+            },
+            "PAGE": {
+              "heads": 101,
+              "newFamilyHeads": 0,
+              "terminalChords": 0,
+              "terminalHeads": 0,
+              "terminalVoicedHeads": 0
+            },
+            "REDUCTION": {
+              "heads": 138,
+              "newFamilyHeads": 0,
+              "terminalChords": 0,
+              "terminalHeads": 1,
+              "terminalVoicedHeads": 0
+            },
+            "RHYTHMS": {
+              "heads": 101,
+              "newFamilyHeads": 0,
+              "terminalChords": 0,
+              "terminalHeads": 0,
+              "terminalVoicedHeads": 0
+            }
+          },
+          "status": "exported",
+          "terminalHeadChordsPerPart": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "wholeImageNewFamilyHeads": 0
+        },
+        "on": {
+          "exportedMeasuresPerPart": [
+            17,
+            17,
+            17,
+            17
+          ],
+          "stages": {
+            "CHORDS": {
+              "heads": 217,
+              "newFamilyHeads": 79,
+              "terminalChords": 4,
+              "terminalHeads": 5,
+              "terminalVoicedHeads": 0
+            },
+            "HEADS": {
+              "heads": 1832,
+              "newFamilyHeads": 84,
+              "terminalChords": 0,
+              "terminalHeads": 23,
+              "terminalVoicedHeads": 0
+            },
+            "PAGE": {
+              "heads": 180,
+              "newFamilyHeads": 79,
+              "terminalChords": 3,
+              "terminalHeads": 4,
+              "terminalVoicedHeads": 4
+            },
+            "REDUCTION": {
+              "heads": 217,
+              "newFamilyHeads": 79,
+              "terminalChords": 0,
+              "terminalHeads": 5,
+              "terminalVoicedHeads": 0
+            },
+            "RHYTHMS": {
+              "heads": 180,
+              "newFamilyHeads": 79,
+              "terminalChords": 3,
+              "terminalHeads": 4,
+              "terminalVoicedHeads": 4
+            }
+          },
+          "status": "exported",
+          "terminalHeadChordsPerPart": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "wholeImageNewFamilyHeads": 79
+        }
+      },
+      "existingStaffMeasureSpans": 64,
+      "unchangedStaffMeasureSpans": 19
+    }
+  },
+  "date": "2026-10-18",
+  "limitations": [
+    "Previously consumed development only; no held-out evaluation",
+    "Penn event labels are same-agent provisional observations, not independent gold",
+    "Thy Strength has structure/header source observations only; Clayton has no whole-song source-event grid",
+    "No all-rest source measures in the Penn labels and no explicit courtesy-only negative cohort; precision there remains untested",
+    "Head-stage snapshots locate loss by REDUCTION exit, not every individual removal operation or exact reason",
+    "Original analyzer failed on non-exported cautionary IDs; separate read-only repair used; no recognition rerun"
+  ],
+  "outcome": "rejected-development-prototype",
+  "provenance": {
+    "analysisReceiptSha256": "246d05909179a18acab17a219c2404e06997c7122d90a001a530025ef8a404e2",
+    "analysisSha256": "363ce8ff193a99d0e6c79d1bbc553cc51d8b494f3ff4e9804512d3eaeb91d46a",
+    "engine": {
+      "launcherSha256": "868f4b0b70873b92ffaafda7e13317494cd0eff9bb28a5d29b9e9ab4aef0c567",
+      "libraryCount": 55,
+      "librarySetSha256": "fa41b4eb20850dc05ce051ee96e4e78da0e3fa101e232ca81b39e728373c98ad"
+    },
+    "protocolSha256": "551d84a406cdaf452e42faf19a852efb8cb272ad3be33c0f7ff419deb2568b2b",
+    "publisherSha256": "ee8fceaddb5ebdbd89ef02b186c0767abeda25e5a82738c435cc9be367cb4441"
+  },
+  "recognitionInvocations": 6,
+  "safeToPromote": false,
+  "sourceCertified": false,
+  "version": 1,
+  "wholeScoresAccepted": 0
+}
