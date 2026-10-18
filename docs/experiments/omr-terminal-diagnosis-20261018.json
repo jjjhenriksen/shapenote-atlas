@@ -1,0 +1,86 @@
+{
+  "allScoreInventoriesExactlyReproduced": true,
+  "cases": {
+    "469": {
+      "diagnosticRecognitionSha256": "e4e910ad81055eedeccb2b487013f6d1093a8498fafce449a93798269b71e29a",
+      "exportedMeasuresPerPart": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "finalHeadChordCountsPerPart": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "finalSpecial": "CAUTIONARY",
+      "finalTimedSlots": 0,
+      "finalVoiceCountsPerPart": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "retainedRecognitionSha256": "b2092c69f8f992de4fae1bd4bfd6e2b293f598663c843d25864c2d3c9ba22469",
+      "sourceSha256": "dda0966f3da95b2799418df66ade1c57dc5f812826e110a6d7a095bc5cc9d595",
+      "status": "exact-score-replay",
+      "wholeTemplateMinimumDistances": [
+        0.45454545454545453,
+        0.5212620027434842,
+        0.5089163237311386,
+        0.5006858710562414
+      ]
+    },
+    "501t": {
+      "diagnosticRecognitionSha256": "79f23d96c77bd7442652bf954a4cb21eff892005dc96830680eb453c656d4bca",
+      "exportedMeasuresPerPart": [
+        11,
+        11,
+        11,
+        11
+      ],
+      "finalHeadChordCountsPerPart": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "finalSpecial": "CAUTIONARY",
+      "finalTimedSlots": 0,
+      "finalVoiceCountsPerPart": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "retainedRecognitionSha256": "31825db28b831199addceae0e4aebf2c536da5913f3496039618b3ebe5c69367",
+      "sourceSha256": "eeb1cc8d883f0f856aa193fdd74c47b5b4bea38b63b9f36934938eae93983244",
+      "status": "exact-score-replay",
+      "wholeTemplateMinimumDistances": [
+        0.43646408839779005,
+        0.47282608695652173,
+        0.5447042640990372,
+        0.5454545454545454
+      ]
+    }
+  },
+  "date": "2026-10-18",
+  "historicalInvocationsRetried": 0,
+  "localReceiptSha256": "b28823dc2a32e931715ac5372bbc1a77e02eb7bdfcbb9fb53b0810c796107cdb",
+  "localReportSha256": "0b1912df4ef94aae50c8d3778ce0793decac529dcb5a181114c47fd1f1849375",
+  "nativeSourceDefaultMaxDistanceLow": 0.4,
+  "newDiagnosticTests": 7,
+  "newRecognitionInvocations": 2,
+  "omrTests": 152,
+  "phase": "Consumed-source logging-only diagnosis; not a recognition fix or held-out result",
+  "protocolSha256": "239ad241e946de0841e3bb24382d9cf009a33ab3cffb79967ce68e9e77069beb",
+  "runnerSha256": "31f5311fdeaba1b2442062f82de1863bacbad1cf3d6ab8110bafa5f30de83fad",
+  "safeToPromote": false,
+  "schemaVersion": 1,
+  "sh1991Tests": 105,
+  "sourceCertified": false,
+  "testsSkippedInFullEnvironment": 0,
+  "wholeScoresAccepted": 0
+}
