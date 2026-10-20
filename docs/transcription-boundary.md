@@ -9,8 +9,10 @@ The extraction retains six relevant commits from the Atlas research branch
 `975082ddd9759921c31bd83ad2088bdcc9b3eddf`. Their rewritten hash mapping and
 byte-checked baseline manifest live in the transcriber's `docs/provenance/`.
 Atlas history was not rewritten. This active workflow was not on Atlas main;
-there was no mainline active implementation to delete. Older OMR experiments,
-shared legacy diagnostics and all historical evidence remain in Atlas.
+there was no mainline active implementation to delete. Older OMR experiments
+are now [archived outside the maintained tree](experiments/README.md), with a
+hash manifest and a pinned recovery tag. Shared catalogue/source diagnostics
+and all local historical evidence remain intact.
 
 Do not merge the old image-first research branch into Atlas to install the
 transcriber. Make future active transcription changes in the new repository.
