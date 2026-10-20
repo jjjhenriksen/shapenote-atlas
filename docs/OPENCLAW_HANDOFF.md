@@ -1,5 +1,11 @@
 # Shape-Note Atlas: OpenClaw handoff
 
+**2026-10-19 routing supersession:** use [backlog ownership](BACKLOG_OWNERSHIP.md)
+and the actual linked Transcriber successors for production/research. Atlas owns
+consumer acceptance, not another transcription implementation. The older lane
+assignments and human-correction language below are historical; no routine human
+correction workload is created. Existing explicit human image-review gates remain.
+
 Active work: [explicit backlog and completion criteria](../OPENCLAW_BACKLOG.md).
 
 Current continuation: [current-state audit and next work (updated 2026-09-18)](OPENCLAW_PROGRAM_STATUS.md#2026-09-18-current-state-audit).

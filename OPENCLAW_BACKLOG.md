@@ -1,5 +1,32 @@
 # Shape-Note Atlas: active backlog
 
+## Current ownership — 2026-10-19
+
+Transcription production/correction, source-evidence preparation and research
+now route through the [Transcriber migration ledger and bounded task index](https://github.com/jjjhenriksen/shapenote-transcriber/issues/2).
+See [consumer acceptance and migration receipts](docs/BACKLOG_OWNERSHIP.md).
+Atlas originals remain open for exact mapping, admission, publication, downloads,
+playback and release acceptance; they are not duplicate production assignments.
+The pilot moved with history to [Transcriber #7](https://github.com/jjjhenriksen/shapenote-transcriber/issues/7).
+
+**Dispatch supersession:** the dated task descriptions below preserve source
+constraints/history, not authority to start another Atlas transcription worker.
+Follow the actual producer successor on each Atlas issue. Current queue: **3,044**
+records; the older 3,047 includes three subsequently classified Trumpet prose
+records. Ownership migration changes zero accepted mappings. ATLAS-01's metadata
+implementation is already merged in [#472](https://github.com/jjjhenriksen/shapenote-atlas/pull/472);
+do not reopen it from the older pending-branch statement below.
+
+Current producer work stays blocked until exact-witness and adapter preflight;
+the four-part/four-shape adapter cannot silently encode seven-shape books or
+unsupported textures. The [capability prerequisite](https://github.com/jjjhenriksen/shapenote-transcriber/issues/8)
+is distinct from the [Atlas acceptance contract](https://github.com/jjjhenriksen/shapenote-atlas/issues/495).
+V1 bundle staging remains ignored/private quarantine, not publication. Correction
+and verification are agent-owned except explicitly required human image decisions;
+do not revive routine human-correction assignments from historical handoffs.
+
+## Historical implementation baseline
+
 Updated **2026-09-18**, following the audit of implementation commit
 `3fbfeeffe0d36423525d1910b2ea0e2e29b26c27`.
 

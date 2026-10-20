@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "kind": "shapenote-backlog-ownership-consumer-receipt",
+  "date": "2026-10-19",
+  "producer": {
+    "repository": "https://github.com/jjjhenriksen/shapenote-transcriber",
+    "revision": "e8915a523c90b43ce37d446049dd3efe6473573d",
+    "pullRequest": "https://github.com/jjjhenriksen/shapenote-transcriber/pull/39",
+    "files": {
+      "ledger.json": {
+        "path": "docs/backlog-migration/ledger.json",
+        "sha256": "750f4e5201c73a72bab950b9f530a48ae52e1e1abd51a6f4506eaf3a48ab7c14"
+      },
+      "live-verification.json": {
+        "path": "docs/backlog-migration/live-verification.json",
+        "sha256": "1966dc996f9374a97b8ec07ec19642db3c8b3c6777a237c0e774498f67b95e15"
+      },
+      "retained-availability.json": {
+        "path": "docs/backlog-migration/retained-availability.json",
+        "sha256": "41e09de3bd247ea0e44308ef3ffe7577606c970084cb022b436b6a8db1fe1302"
+      }
+    }
+  },
+  "atlasBaseline": "284a89f279a3f7316fff7ef8b3e6258c16f85a85",
+  "originalIssues": 427,
+  "originalMixedIssuesOpenAndLinked": 421,
+  "boundedProducerTasks": 419,
+  "uniqueQueueCorrectionWitnessIds": 3058,
+  "currentMissingMappingQueueRecords": 3044,
+  "imageHumanReviewGatesPreserved": 90,
+  "duplicateProducerOwners": 0,
+  "orphanRecords": 0,
+  "acceptedMappingChanges": 0,
+  "sourceCertified": false,
+  "safeToPromote": false,
+  "atlasOnlyIssuesRetained": [
+    19,
+    54,
+    57,
+    58,
+    59
+  ],
+  "researchPilot": "https://github.com/jjjhenriksen/shapenote-transcriber/issues/7",
+  "capabilityPrerequisite": "https://github.com/jjjhenriksen/shapenote-transcriber/issues/8",
+  "admissionContract": "https://github.com/jjjhenriksen/shapenote-atlas/issues/495",
+  "handoff": "Existing v1 hash-pinned private quarantine only; no automatic promotion",
+  "sourceWorkPerformed": false,
+  "releaseOrDeploymentQAClaimed": false
+}

@@ -1,5 +1,11 @@
 # Atlas program continuation — updated 2026-09-18
 
+**Current ownership, 2026-10-19:** [backlog routing and consumer acceptance](BACKLOG_OWNERSHIP.md)
+supersede the historical producer assignments below. Transcriber owns source
+reading/correction/research; Atlas retains admission/publication, catalogue,
+reader/download/playback and release acceptance. Migration is not musical
+completion; keep explicit source-review gates and agent-owned correction.
+
 Companion to the full [OpenClaw handoff](OPENCLAW_HANDOFF.md), not a replacement for its source rules or an all-book completion claim.
 
 Latest: [2026-09-18 current-state audit](#2026-09-18-current-state-audit). The September 11 continuation below predates later implementation commits; do not dispatch its old next-work list without reading the current audit.
