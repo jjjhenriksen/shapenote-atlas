@@ -24,6 +24,7 @@ jobs:
       - name: Clone-safe semantic and evidence fixtures
         run: |
           python3 -m unittest discover -s tests -p test_agent_03_semantic_musicxml.py
+          python3 -m unittest discover -s tests -p test_transcription_bundle_import.py
           python3 -m unittest discover -s tests -p test_agent_07_additions_audit.py
           python3 -m unittest discover -s tests -p test_shape_evidence.py
           python3 -m unittest discover -s tests -p test_trumpet_catalogue_review.py
