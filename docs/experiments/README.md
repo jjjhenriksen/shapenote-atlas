@@ -10,6 +10,9 @@ Atlas retains its [pinned bundle consumer](../transcription-boundary.md).
 All 134 removed files are preserved byte-for-byte at the published
 [archive tag](https://github.com/jjjhenriksen/shapenote-atlas/tree/archive/omr-experiments-20261019),
 which pins Atlas commit `744f0b588abae108aa0649202ae1601d58d90e3e`.
+They are also preserved in the transcriber's
+[migrated mainline snapshot](https://github.com/jjjhenriksen/shapenote-transcriber/tree/archive/atlas-omr-mainline-20261019/research/legacy-omr).
+All 134 hashes were verified against that destination snapshot before cleanup.
 The [archive manifest](../provenance/omr-experiment-archive-20261019.json)
 lists every removed path and its SHA-256: 41 scripts, 19 tests, 48 experiment
 reports/contracts and 26 Audiveris patch/probe files.
@@ -28,8 +31,10 @@ Do not rerun or tune consumed cohorts to validate this housekeeping change.
 This is forward-only source-tree cleanup, not a history rewrite. No old commits,
 branches, PRs, local worktrees, scans, frozen readings or generated scores are
 deleted or relocated. The separate image-first research branch is unchanged.
-The seven unmerged research PRs #485–#491 are also unchanged; they are not part
-of this mainline archive and should not be merged merely to recover old work.
+The additional research stack #485–#491 is migrated, with its prerequisites,
+through [Transcriber PR #1](https://github.com/jjjhenriksen/shapenote-transcriber/pull/1).
+Its original branch heads, eight stack commits and failure reports are preserved
+in the transcriber; the source Atlas PRs are superseded, not merged here.
 
 ## Retained Atlas responsibilities
 

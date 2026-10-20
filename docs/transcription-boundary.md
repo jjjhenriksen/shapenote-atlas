@@ -14,6 +14,11 @@ are now [archived outside the maintained tree](experiments/README.md), with a
 hash manifest and a pinned recovery tag. Shared catalogue/source diagnostics
 and all local historical evidence remain intact.
 
+The earlier OMR lineage and the research stack from Atlas PRs #485–#491 now
+belong to the transcriber's isolated `research/legacy-omr/` subtree. Its migration
+manifest maps all retained commits and source branch heads. Those source PRs
+must not be merged into Atlas to recover the research; use the destination repo.
+
 Do not merge the old image-first research branch into Atlas to install the
 transcriber. Make future active transcription changes in the new repository.
 The original research worktree and ignored evidence roots stay available for

@@ -142,5 +142,11 @@
     "tests/test_sh1991_fa_survival.py": "ee79b913c5f248baeb3fd8a84cdeb0042fe350a184dffed4efa5d23130dfaeb1",
     "tests/test_sh1991_head_audit.py": "3a7243bc72e2dbf4002c3c19f9d9e550f45123b4a8b7f4264e527200051aa7d7",
     "tests/test_sh1991_pilot.py": "f5d9e32006373074ce219ad6889f67a5c70bd76d4fb53c4eee4fc6cb145b9a1d"
-  }
+  },
+  "destinationRepository": "https://github.com/jjjhenriksen/shapenote-transcriber",
+  "destinationBaselineRef": "archive/atlas-omr-mainline-20261019",
+  "destinationBaselineCommit": "4c6be0edce1f899c3a53e5c93566bf5e6e5b0c10",
+  "destinationPrefix": "research/legacy-omr/",
+  "destinationMigrationPR": "https://github.com/jjjhenriksen/shapenote-transcriber/pull/1",
+  "destinationBaselineHashesVerified": 134
 }
