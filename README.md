@@ -172,6 +172,12 @@ deployment.
 
 ## For maintainers
 
+Active image-first transcription now lives in the separate
+[Shape-note Transcriber](https://github.com/jjjhenriksen/shapenote-transcriber)
+repository. Atlas consumes pinned research artifacts through the
+[versioned bundle boundary](docs/transcription-boundary.md); historical OMR
+experiments and evidence remain here.
+
 Start with the [active backlog](OPENCLAW_BACKLOG.md) for current priorities, source dependencies, completion criteria, and verification requirements.
 
 ### Source-dependent data refresh
