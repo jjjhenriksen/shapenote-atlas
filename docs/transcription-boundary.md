@@ -39,6 +39,8 @@ report/reading/source bindings, report eligibility and MXL/XML consistency.
 Malformed JSON structures, archives and XML are rejected before staging, with
 an error message and exit status 2. This includes checking XML well-formedness;
 it does not establish musical correctness or source accuracy.
+An archived score with a declared uncompressed size different from the candidate
+XML is rejected before decompression, since its bytes cannot match the candidate.
 
 Atlas has a deliberately independent stdlib-only verifier/stager:
 

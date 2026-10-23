@@ -49,8 +49,11 @@ def verify_archive(payload):
         ET.fromstring(payload['candidate.musicxml'])
         with zipfile.ZipFile(io.BytesIO(payload['candidate.mxl'])) as archive:
             if (len(archive.namelist()) != 2 or set(archive.namelist()) !=
-                    {'META-INF/container.xml', 'score.musicxml'}
-                    or archive.read('score.musicxml') != payload['candidate.musicxml']):
+                    {'META-INF/container.xml', 'score.musicxml'}):
+                raise ValueError('MXL does not match the candidate XML')
+            if archive.getinfo('score.musicxml').file_size != len(payload['candidate.musicxml']):
+                raise ValueError('MXL score size differs from candidate XML')
+            if archive.read('score.musicxml') != payload['candidate.musicxml']:
                 raise ValueError('MXL does not match the candidate XML')
             container = ET.fromstring(archive.read('META-INF/container.xml'))
             rootfiles = [n.get('full-path') for n in container.iter()
