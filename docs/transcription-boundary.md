@@ -76,3 +76,12 @@ separate acceptance contract, not reinterpretation of a research candidate.
 The separate [proposed acceptance-declaration v1](transcription-acceptance-v1.md)
 adds a read-only local schema check for future decision records. Passing that
 check does not grant acceptance or change the verifier/stager boundary.
+
+## Explicit three-part v2 profile
+
+The separate [three-part research bundle v2](transcription-bundle-v2.md) adds an
+opt-in `--bundle-version 2` / `bundle_version=2` consumer for exactly three
+monophonic four-shape parts. Its independent parser checks supported reading/XML
+semantics and version/profile/count agreement before the same private atomic
+staging. Default v1 behavior remains unchanged and rejects v2. This extension
+does not certify sources or authorize catalogue, public, UI or playback changes.
