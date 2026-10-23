@@ -28,6 +28,25 @@ printed index was recovered for exhaustive index-to-catalogue reconciliation.
 Neither catalogue identity agreement nor a missing extracted header proves an
 additional piece.
 
+A separate coordinator check on 2026-10-23 refreshed the UGA page through the
+web tool (reported crawl: today, not a new raw HTTP capture). The same undefined
+222-piece attribution remains. [Hymnary's own catalogue record](https://hymnary.org/hymnal/SH1855?page=0)
+(reported crawl: last month) describes the 1973 facsimile as based on two
+complementarily defective 1855 copies and uses page-based numbering, but also
+warns that its unproofed data may be incomplete or incorrect. These are catalogue
+metadata and bibliographic leads. They establish neither the retained scan's
+lineage/completeness nor the publisher's piece-count definition; no modern
+facsimile or printed index was recovered by this check.
+
+The already-exposed coordinator also directly viewed separately frozen renders
+of physical leaves 3 and 4 (printed iii/iv). The two prefaces describe organization
+categories but supplied no numerical counting rule in those inspected pages.
+This single-coordinator locator check is separate from the paired music-reading
+protocols; it adds no candidate music coverage and makes no absence claim about
+other pages. The [bounded locator receipt](experiments/social-harp-bibliographic-locators-20261023.json)
+records scope, retrieval/cache qualifiers, source coordinates and private-evidence
+pins. Raw visual notes remain private, and no result was supplied to the readers.
+
 ## Frozen source and first cohort
 
 The retained source is a 254-leaf scan, 15,629,340 bytes, SHA-256
