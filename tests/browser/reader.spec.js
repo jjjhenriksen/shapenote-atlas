@@ -281,3 +281,23 @@ test('a shared score URL reloads when the selected source identity changes', asy
   expect(attempts).toBe(2);
   await expect(page.locator('.score-load-error')).toHaveCount(0);
 });
+
+test('different requested scores sharing one source never reuse the previous full witness', async ({ page }) => {
+  const data = fixture(1); let finish;
+  data.songs[1].scoreByBook.sh1991.sourceUrl = data.songs[0].scoreByBook.sh1991.sourceUrl;
+  data.songs[1].scoreByBook.sh1991.parts[0].events[0].octave = 5;
+  await mockAudio(page); await intercept(page, data); await open(page);
+  await page.route('**/fixture-b.json', async route => {
+    await new Promise(resolve => finish = resolve);
+    await route.fulfill({ json: data.songs[1].scoreByBook.sh1991 });
+  });
+  await page.getByRole('button', { name: /Fixture B/ }).click();
+  await expect(page.getByRole('heading', { name: '2 — Fixture B', exact: true })).toBeVisible();
+  await expect.poll(() => Boolean(finish)).toBe(true);
+  await expect(page.getByRole('button', { name: 'Loading…', exact: true })).toBeDisabled();
+  await expect(page.locator('.score-caption')).toContainText('loading full song');
+  finish();
+  await expect(page.getByRole('button', { name: 'Play song', exact: true })).toBeEnabled();
+  await page.getByRole('button', { name: 'Play song', exact: true }).click();
+  expect(await page.evaluate(() => __audio.oscillators[0].frequency.value)).toBeCloseTo(523.25113, 4);
+});
