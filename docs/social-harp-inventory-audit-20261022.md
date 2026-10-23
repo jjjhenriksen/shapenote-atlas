@@ -16,11 +16,17 @@ source proof from this audit. Its recorded input pins are:
 - Baseline map: `8b30106fb48d2467d70063d684ac144887b02e3cfec4470da103dc13d2c90963`.
 - v19 supplement: `1acdcd5a62598c63d87f6d6af466f7064d816487abd1e753685bcbf8f53c291e`.
 
-Upstream provenance records attribute 222 pieces to the publisher's book
-record. This run did not freshly fetch that description or establish what its
-piece-count definition includes. No separate printed index was recovered for
-an exhaustive index-to-catalogue reconciliation. Neither catalogue identity
-agreement nor a missing extracted header proves an additional piece.
+The coordinator retrieved the [primary UGA Press book record](https://www.ugapress.org/9780820331515/the-social-harp/)
+through the web tool at approximately 2026-10-23 06:07 UTC (2026-10-22 locally).
+The tool reported a crawl from the prior week; this was not a new raw HTTP
+capture. Its description attributes 222 pieces to the 1855 book, mostly
+folktune settings, but supplies no operational counting definition or reason
+for 221 catalogue records. The listed modern facsimile has 296 pages, including
+introductory/appendix material; that pagination must not be subtracted from the
+retained original scan's 254 physical leaves to infer missing music. No separate
+printed index was recovered for exhaustive index-to-catalogue reconciliation.
+Neither catalogue identity agreement nor a missing extracted header proves an
+additional piece.
 
 ## Frozen source and first cohort
 
@@ -58,6 +64,39 @@ uncertainties are retained; four adjacent-context leaves also have literal
 heading disagreements. Those observations have not been reread, silently
 corrected or rescored for nicer agreement.
 
+## Separate development expansion
+
+The remaining 33 selected targets were frozen separately under protocol
+`bc75a42728469e7709d861512777d62f2c62ac31ba7c3f2b225db34b0ddbc84a`,
+with 42 context images (75 physical leaves total). The original four targets
+were excluded from this packet entirely. Prior-context overlap was limited to
+leaves 233, 235, 243, 245, 246 and 248 and is explicitly recorded as development
+exposure. Printed labels were left unknown in the plan where they had not been
+visually established; readers supplied their own literal observations.
+
+Two additional fresh source-only contexts inspected the full packet, with no
+catalogue labels, expected inventory count or prior reading results. Their
+readings and metadata were frozen before comparison. The
+[development receipt](experiments/social-harp-inventory-20261022-development-v2.json)
+retains the complete aggregate result. This is a DEVELOPMENT cohort, not a
+held-out accuracy test; coordinator and earlier OCR exposure remain explicit.
+
+Both readers classify all 33 selected targets as continuation-only, with matching
+literal heading signatures under the frozen rule. Their page dispositions agree
+across all 75 images, but literal context headings and uncertainties still need
+review. Six targets (232, 243, 245, 246, 248 and 254) retain uncertainties; 44
+physical leaves overall remain unresolved by the conservative receipt rules.
+The original first-cohort receipt remains unchanged; no consumed observation was
+silently repaired or rescored for nicer agreement.
+
+Across the two validated protocols, the union is 81 distinct physical leaves.
+Within the coordinator-proposed candidate music range 17–254, 157 leaves have
+not yet been inspected by this census. These coverage figures come from the
+actual frozen protocols and complete reader coverage, not catalogue counts.
+A next bounded development proposal is targets 17–32 (16 leaves), with source
+context leaves 16 and 33. Further dispatch requires capacity coordination and
+its own frozen protocol. No further census has been performed by this draft.
+
 ## Read-only audit command
 
 ```sh
@@ -94,10 +133,10 @@ and `humanReviewRequired=true`.
 
 ## Remaining reconciliation
 
-A separate development expansion can inspect the remaining selected leaves
-without rereading the original four targets for better agreement. It must have
-its own protocol frozen before readers, explicit prior-context/coordinator/OCR
-exposure, preserved outputs and uncertainties. It is not a held-out test.
+A full source-opening census still needs the remaining candidate music leaves
+in manageable, separately frozen development cohorts. Preserve both existing
+runs, prior-context/coordinator/OCR exposure and all uncertainties; do not reread
+consumed targets solely for better agreement. No such cohort is a held-out test.
 
 Exhaustive source/index coverage, treatment of multi-page works and alternate
 counting units, and the publisher's piece-count definition remain unresolved.
