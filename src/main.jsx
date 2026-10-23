@@ -937,10 +937,16 @@ export function App() {
   }
 
   function handleBookChange(nextBookId) {
+    const nextSongs = getBookSongs(corpus, nextBookId);
+    // A missing option makes a native select display its first entry even
+    // though React still holds the old filter. Keep both states in agreement.
+    if (!nextSongs.some((song) => recordKey(song, nextBookId).split(" ")[0] === keyFilter)) setKeyFilter("all");
+    const nextParts = nextSongs.flatMap((song) => (getBookScore(song, nextBookId) || getBookReferenceScore(song, nextBookId) || getBookDraftScore(song, nextBookId))?.parts?.map((part) => part.name) || []);
+    if (!nextParts.includes(partFilter)) setPartFilter("all");
     setBookId(nextBookId);
     setAdditionsOnly(false);
     setLinkNotice("");
-    const next = getBookSongs(corpus, nextBookId)[0];
+    const next = nextSongs[0];
     if (next) setSelectedId(next.id);
   }
 
