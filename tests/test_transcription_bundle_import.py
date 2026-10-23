@@ -3,9 +3,11 @@ from copy import deepcopy
 import io
 import json
 from pathlib import Path
+import subprocess
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 import zipfile
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
@@ -57,6 +59,44 @@ class TranscriptionImport(unittest.TestCase):
         (self.bundle / 'bundle.json').write_bytes(raw)
         return consumer.sha(raw)
 
+    def write_payload(self, name, raw, report_field=None):
+        (self.bundle / name).write_bytes(raw)
+        self.manifest['files'][name] = consumer.sha(raw)
+        if report_field:
+            report = json.loads((self.bundle / 'report.json').read_bytes())
+            report[report_field] = consumer.sha(raw)
+            report_raw = encoded(report)
+            (self.bundle / 'report.json').write_bytes(report_raw)
+            self.manifest['files']['report.json'] = consumer.sha(report_raw)
+        return self.write_manifest()
+
+    def write_archive(self, xml=None, container=None):
+        if xml is None:
+            xml = (self.bundle / 'candidate.musicxml').read_bytes()
+        if container is None:
+            container = '<container><rootfile full-path="score.musicxml"/></container>'
+        stream = io.BytesIO()
+        with zipfile.ZipFile(stream, 'w') as archive:
+            archive.writestr('score.musicxml', xml)
+            archive.writestr('META-INF/container.xml', container)
+        self.write_payload('candidate.musicxml', xml, 'candidateSha256')
+        return self.write_payload('candidate.mxl', stream.getvalue(), 'archiveSha256')
+
+    def assert_rejected_without_staging(self, pin, message):
+        with self.assertRaisesRegex(ValueError, message):
+            consumer.stage(self.bundle, pin, self.root / 'atlas')
+        self.assertFalse((self.root / 'atlas').exists())
+
+    def assert_cli_error(self, pin):
+        result = subprocess.run(
+            [sys.executable, consumer.__file__, str(self.bundle),
+             '--expected-manifest-sha256', pin, '--verify-only'],
+            capture_output=True, text=True, check=False)
+        self.assertEqual(result.returncode, 2)
+        self.assertEqual(result.stdout, '')
+        self.assertTrue(result.stderr.startswith('error: '), result.stderr)
+        self.assertNotIn('Traceback', result.stderr)
+
     def test_stage_is_confined_to_ignored_research_with_exact_bytes(self):
         receipt = consumer.stage(self.bundle, self.pin, self.root / 'atlas')
         target = self.root / 'atlas/work/transcription-imports' / self.pin
@@ -76,6 +116,115 @@ class TranscriptionImport(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'Payload hash'):
             consumer.stage(self.bundle, self.pin, self.root / 'atlas')
         self.assertFalse((self.root / 'atlas').exists())
+
+    def test_manifest_requires_an_object_and_typed_nested_objects(self):
+        original = deepcopy(self.manifest)
+        for value in (None, [], 'text', 1, True):
+            with self.subTest(value=value):
+                self.manifest = value
+                self.assert_rejected_without_staging(self.write_manifest(), 'JSON object')
+        for field in ('files', 'producer'):
+            for value in (None, [], 'text', 1, True):
+                with self.subTest(field=field, value=value):
+                    self.manifest = {**original, field: value}
+                    self.assert_rejected_without_staging(
+                        self.write_manifest(), 'payload paths|producer provenance')
+
+    def test_json_payloads_require_objects_before_reading_fields(self):
+        for name, report_field in (('report.json', None), ('comparison.json', None),
+                                   ('resolved-reading.json', 'resolvedReadingSha256')):
+            original = (self.bundle / name).read_bytes()
+            for value in (None, [], 'text', 1, True):
+                with self.subTest(name=name, value=value):
+                    pin = self.write_payload(name, encoded(value), report_field)
+                    self.assert_rejected_without_staging(pin, 'JSON object: ' + name)
+            self.write_payload(name, original, report_field)
+
+    def test_malformed_json_and_invalid_utf8_have_controlled_cli_errors(self):
+        for name, report_field in (('bundle.json', None), ('report.json', None),
+                                   ('comparison.json', None),
+                                   ('resolved-reading.json', 'resolvedReadingSha256')):
+            original = (self.bundle / name).read_bytes()
+            for raw in (b'{', b'\xff'):
+                with self.subTest(name=name, raw=raw):
+                    if name == 'bundle.json':
+                        (self.bundle / name).write_bytes(raw)
+                        pin = consumer.sha(raw)
+                    else:
+                        pin = self.write_payload(name, raw, report_field)
+                    self.assert_rejected_without_staging(pin, 'Invalid JSON: ' + name)
+                    self.assert_cli_error(pin)
+            if name == 'bundle.json':
+                (self.bundle / name).write_bytes(original)
+            else:
+                self.write_payload(name, original, report_field)
+
+    def test_malformed_zip_and_xml_are_rejected_before_staging(self):
+        pin = self.write_payload('candidate.mxl', b'not a zip archive', 'archiveSha256')
+        self.assert_rejected_without_staging(pin, 'Invalid MXL/XML')
+        self.assert_cli_error(pin)
+        pin = self.write_archive(container='<container>')
+        self.assert_rejected_without_staging(pin, 'Invalid MXL/XML')
+        self.assert_cli_error(pin)
+        pin = self.write_archive(xml=b'<score-partwise>')
+        self.assert_rejected_without_staging(pin, 'Invalid MXL/XML')
+        self.assert_cli_error(pin)
+
+    def test_corrupt_compressed_zip_members_have_controlled_cli_errors(self):
+        xml = (self.bundle / 'candidate.musicxml').read_bytes()
+        for dependency, compression, offset in (
+                ('zlib', zipfile.ZIP_DEFLATED, 0),
+                ('bz2', zipfile.ZIP_BZIP2, 0),
+                ('lzma', zipfile.ZIP_LZMA, 4)):
+            try:
+                __import__(dependency)
+            except ImportError:
+                continue
+            with self.subTest(compression=dependency):
+                stream = io.BytesIO()
+                with zipfile.ZipFile(stream, 'w', compression=compression) as archive:
+                    archive.writestr('score.musicxml', xml)
+                    archive.writestr('META-INF/container.xml',
+                                    '<container><rootfile full-path="score.musicxml"/></container>')
+                    info = archive.getinfo('score.musicxml')
+                raw = bytearray(stream.getvalue())
+                # Corrupt the compression header/properties in the first member.
+                start = info.header_offset + 30 + len(info.filename.encode()) + len(info.extra)
+                raw[start + offset] = 255
+                pin = self.write_payload('candidate.mxl', bytes(raw), 'archiveSha256')
+                self.assert_rejected_without_staging(pin, 'Invalid MXL/XML')
+                self.assert_cli_error(pin)
+
+    def test_failed_staging_cleans_temporary_files_and_allows_retry(self):
+        for method, filename in (('write_bytes', 'candidate.mxl'),
+                                 ('write_text', 'atlas-import-receipt.json'),
+                                 ('rename', None)):
+            atlas = self.root / method
+            original = getattr(Path, method)
+
+            def fail(path, *args, **kwargs):
+                if filename is None or path.name == filename:
+                    raise OSError('injected staging failure')
+                return original(path, *args, **kwargs)
+
+            with self.subTest(method=method):
+                with patch.object(Path, method, autospec=True, side_effect=fail):
+                    with self.assertRaisesRegex(OSError, 'injected staging failure'):
+                        consumer.stage(self.bundle, self.pin, atlas)
+                base = atlas / 'work/transcription-imports'
+                self.assertEqual(list(base.iterdir()), [])
+                receipt = consumer.stage(self.bundle, self.pin, atlas)
+                self.assertEqual(receipt['status'], 'staged-research-only')
+                self.assertTrue((base / self.pin / 'atlas-import-receipt.json').is_file())
+
+    def test_existing_empty_import_directory_is_not_replaced(self):
+        atlas = self.root / 'atlas'
+        destination = atlas / 'work/transcription-imports' / self.pin
+        destination.mkdir(parents=True)
+        with self.assertRaises(FileExistsError):
+            consumer.stage(self.bundle, self.pin, atlas)
+        self.assertEqual(list(destination.iterdir()), [])
+        self.assertEqual(list(destination.parent.iterdir()), [destination])
 
     def test_unknown_version_promotion_and_payload_paths_are_rejected(self):
         original = deepcopy(self.manifest)
