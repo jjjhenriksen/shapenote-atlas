@@ -151,6 +151,61 @@ class AcceptanceDeclarations(unittest.TestCase):
         self.decision['predecessors']['records'][0]['decisionId'] = self.decision['decisionId']
         self.reject()
 
+    def test_identity_and_extent_tokens_are_explicit_without_wildcards_or_padding(self):
+        invalid_tokens = ('*', '* ', ' *', 'prefix*suffix', 'sh2025/*', 'page-*', 'S*', '1*',
+                          ' synthetic ', 'synthetic\nrecord', 'synthetic\trecord', 'synthetic\x00record')
+        for field in ('recordId', 'edition', 'sourcePages', 'partIds', 'measureIds'):
+            for token in invalid_tokens:
+                changed = deepcopy(self.decision)
+                if field in ('recordId', 'edition'):
+                    changed['subject'][field] = token
+                else:
+                    changed['subject']['extent'][field] = [token]
+                    changed['humanImageReview']['extent'][field] = [token]
+                with self.subTest(field=field, token=repr(token)):
+                    self.reject(changed)
+
+    def test_explicit_identifiers_and_free_prose_keep_legitimate_punctuation(self):
+        self.decision['subject']['recordId'] = 'sh2025/50t'
+        self.decision['subject']['edition'] = 'Sacred Harp 2025'
+        for field, tokens in (('sourcePages', ['page-1', 'page-2']),
+                              ('partIds', ['S.1', 'A-1', 'T/1', 'B_1']),
+                              ('measureIds', ['0-pickup', '1a', '2'])):
+            self.decision['subject']['extent'][field] = tokens
+            self.decision['humanImageReview']['extent'][field] = tokens
+        self.decision['subject']['extent']['description'] = 'A literal * in explanatory prose.'
+        self.decision['humanImageReview']['extent']['description'] = self.decision['subject']['extent']['description']
+        self.decision['decisionReasons'] = ['Exact scope; note * as ordinary prose punctuation.']
+        self.decision['humanImageReview']['note'] = 'Reviewed * as a printed annotation.'
+        validator.validate(self.decision)
+
+    def test_malformed_timezone_components_and_nonprofile_timestamps_are_rejected(self):
+        invalid_times = ('2026-10-22T12:00:00+00:99', '2026-10-22T12:00:00+01:60',
+                         '2026-10-22T12:00:00+00:00:99', '2026-10-22T12:00:00+24:00',
+                         '2026-10-22T12:00:00+0000', '2026-10-22T12:00:00',
+                         '2026-10-22T12:00:00Z ', '2026-10-22T24:00:00Z',
+                         '2026-10-22T12:60:00Z', '2026-10-22T12:00:60Z',
+                         '2026-02-30T12:00:00Z')
+        for field in ('recordedAt', 'reviewedAt'):
+            for value in invalid_times:
+                changed = deepcopy(self.decision)
+                target = changed if field == 'recordedAt' else changed['humanImageReview']
+                target[field] = value
+                with self.subTest(field=field, value=value):
+                    self.reject(changed)
+
+    def test_supported_timestamp_precision_and_timezone_forms_remain_valid(self):
+        valid_times = ('2026-10-22T12:00Z', '2026-10-22T12:00:00Z',
+                       '2026-10-22T12:00:00.123456789Z', '2026-10-22T12:00+01:30',
+                       '2026-10-22T12:00:00.1-07:00', '2024-02-29T12:00:00+00:00')
+        for field in ('recordedAt', 'reviewedAt'):
+            for value in valid_times:
+                changed = deepcopy(self.decision)
+                target = changed if field == 'recordedAt' else changed['humanImageReview']
+                target[field] = value
+                with self.subTest(field=field, value=value):
+                    validator.validate(changed)
+
     def test_cli_reads_only_and_reports_invalid_json_and_missing_files(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
