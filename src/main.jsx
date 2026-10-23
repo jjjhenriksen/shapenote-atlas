@@ -9,6 +9,7 @@ import { CLEF_GLYPH } from "./clefNotation.js";
 import { ScoreEngraving } from "./ScoreEngraving.jsx";
 import { scoreMeasures, shapeForScoreEvent } from "./scoreMusicXml.js";
 import { validateCorpus } from "./corpusContract.js";
+import { validateScore } from "./scoreContract.js";
 import { summarizeSourceHealth } from "./sourceHealthPresentation.js";
 import { resolveKeyContext } from "./keyResolution.js";
 import { PublishedDraftActions } from "./PublishedDraftActions.jsx";
@@ -500,7 +501,7 @@ export function App() {
   const [playbackProgress, setPlaybackProgress] = useState(0);
   const [playbackNotice, setPlaybackNotice] = useState("");
   const [toast, setToast] = useState("");
-  const [fullScore, setFullScore] = useState(null);
+  const [fullScoreResult, setFullScore] = useState(null);
   const [scoreLoadAttempt, setScoreLoadAttempt] = useState(0);
   const [scoreLoadError, setScoreLoadError] = useState(false);
   const [sourceKeyOverrides, setSourceKeyOverrides] = useState(() => {
@@ -772,8 +773,11 @@ export function App() {
     : !selectedSourceHealth ? "Loading source health…" : selectedSourceHealth.error ? "Source-health cache unavailable" : "No health record for this source URL";
   const scoreRef = activeScorePreview?.scoreRef || "";
   const scoreRequestRef = assetUrl(scoreRef);
-  const selectedScore = fullScore?.sourceUrl === activeScorePreview?.sourceUrl ? fullScore : activeScorePreview;
-  const assetLoaded = Boolean(activeScorePreview && fullScore?.sourceUrl === activeScorePreview.sourceUrl);
+  const scoreSourceUrl = activeScorePreview?.sourceUrl || "";
+  const fullScore = fullScoreResult?.requestRef === scoreRequestRef && fullScoreResult?.score.sourceUrl === scoreSourceUrl
+    ? fullScoreResult.score : null;
+  const selectedScore = fullScore || activeScorePreview;
+  const assetLoaded = Boolean(activeScorePreview && fullScore);
   const scoreLoaded = assetLoaded;
   const hasPitchedEvents = Boolean(selectedScore?.parts?.some((part) => (part.events || []).some((event) => !event.rest && event.step)));
   const playbackValidation = activeScorePreview?.playbackValidation || {};
@@ -824,10 +828,14 @@ export function App() {
         if (!response.ok) throw new Error(`Score request failed: ${response.status}`);
         return response.json();
       })
-      .then((score) => { if (!controller.signal.aborted) setFullScore(score); })
+      .then((score) => {
+        if (controller.signal.aborted) return;
+        validateScore(score, scoreSourceUrl);
+        setFullScore({ requestRef: scoreRequestRef, score });
+      })
       .catch(() => { if (!controller.signal.aborted) { setFullScore(null); setScoreLoadError(true); } });
     return () => { controller.abort(); };
-  }, [scoreRequestRef, scoreLoadAttempt]);
+  }, [scoreRequestRef, scoreSourceUrl, scoreLoadAttempt]);
 
   useEffect(() => {
     if (!selectedSong) return;

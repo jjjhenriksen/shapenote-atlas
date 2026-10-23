@@ -214,3 +214,90 @@ test('real Web Audio progresses, pauses, resumes, transposes and ends automatica
   await expect(progress).toHaveAttribute('aria-valuenow', '0');
   expect(errors).toEqual([]);
 });
+
+const invalidScores = {
+  'null-root': () => null,
+  'missing-parts': () => ({ sourceUrl: 'https://example.invalid/a' }),
+  'object-parts': score => ({ ...score, parts: {} }),
+  'null-part': score => ({ ...score, parts: [null] }),
+  'missing-events': score => ({ ...score, parts: [{ name: 'Tenor' }] }),
+  'null-event': score => ({ ...score, parts: [{ name: 'Tenor', events: [null] }] }),
+  'wrong-source': score => ({ ...score, sourceUrl: 'https://example.invalid/other-witness' }),
+  'invalid-repeat-sequence': score => ({ ...score, playback: { status: 'encoded', safeToApply: true, measureSequence: '12' } }),
+};
+for (const [name, invalid] of Object.entries(invalidScores)) {
+  for (const width of name === 'null-root' ? [1440, 375] : [1440]) {
+    test(`malformed full score ${name} recovers through retry at ${width}px`, async ({ page }) => {
+      await page.setViewportSize({ width, height: width === 375 ? 812 : 1000 });
+      const errors = []; page.on('pageerror', error => errors.push(error.message));
+      page.on('console', message => { if (['error', 'warning'].includes(message.type())) errors.push(message.text()); });
+      const data = fixture(1); const score = data.songs[0].scoreByBook.sh1991; let attempts = 0;
+      await mockAudio(page); await intercept(page, data);
+      await page.route('**/fixture-a.json', route => route.fulfill({ contentType: 'application/json', body: JSON.stringify(++attempts === 1 ? invalid(score) : score) }));
+      await page.goto('/?book=sh1991&tune=a');
+      await expect(page).toHaveTitle('The Shape-Note Atlas');
+      await expect(page.getByRole('heading', { name: '1 — Fixture A', exact: true })).toBeVisible();
+      await expect(page.locator('.score-load-error')).toContainText('could not be loaded', { timeout: 5000 });
+      await expect(page.getByRole('button', { name: 'Retry loading', exact: true })).toBeEnabled();
+      await expect(page.locator('vite-error-overlay')).toHaveCount(0);
+      if (process.env.ATLAS_SCREENSHOTS && name === 'null-root') await page.screenshot({ path: join(process.env.ATLAS_SCREENSHOTS, `invalid-full-score-${width}.png`) });
+      await page.getByRole('button', { name: 'Retry loading', exact: true }).click();
+      await expect(page.getByRole('button', { name: 'Play song', exact: true })).toBeEnabled();
+      await expect(page.locator('.score-load-error')).toHaveCount(0);
+      await expect(page).toHaveURL(/book=sh1991&tune=a/);
+      await expect(page.getByRole('heading', { name: '1 — Fixture A', exact: true })).toBeVisible();
+      await page.getByRole('button', { name: 'Play song', exact: true }).click();
+      await expect(page.getByRole('button', { name: 'Stop', exact: true })).toBeVisible();
+      await page.getByRole('button', { name: 'Stop', exact: true }).click();
+      if (process.env.ATLAS_SCREENSHOTS && name === 'null-root') await page.screenshot({ path: join(process.env.ATLAS_SCREENSHOTS, `recovered-full-score-${width}.png`) });
+      expect(attempts).toBe(2); expect(errors).toEqual([]);
+    });
+  }
+}
+
+for (const kind of ['empty', 'rest-only']) {
+  test(`legitimate ${kind} full score completes loading without a fetch retry`, async ({ page }) => {
+    const data = fixture(1); const score = data.songs[0].scoreByBook.sh1991;
+    score.parts = kind === 'empty' ? [] : [{ name: 'Tenor', events: [{ onset: 0, beats: 1, rest: true, measure: 1, type: 'quarter' }] }];
+    const errors = []; page.on('pageerror', error => errors.push(error.message));
+    await intercept(page, data); await page.goto('/?book=sh1991&tune=a');
+    await expect(page.getByRole('button', { name: 'Play song', exact: true })).toBeVisible();
+    await expect(page.locator('.score-caption')).toContainText('full-song view');
+    await expect(page.locator('.score-load-error')).toHaveCount(0);
+    await expect(page.getByRole('button', { name: 'Retry loading', exact: true })).toHaveCount(0);
+    expect(errors).toEqual([]);
+  });
+}
+
+test('a shared score URL reloads when the selected source identity changes', async ({ page }) => {
+  const data = fixture(1); let attempts = 0;
+  data.songs.forEach(song => song.scoreByBook.sh1991.scoreRef = '/shared-score.json');
+  await intercept(page, data);
+  await page.route('**/shared-score.json', route => route.fulfill({ json: data.songs[Math.min(attempts++, 1)].scoreByBook.sh1991 }));
+  await open(page);
+  await page.getByRole('button', { name: /Fixture B/ }).click();
+  await expect(page.getByRole('heading', { name: '2 — Fixture B', exact: true })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Play song', exact: true })).toBeEnabled();
+  expect(attempts).toBe(2);
+  await expect(page.locator('.score-load-error')).toHaveCount(0);
+});
+
+test('different requested scores sharing one source never reuse the previous full witness', async ({ page }) => {
+  const data = fixture(1); let finish;
+  data.songs[1].scoreByBook.sh1991.sourceUrl = data.songs[0].scoreByBook.sh1991.sourceUrl;
+  data.songs[1].scoreByBook.sh1991.parts[0].events[0].octave = 5;
+  await mockAudio(page); await intercept(page, data); await open(page);
+  await page.route('**/fixture-b.json', async route => {
+    await new Promise(resolve => finish = resolve);
+    await route.fulfill({ json: data.songs[1].scoreByBook.sh1991 });
+  });
+  await page.getByRole('button', { name: /Fixture B/ }).click();
+  await expect(page.getByRole('heading', { name: '2 — Fixture B', exact: true })).toBeVisible();
+  await expect.poll(() => Boolean(finish)).toBe(true);
+  await expect(page.getByRole('button', { name: 'Loading…', exact: true })).toBeDisabled();
+  await expect(page.locator('.score-caption')).toContainText('loading full song');
+  finish();
+  await expect(page.getByRole('button', { name: 'Play song', exact: true })).toBeEnabled();
+  await page.getByRole('button', { name: 'Play song', exact: true }).click();
+  expect(await page.evaluate(() => __audio.oscillators[0].frequency.value)).toBeCloseTo(523.25113, 4);
+});
