@@ -69,6 +69,35 @@ class SocialHarpInventoryAudit(unittest.TestCase):
                     'safeToPromote', 'readerIndependenceVerified'):
             self.assertIs(result[key], False)
         self.assertTrue(result['humanReviewRequired'])
+        self.assertEqual(result['processingVersion'], 2)
+        self.assertEqual(result['processorSha256'], audit.digest(Path(audit.__file__).read_bytes()))
+
+    def test_declared_role_counts_keep_multiple_openings_distinct_from_other_headings(self):
+        for reading in (self.a, self.b):
+            page = reading['pages'][0]
+            page['pageDisposition'] = 'mixed'
+            page['headings'] = [{'text': f'PRIVATE_SYNTHETIC_{i}', 'role': role,
+                                 'bbox': [0.1, 0.1, 0.8, 0.2]}
+                                for i, role in enumerate(('opening', 'opening', 'continuation', 'other', 'uncertain'))]
+            page['uncertainties'] = ['One heading role remains uncertain.']
+        self.refresh_readers()
+        result = self.compare()
+        counts = {'opening': 2, 'continuation': 1, 'other': 1, 'uncertain': 1}
+        self.assertEqual(result['pages'][0]['headingRoleCounts'], [counts, counts])
+        self.assertEqual(result['pages'][0]['headingCounts'], [5, 5])
+        self.assertEqual(result['unresolvedLeaves'], [1])
+        self.assertNotIn('PRIVATE_SYNTHETIC', json.dumps(result))
+
+    def test_matching_declared_counts_do_not_resolve_heading_disagreement(self):
+        for reading in (self.a, self.b):
+            reading['pages'][0]['pageDisposition'] = 'opening-present'
+            reading['pages'][0]['headings'][0]['role'] = 'opening'
+        self.b['pages'][0]['headings'][0]['text'] = 'Different private synthetic title'
+        self.refresh_readers()
+        result = self.compare()
+        self.assertEqual([c['opening'] for c in result['pages'][0]['headingRoleCounts']], [1, 1])
+        self.assertEqual(result['pages'][0]['disagreements'], ['headings'])
+        self.assertEqual(result['unresolvedLeaves'], [1])
 
     def test_heading_disposition_and_uncertainty_disagreements_remain_unresolved(self):
         self.b['pages'][0]['pageDisposition'] = 'uncertain'

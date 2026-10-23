@@ -11,6 +11,7 @@ import sys
 
 DISPOSITIONS = ('opening-present', 'continuation-only', 'mixed', 'non-music', 'uncertain')
 ROLES = ('opening', 'continuation', 'other', 'uncertain')
+PROCESSING_VERSION = 2
 
 
 def require(condition, message):
@@ -142,8 +143,11 @@ def compare(packet, protocol_pin, reader_a_path, reader_a_pin, reader_b_path, re
         rows.append({'pdfLeaf': leaf, 'pdfIndex': leaf - 1, 'target': leaf in targets,
                      'agreedDisposition': agreed_disposition, 'disagreements': disagreements,
                      'headingCounts': [len(first['headings']), len(second['headings'])],
+                     'headingRoleCounts': [{role: sum(h['role'] == role for h in page['headings'])
+                                            for role in ROLES} for page in (first, second)],
                      'uncertaintyCounts': [len(first['uncertainties']), len(second['uncertainties'])]})
     return {'schemaVersion': 1, 'kind': 'social-harp-bounded-visual-inventory-audit', 'status': 'compared',
+            'processingVersion': PROCESSING_VERSION, 'processorSha256': digest(Path(__file__).read_bytes()),
             'sourceSha256': protocol['sourceSha256'], 'protocolSha256': protocol_pin,
             'readerSha256': [reader_a_pin, reader_b_pin], 'targetLeafCount': len(targets),
             'contextLeafCount': len(leaves) - len(targets), 'reviewedLeafCount': len(leaves),
