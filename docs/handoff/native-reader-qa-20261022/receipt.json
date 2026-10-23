@@ -1,0 +1,470 @@
+{
+  "schemaVersion": 1,
+  "issue": "https://github.com/jjjhenriksen/shapenote-atlas/issues/57",
+  "localDate": "2026-10-22",
+  "timezone": "America/Los_Angeles",
+  "assessment": "partial-native-qa-awaiting-human-review",
+  "issue57ReadyToClose": false,
+  "humanAccepted": false,
+  "sourceCertified": false,
+  "safeToPromote": false,
+  "runtime": {
+    "testedCommit": "ab147eac003303be5796ead93f6d059edeae63d5",
+    "bundleIdentifier": "com.sacredharp.atlas-native-reader-qa-20261022",
+    "bundleName": "Atlas Native Reader QA 20261022",
+    "nativeBinarySha256": "8f7181bf5f589dba61a797580643777f66a9741cf9aeb065adf2959e7e419be6",
+    "assetsManifestSha256": "cfe50974bbb9656647b15aea7bf585242f36a0727238f19a7cbf65c6bcc0347f",
+    "bundleManifestSha256": "de104d06b10e19afdc376a7e41d9b53cf6d0d7c486582581cb075d97ae0958e6",
+    "assetFileCount": 6723,
+    "assetBytes": 627432676,
+    "architecture": "arm64",
+    "isolationChange": "Only CFBundleIdentifier/CFBundleName and app directory name differ from documented builder output; native binary and web asset bytes unchanged.",
+    "sourceDataChanged": false,
+    "signingNotarizationDistributionApproved": false,
+    "platform": {
+      "name": "macOS",
+      "version": "26.6.2",
+      "build": "25G83",
+      "architecture": "arm64"
+    }
+  },
+  "build": {
+    "documentedFlow": "ATLAS_OUTPUT_DIR=<private>/package ATLAS_DIST_DIR=<private>/dist bash script/build_and_run.sh --verify",
+    "verification": "passed",
+    "verificationAfterIsolationRename": "passed",
+    "packageBytesUnchangedAfterQA": true
+  },
+  "nativeInteractions": [
+    {
+      "case": "Samaria SH1991",
+      "observed": [
+        "Native lookup and score selection",
+        "Visible four-part score rendering through production OSMD-backed reader",
+        "Pause at progress 9, resume at progress 23, stop reset to 0"
+      ],
+      "evidence": [
+        "02-samaria-admitted-score",
+        "03-samaria-paused",
+        "04-samaria-resumed",
+        "05-samaria-stopped"
+      ],
+      "limit": "Visual/UI/audio-clock proof only; no source or audible acceptance"
+    },
+    {
+      "case": "Samaria SH2025 alternate reference",
+      "observed": [
+        "Explicit SH1991 witness notice retained",
+        "Native source click opened Safari at https://fasola.org/indexes/2025/?p=26",
+        "Native selection retained after external handoff"
+      ],
+      "evidence": [
+        "07-samaria-alternate-reference",
+        "08-source-browser-destination.txt",
+        "09-native-after-source-handoff"
+      ],
+      "limit": "One external destination observed; no general source availability or exact-edition notation equivalence claim"
+    },
+    {
+      "case": "New-Salem Kentucky review draft",
+      "observed": [
+        "Review draft and unavailable key remained explicit",
+        "Selected Follow encoded repeats, two loops, tempo 220",
+        "Progress 25 percent at 17.825 wall seconds; returned idle by 86.575 seconds"
+      ],
+      "evidence": [
+        "10-new-salem-draft-initial",
+        "11-new-salem-encoded-order",
+        "12-new-salem-two-loops-ready",
+        "13-new-salem-encoded-playing",
+        "14-new-salem-after-playback",
+        "15-new-salem-automatic-end"
+      ],
+      "limit": "No source key entered; no audible output, exact sounded order, repeat correctness, or precise audio duration accepted"
+    },
+    {
+      "case": "Weary Rest source reference and Three Amigos prose",
+      "observed": [
+        "Source-only record showed no transposable score or practice controls",
+        "Prose record showed no score expected and external article link"
+      ],
+      "evidence": [
+        "18-weary-rest-source-only-library",
+        "19-trumpet-prose"
+      ],
+      "limit": "Metadata and UI policy only; remote prose PDF/AX content remains private"
+    },
+    {
+      "case": "App quit and reopen",
+      "observed": [
+        "App reopened to default reader using same packaged bytes",
+        "Old owned server socket remained listening after normal Command-Q"
+      ],
+      "evidence": [
+        "20-native-reopened",
+        "native-reopen-orphan.json"
+      ],
+      "limit": "Reopen succeeded but server lifecycle defect #512 remains; old endpoint closed without HTTP response"
+    }
+  ],
+  "failures": [
+    {
+      "issue": "https://github.com/jjjhenriksen/shapenote-atlas/issues/511",
+      "observed": "Published review draft MusicXML click had no save panel/completion/file despite HTTP-available bytes",
+      "evidence": [
+        "16-native-download-no-result",
+        "native-download-http-availability.json"
+      ]
+    },
+    {
+      "issue": "https://github.com/jjjhenriksen/shapenote-atlas/issues/512",
+      "observed": "Owned child server outlived normal Command-Q",
+      "evidence": [
+        "native-reopen-orphan.json"
+      ]
+    }
+  ],
+  "runtimeDiagnostics": {
+    "errorLevelRecordCount": 74,
+    "scope": "First native app PID; not all WebContent processes or JavaScript console",
+    "audioDiagnostic": "AudioComponentRegistrar remote proxy lookup failed with NSCocoaErrorDomain 4099, Operation not permitted",
+    "classification": "Unresolved environment versus application cause; audible native audio remains unaccepted",
+    "otherDiagnostics": "OS/AppIntents, WebKit, input/window and other records not fully triaged"
+  },
+  "notVerified": [
+    "Audible native audio quality, routing or fidelity",
+    "Exact sounded encoded repeat order and loop count",
+    "True disconnected offline cold-cache operation",
+    "Exact-edition score or source semantic accuracy",
+    "Human acceptance",
+    "Signing, notarization, distribution or deployment"
+  ],
+  "privacy": {
+    "screenshotsCommitted": false,
+    "rawAccessibilityCommitted": false,
+    "rawScoresLyricsOrSourceFilesCommitted": false,
+    "privateEvidenceBasename": "atlas-native-reader-qa-20261022",
+    "note": "Only hashes, byte counts, labels and bounded observations are committed. Private raw evidence is not redistributed."
+  },
+  "privateEvidenceIndex": [
+    {
+      "name": "01-native-startup.png",
+      "bytes": 424392,
+      "sha256": "4915a70d598b0ae4fd89d81439dcf5f8ab68dc8251d7d8274923d69f9c81550f",
+      "committed": false
+    },
+    {
+      "name": "01-native-startup.txt",
+      "bytes": 12019,
+      "sha256": "3430416aa8733f952b52058ed62f3b68e0200648e6005404f97eaf52cabad3c8",
+      "committed": false
+    },
+    {
+      "name": "02-samaria-admitted-score.png",
+      "bytes": 414112,
+      "sha256": "97fe14dfdcd154a6bfd45a401a6df5019fc3c3a2f230d7d2af9a472badf8dea1",
+      "committed": false
+    },
+    {
+      "name": "02-samaria-admitted-score.txt",
+      "bytes": 5878,
+      "sha256": "e19df1f975561a80e2a468917337332fc5c3dce08ea20211b3a6658f049896b5",
+      "committed": false
+    },
+    {
+      "name": "03-samaria-paused.png",
+      "bytes": 352359,
+      "sha256": "336dc710450ce4f197b2efd9795299294fe08de7dee9ea014d8c32c0b40c7a30",
+      "committed": false
+    },
+    {
+      "name": "03-samaria-paused.txt",
+      "bytes": 6021,
+      "sha256": "85c72eed3f8897fb121581c9cdc82060c5adf89ce2b9b5654cae6e8f588a83ca",
+      "committed": false
+    },
+    {
+      "name": "04-samaria-resumed.png",
+      "bytes": 352332,
+      "sha256": "43856e893d711febab2d32e919d1bea8b6bd0744c1a0cec675c1b19764d8771e",
+      "committed": false
+    },
+    {
+      "name": "04-samaria-resumed.txt",
+      "bytes": 6021,
+      "sha256": "de5cf12a06a6c2fa3cad3596c6bf2b4660e59bc67cde3be8c2fd0fb3c9a4f764",
+      "committed": false
+    },
+    {
+      "name": "05-samaria-stopped.png",
+      "bytes": 350729,
+      "sha256": "f1933b60ed5dfc636ba486bbb7cb3095de287c87caddd3c6a7c2e3cec63caa26",
+      "committed": false
+    },
+    {
+      "name": "05-samaria-stopped.txt",
+      "bytes": 5958,
+      "sha256": "e419d6fccdf182b6341c69805405db9e65ac0c114de7686681d53eba7e3ad1a1",
+      "committed": false
+    },
+    {
+      "name": "06-source-preservation-note.png",
+      "bytes": 359514,
+      "sha256": "27e7aebf6e34fb843975557cf8fce5e8f77a4463cf3dd4e7ac7b8a3848ab4c82",
+      "committed": false
+    },
+    {
+      "name": "06-source-preservation-note.txt",
+      "bytes": 6021,
+      "sha256": "53492576b43618ad094733ba8994a8fb727e91c16ebffd9f39af6d128992508b",
+      "committed": false
+    },
+    {
+      "name": "07-samaria-alternate-reference.png",
+      "bytes": 354003,
+      "sha256": "2c17d1bc505e78a233902ff6517c477cb5c874f0af3afa3ed6646019528c3219",
+      "committed": false
+    },
+    {
+      "name": "07-samaria-alternate-reference.txt",
+      "bytes": 6406,
+      "sha256": "538a0d2e785e8e0844f49f05e4de2f500dab258617f29d32970858b6546ee69c",
+      "committed": false
+    },
+    {
+      "name": "08-source-browser-destination.txt",
+      "bytes": 10862,
+      "sha256": "be82940fba23c7c5e9525acff23099b2d1622d2de1d6bdc6af7dea2c94a7f8fe",
+      "committed": false
+    },
+    {
+      "name": "09-native-after-source-handoff.png",
+      "bytes": 372755,
+      "sha256": "82a987368f011ee424cbe7364e02b678c3cd3b1dfa49ddde84db6a5730b4542e",
+      "committed": false
+    },
+    {
+      "name": "09-native-after-source-handoff.txt",
+      "bytes": 6406,
+      "sha256": "bab3971e9c4cc729e842e4a29a3553c31980334509aac9d34cbecb4b23123874",
+      "committed": false
+    },
+    {
+      "name": "10-new-salem-draft-initial.png",
+      "bytes": 363651,
+      "sha256": "5946b9b4bfb78ebafcb186785ba2b621973cd7ad3b940e9f23153f7fcc047b09",
+      "committed": false
+    },
+    {
+      "name": "10-new-salem-draft-initial.txt",
+      "bytes": 7264,
+      "sha256": "8f9bb7ae5eaa28991477b1bba03df593887c6c50dfd78a48ac6173c9ab66ea43",
+      "committed": false
+    },
+    {
+      "name": "11-new-salem-encoded-order.png",
+      "bytes": 381631,
+      "sha256": "20c8d765ef4386095b59ccbb70a2f65b12746adad6a7c783d1e8d0f0c6fae56a",
+      "committed": false
+    },
+    {
+      "name": "11-new-salem-encoded-order.txt",
+      "bytes": 7281,
+      "sha256": "e0ff4badc9a93dbd5a415235e9c95f64338cbaadb6e5118a93a80be9a3da6552",
+      "committed": false
+    },
+    {
+      "name": "12-new-salem-two-loops-ready.png",
+      "bytes": 383809,
+      "sha256": "5e386e84e32fbb12746873664564a3209e2b13e4157ab34b026b8e40657caac4",
+      "committed": false
+    },
+    {
+      "name": "12-new-salem-two-loops-ready.txt",
+      "bytes": 7172,
+      "sha256": "8698ceb69768439810da5540d6a89d8b9cf7d4b316f1f51eb467096cca510963",
+      "committed": false
+    },
+    {
+      "name": "13-new-salem-encoded-playing.png",
+      "bytes": 384886,
+      "sha256": "7d5e57849f58aefdf0bb987a919573d16d3f2a3379d123d00f8ee3ce482af4b8",
+      "committed": false
+    },
+    {
+      "name": "13-new-salem-encoded-playing.txt",
+      "bytes": 7200,
+      "sha256": "e61ef2ca23fe5653a67aa4b63306dacfe39ec4c40eaec4b112998a23f17c7203",
+      "committed": false
+    },
+    {
+      "name": "14-new-salem-after-playback.png",
+      "bytes": 385209,
+      "sha256": "7aca967db60c45ddcaee92aa6c9ce2e4e3f192d4d915ff501e6ea74a31765be5",
+      "committed": false
+    },
+    {
+      "name": "14-new-salem-after-playback.txt",
+      "bytes": 7201,
+      "sha256": "8296281e87332677c47cc7aa727ebccd59bb1f43ee6237fa863a5c9acc8e4769",
+      "committed": false
+    },
+    {
+      "name": "15-new-salem-automatic-end.png",
+      "bytes": 384455,
+      "sha256": "cd0cd1953adaf4c03ec1d0b970e278f6303c1951270071b5d11f659070bf5e2f",
+      "committed": false
+    },
+    {
+      "name": "15-new-salem-automatic-end.txt",
+      "bytes": 7143,
+      "sha256": "6daae1861e478dd9fcf80c41e0a04718c8b57788ae5bf52e58e422eef4b52b0f",
+      "committed": false
+    },
+    {
+      "name": "16-native-download-no-result.png",
+      "bytes": 372723,
+      "sha256": "fab60f4791fc89f034e73711a03ff85ac029dbafdbb61d154a78d84bbdd2e5a3",
+      "committed": false
+    },
+    {
+      "name": "16-native-download-no-result.txt",
+      "bytes": 7242,
+      "sha256": "c860770f0ac802b4d4a17978559ea4012c9ab068a367d98e71a08c986aff8cbe",
+      "committed": false
+    },
+    {
+      "name": "17-weary-rest-source-only.png",
+      "bytes": 360737,
+      "sha256": "a142bfd1362c5909a4f19607ba28db63e58f53601d375e45c9b9fd31f3fd9343",
+      "committed": false
+    },
+    {
+      "name": "17-weary-rest-source-only.txt",
+      "bytes": 7405,
+      "sha256": "b1f472465af46d966880f4672775febf574b4ef02b057e8d4a4d698f872f47ab",
+      "committed": false
+    },
+    {
+      "name": "18-weary-rest-source-only-library.png",
+      "bytes": 345858,
+      "sha256": "7c4a7e90ae9fa36c5e0c88699c2e8b73145a348bdd719d5103c76ec39a969bb4",
+      "committed": false
+    },
+    {
+      "name": "18-weary-rest-source-only-library.txt",
+      "bytes": 4224,
+      "sha256": "8f2c305edba386aa8689bf5a7ebdec07ffd3ae07b4c2d61982b0d451b804fa3a",
+      "committed": false
+    },
+    {
+      "name": "19-trumpet-prose.png",
+      "bytes": 401919,
+      "sha256": "335f883521384fca48bb1578ebd88df538f020df53f49fa6dc11c85e1bf458c8",
+      "committed": false
+    },
+    {
+      "name": "19-trumpet-prose.txt",
+      "bytes": 177767,
+      "sha256": "ca044d527e39d8131ca6752a9dbb834f8c24693a66199654193ada12e3d3e8b8",
+      "committed": false
+    },
+    {
+      "name": "20-native-reopened.png",
+      "bytes": 424392,
+      "sha256": "4915a70d598b0ae4fd89d81439dcf5f8ab68dc8251d7d8274923d69f9c81550f",
+      "committed": false
+    },
+    {
+      "name": "20-native-reopened.txt",
+      "bytes": 12019,
+      "sha256": "6d5c423bcde7482063b9dc6fe4140ec4ed41dc228cc7262c5bf11466c6400be1",
+      "committed": false
+    },
+    {
+      "name": "download-after.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "committed": false
+    },
+    {
+      "name": "download-before.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "committed": false
+    },
+    {
+      "name": "native-download-http-availability.json",
+      "bytes": 337,
+      "sha256": "9a67add4f32812fc8b2b638fe2cc6835976a5e7261452485dddada80443afb6d",
+      "committed": false
+    },
+    {
+      "name": "native-log-collection.json",
+      "bytes": 129,
+      "sha256": "37c4e13b9b0703732d9bf98a8ed5a524ddfc928a37055feb72fde3d1a9046bd3",
+      "committed": false
+    },
+    {
+      "name": "native-reopen-orphan.json",
+      "bytes": 510,
+      "sha256": "a7ce4933aadf829d07048b24c9b1407a04b1c63a7c1fba9bb00e3ae92a9830c4",
+      "committed": false
+    },
+    {
+      "name": "native-runtime-error-summary.json",
+      "bytes": 2113,
+      "sha256": "93060293222c25a344470c0f0b23e39b443d6c3da8b4607bcee5221792c35a56",
+      "committed": false
+    },
+    {
+      "name": "native-unified-log.json",
+      "bytes": 107467,
+      "sha256": "5fa3b5f54fde090cd7a9c9fa5cd78756e18a46bff2747c045a9ef6da4832959d",
+      "committed": false
+    },
+    {
+      "name": "new-salem-expected-playback.json",
+      "bytes": 415,
+      "sha256": "fc65115418cf8f1f1865847913568f0969c719b33573c982f349596ac207009b",
+      "committed": false
+    },
+    {
+      "name": "new-salem-native-repeat-observation.json",
+      "bytes": 463,
+      "sha256": "ec1bad3aa5fe0b1909c3125fa878db63c5db729fdb580e4a632ff74ce0f85da5",
+      "committed": false
+    },
+    {
+      "name": "owned-qa-cleanup.json",
+      "bytes": 154,
+      "sha256": "d5b9906cb77eabda0c4853c31efd567759e1726fee1870a75f99a35c3c3ecfa5",
+      "committed": false
+    },
+    {
+      "name": "owned-runtime-processes.json",
+      "bytes": 383,
+      "sha256": "3a8f7e5caa1ecbe277cad737e3d137f28c9a74fb2f8886554b66b2250f2ad405",
+      "committed": false
+    },
+    {
+      "name": "package-verification.json",
+      "bytes": 586,
+      "sha256": "470317a95b46d64f455e60ab3d61a050462f40f6963987798ba06d26c1278a2e",
+      "committed": false
+    },
+    {
+      "name": "runtime-identity-private.json",
+      "bytes": 1035,
+      "sha256": "9a1501bee95e23795a89b6dfb93ab98bb2d7fb17ffcd86266f91f9bb59cd98c6",
+      "committed": false
+    }
+  ],
+  "excludedProbe": {
+    "name": "17-weary-rest-source-only",
+    "reason": "Selection was not successful while Practice view was active; use successful Library selection 18 only"
+  },
+  "cleanup": {
+    "ownedProcessesStopped": true,
+    "existingUserAppsPreserved": true
+  }
+}
