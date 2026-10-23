@@ -1,0 +1,246 @@
+{
+  "schemaVersion": 1,
+  "kind": "shapenote-transcription-acceptance-decision",
+  "contractStatus": "proposed",
+  "decisionId": "synthetic-decision-1",
+  "recordedAt": "2026-10-22T12:00:00Z",
+  "subject": {
+    "recordId": "synthetic-record",
+    "edition": "synthetic-edition",
+    "extent": {
+      "description": "Synthetic first measure, four voices; no real score",
+      "sourcePages": [
+        "synthetic-page-1"
+      ],
+      "partIds": [
+        "S",
+        "A",
+        "T",
+        "B"
+      ],
+      "measureIds": [
+        "1"
+      ],
+      "completeWork": false
+    }
+  },
+  "bundle": {
+    "schemaVersion": 1,
+    "manifestSha256": "1111111111111111111111111111111111111111111111111111111111111111",
+    "sourceSha256": "2222222222222222222222222222222222222222222222222222222222222222",
+    "producer": {
+      "repository": "fixture://synthetic-producer",
+      "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "dirty": false,
+      "exporterSha256": "4444444444444444444444444444444444444444444444444444444444444444"
+    },
+    "actualWriterSha256": "5555555555555555555555555555555555555555555555555555555555555555",
+    "payloadSha256": {
+      "candidate.musicxml": "6666666666666666666666666666666666666666666666666666666666666666",
+      "candidate.mxl": "7777777777777777777777777777777777777777777777777777777777777777",
+      "report.json": "8888888888888888888888888888888888888888888888888888888888888888",
+      "resolved-reading.json": "9999999999999999999999999999999999999999999999999999999999999999",
+      "comparison.json": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    "researchFlags": {
+      "sourceCertified": false,
+      "safeToPromote": false
+    }
+  },
+  "privateEvidenceLocator": "private://synthetic/evidence-root",
+  "evidence": [
+    {
+      "id": "integrity",
+      "kind": "integrity",
+      "locator": "private://synthetic/integrity",
+      "sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+      "subjectSha256": "1111111111111111111111111111111111111111111111111111111111111111"
+    },
+    {
+      "id": "parsing",
+      "kind": "parsing",
+      "locator": "private://synthetic/parsing",
+      "sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+      "subjectSha256": "1111111111111111111111111111111111111111111111111111111111111111"
+    },
+    {
+      "id": "engraving",
+      "kind": "engraving",
+      "locator": "private://synthetic/engraving",
+      "sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+      "subjectSha256": "1111111111111111111111111111111111111111111111111111111111111111"
+    },
+    {
+      "id": "usefulPartial",
+      "kind": "usefulPartial",
+      "locator": "private://synthetic/usefulPartial",
+      "sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+      "subjectSha256": "1111111111111111111111111111111111111111111111111111111111111111"
+    },
+    {
+      "id": "sourceFidelity",
+      "kind": "sourceFidelity",
+      "locator": "private://synthetic/sourceFidelity",
+      "sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+      "subjectSha256": "2222222222222222222222222222222222222222222222222222222222222222"
+    },
+    {
+      "id": "exactMapping",
+      "kind": "exactMapping",
+      "locator": "private://synthetic/exactMapping",
+      "sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+      "subjectSha256": "1111111111111111111111111111111111111111111111111111111111111111"
+    },
+    {
+      "id": "authorization",
+      "kind": "authorization",
+      "locator": "private://synthetic/authorization",
+      "sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+      "subjectSha256": "1111111111111111111111111111111111111111111111111111111111111111"
+    },
+    {
+      "id": "humanImage",
+      "kind": "humanImage",
+      "locator": "private://synthetic/humanImage",
+      "sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+      "subjectSha256": "2222222222222222222222222222222222222222222222222222222222222222"
+    }
+  ],
+  "owner": {
+    "name": "Synthetic decision owner",
+    "authorizationEvidence": [
+      "authorization"
+    ]
+  },
+  "decision": "accept",
+  "decisionReasons": [
+    "Exercise the accepted admission declaration schema only."
+  ],
+  "humanImageReview": {
+    "disposition": "matched",
+    "reviewer": "Synthetic human reviewer",
+    "reviewedAt": "2026-10-22T11:00:00Z",
+    "sourceSha256": "2222222222222222222222222222222222222222222222222222222222222222",
+    "extent": {
+      "description": "Synthetic first measure, four voices; no real score",
+      "sourcePages": [
+        "synthetic-page-1"
+      ],
+      "partIds": [
+        "S",
+        "A",
+        "T",
+        "B"
+      ],
+      "measureIds": [
+        "1"
+      ],
+      "completeWork": false
+    },
+    "evidence": [
+      "humanImage"
+    ],
+    "note": "Fictional evidence; this fixture certifies nothing."
+  },
+  "assessments": {
+    "integrity": {
+      "disposition": "passed",
+      "evidence": [
+        "integrity"
+      ],
+      "note": "Synthetic declaration only; no underlying review or source exists."
+    },
+    "parsing": {
+      "disposition": "passed",
+      "evidence": [
+        "parsing"
+      ],
+      "note": "Synthetic declaration only; no underlying review or source exists."
+    },
+    "engraving": {
+      "disposition": "passed",
+      "evidence": [
+        "engraving"
+      ],
+      "note": "Synthetic declaration only; no underlying review or source exists."
+    },
+    "usefulPartial": {
+      "disposition": "passed",
+      "evidence": [
+        "usefulPartial"
+      ],
+      "note": "Synthetic declaration only; no underlying review or source exists."
+    },
+    "sourceFidelity": {
+      "disposition": "passed",
+      "evidence": [
+        "sourceFidelity"
+      ],
+      "note": "Synthetic declaration only; no underlying review or source exists."
+    },
+    "exactMapping": {
+      "disposition": "passed",
+      "evidence": [
+        "exactMapping"
+      ],
+      "note": "Synthetic declaration only; no underlying review or source exists."
+    },
+    "publicationRights": {
+      "disposition": "unknown",
+      "evidence": [],
+      "note": "Synthetic declaration only; no underlying review or source exists."
+    },
+    "xmlDownload": {
+      "disposition": "unknown",
+      "evidence": [],
+      "note": "Synthetic declaration only; no underlying review or source exists."
+    },
+    "mxlDownload": {
+      "disposition": "unknown",
+      "evidence": [],
+      "note": "Synthetic declaration only; no underlying review or source exists."
+    },
+    "uiLabels": {
+      "disposition": "unknown",
+      "evidence": [],
+      "note": "Synthetic declaration only; no underlying review or source exists."
+    },
+    "writtenPlayback": {
+      "disposition": "unknown",
+      "evidence": [],
+      "note": "Synthetic declaration only; no underlying review or source exists."
+    },
+    "encodedRepeatPlayback": {
+      "disposition": "unknown",
+      "evidence": [],
+      "note": "Synthetic declaration only; no underlying review or source exists."
+    },
+    "hostedReleaseQa": {
+      "disposition": "unknown",
+      "evidence": [],
+      "note": "Synthetic declaration only; no underlying review or source exists."
+    },
+    "nativeReleaseQa": {
+      "disposition": "unknown",
+      "evidence": [],
+      "note": "Synthetic declaration only; no underlying review or source exists."
+    }
+  },
+  "unsupportedSemantics": [],
+  "uncertainties": [],
+  "policyRestrictions": [],
+  "remainingBlockers": {
+    "admission": [],
+    "publication": [
+      "Rights, download/playback, UI and release evidence remain unknown."
+    ]
+  },
+  "publication": "blocked",
+  "predecessors": {
+    "disposition": "none",
+    "records": []
+  },
+  "residualAtlasIssues": [
+    "https://github.com/jjjhenriksen/shapenote-atlas/issues/495"
+  ]
+}
