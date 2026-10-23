@@ -88,8 +88,8 @@ def validate_reading(reading, protocol, protocol_pin, leaves):
         leaf = page.get('pdfLeaf')
         require(type(leaf) is int and leaf in leaves and leaf not in by_leaf and
                 type(page.get('pdfIndex')) is int and page['pdfIndex'] == leaf - 1, 'Reading leaf coverage/index mismatch')
-        require(page.get('printedPageLabel') is None or
-                (type(page['printedPageLabel']) is str and bool(page['printedPageLabel'].strip())), 'Invalid printed label')
+        require('printedPageLabel' in page and (page['printedPageLabel'] is None or
+                (type(page['printedPageLabel']) is str and bool(page['printedPageLabel'].strip()))), 'Invalid printed label')
         require(page.get('pageDisposition') in DISPOSITIONS, 'Invalid page disposition')
         strings(page.get('uncertainties'))
         require(type(page.get('continuationEvidence')) is str and bool(page['continuationEvidence'].strip()),
@@ -108,6 +108,8 @@ def validate_reading(reading, protocol, protocol_pin, leaves):
             require(opening_count > 0, 'Opening disposition lacks an opening heading')
         if page['pageDisposition'] in ('continuation-only', 'non-music'):
             require(opening_count == 0, 'Disposition contradicts opening heading')
+        if any(heading['role'] == 'uncertain' for heading in page['headings']):
+            require(bool(page['uncertainties']), 'Uncertain heading requires a page uncertainty')
         by_leaf[leaf] = page
     require(set(by_leaf) == set(leaves), 'Incomplete reading coverage')
     return by_leaf

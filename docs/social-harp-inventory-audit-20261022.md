@@ -114,7 +114,10 @@ conversion and complete selected-leaf coverage. It requires distinct declared
 reader IDs, enumerated opening headings for opening dispositions, normalized
 heading coordinates, explicit continuation evidence and uncertainties. Hashes
 are consistency pins, not signatures or evidence that readers obeyed their
-instructions. The supplied protocol's page count is not independently parsed
+instructions. An uncertain heading role requires an explicit page uncertainty,
+so matching uncertain roles cannot disappear from the unresolved list. Printed
+page labels must be present, with explicit null allowed when unknown. The
+supplied protocol's page count is not independently parsed
 from the PDF by this stdlib tool.
 
 Comparison uses page disposition, literal printed label, and `(role, heading)`
