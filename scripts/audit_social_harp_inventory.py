@@ -5,7 +5,6 @@ import argparse
 from collections import Counter
 import hashlib
 import json
-import math
 from pathlib import Path
 import re
 import sys
@@ -102,7 +101,7 @@ def validate_reading(reading, protocol, protocol_pin, leaves):
                     and heading.get('role') in ROLES, 'Invalid heading observation')
             box = heading.get('bbox')
             require(type(box) is list and len(box) == 4 and
-                    all(type(v) in (int, float) and math.isfinite(v) and 0 <= v <= 1 for v in box)
+                    all(type(v) in (int, float) and 0 <= v <= 1 for v in box)
                     and box[0] < box[2] and box[1] < box[3], 'Invalid normalized heading coordinates')
             opening_count += heading['role'] == 'opening'
         if page['pageDisposition'] in ('opening-present', 'mixed'):

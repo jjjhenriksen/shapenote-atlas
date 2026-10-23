@@ -102,7 +102,8 @@ class SocialHarpInventoryAudit(unittest.TestCase):
         for pages in ([], [original['pages'][0], original['pages'][0]],
                       [{**original['pages'][0], 'pdfIndex': 1}],
                       [{**original['pages'][0], 'pdfLeaf': 2}],
-                      [{**original['pages'][0], 'headings': [{**original['pages'][0]['headings'][0], 'bbox': [1,0,0,1]}]}]):
+                      [{**original['pages'][0], 'headings': [{**original['pages'][0]['headings'][0], 'bbox': [1,0,0,1]}]}],
+                      [{**original['pages'][0], 'headings': [{**original['pages'][0]['headings'][0], 'bbox': [10**500,0,1,1]}]}]):
             self.a = {**deepcopy(original), 'pages': pages}
             self.refresh_readers()
             with self.subTest(pages=pages), self.assertRaises(ValueError):
