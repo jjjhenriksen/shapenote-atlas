@@ -9,7 +9,16 @@ import re
 import tempfile
 from xml.etree import ElementTree as ET
 import zipfile
-import zlib
+
+# ZIP's optional compression backends raise their own parser exceptions.
+try:
+    from lzma import LZMAError
+except ImportError:
+    LZMAError = RuntimeError
+try:
+    from zlib import error as ZlibError
+except ImportError:
+    ZlibError = RuntimeError
 
 ROOT = Path(__file__).resolve().parents[1]
 FILES = frozenset(('candidate.musicxml', 'candidate.mxl', 'report.json',
@@ -49,7 +58,7 @@ def verify_archive(payload):
             if rootfiles != ['score.musicxml']:
                 raise ValueError('MXL container rootfile differs from candidate XML')
     except (zipfile.BadZipFile, ET.ParseError, LookupError, RuntimeError,
-            NotImplementedError, zlib.error) as exc:
+            NotImplementedError, OSError, EOFError, ZlibError, LZMAError) as exc:
         raise ValueError('Invalid MXL/XML payload') from exc
 
 

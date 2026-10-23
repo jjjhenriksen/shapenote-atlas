@@ -170,6 +170,31 @@ class TranscriptionImport(unittest.TestCase):
         self.assert_rejected_without_staging(pin, 'Invalid MXL/XML')
         self.assert_cli_error(pin)
 
+    def test_corrupt_compressed_zip_members_have_controlled_cli_errors(self):
+        xml = (self.bundle / 'candidate.musicxml').read_bytes()
+        for dependency, compression, offset in (
+                ('zlib', zipfile.ZIP_DEFLATED, 0),
+                ('bz2', zipfile.ZIP_BZIP2, 0),
+                ('lzma', zipfile.ZIP_LZMA, 4)):
+            try:
+                __import__(dependency)
+            except ImportError:
+                continue
+            with self.subTest(compression=dependency):
+                stream = io.BytesIO()
+                with zipfile.ZipFile(stream, 'w', compression=compression) as archive:
+                    archive.writestr('score.musicxml', xml)
+                    archive.writestr('META-INF/container.xml',
+                                    '<container><rootfile full-path="score.musicxml"/></container>')
+                    info = archive.getinfo('score.musicxml')
+                raw = bytearray(stream.getvalue())
+                # Corrupt the compression header/properties in the first member.
+                start = info.header_offset + 30 + len(info.filename.encode()) + len(info.extra)
+                raw[start + offset] = 255
+                pin = self.write_payload('candidate.mxl', bytes(raw), 'archiveSha256')
+                self.assert_rejected_without_staging(pin, 'Invalid MXL/XML')
+                self.assert_cli_error(pin)
+
     def test_failed_staging_cleans_temporary_files_and_allows_retry(self):
         for method, filename in (('write_bytes', 'candidate.mxl'),
                                  ('write_text', 'atlas-import-receipt.json'),
