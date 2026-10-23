@@ -195,6 +195,24 @@ class TranscriptionImport(unittest.TestCase):
                 self.assert_rejected_without_staging(pin, 'Invalid MXL/XML')
                 self.assert_cli_error(pin)
 
+    def test_mismatched_score_size_is_rejected_without_decompression(self):
+        try:
+            __import__('zlib')
+        except ImportError:
+            self.skipTest('DEFLATE backend unavailable')
+        xml = (self.bundle / 'candidate.musicxml').read_bytes()
+        stream = io.BytesIO()
+        with zipfile.ZipFile(stream, 'w', compression=zipfile.ZIP_DEFLATED) as archive:
+            archive.writestr('score.musicxml', xml + b' ' * (1024 * 1024))
+            archive.writestr('META-INF/container.xml',
+                            '<container><rootfile full-path="score.musicxml"/></container>')
+        pin = self.write_payload('candidate.mxl', stream.getvalue(), 'archiveSha256')
+        with patch.object(zipfile.ZipFile, 'read',
+                          side_effect=AssertionError('Mismatched score must not be decompressed')) as read:
+            self.assert_rejected_without_staging(pin, 'MXL score size')
+            read.assert_not_called()
+        self.assert_cli_error(pin)
+
     def test_failed_staging_cleans_temporary_files_and_allows_retry(self):
         for method, filename in (('write_bytes', 'candidate.mxl'),
                                  ('write_text', 'atlas-import-receipt.json'),
