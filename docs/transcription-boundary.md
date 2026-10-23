@@ -36,6 +36,9 @@ producer repository/full commit/dirty marker/exporter hash, and SHA-256 for each
 payload. `sourceCertified` and `safeToPromote` must both be false. The importer
 checks the fixed file list, external manifest pin, every payload hash,
 report/reading/source bindings, report eligibility and MXL/XML consistency.
+Malformed JSON structures, archives and XML are rejected before staging, with
+an error message and exit status 2. This includes checking XML well-formedness;
+it does not establish musical correctness or source accuracy.
 
 Atlas has a deliberately independent stdlib-only verifier/stager:
 
@@ -57,6 +60,9 @@ Staging is confined to ignored
 `work/transcription-imports/<manifest-sha256>/bundle/`, with a separate Atlas
 import receipt. No output-path override, promotion flag, public asset/catalogue
 write or playback integration is provided. Staging never makes a score accepted.
+The bundle and receipt are written to a temporary sibling before publishing the
+complete import directory. Failed writes are cleaned up so the same pin can be
+retried; existing import directories are not replaced.
 Full source/reader/adjudication evidence stays in its retained local evidence
 root; the compact exchange bundle is not a substitute for that archive.
 
