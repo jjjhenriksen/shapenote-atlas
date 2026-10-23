@@ -39,6 +39,11 @@ final class AtlasAppModel: ObservableObject {
         }
     }
 
+    func pageLoadFailed(_ message: String) {
+        errorMessage = "The atlas page could not be loaded: \(message)"
+        url = nil
+    }
+
     func retry() {
         server.stop()
         url = nil
