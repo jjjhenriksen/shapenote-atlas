@@ -1,3 +1,4 @@
+import AppKit
 import Combine
 import Foundation
 
@@ -7,7 +8,24 @@ final class AtlasAppModel: ObservableObject {
     @Published var errorMessage: String?
     @Published var palette = AtlasTheme.palette(bookId: "sh1991", mode: "dark")
 
-    private let server = LocalDashboardServer()
+    private let server: LocalDashboardServer
+    private let notificationCenter: NotificationCenter
+    private var terminationObserver: NSObjectProtocol?
+
+    init(server: LocalDashboardServer = LocalDashboardServer(),
+         notificationCenter: NotificationCenter = .default) {
+        self.server = server
+        self.notificationCenter = notificationCenter
+        // App termination need not release the model. Observe quit without
+        // retaining it, and stop only its owned server on the main actor.
+        terminationObserver = notificationCenter.addObserver(
+            forName: NSApplication.willTerminateNotification, object: nil, queue: .main
+        ) { [weak self] _ in
+            MainActor.assumeIsolated {
+                self?.server.stop()
+            }
+        }
+    }
 
     func updateTheme(bookId: String, mode: String) {
         palette = AtlasTheme.palette(bookId: bookId, mode: mode)
@@ -52,6 +70,9 @@ final class AtlasAppModel: ObservableObject {
     }
 
     deinit {
+        if let terminationObserver {
+            notificationCenter.removeObserver(terminationObserver)
+        }
         server.stop()
     }
 }
