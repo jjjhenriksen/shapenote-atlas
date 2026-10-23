@@ -64,3 +64,7 @@ No transcriber checkout, import path, symlink, submodule, npm/Python dependency,
 source scan or generated real score is added to Atlas. A new bundle schema
 requires explicit consumer changes. Future accepted-score publication needs a
 separate acceptance contract, not reinterpretation of a research candidate.
+
+The separate [proposed acceptance-declaration v1](transcription-acceptance-v1.md)
+adds a read-only local schema check for future decision records. Passing that
+check does not grant acceptance or change the verifier/stager boundary.
