@@ -67,15 +67,15 @@ def unavailable(value, name):
             name + ' must be a list of nonempty strings')
 
 
-def normalize_reading(reading):
+def normalize_reading(reading, *, reading_version=2, profile=PROFILE, part_ids=PART_IDS):
     """Validate the complete resolved-reading v2 vocabulary and normalize music."""
     fields(reading, ('schemaVersion', 'profile', 'sourceSha256', 'title', 'header',
                      'parts', 'uncertainties', 'unavailableSemantics'),
            ('schemaVersion', 'profile', 'sourceSha256', 'header', 'parts'),
            'reading')
-    require(type(reading['schemaVersion']) is int and reading['schemaVersion'] == 2,
-            'reading schemaVersion must be 2')
-    require(reading['profile'] == PROFILE, 'unsupported reading profile')
+    require(type(reading['schemaVersion']) is int and reading['schemaVersion'] == reading_version,
+            'reading schemaVersion must be ' + str(reading_version))
+    require(reading['profile'] == profile, 'unsupported reading profile')
     require(reading.get('title') is None or isinstance(reading['title'], str),
             'title must be a string or null')
     uncertainties(reading.get('uncertainties', []), 'reading uncertainties')
@@ -87,21 +87,21 @@ def normalize_reading(reading):
     require(isinstance(header['time'], list) and len(header['time']) == 2, 'time must have two values')
     for value in header['time']:
         integer(value, 'time value', 1)
-    require(isinstance(header['clefs'], list) and len(header['clefs']) == 3,
-            'exactly three ordered clefs are required')
+    require(isinstance(header['clefs'], list) and len(header['clefs']) == len(part_ids),
+            'ordered clef count must match the explicit profile')
     clefs = []
     for clef in header['clefs']:
         fields(clef, ('sign', 'line'), ('sign', 'line'), 'clef')
         require(clef['sign'] in ('G', 'F', 'C'), 'unsupported clef sign')
         clefs.append((clef['sign'], integer(clef['line'], 'clef line', 1, 5)))
-    require(isinstance(reading['parts'], list) and len(reading['parts']) == 3,
-            'exactly three parts are required')
+    require(isinstance(reading['parts'], list) and len(reading['parts']) == len(part_ids),
+            'part count must match the explicit profile')
     result = {'title': reading.get('title', 'Image-first research candidate') or '', 'fifths': header['fifths'],
               'time': tuple(header['time']), 'clefs': clefs, 'parts': []}
     measure_count = None
     for part_no, part in enumerate(reading['parts']):
         fields(part, ('id', 'name', 'measures'), ('id', 'name', 'measures'), 'part')
-        require(part['id'] == PART_IDS[part_no], 'parts must be ordered P1/P2/P3')
+        require(part['id'] == part_ids[part_no], 'parts must match the explicit ordered profile IDs')
         text(part['name'], 'part name')
         measures = part['measures']
         require(isinstance(measures, list) and bool(measures), 'measure coverage must be nonempty')
@@ -259,9 +259,13 @@ def parse_document(raw):
         raise ValueError('V2 profile: invalid XML: ' + str(exc)) from exc
 
 
-def parse_xml(raw):
-    """Parse only the supported three-monophonic-part MusicXML wire subset."""
-    root = parse_document(raw)
+def parse_xml(raw, *, part_ids=PART_IDS):
+    """Parse the bounded MusicXML subset; v2 defaults to its three-part layout."""
+    return parse_xml_tree(parse_document(raw), part_ids=part_ids)
+
+
+def parse_xml_tree(root, *, part_ids=PART_IDS):
+    """Check a parsed consumer tree without changing literal character data."""
     xml_node(root, 'score-partwise', ('work', 'identification', 'part-list', 'part'), ('version',))
     require(root.attrib == {'version': '4.0'}, 'MusicXML version must be 4.0')
     work = one(root, 'work')
@@ -276,17 +280,17 @@ def parse_xml(raw):
     xml_node(part_list, 'part-list', ('score-part',))
     score_parts = list(part_list)
     parts = root.findall('part')
-    require(len(score_parts) == len(parts) == 3, 'XML must have exactly three parts')
+    require(len(score_parts) == len(parts) == len(part_ids), 'XML part count must match the explicit profile')
     result = {'title': title, 'clefs': [], 'parts': []}
     for part_no, (score_part, part) in enumerate(zip(score_parts, parts)):
         xml_node(score_part, 'score-part', ('part-name',), ('id',))
         xml_node(part, 'part', ('measure',), ('id',))
-        require(score_part.attrib == part.attrib == {'id': PART_IDS[part_no]},
-                'XML parts must be ordered P1/P2/P3')
+        require(score_part.attrib == part.attrib == {'id': part_ids[part_no]},
+                'XML parts must match the explicit ordered profile IDs')
         name = leaf(one(score_part, 'part-name'), 'part-name')
         measures = list(part)
         require(bool(measures), 'XML measure coverage must be nonempty')
-        normalized = {'id': PART_IDS[part_no], 'name': name, 'measures': []}
+        normalized = {'id': part_ids[part_no], 'name': name, 'measures': []}
         divisions = None
         for measure_no, measure in enumerate(measures):
             xml_node(measure, 'measure', ('attributes', 'note', 'barline', 'direction'), ('number',), ordered=False)
@@ -481,6 +485,11 @@ def verify_metadata(manifest, report, reading, comparison, xml_raw):
     require(report.get('secondParserProfileSemanticsPassed') is True,
             'second parser profile semantics must pass')
     expected = verify_profile(reading, xml_raw)
+    verify_comparison(report, comparison, expected)
+
+
+def verify_comparison(report, comparison, expected):
+    """Shared consumer-side count and comparison evidence checks."""
     measure_counts = [len(part['measures']) for part in expected['parts']]
     require(isinstance(report.get('measureCounts'), list)
             and all(type(value) is int for value in report['measureCounts'])

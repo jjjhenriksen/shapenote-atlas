@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Atlas consumer for opt-in research bundle versions 1 and 2. Stage private research only; never publish."""
+"""Atlas consumer for opt-in research bundle versions 1, 2 and 3. Stage private research only; never publish."""
 import argparse
 import hashlib
 import io
@@ -68,11 +68,14 @@ def verify_archive(payload, xml_parser=None):
 
 def verify(directory, expected_manifest_sha256, bundle_version=1):
     """Independent stdlib-only consumer; no transcriber runtime imports."""
-    if type(bundle_version) is not int or bundle_version not in (1, 2):
+    if type(bundle_version) is not int or bundle_version not in (1, 2, 3):
         raise ValueError('Unsupported requested bundle version')
-    if bundle_version == 2:
-        import transcription_bundle_v2 as v2
-        parse_json = v2.strict_json_object
+    if bundle_version in (2, 3):
+        if bundle_version == 2:
+            import transcription_bundle_v2 as profile_consumer
+        else:
+            import transcription_bundle_v3 as profile_consumer
+        parse_json = profile_consumer.strict_json_object
     else:
         parse_json = json_object
     directory = Path(directory)
@@ -131,9 +134,9 @@ def verify(directory, expected_manifest_sha256, bundle_version=1):
                         ('resolvedReadingSha256', 'resolved-reading.json')):
         if report.get(field) != sha(payload[name]):
             raise ValueError('Assembly report hash drift: ' + name)
-    if bundle_version == 2:
-        v2.verify_metadata(manifest, report, reading, comparison, payload['candidate.musicxml'])
-        verify_archive(payload, xml_parser=v2.parse_document)
+    if bundle_version in (2, 3):
+        profile_consumer.verify_metadata(manifest, report, reading, comparison, payload['candidate.musicxml'])
+        verify_archive(payload, xml_parser=profile_consumer.parse_document)
     else:
         verify_archive(payload)
     return manifest, {**payload, 'bundle.json': raw}
@@ -155,8 +158,10 @@ def stage(directory, expected_manifest_sha256, root=ROOT, bundle_version=1):
                'producer': manifest['producer'], 'sourceSha256': manifest['sourceSha256'],
                'status': 'staged-research-only', 'sourceCertified': False,
                'safeToPromote': False, 'catalogueModified': False, 'publicAssetsModified': False}
-    if bundle_version == 2:
-        receipt.update(readingContractVersion=2, profile=manifest['profile'])
+    if bundle_version in (2, 3):
+        receipt.update(readingContractVersion=bundle_version, profile=manifest['profile'])
+    if bundle_version == 3:
+        receipt['literalPrintedLabelEngravingVerified'] = False
     # Publish only a complete bundle and receipt. A failed write removes the
     # temporary sibling, allowing the same pinned bundle to be retried.
     with tempfile.TemporaryDirectory(prefix='.bundle-', dir=base) as temporary:
@@ -176,7 +181,7 @@ def main():
     parser.add_argument('directory', type=Path)
     parser.add_argument('--expected-manifest-sha256', required=True)
     parser.add_argument('--verify-only', action='store_true')
-    parser.add_argument('--bundle-version', type=int, choices=(1, 2), default=1)
+    parser.add_argument('--bundle-version', type=int, choices=(1, 2, 3), default=1)
     args = parser.parse_args()
     try:
         if args.verify_only:
