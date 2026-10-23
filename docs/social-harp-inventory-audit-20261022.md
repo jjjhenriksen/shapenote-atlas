@@ -89,20 +89,53 @@ physical leaves overall remain unresolved by the conservative receipt rules.
 The original first-cohort receipt remains unchanged; no consumed observation was
 silently repaired or rescored for nicer agreement.
 
-Across the two validated protocols, the union is 81 distinct physical leaves.
-Within the coordinator-proposed candidate music range 17–254, 157 leaves have
-not yet been inspected by this census. These coverage figures come from the
-actual frozen protocols and complete reader coverage, not catalogue counts.
-The next bounded development packet has targets 17–32 (16 leaves), with
-context leaves 16 and 33, under separately frozen protocol
+At the end of those first two cohorts, the validated protocol union was 81
+physical leaves within the coordinator-proposed candidate music range 17–254,
+with 157 not yet covered. Those figures are retained as that processing point's
+coverage, not a catalogue count.
+
+## Development v3: physical leaves 17–32
+
+The third packet froze targets 17–32 and context 16 and 33 under protocol
 `6a2c41bf9659d565775f81213dd1bbe2177c62ceb8cb0287027ad226359e4711`.
 Context leaf 16 is outside the candidate music span. Two fresh source-only
-contexts were dispatched after capacity coordination. This packet is still in
-progress; no new observations or coverage are included here. One reader was
-technically interrupted and resumed in the same context to obtain a progress
-checkpoint; its existing work was to be preserved, and no other observations
-were disclosed. The completed other reading remains sealed pending both raw
-freezes. Running status alone is not evidence of an engine failure.
+contexts inspected all 18 images. Both complete readings and metadata were
+hash-checked and made read-only before either reading was disclosed or compared.
+
+The [separate v3 receipt](experiments/social-harp-inventory-20261022-development-v3.json)
+uses processing version 2 and retains all pins, per-reader role counts and
+unresolved leaves. All 16 targets agree as opening-present, with matching literal
+heading signatures under the frozen rule. Each reading declares 21 opening
+headings and two other headings across those targets. These are supplied-role
+counts, not a count of accepted musical works or a publisher's pieces. Target
+leaf 17 and context leaf 33 remain unresolved from retained reader uncertainty;
+no observation has been repaired or rescored. All 18 page dispositions, printed
+labels and literal heading signatures agree, which does not resolve uncertainty.
+
+Reader A was prematurely interrupted by the coordinator to request progress
+while its authoritative state was RUNNING, then resumed in the same context with
+its own observations preserved. It reported all 18 images inspected and no
+content effect from that technical interruption. No replacement reader or other
+reading was supplied. The interruption and instruction-level isolation limits
+remain evidence limitations, with no independent process attestation. Frozen
+metadata pins are `30408d3576e5f76829ac661c5eb850b6fdda9be688e4e5d2b53d456fb51cdda2`
+and `9665bbfaba1be6d4bf0582ccd8ad45c3692da43e39344f229ecf31d4ec97a9f4`.
+
+The role-count implementation was committed and separately pinned after reader
+dispatch but before any v3 observation disclosure. Old/new processing snapshots
+and both new derived directories are retained; removing the added version/hash
+and role-count fields makes the new result identical to the old processing
+result. The frozen protocol, source and raw readings remain unchanged. This is
+development evidence, with coordinator/OCR exposure explicit, not a held-out test.
+
+Across all three completed protocols, the union covers 98 distinct physical
+leaves within candidate range 17–254, leaving 140 not yet covered. Context leaf
+16 is tracked separately and excluded from that figure. Coverage comes from
+actual protocols with complete paired reading validation. A proposed next
+bounded cohort has 16 new targets (34, 41–44 and 48–58), with adjacent context
+33, 35, 40, 45, 47 and 59: 22 images total. Context overlap must remain explicit;
+dispatch needs capacity coordination and a separately frozen protocol. No next
+cohort is included in this draft.
 
 ## Engineering separation and processing versions
 
@@ -124,11 +157,9 @@ selected continuation targets. This counts supplied roles; it does not resolve
 uncertainty, count unique musical works or establish a publisher's piece unit.
 Prior-context overlap must not be summed as new coverage.
 
-The new counter implementation was committed and separately pinned after the
-next packet's dispatch but before any of its observations were disclosed. Its
-source/protocol/raw freezes retain their original identities. No new-cohort
-observations are included in these derivation results. Processing version 2 and
-development cohort v2 are separate labels.
+The first-two-cohort derivation receipt excludes v3 observations; v3 has its own
+separate receipt above. Processing version 2 and development cohort v2 are
+separate labels. All original source/protocol/raw freezes retain their identities.
 
 ## Read-only audit command
 
