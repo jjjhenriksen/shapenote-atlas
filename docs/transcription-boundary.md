@@ -85,3 +85,13 @@ monophonic four-shape parts. Its independent parser checks supported reading/XML
 semantics and version/profile/count agreement before the same private atomic
 staging. Default v1 behavior remains unchanged and rejects v2. This extension
 does not certify sources or authorize catalogue, public, UI or playback changes.
+
+## Explicit lyric-observation v3
+
+The [v3 lyric-observation contract](transcription-bundle-v3.md) adds explicit
+three- or four-part monophonic profiles under `--bundle-version 3`. Internal
+lyric stream IDs and per-attachment printed-label observations remain distinct;
+unknown observations block assembled candidates. A strict XML metadata table
+preserves present/absent observations, with literal label engraving explicitly
+unverified. V1/v2 behavior and the private staging/authority boundary remain
+unchanged.

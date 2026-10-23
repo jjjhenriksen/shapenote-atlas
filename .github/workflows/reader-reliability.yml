@@ -23,6 +23,7 @@ jobs:
         run: |
           python3 -m unittest discover -s tests -p test_agent_03_semantic_musicxml.py
           python3 -m unittest discover -s tests -p test_transcription_bundle_import.py
+          python3 -m unittest discover -s tests -p test_transcription_bundle_v3_import.py
           python3 -m unittest discover -s tests -p test_transcription_acceptance.py
           python3 -m unittest discover -s tests -p test_transcription_acceptance_provenance.py
           python3 -m unittest discover -s tests -p test_social_harp_inventory_audit.py
