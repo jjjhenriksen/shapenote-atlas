@@ -58,8 +58,12 @@ export function schedulePracticeAudio(audio, session, events, {
         const event = queue[cursor++];
         const nominalStart = startedAt + Number(event.scheduledOnset) * beatSeconds;
         const duration = Math.max(0.12, Number(event.beats) * beatSeconds * (event.tiedSegments > 1 ? 1 : 0.9));
-        // A throttled/background tab must not burst already-finished notes.
-        if (nominalStart + duration + 0.15 <= context.currentTime) continue;
+        const start = Math.max(context.currentTime + 0.02, nominalStart);
+        const releaseAt = nominalStart + duration * (event.tiedSegments > 1 ? 0.97 : 0.72);
+        const stopAt = nominalStart + duration + 0.15;
+        // A late wake shortens the attack, never shifts the note's deadlines or
+        // replays a fresh attack for an envelope already in its decay phase.
+        if (start >= releaseAt) continue;
         const voice = { oscillator: null, gain: null, pan: null, released: false, release(stop = false) {
           if (this.released) return;
           this.released = true;
@@ -78,17 +82,16 @@ export function schedulePracticeAudio(audio, session, events, {
         const partIndex = partNames.indexOf(event.partName);
         oscillator.type = partIndex % 2 ? 'triangle' : 'sine';
         oscillator.frequency.value = 440 * Math.pow(2, (pitchToMidi(event) + transpose - 69) / 12);
-        const start = Math.max(context.currentTime + 0.02, nominalStart);
         const noteLevel = Math.min(0.18, 0.72 / Math.max(partNames.length, 1));
         gain.gain.setValueAtTime(0, start);
-        gain.gain.linearRampToValueAtTime(noteLevel, start + 0.025);
-        gain.gain.setTargetAtTime(0, start + duration * (event.tiedSegments > 1 ? 0.97 : 0.72), 0.08);
+        gain.gain.linearRampToValueAtTime(noteLevel, Math.min(start + 0.025, releaseAt));
+        gain.gain.setTargetAtTime(0, releaseAt, 0.08);
         oscillator.connect(gain);
         if (pan) { pan.pan.value = (partIndex - (partNames.length - 1) / 2) * 0.22; gain.connect(pan); pan.connect(master); }
         else gain.connect(master);
         oscillator.onended = () => voice.release();
         oscillator.start(start);
-        oscillator.stop(start + duration + 0.15);
+        oscillator.stop(stopAt);
       }
       if (cursor === queue.length && audio.schedulerTimer !== null) {
         timers.clearInterval(audio.schedulerTimer);
