@@ -1,0 +1,228 @@
+{
+  "agreedTargetDispositionCounts": {
+    "continuation-only": 4
+  },
+  "contextLeafCount": 8,
+  "headingsAndLyricsOmitted": true,
+  "humanReviewRequired": true,
+  "inventoryReconciled": false,
+  "kind": "social-harp-bounded-visual-inventory-audit",
+  "pages": [
+    {
+      "agreedDisposition": "mixed",
+      "disagreements": [
+        "headings"
+      ],
+      "headingCounts": [
+        2,
+        2
+      ],
+      "pdfIndex": 204,
+      "pdfLeaf": 205,
+      "target": false,
+      "uncertaintyCounts": [
+        1,
+        1
+      ]
+    },
+    {
+      "agreedDisposition": "continuation-only",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 205,
+      "pdfLeaf": 206,
+      "target": true,
+      "uncertaintyCounts": [
+        1,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [
+        "headings"
+      ],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 206,
+      "pdfLeaf": 207,
+      "target": false,
+      "uncertaintyCounts": [
+        1,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "mixed",
+      "disagreements": [
+        "headings"
+      ],
+      "headingCounts": [
+        2,
+        2
+      ],
+      "pdfIndex": 232,
+      "pdfLeaf": 233,
+      "target": false,
+      "uncertaintyCounts": [
+        1,
+        1
+      ]
+    },
+    {
+      "agreedDisposition": "continuation-only",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 233,
+      "pdfLeaf": 234,
+      "target": true,
+      "uncertaintyCounts": [
+        1,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [
+        "headings"
+      ],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 234,
+      "pdfLeaf": 235,
+      "target": false,
+      "uncertaintyCounts": [
+        1,
+        1
+      ]
+    },
+    {
+      "agreedDisposition": "continuation-only",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 242,
+      "pdfLeaf": 243,
+      "target": false,
+      "uncertaintyCounts": [
+        1,
+        1
+      ]
+    },
+    {
+      "agreedDisposition": "continuation-only",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 243,
+      "pdfLeaf": 244,
+      "target": true,
+      "uncertaintyCounts": [
+        1,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "continuation-only",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 244,
+      "pdfLeaf": 245,
+      "target": false,
+      "uncertaintyCounts": [
+        1,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "continuation-only",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 245,
+      "pdfLeaf": 246,
+      "target": false,
+      "uncertaintyCounts": [
+        1,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "continuation-only",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 246,
+      "pdfLeaf": 247,
+      "target": true,
+      "uncertaintyCounts": [
+        1,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "continuation-only",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 247,
+      "pdfLeaf": 248,
+      "target": false,
+      "uncertaintyCounts": [
+        1,
+        0
+      ]
+    }
+  ],
+  "protocolSha256": "2a1e0e65a051f36e873c416d2c02a4f21c205726bbf72a4aeb4a4d72811b4d05",
+  "readerIndependenceVerified": false,
+  "readerSha256": [
+    "68545f81ffe57322127042b2c1ec261f4bc4f9310e8715956ec06139c380914e",
+    "5344544a34e786da792cf3da2252528c1768972caa89fdb935d65c0a26769627"
+  ],
+  "reviewedLeafCount": 12,
+  "safeToPromote": false,
+  "schemaVersion": 1,
+  "sourceCertified": false,
+  "sourceSha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+  "status": "compared",
+  "targetLeafCount": 4,
+  "unresolvedLeaves": [
+    205,
+    206,
+    207,
+    233,
+    234,
+    235,
+    243,
+    244,
+    245,
+    246,
+    247,
+    248
+  ],
+  "wholeBookReviewed": false
+}

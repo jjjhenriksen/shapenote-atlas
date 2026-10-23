@@ -1,0 +1,1267 @@
+{
+  "agreedTargetDispositionCounts": {
+    "continuation-only": 33
+  },
+  "contextLeafCount": 42,
+  "headingsAndLyricsOmitted": true,
+  "humanReviewRequired": true,
+  "inventoryReconciled": false,
+  "kind": "social-harp-bounded-visual-inventory-audit",
+  "pages": [
+    {
+      "agreedDisposition": "mixed",
+      "disagreements": [
+        "headings"
+      ],
+      "headingCounts": [
+        2,
+        2
+      ],
+      "pdfIndex": 34,
+      "pdfLeaf": 35,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        1
+      ]
+    },
+    {
+      "agreedDisposition": "continuation-only",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 35,
+      "pdfLeaf": 36,
+      "target": true,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [
+        "headings"
+      ],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 36,
+      "pdfLeaf": 37,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [
+        "headings"
+      ],
+      "headingCounts": [
+        2,
+        2
+      ],
+      "pdfIndex": 37,
+      "pdfLeaf": 38,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "continuation-only",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 38,
+      "pdfLeaf": 39,
+      "target": true,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [
+        "headings"
+      ],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 39,
+      "pdfLeaf": 40,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [
+        "headings"
+      ],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 44,
+      "pdfLeaf": 45,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "continuation-only",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 45,
+      "pdfLeaf": 46,
+      "target": true,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [
+        "headings"
+      ],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 46,
+      "pdfLeaf": 47,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [
+        "headings"
+      ],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 62,
+      "pdfLeaf": 63,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "continuation-only",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 63,
+      "pdfLeaf": 64,
+      "target": true,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [
+        "headings"
+      ],
+      "headingCounts": [
+        2,
+        2
+      ],
+      "pdfIndex": 64,
+      "pdfLeaf": 65,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        1
+      ]
+    },
+    {
+      "agreedDisposition": "mixed",
+      "disagreements": [
+        "headings"
+      ],
+      "headingCounts": [
+        2,
+        2
+      ],
+      "pdfIndex": 70,
+      "pdfLeaf": 71,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        1
+      ]
+    },
+    {
+      "agreedDisposition": "continuation-only",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 71,
+      "pdfLeaf": 72,
+      "target": true,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [
+        "headings"
+      ],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 72,
+      "pdfLeaf": 73,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "mixed",
+      "disagreements": [],
+      "headingCounts": [
+        2,
+        2
+      ],
+      "pdfIndex": 90,
+      "pdfLeaf": 91,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        1
+      ]
+    },
+    {
+      "agreedDisposition": "continuation-only",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 91,
+      "pdfLeaf": 92,
+      "target": true,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [
+        "headings"
+      ],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 92,
+      "pdfLeaf": 93,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "mixed",
+      "disagreements": [
+        "headings"
+      ],
+      "headingCounts": [
+        2,
+        2
+      ],
+      "pdfIndex": 94,
+      "pdfLeaf": 95,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        1
+      ]
+    },
+    {
+      "agreedDisposition": "continuation-only",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 95,
+      "pdfLeaf": 96,
+      "target": true,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [
+        "headings"
+      ],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 96,
+      "pdfLeaf": 97,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "mixed",
+      "disagreements": [
+        "headings"
+      ],
+      "headingCounts": [
+        2,
+        2
+      ],
+      "pdfIndex": 142,
+      "pdfLeaf": 143,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        1
+      ]
+    },
+    {
+      "agreedDisposition": "continuation-only",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 143,
+      "pdfLeaf": 144,
+      "target": true,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [
+        "headings"
+      ],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 144,
+      "pdfLeaf": 145,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [
+        "headings"
+      ],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 145,
+      "pdfLeaf": 146,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "continuation-only",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 146,
+      "pdfLeaf": 147,
+      "target": true,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [
+        "headings"
+      ],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 147,
+      "pdfLeaf": 148,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        1
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [
+        "headings"
+      ],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 149,
+      "pdfLeaf": 150,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "continuation-only",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 150,
+      "pdfLeaf": 151,
+      "target": true,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [
+        "headings"
+      ],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 151,
+      "pdfLeaf": 152,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [
+        "headings"
+      ],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 159,
+      "pdfLeaf": 160,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "continuation-only",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 160,
+      "pdfLeaf": 161,
+      "target": true,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [
+        "headings"
+      ],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 161,
+      "pdfLeaf": 162,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "mixed",
+      "disagreements": [
+        "headings"
+      ],
+      "headingCounts": [
+        2,
+        2
+      ],
+      "pdfIndex": 172,
+      "pdfLeaf": 173,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        1
+      ]
+    },
+    {
+      "agreedDisposition": "continuation-only",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 173,
+      "pdfLeaf": 174,
+      "target": true,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [
+        "headings"
+      ],
+      "headingCounts": [
+        2,
+        2
+      ],
+      "pdfIndex": 174,
+      "pdfLeaf": 175,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [
+        "headings"
+      ],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 175,
+      "pdfLeaf": 176,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "continuation-only",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 176,
+      "pdfLeaf": 177,
+      "target": true,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [
+        "headings"
+      ],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 177,
+      "pdfLeaf": 178,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "mixed",
+      "disagreements": [
+        "headings"
+      ],
+      "headingCounts": [
+        2,
+        2
+      ],
+      "pdfIndex": 179,
+      "pdfLeaf": 180,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        1
+      ]
+    },
+    {
+      "agreedDisposition": "continuation-only",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 180,
+      "pdfLeaf": 181,
+      "target": true,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [
+        "headings"
+      ],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 181,
+      "pdfLeaf": 182,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [
+        "headings"
+      ],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 215,
+      "pdfLeaf": 216,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "continuation-only",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 216,
+      "pdfLeaf": 217,
+      "target": true,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [
+        "headings"
+      ],
+      "headingCounts": [
+        2,
+        2
+      ],
+      "pdfIndex": 217,
+      "pdfLeaf": 218,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [],
+      "headingCounts": [
+        2,
+        2
+      ],
+      "pdfIndex": 218,
+      "pdfLeaf": 219,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        1
+      ]
+    },
+    {
+      "agreedDisposition": "continuation-only",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 219,
+      "pdfLeaf": 220,
+      "target": true,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "continuation-only",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 220,
+      "pdfLeaf": 221,
+      "target": true,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 221,
+      "pdfLeaf": 222,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "continuation-only",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 222,
+      "pdfLeaf": 223,
+      "target": true,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "continuation-only",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 223,
+      "pdfLeaf": 224,
+      "target": true,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "continuation-only",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 224,
+      "pdfLeaf": 225,
+      "target": true,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "continuation-only",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 225,
+      "pdfLeaf": 226,
+      "target": true,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [
+        "headings"
+      ],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 226,
+      "pdfLeaf": 227,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 228,
+      "pdfLeaf": 229,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "continuation-only",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 229,
+      "pdfLeaf": 230,
+      "target": true,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "continuation-only",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 230,
+      "pdfLeaf": 231,
+      "target": true,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "continuation-only",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 231,
+      "pdfLeaf": 232,
+      "target": true,
+      "uncertaintyCounts": [
+        1,
+        1
+      ]
+    },
+    {
+      "agreedDisposition": "mixed",
+      "disagreements": [
+        "headings"
+      ],
+      "headingCounts": [
+        2,
+        2
+      ],
+      "pdfIndex": 232,
+      "pdfLeaf": 233,
+      "target": false,
+      "uncertaintyCounts": [
+        1,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [
+        "headings"
+      ],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 234,
+      "pdfLeaf": 235,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "continuation-only",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 235,
+      "pdfLeaf": 236,
+      "target": true,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 236,
+      "pdfLeaf": 237,
+      "target": false,
+      "uncertaintyCounts": [
+        1,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [
+        "headings"
+      ],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 238,
+      "pdfLeaf": 239,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "continuation-only",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 239,
+      "pdfLeaf": 240,
+      "target": true,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 240,
+      "pdfLeaf": 241,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "continuation-only",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 241,
+      "pdfLeaf": 242,
+      "target": true,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "continuation-only",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 242,
+      "pdfLeaf": 243,
+      "target": true,
+      "uncertaintyCounts": [
+        1,
+        1
+      ]
+    },
+    {
+      "agreedDisposition": "continuation-only",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 244,
+      "pdfLeaf": 245,
+      "target": true,
+      "uncertaintyCounts": [
+        1,
+        1
+      ]
+    },
+    {
+      "agreedDisposition": "continuation-only",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 245,
+      "pdfLeaf": 246,
+      "target": true,
+      "uncertaintyCounts": [
+        1,
+        1
+      ]
+    },
+    {
+      "agreedDisposition": "continuation-only",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 247,
+      "pdfLeaf": 248,
+      "target": true,
+      "uncertaintyCounts": [
+        1,
+        1
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [
+        "headings"
+      ],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 248,
+      "pdfLeaf": 249,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 250,
+      "pdfLeaf": 251,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "continuation-only",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 251,
+      "pdfLeaf": 252,
+      "target": true,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [
+        "headings"
+      ],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 252,
+      "pdfLeaf": 253,
+      "target": false,
+      "uncertaintyCounts": [
+        1,
+        1
+      ]
+    },
+    {
+      "agreedDisposition": "continuation-only",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "pdfIndex": 253,
+      "pdfLeaf": 254,
+      "target": true,
+      "uncertaintyCounts": [
+        1,
+        1
+      ]
+    }
+  ],
+  "protocolSha256": "bc75a42728469e7709d861512777d62f2c62ac31ba7c3f2b225db34b0ddbc84a",
+  "readerIndependenceVerified": false,
+  "readerSha256": [
+    "774bb39bafd736be66a2f32ef14c605611dbf84a400553e0c3747effe78270bf",
+    "e2952e8e81ef41134a2fba6881985dd1acad3bd5cdf983de176dc7487f8d3fee"
+  ],
+  "reviewedLeafCount": 75,
+  "safeToPromote": false,
+  "schemaVersion": 1,
+  "sourceCertified": false,
+  "sourceSha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+  "status": "compared",
+  "targetLeafCount": 33,
+  "unresolvedLeaves": [
+    35,
+    37,
+    38,
+    40,
+    45,
+    47,
+    63,
+    65,
+    71,
+    73,
+    91,
+    93,
+    95,
+    97,
+    143,
+    145,
+    146,
+    148,
+    150,
+    152,
+    160,
+    162,
+    173,
+    175,
+    176,
+    178,
+    180,
+    182,
+    216,
+    218,
+    219,
+    227,
+    232,
+    233,
+    235,
+    237,
+    239,
+    243,
+    245,
+    246,
+    248,
+    249,
+    253,
+    254
+  ],
+  "wholeBookReviewed": false
+}
