@@ -12,6 +12,7 @@ import zipfile
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 import import_transcription_bundle as consumer
+import transcription_bundle_v2 as v2
 
 
 def encoded(value):
@@ -302,6 +303,493 @@ class TranscriptionImport(unittest.TestCase):
         path.symlink_to(external)
         with self.assertRaisesRegex(ValueError, 'symlinks'):
             consumer.verify(self.bundle, self.pin)
+
+
+def synthetic_v2_reading():
+    """Invented notation only: exercise every supported shape and rhythm field."""
+    def note(shape, note_type='quarter', dots=0, **overrides):
+        from fractions import Fraction
+        duration = v2.TYPES[note_type] * sum(Fraction(1, 2 ** d) for d in range(dots + 1))
+        row = {'onset': '0', 'duration': str(duration), 'pitch': ['C', '2/2', 4],
+               'type': note_type, 'dots': dots, 'shape': shape, 'fill': 'filled',
+               'tieStart': False, 'tieStop': False, 'lyrics': [], 'beams': [], 'uncertainties': []}
+        row.update(overrides)
+        return row
+
+    events = [note('triangle', tieStart=True, fill='open'), note('triangle', tieStop=True),
+              note('round', '16th', 2, beams=[{'number': 1, 'value': 'begin'},
+                                            {'number': 2, 'value': 'forward hook'}]),
+              note('square', 'eighth', beams=[{'number': 1, 'value': 'end'}]),
+              note('diamond', 'half', 1, lyrics=[{'number': '01', 'text': ' literal & text ',
+                                                'syllabic': 'single'}]),
+              note(None, 'whole', pitch=None, fill=None)]
+    from fractions import Fraction
+    position = Fraction(0)
+    for event in events:
+        event['onset'] = str(position)
+        position += Fraction(event['duration'])
+    parts = []
+    for index in range(3):
+        measures = []
+        for measure in range(2):
+            measures.append({'index': measure, 'bbox': [0, 10 * index, 100, 10 * index + 9],
+                             'events': deepcopy(events), 'uncertainties': [],
+                             'barlines': [{'location': 'left', 'barStyle': 'heavy-light',
+                                           'repeat': {'direction': 'forward', 'times': None},
+                                           'ending': {'number': '01', 'type': 'start'}},
+                                          {'location': 'right', 'barStyle': 'light-heavy',
+                                           'repeat': {'direction': 'backward', 'times': 2},
+                                           'ending': {'number': 1, 'type': 'stop'}}],
+                             'endingLabel': 'literal 2.' if measure else None,
+                             'unavailableSemantics': ['stem direction unrepresented']})
+        parts.append({'id': 'P' + str(index + 1), 'name': 'Synthetic ' + str(index + 1), 'measures': measures})
+    return {'schemaVersion': 2, 'profile': v2.PROFILE, 'sourceSha256': '1' * 64,
+            'title': 'Synthetic v2 & literal title',
+            'header': {'fifths': -1, 'time': [4, 4],
+                       'clefs': [{'sign': 'G', 'line': 2}, {'sign': 'C', 'line': 3}, {'sign': 'F', 'line': 4}]},
+            'parts': parts, 'uncertainties': [], 'unavailableSemantics': ['triangle orientation unrepresented']}
+
+
+def synthetic_v2_xml(reading):
+    """Test-only wire fixture builder, independent of the producer runtime."""
+    from fractions import Fraction
+    from xml.etree import ElementTree as ET
+    root = ET.Element('score-partwise', version='4.0')
+
+    def add(parent, tag, value=None, **attrs):
+        node = ET.SubElement(parent, tag, attrs)
+        if value is not None:
+            node.text = str(value)
+        return node
+
+    add(add(root, 'work'), 'work-title', reading.get('title', 'Image-first research candidate'))
+    add(add(root, 'identification'), 'rights',
+        'Local research candidate; not source-certified or approved for publication.')
+    listing = add(root, 'part-list')
+    for part in reading['parts']:
+        add(add(listing, 'score-part', id=part['id']), 'part-name', part['name'])
+    for number, part in enumerate(reading['parts']):
+        part_node = add(root, 'part', id=part['id'])
+        for measure in part['measures']:
+            node = add(part_node, 'measure', number=str(measure['index'] + 1))
+            if measure['index'] == 0:
+                attrs = add(node, 'attributes')
+                add(attrs, 'divisions', 16)
+                add(add(attrs, 'key'), 'fifths', reading['header']['fifths'])
+                time = add(attrs, 'time')
+                add(time, 'beats', reading['header']['time'][0])
+                add(time, 'beat-type', reading['header']['time'][1])
+                clef = add(attrs, 'clef')
+                add(clef, 'sign', reading['header']['clefs'][number]['sign'])
+                add(clef, 'line', reading['header']['clefs'][number]['line'])
+            if measure.get('endingLabel'):
+                add(add(add(node, 'direction', placement='above'), 'direction-type'), 'words', measure['endingLabel'])
+            for event in measure['events']:
+                note = add(node, 'note')
+                if event['pitch'] is None:
+                    add(note, 'rest')
+                else:
+                    pitch = add(note, 'pitch')
+                    for tag, value in zip(('step', 'alter', 'octave'), event['pitch']):
+                        add(pitch, tag, int(Fraction(str(value))) if tag == 'alter' else value)
+                add(note, 'duration', int(Fraction(event['duration']) * 16))
+                for key, kind in (('tieStop', 'stop'), ('tieStart', 'start')):
+                    if event[key]:
+                        add(note, 'tie', type=kind)
+                add(note, 'voice', 1)
+                add(note, 'type', event['type'])
+                for _ in range(event['dots']):
+                    add(note, 'dot')
+                if event['pitch'] is not None:
+                    add(note, 'notehead', v2.SHAPES[event['shape']],
+                        filled='yes' if event['fill'] == 'filled' else 'no')
+                for beam in event.get('beams', []):
+                    add(note, 'beam', beam['value'], number=str(beam['number']))
+                if event['tieStart'] or event['tieStop']:
+                    notations = add(note, 'notations')
+                    for key, kind in (('tieStop', 'stop'), ('tieStart', 'start')):
+                        if event[key]:
+                            add(notations, 'tied', type=kind)
+                for lyric in event['lyrics']:
+                    lyric_node = add(note, 'lyric', number=str(lyric['number']))
+                    add(lyric_node, 'syllabic', lyric['syllabic'])
+                    add(lyric_node, 'text', lyric['text'])
+            for bar in sorted(measure.get('barlines', []), key=lambda b: b['location'] != 'left'):
+                bar_node = add(node, 'barline', location=bar['location'])
+                add(bar_node, 'bar-style', bar['barStyle'])
+                if bar.get('ending'):
+                    add(bar_node, 'ending', **{k: str(v) for k, v in bar['ending'].items()})
+                if bar.get('repeat'):
+                    add(bar_node, 'repeat', **{k: str(v) for k, v in bar['repeat'].items() if v is not None})
+    return ET.tostring(root, encoding='utf-8', xml_declaration=True)
+
+
+class TranscriptionV2Import(unittest.TestCase):
+    write_manifest = TranscriptionImport.write_manifest
+    write_payload = TranscriptionImport.write_payload
+    write_archive = TranscriptionImport.write_archive
+
+    def setUp(self):
+        TranscriptionImport.setUp(self)
+        self.reading = synthetic_v2_reading()
+        self.manifest.update(schemaVersion=2, readingContractVersion=2, profile=v2.PROFILE)
+        stats = {'staffMeasures': 6, 'exactStaffMeasures': 6, 'eventsA': 36, 'eventsB': 36,
+                 'pitchRhythmEventAgreements': 36, 'fullEventAgreements': 36,
+                 'independentSourceAccuracy': None, 'sourceCertified': False, 'safeToPromote': False,
+                 'readingSha256': ['2' * 64, '3' * 64], 'sourceSha256': '1' * 64,
+                 'readingContractVersion': 2, 'profile': v2.PROFILE}
+        report = json.loads((self.bundle / 'report.json').read_bytes())
+        report.update(stats, secondParserProfileSemanticsPassed=True, measureCounts=[2, 2, 2],
+                      adjudicatedUnits=0, structureFindings=[], unavailableSemantics=[],
+                      repeatTraversalVerified=False, adjudicationSha256=None)
+        self.write_payload('report.json', encoded(report))
+        self.write_payload('comparison.json', encoded({**stats, 'issues': []}))
+        self.update_reading()
+        self.pin = self.write_archive(synthetic_v2_xml(self.reading))
+
+    def update_reading(self):
+        self.pin = self.write_payload('resolved-reading.json', encoded(self.reading), 'resolvedReadingSha256')
+
+    def verify(self):
+        return consumer.verify(self.bundle, self.pin, bundle_version=2)
+
+    def reject(self, message='V2 profile|JSON|binding|version|candidate|unpromoted'):
+        with self.assertRaisesRegex(ValueError, message):
+            consumer.stage(self.bundle, self.pin, self.root / 'atlas', bundle_version=2)
+        self.assertFalse((self.root / 'atlas').exists())
+
+    def test_opt_in_roundtrip_and_exact_atomic_staging(self):
+        self.verify()
+        with self.assertRaisesRegex(ValueError, 'version'):
+            consumer.verify(self.bundle, self.pin)
+        receipt = consumer.stage(self.bundle, self.pin, self.root / 'atlas', bundle_version=2)
+        self.assertEqual(receipt['schemaVersion'], 2)
+        self.assertEqual(receipt['readingContractVersion'], 2)
+        self.assertEqual(receipt['profile'], v2.PROFILE)
+        self.assertFalse(receipt['safeToPromote'])
+        for path in self.bundle.iterdir():
+            target = self.root / 'atlas/work/transcription-imports' / self.pin / 'bundle' / path.name
+            self.assertEqual(path.read_bytes(), target.read_bytes())
+        self.assertFalse((self.root / 'atlas/public').exists())
+
+    def test_cli_requires_explicit_version(self):
+        args = [sys.executable, consumer.__file__, str(self.bundle),
+                '--expected-manifest-sha256', self.pin, '--verify-only']
+        default = subprocess.run(args, capture_output=True, text=True)
+        self.assertEqual(default.returncode, 2)
+        selected = subprocess.run(args + ['--bundle-version', '2'], capture_output=True, text=True)
+        self.assertEqual(selected.returncode, 0, selected.stderr)
+        self.assertTrue(json.loads(selected.stdout)['verified'])
+
+    def test_unknown_reading_fields_at_every_supported_level_fail(self):
+        original = deepcopy(self.reading)
+        selectors = [lambda r: r, lambda r: r['header'], lambda r: r['header']['clefs'][0],
+                     lambda r: r['parts'][0], lambda r: r['parts'][0]['measures'][0],
+                     lambda r: r['parts'][0]['measures'][0]['events'][0],
+                     lambda r: r['parts'][0]['measures'][0]['events'][4]['lyrics'][0],
+                     lambda r: r['parts'][0]['measures'][0]['events'][2]['beams'][0],
+                     lambda r: r['parts'][0]['measures'][0]['barlines'][0],
+                     lambda r: r['parts'][0]['measures'][0]['barlines'][0]['repeat'],
+                     lambda r: r['parts'][0]['measures'][0]['barlines'][0]['ending']]
+        for select in selectors:
+            self.reading = deepcopy(original)
+            select(self.reading)['unsupported'] = 'cannot silently drop'
+            self.update_reading()
+            self.reject('unsupported fields')
+
+    def test_versions_part_counts_order_and_measure_coverage_fail(self):
+        original = deepcopy(self.reading)
+        mutations = [lambda r: r.update(schemaVersion=1), lambda r: r.update(schemaVersion=True),
+                     lambda r: r.update(profile='seven-shape'), lambda r: r['parts'].pop(),
+                     lambda r: r['parts'].append(deepcopy(r['parts'][0])),
+                     lambda r: r['parts'][0].update(id='P3'), lambda r: r['header']['clefs'].pop(),
+                     lambda r: r['parts'][0]['measures'].pop(),
+                     lambda r: r['parts'][0].update(measures=[]),
+                     lambda r: r['parts'][0]['measures'][0].update(index=1)]
+        for mutation in mutations:
+            self.reading = deepcopy(original)
+            mutation(self.reading)
+            self.update_reading()
+            self.reject()
+
+    def test_unsupported_rhythm_shapes_pitch_uncertainty_and_labels_fail(self):
+        original = deepcopy(self.reading)
+        changes = [('shape', 'pentagon'), ('shape', ['triangle']), ('type', '32nd'), ('type', []),
+                   ('onset', '1/2'), ('duration', '1/3'), ('dots', True),
+                   ('pitch', ['C', '1/2', 4]), ('pitch', ['C', 0, True]),
+                   ('lyrics', [{'number': True, 'text': 'x', 'syllabic': 'single'}]),
+                   ('uncertainties', ['not resolved']), ('beams', [{'number': 1, 'value': 'tremolo'}])]
+        for key, value in changes:
+            self.reading = deepcopy(original)
+            self.reading['parts'][0]['measures'][0]['events'][0][key] = value
+            self.update_reading()
+            self.reject()
+
+    def test_rehashed_xml_semantic_mutations_and_unsupported_nodes_fail(self):
+        from xml.etree import ElementTree as ET
+        original = synthetic_v2_xml(self.reading)
+        mutations = [lambda x: x.find('part-list/score-part/part-name').__setattr__('text', 'different'),
+                     lambda x: x.find('work/work-title').__setattr__('text', 'different'),
+                     lambda x: x.find('part/measure/attributes/key/fifths').__setattr__('text', '0'),
+                     lambda x: x.find('part/measure/attributes/time/beats').__setattr__('text', '3'),
+                     lambda x: x.find('part/measure/attributes/clef/sign').__setattr__('text', 'F'),
+                     lambda x: x.find('part/measure/note/notehead').__setattr__('text', 'so'),
+                     lambda x: x.find('part/measure/note/notehead').set('filled', 'yes'),
+                     lambda x: x.find('part/measure/note/duration').__setattr__('text', '8'),
+                     lambda x: x.find('part/measure/note/tie').set('type', 'stop'),
+                     lambda x: x.find('part/measure/note/voice').__setattr__('text', '2'),
+                     lambda x: x.find('part/measure/note/lyric/text').__setattr__('text', 'changed'),
+                     lambda x: x.find('part/measure/note/beam').__setattr__('text', 'end'),
+                     lambda x: x.find('part/measure/barline/repeat').set('direction', 'backward'),
+                     lambda x: x.find('part/measure/barline/ending').set('number', '2'),
+                     lambda x: x.findall('part/measure')[1].find('direction/direction-type/words').__setattr__('text', 'changed'),
+                     lambda x: ET.SubElement(x.find('part/measure/note'), 'chord'),
+                     lambda x: ET.SubElement(x.find('part/measure/note'), 'time-modification'),
+                     lambda x: ET.SubElement(x.find('part/measure/note'), 'grace'),
+                     lambda x: ET.SubElement(x.find('part/measure'), 'backup'),
+                     lambda x: move_first_attributes_after_notes(x)]
+        def move_first_attributes_after_notes(xml):
+            measure = xml.find('part/measure')
+            attrs = measure.find('attributes')
+            measure.remove(attrs)
+            measure.append(attrs)
+
+        for mutate in mutations:
+            xml = ET.fromstring(original)
+            mutate(xml)
+            self.pin = self.write_archive(ET.tostring(xml))
+            self.reject()
+
+    def test_envelope_metadata_counts_authority_and_unknown_fields_fail(self):
+        for name in ('bundle.json', 'report.json', 'comparison.json'):
+            original = self.manifest if name == 'bundle.json' else json.loads((self.bundle / name).read_bytes())
+            for field, value in [('profile', 'other'), ('readingContractVersion', True),
+                                 ('readingContractVersion', 1), ('sourceCertified', True),
+                                 ('safeToPromote', True), ('unsupported', False)]:
+                changed = {**original, field: value}
+                if name == 'bundle.json':
+                    self.manifest = changed
+                    self.pin = self.write_manifest()
+                else:
+                    self.pin = self.write_payload(name, encoded(changed))
+                self.reject()
+            if name == 'bundle.json':
+                self.manifest = original
+                self.pin = self.write_manifest()
+            else:
+                self.pin = self.write_payload(name, encoded(original))
+        original = json.loads((self.bundle / 'report.json').read_bytes())
+        for field, value in [('measureCounts', [2, 2, 2, 2]), ('measureCounts', [True, 2, 2]),
+                             ('staffMeasures', 8), ('adjudicatedUnits', 1),
+                             ('secondParserProfileSemanticsPassed', False),
+                             ('secondParserPitchRhythmPassed', False), ('independentSourceAccuracy', 1.0)]:
+            self.pin = self.write_payload('report.json', encoded({**original, field: value}))
+            self.reject()
+
+    def test_duplicate_keys_nonfinite_json_and_malformed_types_have_controlled_errors(self):
+        for raw in (b'{"schemaVersion":2,"schemaVersion":2}', b'{"value":NaN}', b'{"value":Infinity}', b'{"value":1e999}'):
+            self.pin = self.write_payload('resolved-reading.json', raw, 'resolvedReadingSha256')
+            self.reject('Invalid JSON')
+            result = subprocess.run([sys.executable, consumer.__file__, str(self.bundle),
+                                     '--expected-manifest-sha256', self.pin, '--verify-only', '--bundle-version', '2'],
+                                    capture_output=True, text=True)
+            self.assertEqual(result.returncode, 2)
+            self.assertNotIn('Traceback', result.stderr)
+
+    def test_missing_optional_uncertainties_beams_and_title_defaults_are_preserved(self):
+        self.reading.pop('title')
+        self.reading.pop('uncertainties')
+        for part in self.reading['parts']:
+            for measure in part['measures']:
+                measure.pop('uncertainties')
+                for event in measure['events']:
+                    event.pop('uncertainties')
+                    if not event['beams']:
+                        event.pop('beams')
+        self.update_reading()
+        self.pin = self.write_archive(synthetic_v2_xml(self.reading))
+        self.verify()
+
+    def test_valid_wire_defaults_beam_numbers_and_barline_order_are_preserved(self):
+        self.reading['title'] = None
+        self.reading['parts'][0]['name'] = ''
+        for part in self.reading['parts']:
+            for measure in part['measures']:
+                measure['barlines'].reverse()
+                measure['endingLabel'] = None
+                measure['events'][2]['beams'] = [
+                    {'number': 9, 'value': 'begin'}, {'number': 9, 'value': 'continue'}]
+        self.update_reading()
+        self.pin = self.write_archive(synthetic_v2_xml(self.reading))
+        self.verify()
+
+    def test_blank_identifiers_unavailable_semantics_and_ending_labels_fail(self):
+        original = deepcopy(self.reading)
+        mutations = [lambda r: r['parts'][0]['measures'][0].update(endingLabel=''),
+                     lambda r: r['parts'][0]['measures'][0].update(endingLabel=' \t'),
+                     lambda r: r.update(unavailableSemantics=[' ']),
+                     lambda r: r['parts'][0]['measures'][0]['events'][4]['lyrics'][0].update(number=' '),
+                     lambda r: r['parts'][0]['measures'][0]['barlines'][0]['ending'].update(number=' ')]
+        for mutation in mutations:
+            self.reading = deepcopy(original)
+            mutation(self.reading)
+            self.update_reading()
+            self.reject()
+        for key in ('repeat', 'ending'):
+            for value in ({}, False, [], ''):
+                self.reading = deepcopy(original)
+                self.reading['parts'][0]['measures'][0]['barlines'][0][key] = value
+                self.update_reading()
+                self.reject()
+
+    def test_document_types_reject_before_generic_archive_parse_in_every_encoding(self):
+        original = synthetic_v2_xml(self.reading).decode('utf-8').split('?>', 1)[1]
+        for encoding in ('utf-8', 'utf-16', 'utf-16-be'):
+            declaration = '<?xml version="1.0" encoding="' + encoding + '"?>'
+            raw = (declaration + '<!DOCTYPE score-partwise [<!ENTITY unused "x">]>' + original).encode(encoding)
+            self.pin = self.write_archive(raw)
+            with patch.object(consumer, 'verify_archive', side_effect=AssertionError('DTD must fail first')):
+                self.reject('document types|invalid XML')
+        valid_utf16 = ('<?xml version="1.0" encoding="UTF-16"?>' + original).encode('utf-16')
+        self.pin = self.write_archive(valid_utf16)
+        self.verify()
+        self.pin = self.write_archive(synthetic_v2_xml(self.reading))
+        container = ('<?xml version="1.0" encoding="UTF-16"?>'
+                     '<!DOCTYPE container [<!ENTITY unused "x">]>'
+                     '<container><rootfile full-path="score.musicxml"/></container>').encode('utf-16')
+        self.pin = self.write_archive(container=container)
+        self.reject('document types')
+
+    def test_xml_alter_requires_decimal_syntax_while_reading_rationals_stay_supported(self):
+        from xml.etree import ElementTree as ET
+        original = synthetic_v2_xml(self.reading)
+        for value in ('2/2', '1e0', 'NaN', 'Infinity'):
+            xml = ET.fromstring(original)
+            xml.find('part/measure/note/pitch/alter').text = value
+            self.pin = self.write_archive(ET.tostring(xml))
+            self.reject('decimal syntax')
+        xml = ET.fromstring(original)
+        xml.find('part/measure/note/pitch/alter').text = '+1.000'
+        self.pin = self.write_archive(ET.tostring(xml))
+        self.verify()
+
+    def test_missing_repeat_traversal_flag_rejects(self):
+        report = json.loads((self.bundle / 'report.json').read_bytes())
+        del report['repeatTraversalVerified']
+        self.pin = self.write_payload('report.json', encoded(report))
+        self.reject('repeat traversal')
+
+    def test_integer_xml_lexical_forms_are_strict_across_all_numeric_fields(self):
+        from xml.etree import ElementTree as ET
+        original = synthetic_v2_xml(self.reading)
+        fields = [('part/measure/attributes/key/fifths', None, ' -01 '),
+                  ('part/measure/attributes/time/beats', None, '+04'),
+                  ('part/measure/attributes/time/beat-type', None, '+04'),
+                  ('part/measure/attributes/clef/line', None, '+02'),
+                  ('part/measure/note/pitch/octave', None, '+04'),
+                  ('part/measure/note/beam', 'number', '+01'),
+                  ('part/measure/barline[@location="right"]/repeat', 'times', '+02')]
+        for path, attribute, positive in fields:
+            for value in ('1_0', '1e0', '1/1', '1.0', '\u0661', '\u00a01\u00a0', '1 0', '--1'):
+                xml = ET.fromstring(original)
+                node = xml.find(path)
+                if attribute:
+                    node.set(attribute, value)
+                else:
+                    node.text = value
+                self.pin = self.write_archive(ET.tostring(xml))
+                self.reject('invalid XML integer')
+            xml = ET.fromstring(original)
+            node = xml.find(path)
+            if attribute:
+                node.set(attribute, positive)
+            else:
+                node.text = positive
+            self.pin = self.write_archive(ET.tostring(xml))
+            self.verify()
+
+    def test_decimal_xml_fields_accept_equivalent_positive_and_fractional_divisions(self):
+        from decimal import Decimal
+        from xml.etree import ElementTree as ET
+        xml = ET.fromstring(synthetic_v2_xml(self.reading))
+        for part in xml.findall('part'):
+            part.find('measure/attributes/divisions').text = ' +08.5000 '
+            for duration in part.findall('measure/note/duration'):
+                duration.text = str(Decimal(duration.text) * Decimal('0.53125'))
+        for alter in xml.findall('part/measure/note/pitch/alter'):
+            alter.text = '+01.000'
+        self.pin = self.write_archive(ET.tostring(xml))
+        self.verify()
+        # An integral negative alteration also retains valid decimal spelling.
+        self.reading['parts'][0]['measures'][0]['events'][0]['pitch'][1] = '-2/2'
+        self.update_reading()
+        xml = ET.fromstring(synthetic_v2_xml(self.reading))
+        xml.find('part/measure/note/pitch/alter').text = '-01.000'
+        self.pin = self.write_archive(ET.tostring(xml))
+        self.verify()
+
+    def test_decimal_xml_fields_reject_non_xml_spellings_and_nonpositive_timing(self):
+        from xml.etree import ElementTree as ET
+        original = synthetic_v2_xml(self.reading)
+        for path in ('part/measure/attributes/divisions', 'part/measure/note/duration',
+                     'part/measure/note/pitch/alter'):
+            for value in ('1_0', '1e0', '1/1', '\u0661', '\u00a01\u00a0', 'NaN', 'Infinity'):
+                xml = ET.fromstring(original)
+                xml.find(path).text = value
+                self.pin = self.write_archive(ET.tostring(xml))
+                self.reject('decimal syntax')
+        for path in ('part/measure/attributes/divisions', 'part/measure/note/duration'):
+            for value in ('0.0', '-1.0'):
+                xml = ET.fromstring(original)
+                xml.find(path).text = value
+                self.pin = self.write_archive(ET.tostring(xml))
+                self.reject('must be positive')
+
+    def test_required_child_order_and_empty_container_text_are_not_normalized_away(self):
+        from xml.etree import ElementTree as ET
+        original = synthetic_v2_xml(self.reading)
+        for parent_path, child_name in [('part/measure/note', 'duration'),
+                                        ('part/measure/note/pitch', 'step'),
+                                        ('part/measure/attributes', 'divisions'),
+                                        ('part/measure/barline', 'bar-style'),
+                                        ('part/measure/note/lyric', 'syllabic')]:
+            xml = ET.fromstring(original)
+            parent = xml.find(parent_path)
+            child = parent.find(child_name)
+            parent.remove(child)
+            parent.append(child)
+            self.pin = self.write_archive(ET.tostring(xml))
+            self.reject('child sequence')
+        for value in ('unsupported text', '\u00a0'):
+            xml = ET.fromstring(original)
+            ET.SubElement(xml.findall('part/measure/note')[3], 'notations').text = value
+            self.pin = self.write_archive(ET.tostring(xml))
+            self.reject('mixed XML content')
+
+    def test_comparison_counts_bind_to_score_without_adjudication(self):
+        report_original = json.loads((self.bundle / 'report.json').read_bytes())
+        comparison_original = json.loads((self.bundle / 'comparison.json').read_bytes())
+        for changes in ({'eventsA': 0, 'eventsB': 0, 'pitchRhythmEventAgreements': 0, 'fullEventAgreements': 0},
+                        {'eventsA': 35}, {'fullEventAgreements': 35}, {'exactStaffMeasures': 5}):
+            self.write_payload('report.json', encoded({**report_original, **changes}))
+            self.pin = self.write_payload('comparison.json', encoded({**comparison_original, **changes}))
+            self.reject()
+        # Adjudication can alter the resolved event count. Preserve that case,
+        # while still requiring both inputs to cover every staff measure.
+        changed = {'eventsA': 35, 'eventsB': 37, 'pitchRhythmEventAgreements': 30,
+                   'fullEventAgreements': 29, 'exactStaffMeasures': 5}
+        self.write_payload('report.json', encoded({**report_original, **changed, 'adjudicatedUnits': 1}))
+        self.pin = self.write_payload('comparison.json', encoded({**comparison_original, **changed,
+                                                                'issues': [{'id': 'P1:0', 'a': {}, 'b': {}}]}))
+        self.verify()
+
+    def test_v1_opt_in_selection_and_invalid_api_versions_are_rejected(self):
+        for value in (0, 3, True, '2', None):
+            with self.assertRaises(ValueError):
+                consumer.verify(self.bundle, self.pin, bundle_version=value)
+        self.manifest['schemaVersion'] = 1
+        self.pin = self.write_manifest()
+        self.reject()
 
 
 if __name__ == '__main__':

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Atlas consumer for bundle v1. Stage private research only; never publish."""
+"""Atlas consumer for opt-in research bundle versions 1 and 2. Stage private research only; never publish."""
 import argparse
 import hashlib
 import io
@@ -43,10 +43,11 @@ def json_object(raw, name):
     return value
 
 
-def verify_archive(payload):
+def verify_archive(payload, xml_parser=None):
+    xml_parser = xml_parser or ET.fromstring
     try:
         # Well-formed XML is a format check, not semantic/source acceptance.
-        ET.fromstring(payload['candidate.musicxml'])
+        xml_parser(payload['candidate.musicxml'])
         with zipfile.ZipFile(io.BytesIO(payload['candidate.mxl'])) as archive:
             if (len(archive.namelist()) != 2 or set(archive.namelist()) !=
                     {'META-INF/container.xml', 'score.musicxml'}):
@@ -55,7 +56,7 @@ def verify_archive(payload):
                 raise ValueError('MXL score size differs from candidate XML')
             if archive.read('score.musicxml') != payload['candidate.musicxml']:
                 raise ValueError('MXL does not match the candidate XML')
-            container = ET.fromstring(archive.read('META-INF/container.xml'))
+            container = xml_parser(archive.read('META-INF/container.xml'))
             rootfiles = [n.get('full-path') for n in container.iter()
                          if n.tag.rsplit('}', 1)[-1] == 'rootfile']
             if rootfiles != ['score.musicxml']:
@@ -65,8 +66,15 @@ def verify_archive(payload):
         raise ValueError('Invalid MXL/XML payload') from exc
 
 
-def verify(directory, expected_manifest_sha256):
+def verify(directory, expected_manifest_sha256, bundle_version=1):
     """Independent stdlib-only consumer; no transcriber runtime imports."""
+    if type(bundle_version) is not int or bundle_version not in (1, 2):
+        raise ValueError('Unsupported requested bundle version')
+    if bundle_version == 2:
+        import transcription_bundle_v2 as v2
+        parse_json = v2.strict_json_object
+    else:
+        parse_json = json_object
     directory = Path(directory)
     if directory.is_symlink() or not directory.is_dir():
         raise ValueError('Bundle must be a real directory')
@@ -78,8 +86,8 @@ def verify(directory, expected_manifest_sha256):
     raw = (directory / 'bundle.json').read_bytes()
     if not valid_hash(expected_manifest_sha256) or sha(raw) != expected_manifest_sha256:
         raise ValueError('Pinned bundle manifest hash mismatch')
-    manifest = json_object(raw, 'bundle.json')
-    if (type(manifest.get('schemaVersion')) is not int or manifest['schemaVersion'] != 1
+    manifest = parse_json(raw, 'bundle.json')
+    if (type(manifest.get('schemaVersion')) is not int or manifest['schemaVersion'] != bundle_version
             or manifest.get('kind') != 'shapenote-transcription-bundle'
             or manifest.get('status') != 'research-candidate'):
         raise ValueError('Unsupported bundle version/kind/status')
@@ -99,9 +107,9 @@ def verify(directory, expected_manifest_sha256):
             or type(producer.get('dirty')) is not bool
             or not valid_hash(producer.get('exporterSha256'))):
         raise ValueError('Missing pinned producer provenance')
-    report = json_object(payload['report.json'], 'report.json')
-    reading = json_object(payload['resolved-reading.json'], 'resolved-reading.json')
-    comparison = json_object(payload['comparison.json'], 'comparison.json')
+    report = parse_json(payload['report.json'], 'report.json')
+    reading = parse_json(payload['resolved-reading.json'], 'resolved-reading.json')
+    comparison = parse_json(payload['comparison.json'], 'comparison.json')
     if (report.get('status') != 'assembled-research-candidate'
             or report.get('unresolvedMeasures') != []
             or report.get('secondParserPitchRhythmPassed') is not True
@@ -123,12 +131,16 @@ def verify(directory, expected_manifest_sha256):
                         ('resolvedReadingSha256', 'resolved-reading.json')):
         if report.get(field) != sha(payload[name]):
             raise ValueError('Assembly report hash drift: ' + name)
-    verify_archive(payload)
+    if bundle_version == 2:
+        v2.verify_metadata(manifest, report, reading, comparison, payload['candidate.musicxml'])
+        verify_archive(payload, xml_parser=v2.parse_document)
+    else:
+        verify_archive(payload)
     return manifest, {**payload, 'bundle.json': raw}
 
 
-def stage(directory, expected_manifest_sha256, root=ROOT):
-    manifest, payload = verify(directory, expected_manifest_sha256)
+def stage(directory, expected_manifest_sha256, root=ROOT, bundle_version=1):
+    manifest, payload = verify(directory, expected_manifest_sha256, bundle_version=bundle_version)
     # Never offer a destination override into public/catalogue data.
     root = Path(root).resolve()
     work = root / 'work'
@@ -139,10 +151,12 @@ def stage(directory, expected_manifest_sha256, root=ROOT):
     destination = base / expected_manifest_sha256
     if destination.exists() or destination.is_symlink():
         raise FileExistsError('Research bundle already staged: ' + str(destination))
-    receipt = {'schemaVersion': 1, 'bundleManifestSha256': expected_manifest_sha256,
+    receipt = {'schemaVersion': bundle_version, 'bundleManifestSha256': expected_manifest_sha256,
                'producer': manifest['producer'], 'sourceSha256': manifest['sourceSha256'],
                'status': 'staged-research-only', 'sourceCertified': False,
                'safeToPromote': False, 'catalogueModified': False, 'publicAssetsModified': False}
+    if bundle_version == 2:
+        receipt.update(readingContractVersion=2, profile=manifest['profile'])
     # Publish only a complete bundle and receipt. A failed write removes the
     # temporary sibling, allowing the same pinned bundle to be retried.
     with tempfile.TemporaryDirectory(prefix='.bundle-', dir=base) as temporary:
@@ -162,13 +176,14 @@ def main():
     parser.add_argument('directory', type=Path)
     parser.add_argument('--expected-manifest-sha256', required=True)
     parser.add_argument('--verify-only', action='store_true')
+    parser.add_argument('--bundle-version', type=int, choices=(1, 2), default=1)
     args = parser.parse_args()
     try:
         if args.verify_only:
-            manifest, _ = verify(args.directory, args.expected_manifest_sha256)
+            manifest, _ = verify(args.directory, args.expected_manifest_sha256, bundle_version=args.bundle_version)
             print(json.dumps({'verified': True, 'staged': False, 'status': manifest['status']}))
         else:
-            print(json.dumps(stage(args.directory, args.expected_manifest_sha256), indent=2))
+            print(json.dumps(stage(args.directory, args.expected_manifest_sha256, bundle_version=args.bundle_version), indent=2))
     except (ValueError, OSError) as exc:
         parser.exit(2, 'error: ' + str(exc) + '\n')
 
