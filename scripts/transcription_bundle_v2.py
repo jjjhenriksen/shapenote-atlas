@@ -67,7 +67,8 @@ def unavailable(value, name):
             name + ' must be a list of nonempty strings')
 
 
-def normalize_reading(reading, *, reading_version=2, profile=PROFILE, part_ids=PART_IDS):
+def normalize_reading(reading, *, reading_version=2, profile=PROFILE, part_ids=PART_IDS,
+                      lyric_identifier=label):
     """Validate the complete resolved-reading v2 vocabulary and normalize music."""
     fields(reading, ('schemaVersion', 'profile', 'sourceSha256', 'title', 'header',
                      'parts', 'uncertainties', 'unavailableSemantics'),
@@ -163,7 +164,7 @@ def normalize_reading(reading, *, reading_version=2, profile=PROFILE, part_ids=P
                 for lyric in event['lyrics']:
                     fields(lyric, ('number', 'text', 'syllabic'), ('number', 'text', 'syllabic'), 'lyric')
                     require(lyric['syllabic'] in ('single', 'begin', 'middle', 'end'), 'unsupported syllabic')
-                    lyrics.append((label(lyric['number'], 'lyric number'),
+                    lyrics.append((lyric_identifier(lyric['number'], 'lyric number'),
                                    text(lyric['text'], 'lyric text', True), lyric['syllabic']))
                 beams = event.get('beams', [])
                 require(isinstance(beams, list), 'beams must be a list')

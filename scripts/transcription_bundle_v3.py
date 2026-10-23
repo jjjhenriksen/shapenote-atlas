@@ -103,7 +103,8 @@ def normalize_reading(reading):
                     records[key] = observation
                     lyrics.append({'number': identifier, 'text': lyric['text'], 'syllabic': lyric['syllabic']})
                 event['lyrics'] = lyrics
-    expected = music.normalize_reading(projected, reading_version=3, profile=profile, part_ids=part_ids)
+    expected = music.normalize_reading(projected, reading_version=3, profile=profile, part_ids=part_ids,
+                                       lyric_identifier=lambda value, name: line_id(value))
     return expected, records, unknown
 
 

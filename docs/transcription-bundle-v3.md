@@ -47,7 +47,8 @@ Every v3 lyric contains exactly `lineId`, `text`, `syllabic`, `printedLabel`.
 `lineId` is a nonempty, part-scoped opaque internal underlay-stream identifier,
 using the full Unicode [XML 1.0 Fifth Edition NMTOKEN grammar](https://www.w3.org/TR/REC-xml/#NT-Nmtoken).
 Digits, colon and valid combining characters may occur at any position. IDs are
-never normalized, renumbered or inferred from a printed label. Each event may
+never normalized, renumbered or inferred from a printed label. Their validation
+uses the XML token grammar rather than the separate nonblank printed-label rule. Each event may
 contain at most one lyric per line ID; the same ID may recur at later events or
 in another part. Sparse streams remain sparse, and different streams may retain
 the same printed label.

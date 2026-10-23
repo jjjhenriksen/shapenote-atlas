@@ -230,7 +230,7 @@ class TranscriptionV3Import(unittest.TestCase):
 
     def test_full_unicode_nmtoken_vocabulary_and_invalid_tokens(self):
         original = deepcopy(self.reading)
-        for identifier in ('01', '-line', '.line', '\u00e9:\u884c-7', '\u0301L', 'a\u00b7b', '\U00010000line'):
+        for identifier in ('01', '-line', '.line', '\u00e9:\u884c-7', '\u0301L', 'a\u00b7b', '\U00010000line', '\u1680'):
             self.reading = deepcopy(original)
             self.reading['parts'][0]['measures'][0]['events'][0]['lyrics'][0]['lineId'] = identifier
             self.update_reading()
@@ -241,6 +241,20 @@ class TranscriptionV3Import(unittest.TestCase):
             self.reading['parts'][0]['measures'][0]['events'][0]['lyrics'][0]['lineId'] = identifier
             self.update_reading()
             self.reject('NMTOKEN')
+
+    def test_unicode_stream_id_does_not_use_printed_label_blank_rules(self):
+        self.reading['parts'][0]['measures'][0]['events'][0]['lyrics'][0]['lineId'] = '\u1680'
+        self.update_reading()
+        self.pin = self.write_archive(synthetic_v3_xml(self.reading))
+        self.verify()
+        target_root = self.root / 'unicode-atlas'
+        consumer.stage(self.bundle, self.pin, target_root, bundle_version=3)
+        staged = target_root / 'work/transcription-imports' / self.pin / 'bundle/candidate.musicxml'
+        self.assertEqual(staged.read_bytes(), (self.bundle / 'candidate.musicxml').read_bytes())
+        old_reading = synthetic_v2_reading()
+        old_reading['parts'][0]['measures'][0]['events'][4]['lyrics'][0]['number'] = '\u1680'
+        with self.assertRaisesRegex(ValueError, 'nonempty literal'):
+            v2.normalize_reading(old_reading)
 
     def test_explicit_profile_versions_counts_and_ids_reject_without_guessing(self):
         original = deepcopy(self.reading)
