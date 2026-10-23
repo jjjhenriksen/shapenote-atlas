@@ -128,14 +128,48 @@ and role-count fields makes the new result identical to the old processing
 result. The frozen protocol, source and raw readings remain unchanged. This is
 development evidence, with coordinator/OCR exposure explicit, not a held-out test.
 
-Across all three completed protocols, the union covers 98 distinct physical
-leaves within candidate range 17–254, leaving 140 not yet covered. Context leaf
-16 is tracked separately and excluded from that figure. Coverage comes from
-actual protocols with complete paired reading validation. A proposed next
-bounded cohort has 16 new targets (34, 41–44 and 48–58), with adjacent context
-33, 35, 40, 45, 47 and 59: 22 images total. Context overlap must remain explicit;
-dispatch needs capacity coordination and a separately frozen protocol. No next
-cohort is included in this draft.
+At the end of v3, completed protocol coverage was 98 distinct candidate physical
+leaves, leaving 140 not yet covered. Context leaf 16 was excluded. Those figures
+are retained as the third-cohort processing point.
+
+## Development v4: sixteen further targets
+
+The fourth packet froze targets 34, 41–44 and 48–58, with adjacent context
+33, 35, 40, 45, 47 and 59: 22 images under protocol
+`672414eab84560b9f02383170036b70cc35230dd5716e9743476c8513c5ae5eb`.
+The source and processing-version-2 implementation were pinned before either
+fresh source-only context inspected the packet. Both complete readings and
+metadata were jointly hash-checked and made read-only before disclosure or
+comparison. Metadata pins are
+`63c65bce0e18eefccb4a0cf27d781f72de0e5a358c527996893ad0115899ba9e`
+and `772e184d17923a79bd083f9a87b8156c349a368fe9f64ffaa2a80ea412a73c04`.
+
+The [separate v4 receipt](experiments/social-harp-inventory-20261023-development-v4.json)
+records all 16 targets as agreed opening-present, with 19 declared opening
+headings and one other heading per reader across those targets. All 22 page
+dispositions, printed labels and literal heading signatures agree, with no
+page uncertainties recorded in this cohort. Its empty unresolved list does not
+clear any earlier uncertainty or disagreement, including repeated context leaf
+33. Earlier raw readings and receipts remain unchanged; no majority selection
+or retrospective correction was applied.
+
+All targets were new to completed coverage. Five contexts (33, 35, 40, 45 and
+47) repeat previous source material to support adjacent new targets; those
+observations were not supplied to the fresh readers. Context 59 adds new source
+coverage. Coordinator/OCR exposure and development status remain explicit; this
+is not a held-out test or source certification. A coordinator metadata preflight
+initially expected a different inspected-leaf key; the recorded correction reads
+the existing `actualInspectedPhysicalLeaves` field without modifying either
+frozen metadata file or reading. It does not change source observations.
+
+Across four complete paired-reading protocols, 115 distinct physical leaves
+within candidate span 17–254 are covered, with 123 not yet covered. Context leaf
+16 remains separate. These figures use the actual protocol union after
+comparison, not catalogue counts. The next prepared bounded proposal has new
+targets 60–62, 66–70 and 74–81, with adjacent context 59, 63, 65, 71, 73 and 82:
+22 images. Reader dispatch still requires coordinated capacity; no next-cohort
+observations are included here. Declared headings remain distinct from accepted
+musical works and the unresolved publisher counting unit.
 
 ## Engineering separation and processing versions
 

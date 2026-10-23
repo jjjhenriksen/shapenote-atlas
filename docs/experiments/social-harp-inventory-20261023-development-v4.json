@@ -1,0 +1,667 @@
+{
+  "agreedTargetDispositionCounts": {
+    "opening-present": 16
+  },
+  "contextLeafCount": 6,
+  "headingsAndLyricsOmitted": true,
+  "humanReviewRequired": true,
+  "inventoryReconciled": false,
+  "kind": "social-harp-bounded-visual-inventory-audit",
+  "pages": [
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [],
+      "headingCounts": [
+        2,
+        2
+      ],
+      "headingRoleCounts": [
+        {
+          "continuation": 0,
+          "opening": 2,
+          "other": 0,
+          "uncertain": 0
+        },
+        {
+          "continuation": 0,
+          "opening": 2,
+          "other": 0,
+          "uncertain": 0
+        }
+      ],
+      "pdfIndex": 32,
+      "pdfLeaf": 33,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "headingRoleCounts": [
+        {
+          "continuation": 0,
+          "opening": 1,
+          "other": 0,
+          "uncertain": 0
+        },
+        {
+          "continuation": 0,
+          "opening": 1,
+          "other": 0,
+          "uncertain": 0
+        }
+      ],
+      "pdfIndex": 33,
+      "pdfLeaf": 34,
+      "target": true,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "mixed",
+      "disagreements": [],
+      "headingCounts": [
+        2,
+        2
+      ],
+      "headingRoleCounts": [
+        {
+          "continuation": 1,
+          "opening": 1,
+          "other": 0,
+          "uncertain": 0
+        },
+        {
+          "continuation": 1,
+          "opening": 1,
+          "other": 0,
+          "uncertain": 0
+        }
+      ],
+      "pdfIndex": 34,
+      "pdfLeaf": 35,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "headingRoleCounts": [
+        {
+          "continuation": 0,
+          "opening": 1,
+          "other": 0,
+          "uncertain": 0
+        },
+        {
+          "continuation": 0,
+          "opening": 1,
+          "other": 0,
+          "uncertain": 0
+        }
+      ],
+      "pdfIndex": 39,
+      "pdfLeaf": 40,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "headingRoleCounts": [
+        {
+          "continuation": 0,
+          "opening": 1,
+          "other": 0,
+          "uncertain": 0
+        },
+        {
+          "continuation": 0,
+          "opening": 1,
+          "other": 0,
+          "uncertain": 0
+        }
+      ],
+      "pdfIndex": 40,
+      "pdfLeaf": 41,
+      "target": true,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "headingRoleCounts": [
+        {
+          "continuation": 0,
+          "opening": 1,
+          "other": 0,
+          "uncertain": 0
+        },
+        {
+          "continuation": 0,
+          "opening": 1,
+          "other": 0,
+          "uncertain": 0
+        }
+      ],
+      "pdfIndex": 41,
+      "pdfLeaf": 42,
+      "target": true,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "headingRoleCounts": [
+        {
+          "continuation": 0,
+          "opening": 1,
+          "other": 0,
+          "uncertain": 0
+        },
+        {
+          "continuation": 0,
+          "opening": 1,
+          "other": 0,
+          "uncertain": 0
+        }
+      ],
+      "pdfIndex": 42,
+      "pdfLeaf": 43,
+      "target": true,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "headingRoleCounts": [
+        {
+          "continuation": 0,
+          "opening": 1,
+          "other": 0,
+          "uncertain": 0
+        },
+        {
+          "continuation": 0,
+          "opening": 1,
+          "other": 0,
+          "uncertain": 0
+        }
+      ],
+      "pdfIndex": 43,
+      "pdfLeaf": 44,
+      "target": true,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "headingRoleCounts": [
+        {
+          "continuation": 0,
+          "opening": 1,
+          "other": 0,
+          "uncertain": 0
+        },
+        {
+          "continuation": 0,
+          "opening": 1,
+          "other": 0,
+          "uncertain": 0
+        }
+      ],
+      "pdfIndex": 44,
+      "pdfLeaf": 45,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "headingRoleCounts": [
+        {
+          "continuation": 0,
+          "opening": 1,
+          "other": 0,
+          "uncertain": 0
+        },
+        {
+          "continuation": 0,
+          "opening": 1,
+          "other": 0,
+          "uncertain": 0
+        }
+      ],
+      "pdfIndex": 46,
+      "pdfLeaf": 47,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "headingRoleCounts": [
+        {
+          "continuation": 0,
+          "opening": 1,
+          "other": 0,
+          "uncertain": 0
+        },
+        {
+          "continuation": 0,
+          "opening": 1,
+          "other": 0,
+          "uncertain": 0
+        }
+      ],
+      "pdfIndex": 47,
+      "pdfLeaf": 48,
+      "target": true,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "headingRoleCounts": [
+        {
+          "continuation": 0,
+          "opening": 1,
+          "other": 0,
+          "uncertain": 0
+        },
+        {
+          "continuation": 0,
+          "opening": 1,
+          "other": 0,
+          "uncertain": 0
+        }
+      ],
+      "pdfIndex": 48,
+      "pdfLeaf": 49,
+      "target": true,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "headingRoleCounts": [
+        {
+          "continuation": 0,
+          "opening": 1,
+          "other": 0,
+          "uncertain": 0
+        },
+        {
+          "continuation": 0,
+          "opening": 1,
+          "other": 0,
+          "uncertain": 0
+        }
+      ],
+      "pdfIndex": 49,
+      "pdfLeaf": 50,
+      "target": true,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "headingRoleCounts": [
+        {
+          "continuation": 0,
+          "opening": 1,
+          "other": 0,
+          "uncertain": 0
+        },
+        {
+          "continuation": 0,
+          "opening": 1,
+          "other": 0,
+          "uncertain": 0
+        }
+      ],
+      "pdfIndex": 50,
+      "pdfLeaf": 51,
+      "target": true,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [],
+      "headingCounts": [
+        2,
+        2
+      ],
+      "headingRoleCounts": [
+        {
+          "continuation": 0,
+          "opening": 2,
+          "other": 0,
+          "uncertain": 0
+        },
+        {
+          "continuation": 0,
+          "opening": 2,
+          "other": 0,
+          "uncertain": 0
+        }
+      ],
+      "pdfIndex": 51,
+      "pdfLeaf": 52,
+      "target": true,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "headingRoleCounts": [
+        {
+          "continuation": 0,
+          "opening": 1,
+          "other": 0,
+          "uncertain": 0
+        },
+        {
+          "continuation": 0,
+          "opening": 1,
+          "other": 0,
+          "uncertain": 0
+        }
+      ],
+      "pdfIndex": 52,
+      "pdfLeaf": 53,
+      "target": true,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [],
+      "headingCounts": [
+        2,
+        2
+      ],
+      "headingRoleCounts": [
+        {
+          "continuation": 0,
+          "opening": 2,
+          "other": 0,
+          "uncertain": 0
+        },
+        {
+          "continuation": 0,
+          "opening": 2,
+          "other": 0,
+          "uncertain": 0
+        }
+      ],
+      "pdfIndex": 53,
+      "pdfLeaf": 54,
+      "target": true,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [],
+      "headingCounts": [
+        2,
+        2
+      ],
+      "headingRoleCounts": [
+        {
+          "continuation": 0,
+          "opening": 2,
+          "other": 0,
+          "uncertain": 0
+        },
+        {
+          "continuation": 0,
+          "opening": 2,
+          "other": 0,
+          "uncertain": 0
+        }
+      ],
+      "pdfIndex": 54,
+      "pdfLeaf": 55,
+      "target": true,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [],
+      "headingCounts": [
+        2,
+        2
+      ],
+      "headingRoleCounts": [
+        {
+          "continuation": 0,
+          "opening": 1,
+          "other": 1,
+          "uncertain": 0
+        },
+        {
+          "continuation": 0,
+          "opening": 1,
+          "other": 1,
+          "uncertain": 0
+        }
+      ],
+      "pdfIndex": 55,
+      "pdfLeaf": 56,
+      "target": true,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "headingRoleCounts": [
+        {
+          "continuation": 0,
+          "opening": 1,
+          "other": 0,
+          "uncertain": 0
+        },
+        {
+          "continuation": 0,
+          "opening": 1,
+          "other": 0,
+          "uncertain": 0
+        }
+      ],
+      "pdfIndex": 56,
+      "pdfLeaf": 57,
+      "target": true,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "opening-present",
+      "disagreements": [],
+      "headingCounts": [
+        1,
+        1
+      ],
+      "headingRoleCounts": [
+        {
+          "continuation": 0,
+          "opening": 1,
+          "other": 0,
+          "uncertain": 0
+        },
+        {
+          "continuation": 0,
+          "opening": 1,
+          "other": 0,
+          "uncertain": 0
+        }
+      ],
+      "pdfIndex": 57,
+      "pdfLeaf": 58,
+      "target": true,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    },
+    {
+      "agreedDisposition": "mixed",
+      "disagreements": [],
+      "headingCounts": [
+        2,
+        2
+      ],
+      "headingRoleCounts": [
+        {
+          "continuation": 1,
+          "opening": 1,
+          "other": 0,
+          "uncertain": 0
+        },
+        {
+          "continuation": 1,
+          "opening": 1,
+          "other": 0,
+          "uncertain": 0
+        }
+      ],
+      "pdfIndex": 58,
+      "pdfLeaf": 59,
+      "target": false,
+      "uncertaintyCounts": [
+        0,
+        0
+      ]
+    }
+  ],
+  "processingVersion": 2,
+  "processorSha256": "6b03c7c2ac840cf54304d6062ce200e9cb2573e46df608cc7123372ed2b9d6a8",
+  "protocolSha256": "672414eab84560b9f02383170036b70cc35230dd5716e9743476c8513c5ae5eb",
+  "readerIndependenceVerified": false,
+  "readerSha256": [
+    "fb475bd3d34b80c86a9805872ba2c9bcb50d20d713cddacb2b2776ace246b60a",
+    "3cb7c7027687531b857ef0837308f276a97fa9d11dc5c24a051f6650c807df88"
+  ],
+  "reviewedLeafCount": 22,
+  "safeToPromote": false,
+  "schemaVersion": 1,
+  "sourceCertified": false,
+  "sourceSha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+  "status": "compared",
+  "targetLeafCount": 16,
+  "unresolvedLeaves": [],
+  "wholeBookReviewed": false
+}
