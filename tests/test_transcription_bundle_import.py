@@ -340,7 +340,7 @@ def synthetic_v2_reading():
                                           {'location': 'right', 'barStyle': 'light-heavy',
                                            'repeat': {'direction': 'backward', 'times': 2},
                                            'ending': {'number': 1, 'type': 'stop'}}],
-                             'endingLabel': 'literal 2.' if measure else '',
+                             'endingLabel': 'literal 2.' if measure else None,
                              'unavailableSemantics': ['stem direction unrepresented']})
         parts.append({'id': 'P' + str(index + 1), 'name': 'Synthetic ' + str(index + 1), 'measures': measures})
     return {'schemaVersion': 2, 'profile': v2.PROFILE, 'sourceSha256': '1' * 64,
@@ -414,7 +414,7 @@ def synthetic_v2_xml(reading):
                     lyric_node = add(note, 'lyric', number=str(lyric['number']))
                     add(lyric_node, 'syllabic', lyric['syllabic'])
                     add(lyric_node, 'text', lyric['text'])
-            for bar in measure.get('barlines', []):
+            for bar in sorted(measure.get('barlines', []), key=lambda b: b['location'] != 'left'):
                 bar_node = add(node, 'barline', location=bar['location'])
                 add(bar_node, 'bar-style', bar['barStyle'])
                 if bar.get('ending'):
@@ -609,6 +609,75 @@ class TranscriptionV2Import(unittest.TestCase):
         self.update_reading()
         self.pin = self.write_archive(synthetic_v2_xml(self.reading))
         self.verify()
+
+    def test_valid_wire_defaults_beam_numbers_and_barline_order_are_preserved(self):
+        self.reading['title'] = None
+        self.reading['parts'][0]['name'] = ''
+        for part in self.reading['parts']:
+            for measure in part['measures']:
+                measure['barlines'].reverse()
+                measure['endingLabel'] = None
+                measure['events'][2]['beams'] = [
+                    {'number': 9, 'value': 'begin'}, {'number': 9, 'value': 'continue'}]
+        self.update_reading()
+        self.pin = self.write_archive(synthetic_v2_xml(self.reading))
+        self.verify()
+
+    def test_blank_identifiers_unavailable_semantics_and_ending_labels_fail(self):
+        original = deepcopy(self.reading)
+        mutations = [lambda r: r['parts'][0]['measures'][0].update(endingLabel=''),
+                     lambda r: r['parts'][0]['measures'][0].update(endingLabel=' \t'),
+                     lambda r: r.update(unavailableSemantics=[' ']),
+                     lambda r: r['parts'][0]['measures'][0]['events'][4]['lyrics'][0].update(number=' '),
+                     lambda r: r['parts'][0]['measures'][0]['barlines'][0]['ending'].update(number=' ')]
+        for mutation in mutations:
+            self.reading = deepcopy(original)
+            mutation(self.reading)
+            self.update_reading()
+            self.reject()
+        for key in ('repeat', 'ending'):
+            for value in ({}, False, [], ''):
+                self.reading = deepcopy(original)
+                self.reading['parts'][0]['measures'][0]['barlines'][0][key] = value
+                self.update_reading()
+                self.reject()
+
+    def test_document_types_reject_before_generic_archive_parse_in_every_encoding(self):
+        original = synthetic_v2_xml(self.reading).decode('utf-8').split('?>', 1)[1]
+        for encoding in ('utf-8', 'utf-16', 'utf-16-be'):
+            declaration = '<?xml version="1.0" encoding="' + encoding + '"?>'
+            raw = (declaration + '<!DOCTYPE score-partwise [<!ENTITY unused "x">]>' + original).encode(encoding)
+            self.pin = self.write_archive(raw)
+            with patch.object(consumer, 'verify_archive', side_effect=AssertionError('DTD must fail first')):
+                self.reject('document types|invalid XML')
+        valid_utf16 = ('<?xml version="1.0" encoding="UTF-16"?>' + original).encode('utf-16')
+        self.pin = self.write_archive(valid_utf16)
+        self.verify()
+        self.pin = self.write_archive(synthetic_v2_xml(self.reading))
+        container = ('<?xml version="1.0" encoding="UTF-16"?>'
+                     '<!DOCTYPE container [<!ENTITY unused "x">]>'
+                     '<container><rootfile full-path="score.musicxml"/></container>').encode('utf-16')
+        self.pin = self.write_archive(container=container)
+        self.reject('document types')
+
+    def test_xml_alter_requires_decimal_syntax_while_reading_rationals_stay_supported(self):
+        from xml.etree import ElementTree as ET
+        original = synthetic_v2_xml(self.reading)
+        for value in ('2/2', '1e0', 'NaN', 'Infinity'):
+            xml = ET.fromstring(original)
+            xml.find('part/measure/note/pitch/alter').text = value
+            self.pin = self.write_archive(ET.tostring(xml))
+            self.reject('decimal semitone syntax')
+        xml = ET.fromstring(original)
+        xml.find('part/measure/note/pitch/alter').text = '+1.000'
+        self.pin = self.write_archive(ET.tostring(xml))
+        self.verify()
+
+    def test_missing_repeat_traversal_flag_rejects(self):
+        report = json.loads((self.bundle / 'report.json').read_bytes())
+        del report['repeatTraversalVerified']
+        self.pin = self.write_payload('report.json', encoded(report))
+        self.reject('repeat traversal')
 
     def test_v1_opt_in_selection_and_invalid_api_versions_are_rejected(self):
         for value in (0, 3, True, '2', None):

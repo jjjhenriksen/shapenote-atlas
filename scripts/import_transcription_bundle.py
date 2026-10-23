@@ -43,10 +43,11 @@ def json_object(raw, name):
     return value
 
 
-def verify_archive(payload):
+def verify_archive(payload, xml_parser=None):
+    xml_parser = xml_parser or ET.fromstring
     try:
         # Well-formed XML is a format check, not semantic/source acceptance.
-        ET.fromstring(payload['candidate.musicxml'])
+        xml_parser(payload['candidate.musicxml'])
         with zipfile.ZipFile(io.BytesIO(payload['candidate.mxl'])) as archive:
             if (len(archive.namelist()) != 2 or set(archive.namelist()) !=
                     {'META-INF/container.xml', 'score.musicxml'}):
@@ -55,7 +56,7 @@ def verify_archive(payload):
                 raise ValueError('MXL score size differs from candidate XML')
             if archive.read('score.musicxml') != payload['candidate.musicxml']:
                 raise ValueError('MXL does not match the candidate XML')
-            container = ET.fromstring(archive.read('META-INF/container.xml'))
+            container = xml_parser(archive.read('META-INF/container.xml'))
             rootfiles = [n.get('full-path') for n in container.iter()
                          if n.tag.rsplit('}', 1)[-1] == 'rootfile']
             if rootfiles != ['score.musicxml']:
@@ -130,9 +131,11 @@ def verify(directory, expected_manifest_sha256, bundle_version=1):
                         ('resolvedReadingSha256', 'resolved-reading.json')):
         if report.get(field) != sha(payload[name]):
             raise ValueError('Assembly report hash drift: ' + name)
-    verify_archive(payload)
     if bundle_version == 2:
         v2.verify_metadata(manifest, report, reading, comparison, payload['candidate.musicxml'])
+        verify_archive(payload, xml_parser=v2.parse_document)
+    else:
+        verify_archive(payload)
     return manifest, {**payload, 'bundle.json': raw}
 
 

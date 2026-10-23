@@ -46,7 +46,11 @@ matching positive rational quarter-note durations. Integral pitch alterations,
 integer octaves, four literal shapes (`triangle`, `round`, `square`, `diamond`),
 open/filled heads, rests, explicit ties, lyric numbers/text/syllabic values,
 numbered beams, barline styles, repeat directions/counts, bracket endings, and
-literal `endingLabel` are supported. Declared unavailable semantics remain in
+literal `endingLabel` are supported. An absent/null ending label represents no
+label; other labels and identifiers must be nonblank, preserving their spelling.
+Beam numbering retains the existing adapter semantics (positive integers, with
+no renumbering or deduplication), and barline order is compared as a semantic
+collection while retaining every occurrence. Declared unavailable semantics remain in
 the pinned reading and reports. Optional uncertainty lists must be empty.
 Unknown features, seven shapes, extra voices/staves, chords, tuplets, grace notes,
 noncontiguous onsets, fractional pitch alterations, and literal barline-stroke
@@ -58,7 +62,10 @@ xml_raw)` validates the reading and compares independently parsed MusicXML to
 its supported semantics. The parser admits only the declared MusicXML subset,
 including ordered IDs/names/clefs, key/time, measure/event coverage, pitch/rhythm,
 literal shape/fill, lyrics, beams, ties, repeats, bracket endings, and ending
-labels. It rejects unknown XML elements/attributes and document type/entities.
+labels. It rejects unknown XML elements/attributes, document types/entities in all XML
+encodings (also in the MXL container), and non-decimal XML pitch alterations.
+Rational reading alterations remain accepted when integral. The report must
+explicitly declare `repeatTraversalVerified=false`.
 This verifies agreement between the two representations, not musical accuracy
 against source pixels.
 

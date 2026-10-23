@@ -5,6 +5,7 @@ implementation nor recognizes source images or grants acceptance authority.
 """
 from fractions import Fraction
 import math
+import re
 from xml.etree import ElementTree as ET
 
 PROFILE = 'four-shape-three-monophonic'
@@ -50,7 +51,7 @@ def text(value, name, nonempty=False):
 
 
 def label(value, name):
-    require(type(value) is int or isinstance(value, str) and bool(value),
+    require(type(value) is int or isinstance(value, str) and bool(value.strip()),
             name + ' must be a nonempty literal string or integer')
     return str(value)
 
@@ -60,7 +61,7 @@ def uncertainties(value, name):
 
 
 def unavailable(value, name):
-    require(isinstance(value, list) and all(isinstance(v, str) and v for v in value),
+    require(isinstance(value, list) and all(isinstance(v, str) and v.strip() for v in value),
             name + ' must be a list of nonempty strings')
 
 
@@ -119,8 +120,9 @@ def normalize_reading(reading):
             uncertainties(measure.get('uncertainties', []), 'measure uncertainties')
             if 'unavailableSemantics' in measure:
                 unavailable(measure['unavailableSemantics'], 'measure unavailableSemantics')
-            if 'endingLabel' in measure:
-                text(measure['endingLabel'], 'endingLabel')
+            if measure.get('endingLabel') is not None:
+                require(isinstance(measure['endingLabel'], str) and bool(measure['endingLabel'].strip()),
+                        'endingLabel must be a nonblank string or null')
             require(isinstance(measure['events'], list) and bool(measure['events']),
                     'measure events must be nonempty')
             events = []
@@ -166,9 +168,8 @@ def normalize_reading(reading):
                 normalized_beams = []
                 for beam in beams:
                     fields(beam, ('number', 'value'), ('number', 'value'), 'beam')
-                    number = integer(beam['number'], 'beam number', 1, 8)
+                    number = integer(beam['number'], 'beam number', 1)
                     require(isinstance(beam['value'], str) and beam['value'] in BEAMS, 'unsupported beam value')
-                    require(number not in [b[0] for b in normalized_beams], 'duplicate beam number')
                     normalized_beams.append((number, beam['value']))
                 events.append({'onset': onset, 'duration': duration, 'pitch': pitch,
                                'type': event['type'], 'dots': dots, 'shape': event['shape'],
@@ -196,8 +197,8 @@ def normalize_reading(reading):
                     require(ending['type'] in ('start', 'stop', 'discontinue'), 'unsupported ending type')
                     ending = (label(ending['number'], 'ending number'), ending['type'])
                 barlines.append((bar['location'], bar['barStyle'], repeat, ending))
-            normalized['measures'].append({'events': events, 'barlines': barlines,
-                                           'endingLabel': measure.get('endingLabel', '')})
+            normalized['measures'].append({'events': events, 'barlines': sorted(barlines, key=repr),
+                                           'endingLabel': measure.get('endingLabel') or ''})
         result['parts'].append(normalized)
     return result
 
@@ -233,14 +234,22 @@ def xml_integer(value, name, minimum=None):
     return integer(result, 'XML ' + name, minimum)
 
 
+class NoDocumentTypes(ET.TreeBuilder):
+    def doctype(self, name, public_id, system_id):
+        raise ValueError('V2 profile: XML document types/entities are unsupported')
+
+
+def parse_document(raw):
+    """Reject DTDs through the XML parser, regardless of input encoding."""
+    try:
+        return ET.fromstring(raw, parser=ET.XMLParser(target=NoDocumentTypes()))
+    except (ET.ParseError, ValueError, RecursionError) as exc:
+        raise ValueError('V2 profile: invalid XML: ' + str(exc)) from exc
+
+
 def parse_xml(raw):
     """Parse only the supported three-monophonic-part MusicXML wire subset."""
-    require(b'<!DOCTYPE' not in raw.upper() and b'<!ENTITY' not in raw.upper(),
-            'XML document type/entities are unsupported')
-    try:
-        root = ET.fromstring(raw)
-    except (ET.ParseError, ValueError, RecursionError) as exc:
-        raise ValueError('V2 profile: malformed MusicXML') from exc
+    root = parse_document(raw)
     xml_node(root, 'score-partwise', ('work', 'identification', 'part-list', 'part'), ('version',))
     require(root.attrib == {'version': '4.0'}, 'MusicXML version must be 4.0')
     work = one(root, 'work')
@@ -302,7 +311,10 @@ def parse_xml(raw):
                 require((pitch is None) != (rest is None), 'XML note must have pitch or rest')
                 if pitch is not None:
                     xml_node(pitch, 'pitch', ('step', 'alter', 'octave'))
-                    alter = rational(leaf(one(pitch, 'alter'), 'alter'), 'XML alter')
+                    alter_text = leaf(one(pitch, 'alter'), 'alter').strip()
+                    require(re.fullmatch(r'[+-]?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)', alter_text) is not None,
+                            'XML alter must use decimal semitone syntax')
+                    alter = rational(alter_text, 'XML alter')
                     require(alter.denominator == 1, 'XML alter must be integral')
                     pitch_value = (leaf(one(pitch, 'step'), 'step'), int(alter),
                                    xml_integer(leaf(one(pitch, 'octave'), 'octave'), 'octave'))
@@ -390,7 +402,7 @@ def parse_xml(raw):
                 direction_type = one(direction, 'direction-type')
                 xml_node(direction_type, 'direction-type', ('words',))
                 ending_label = leaf(one(direction_type, 'words'), 'words')
-            normalized['measures'].append({'events': events, 'barlines': barlines, 'endingLabel': ending_label})
+            normalized['measures'].append({'events': events, 'barlines': sorted(barlines, key=repr), 'endingLabel': ending_label})
         result['parts'].append(normalized)
     return result
 
@@ -488,5 +500,4 @@ def verify_metadata(manifest, report, reading, comparison, xml_raw):
             'invalid adjudication provenance')
     if 'unavailableSemantics' in report:
         unavailable(report['unavailableSemantics'], 'report unavailableSemantics')
-    if 'repeatTraversalVerified' in report:
-        require(report['repeatTraversalVerified'] is False, 'repeat traversal remains unverified')
+    require(report.get('repeatTraversalVerified') is False, 'repeat traversal remains unverified')
