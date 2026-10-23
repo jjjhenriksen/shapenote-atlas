@@ -40,14 +40,21 @@ Passing that fixture provides no source, policy or rights evidence.
 ## Closed record shape
 
 All objects reject extra/missing fields; versions, enums, booleans and lowercase
-hexadecimal pins are strict. Duplicate JSON keys, evidence IDs and repeated
-references are rejected. The synthetic example contains the complete shape.
+hexadecimal pins are strict. Identity and extent tokens cannot contain `*`,
+surrounding whitespace or control whitespace; descriptions and notes remain free
+prose. Timestamps use the portable extended ISO profile
+`YYYY-MM-DDTHH:MM[:SS[.fraction]]` followed by uppercase `Z` or `+/-HH:MM`. Offset
+hours must be 00–23 and offset minutes 00–59; offset seconds and basic offsets
+without a colon are unsupported. Calendar and time components are also checked.
+Malformed offset components are rejected before Python can normalize them.
+Duplicate JSON keys, evidence IDs and repeated references are rejected. The
+synthetic example contains the complete shape.
 
 | Field | Required declaration |
 | --- | --- |
 | `schemaVersion`, `kind`, `contractStatus` | `1`, `shapenote-transcription-acceptance-decision`, `proposed`. This is not a new producer bundle version. |
 | `decisionId`, `recordedAt` | Owner-assigned immutable decision identifier; ISO timestamp with timezone. Corrections create a new decision and retain its predecessor. |
-| `subject` | Exact `recordId`, `edition` and `extent`: description, explicit source pages, part IDs, measure IDs, and `completeWork` boolean. No `*` wildcard. Partial scope must remain labeled partial. Scope accuracy is a human responsibility. |
+| `subject` | Exact `recordId`, `edition` and `extent`: description, explicit source pages, part IDs, measure IDs, and `completeWork` boolean. No embedded or padded `*` wildcard tokens. Partial scope must remain labeled partial. Scope accuracy is a human responsibility. |
 | `bundle` | Bundle schema 1, external `manifestSha256`, `sourceSha256`, actual assembly `actualWriterSha256`, and the five fixed payload hashes. Producer repository, **full 40-digit exporting revision**, dirty marker and exporter hash are distinct from the actual historical writer. Preserve both. |
 | `bundle.researchFlags` | Original `sourceCertified: false`, `safeToPromote: false`, including after an admission declaration. Never rewrite a research bundle as an accepted artifact. |
 | `privateEvidenceLocator` | Nonempty opaque `private://...` retained archive identifier. This declaration does not check privacy, accessibility or retention. |

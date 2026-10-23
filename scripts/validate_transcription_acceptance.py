@@ -18,6 +18,9 @@ ASSESSMENTS = ('integrity', 'parsing', 'engraving', 'usefulPartial',
                'encodedRepeatPlayback', 'hostedReleaseQa', 'nativeReleaseQa')
 EVIDENCE_KINDS = set(ASSESSMENTS) | {'authorization', 'humanImage', 'predecessor'}
 ADMISSION_GATES = ('integrity', 'parsing', 'sourceFidelity', 'exactMapping')
+TIMESTAMP_PATTERN = (r'[0-9]{4}-[0-9]{2}-[0-9]{2}T(?:[01][0-9]|2[0-3]):[0-5][0-9]'
+                     r'(?::[0-5][0-9](?:\.[0-9]+)?)?'
+                     r'(?:Z|[+-](?:[01][0-9]|2[0-3]):[0-5][0-9])')
 PUBLICATION_GATES = ADMISSION_GATES + ('engraving', 'publicationRights',
                     'xmlDownload', 'mxlDownload', 'uiLabels', 'writtenPlayback',
                     'encodedRepeatPlayback')
@@ -36,6 +39,16 @@ def obj(value: Any, keys: tuple[str, ...], path: str) -> dict:
 
 def text(value: Any, path: str) -> str:
     require(type(value) is str and bool(value.strip()), f'{path}: expected nonempty string')
+    return value
+
+
+def identifier(value: Any, path: str) -> str:
+    text(value, path)
+    require(value == value.strip() and
+            not any(character.isspace() and character != ' ' for character in value) and
+            not any(ord(character) < 32 or ord(character) == 127 for character in value),
+            f'{path}: expected identifier without surrounding or control whitespace')
+    require('*' not in value, f'{path}: wildcard scope is forbidden')
     return value
 
 
@@ -61,8 +74,14 @@ def sha(value: Any, path: str, size: int = 64) -> str:
 
 def timestamp(value: Any, path: str) -> None:
     text(value, path)
+    require(re.fullmatch(TIMESTAMP_PATTERN, value) is not None,
+            f'{path}: expected YYYY-MM-DDTHH:MM[:SS[.fraction]] with Z or +/-HH:MM timezone')
+    # Fraction precision does not affect calendar validity. Python versions
+    # accept different precisions, so check the calendar without that suffix;
+    # the lexical check above validates it and the original input stays intact.
+    calendar_value = re.sub(r'\.[0-9]+', '', value)
     try:
-        parsed = datetime.fromisoformat(value.replace('Z', '+00:00'))
+        parsed = datetime.fromisoformat(calendar_value.replace('Z', '+00:00'))
     except ValueError as error:
         raise ValueError(f'{path}: expected ISO timestamp with timezone') from error
     require(parsed.tzinfo is not None and 'T' in value,
@@ -74,7 +93,8 @@ def extent(value: Any, path: str) -> None:
     text(value['description'], path + '.description')
     for key in ('sourcePages', 'partIds', 'measureIds'):
         strings(value[key], path + '.' + key, nonempty=True)
-        require('*' not in value[key], f'{path}.{key}: wildcard scope is forbidden')
+        for item in value[key]:
+            identifier(item, f'{path}.{key}')
     require(type(value['completeWork']) is bool, f'{path}.completeWork: expected boolean')
 
 
@@ -93,8 +113,7 @@ def validate(decision: Any) -> dict:
     timestamp(decision['recordedAt'], '$.recordedAt')
     subject = obj(decision['subject'], ('recordId', 'edition', 'extent'), '$.subject')
     for key in ('recordId', 'edition'):
-        text(subject[key], '$.subject.' + key)
-        require(subject[key] != '*', '$.subject: wildcard identity is forbidden')
+        identifier(subject[key], '$.subject.' + key)
     extent(subject['extent'], '$.subject.extent')
 
     bundle = obj(decision['bundle'], ('schemaVersion', 'manifestSha256', 'sourceSha256',
