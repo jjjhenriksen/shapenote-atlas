@@ -536,6 +536,7 @@ export function App() {
 
   function selectTune(id) {
     setSelectedId(id);
+    setLinkNotice("");
     if (!window.matchMedia('(max-width: 900px)').matches) return;
     window.requestAnimationFrame(() => {
       const details = document.getElementById('selected-tune-details');
