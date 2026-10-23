@@ -93,9 +93,42 @@ Across the two validated protocols, the union is 81 distinct physical leaves.
 Within the coordinator-proposed candidate music range 17–254, 157 leaves have
 not yet been inspected by this census. These coverage figures come from the
 actual frozen protocols and complete reader coverage, not catalogue counts.
-A next bounded development proposal is targets 17–32 (16 leaves), with source
-context leaves 16 and 33. Further dispatch requires capacity coordination and
-its own frozen protocol. No further census has been performed by this draft.
+The next bounded development packet has targets 17–32 (16 leaves), with
+context leaves 16 and 33, under separately frozen protocol
+`6a2c41bf9659d565775f81213dd1bbe2177c62ceb8cb0287027ad226359e4711`.
+Context leaf 16 is outside the candidate music span. Two fresh source-only
+contexts were dispatched after capacity coordination. This packet is still in
+progress; no new observations or coverage are included here. One reader was
+technically interrupted and resumed in the same context to obtain a progress
+checkpoint; its existing work was to be preserved, and no other observations
+were disclosed. The completed other reading remains sealed pending both raw
+freezes. Running status alone is not evidence of an engine failure.
+
+## Engineering separation and processing versions
+
+The generic read-only helper, synthetic tests and CI registration are now on
+main through [engineering PR #518](https://github.com/jjjhenriksen/shapenote-atlas/pull/518),
+with [source-free tool documentation](social-harp-inventory-audit-tool.md).
+This human-review draft retains the original source receipts and history.
+
+The original public/private receipts and raw freezes remain byte-for-byte
+unchanged. New private derived directories process those same two frozen
+readings with helper commit `4a3d6bc5f464d4d34fd6378c59a4214457e4bcbc`,
+processing version 2, SHA-256
+`6b03c7c2ac840cf54304d6062ce200e9cb2573e46df608cc7123372ed2b9d6a8`.
+The [separate derivation receipt](experiments/social-harp-inventory-processing-v2-20261022.json)
+binds old/new aggregate hashes and adds per-reader counts for declared opening,
+continuation, other and uncertain heading roles. Every previous comparison
+field is unchanged. Both readers declare zero opening headings on the 37
+selected continuation targets. This counts supplied roles; it does not resolve
+uncertainty, count unique musical works or establish a publisher's piece unit.
+Prior-context overlap must not be summed as new coverage.
+
+The new counter implementation was committed and separately pinned after the
+next packet's dispatch but before any of its observations were disclosed. Its
+source/protocol/raw freezes retain their original identities. No new-cohort
+observations are included in these derivation results. Processing version 2 and
+development cohort v2 are separate labels.
 
 ## Read-only audit command
 
