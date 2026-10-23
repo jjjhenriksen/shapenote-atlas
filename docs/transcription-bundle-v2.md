@@ -79,3 +79,25 @@ provenance, and never replaces an existing import. There is no destination
 option into catalogue/public assets, acceptance or publication, UI integration,
 playback admission, or source certification. Source evidence remains separately
 retained. Synthetic round trips prove only the bounded exchange contract.
+
+## Numeric syntax and comparison consistency
+
+XML divisions and durations use positive decimal values, as defined by MusicXML
+[positive-divisions](https://www.w3.org/2021/06/musicxml40/musicxml-reference/data-types/positive-divisions/).
+The parser preserves exact rational timing when equivalent decimal spellings or
+fractional divisions are used. XML alterations also use decimal syntax and must
+represent integral semitones under this profile. Fifths, octave, clef line,
+meter values, beam numbers and repeat counts retain integer lexical checks.
+Only ASCII digits, the appropriate sign/decimal point, and XML whitespace are
+accepted; Python underscores, exponent/fraction expressions, Unicode digits and
+non-XML whitespace are rejected. Reading-side rational expressions and literal
+lyric/ending identifiers retain their separate existing semantics.
+
+The XML subset also checks required child sequences and rejects unsupported
+character content in containers, including empty notation containers. Barline
+collections retain their documented order-independent comparison. Both frozen
+inputs must report at least one event per staff measure. Without comparison
+issues/adjudication, event/agreement counts must equal the resolved event count
+and every staff measure must agree. Adjudicated inputs may have different event
+counts, since source rereads can change the resolved result; their counters still
+must satisfy the declared coverage/agreement bounds.

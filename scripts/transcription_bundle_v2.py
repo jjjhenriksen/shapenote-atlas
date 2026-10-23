@@ -8,6 +8,8 @@ import math
 import re
 from xml.etree import ElementTree as ET
 
+XML_SPACE = ' \t\r\n'
+XML_DECIMAL = r'[+-]?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)'
 PROFILE = 'four-shape-three-monophonic'
 PART_IDS = ['P1', 'P2', 'P3']
 SHAPES = {'triangle': 'fa', 'round': 'so', 'square': 'la', 'diamond': 'mi'}
@@ -203,12 +205,15 @@ def normalize_reading(reading):
     return result
 
 
-def xml_node(node, tag, allowed_children=(), attributes=()):
+def xml_node(node, tag, allowed_children=(), attributes=(), ordered=True):
     require(node.tag == tag, 'unsupported XML element ' + str(node.tag))
     require(set(node.attrib) <= set(attributes), 'unsupported XML attributes on ' + tag)
     require(all(child.tag in allowed_children for child in node), 'unsupported XML children in ' + tag)
-    require(not list(node) or not (node.text or '').strip(), 'mixed XML content in ' + tag)
-    require(all(not (child.tail or '').strip() for child in node), 'mixed XML tail in ' + tag)
+    require(not allowed_children or not (node.text or '').strip(XML_SPACE), 'mixed XML content in ' + tag)
+    require(all(not (child.tail or '').strip(XML_SPACE) for child in node), 'mixed XML tail in ' + tag)
+    if ordered:
+        ranks = [allowed_children.index(child.tag) for child in node]
+        require(ranks == sorted(ranks), 'invalid XML child sequence in ' + tag)
     return node
 
 
@@ -224,14 +229,21 @@ def leaf(node, tag, attributes=()):
 
 
 def xml_integer(value, name, minimum=None):
+    require(isinstance(value, str) and re.fullmatch(r'[+-]?[0-9]+', value.strip(XML_SPACE)) is not None,
+            'invalid XML integer ' + name)
     try:
-        # int() accepts whitespace and signs used in the MusicXML integer type.
-        require(isinstance(value, str) and value.strip()
-                and all(c in '+-0123456789' for c in value.strip()), 'invalid XML integer ' + name)
-        result = int(value)
-    except (ValueError, TypeError) as exc:
+        result = int(value.strip(XML_SPACE))
+    except ValueError as exc:
         raise ValueError('V2 profile: invalid XML integer ' + name) from exc
     return integer(result, 'XML ' + name, minimum)
+
+
+def xml_decimal(value, name, positive=False):
+    require(isinstance(value, str) and re.fullmatch(XML_DECIMAL, value.strip(XML_SPACE)) is not None,
+            'XML ' + name + ' must use decimal syntax')
+    result = rational(value.strip(XML_SPACE), 'XML ' + name)
+    require(not positive or result > 0, 'XML ' + name + ' must be positive')
+    return result
 
 
 class NoDocumentTypes(ET.TreeBuilder):
@@ -277,7 +289,7 @@ def parse_xml(raw):
         normalized = {'id': PART_IDS[part_no], 'name': name, 'measures': []}
         divisions = None
         for measure_no, measure in enumerate(measures):
-            xml_node(measure, 'measure', ('attributes', 'note', 'barline', 'direction'), ('number',))
+            xml_node(measure, 'measure', ('attributes', 'note', 'barline', 'direction'), ('number',), ordered=False)
             require(measure.attrib == {'number': str(measure_no + 1)}, 'XML measure numbers must be contiguous')
             attributes = one(measure, 'attributes', required=measure_no == 0)
             if measure_no > 0:
@@ -285,7 +297,7 @@ def parse_xml(raw):
             else:
                 require(list(measure)[0] is attributes, 'XML attributes must precede events')
                 xml_node(attributes, 'attributes', ('divisions', 'key', 'time', 'clef'))
-                divisions = xml_integer(leaf(one(attributes, 'divisions'), 'divisions'), 'divisions', 1)
+                divisions = xml_decimal(leaf(one(attributes, 'divisions'), 'divisions'), 'divisions', positive=True)
                 key = one(attributes, 'key')
                 xml_node(key, 'key', ('fifths',))
                 fifths = xml_integer(leaf(one(key, 'fifths'), 'fifths'), 'fifths')
@@ -311,17 +323,14 @@ def parse_xml(raw):
                 require((pitch is None) != (rest is None), 'XML note must have pitch or rest')
                 if pitch is not None:
                     xml_node(pitch, 'pitch', ('step', 'alter', 'octave'))
-                    alter_text = leaf(one(pitch, 'alter'), 'alter').strip()
-                    require(re.fullmatch(r'[+-]?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)', alter_text) is not None,
-                            'XML alter must use decimal semitone syntax')
-                    alter = rational(alter_text, 'XML alter')
+                    alter = xml_decimal(leaf(one(pitch, 'alter'), 'alter'), 'alter')
                     require(alter.denominator == 1, 'XML alter must be integral')
                     pitch_value = (leaf(one(pitch, 'step'), 'step'), int(alter),
                                    xml_integer(leaf(one(pitch, 'octave'), 'octave'), 'octave'))
                 else:
                     require(leaf(rest, 'rest') == '', 'XML rest must be empty')
                     pitch_value = None
-                duration = Fraction(xml_integer(leaf(one(note, 'duration'), 'duration'), 'duration', 1), divisions)
+                duration = xml_decimal(leaf(one(note, 'duration'), 'duration'), 'duration', positive=True) / divisions
                 require(leaf(one(note, 'voice'), 'voice') == '1', 'XML voice must be 1')
                 note_type = leaf(one(note, 'type'), 'type')
                 dots = note.findall('dot')
@@ -372,7 +381,7 @@ def parse_xml(raw):
                 position += duration
             barlines = []
             for bar in measure.findall('barline'):
-                xml_node(bar, 'barline', ('bar-style', 'repeat', 'ending'), ('location',))
+                xml_node(bar, 'barline', ('bar-style', 'ending', 'repeat'), ('location',))
                 require(set(bar.attrib) == {'location'}, 'invalid XML barline location')
                 style = leaf(one(bar, 'bar-style'), 'bar-style')
                 repeat = one(bar, 'repeat', False)
@@ -481,6 +490,8 @@ def verify_metadata(manifest, report, reading, comparison, xml_raw):
         for key in ('staffMeasures', 'exactStaffMeasures', 'eventsA', 'eventsB',
                     'pitchRhythmEventAgreements', 'fullEventAgreements'):
             integer(value[key], name + ' ' + key, 0)
+        require(min(value['eventsA'], value['eventsB']) >= staff_measures,
+                name + ' events must cover every nonempty staff measure')
         require(value['staffMeasures'] == staff_measures, name + ' staffMeasures differs')
         require(value['exactStaffMeasures'] <= staff_measures, name + ' exactStaffMeasures exceeds coverage')
         require(value['fullEventAgreements'] <= value['pitchRhythmEventAgreements']
@@ -489,6 +500,12 @@ def verify_metadata(manifest, report, reading, comparison, xml_raw):
         require(report[key] == comparison[key], 'report/comparison metadata differs: ' + key)
     require(isinstance(comparison.get('issues'), list)
             and all(isinstance(issue, dict) for issue in comparison['issues']), 'comparison issues must be objects')
+    if not comparison['issues']:
+        event_count = sum(len(measure['events']) for part in expected['parts'] for measure in part['measures'])
+        require(all(report[key] == event_count for key in
+                    ('eventsA', 'eventsB', 'pitchRhythmEventAgreements', 'fullEventAgreements'))
+                and report['exactStaffMeasures'] == staff_measures,
+                'unadjudicated comparison counts differ from resolved score')
     integer(report.get('adjudicatedUnits'), 'adjudicatedUnits', 0)
     require(report['adjudicatedUnits'] == len(comparison['issues']), 'adjudicatedUnits differs from resolved issues')
     require(isinstance(report.get('structureFindings'), list)

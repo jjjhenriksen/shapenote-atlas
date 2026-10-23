@@ -667,7 +667,7 @@ class TranscriptionV2Import(unittest.TestCase):
             xml = ET.fromstring(original)
             xml.find('part/measure/note/pitch/alter').text = value
             self.pin = self.write_archive(ET.tostring(xml))
-            self.reject('decimal semitone syntax')
+            self.reject('decimal syntax')
         xml = ET.fromstring(original)
         xml.find('part/measure/note/pitch/alter').text = '+1.000'
         self.pin = self.write_archive(ET.tostring(xml))
@@ -678,6 +678,110 @@ class TranscriptionV2Import(unittest.TestCase):
         del report['repeatTraversalVerified']
         self.pin = self.write_payload('report.json', encoded(report))
         self.reject('repeat traversal')
+
+    def test_integer_xml_lexical_forms_are_strict_across_all_numeric_fields(self):
+        from xml.etree import ElementTree as ET
+        original = synthetic_v2_xml(self.reading)
+        fields = [('part/measure/attributes/key/fifths', None, ' -01 '),
+                  ('part/measure/attributes/time/beats', None, '+04'),
+                  ('part/measure/attributes/time/beat-type', None, '+04'),
+                  ('part/measure/attributes/clef/line', None, '+02'),
+                  ('part/measure/note/pitch/octave', None, '+04'),
+                  ('part/measure/note/beam', 'number', '+01'),
+                  ('part/measure/barline[@location="right"]/repeat', 'times', '+02')]
+        for path, attribute, positive in fields:
+            for value in ('1_0', '1e0', '1/1', '1.0', '\u0661', '\u00a01\u00a0', '1 0', '--1'):
+                xml = ET.fromstring(original)
+                node = xml.find(path)
+                if attribute:
+                    node.set(attribute, value)
+                else:
+                    node.text = value
+                self.pin = self.write_archive(ET.tostring(xml))
+                self.reject('invalid XML integer')
+            xml = ET.fromstring(original)
+            node = xml.find(path)
+            if attribute:
+                node.set(attribute, positive)
+            else:
+                node.text = positive
+            self.pin = self.write_archive(ET.tostring(xml))
+            self.verify()
+
+    def test_decimal_xml_fields_accept_equivalent_positive_and_fractional_divisions(self):
+        from decimal import Decimal
+        from xml.etree import ElementTree as ET
+        xml = ET.fromstring(synthetic_v2_xml(self.reading))
+        for part in xml.findall('part'):
+            part.find('measure/attributes/divisions').text = ' +08.5000 '
+            for duration in part.findall('measure/note/duration'):
+                duration.text = str(Decimal(duration.text) * Decimal('0.53125'))
+        for alter in xml.findall('part/measure/note/pitch/alter'):
+            alter.text = '+01.000'
+        self.pin = self.write_archive(ET.tostring(xml))
+        self.verify()
+        # An integral negative alteration also retains valid decimal spelling.
+        self.reading['parts'][0]['measures'][0]['events'][0]['pitch'][1] = '-2/2'
+        self.update_reading()
+        xml = ET.fromstring(synthetic_v2_xml(self.reading))
+        xml.find('part/measure/note/pitch/alter').text = '-01.000'
+        self.pin = self.write_archive(ET.tostring(xml))
+        self.verify()
+
+    def test_decimal_xml_fields_reject_non_xml_spellings_and_nonpositive_timing(self):
+        from xml.etree import ElementTree as ET
+        original = synthetic_v2_xml(self.reading)
+        for path in ('part/measure/attributes/divisions', 'part/measure/note/duration',
+                     'part/measure/note/pitch/alter'):
+            for value in ('1_0', '1e0', '1/1', '\u0661', '\u00a01\u00a0', 'NaN', 'Infinity'):
+                xml = ET.fromstring(original)
+                xml.find(path).text = value
+                self.pin = self.write_archive(ET.tostring(xml))
+                self.reject('decimal syntax')
+        for path in ('part/measure/attributes/divisions', 'part/measure/note/duration'):
+            for value in ('0.0', '-1.0'):
+                xml = ET.fromstring(original)
+                xml.find(path).text = value
+                self.pin = self.write_archive(ET.tostring(xml))
+                self.reject('must be positive')
+
+    def test_required_child_order_and_empty_container_text_are_not_normalized_away(self):
+        from xml.etree import ElementTree as ET
+        original = synthetic_v2_xml(self.reading)
+        for parent_path, child_name in [('part/measure/note', 'duration'),
+                                        ('part/measure/note/pitch', 'step'),
+                                        ('part/measure/attributes', 'divisions'),
+                                        ('part/measure/barline', 'bar-style'),
+                                        ('part/measure/note/lyric', 'syllabic')]:
+            xml = ET.fromstring(original)
+            parent = xml.find(parent_path)
+            child = parent.find(child_name)
+            parent.remove(child)
+            parent.append(child)
+            self.pin = self.write_archive(ET.tostring(xml))
+            self.reject('child sequence')
+        for value in ('unsupported text', '\u00a0'):
+            xml = ET.fromstring(original)
+            ET.SubElement(xml.findall('part/measure/note')[3], 'notations').text = value
+            self.pin = self.write_archive(ET.tostring(xml))
+            self.reject('mixed XML content')
+
+    def test_comparison_counts_bind_to_score_without_adjudication(self):
+        report_original = json.loads((self.bundle / 'report.json').read_bytes())
+        comparison_original = json.loads((self.bundle / 'comparison.json').read_bytes())
+        for changes in ({'eventsA': 0, 'eventsB': 0, 'pitchRhythmEventAgreements': 0, 'fullEventAgreements': 0},
+                        {'eventsA': 35}, {'fullEventAgreements': 35}, {'exactStaffMeasures': 5}):
+            self.write_payload('report.json', encoded({**report_original, **changes}))
+            self.pin = self.write_payload('comparison.json', encoded({**comparison_original, **changes}))
+            self.reject()
+        # Adjudication can alter the resolved event count. Preserve that case,
+        # while still requiring both inputs to cover every staff measure.
+        changed = {'eventsA': 35, 'eventsB': 37, 'pitchRhythmEventAgreements': 30,
+                   'fullEventAgreements': 29, 'exactStaffMeasures': 5}
+        self.write_payload('report.json', encoded({**report_original, **changed, 'adjudicatedUnits': 1}))
+        self.pin = self.write_payload('comparison.json', encoded({**comparison_original, **changed,
+                                                                'issues': [{'id': 'P1:0', 'a': {}, 'b': {}}]}))
+        self.verify()
 
     def test_v1_opt_in_selection_and_invalid_api_versions_are_rejected(self):
         for value in (0, 3, True, '2', None):
