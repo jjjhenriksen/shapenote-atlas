@@ -7,10 +7,18 @@ final class AtlasWebViewCoordinator: NSObject, WKNavigationDelegate, WKUIDelegat
     var onThemeChange: ((String, String) -> Void)?
 
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        onFailure?(error.localizedDescription)
+        reportNavigationFailure(error)
     }
 
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        reportNavigationFailure(error)
+    }
+
+    private func reportNavigationFailure(_ error: Error) {
+        // These WKNavigationDelegate failures apply to the main frame. A load
+        // cancelled by another navigation is expected and needs no retry UI.
+        let failure = error as NSError
+        guard failure.domain != NSURLErrorDomain || failure.code != NSURLErrorCancelled else { return }
         onFailure?(error.localizedDescription)
     }
 
