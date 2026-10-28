@@ -80,3 +80,37 @@ test('history restores a metadata-only edition from filtered practice on a narro
   await expect(page.getByRole('button', { name: 'Stop', exact: true })).toHaveCount(0);
   expect(errors).toEqual([]);
 });
+
+for (const width of [1440, 390]) {
+  test(`pagination brings the first new result into view without selecting it at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 844 });
+    const errors = await prepare(page);
+    const paginated = { ...catalogue, songs: Array.from({ length: 161 }, (_, index) => ({
+      id: `page-${index + 1}`, songNo: String(index + 1), title: `Page tune ${index + 1}`, books: ['sh1991'],
+    })) };
+    await page.route('**/reader-data/catalogue.json', route => route.fulfill({ json: paginated }));
+    await page.goto('/?book=sh1991&tune=page-1');
+    const next = page.getByRole('button', { name: 'Next', exact: true });
+    const previous = page.getByRole('button', { name: 'Previous', exact: true });
+    await expect(previous).toBeDisabled();
+    await next.scrollIntoViewIfNeeded();
+    await next.focus();
+    await page.keyboard.press('Enter');
+    const first = page.locator('.result-row').first();
+    await expect(first).toContainText('Page tune 81');
+    await expect(first).toBeFocused();
+    await expect(first).toBeInViewport({ ratio: 1 });
+    await expect(page.getByRole('heading', { name: '1 — Page tune 1', exact: true })).toBeAttached();
+    await next.click();
+    await expect(first).toContainText('Page tune 161');
+    await expect(first).toBeFocused();
+    await expect(first).toBeInViewport({ ratio: 1 });
+    await expect(next).toBeDisabled();
+    await previous.click();
+    await expect(first).toContainText('Page tune 81');
+    await expect(first).toBeFocused();
+    await expect(first).toBeInViewport({ ratio: 1 });
+    await expect(page.getByRole('heading', { name: '1 — Page tune 1', exact: true })).toBeAttached();
+    expect(errors).toEqual([]);
+  });
+}

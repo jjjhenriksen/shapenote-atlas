@@ -1006,7 +1006,13 @@ export function App() {
   const resultSummary = `${formatCount(matchingResults.length)} matches · ${bookRecordSummary}`;
   function changeResultPage(nextPage) {
     setResultPage(nextPage);
-    document.querySelector(".results-list")?.scrollTo({ top: 0 });
+    window.requestAnimationFrame(() => {
+      const firstResult = document.querySelector(".results-list .result-row");
+      firstResult?.focus({ preventScroll: true });
+      // The column scrolls on desktop; the document scrolls on mobile.
+      // Let the new result find its scrollable ancestors after React renders it.
+      firstResult?.scrollIntoView({ block: "start", behavior: "instant" });
+    });
   }
 
   const practiceTransport = <>
