@@ -1,5 +1,6 @@
 import React, { memo, useEffect, useMemo, useRef, useState } from 'react';
 import { scoreToMusicXml } from './scoreMusicXml.js';
+import { ScoreTextAlternative } from './ScoreTextAlternative.jsx';
 
 let runtime;
 export function loadNotationRuntime() {
@@ -91,5 +92,6 @@ export const ScoreEngraving = memo(function ScoreEngraving({ score, sourceKey, t
     <div ref={scrollRegion} className="score-scroll" role="region" aria-label="Score notation; scroll horizontally to view all notes" tabIndex={current.status === 'ready' ? 0 : -1} aria-hidden={current.status !== 'ready'} aria-busy={current.status === 'loading'}>
       <div ref={host} className="score-engraving" role="img" aria-label={`Available source score with ${score?.parts?.length || 0} parts; ${converted.measureCount || 0} measures. Source lyrics, ties and repeats are shown only where encoded.`} data-render-state={current.status} data-renderer="osmd" />
     </div>
+    <ScoreTextAlternative score={score} sourceKey={sourceKey} targetKey={targetKey} transpose={transpose} reviewDraft={reviewDraft} />
   </>;
 });
