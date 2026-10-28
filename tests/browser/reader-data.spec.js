@@ -30,6 +30,11 @@ for (const width of [1440, 390]) {
     const catalogueVisibleMs = Date.now() - start;
     await expect(page.getByRole('button', {name:'Play song', exact:true})).toBeEnabled({timeout:60000});
     const playableMs = Date.now() - start;
+    // Production preview uses gzip. Development transforms are not the release path.
+    if (process.env.ATLAS_BROWSER_PREVIEW) {
+      expect(catalogueVisibleMs).toBeLessThan(6000);
+      expect(playableMs).toBeLessThan(7000);
+    }
     await expect(page).toHaveTitle('The Shape-Note Atlas');
     await expect(page.locator('vite-error-overlay')).toHaveCount(0);
     await page.getByTestId('tune-search').fill('New-Salem');
@@ -97,3 +102,17 @@ test('navigation aborts obsolete tune evidence and commits only the current reco
   await expect(page.getByText('Loading tune evidence…')).toHaveCount(0);
   await expect(page.getByRole('button',{name:'Play song',exact:true})).toHaveCount(0);
 });
+
+for (const root of [['s', -1], ['o', 999999], ['unknown']]) {
+  test(`invalid packed catalogue ${JSON.stringify(root)} fails closed and retries`, async ({page}) => {
+    const wire = load('reader-data/catalogue.json');
+    let attempts = 0;
+    await page.route('**/reader-data/catalogue.json', route => route.fulfill({json: ++attempts === 1 ? {...wire,root} : wire}));
+    await page.goto(url);
+    await expect(page.getByRole('alert')).toContainText('The local corpus bundle could not be loaded or is incompatible');
+    await expect(page.getByRole('button', {name:'Play song',exact:true})).toHaveCount(0);
+    await page.getByRole('button', {name:/Retry/}).click();
+    await expect(page.getByRole('heading', {name:'10 — New-Salem',exact:true})).toBeVisible();
+    await expect(page.getByRole('button', {name:'Play song',exact:true})).toBeEnabled();
+  });
+}
