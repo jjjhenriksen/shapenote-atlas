@@ -81,6 +81,41 @@ test('history restores a metadata-only edition from filtered practice on a narro
   expect(errors).toEqual([]);
 });
 
+test('history stops playback and keeps the linked selection through delayed detail loading', async ({ page }) => {
+  const errors = await prepare(page);
+  const delayed = structuredClone(catalogue);
+  delayed.songs[1].detailRef = '/history-detail-b.json';
+  await page.route('**/reader-data/catalogue.json', route => route.fulfill({ json: delayed }));
+  let requests = 0;
+  let releaseDetail;
+  await page.route('**/history-detail-b.json', async route => {
+    if (++requests === 2) await new Promise(resolve => { releaseDetail = resolve; });
+    await route.fulfill({ json: {
+      song: { ...songs[1], rawFirstLine: 'The linked detail has arrived' },
+      reviewQueue: { reviewNow: [] }, sourceHealth: { records: [] },
+    } });
+  });
+  await page.goto('/?book=sh1991&tune=history-b');
+  await expect(page.locator('.first-line')).toContainText('The linked detail has arrived');
+  await pushTune(page, 'sh1991', 'history-a');
+  await expect(page.getByRole('button', { name: 'Play song', exact: true })).toBeEnabled();
+  await page.getByLabel('Key filter', { exact: true }).selectOption('C');
+  await page.getByLabel('Target key', { exact: true }).selectOption('D');
+  await page.getByRole('button', { name: 'Play song', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Stop', exact: true })).toBeVisible();
+  await page.goBack();
+  await expect.poll(() => Boolean(releaseDetail)).toBe(true);
+  await expect(page.getByRole('heading', { name: '2 — History Beta', exact: true })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Stop', exact: true })).toHaveCount(0);
+  releaseDetail();
+  await expect(page.locator('.first-line')).toContainText('The linked detail has arrived');
+  await expect(page.getByRole('button', { name: 'Play song', exact: true })).toBeEnabled();
+  await expect(page.getByLabel('Target key', { exact: true })).toHaveValue('');
+  await expect(page.locator('.key-tag')).toContainText('D minor');
+  await expect(page.locator('.result-row[aria-current="true"]')).toContainText('History Beta');
+  expect(errors).toEqual([]);
+});
+
 for (const width of [1440, 390]) {
   test(`pagination brings the first new result into view without selecting it at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 844 });
