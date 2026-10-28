@@ -422,6 +422,15 @@ body[data-native-shell="true"] .atlas-header { padding-left: 82px; }
 .notation-status button { min-height: 44px; padding: 8px 12px; color: var(--paper-ink); border: 1px solid currentColor; background: transparent; }
 .notation-status button:focus-visible { outline: 2px solid var(--paper-ink); outline-offset: 3px; }
 
+.score-text-alternative { margin-top: 12px; border-top: 1px solid currentColor; color: var(--paper-ink); font-size: 14px; line-height: 1.5; overflow-wrap: anywhere; }
+.score-text-alternative summary { min-height: 44px; padding-block: 12px; cursor: pointer; font-weight: 600; }
+.score-text-alternative summary:focus-visible { outline: 2px solid var(--paper-ink); outline-offset: 2px; }
+.score-text-alternative p { margin-block: 8px; max-width: 72ch; }
+.score-text-alternative h3 { margin-block: 20px 8px; font-size: 16px; }
+.score-text-alternative h4 { margin-block: 16px 8px; font-size: 14px; }
+.score-text-alternative ol { margin-block: 8px; padding-inline-start: 24px; }
+.score-text-alternative li + li { margin-top: 8px; }
+
 .edition-comparison { margin-block: 1rem; border-block: 1px solid var(--line); padding-block: .75rem; }
 .edition-comparison summary { cursor: pointer; padding-block: .5rem; font-weight: 600; }
 .edition-comparison p { line-height: 1.5; }
