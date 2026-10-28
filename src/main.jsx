@@ -525,6 +525,12 @@ export function App() {
       setQuery("");
       setAvailability("all");
       setAdditionsOnly(false);
+      // A valid history link selects an exact record. Stale discovery facets
+      // must not let the result reconciliation replace that linked selection.
+      setModeFilter("all");
+      setKeyFilter("all");
+      setPartFilter("all");
+      setTransposableOnly(false);
       setActiveSection("Library");
       setResultPage(0);
     }
