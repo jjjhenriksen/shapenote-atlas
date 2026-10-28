@@ -1,3 +1,4 @@
+import { unpackCatalogue } from '../../src/catalogueWire.js';
 import { test, expect } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -29,6 +30,11 @@ for (const width of [1440, 390]) {
     const catalogueVisibleMs = Date.now() - start;
     await expect(page.getByRole('button', {name:'Play song', exact:true})).toBeEnabled({timeout:60000});
     const playableMs = Date.now() - start;
+    // Production preview uses gzip. Development transforms are not the release path.
+    if (process.env.ATLAS_BROWSER_PREVIEW) {
+      expect(catalogueVisibleMs).toBeLessThan(6000);
+      expect(playableMs).toBeLessThan(7000);
+    }
     await expect(page).toHaveTitle('The Shape-Note Atlas');
     await expect(page.locator('vite-error-overlay')).toHaveCount(0);
     await page.getByTestId('tune-search').fill('New-Salem');
@@ -38,8 +44,8 @@ for (const width of [1440, 390]) {
     const details = resources.filter((entry) => !entry.name.endsWith('/catalogue.json'));
     expect(catalogue).toHaveLength(1);
     expect(details).toHaveLength(1);
-    expect(catalogue[0].decodedBodySize).toBeLessThanOrEqual(4000000);
-    expect(catalogue[0].decodedBodySize + details[0].decodedBodySize).toBeLessThanOrEqual(5000000);
+    expect(catalogue[0].decodedBodySize).toBeLessThanOrEqual(2300000);
+    expect(catalogue[0].decodedBodySize + details[0].decodedBodySize).toBeLessThanOrEqual(3300000);
     expect(requests.filter((url) => /\/(corpus|human-review-queue|source-health)\.json/.test(url))).toEqual([]);
     expect(errors).toEqual([]);
     console.log(JSON.stringify({width, profile:'1.6 Mbps down, 150 ms latency, 4x CPU slowdown, cache disabled', catalogueVisibleMs, playableMs, resources}));
@@ -50,7 +56,7 @@ for (const width of [1440, 390]) {
 }
 
 for (const corruption of ['wrong tune', 'invalid review', 'invalid health']) test(`${corruption} detail fails closed and retries without losing selection`, async ({page}) => {
-  const catalogue = load('reader-data/catalogue.json');
+  const catalogue = unpackCatalogue(load('reader-data/catalogue.json'));
   const record = catalogue.songs.find((song) => song.id === target.id);
   const detail = load(record.detailRef);
   let attempts = 0;
@@ -78,7 +84,7 @@ test('navigation aborts obsolete tune evidence and commits only the current reco
       return fetch(url,options);
     };
   });
-  const catalogue = load('reader-data/catalogue.json');
+  const catalogue = unpackCatalogue(load('reader-data/catalogue.json'));
   const record = catalogue.songs.find((song) => song.id === target.id);
   let release;
   await page.route(`**${record.detailRef}`, async (route) => {
@@ -96,3 +102,17 @@ test('navigation aborts obsolete tune evidence and commits only the current reco
   await expect(page.getByText('Loading tune evidence…')).toHaveCount(0);
   await expect(page.getByRole('button',{name:'Play song',exact:true})).toHaveCount(0);
 });
+
+for (const root of [['s', -1], ['o', 999999], ['unknown']]) {
+  test(`invalid packed catalogue ${JSON.stringify(root)} fails closed and retries`, async ({page}) => {
+    const wire = load('reader-data/catalogue.json');
+    let attempts = 0;
+    await page.route('**/reader-data/catalogue.json', route => route.fulfill({json: ++attempts === 1 ? {...wire,root} : wire}));
+    await page.goto(url);
+    await expect(page.getByRole('alert')).toContainText('The local corpus bundle could not be loaded or is incompatible');
+    await expect(page.getByRole('button', {name:'Play song',exact:true})).toHaveCount(0);
+    await page.getByRole('button', {name:/Retry/}).click();
+    await expect(page.getByRole('heading', {name:'10 — New-Salem',exact:true})).toBeVisible();
+    await expect(page.getByRole('button', {name:'Play song',exact:true})).toBeEnabled();
+  });
+}

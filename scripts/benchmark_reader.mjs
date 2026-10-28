@@ -134,6 +134,22 @@ async function sample(browser, origin, profile, measured, shot) {
   } finally { await context.close(); }
 }
 
+const resume = args.includes('--resume');
+const previousMetadata = resume ? JSON.parse(readFileSync(resolve(out, 'metadata.json'), 'utf8')) : null;
+const savedSamples = resume ? JSON.parse(readFileSync(resolve(out, 'samples.json'), 'utf8')) : [];
+if (resume && (!args.includes('--reuse-builds') || JSON.stringify(previousMetadata.revisions) !== JSON.stringify(revisions) || previousMetadata.runs !== runs)) throw Error('Resume requires matching revisions, runs and --reuse-builds');
+if (resume) {
+  if (!Array.isArray(savedSamples)) throw Error('Invalid saved samples');
+  const identities = new Set();
+  for (const item of savedSamples) {
+    const key = `${item.label}/${item.profile}/${item.run}`;
+    if (!['before', 'after'].includes(item.label) || !profiles.some(profile => profile.name === item.profile)
+      || !Number.isInteger(item.run) || item.run < 1 || item.run > runs || item.pass !== true
+      || !['catalogueMs', 'playableMs', 'searchRoundTripMs'].every(metric => Number.isFinite(item[metric]) && item[metric] >= 0)
+      || !Array.isArray(item.resourcesAtPlayable) || identities.has(key)) throw Error('Invalid or duplicate saved sample');
+    identities.add(key);
+  }
+}
 const services = [];
 let browser;
 save('status.json', { state: 'running', startedAt: new Date().toISOString() });
@@ -146,13 +162,15 @@ try {
   const metadata = { revisions, runs, profiles, network, cpuSlowdown: 4, compression: 'gzip level 6', browser: browser.version(), node: process.version,
     os: `${platform()} ${release()}`, cpu: cpus()[0]?.model, route, cache: 'fresh browser context, HTTP cache disabled, no service workers',
     scope: 'Local production builds; mobile viewport, not mobile hardware; remote HTTPS blocked; server/disk caches warm; no audio or engraving-speed claim.' };
-  save('metadata.json', metadata);
+  if (resume && ['browser', 'node', 'os', 'cpu', 'compression', 'profiles', 'network', 'cpuSlowdown', 'route', 'cache', 'scope'].some(key => JSON.stringify(metadata[key]) !== JSON.stringify(previousMetadata[key]))) throw Error('Resume environment mismatch');
+  if (!resume) save('metadata.json', metadata);
   // Excluded warmups populate identical server compression caches and browser process/JIT caches.
   for (const service of services) await sample(browser, service.origin, profiles[0], false);
-  const samples = [];
+  const samples = [...savedSamples];
   for (const profile of profiles) for (let run = 0; run < runs; run++) {
     // Reverse order every pair to reduce thermal/time/order bias. Never run concurrently.
     for (const service of run % 2 ? [...services].reverse() : services) {
+      if (samples.some(item => item.label === service.label && item.profile === profile.name && item.run === run + 1)) continue;
       const result = await sample(browser, service.origin, profile, true, run === 0 ? `${service.label}-${profile.name}.png` : null);
       samples.push({ label: service.label, profile: profile.name, run: run + 1, ...result });
       save('samples.json', samples);
