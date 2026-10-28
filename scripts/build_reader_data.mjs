@@ -3,8 +3,10 @@ import { createHash } from 'node:crypto';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { packCatalogue } from '../src/catalogueWire.js';
+
 export const DETAIL_BUDGET = 1_000_000;
-export const CATALOGUE_BUDGET = 4_000_000; // decoded UTF-8 bytes, independent of host compression
+export const CATALOGUE_BUDGET = 2_300_000; // decoded UTF-8 bytes, independent of host compression
 const pick = (object, keys) => Object.fromEntries(keys.filter((key) => Object.hasOwn(object, key)).map((key) => [key, object[key]]));
 const mapValues = (object, project) => Object.fromEntries(Object.entries(object || {}).map(([key, value]) => [key, project(value)]));
 
@@ -58,7 +60,7 @@ export function buildReaderData(publicDir) {
     readerDataVersion: 1, ...pick(corpus, ['generatedAt', 'source', 'books', 'coverage']), songs,
     reviewQueue: { reviewNow: queue.reviewNow.map((item) => pick(item, ['queueId', 'status'])) },
   };
-  const body = JSON.stringify(catalogue);
+  const body = JSON.stringify(packCatalogue(catalogue));
   const bytes = Buffer.byteLength(body);
   if (bytes > CATALOGUE_BUDGET) throw new Error(`Reader catalogue ${bytes} exceeds decoded budget ${CATALOGUE_BUDGET}`);
   writeFileSync(resolve(directory, 'catalogue.json'), body);

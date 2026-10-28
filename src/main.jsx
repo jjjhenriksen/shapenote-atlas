@@ -1,3 +1,4 @@
+import { unpackCatalogue } from './catalogueWire.js';
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./styles.css";
@@ -573,6 +574,7 @@ export function App() {
       })
       .then((data) => {
         if (controller.signal.aborted) return;
+        data = unpackCatalogue(data);
         validateCorpus(data, BOOK_ORDER);
         if (data.readerDataVersion != null && (data.readerDataVersion !== 1
           || !Array.isArray(data.reviewQueue?.reviewNow)

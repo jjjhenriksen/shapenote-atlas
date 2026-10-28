@@ -1,3 +1,4 @@
+import { unpackCatalogue } from '../src/catalogueWire.js';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, mkdtempSync, symlinkSync, rmSync } from 'node:fs';
@@ -15,7 +16,7 @@ test('compact catalogue preserves every edition/facet, review gate, and full laz
   try {
     for (const name of ['corpus.json', 'human-review-queue.json', 'source-health.json']) symlinkSync(new URL(name, publicDir), join(directory, name));
     const result = buildReaderData(directory);
-    const catalogue = JSON.parse(readFileSync(join(directory, 'reader-data/catalogue.json')));
+    const catalogue = unpackCatalogue(JSON.parse(readFileSync(join(directory, 'reader-data/catalogue.json'))));
     const corpus = load('corpus.json');
     const queue = load('human-review-queue.json');
     const health = load('source-health.json');
