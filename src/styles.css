@@ -421,3 +421,11 @@ body[data-native-shell="true"] .atlas-header { padding-left: 82px; }
 .notation-status p { margin: 8px 0; }
 .notation-status button { min-height: 44px; padding: 8px 12px; color: var(--paper-ink); border: 1px solid currentColor; background: transparent; }
 .notation-status button:focus-visible { outline: 2px solid var(--paper-ink); outline-offset: 3px; }
+
+.edition-comparison { margin-block: 1rem; border-block: 1px solid var(--line); padding-block: .75rem; }
+.edition-comparison summary { cursor: pointer; padding-block: .5rem; font-weight: 600; }
+.edition-comparison p { line-height: 1.5; }
+.edition-comparison ul { list-style: none; padding: 0; display: grid; gap: 1rem; }
+.edition-comparison li { min-width: 0; overflow-wrap: anywhere; }
+.edition-comparison a { display: inline-flex; align-items: center; min-height: 44px; font-size: .95rem; color: var(--brass); }
+.edition-comparison summary:focus-visible, .edition-comparison a:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }

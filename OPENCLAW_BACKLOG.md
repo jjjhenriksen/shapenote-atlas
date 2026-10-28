@@ -1,5 +1,8 @@
 # Shape-Note Atlas: active backlog
 
+For the latest software prioritization and verified completed work, see the
+[2026-10-27 reader audit](docs/atlas-next-work-2026-10-27.md).
+
 ## Current ownership — 2026-10-19
 
 Transcription production/correction, source-evidence preparation and research
