@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "kind": "social-harp-bounded-bibliographic-locators",
+  "recordedAtUtc": "2026-10-23T08:10:21.629064+00:00",
+  "retrievalMethod": "web tool page text; no new raw HTTP capture or modern facsimile inspection",
+  "sources": [
+    {
+      "url": "https://www.ugapress.org/9780820331515/the-social-harp/",
+      "toolCrawlReported": "today",
+      "locatorType": "primary publisher description",
+      "boundedObservation": "Attributes 222 pieces, mostly folktune settings, to the 1855 book; lists a 296-page 2009 modern edition with introduction and appendices. Does not supply an operational counting unit or reconciliation rule in the retrieved description."
+    },
+    {
+      "url": "https://hymnary.org/hymnal/SH1855?page=0",
+      "toolCrawlReported": "last month",
+      "locatorType": "Hymnary catalogue metadata, explicitly unproofed",
+      "boundedObservation": "Lists 1973 facsimile editors, notes reliance on two complementarily defective 1855 copies and page-based numbering, and warns data may be incomplete or incorrect. This does not establish retained-scan lineage/completeness or publisher piece-count definition."
+    }
+  ],
+  "coordinatorPrefaceCheck": {
+    "sourceSha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+    "physicalLeaves": [
+      3,
+      4
+    ],
+    "pdfIndices": [
+      2,
+      3
+    ],
+    "printedLabels": [
+      "iii",
+      "iv"
+    ],
+    "coordinatorExposedToPriorResults": true,
+    "freshPairedSourceProof": false,
+    "boundedResult": "Organization categories were observed; no numerical counting rule was observed on these two prefaces. No absence claim elsewhere or exhaustive index claim.",
+    "privateRenderReceiptSha256": "5d6c83b674e5f5e02f07a0e2c43f8f7918ee2e858f9131ed7135003a985f54ad",
+    "privateResultSha256": "77b4b9ec1a335a1f519788eab1747d7f21734baeb294502843a76c731ad02227"
+  },
+  "limitations": [
+    "Catalogue metadata remains locator evidence, not new source inventory proof",
+    "No whole-catalogue identity batch counted as fresh source reading",
+    "No modern facsimile or printed index independently recovered",
+    "No observations supplied to source-only readers",
+    "Single coordinator, already exposed to catalogue and prior source results",
+    "Contact sheet of leaves 1\u201316 is a locator only, not detailed independent exhaustive proof",
+    "No transcription of music or lyrics",
+    "No source completeness or publisher counting-unit verification"
+  ],
+  "rawVisualNotesImagesHeadingsAndLyricsOmitted": true,
+  "readerIndependenceVerified": false,
+  "wholeBookReviewed": false,
+  "inventoryReconciled": false,
+  "sourceCertified": false,
+  "safeToPromote": false,
+  "humanReviewRequired": true
+}

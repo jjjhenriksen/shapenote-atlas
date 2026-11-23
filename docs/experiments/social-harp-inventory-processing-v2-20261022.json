@@ -1,0 +1,1711 @@
+{
+  "schemaVersion": 1,
+  "kind": "social-harp-reading-processing-derivations",
+  "processingVersion": 2,
+  "processorCommit": "4a3d6bc5f464d4d34fd6378c59a4214457e4bcbc",
+  "processorSha256": "6b03c7c2ac840cf54304d6062ce200e9cb2573e46df608cc7123372ed2b9d6a8",
+  "roleOrder": [
+    "opening",
+    "continuation",
+    "other",
+    "uncertain"
+  ],
+  "readerOrder": "A then B, matching readerSha256 in each run",
+  "sourceSha256": "562db348cf414b27c0c3e40da38cca0a8c39a11f2007abec370f9ddcae1bc331",
+  "interpretation": "Counts of declared heading roles only. Retain original uncertainties/disagreements from bound original receipts. Context overlap across runs is not new coverage; no unique-work or publisher-piece count is computed.",
+  "runs": [
+    {
+      "cohort": "run-20261022-v1",
+      "protocolSha256": "2a1e0e65a051f36e873c416d2c02a4f21c205726bbf72a4aeb4a4d72811b4d05",
+      "readerSha256": [
+        "68545f81ffe57322127042b2c1ec261f4bc4f9310e8715956ec06139c380914e",
+        "5344544a34e786da792cf3da2252528c1768972caa89fdb935d65c0a26769627"
+      ],
+      "originalReceiptFile": "social-harp-inventory-20261022-v1.json",
+      "originalReceiptSha256": "a8f7b9d39e8338f1468bc61985f4e3cb92aef443232ec6f1d1bc5353e41dafa2",
+      "newPrivateReceiptSha256": "7467623a11656eec1ccf17a1b31069a7bf69d409a6100aa83fbe1fd85b142ba2",
+      "previousComparisonFieldsUnchanged": true,
+      "selectedLeafCount": 12,
+      "targetLeafCount": 4,
+      "pages": [
+        {
+          "pdfLeaf": 205,
+          "pdfIndex": 204,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              1,
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 206,
+          "pdfIndex": 205,
+          "target": true,
+          "readerDeclaredRoleCounts": [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 207,
+          "pdfIndex": 206,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 233,
+          "pdfIndex": 232,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              1,
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 234,
+          "pdfIndex": 233,
+          "target": true,
+          "readerDeclaredRoleCounts": [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 235,
+          "pdfIndex": 234,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 243,
+          "pdfIndex": 242,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 244,
+          "pdfIndex": 243,
+          "target": true,
+          "readerDeclaredRoleCounts": [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 245,
+          "pdfIndex": 244,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 246,
+          "pdfIndex": 245,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 247,
+          "pdfIndex": 246,
+          "target": true,
+          "readerDeclaredRoleCounts": [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 248,
+          "pdfIndex": 247,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "cohort": "run-20261022-development-v2",
+      "protocolSha256": "bc75a42728469e7709d861512777d62f2c62ac31ba7c3f2b225db34b0ddbc84a",
+      "readerSha256": [
+        "774bb39bafd736be66a2f32ef14c605611dbf84a400553e0c3747effe78270bf",
+        "e2952e8e81ef41134a2fba6881985dd1acad3bd5cdf983de176dc7487f8d3fee"
+      ],
+      "originalReceiptFile": "social-harp-inventory-20261022-development-v2.json",
+      "originalReceiptSha256": "ebfe8eaf6f18c8940ed9ea9c935960aa9bf86bfedc1453206527384b59443ef0",
+      "newPrivateReceiptSha256": "fb4076ff75256488b82ed66edfe3383f156632af0e83c4105497291c8c3e27bd",
+      "previousComparisonFieldsUnchanged": true,
+      "selectedLeafCount": 75,
+      "targetLeafCount": 33,
+      "pages": [
+        {
+          "pdfLeaf": 35,
+          "pdfIndex": 34,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              1,
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 36,
+          "pdfIndex": 35,
+          "target": true,
+          "readerDeclaredRoleCounts": [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 37,
+          "pdfIndex": 36,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 38,
+          "pdfIndex": 37,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              2,
+              0,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 39,
+          "pdfIndex": 38,
+          "target": true,
+          "readerDeclaredRoleCounts": [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 40,
+          "pdfIndex": 39,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 45,
+          "pdfIndex": 44,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 46,
+          "pdfIndex": 45,
+          "target": true,
+          "readerDeclaredRoleCounts": [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 47,
+          "pdfIndex": 46,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 63,
+          "pdfIndex": 62,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 64,
+          "pdfIndex": 63,
+          "target": true,
+          "readerDeclaredRoleCounts": [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 65,
+          "pdfIndex": 64,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              1,
+              0,
+              1,
+              0
+            ],
+            [
+              1,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 71,
+          "pdfIndex": 70,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              1,
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 72,
+          "pdfIndex": 71,
+          "target": true,
+          "readerDeclaredRoleCounts": [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 73,
+          "pdfIndex": 72,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 91,
+          "pdfIndex": 90,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              1,
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 92,
+          "pdfIndex": 91,
+          "target": true,
+          "readerDeclaredRoleCounts": [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 93,
+          "pdfIndex": 92,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 95,
+          "pdfIndex": 94,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              1,
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 96,
+          "pdfIndex": 95,
+          "target": true,
+          "readerDeclaredRoleCounts": [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 97,
+          "pdfIndex": 96,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 143,
+          "pdfIndex": 142,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              1,
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 144,
+          "pdfIndex": 143,
+          "target": true,
+          "readerDeclaredRoleCounts": [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 145,
+          "pdfIndex": 144,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 146,
+          "pdfIndex": 145,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 147,
+          "pdfIndex": 146,
+          "target": true,
+          "readerDeclaredRoleCounts": [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 148,
+          "pdfIndex": 147,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 150,
+          "pdfIndex": 149,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 151,
+          "pdfIndex": 150,
+          "target": true,
+          "readerDeclaredRoleCounts": [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 152,
+          "pdfIndex": 151,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 160,
+          "pdfIndex": 159,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 161,
+          "pdfIndex": 160,
+          "target": true,
+          "readerDeclaredRoleCounts": [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 162,
+          "pdfIndex": 161,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 173,
+          "pdfIndex": 172,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              1,
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 174,
+          "pdfIndex": 173,
+          "target": true,
+          "readerDeclaredRoleCounts": [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 175,
+          "pdfIndex": 174,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              2,
+              0,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 176,
+          "pdfIndex": 175,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 177,
+          "pdfIndex": 176,
+          "target": true,
+          "readerDeclaredRoleCounts": [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 178,
+          "pdfIndex": 177,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 180,
+          "pdfIndex": 179,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              1,
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 181,
+          "pdfIndex": 180,
+          "target": true,
+          "readerDeclaredRoleCounts": [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 182,
+          "pdfIndex": 181,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 216,
+          "pdfIndex": 215,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 217,
+          "pdfIndex": 216,
+          "target": true,
+          "readerDeclaredRoleCounts": [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 218,
+          "pdfIndex": 217,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              2,
+              0,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 219,
+          "pdfIndex": 218,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              1,
+              0,
+              1,
+              0
+            ],
+            [
+              1,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 220,
+          "pdfIndex": 219,
+          "target": true,
+          "readerDeclaredRoleCounts": [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 221,
+          "pdfIndex": 220,
+          "target": true,
+          "readerDeclaredRoleCounts": [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 222,
+          "pdfIndex": 221,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 223,
+          "pdfIndex": 222,
+          "target": true,
+          "readerDeclaredRoleCounts": [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 224,
+          "pdfIndex": 223,
+          "target": true,
+          "readerDeclaredRoleCounts": [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 225,
+          "pdfIndex": 224,
+          "target": true,
+          "readerDeclaredRoleCounts": [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 226,
+          "pdfIndex": 225,
+          "target": true,
+          "readerDeclaredRoleCounts": [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 227,
+          "pdfIndex": 226,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 229,
+          "pdfIndex": 228,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 230,
+          "pdfIndex": 229,
+          "target": true,
+          "readerDeclaredRoleCounts": [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 231,
+          "pdfIndex": 230,
+          "target": true,
+          "readerDeclaredRoleCounts": [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 232,
+          "pdfIndex": 231,
+          "target": true,
+          "readerDeclaredRoleCounts": [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 233,
+          "pdfIndex": 232,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              1,
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 235,
+          "pdfIndex": 234,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 236,
+          "pdfIndex": 235,
+          "target": true,
+          "readerDeclaredRoleCounts": [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 237,
+          "pdfIndex": 236,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 239,
+          "pdfIndex": 238,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 240,
+          "pdfIndex": 239,
+          "target": true,
+          "readerDeclaredRoleCounts": [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 241,
+          "pdfIndex": 240,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 242,
+          "pdfIndex": 241,
+          "target": true,
+          "readerDeclaredRoleCounts": [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 243,
+          "pdfIndex": 242,
+          "target": true,
+          "readerDeclaredRoleCounts": [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 245,
+          "pdfIndex": 244,
+          "target": true,
+          "readerDeclaredRoleCounts": [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 246,
+          "pdfIndex": 245,
+          "target": true,
+          "readerDeclaredRoleCounts": [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 248,
+          "pdfIndex": 247,
+          "target": true,
+          "readerDeclaredRoleCounts": [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 249,
+          "pdfIndex": 248,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 251,
+          "pdfIndex": 250,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 252,
+          "pdfIndex": 251,
+          "target": true,
+          "readerDeclaredRoleCounts": [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 253,
+          "pdfIndex": 252,
+          "target": false,
+          "readerDeclaredRoleCounts": [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "pdfLeaf": 254,
+          "pdfIndex": 253,
+          "target": true,
+          "readerDeclaredRoleCounts": [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "rawHeadingsAndLyricsOmitted": true,
+  "rawAndProtocolInputsUnchanged": true,
+  "readerIndependenceVerified": false,
+  "wholeBookReviewed": false,
+  "inventoryReconciled": false,
+  "sourceCertified": false,
+  "safeToPromote": false,
+  "humanReviewRequired": true
+}
