@@ -1,7 +1,32 @@
 # Shape-Note Atlas: active backlog
 
-For the latest software prioritization and verified completed work, see the
-[2026-10-27 reader audit](docs/atlas-next-work-2026-10-27.md).
+## Current work index — 2026-10-27
+
+Start here when dispatching work. This index supersedes the historical task
+ordering below. It reflects `main` at `9ecdc1bb`; refresh GitHub state before
+claiming or integrating an item. The [reader audit](docs/atlas-next-work-2026-10-27.md)
+explains the priorities and their evidence.
+
+| Area | Current state | Next action / owner |
+| --- | --- | --- |
+| Edition relationships | Reader navigation merged in [#529](https://github.com/jjjhenriksen/shapenote-atlas/pull/529). | Atlas: preserve explicit edition identity and independent witness labels in follow-up journeys. |
+| Catalogue loading, publication planning, witness downloads | Implemented in open [#530](https://github.com/jjjhenriksen/shapenote-atlas/pull/530), head `dcdfa05b`; not merged at this snapshot. | Atlas: review/integrate that work instead of starting duplicate implementations. The planner is read-only and v1-only; valid inputs do not confer publication approval. |
+| Reader accessibility and complete journeys | Local browser coverage exists; broader reading-order, keyboard, 200% zoom and 320px acceptance remain. | Atlas: reproduce a concrete gap, implement a bounded fix and record fresh browser evidence for the changed build. |
+| Native and hosted release acceptance | [#57](https://github.com/jjjhenriksen/shapenote-atlas/issues/57) and [#58](https://github.com/jjjhenriksen/shapenote-atlas/issues/58) remain open. Native QA [#514](https://github.com/jjjhenriksen/shapenote-atlas/pull/514) is a gated draft. | Atlas: verify the exact native/hosted build and the remaining journeys; preserve the limits of earlier receipts. A local build or merge does not prove deployment or audible playback. |
+| Source-backed candidates and exact-witness recovery | Production belongs to Transcriber; Atlas retains admission and publication. | Follow the [migration ledger](https://github.com/jjjhenriksen/shapenote-transcriber/issues/2) and each original issue's linked successor. Do not start duplicate Atlas transcription workers. |
+| Social Harp inventory | [#54](https://github.com/jjjhenriksen/shapenote-atlas/issues/54) and gated source-evidence draft [#513](https://github.com/jjjhenriksen/shapenote-atlas/pull/513) remain open. | Preserve the unresolved 221/222 counting question and source-review gates. Reader agreement and covered leaves do not establish the publisher's counting unit. |
+
+**Default independent engineering work:** a reproduced reader accessibility or
+journey gap. Check current ownership and open PRs first; PR #530 already covers
+the audit's three remaining implementation proposals. ATLAS-01 is complete as a
+metadata correction in [#472](https://github.com/jjjhenriksen/shapenote-atlas/pull/472),
+not an available transcription assignment.
+
+For every change, record the owner/session, starting revision, owned files and
+bounded outcome. Commit reviewed chunks, run checks appropriate to the changed
+behavior, and record the actual commit and remote state when publishing. Preserve
+source bytes, predecessors, stable record IDs and separately required source,
+rights and acceptance decisions. Do not relabel old receipts as new execution.
 
 ## Current ownership — 2026-10-19
 
@@ -12,13 +37,11 @@ Atlas originals remain open for exact mapping, admission, publication, downloads
 playback and release acceptance; they are not duplicate production assignments.
 The pilot moved with history to [Transcriber #7](https://github.com/jjjhenriksen/shapenote-transcriber/issues/7).
 
-**Dispatch supersession:** the dated task descriptions below preserve source
-constraints/history, not authority to start another Atlas transcription worker.
-Follow the actual producer successor on each Atlas issue. Current queue: **3,044**
-records; the older 3,047 includes three subsequently classified Trumpet prose
-records. Ownership migration changes zero accepted mappings. ATLAS-01's metadata
-implementation is already merged in [#472](https://github.com/jjjhenriksen/shapenote-atlas/pull/472);
-do not reopen it from the older pending-branch statement below.
+The dated task descriptions below preserve source constraints and history.
+Follow the actual producer successor on each Atlas issue. The ownership ledger's
+pinned queue has **3,044** records; the older 3,047 includes three subsequently
+classified Trumpet prose records. Ownership migration changes zero accepted
+mappings.
 
 Current producer work stays blocked until exact-witness and adapter preflight;
 the four-part/four-shape adapter cannot silently encode seven-shape books or
@@ -33,38 +56,40 @@ do not revive routine human-correction assignments from historical handoffs.
 Updated **2026-09-18**, following the audit of implementation commit
 `3fbfeeffe0d36423525d1910b2ea0e2e29b26c27`.
 
-This is the authoritative dispatch list for new Atlas work. It supersedes the
-unfinished-work lists in older handoffs and the dated packets under `backlogs/`.
-The [program status](docs/OPENCLAW_PROGRAM_STATUS.md#2026-09-18-current-state-audit)
-explains prior work; the [source handoff](docs/OPENCLAW_HANDOFF.md) retains the
-source and preservation rules. Neither a green build nor a published practice
-draft means the eleven-book project is finished.
+This historical baseline and its task descriptions are retained for provenance,
+source constraints and record-level completion criteria. They are not the current
+dispatch order. The [program status](docs/OPENCLAW_PROGRAM_STATUS.md#2026-09-18-current-state-audit)
+explains prior work; the [source handoff](docs/OPENCLAW_HANDOFF.md) retains source
+and preservation rules. Neither a green build nor a published practice draft
+means the eleven-book project is finished.
 
-## Start here
+## Source-work procedure retained from the historical backlog
 
 1. Inspect the current branch, changes, recent commits, and publication manifest.
    Confirm whether another contributor already completed the selected item.
-2. Select one unchecked item below. Record the item ID, owner/session, exact
-   records and files, starting commit, and intended next version before editing.
-   Items are unassigned unless an owner is recorded; listing them here does not
-   start background execution or authorize duplicate workers.
+2. Resolve current ownership through the work index and linked successor issue.
+   An unchecked historical item is not an unassigned task. Record the item ID,
+   owner/session, exact records and files, starting commit, and intended next
+   version before editing.
 3. Read its retained source and latest candidate. Verify the pinned hashes.
    A clone contains published assets, but not every retained scan or lane input.
    Missing evidence is a specific prerequisite to restore, never a reason to
    invent content or skip the source check.
 4. Complete a bounded batch, validate the actual exported bytes, and preserve
    all issued predecessors. Record a precise next step for anything unfinished.
-5. Commit only the reviewed task files, push to `origin/main` without force,
-   verify the remote head, and update this backlog with evidence. Public site
-   deployment, source redistribution, and sending a correction are separate
-   actions; a repository push does not prove them.
+5. Commit only the reviewed task files and follow the current repository review
+   and publication workflow without force-pushing. Verify the remote head after a push and
+   update the work record with evidence. Public site deployment, source
+   redistribution, and sending a correction are separate actions; a repository
+   push does not prove them.
 
-**Default next task: ATLAS-01**, the source-backed New Salem first-line repair.
-After it, prioritize useful extensions to existing partial scores (ATLAS-02 and
-ATLAS-03), then the lyric/shape lanes and new notation batches. Recheck the runtime
-only as required by an actual change; do not repeatedly rerun completed audits.
+The September ordering began with ATLAS-01, followed by partial-score extensions
+and lyric/shape work. ATLAS-01 has since merged, and production has moved to
+Transcriber. Use the current work index above for new assignments. Recheck the
+runtime only as required by an actual change; do not repeatedly rerun completed
+audits.
 
-## Current baseline and completed work
+## Baseline and completed work recorded on 2026-09-18
 
 | Measure | Verified baseline |
 | --- | ---: |
@@ -105,11 +130,16 @@ Receipts, screenshots, and the full audit are committed under
 They remain evidence for their recorded implementation commit. Later docs-only
 commits must not relabel those receipts as newly executed runtime tests.
 
-## Work items
+## Historical work items and retained acceptance criteria
+
+Statuses below retain their dated source-work context except explicit later
+corrections. Current ownership comes from the linked producer successors and
+current work index, not these historical checkboxes.
 
 ### ATLAS-01 — P1 — Repair New Salem's garbled first line
 
-**Status:** implemented on `fix/source-metadata-16-55`, pending PR review. **Record:** `kentucky 10 — New-Salem`.
+**Status:** metadata correction merged in [#472](https://github.com/jjjhenriksen/shapenote-atlas/pull/472).
+**Record:** `kentucky 10 — New-Salem`. Note-level lyric underlay remains separate.
 
 Source inspection on 2026-10-14 establishes “O thou in whose presence my soul takes delight,”.
 See `public/catalogue-source-corrections.json` for hash/region receipts and
